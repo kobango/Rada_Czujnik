@@ -1,4 +1,4 @@
-# 1 "MOC_Funct.c"
+# 1 "TMR1.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MOC_Funct.c" 2
+# 1 "TMR1.c" 2
 
 
 
@@ -17914,9 +17914,13 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 9 "MOC_Funct.c" 2
+# 9 "TMR1.c" 2
 
-# 1 "./CAN.h" 1
+# 1 "./TMR1.h" 1
+
+
+
+
 
 
 # 1 "./GenericTypeDefs.h" 1
@@ -18145,66 +18149,14 @@ typedef union _QWORD_VAL
         unsigned char b63:1;
     } bits;
 } QWORD_VAL;
-# 3 "./CAN.h" 2
-# 15 "./CAN.h"
-    typedef enum{
-        KARTA,
-        CZUJNIK
-    }TARGET_ENUM;
-
-    typedef struct{
-
-            unsigned char buffer_status;
-
-            unsigned char message_type;
-
-            unsigned char frame_type;
-
-            unsigned char buffer;
+# 7 "./TMR1.h" 2
 
 
-            DWORD_VAL id;
-            unsigned char data[8];
-            unsigned char data_length;
-    }mID;
-
-    void CAN_Setup(void);
-    BOOL CAN_TakeFrame(mID * message);
-    void CAN_SendFrame(mID * message);
-    void CAN_GenID(mID * message,BYTE frameID);
-# 10 "MOC_Funct.c" 2
-
-# 1 "./main.h" 1
-# 45 "./main.h"
-    typedef struct{
-         union
-        {
-            BYTE flagiU8;
-
-            struct{
-                unsigned obsluzWeWy : 1;
-                unsigned error : 1;
-                unsigned uczenieTla : 1;
-                unsigned inicjalizacja : 1;
-                unsigned ramkaTx : 1;
-            };
-        }Flags;
-
-        BYTE timerRamkiTxCANU8;
-    }KartaStruct;
-
-
-
-
-    extern KartaStruct DetectorLedRadar;
-
-    extern void _startup (void);
-    void WylaczPrzerwania(void);
-    void WlaczPotwierdzenie(void);
-    void zapisUstawienDoEEPROM(void);
-    void InterruptHandlerHigh(void);
-    void INI_All(void);
-# 11 "MOC_Funct.c" 2
+UINT8 INI_Timer(void);
+UINT8 TMR1_Timer_reset(void);
+void TMR1_Update_flag_Set(UINT a);
+UINT TMR1_Update_flag_Get(void);
+# 10 "TMR1.c" 2
 
 # 1 "./LED.h" 1
 # 12 "./LED.h"
@@ -18214,62 +18166,57 @@ void Fulfillment_Lvl_Set(UINT a);
 UINT Fulfillment_Lvl_Get(void);
 UINT LED_Error(void);
 UINT LED_Clear(void);
-# 12 "MOC_Funct.c" 2
-
-# 1 "./MOC_Funct.h" 1
+# 11 "TMR1.c" 2
 
 
 
 
+UINT8 INI_Timer(void);
+void TMR1_Update_flag_Set(UINT a);
+UINT TMR1_Update_flag_Get(void);
 
-
-
-UINT MOC_StanWzbudzenia(void);
-UINT MOC_Wynikowa_wartosc_roznicowa(void);
-UINT MOC_Frame_Counter(void);
-UINT MOC_Aktualna_Temperatura(void);
-UINT MOC_NOTWORK(void);
-UINT MOC_RSSI_ramki(void);
-UINT MOC_LQI_ramki(void);
-# 13 "MOC_Funct.c" 2
-
-UINT MOC_StanWzbudzenia(void);
-UINT MOC_Wynikowa_wartosc_roznicowa(void);
-UINT MOC_Frame_Counter(void);
-UINT MOC_Aktualna_Temperatura(void);
-UINT MOC_NOTWORK(void);
-UINT MOC_RSSI_ramki(void);
-UINT MOC_LQI_ramki(void);
-
-
-UINT MOC_StanWzbudzenia(void)
+static UINT TMR1_Update_flag = 0;
+# 32 "TMR1.c"
+void TMR1_Update_flag_Set(UINT a)
 {
+    TMR1_Update_flag = a;
+}
+# 47 "TMR1.c"
+UINT TMR1_Update_flag_Get(void)
+{
+    return TMR1_Update_flag;
+}
+# 63 "TMR1.c"
+UINT8 TMR1_Timer_reset(void)
+{
+
+
+
+
+    volatile BYTE t1L = 0, t1H = 0;
+    t1L = TMR1L;
+    t1H = TMR1H;
+    __nop();
+    t1H += (UINT8)((0xFFFF - (((8000000/8)/4)/10)) >> 8);
+    t1L += (UINT8)((0xFFFF - (((8000000/8)/4)/10)) & 0xFF);
+    TMR1H = t1H;
+    TMR1L = 0x5B;
+
+
     return 1;
 }
+# 92 "TMR1.c"
+UINT8 INI_Timer(void)
+{
 
-UINT MOC_Wynikowa_wartosc_roznicowa(void)
-{
-    return 0x0220;
-}
 
-UINT MOC_Frame_Counter(void)
-{
-    return 0x47;
-}
-UINT MOC_Aktualna_Temperatura(void)
-{
-    return 0x1B;
-}
-UINT MOC_NOTWORK(void)
-{
-    return 0xFF;
-}
-UINT MOC_RSSI_ramki(void)
-{
-    return 0xEE;
-}
-
-UINT MOC_LQI_ramki(void)
-{
-    return 0xE1;
+    IRCF2 = 1;
+    IRCF1 = 1;
+    IRCF0 = 1;
+    T1CON = 0b00111101;
+    TMR1H= (UINT8)((0xFFFF - (((8000000/8)/4)/10)) >> 8);
+    TMR1L=(UINT8)((0xFFFF - (((8000000/8)/4)/10)) & 0xFF);
+    TMR1IE=1;
+    TMR1ON = 1;
+    return 1;
 }

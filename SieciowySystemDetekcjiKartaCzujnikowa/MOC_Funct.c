@@ -27,20 +27,20 @@ UINT MOC_StanWzbudzenia(void)
 
 UINT MOC_Wynikowa_wartosc_roznicowa(void)
 {
-    return 0x1234;
+    return 0x0220;
 }
 
 UINT MOC_Frame_Counter(void)
 {
-    return 0x22;
+    return 0x47;
 }
 UINT MOC_Aktualna_Temperatura(void)
 {
-    return 0x24;
+    return 0x1B;
 }
 UINT MOC_NOTWORK(void)
 {
-    return 0x21;
+    return 0xFF;
 }
 UINT MOC_RSSI_ramki(void)
 {

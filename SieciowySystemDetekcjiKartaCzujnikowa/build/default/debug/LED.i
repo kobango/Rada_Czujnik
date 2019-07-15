@@ -1,4 +1,4 @@
-# 1 "MOC_Funct.c"
+# 1 "LED.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,15 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MOC_Funct.c" 2
-
-
-
-
-
-
-
-
+# 1 "LED.c" 2
+# 10 "LED.c"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -17914,9 +17907,13 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 9 "MOC_Funct.c" 2
+# 10 "LED.c" 2
 
-# 1 "./CAN.h" 1
+# 1 "./LED.h" 1
+
+
+
+
 
 
 # 1 "./GenericTypeDefs.h" 1
@@ -18145,131 +18142,351 @@ typedef union _QWORD_VAL
         unsigned char b63:1;
     } bits;
 } QWORD_VAL;
-# 3 "./CAN.h" 2
-# 15 "./CAN.h"
-    typedef enum{
-        KARTA,
-        CZUJNIK
-    }TARGET_ENUM;
-
-    typedef struct{
-
-            unsigned char buffer_status;
-
-            unsigned char message_type;
-
-            unsigned char frame_type;
-
-            unsigned char buffer;
-
-
-            DWORD_VAL id;
-            unsigned char data[8];
-            unsigned char data_length;
-    }mID;
-
-    void CAN_Setup(void);
-    BOOL CAN_TakeFrame(mID * message);
-    void CAN_SendFrame(mID * message);
-    void CAN_GenID(mID * message,BYTE frameID);
-# 10 "MOC_Funct.c" 2
-
-# 1 "./main.h" 1
-# 45 "./main.h"
-    typedef struct{
-         union
-        {
-            BYTE flagiU8;
-
-            struct{
-                unsigned obsluzWeWy : 1;
-                unsigned error : 1;
-                unsigned uczenieTla : 1;
-                unsigned inicjalizacja : 1;
-                unsigned ramkaTx : 1;
-            };
-        }Flags;
-
-        BYTE timerRamkiTxCANU8;
-    }KartaStruct;
+# 7 "./LED.h" 2
 
 
 
 
-    extern KartaStruct DetectorLedRadar;
 
-    extern void _startup (void);
-    void WylaczPrzerwania(void);
-    void WlaczPotwierdzenie(void);
-    void zapisUstawienDoEEPROM(void);
-    void InterruptHandlerHigh(void);
-    void INI_All(void);
-# 11 "MOC_Funct.c" 2
-
-# 1 "./LED.h" 1
-# 12 "./LED.h"
 void INI_LED_Start(void);
 UINT8 LED_Update(void);
 void Fulfillment_Lvl_Set(UINT a);
 UINT Fulfillment_Lvl_Get(void);
 UINT LED_Error(void);
 UINT LED_Clear(void);
-# 12 "MOC_Funct.c" 2
-
-# 1 "./MOC_Funct.h" 1
+# 11 "LED.c" 2
 
 
 
+typedef enum LED_RGA {RED = 0,GREEN = 1}LED_RGA_type;
+
+UINT8 LED_Control(LED_RGA_type color, UINT diode);
+void INI_LED_Start(void);
+UINT LED_Vect_Create(void);
+UINT LED_Right(UINT a);
+UINT LED_Left(UINT a);
+UINT LED_Light_Pos(LED_RGA_type color,UINT pos, UINT fulfillment);
+UINT8 LED_Update(void);
+UINT LED_Error(void);
+UINT LED_Clear(void);
+
+void Fulfillment_Lvl_Set(UINT a);
+UINT Fulfillment_Lvl_Get(void);
 
 
+static UINT Fulfillment_Lvl = 20;
 
-
-UINT MOC_StanWzbudzenia(void);
-UINT MOC_Wynikowa_wartosc_roznicowa(void);
-UINT MOC_Frame_Counter(void);
-UINT MOC_Aktualna_Temperatura(void);
-UINT MOC_NOTWORK(void);
-UINT MOC_RSSI_ramki(void);
-UINT MOC_LQI_ramki(void);
-# 13 "MOC_Funct.c" 2
-
-UINT MOC_StanWzbudzenia(void);
-UINT MOC_Wynikowa_wartosc_roznicowa(void);
-UINT MOC_Frame_Counter(void);
-UINT MOC_Aktualna_Temperatura(void);
-UINT MOC_NOTWORK(void);
-UINT MOC_RSSI_ramki(void);
-UINT MOC_LQI_ramki(void);
-
-
-UINT MOC_StanWzbudzenia(void)
+UINT LED_Error(void)
 {
+    LED_Control(RED,0b1010101010);
+    LED_Control(GREEN,0b0000000000);
     return 1;
 }
 
-UINT MOC_Wynikowa_wartosc_roznicowa(void)
+UINT LED_Clear(void)
 {
-    return 0x0220;
+    LED_Control(RED,0b0000000000);
+    LED_Control(GREEN,0b1010101010);
+    return 1;
 }
+# 57 "LED.c"
+void Fulfillment_Lvl_Set(UINT a)
+{
+    Fulfillment_Lvl = a;
+}
+# 73 "LED.c"
+UINT Fulfillment_Lvl_Get(void)
+{
+    return Fulfillment_Lvl;
+}
+# 89 "LED.c"
+UINT8 LED_Update(void)
+{
+    static LED_RGA_type Red = RED;
+    static LED_RGA_type Green = GREEN;
+    static UINT pos1 = 0b0000000001;
+    static UINT pos2 = 0b0000000001;
 
-UINT MOC_Frame_Counter(void)
-{
-    return 0x47;
-}
-UINT MOC_Aktualna_Temperatura(void)
-{
-    return 0x1B;
-}
-UINT MOC_NOTWORK(void)
-{
-    return 0xFF;
-}
-UINT MOC_RSSI_ramki(void)
-{
-    return 0xEE;
-}
 
-UINT MOC_LQI_ramki(void)
+    LED_Light_Pos(Green,pos2,Fulfillment_Lvl);
+    LED_Light_Pos(RED,pos1,Fulfillment_Lvl);
+    pos1 = LED_Right(pos1);
+    pos2 = LED_Left(pos2);
+
+    return 1;
+}
+# 116 "LED.c"
+UINT LED_Right(UINT a)
 {
-    return 0xE1;
+    if ((a & 0b0000000001) == 0b0000000001)
+    {
+        UINT b = a & 0b1111111110;
+        b = b >> 1;
+        b = b | 0b1000000000;
+        return b;
+    }
+    else
+    {
+        a =a >> 1;
+        return a;
+    }
+}
+# 143 "LED.c"
+UINT LED_Left(UINT a)
+{
+    if ((a & 0b1000000000) == 0b1000000000)
+    {
+        UINT b = a & 0b0111111111;
+        b = b << 1;
+        b = b | 0b0000000001;
+        return b;
+    }
+    else
+    {
+        a = a << 1;
+        return a;
+    }
+}
+# 172 "LED.c"
+UINT LED_Light_Pos(LED_RGA_type color,UINT pos, UINT fulfillment)
+{
+    UINT pos2 =pos;
+    UINT LED_array = 0b0000000000;
+    UINT flage = fulfillment/10;
+    if(color == RED)
+    {
+        while(flage>0)
+        {
+            LED_array = pos2|LED_array;
+            pos2 = LED_Left(pos2);
+            flage = flage - 1;
+        }
+    }
+    else
+    {
+        while(flage>0)
+        {
+            LED_array = pos2|LED_array;
+            pos2 = LED_Right(pos2);
+            flage = flage - 1;
+        }
+    }
+    LED_Control(color, LED_array);
+    return LED_array;
+}
+# 207 "LED.c"
+void INI_LED_Start(void)
+{
+    TRISA = TRISA & 0b00000001;
+    TRISB = TRISB & 0b11111100;
+    TRISE = TRISE & 0b11111000;
+    TRISD = TRISD & 0b00000000;
+    LED_Control(RED,0b0000000000);
+    LED_Control(GREEN,0b0000000000);
+
+
+}
+# 232 "LED.c"
+UINT8 LED_Control(LED_RGA_type color,UINT diode)
+{
+    UINT cos =1;
+    if(color == RED)
+    {
+
+        if((diode & 0b0000000001)== 0b0000000001)
+        {
+            LATD = LATD | ~0b11101111;
+        }
+        else
+        {
+            LATD = LATD &0b11101111;
+        }
+
+        if((diode & 0b0000000010) == 0b0000000010)
+        {
+            LATD = LATD | ~0b10111111;
+        }
+        else
+        {
+            LATD = LATD & 0b10111111;
+        }
+
+        if((diode & 0b0000000100) == 0b0000000100)
+        {
+            LATB = LATB | ~0b11111110;
+        }
+        else
+        {
+            LATB = LATB & 0b11111110;
+        }
+
+
+        if((diode & 0b0000001000) == 0b0000001000)
+        {
+            LATA = LATA | ~0b11111101;
+        }
+        else
+        {
+            LATA = LATA & 0b11111101;
+        }
+
+
+        if((diode & 0b0000010000) == 0b0000010000)
+        {
+            LATA = LATA | ~0b11110111;
+        }
+        else
+        {
+            LATA = LATA & 0b11110111;
+        }
+
+
+        if((diode & 0b0000100000) == 0b0000100000)
+        {
+            LATA = LATA | ~0b11011111;
+        }
+        else
+        {
+            LATA = LATA & 0b11011111;
+        }
+
+        if((diode & 0b0001000000) == 0b0001000000)
+        {
+            LATE = LATE | ~0b11111101;
+        }
+        else
+        {
+            LATE = LATE & 0b11111101;
+        }
+
+        if((diode & 0b0010000000) == 0b0010000000)
+        {
+            LATA = LATA | ~0b01111111;
+        }
+        else
+        {
+            LATA = LATA & 0b01111111;
+        }
+
+
+        if((diode & 0b0100000000) == 0b0100000000)
+        {
+            LATD = LATD | ~0b11111110;
+        }
+        else
+        {
+            LATD = LATD & 0b11111110;
+        }
+
+        if((diode & 0b1000000000) == 0b1000000000)
+        {
+            LATD = LATD | ~0b11111011;
+        }
+        else
+        {
+            LATD = LATD & 0b11111011;
+        }
+
+    }
+
+    if(color == GREEN)
+    {
+
+        if((diode & 0b0000000001) == 0b0000000001)
+        {
+            LATD = LATD | ~0b11011111;
+        }
+        else
+        {
+            LATD = LATD & 0b11011111;
+        }
+
+
+        if((diode & 0b0000000010) == 0b0000000010)
+        {
+            LATD = LATD | ~0b01111111;
+        }
+        else
+        {
+            LATD = LATD & 0b01111111;
+        }
+
+
+        if((diode & 0b0000000100) == 0b0000000100)
+        {
+            LATB = LATB | ~0b11111101;
+        }
+        else
+        {
+            LATB = LATB & 0b11111101;
+        }
+
+        if((diode & 0b0000001000) == 0b0000001000)
+        {
+            LATA = LATA | ~0b11111011;
+        }
+        else
+        {
+            LATA = LATA & 0b11111011;
+        }
+
+
+        if((diode & 0b0000010000) == 0b0000010000)
+        {
+            LATA = LATA | ~0b11101111;
+        }
+        else
+        {
+            LATA = LATA & 0b11101111;
+        }
+
+
+        if((diode & 0b0000100000) == 0b0000100000)
+        {
+            LATE = LATE | ~0b11111110;
+        }
+        else
+        {
+            LATE = LATE & 0b11111110;
+        }
+
+
+        if((diode & 0b0001000000) == 0b0001000000)
+        {
+            LATE = LATE | ~0b11111011;
+        }
+        else
+        {
+            LATE = LATE & 0b11111011;
+        }
+
+        if((diode & 0b0010000000) == 0b0010000000)
+        {
+            LATA = LATA | ~0b10111111;
+        }
+        else
+        {
+            LATA = LATA & 0b10111111;
+        }
+
+        if((diode & 0b0100000000) == 0b0100000000)
+        {
+            LATD = LATD | ~0b11111101;
+        }
+        else
+        {
+            LATD = LATD & 0b11111101;
+        }
+
+        if((diode & 0b1000000000) == 0b1000000000)
+        {
+            LATD = LATD | ~0b11110111;
+        }
+        else
+        {
+            LATD = LATD &0b11110111;
+        }
+
+    }
+    return 1;
 }

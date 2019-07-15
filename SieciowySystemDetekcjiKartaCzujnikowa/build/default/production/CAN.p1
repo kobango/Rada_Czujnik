@@ -2537,14 +2537,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;CAN.c: 386:     message->message_type = 0x01;
 [e = . *U _message 1 -> -> 1 `i `uc ]
 "387
-[; ;CAN.c: 387:     message->id.w[1] = 0x0025;
-[e = *U + &U . . *U _message 4 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _message 4 1 `ui `ux -> -> 37 `i `us ]
+[; ;CAN.c: 387:     message->id.w[1] = (WORD)frameID * (WORD)4;
+[e = *U + &U . . *U _message 4 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _message 4 1 `ui `ux -> * -> -> _frameID `us `ui -> -> -> 4 `i `us `ui `us ]
 "388
-[; ;CAN.c: 388:     message->id.w[0] = 0x8006;
-[e = *U + &U . . *U _message 4 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _message 4 1 `ui `ux -> -> 32774 `ui `us ]
+[; ;CAN.c: 388:     message->id.w[0] = DaneCan.adresCAN + 0x0010;
+[e = *U + &U . . *U _message 4 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _message 4 1 `ui `ux -> + -> . _DaneCan 1 `ui -> -> 16 `i `ui `us ]
 "389
-[; ;CAN.c: 389:     message->id.v[2] |= 0x01;
-[e =| *U + &U . . *U _message 4 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . . *U _message 4 2 `ui `ux -> -> 1 `i `uc ]
+[; ;CAN.c: 389:     message->id.v[2] |= 0x00;
+[e =| *U + &U . . *U _message 4 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . . *U _message 4 2 `ui `ux -> -> 0 `i `uc ]
 "390
 [; ;CAN.c: 390:     message->id.v[1] |= 0x00;
 [e =| *U + &U . . *U _message 4 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _message 4 2 `ui `ux -> -> 0 `i `uc ]

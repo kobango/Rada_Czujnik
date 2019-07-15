@@ -1,4 +1,4 @@
-# 1 "MOC_Funct.c"
+# 1 "CAN.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,12 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MOC_Funct.c" 2
-
-
-
-
-
+# 1 "CAN.c" 2
+# 1 "./main.h" 1
 
 
 
@@ -17914,9 +17910,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 9 "MOC_Funct.c" 2
-
-# 1 "./CAN.h" 1
+# 4 "./main.h" 2
 
 
 # 1 "./GenericTypeDefs.h" 1
@@ -18145,36 +18139,7 @@ typedef union _QWORD_VAL
         unsigned char b63:1;
     } bits;
 } QWORD_VAL;
-# 3 "./CAN.h" 2
-# 15 "./CAN.h"
-    typedef enum{
-        KARTA,
-        CZUJNIK
-    }TARGET_ENUM;
-
-    typedef struct{
-
-            unsigned char buffer_status;
-
-            unsigned char message_type;
-
-            unsigned char frame_type;
-
-            unsigned char buffer;
-
-
-            DWORD_VAL id;
-            unsigned char data[8];
-            unsigned char data_length;
-    }mID;
-
-    void CAN_Setup(void);
-    BOOL CAN_TakeFrame(mID * message);
-    void CAN_SendFrame(mID * message);
-    void CAN_GenID(mID * message,BYTE frameID);
-# 10 "MOC_Funct.c" 2
-
-# 1 "./main.h" 1
+# 6 "./main.h" 2
 # 45 "./main.h"
     typedef struct{
          union
@@ -18204,72 +18169,423 @@ typedef union _QWORD_VAL
     void zapisUstawienDoEEPROM(void);
     void InterruptHandlerHigh(void);
     void INI_All(void);
-# 11 "MOC_Funct.c" 2
+# 1 "CAN.c" 2
 
-# 1 "./LED.h" 1
-# 12 "./LED.h"
-void INI_LED_Start(void);
-UINT8 LED_Update(void);
-void Fulfillment_Lvl_Set(UINT a);
-UINT Fulfillment_Lvl_Get(void);
-UINT LED_Error(void);
-UINT LED_Clear(void);
-# 12 "MOC_Funct.c" 2
+# 1 "./TRM.h" 1
+# 11 "./TRM.h"
+    typedef struct
+    {
+        union
+        {
+            WORD FlagiU16;
 
-# 1 "./MOC_Funct.h" 1
+            struct
+            {
+                unsigned wyslijRamkeStanu : 1;
+                unsigned wyslijRamkeUczeniaTla : 1;
+                unsigned wyslijRamkeResetuCzujnikow : 1;
+
+            };
+        }Flags;
+
+        WORD adresCAN;
+
+    }DaneCanStruct;
+    extern DaneCanStruct DaneCan;
+
+    void TRM_DataTransmition(void);
+# 2 "CAN.c" 2
+
+# 1 "./CAN.h" 1
+# 15 "./CAN.h"
+    typedef enum{
+        KARTA,
+        CZUJNIK
+    }TARGET_ENUM;
+
+    typedef struct{
+
+            unsigned char buffer_status;
+
+            unsigned char message_type;
+
+            unsigned char frame_type;
+
+            unsigned char buffer;
+
+
+            DWORD_VAL id;
+            unsigned char data[8];
+            unsigned char data_length;
+    }mID;
+
+    void CAN_Setup(void);
+    BOOL CAN_TakeFrame(mID * message);
+    void CAN_SendFrame(mID * message);
+    void CAN_GenID(mID * message,BYTE frameID);
+# 3 "CAN.c" 2
+
+# 1 "./FRAME.h" 1
+# 12 "./FRAME.h"
+extern mID ramkaCanRxCzujnika[5];
+void FRAME_HandleCanFrame(mID * message);
+# 4 "CAN.c" 2
 
 
 
 
 
 
-
-UINT MOC_StanWzbudzenia(void);
-UINT MOC_Wynikowa_wartosc_roznicowa(void);
-UINT MOC_Frame_Counter(void);
-UINT MOC_Aktualna_Temperatura(void);
-UINT MOC_NOTWORK(void);
-UINT MOC_RSSI_ramki(void);
-UINT MOC_LQI_ramki(void);
-# 13 "MOC_Funct.c" 2
-
-UINT MOC_StanWzbudzenia(void);
-UINT MOC_Wynikowa_wartosc_roznicowa(void);
-UINT MOC_Frame_Counter(void);
-UINT MOC_Aktualna_Temperatura(void);
-UINT MOC_NOTWORK(void);
-UINT MOC_RSSI_ramki(void);
-UINT MOC_LQI_ramki(void);
-
-
-UINT MOC_StanWzbudzenia(void)
+static void CAN_SetupClock(void);
+static void CAN_SetupMask(void);
+void CAN_Setup(void);
+# 22 "CAN.c"
+void CAN_Setup(void)
 {
-    return 1;
+
+
+
+    CANCON = 0x80;
+    while((CANSTAT & 0xE0)!=0x80)
+    {
+        ;
+    }
+
+    BSEL0 = 0;
+    TXB0CON = 0;
+    RXB0CON = 0;
+    RXB1CON = 0;
+    B0CON = 0;
+    B1CON = 0;
+    PIE3 = 0;
+    IPR3 = 0xFF;
+    PIR3 = 0x00;
+    BIE0 = 0;
+
+
+    ECANCON = 0x90;
+
+
+    CAN_SetupClock();
+
+
+    CAN_SetupMask();
+
+    CIOCON = 0xff;
+
+
+
+
+
+    CANCON = 0x00;
+    while((CANSTAT & 0xE0) != 0x00)
+    {
+        ;
+    }
+}
+# 81 "CAN.c"
+static void CAN_SetupMask(void)
+{
+    MSEL0 = 0x50;
+    MSEL1 = 0x55;
+    MSEL2 = 0x55;
+    MSEL3 = 0x55;
+
+
+    RXM0SIDH = 0b00000000;
+    RXM0SIDL = 0b00001011;
+    RXM0EIDH = 0xFF;
+    RXM0EIDL = 0xFF;
+
+
+    RXM1SIDH = 0xFF;
+    RXM1SIDL = 0xFF;
+    RXM1EIDH = 0;
+    RXM1EIDL = 0;
+
+
+    RXF0SIDH = 0x00;
+    RXF0SIDL = 0x01;
+    RXF0SIDLbits.EXIDEN = 1;
+    RXF0EIDH = (BYTE)(DaneCan.adresCAN>>8);
+ RXF0EIDH |= 0x40;
+    RXF0EIDL = (BYTE)DaneCan.adresCAN;
+
+    RXF1SIDH = 0x00;
+    RXF1SIDL = 0x01;
+    RXF1SIDLbits.EXIDEN = 1;
+    RXF1EIDH = 0x7F;
+    RXF1EIDL = 0xFF;
+
+
+    RXF2SIDH = 0;
+    RXF2SIDL = 0x20;
+    RXF2SIDLbits.EXIDEN = 1;
+    RXF2EIDH = 0;
+    RXF2EIDL = 0;
+
+
+
+
+
+
+
+    RXFCON0 = 0x07;
+
 }
 
-UINT MOC_Wynikowa_wartosc_roznicowa(void)
+
+
+
+
+
+static void CAN_SetupClock(void)
 {
-    return 0x0220;
+    BRGCON1bits.BRP0 = (((32000000/4)/(2*20*50000))-1) & 0b000001;
+    BRGCON1bits.BRP1 = ((((32000000/4)/(2*20*50000))-1) >> 1) & 0b000001;
+    BRGCON1bits.BRP2 = ((((32000000/4)/(2*20*50000))-1) >> 2) & 0b000001;
+    BRGCON1bits.BRP3 = ((((32000000/4)/(2*20*50000))-1) >> 3) & 0b000001;
+    BRGCON1bits.BRP4 = ((((32000000/4)/(2*20*50000))-1) >> 4) & 0b000001;
+    BRGCON1bits.BRP5 = ((((32000000/4)/(2*20*50000))-1) >> 5) & 0b000001;
+
+    BRGCON1bits.SJW0 = 1;
+    BRGCON1bits.SJW1 = 1;
+
+    BRGCON2bits.SEG1PH0 = 1;
+    BRGCON2bits.SEG1PH1 = 1;
+    BRGCON2bits.SEG1PH2 = 1;
+
+    BRGCON2bits.PRSEG2 = 1;
+    BRGCON2bits.PRSEG1 = 0;
+    BRGCON2bits.PRSEG0 = 0;
+
+    BRGCON3bits.SEG2PH0 = 1;
+    BRGCON3bits.SEG2PH1 = 0;
+    BRGCON3bits.SEG2PH2 = 1;
+
+    BRGCON2bits.SAM = 1;
+    BRGCON2bits.SEG2PHTS = 1;
 }
 
-UINT MOC_Frame_Counter(void)
+
+
+
+
+
+static void CAN_MoveBuffIntoFrame(BYTE* Ram, BYTE* Buf)
 {
-    return 0x47;
-}
-UINT MOC_Aktualna_Temperatura(void)
-{
-    return 0x1B;
-}
-UINT MOC_NOTWORK(void)
-{
-    return 0xFF;
-}
-UINT MOC_RSSI_ramki(void)
-{
-    return 0xEE;
+    BYTE i;
+    for(i=0; i<8; ++i)
+    {
+        Ram[i]=(*(Buf+i));
+    }
 }
 
-UINT MOC_LQI_ramki(void)
+
+
+
+
+
+void CAN_SendFrame(mID * message)
 {
-    return 0xE1;
+
+
+    for(;;)
+    {
+        ECANCON = 0x83;
+        if(!RXB0CONbits.FILHIT3)
+        {
+
+            break;
+        }
+        ECANCON = 0x84;
+        if(!RXB0CONbits.FILHIT3)
+        {
+
+            break;
+        }
+        ECANCON = 0x85;
+        if(!RXB0CONbits.FILHIT3)
+        {
+
+            break;
+        }
+    }
+
+    while(COMSTATbits.TXWARN)
+    {
+        __asm(" reset");
+    }
+    DetectorLedRadar.timerRamkiTxCANU8 = 0;
+    RXB0EIDL = message->id.v[0];
+    RXB0EIDH = message->id.v[1];
+    RXB0SIDL = ((message->id.v[2]&0xFC)*8) | (message->id.v[2] & (0x03));
+    RXB0SIDLbits.EXID = 1;
+    RXB0SIDH = (BYTE)(message->id.w[1]/32);
+
+    RXB0DLC = 0;
+
+    if(message->message_type==0x02)
+    {
+        RXB0DLCbits.RXRTR = 1;
+    }
+    else
+    {
+        RXB0DLCbits.DLC0 = (message->data_length & 0x0F);
+        RXB0DLCbits.DLC1 = ((message->data_length & 0x0F)>> 1);
+        RXB0DLCbits.DLC2 = ((message->data_length & 0x0F)>> 2);
+        RXB0DLCbits.DLC3 = ((message->data_length & 0x0F)>> 3);
+
+        CAN_MoveBuffIntoFrame(&RXB0D0, message->data);
+    }
+
+    RXB0CONbits.FILHIT3 = 1;
+
+    DetectorLedRadar.Flags.ramkaTx = 1;
+
+}
+
+
+
+
+
+
+BOOL CAN_TakeFrame(mID * message)
+{
+    BYTE k, tempCON;
+
+    k = CANCON&0x0F;
+
+    ECANCON = 0x90 | k;
+
+
+    switch(k)
+    {
+        case 0:
+            tempCON = RXB0CON;
+            break;
+        case 1:
+            tempCON = RXB1CON;
+            break;
+        case 2:
+            tempCON = B0CON;
+            break;
+        case 3:
+            tempCON = B1CON;
+            break;
+        case 4:
+            tempCON = B2CON;
+            break;
+        case 5:
+            tempCON = B3CON;
+            break;
+        case 6:
+            tempCON = B4CON;
+            break;
+        case 7:
+            tempCON = B5CON;
+            break;
+    }
+
+
+    if((tempCON & 0x80) > 0)
+    {
+        message->buffer = RXB0CON & 0x1F;
+        message->id.v[0] = RXB0EIDL;
+        message->id.v[1] = RXB0EIDH;
+        message->id.v[2] = (RXB0SIDL/8) | (RXB0SIDL&0x03);
+        message->id.w[1] |= (WORD)RXB0SIDH*32;
+        message->frame_type=0x03;
+
+
+
+        if(RXB0DLCbits.RXRTR == 0)
+        {
+            message->message_type = 0x01;
+            message->data_length= RXB0DLC & 0x0F;
+            if(message->data_length > 8)
+            {
+
+                switch(k)
+                {
+                    case 0:
+                        RXB0CON = 0;
+                        break;
+                    case 1:
+                        RXB1CON = 0;
+                        break;
+                    case 2:
+                        B0CON = 0;
+                        break;
+                    case 3:
+                        B1CON = 0;
+                        break;
+                    case 4:
+                        B2CON = 0;
+                        break;
+                    case 5:
+                        B3CON = 0;
+                        break;
+                    case 6:
+                        B4CON = 0;
+                        break;
+                    case 7:
+                        B5CON = 0;
+                        break;
+                }
+                return FALSE;
+            }
+            CAN_MoveBuffIntoFrame(message->data, &RXB0D0);
+        }
+
+        else
+        {
+            message->message_type=0x02;
+        }
+
+        switch(k)
+        {
+            case 0:
+                RXB0CON = 0;
+                break;
+            case 1:
+                RXB1CON = 0;
+                break;
+            case 2:
+                B0CON = 0;
+                break;
+            case 3:
+                B1CON = 0;
+                break;
+            case 4:
+                B2CON = 0;
+                break;
+            case 5:
+                B3CON = 0;
+                break;
+            case 6:
+                B4CON = 0;
+                break;
+            case 7:
+                B5CON = 0;
+                break;
+        }
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
+    }
+}
+# 382 "CAN.c"
+void CAN_GenID(mID * message, BYTE frameID)
+{
+
+    message->frame_type = 0x03;
+    message->message_type = 0x01;
+    message->id.w[1] = (WORD)frameID * (WORD)4;
+    message->id.w[0] = DaneCan.adresCAN + 0x12b;
+    message->id.v[2] |= 0x00;
+    message->id.v[1] |= 0x00;
+
 }

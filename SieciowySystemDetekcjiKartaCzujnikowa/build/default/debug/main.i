@@ -1,4 +1,4 @@
-# 1 "MOC_Funct.c"
+# 1 "main.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,12 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MOC_Funct.c" 2
-
-
-
-
-
+# 1 "main.c" 2
+# 1 "./main.h" 1
 
 
 
@@ -17914,9 +17910,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 9 "MOC_Funct.c" 2
-
-# 1 "./CAN.h" 1
+# 4 "./main.h" 2
 
 
 # 1 "./GenericTypeDefs.h" 1
@@ -18145,36 +18139,7 @@ typedef union _QWORD_VAL
         unsigned char b63:1;
     } bits;
 } QWORD_VAL;
-# 3 "./CAN.h" 2
-# 15 "./CAN.h"
-    typedef enum{
-        KARTA,
-        CZUJNIK
-    }TARGET_ENUM;
-
-    typedef struct{
-
-            unsigned char buffer_status;
-
-            unsigned char message_type;
-
-            unsigned char frame_type;
-
-            unsigned char buffer;
-
-
-            DWORD_VAL id;
-            unsigned char data[8];
-            unsigned char data_length;
-    }mID;
-
-    void CAN_Setup(void);
-    BOOL CAN_TakeFrame(mID * message);
-    void CAN_SendFrame(mID * message);
-    void CAN_GenID(mID * message,BYTE frameID);
-# 10 "MOC_Funct.c" 2
-
-# 1 "./main.h" 1
+# 6 "./main.h" 2
 # 45 "./main.h"
     typedef struct{
          union
@@ -18204,7 +18169,51 @@ typedef union _QWORD_VAL
     void zapisUstawienDoEEPROM(void);
     void InterruptHandlerHigh(void);
     void INI_All(void);
-# 11 "MOC_Funct.c" 2
+# 1 "main.c" 2
+
+# 1 "./TRM.h" 1
+# 11 "./TRM.h"
+    typedef struct
+    {
+        union
+        {
+            WORD FlagiU16;
+
+            struct
+            {
+                unsigned wyslijRamkeStanu : 1;
+                unsigned wyslijRamkeUczeniaTla : 1;
+                unsigned wyslijRamkeResetuCzujnikow : 1;
+
+            };
+        }Flags;
+
+        WORD adresCAN;
+
+    }DaneCanStruct;
+    extern DaneCanStruct DaneCan;
+
+    void TRM_DataTransmition(void);
+# 2 "main.c" 2
+
+
+# 1 "./ISR.h" 1
+# 4 "main.c" 2
+
+# 1 "./TMR1.h" 1
+
+
+
+
+
+
+
+
+UINT8 INI_Timer(void);
+UINT8 TMR1_Timer_reset(void);
+void TMR1_Update_flag_Set(UINT a);
+UINT TMR1_Update_flag_Get(void);
+# 5 "main.c" 2
 
 # 1 "./LED.h" 1
 # 12 "./LED.h"
@@ -18214,62 +18223,99 @@ void Fulfillment_Lvl_Set(UINT a);
 UINT Fulfillment_Lvl_Get(void);
 UINT LED_Error(void);
 UINT LED_Clear(void);
-# 12 "MOC_Funct.c" 2
+# 6 "main.c" 2
 
-# 1 "./MOC_Funct.h" 1
-
-
-
-
-
-
-
-UINT MOC_StanWzbudzenia(void);
-UINT MOC_Wynikowa_wartosc_roznicowa(void);
-UINT MOC_Frame_Counter(void);
-UINT MOC_Aktualna_Temperatura(void);
-UINT MOC_NOTWORK(void);
-UINT MOC_RSSI_ramki(void);
-UINT MOC_LQI_ramki(void);
-# 13 "MOC_Funct.c" 2
-
-UINT MOC_StanWzbudzenia(void);
-UINT MOC_Wynikowa_wartosc_roznicowa(void);
-UINT MOC_Frame_Counter(void);
-UINT MOC_Aktualna_Temperatura(void);
-UINT MOC_NOTWORK(void);
-UINT MOC_RSSI_ramki(void);
-UINT MOC_LQI_ramki(void);
+# 1 "./INI.h" 1
+# 36 "./INI.h"
+void INI_GlobalInterrupt(void);
+void INI_All(void);
+static void Init(void);
+# 7 "main.c" 2
+# 17 "main.c"
+#pragma config OSC = IRCIO67
+#pragma config FCMEN = OFF
+#pragma config IESO = OFF
 
 
-UINT MOC_StanWzbudzenia(void)
+#pragma config PWRT = OFF
+#pragma config BOREN = BOHW
+#pragma config BORV = 3
+
+
+#pragma config WDT = OFF
+#pragma config WDTPS = 32768
+
+
+#pragma config PBADEN = ON
+#pragma config LPT1OSC = OFF
+#pragma config MCLRE = ON
+
+
+#pragma config STVREN = ON
+#pragma config LVP = OFF
+#pragma config BBSIZ = 1024
+#pragma config XINST = OFF
+
+
+#pragma config CP0 = OFF
+#pragma config CP1 = OFF
+#pragma config CP2 = OFF
+#pragma config CP3 = OFF
+
+
+#pragma config CPB = OFF
+#pragma config CPD = OFF
+
+
+#pragma config WRT0 = OFF
+#pragma config WRT1 = OFF
+#pragma config WRT2 = OFF
+#pragma config WRT3 = OFF
+
+
+#pragma config WRTC = OFF
+#pragma config WRTB = OFF
+#pragma config WRTD = OFF
+
+
+#pragma config EBTR0 = OFF
+#pragma config EBTR1 = OFF
+#pragma config EBTR2 = OFF
+#pragma config EBTR3 = OFF
+
+
+#pragma config EBTRB = OFF
+
+
+
+
+
+
+
+KartaStruct DetectorLedRadar;
+# 89 "main.c"
+void main(void)
 {
-    return 1;
-}
+    INI_All();
 
-UINT MOC_Wynikowa_wartosc_roznicowa(void)
-{
-    return 0x0220;
-}
+    RCON = 0xFF;
 
-UINT MOC_Frame_Counter(void)
-{
-    return 0x47;
-}
-UINT MOC_Aktualna_Temperatura(void)
-{
-    return 0x1B;
-}
-UINT MOC_NOTWORK(void)
-{
-    return 0xFF;
-}
-UINT MOC_RSSI_ramki(void)
-{
-    return 0xEE;
-}
+    for(;;)
+    {
+        if(DetectorLedRadar.Flags.obsluzWeWy == 1)
+        {
+            DetectorLedRadar.Flags.obsluzWeWy = 0;
 
-UINT MOC_LQI_ramki(void)
-{
-    return 0xE1;
+        }
+
+        if(TMR1_Update_flag_Get()==1)
+        {
+            LED_Update();
+            TMR1_Update_flag_Set(0);
+
+        }
+
+        TRM_DataTransmition();
+        __asm(" clrwdt");
+    }
 }

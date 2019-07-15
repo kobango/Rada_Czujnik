@@ -1,4 +1,4 @@
-# 1 "MOC_Funct.c"
+# 1 "TRM.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,12 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MOC_Funct.c" 2
-
-
-
-
-
+# 1 "TRM.c" 2
+# 1 "./main.h" 1
 
 
 
@@ -17914,9 +17910,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 9 "MOC_Funct.c" 2
-
-# 1 "./CAN.h" 1
+# 4 "./main.h" 2
 
 
 # 1 "./GenericTypeDefs.h" 1
@@ -18145,36 +18139,7 @@ typedef union _QWORD_VAL
         unsigned char b63:1;
     } bits;
 } QWORD_VAL;
-# 3 "./CAN.h" 2
-# 15 "./CAN.h"
-    typedef enum{
-        KARTA,
-        CZUJNIK
-    }TARGET_ENUM;
-
-    typedef struct{
-
-            unsigned char buffer_status;
-
-            unsigned char message_type;
-
-            unsigned char frame_type;
-
-            unsigned char buffer;
-
-
-            DWORD_VAL id;
-            unsigned char data[8];
-            unsigned char data_length;
-    }mID;
-
-    void CAN_Setup(void);
-    BOOL CAN_TakeFrame(mID * message);
-    void CAN_SendFrame(mID * message);
-    void CAN_GenID(mID * message,BYTE frameID);
-# 10 "MOC_Funct.c" 2
-
-# 1 "./main.h" 1
+# 6 "./main.h" 2
 # 45 "./main.h"
     typedef struct{
          union
@@ -18204,72 +18169,104 @@ typedef union _QWORD_VAL
     void zapisUstawienDoEEPROM(void);
     void InterruptHandlerHigh(void);
     void INI_All(void);
-# 11 "MOC_Funct.c" 2
+# 2 "TRM.c" 2
+# 1 "./FRAME.h" 1
+# 10 "./FRAME.h"
+# 1 "./CAN.h" 1
+# 15 "./CAN.h"
+    typedef enum{
+        KARTA,
+        CZUJNIK
+    }TARGET_ENUM;
 
-# 1 "./LED.h" 1
-# 12 "./LED.h"
-void INI_LED_Start(void);
-UINT8 LED_Update(void);
-void Fulfillment_Lvl_Set(UINT a);
-UINT Fulfillment_Lvl_Get(void);
-UINT LED_Error(void);
-UINT LED_Clear(void);
-# 12 "MOC_Funct.c" 2
+    typedef struct{
 
-# 1 "./MOC_Funct.h" 1
+            unsigned char buffer_status;
 
+            unsigned char message_type;
 
+            unsigned char frame_type;
 
-
-
-
-
-UINT MOC_StanWzbudzenia(void);
-UINT MOC_Wynikowa_wartosc_roznicowa(void);
-UINT MOC_Frame_Counter(void);
-UINT MOC_Aktualna_Temperatura(void);
-UINT MOC_NOTWORK(void);
-UINT MOC_RSSI_ramki(void);
-UINT MOC_LQI_ramki(void);
-# 13 "MOC_Funct.c" 2
-
-UINT MOC_StanWzbudzenia(void);
-UINT MOC_Wynikowa_wartosc_roznicowa(void);
-UINT MOC_Frame_Counter(void);
-UINT MOC_Aktualna_Temperatura(void);
-UINT MOC_NOTWORK(void);
-UINT MOC_RSSI_ramki(void);
-UINT MOC_LQI_ramki(void);
+            unsigned char buffer;
 
 
-UINT MOC_StanWzbudzenia(void)
+            DWORD_VAL id;
+            unsigned char data[8];
+            unsigned char data_length;
+    }mID;
+
+    void CAN_Setup(void);
+    BOOL CAN_TakeFrame(mID * message);
+    void CAN_SendFrame(mID * message);
+    void CAN_GenID(mID * message,BYTE frameID);
+# 11 "./FRAME.h" 2
+
+extern mID ramkaCanRxCzujnika[5];
+void FRAME_HandleCanFrame(mID * message);
+# 3 "TRM.c" 2
+# 1 "./TRM.h" 1
+# 11 "./TRM.h"
+    typedef struct
+    {
+        union
+        {
+            WORD FlagiU16;
+
+            struct
+            {
+                unsigned wyslijRamkeStanu : 1;
+                unsigned wyslijRamkeUczeniaTla : 1;
+                unsigned wyslijRamkeResetuCzujnikow : 1;
+
+            };
+        }Flags;
+
+        WORD adresCAN;
+
+    }DaneCanStruct;
+    extern DaneCanStruct DaneCan;
+
+    void TRM_DataTransmition(void);
+# 4 "TRM.c" 2
+
+
+
+DaneCanStruct DaneCan;
+# 16 "TRM.c"
+void TRM_DataTransmition(void)
 {
-    return 1;
-}
+    static BYTE weWyU8 = 0, czujnikWeWyU8 = 0;
+    BYTE i;
+    mID canMessage;
 
-UINT MOC_Wynikowa_wartosc_roznicowa(void)
-{
-    return 0x0220;
-}
 
-UINT MOC_Frame_Counter(void)
-{
-    return 0x47;
-}
-UINT MOC_Aktualna_Temperatura(void)
-{
-    return 0x1B;
-}
-UINT MOC_NOTWORK(void)
-{
-    return 0xFF;
-}
-UINT MOC_RSSI_ramki(void)
-{
-    return 0xEE;
-}
+    if(DaneCan.Flags.wyslijRamkeStanu)
+    {
 
-UINT MOC_LQI_ramki(void)
-{
-    return 0xE1;
+        canMessage.message_type = 0x02;
+        canMessage.id.Val = 0;
+        canMessage.id.v[2] = 0x01 *4;
+        FRAME_HandleCanFrame(&canMessage);
+# 46 "TRM.c"
+        DaneCan.Flags.wyslijRamkeStanu = 0;
+    }
+
+
+    if(DaneCan.Flags.wyslijRamkeUczeniaTla)
+    {
+
+    }
+
+
+    if(CAN_TakeFrame(&canMessage))
+    {
+        if((canMessage.buffer == 0) || (canMessage.buffer == 1))
+        {
+            FRAME_HandleCanFrame(&canMessage);
+        }
+        else
+        {
+
+        }
+    }
 }
