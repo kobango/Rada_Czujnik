@@ -18221,6 +18221,7 @@ UINT8 LED_Update(void);
 void Fulfillment_Lvl_Set(UINT a);
 UINT Fulfillment_Lvl_Get(void);
 UINT LED_Error(void);
+UINT LED_Clear(void);
 # 5 "ISR.c" 2
 # 16 "ISR.c"
 void __attribute__((picinterrupt(("low_priority")))) ISR_low (void)

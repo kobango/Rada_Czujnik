@@ -18222,6 +18222,7 @@ UINT8 LED_Update(void);
 void Fulfillment_Lvl_Set(UINT a);
 UINT Fulfillment_Lvl_Get(void);
 UINT LED_Error(void);
+UINT LED_Clear(void);
 # 6 "main.c" 2
 
 # 1 "./INI.h" 1

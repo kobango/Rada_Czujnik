@@ -59,6 +59,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16 ./LED.h
 [; ;./LED.h: 16: UINT LED_Error(void);
 [v _LED_Error `(ui ~T0 @X0 0 ef ]
+"17
+[; ;./LED.h: 17: UINT LED_Clear(void);
+[v _LED_Clear `(ui ~T0 @X0 0 ef ]
 "23534 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 23534:     struct {
 [s S757 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -1976,37 +1979,50 @@ Version 4.0 HI-TECH Software Intermediate Code
 "499
 [; ;FRAME.c: 499:         CAN_SendFrame(message);
 [e ( _CAN_SendFrame (1 _message ]
-"508
-[; ;FRAME.c: 508:        while(RXB0CONbits.FILHIT3)
+"510
+[; ;FRAME.c: 510:        while(RXB0CONbits.FILHIT3)
 [e $U 1156  ]
 [e :U 1157 ]
-"509
-[; ;FRAME.c: 509:        {
+"511
+[; ;FRAME.c: 511:        {
 {
-"510
-[; ;FRAME.c: 510:            if(TXB0CONbits.TXERR == 1){
+"512
+[; ;FRAME.c: 512:            if(TXB0CONbits.TXERR == 1){
 [e $ ! == -> . . _TXB0CONbits 0 4 `i -> 1 `i 1159  ]
 {
-"511
-[; ;FRAME.c: 511:                LED_Error();
-[e ( _LED_Error ..  ]
-"512
-[; ;FRAME.c: 512:            }
-}
-[e :U 1159 ]
 "513
-[; ;FRAME.c: 513:        };
+[; ;FRAME.c: 513:                LED_Error();
+[e ( _LED_Error ..  ]
+"514
+[; ;FRAME.c: 514:            }
+}
+[e $U 1160  ]
+"515
+[; ;FRAME.c: 515:            else
+[e :U 1159 ]
+"516
+[; ;FRAME.c: 516:            {
+{
+"517
+[; ;FRAME.c: 517:                LED_Clear();
+[e ( _LED_Clear ..  ]
+"518
+[; ;FRAME.c: 518:            }
+}
+[e :U 1160 ]
+"520
+[; ;FRAME.c: 520:        };
 }
 [e :U 1156 ]
-"508
-[; ;FRAME.c: 508:        while(RXB0CONbits.FILHIT3)
+"510
+[; ;FRAME.c: 510:        while(RXB0CONbits.FILHIT3)
 [e $ != -> . . _RXB0CONbits 2 3 `i -> 0 `i 1157  ]
 [e :U 1158 ]
-"516
-[; ;FRAME.c: 516:     }
+"524
+[; ;FRAME.c: 524:     }
 }
 [e :U 1155 ]
-"517
-[; ;FRAME.c: 517: }
+"525
+[; ;FRAME.c: 525: }
 [e :UE 1138 ]
 }

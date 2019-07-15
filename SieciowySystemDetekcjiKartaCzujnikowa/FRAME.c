@@ -505,12 +505,20 @@ void FRAME_HandleCanFrame(mID * message)
         }
          * */
 //        TXB0CONbits.TXREQ = 1;  
+        
+        
        while(RXB0CONbits.FILHIT3)
        {
            if(TXB0CONbits.TXERR == 1){
                LED_Error();
            }
+           else
+           {
+               LED_Clear();
+           }    
+           
        };
+        
         //bits.TXREQ0 = 1;
          
     }

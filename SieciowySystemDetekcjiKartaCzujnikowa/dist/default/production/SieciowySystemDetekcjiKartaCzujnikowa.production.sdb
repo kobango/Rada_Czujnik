@@ -8,8 +8,8 @@
 FALSE 0
 TRUE 1
 ]
-"33 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
-[e E10640 LED_RGA `uc
+"34 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
+[e E10641 LED_RGA `uc
 RED 0
 GREEN 1
 ]
@@ -96,19 +96,21 @@ TRUE 1
 [v _ISR_low ISR_low `IIL(v  1 e 1 0 ]
 "53
 [v _ISR_high ISR_high `IIH(v  1 e 1 0 ]
-"31 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
+"32 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 [v _LED_Error LED_Error `(ui  1 e 2 0 ]
-"81
+"39
+[v _LED_Clear LED_Clear `(ui  1 e 2 0 ]
+"89
 [v _LED_Update LED_Update `(uc  1 e 1 0 ]
-"108
+"116
 [v _LED_Right LED_Right `(ui  1 e 2 0 ]
-"135
+"143
 [v _LED_Left LED_Left `(ui  1 e 2 0 ]
-"164
+"172
 [v _LED_Light_Pos LED_Light_Pos `(ui  1 e 2 0 ]
-"199
+"207
 [v _INI_LED_Start INI_LED_Start `(v  1 e 1 0 ]
-"224
+"232
 [v _LED_Control LED_Control `(uc  1 e 1 0 ]
 "89 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\main.c
 [v _main main `(v  1 e 1 0 ]
@@ -239,7 +241,7 @@ TRUE 1
 [v _RXM1EIDL RXM1EIDL `VEuc  1 e 1 @3871 ]
 "20861
 [v _TXB0CON TXB0CON `VEuc  1 e 1 @3904 ]
-[s S1664 . 1 `uc 1 TXPRI0 1 0 :1:0 
+[s S1665 . 1 `uc 1 TXPRI0 1 0 :1:0 
 `uc 1 TXPRI1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 TXREQ 1 0 :1:3 
@@ -249,7 +251,7 @@ TRUE 1
 `uc 1 TXBIF 1 0 :1:7 
 ]
 "20888
-[s S1673 . 1 `uc 1 TXB0PRI0 1 0 :1:0 
+[s S1674 . 1 `uc 1 TXB0PRI0 1 0 :1:0 
 `uc 1 TXB0PRI1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 TXB0REQ 1 0 :1:3 
@@ -258,8 +260,8 @@ TRUE 1
 `uc 1 TXB0ABT 1 0 :1:6 
 `uc 1 TX0IF 1 0 :1:7 
 ]
-[u S1682 . 1 `S1664 1 . 1 0 `S1673 1 . 1 0 ]
-[v _TXB0CONbits TXB0CONbits `VES1682  1 e 1 @3904 ]
+[u S1683 . 1 `S1665 1 . 1 0 `S1674 1 . 1 0 ]
+[v _TXB0CONbits TXB0CONbits `VES1683  1 e 1 @3904 ]
 "22142
 [v _RXB1CON RXB1CON `VEuc  1 e 1 @3920 ]
 "23528
@@ -473,22 +475,22 @@ TRUE 1
 [v _TMR1H TMR1H `VEuc  1 e 1 @4047 ]
 "31137
 [v _RCON RCON `VEuc  1 e 1 @4048 ]
-[s S2901 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[s S2904 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "31180
-[s S2903 . 1 `uc 1 . 1 0 :1:0 
+[s S2906 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S2906 . 1 `uc 1 . 1 0 :2:0 
+[s S2909 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S2909 . 1 `uc 1 . 1 0 :3:0 
+[s S2912 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S2912 . 1 `uc 1 . 1 0 :4:0 
+[s S2915 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S2915 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S2918 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -497,22 +499,22 @@ TRUE 1
 `uc 1 SBOREN 1 0 :1:6 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S2924 . 1 `uc 1 BOR 1 0 :1:0 
+[s S2927 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
 `uc 1 RI 1 0 :1:4 
 ]
-[u S2930 . 1 `S2901 1 . 1 0 `S2903 1 . 1 0 `S2906 1 . 1 0 `S2909 1 . 1 0 `S2912 1 . 1 0 `S2915 1 . 1 0 `S2924 1 . 1 0 ]
-[v _RCONbits RCONbits `VES2930  1 e 1 @4048 ]
-[s S2981 . 1 `uc 1 SWDTEN 1 0 :1:0 
+[u S2933 . 1 `S2904 1 . 1 0 `S2906 1 . 1 0 `S2909 1 . 1 0 `S2912 1 . 1 0 `S2915 1 . 1 0 `S2918 1 . 1 0 `S2927 1 . 1 0 ]
+[v _RCONbits RCONbits `VES2933  1 e 1 @4048 ]
+[s S2984 . 1 `uc 1 SWDTEN 1 0 :1:0 
 ]
 "31283
-[s S2983 . 1 `uc 1 SWDTE 1 0 :1:0 
+[s S2986 . 1 `uc 1 SWDTE 1 0 :1:0 
 ]
-[u S2985 . 1 `S2981 1 . 1 0 `S2983 1 . 1 0 ]
-[v _WDTCONbits WDTCONbits `VES2985  1 e 1 @4049 ]
-[s S3000 . 1 `uc 1 RBIF 1 0 :1:0 
+[u S2988 . 1 `S2984 1 . 1 0 `S2986 1 . 1 0 ]
+[v _WDTCONbits WDTCONbits `VES2988  1 e 1 @4049 ]
+[s S3003 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -522,7 +524,7 @@ TRUE 1
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "32196
-[s S3009 . 1 `uc 1 . 1 0 :1:0 
+[s S3012 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -531,12 +533,12 @@ TRUE 1
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S3018 . 1 `uc 1 . 1 0 :6:0 
+[s S3021 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S3022 . 1 `S3000 1 . 1 0 `S3009 1 . 1 0 `S3018 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES3022  1 e 1 @4082 ]
+[u S3025 . 1 `S3003 1 . 1 0 `S3012 1 . 1 0 `S3021 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES3025  1 e 1 @4082 ]
 "35643
 [v _IPEN IPEN `VEb  1 e 0 @32391 ]
 "35646
@@ -555,7 +557,7 @@ TRUE 1
 [v _TMR1IP TMR1IP `VEb  1 e 0 @31992 ]
 "39117
 [v _TMR1ON TMR1ON `VEb  1 e 0 @32360 ]
-"29 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
+"30 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 [v _Fulfillment_Lvl Fulfillment_Lvl `ui  1 s 2 Fulfillment_Lvl ]
 [s S24 . 1 `uc 1 obsluzWeWy 1 0 :1:0 
 `uc 1 error 1 0 :1:1 
@@ -710,12 +712,17 @@ TRUE 1
 [u S419 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S350 1 word 4 0 `S353 1 byte 4 0 `S383 1 wordUnion 4 0 `S386 1 bits 4 0 ]
 [s S427 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S419 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_HandleCanFrame@message message `*.39S427  1 p 2 15 ]
-"517
+"525
 } 0
-"31 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
+"32 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 [v _LED_Error LED_Error `(ui  1 e 2 0 ]
 {
-"36
+"37
+} 0
+"39
+[v _LED_Clear LED_Clear `(ui  1 e 2 0 ]
+{
+"44
 } 0
 "349 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 [v _FRAME_SoftwareVersion FRAME_SoftwareVersion `(v  1 s 1 FRAME_SoftwareVersion ]
@@ -1706,34 +1713,34 @@ TRUE 1
 {
 "50
 } 0
-"81 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
+"89 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 [v _LED_Update LED_Update `(uc  1 e 1 0 ]
 {
-"84
-[v LED_Update@Green Green `E10640  1 s 1 Green ]
-"85
+"92
+[v LED_Update@Green Green `E10641  1 s 1 Green ]
+"93
 [v LED_Update@pos1 pos1 `ui  1 s 2 pos1 ]
-"86
+"94
 [v LED_Update@pos2 pos2 `ui  1 s 2 pos2 ]
-"95
+"103
 } 0
-"164
+"172
 [v _LED_Light_Pos LED_Light_Pos `(ui  1 e 2 0 ]
 {
-[v LED_Light_Pos@color color `E10640  1 a 1 wreg ]
-"168
+[v LED_Light_Pos@color color `E10641  1 a 1 wreg ]
+"176
 [v LED_Light_Pos@flage flage `ui  1 a 2 21 ]
-"166
+"174
 [v LED_Light_Pos@pos2 pos2 `ui  1 a 2 19 ]
-"167
+"175
 [v LED_Light_Pos@LED_array LED_array `ui  1 a 2 17 ]
-"164
-[v LED_Light_Pos@color color `E10640  1 a 1 wreg ]
+"172
+[v LED_Light_Pos@color color `E10641  1 a 1 wreg ]
 [v LED_Light_Pos@pos pos `ui  1 p 2 12 ]
 [v LED_Light_Pos@fulfillment fulfillment `ui  1 p 2 14 ]
-"166
-[v LED_Light_Pos@color color `E10640  1 a 1 16 ]
-"189
+"174
+[v LED_Light_Pos@color color `E10641  1 a 1 16 ]
+"197
 } 0
 "7 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
@@ -1747,23 +1754,23 @@ TRUE 1
 [v ___lwdiv@divisor divisor `ui  1 p 2 7 ]
 "30
 } 0
-"108 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
+"116 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 [v _LED_Right LED_Right `(ui  1 e 2 0 ]
 {
-"112
+"120
 [v LED_Right@b b `ui  1 a 2 9 ]
-"108
+"116
 [v LED_Right@a a `ui  1 p 2 5 ]
-"122
+"130
 } 0
-"135
+"143
 [v _LED_Left LED_Left `(ui  1 e 2 0 ]
 {
-"139
+"147
 [v LED_Left@b b `ui  1 a 2 7 ]
-"135
+"143
 [v LED_Left@a a `ui  1 p 2 5 ]
-"149
+"157
 } 0
 "52 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
 [v _INI_All INI_All `(v  1 e 1 0 ]
@@ -1780,19 +1787,19 @@ TRUE 1
 {
 "42
 } 0
-"199 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
+"207 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 [v _INI_LED_Start INI_LED_Start `(v  1 e 1 0 ]
 {
-"209
+"217
 } 0
-"224
+"232
 [v _LED_Control LED_Control `(uc  1 e 1 0 ]
 {
-[v LED_Control@color color `E10640  1 a 1 wreg ]
-[v LED_Control@color color `E10640  1 a 1 wreg ]
+[v LED_Control@color color `E10641  1 a 1 wreg ]
+[v LED_Control@color color `E10641  1 a 1 wreg ]
 [v LED_Control@diode diode `ui  1 p 2 5 ]
-[v LED_Control@color color `E10640  1 a 1 9 ]
-"426
+[v LED_Control@color color `E10641  1 a 1 9 ]
+"434
 } 0
 "74 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
 [v _INI_GlobalInterrupt INI_GlobalInterrupt `(v  1 e 1 0 ]

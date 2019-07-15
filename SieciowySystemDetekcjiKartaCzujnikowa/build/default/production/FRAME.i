@@ -18205,6 +18205,7 @@ UINT8 LED_Update(void);
 void Fulfillment_Lvl_Set(UINT a);
 UINT Fulfillment_Lvl_Get(void);
 UINT LED_Error(void);
+UINT LED_Clear(void);
 # 4 "FRAME.c" 2
 # 1 "./FRAME.h" 1
 # 12 "./FRAME.h"
@@ -18545,13 +18546,19 @@ void FRAME_HandleCanFrame(mID * message)
         message->id.v[2] = identyfikator*4;
         CAN_GenID(message,identyfikator);
         CAN_SendFrame(message);
-# 508 "FRAME.c"
+# 510 "FRAME.c"
        while(RXB0CONbits.FILHIT3)
        {
            if(TXB0CONbits.TXERR == 1){
                LED_Error();
            }
+           else
+           {
+               LED_Clear();
+           }
+
        };
+
 
 
     }

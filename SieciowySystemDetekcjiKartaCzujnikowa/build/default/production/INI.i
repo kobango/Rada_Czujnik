@@ -18216,6 +18216,7 @@ UINT8 LED_Update(void);
 void Fulfillment_Lvl_Set(UINT a);
 UINT Fulfillment_Lvl_Get(void);
 UINT LED_Error(void);
+UINT LED_Clear(void);
 # 12 "INI.c" 2
 
 # 1 "./TMR1.h" 1

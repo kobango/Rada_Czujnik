@@ -21,6 +21,7 @@ UINT LED_Left(UINT a);
 UINT LED_Light_Pos(LED_RGA_type color,UINT pos, UINT fulfillment);
 UINT8 LED_Update(void);
 UINT LED_Error(void);
+UINT LED_Clear(void);
 
 void Fulfillment_Lvl_Set(UINT a);
 UINT Fulfillment_Lvl_Get(void);
@@ -32,6 +33,13 @@ UINT LED_Error(void)
 {
     LED_Control(RED,0b1010101010);
     LED_Control(GREEN,0b0000000000);
+    return 1;
+}
+
+UINT LED_Clear(void)
+{
+    LED_Control(RED,0b0000000000);
+    LED_Control(GREEN,0b1010101010);
     return 1;
 }
 
