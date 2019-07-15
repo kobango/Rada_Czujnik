@@ -1,0 +1,20 @@
+#
+# Generated - do not edit!
+#
+# NOCDDL
+#
+CND_BASEDIR=`pwd`
+# default configuration
+CND_ARTIFACT_DIR_default=dist/default/production
+CND_ARTIFACT_NAME_default=SieciowySystemDetekcjiKartaCzujnikowa.production.hex
+CND_ARTIFACT_PATH_default=dist/default/production/SieciowySystemDetekcjiKartaCzujnikowa.production.hex
+CND_PACKAGE_DIR_default=${CND_DISTDIR}/default/package
+CND_PACKAGE_NAME_default=sieciowysystemdetekcjikartaczujnikowa.tar
+CND_PACKAGE_PATH_default=${CND_DISTDIR}/default/package/sieciowysystemdetekcjikartaczujnikowa.tar
+# Parkingi configuration
+CND_ARTIFACT_DIR_Parkingi=dist/Parkingi/production
+CND_ARTIFACT_NAME_Parkingi=SieciowySystemDetekcjiKartaCzujnikowa.production.hex
+CND_ARTIFACT_PATH_Parkingi=dist/Parkingi/production/SieciowySystemDetekcjiKartaCzujnikowa.production.hex
+CND_PACKAGE_DIR_Parkingi=${CND_DISTDIR}/Parkingi/package
+CND_PACKAGE_NAME_Parkingi=sieciowysystemdetekcjikartaczujnikowa.tar
+CND_PACKAGE_PATH_Parkingi=${CND_DISTDIR}/Parkingi/package/sieciowysystemdetekcjikartaczujnikowa.tar

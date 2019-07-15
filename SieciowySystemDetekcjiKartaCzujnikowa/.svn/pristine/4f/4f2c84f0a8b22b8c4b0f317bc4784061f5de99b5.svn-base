@@ -1,0 +1,9 @@
+___awdiv: CODE, 1246 0 188
+_EraseFlash: CODE, 1104 0 142
+_main: CODE, 1666 0 382
+__initialization: CODE, 962 0 24
+_ZapiszDane: CODE, 1434 0 232
+_ResetDevice: CODE, 996 0 6
+_WriteBytesFlash: CODE, 656 0 306
+_OdbierzRamke: CODE, 32 0 624
+Total: 1904

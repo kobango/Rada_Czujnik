@@ -1,0 +1,21 @@
+MEMORY
+{
+  data  (a!xr)   : ORIGIN = 0x800,         LENGTH = 0x2000
+  reset          : ORIGIN = 0x0,           LENGTH = 0x4
+  ivt            : ORIGIN = 0x4,           LENGTH = 0xFC
+  aivt           : ORIGIN = 0x104,         LENGTH = 0xFC
+  j_ivt          : ORIGIN = 0xc00,   	   LENGTH = 0x200
+  program (xr)   : ORIGIN = 0x200,         LENGTH = 0xA00
+  FBS            : ORIGIN = 0xF80000,      LENGTH = 0x2
+  FSS            : ORIGIN = 0xF80002,      LENGTH = 0x2
+  FGS            : ORIGIN = 0xF80004,      LENGTH = 0x2
+  FOSCSEL        : ORIGIN = 0xF80006,      LENGTH = 0x2
+  FOSC           : ORIGIN = 0xF80008,      LENGTH = 0x2
+  FWDT           : ORIGIN = 0xF8000A,      LENGTH = 0x2
+  FPOR           : ORIGIN = 0xF8000C,      LENGTH = 0x2
+  FICD           : ORIGIN = 0xF8000E,      LENGTH = 0x2
+  FUID0          : ORIGIN = 0xF80010,      LENGTH = 0x2
+  FUID1          : ORIGIN = 0xF80012,      LENGTH = 0x2
+  FUID2          : ORIGIN = 0xF80014,      LENGTH = 0x2
+  FUID3          : ORIGIN = 0xF80016,      LENGTH = 0x2
+}

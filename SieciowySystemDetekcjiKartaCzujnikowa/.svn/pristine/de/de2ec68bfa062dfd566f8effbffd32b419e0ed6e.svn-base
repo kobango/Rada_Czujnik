@@ -1,0 +1,75 @@
+#ifndef MAIN_H
+    #define MAIN_H
+    /////////////////////////////////////////////////////////////////
+    #include <p18f26k80.h>
+    #define FLASH_V1_4
+    #include <flash.h>
+    #include "WeWy.h"
+
+    #define FCY 16000000  //14745600
+
+    #define ResetDevice()  {_asm goto 0xC00 _endasm}
+//mm	#define Nop() {__asm__ volatile ("nop");}
+//mm	#define ClrWdt() {__asm__ volatile ("clrwdt");}
+//mm	#define Sleep() {__asm__ volatile ("pwrsav #0");}
+    //#define Idle() {__asm__ volatile ("pwrsav #1");}
+    #define _ISR __attribute__((interrupt))
+
+    #define EEPROM_OFFSET 0x100
+
+    #define CZAS_OCZEKIWANIA_NA_RAMKE_CAN 100 //razy 100ms
+
+    #define TIMER_RAMKI_STANU 100
+
+
+    #define STATUS_LED LATAbits.LATA5
+    #define LED_ON 0
+    #define LED_OFF 1
+
+    // define dla timerow
+    #define b100ms_5sek 50
+    #define b100ms_2_5sek 25
+    #define b100ms_2sek 20
+    #define b100ms_10sek 100
+
+    #define Const_ADR 0x9FFE
+
+    /////////////////////////////////////////////////////////////////
+
+
+    typedef struct{
+         union
+        {
+            BYTE flagiU8;
+
+            struct{
+                unsigned obsluzWeWy : 1;
+                unsigned error : 1;
+                unsigned obsluzRamkeKarty : 1;
+                unsigned obsluzRamkeCzujnika : 1;
+                unsigned wyslijRamkeStanu : 1;
+                unsigned wyslijRamkeDoCzujnikow : 1;
+                unsigned uczenieTla : 1;
+            };
+        }Flagi;
+
+       WeWyStruct weWy[WEWY];
+    }KartaStruct;
+	/////////////////////////////////////////////////////////////////
+
+
+
+    extern rom WORD wersjaOprogramowania;
+    extern rom BYTE eedata_values[];
+    extern KartaStruct kartaCzujnikowa;
+
+    extern void _startup (void);
+    void WylaczPrzerwania(void);
+    void WlaczPotwierdzenie(void);
+    void zapisUstawienDoEEPROM(void);
+    unsigned char ReadfromEEPROM(unsigned int Address);
+    void WritetoEEPROM(unsigned int Address, unsigned char Data);
+    void InterruptHandlerHigh(void);
+    void InitAll(void);
+/////////////////////////////////////////////////////////////////
+#endif

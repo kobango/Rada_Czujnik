@@ -1,0 +1,104 @@
+#include "main.h"
+#include "interrupts.h"
+#include "transmisja.h"
+
+/*******************************************************************
+Funkcja: void WylaczPrzerwania()
+Opis funkcji: Funkcja wylaczajaca wszystwkie przerwania
+Data: 07.03.13
+Autor: Mariusz Chrobak
+*****************************************************************/
+void WylaczPrzerwania(void)
+{
+    INTCON = 0x00;
+    INTCON2 = 0xFF;
+    INTCON3 = 0xC0;
+
+    PIE1 = 0x00;
+    PIE2 = 0x00;
+    PIE3 = 0x00;
+    PIE4 = 0x00;
+    PIE5 = 0x00;
+
+    BIE0 = 0;
+
+    PIR1 = 0x00;
+    PIR2 = 0x00;
+    PIR3 = 0x00;
+    PIR4 = 0x00;
+    PIR5 = 0x00;
+
+    IPR1 = 0xFF;
+    IPR2 = 0xFF;
+    IPR3 = 0xFF;
+    IPR4 = 0xFF;
+    IPR5 = 0xFF;
+}
+/*******************************************************************
+Funkcja: void interrupt low_priority InterruptHandlerLow()
+Opis funkcji: Przerwanie timera1 co 50ms, odliczanie czasu, CTMU,
+ *                                  temperatura, CAN
+Data: 07.10.08
+*****************************************************************/
+#pragma code low_vetor=0xc18
+void interrupt_at_low_vector(void)
+{
+    _asm goto InterruptHandlerLow _endasm
+}
+#pragma code
+#pragma interruptlow InterruptHandlerLow
+
+void InterruptHandlerLow(void) //tc_clr()
+{
+    BYTE t1L = 0, t1H = 0;
+    static BYTE ramkaStanuU8=0;
+    
+
+/**************************************
+/         Timer co 50ms               /
+**************************************/
+    if(PIR1bits.TMR1IF == 1)
+    {
+        /* Clear the interrupt Flag */
+        PIR1bits.TMR1IF = 0;
+
+        // jedyna sluszna metoda "zerowania" timera 0 - problem z buforowaniem TMR0H
+        t1L = TMR1L;
+        t1H = TMR1H;
+        t1H += 0x3C;
+        t1L += 0xAF;
+        TMR1H = t1H;
+        TMR1L = t1L;
+        kartaCzujnikowa.Flagi.obsluzWeWy = 1;
+        if(++ramkaStanuU8 > TIMER_RAMKI_STANU)
+        {
+            ramkaStanuU8 = 0;
+            DaneCan.Flagi.wyslijRamkeStanu = 1;
+        }
+                 
+    }
+}
+
+
+#pragma code high_vetor=0xc08
+void interrupt_at_high_vector(void)
+{
+    _asm goto InterruptHandlerHigh _endasm
+}
+#pragma code
+#pragma interrupt InterruptHandlerHigh
+void InterruptHandlerHigh(void)
+{
+
+    if(PIR1bits.TMR2IF) 
+    {
+//        Parametry.Flagi.Timer2 = 1;
+        PIR1bits.TMR2IF =0;
+    }
+    /* Check the interrupt Flag */
+    if(PIE4bits.TMR4IE & PIR4bits.TMR4IF )
+    {
+        PIR4bits.TMR4IF = 0;
+    }
+
+}

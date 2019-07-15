@@ -1,0 +1,14 @@
+
+#ifndef RAMKIKARTY_H
+    #define	RAMKIKARTY_H
+    #include "CAN.h"
+
+
+    extern mID ramkaCanRxKarty, ramkaCanTxKarty;
+
+    void ObsluzRamkeCan(void);
+    void WyslijRamkeStatusu(void);
+
+
+#endif	/* RAMKIKARTY_H */
+

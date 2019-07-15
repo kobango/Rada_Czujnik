@@ -1,0 +1,10 @@
+build/default/debug/interrupts.o:  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa/interrupts.c  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa/WeWy.h  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa/main.h  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa/CAN.h  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa/GenericTypeDefs.h  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa/interrupts.h  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa/RamkiCzujnikow.h  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa/RamkiKarty.h  \
+

@@ -1,0 +1,1824 @@
+
+
+Microchip Technology PIC18 LITE Macro Assembler V1.21 build 54009 
+                                                                                               Fri Nov 21 11:16:44 2014
+
+Microchip Technology Omniscient Code Generator (Lite mode) build 54009
+     1                           	processor	18F26K80
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	lm
+     5                           	psect	intcode,global,delta=1
+     6                           	psect	intcodelo,global,delta=1
+     7                           	psect	text0,global,reloc=2,class=CODE,delta=1
+     8                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     9                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1
+    10                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1
+    11                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1
+    12                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    16                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
+    17                           	psect	rparam,global,class=COMRAM,space=1,delta=1
+    18  0000                     
+    19                           	psect	intcode
+    20  000008  EF04 F006          	goto	3080	;# 
+    21                           
+    22                           	psect	intcodelo
+    23  000018  EF0C F006          	goto	3096	;# 
+    24  0000                     _TMR0	set	4054
+    25  0000                     _B0CON	set	3712
+    26  0000                     _B1CON	set	3728
+    27  0000                     _B2CON	set	3744
+    28  0000                     _B3CON	set	3760
+    29  0000                     _B4CON	set	3776
+    30  0000                     _B5CON	set	3792
+    31  0000                     _BRGCON1bits	set	3651
+    32  0000                     _BRGCON2bits	set	3652
+    33  0000                     _BRGCON3bits	set	3653
+    34  0000                     _CANCON	set	3951
+    35  0000                     _CANSTAT	set	3950
+    36  0000                     _ECANCON	set	3954
+    37  0000                     _EECON1bits	set	3967
+    38  0000                     _EECON2	set	3966
+    39  0000                     _INTCONbits	set	4082
+    40  0000                     _LATAbits	set	3977
+    41  0000                     _MSEL0	set	3705
+    42  0000                     _RCON	set	4048
+    43  0000                     _RXB0CON	set	3936
+    44  0000                     _RXB1CON	set	3888
+    45  0000                     _RXF0EIDH	set	3810
+    46  0000                     _RXF0EIDL	set	3811
+    47  0000                     _RXF0SIDH	set	3808
+    48  0000                     _RXF0SIDL	set	3809
+    49  0000                     _RXF0SIDLbits	set	3809
+    50  0000                     _RXFCON0	set	3654
+    51  0000                     _RXFCON1	set	3655
+    52  0000                     _RXM0EIDH	set	3834
+    53  0000                     _RXM0EIDL	set	3835
+    54  0000                     _RXM0SIDH	set	3832
+    55  0000                     _RXM0SIDL	set	3833
+    56  0000                     _T0CON	set	4053
+    57  0000                     _T0CONbits	set	4053
+    58  0000                     _TBLPTRH	set	4087
+    59  0000                     _TBLPTRL	set	4086
+    60  0000                     _TBLPTRU	set	4088
+    61  0000                     _TRISA	set	3986
+    62  0000                     _TRISAbits	set	3986
+    63  0000                     _TRISB	set	3987
+    64  0000                     _TRISC	set	3988
+    65  0000                     _TRISCbits	set	3988
+    66  0000                     _RXB0D0	set	3942
+    67                           
+    68 ;;
+    69 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+    70 ;;
+    71 ;; *************** function _main *****************
+    72 ;; Defined at:
+    73 ;;		line 227 in file "main.c"
+    74 ;; Parameters:    Size  Location     Type
+    75 ;;		None
+    76 ;; Auto vars:     Size  Location     Type
+    77 ;;  Delay           1   29[COMRAM] unsigned char 
+    78 ;; Return value:  Size  Location     Type
+    79 ;;                  2  131[COMRAM] int 
+    80 ;; Registers used:
+    81 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+    82 ;; Tracked objects:
+    83 ;;		On entry : 0/0
+    84 ;;		On exit  : 0/0
+    85 ;;		Unchanged: 0/0
+    86 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+    87 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+    88 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+    89 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+    90 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+    91 ;;Total ram usage:        2 bytes
+    92 ;; Hardware stack levels required when called:    2
+    93 ;; This function calls:
+    94 ;;		_OdbierzRamke
+    95 ;;		_ResetDevice
+    96 ;; This function is called by:
+    97 ;;		Startup code after reset
+    98 ;; This function uses a non-reentrant model
+    99 ;;
+   100                           
+   101                           	psect	text0
+   102  00026E                     __ptext0:
+   103                           	opt stack 0
+   104                           
+   105                           ; #config settings
+   106  00026E                     _main:
+   107                           	opt stack 28
+   108                           
+   109                           ;main.c: 228: unsigned char Delay;
+   110                           ;main.c: 231: if((RCON&0x3F)!=0x3C)
+   111                           
+   112                           ;incstack = 0
+   113                           ;incstack = 0
+   114  00026E  50D0               	movf	4048,w,c	;volatile
+   115  000270  0B3F               	andlw	63
+   116  000272  0A3C               	xorlw	60
+   117  000274  A4D8               	btfss	status,2,c
+   118                           
+   119                           ;main.c: 232: {
+   120                           ;main.c: 233: ResetDevice();
+   121  000276  ECF6  F001         	call	_ResetDevice	;wreg free
+   122                           
+   123                           ;main.c: 234: }
+   124                           ;main.c: 236: Delay = 5;
+   125  00027A  6E1D               	movwf	??_main& (0+255),c
+   126  00027C  0E05               	movlw	5
+   127  00027E  6E1E               	movwf	main@Delay,c
+   128  000280  501D               	movf	??_main& (0+255),w,c
+   129                           
+   130                           ;main.c: 238: TRISA = 0xFF;
+   131  000282  6892               	setf	3986,c	;volatile
+   132                           
+   133                           ;main.c: 239: TRISB = 0xFF;
+   134  000284  6893               	setf	3987,c	;volatile
+   135                           
+   136                           ;main.c: 240: TRISAbits.TRISA5 = 0;
+   137  000286  9A92               	bcf	3986,5,c	;volatile
+   138                           
+   139                           ;main.c: 241: LATAbits.LATA5 = 0;
+   140  000288  9A89               	bcf	3977,5,c	;volatile
+   141                           
+   142                           ;main.c: 242: TRISC = 0xFF;
+   143  00028A  6894               	setf	3988,c	;volatile
+   144                           
+   145                           ;main.c: 243: TRISCbits.TRISC6 = 0;
+   146  00028C  9C94               	bcf	3988,6,c	;volatile
+   147                           
+   148                           ;main.c: 246: T0CON = 0x00;
+   149  00028E  0E00               	movlw	0
+   150  000290  6ED5               	movwf	4053,c	;volatile
+   151                           
+   152                           ;main.c: 247: T0CONbits.T0PS = 0x05;
+   153  000292  50D5               	movf	4053,w,c	;volatile
+   154  000294  0BF8               	andlw	-8
+   155  000296  0905               	iorlw	5
+   156  000298  6ED5               	movwf	4053,c	;volatile
+   157                           
+   158                           ;main.c: 249: INTCONbits.TMR0IE = 0;
+   159  00029A  9AF2               	bcf	intcon,5,c	;volatile
+   160                           
+   161                           ;main.c: 250: INTCONbits.TMR0IF = 0;
+   162  00029C  94F2               	bcf	intcon,2,c	;volatile
+   163                           
+   164                           ;main.c: 252: TMR0 = 62500;
+   165  00029E  0EF4               	movlw	244
+   166  0002A0  6ED7               	movwf	4055,c	;volatile
+   167  0002A2  0E24               	movlw	36
+   168  0002A4  6ED6               	movwf	4054,c	;volatile
+   169                           
+   170                           ;main.c: 255: T0CONbits.TMR0ON = 1;
+   171  0002A6  8ED5               	bsf	4053,7,c	;volatile
+   172                           
+   173                           ;main.c: 258: CANCON = 0x80;
+   174  0002A8  0E80               	movlw	128
+   175  0002AA  6E6F               	movwf	3951,c	;volatile
+   176  0002AC                     l1183:
+   177  0002AC  506E               	movf	3950,w,c	;volatile
+   178  0002AE  0BE0               	andlw	224
+   179  0002B0  0A80               	xorlw	128
+   180  0002B2  A4D8               	btfss	status,2,c
+   181  0002B4  D7FB               	goto	l1183
+   182                           
+   183                           ;main.c: 262: }
+   184                           ;main.c: 265: ECANCON = 0x90;
+   185  0002B6  0E90               	movlw	144
+   186  0002B8  6E72               	movwf	3954,c	;volatile
+   187                           
+   188                           ;main.c: 269: BRGCON1bits.BRP = ((16000000/(2*20*50000))-1);
+   189  0002BA  010E               	movlb	14	; () banked
+   190  0002BC  8143               	bsf	67,0,b	;volatile
+   191  0002BE  010E               	movlb	14	; () banked
+   192  0002C0  8343               	bsf	67,1,b	;volatile
+   193  0002C2  010E               	movlb	14	; () banked
+   194  0002C4  8543               	bsf	67,2,b	;volatile
+   195  0002C6  010E               	movlb	14	; () banked
+   196  0002C8  9743               	bcf	67,3,b	;volatile
+   197  0002CA  010E               	movlb	14	; () banked
+   198  0002CC  9943               	bcf	67,4,b	;volatile
+   199  0002CE  010E               	movlb	14	; () banked
+   200  0002D0  9B43               	bcf	67,5,b	;volatile
+   201                           
+   202                           ; BSR set to: 14
+   203                           ;main.c: 270: BRGCON2bits.SEG1PH = 0b111;
+   204  0002D2  010E               	movlb	14	; () banked
+   205  0002D4  8744               	bsf	68,3,b	;volatile
+   206  0002D6  010E               	movlb	14	; () banked
+   207  0002D8  8944               	bsf	68,4,b	;volatile
+   208  0002DA  010E               	movlb	14	; () banked
+   209  0002DC  8B44               	bsf	68,5,b	;volatile
+   210                           
+   211                           ;main.c: 271: BRGCON2bits.PRSEG = 0b100;
+   212  0002DE  010E               	movlb	14	; () banked
+   213  0002E0  010E               	movlb	14	; () banked
+   214  0002E2  5144               	movf	68,w,b	;volatile
+   215  0002E4  0BF8               	andlw	-8
+   216  0002E6  0904               	iorlw	4
+   217  0002E8  010E               	movlb	14	; () banked
+   218  0002EA  6F44               	movwf	68,b	;volatile
+   219                           
+   220                           ;main.c: 272: BRGCON3bits.SEG2PH = 0b101;
+   221  0002EC  010E               	movlb	14	; () banked
+   222  0002EE  010E               	movlb	14	; () banked
+   223  0002F0  5145               	movf	69,w,b	;volatile
+   224  0002F2  0BF8               	andlw	-8
+   225  0002F4  0905               	iorlw	5
+   226  0002F6  010E               	movlb	14	; () banked
+   227  0002F8  6F45               	movwf	69,b	;volatile
+   228                           
+   229                           ; BSR set to: 14
+   230                           ;main.c: 274: BRGCON2bits.SAM = 1;
+   231  0002FA  010E               	movlb	14	; () banked
+   232  0002FC  010E               	movlb	14	; () banked
+   233  0002FE  8D44               	bsf	68,6,b	;volatile
+   234                           
+   235                           ; BSR set to: 14
+   236                           ;main.c: 275: BRGCON2bits.SEG2PHTS = 1;
+   237  000300  010E               	movlb	14	; () banked
+   238  000302  010E               	movlb	14	; () banked
+   239  000304  8F44               	bsf	68,7,b	;volatile
+   240                           
+   241                           ;main.c: 280: MSEL0 = 0x00;
+   242  000306  0E00               	movlw	0
+   243  000308  010E               	movlb	14	; () banked
+   244  00030A  010E               	movlb	14	; () banked
+   245  00030C  6F79               	movwf	121,b	;volatile
+   246                           
+   247                           ;main.c: 281: RXM0SIDH = 0b11100000;
+   248  00030E  0EE0               	movlw	224
+   249  000310  010E               	movlb	14	; () banked
+   250  000312  010E               	movlb	14	; () banked
+   251  000314  6FF8               	movwf	248,b	;volatile
+   252                           
+   253                           ;main.c: 282: RXM0SIDL = 0b00001011;
+   254  000316  0E0B               	movlw	11
+   255  000318  010E               	movlb	14	; () banked
+   256  00031A  010E               	movlb	14	; () banked
+   257  00031C  6FF9               	movwf	249,b	;volatile
+   258                           
+   259                           ; BSR set to: 14
+   260                           ;main.c: 283: RXM0EIDH = 0xFF;
+   261  00031E  010E               	movlb	14	; () banked
+   262  000320  010E               	movlb	14	; () banked
+   263  000322  69FA               	setf	250,b	;volatile
+   264                           
+   265                           ; BSR set to: 14
+   266                           ;main.c: 284: RXM0EIDL = 0xFF;
+   267  000324  010E               	movlb	14	; () banked
+   268  000326  010E               	movlb	14	; () banked
+   269  000328  69FB               	setf	251,b	;volatile
+   270                           
+   271                           ;main.c: 287: RXF0SIDH = 0x60;
+   272  00032A  0E60               	movlw	96
+   273  00032C  010E               	movlb	14	; () banked
+   274  00032E  010E               	movlb	14	; () banked
+   275  000330  6FE0               	movwf	224,b	;volatile
+   276                           
+   277                           ;main.c: 288: RXF0SIDL = 0x01;
+   278  000332  0E01               	movlw	1
+   279  000334  010E               	movlb	14	; () banked
+   280  000336  010E               	movlb	14	; () banked
+   281  000338  6FE1               	movwf	225,b	;volatile
+   282                           
+   283                           ; BSR set to: 14
+   284                           ;main.c: 289: RXF0SIDLbits.EXIDEN = 1;
+   285  00033A  010E               	movlb	14	; () banked
+   286  00033C  010E               	movlb	14	; () banked
+   287  00033E  87E1               	bsf	225,3,b	;volatile
+   288                           
+   289                           ;main.c: 290: RXF0EIDH = 0x40;
+   290  000340  0E40               	movlw	64
+   291  000342  010E               	movlb	14	; () banked
+   292  000344  010E               	movlb	14	; () banked
+   293  000346  6FE2               	movwf	226,b	;volatile
+   294                           
+   295                           ;main.c: 291: RXF0EIDL = 0;
+   296  000348  0E00               	movlw	0
+   297  00034A  010E               	movlb	14	; () banked
+   298  00034C  010E               	movlb	14	; () banked
+   299  00034E  6FE3               	movwf	227,b	;volatile
+   300                           
+   301                           ;main.c: 295: RXFCON0 = 0x01;
+   302  000350  0E01               	movlw	1
+   303  000352  010E               	movlb	14	; () banked
+   304  000354  010E               	movlb	14	; () banked
+   305  000356  6F46               	movwf	70,b	;volatile
+   306                           
+   307                           ;main.c: 296: RXFCON1 = 0x00;
+   308  000358  0E00               	movlw	0
+   309  00035A  010E               	movlb	14	; () banked
+   310  00035C  010E               	movlb	14	; () banked
+   311  00035E  6F47               	movwf	71,b	;volatile
+   312                           
+   313                           ;main.c: 304: RXB0CON = 0;
+   314  000360  0E00               	movlw	0
+   315  000362  6E60               	movwf	3936,c	;volatile
+   316                           
+   317                           ;main.c: 305: RXB1CON = 0;
+   318  000364  0E00               	movlw	0
+   319  000366  010F               	movlb	15	; () banked
+   320  000368  010F               	movlb	15	; () banked
+   321  00036A  6F30               	movwf	48,b	;volatile
+   322                           
+   323                           ;main.c: 306: B0CON = 0;
+   324  00036C  0E00               	movlw	0
+   325  00036E  010E               	movlb	14	; () banked
+   326  000370  010E               	movlb	14	; () banked
+   327  000372  6F80               	movwf	128,b	;volatile
+   328                           
+   329                           ;main.c: 307: B1CON = 0;
+   330  000374  0E00               	movlw	0
+   331  000376  010E               	movlb	14	; () banked
+   332  000378  010E               	movlb	14	; () banked
+   333  00037A  6F90               	movwf	144,b	;volatile
+   334                           
+   335                           ;main.c: 308: B2CON = 0;
+   336  00037C  0E00               	movlw	0
+   337  00037E  010E               	movlb	14	; () banked
+   338  000380  010E               	movlb	14	; () banked
+   339  000382  6FA0               	movwf	160,b	;volatile
+   340                           
+   341                           ;main.c: 309: B3CON = 0;
+   342  000384  0E00               	movlw	0
+   343  000386  010E               	movlb	14	; () banked
+   344  000388  010E               	movlb	14	; () banked
+   345  00038A  6FB0               	movwf	176,b	;volatile
+   346                           
+   347                           ;main.c: 310: B4CON = 0;
+   348  00038C  0E00               	movlw	0
+   349  00038E  010E               	movlb	14	; () banked
+   350  000390  010E               	movlb	14	; () banked
+   351  000392  6FC0               	movwf	192,b	;volatile
+   352                           
+   353                           ;main.c: 311: B5CON = 0;
+   354  000394  0E00               	movlw	0
+   355  000396  010E               	movlb	14	; () banked
+   356  000398  010E               	movlb	14	; () banked
+   357  00039A  6FD0               	movwf	208,b	;volatile
+   358                           
+   359                           ;main.c: 314: CANCON = 0x00;
+   360  00039C  0E00               	movlw	0
+   361  00039E  6E6F               	movwf	3951,c	;volatile
+   362  0003A0                     l1201:
+   363  0003A0  506E               	movf	3950,w,c	;volatile
+   364  0003A2  0BE0               	andlw	224
+   365  0003A4  A4D8               	btfss	status,2,c
+   366  0003A6  D7FC               	goto	l1201
+   367                           
+   368                           ;main.c: 318: }
+   369                           ;main.c: 319: SourceAddr.Val32 = (DWORD)0xC00;
+   370  0003A8  0E00               	movlw	0
+   371  0003AA  6E1F               	movwf	_SourceAddr,c
+   372  0003AC  0E0C               	movlw	12
+   373  0003AE  6E20               	movwf	_SourceAddr+1,c
+   374  0003B0  0E00               	movlw	0
+   375  0003B2  6E21               	movwf	_SourceAddr+2,c
+   376  0003B4  0E00               	movlw	0
+   377  0003B6  6E22               	movwf	_SourceAddr+3,c
+   378                           
+   379                           ;main.c: 320: counter = 0;
+   380  0003B8  6E1D               	movwf	??_main& (0+255),c
+   381  0003BA  0E00               	movlw	0
+   382  0003BC  6E23               	movwf	_counter,c
+   383  0003BE  501D               	movf	??_main& (0+255),w,c
+   384                           
+   385                           ;main.c: 321: iloscBajtow = 0;
+   386  0003C0  6E1D               	movwf	??_main& (0+255),c
+   387  0003C2  0E00               	movlw	0
+   388  0003C4  6E24               	movwf	_iloscBajtow,c
+   389  0003C6  501D               	movf	??_main& (0+255),w,c
+   390                           
+   391                           ;main.c: 322: ramekInicjalizacji = 0;
+   392  0003C8  6E1D               	movwf	??_main& (0+255),c
+   393  0003CA  0E00               	movlw	0
+   394  0003CC  6E25               	movwf	_ramekInicjalizacji,c
+   395  0003CE  501D               	movf	??_main& (0+255),w,c
+   396  0003D0                     l1211:
+   397                           
+   398                           ;main.c: 324: {
+   399                           ;main.c: 325: OdbierzRamke();
+   400  0003D0  EC10  F000         	call	_OdbierzRamke	;wreg free
+   401                           
+   402                           ;main.c: 328: if(INTCONbits.TMR0IF == 1)
+   403  0003D4  A4F2               	btfss	intcon,2,c	;volatile
+   404  0003D6  D7FC               	goto	l1211
+   405                           
+   406                           ;main.c: 329: {
+   407                           ;main.c: 330: INTCONbits.TMR0IF = 0;
+   408  0003D8  94F2               	bcf	intcon,2,c	;volatile
+   409  0003DA  0004               	clrwdt		;# 
+   410                           
+   411                           ;main.c: 333: if(++counter >= Delay)
+   412  0003DC  501E               	movf	main@Delay,w,c
+   413  0003DE  2A23               	incf	_counter,f,c
+   414  0003E0  5C23               	subwf	_counter& (0+255),w,c
+   415  0003E2  A0D8               	btfss	status,0,c
+   416  0003E4  D7F5               	goto	l1211
+   417                           
+   418                           ;main.c: 334: {
+   419                           ;main.c: 335: ResetDevice();
+   420  0003E6  ECF6  F001         	call	_ResetDevice	;wreg free
+   421  0003EA  D7F2               	goto	l1211
+   422  0003EC                     __end_of_main:
+   423                           	opt stack 0
+   424                           intcon	equ	0xFF2
+   425                           status	equ	0xFD8
+   426                           
+   427                           	psect	cinit
+   428  000592                     __pcinit:
+   429                           	opt stack 0
+   430  000592                     start_initialization:
+   431                           	opt stack 0
+   432  000592                     __initialization:
+   433                           	opt stack 0
+   434                           
+   435                           ; Clear objects allocated to BANK0 (65 bytes)
+   436  000592  EE00  F060         	lfsr	0,__pbssBANK0
+   437  000596  0E41               	movlw	65
+   438  000598                     clear_0:
+   439  000598  6AEE               	clrf	postinc0,c
+   440  00059A  06E8               	decf	wreg,f,c
+   441  00059C  E1FD               	bnz	clear_0
+   442                           
+   443                           ; Clear objects allocated to COMRAM (7 bytes)
+   444  00059E  EE00  F01F         	lfsr	0,__pbssCOMRAM
+   445  0005A2  0E07               	movlw	7
+   446  0005A4                     clear_1:
+   447  0005A4  6AEE               	clrf	postinc0,c
+   448  0005A6  06E8               	decf	wreg,f,c
+   449  0005A8  E1FD               	bnz	clear_1
+   450  0005AA                     end_of_initialization:
+   451                           	opt stack 0
+   452  0005AA                     __end_of__initialization:
+   453                           	opt stack 0
+   454  0005AA  0E00               	movlw	low (__Lmediumconst shr (0+16))
+   455  0005AC  6EF8               	movwf	tblptru,c
+   456  0005AE  0100               	movlb	0
+   457  0005B0  EF37  F001         	goto	_main	;jump to C main() function
+   458                           tblptru	equ	0xFF8
+   459                           intcon	equ	0xFF2
+   460                           postinc0	equ	0xFEE
+   461                           wreg	equ	0xFE8
+   462                           status	equ	0xFD8
+   463                           
+   464                           	psect	bssCOMRAM
+   465  00001F                     __pbssCOMRAM:
+   466                           	opt stack 0
+   467  00001F                     _SourceAddr:
+   468                           	opt stack 0
+   469  00001F                     	ds	4
+   470  000023                     _counter:
+   471                           	opt stack 0
+   472  000023                     	ds	1
+   473  000024                     _iloscBajtow:
+   474                           	opt stack 0
+   475  000024                     	ds	1
+   476  000025                     _ramekInicjalizacji:
+   477                           	opt stack 0
+   478  000025                     	ds	1
+   479                           tblptru	equ	0xFF8
+   480                           intcon	equ	0xFF2
+   481                           postinc0	equ	0xFEE
+   482                           wreg	equ	0xFE8
+   483                           status	equ	0xFD8
+   484                           
+   485                           	psect	bssBANK0
+   486  000060                     __pbssBANK0:
+   487                           	opt stack 0
+   488  000060                     _buforCAN:
+   489                           	opt stack 0
+   490  000060                     	ds	65
+   491                           tblptru	equ	0xFF8
+   492                           intcon	equ	0xFF2
+   493                           postinc0	equ	0xFEE
+   494                           wreg	equ	0xFE8
+   495                           status	equ	0xFD8
+   496                           
+   497                           	psect	cstackCOMRAM
+   498  000001                     __pcstackCOMRAM:
+   499                           	opt stack 0
+   500  000001                     ?_EraseFlash:
+   501                           	opt stack 0
+   502  000001                     ?_WriteBytesFlash:
+   503                           	opt stack 0
+   504  000001                     EraseFlash@startaddr:
+   505                           	opt stack 0
+   506  000001                     WriteBytesFlash@startaddr:
+   507                           	opt stack 0
+   508                           
+   509                           ; 4 bytes @ 0x0
+   510  000001                     	ds	4
+   511  000005                     WriteBytesFlash@num_bytes:
+   512                           	opt stack 0
+   513  000005                     EraseFlash@endaddr:
+   514                           	opt stack 0
+   515                           
+   516                           ; 4 bytes @ 0x4
+   517  000005                     	ds	2
+   518  000007                     WriteBytesFlash@flash_array:
+   519                           	opt stack 0
+   520                           
+   521                           ; 2 bytes @ 0x6
+   522  000007                     	ds	2
+   523  000009                     ??_EraseFlash:
+   524  000009                     ??_WriteBytesFlash:
+   525                           
+   526                           ; 0 bytes @ 0x8
+   527  000009                     	ds	1
+   528  00000A                     EraseFlash@flag:
+   529                           	opt stack 0
+   530  00000A                     WriteBytesFlash@saveptr:
+   531                           	opt stack 0
+   532                           
+   533                           ; 3 bytes @ 0x9
+   534  00000A                     	ds	1
+   535  00000B                     EraseFlash@flash_addr:
+   536                           	opt stack 0
+   537                           
+   538                           ; 4 bytes @ 0xA
+   539  00000B                     	ds	2
+   540  00000D                     WriteBytesFlash@write_byte:
+   541                           	opt stack 0
+   542                           
+   543                           ; 1 bytes @ 0xC
+   544  00000D                     	ds	1
+   545  00000E                     WriteBytesFlash@flag:
+   546                           	opt stack 0
+   547                           
+   548                           ; 1 bytes @ 0xD
+   549  00000E                     	ds	1
+   550  00000F                     WriteBytesFlash@startptr:
+   551                           	opt stack 0
+   552                           
+   553                           ; 3 bytes @ 0xE
+   554  00000F                     	ds	3
+   555  000012                     WriteBytesFlash@saddress:
+   556                           	opt stack 0
+   557                           
+   558                           ; 4 bytes @ 0x11
+   559  000012                     	ds	4
+   560  000016                     ??_OdbierzRamke:
+   561                           
+   562                           ; 0 bytes @ 0x15
+   563  000016                     	ds	2
+   564  000018                     OdbierzRamke@pointerU8:
+   565                           	opt stack 0
+   566                           
+   567                           ; 2 bytes @ 0x17
+   568  000018                     	ds	2
+   569  00001A                     OdbierzRamke@k:
+   570                           	opt stack 0
+   571                           
+   572                           ; 1 bytes @ 0x19
+   573  00001A                     	ds	1
+   574  00001B                     OdbierzRamke@tempCON:
+   575                           	opt stack 0
+   576                           
+   577                           ; 1 bytes @ 0x1A
+   578  00001B                     	ds	1
+   579  00001C                     OdbierzRamke@i:
+   580                           	opt stack 0
+   581                           
+   582                           ; 1 bytes @ 0x1B
+   583  00001C                     	ds	1
+   584  00001D                     ??_main:
+   585                           
+   586                           ; 0 bytes @ 0x1C
+   587  00001D                     	ds	1
+   588  00001E                     main@Delay:
+   589                           	opt stack 0
+   590                           
+   591                           ; 1 bytes @ 0x1D
+   592  00001E                     	ds	1
+   593                           tblptru	equ	0xFF8
+   594                           intcon	equ	0xFF2
+   595                           postinc0	equ	0xFEE
+   596                           wreg	equ	0xFE8
+   597                           status	equ	0xFD8
+   598                           
+   599 ;; *************** function _OdbierzRamke *****************
+   600 ;; Defined at:
+   601 ;;		line 114 in file "main.c"
+   602 ;; Parameters:    Size  Location     Type
+   603 ;;		None
+   604 ;; Auto vars:     Size  Location     Type
+   605 ;;  pointerU8       2   23[COMRAM] PTR volatile unsigned ch
+   606 ;;		 -> RXB0D0(1), 
+   607 ;;  tempU16         2    0        unsigned int 
+   608 ;;  i               1   27[COMRAM] unsigned char 
+   609 ;;  tempCON         1   26[COMRAM] unsigned char 
+   610 ;;  k               1   25[COMRAM] unsigned char 
+   611 ;; Return value:  Size  Location     Type
+   612 ;;		None               void
+   613 ;; Registers used:
+   614 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+   615 ;; Tracked objects:
+   616 ;;		On entry : 0/0
+   617 ;;		On exit  : 0/0
+   618 ;;		Unchanged: 0/0
+   619 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+   620 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   621 ;;      Locals:         5       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   622 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   623 ;;      Totals:         7       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+   624 ;;Total ram usage:        7 bytes
+   625 ;; Hardware stack levels used:    1
+   626 ;; Hardware stack levels required when called:    1
+   627 ;; This function calls:
+   628 ;;		_ResetDevice
+   629 ;;		_EraseFlash
+   630 ;;		_WriteBytesFlash
+   631 ;; This function is called by:
+   632 ;;		_main
+   633 ;; This function uses a non-reentrant model
+   634 ;;
+   635                           
+   636                           	psect	text1
+   637  000020                     __ptext1:
+   638                           	opt stack 0
+   639  000020                     _OdbierzRamke:
+   640                           	opt stack 28
+   641                           
+   642                           ;main.c: 115: volatile unsigned char *pointerU8;
+   643                           ;main.c: 116: unsigned char i, k,tempCON = 0;
+   644                           
+   645                           ;incstack = 0
+   646                           ;incstack = 0
+   647  000020  6E16               	movwf	??_OdbierzRamke& (0+255),c
+   648  000022  0E00               	movlw	0
+   649  000024  6E1B               	movwf	OdbierzRamke@tempCON,c
+   650  000026  5016               	movf	??_OdbierzRamke& (0+255),w,c
+   651                           
+   652                           ;main.c: 117: unsigned int tempU16;
+   653                           ;main.c: 119: k = CANCON&0x0F;
+   654  000028  506F               	movf	3951,w,c	;volatile
+   655  00002A  0B0F               	andlw	15
+   656  00002C  6E1A               	movwf	OdbierzRamke@k,c
+   657                           
+   658                           ;main.c: 121: ECANCON = 0x90 | k;
+   659  00002E  501A               	movf	OdbierzRamke@k,w,c
+   660  000030  0990               	iorlw	144
+   661  000032  6E72               	movwf	3954,c	;volatile
+   662                           
+   663                           ;main.c: 124: switch(k)
+   664  000034  D018               	goto	l1073
+   665  000036                     l96:
+   666                           
+   667                           ;main.c: 127: tempCON = RXB0CON;
+   668  000036  CF60 F01B          	movff	3936,OdbierzRamke@tempCON	;volatile
+   669                           
+   670                           ;main.c: 128: break;
+   671  00003A  D02E               	goto	l97
+   672  00003C                     l98:
+   673                           
+   674                           ;main.c: 130: tempCON = RXB1CON;
+   675  00003C  CF30 F01B          	movff	3888,OdbierzRamke@tempCON	;volatile
+   676                           
+   677                           ;main.c: 131: break;
+   678  000040  D02B               	goto	l97
+   679  000042                     l99:
+   680                           
+   681                           ;main.c: 133: tempCON = B0CON;
+   682  000042  CE80 F01B          	movff	3712,OdbierzRamke@tempCON	;volatile
+   683                           
+   684                           ;main.c: 134: break;
+   685  000046  D028               	goto	l97
+   686  000048                     l100:
+   687                           
+   688                           ;main.c: 136: tempCON = B1CON;
+   689  000048  CE90 F01B          	movff	3728,OdbierzRamke@tempCON	;volatile
+   690                           
+   691                           ;main.c: 137: break;
+   692  00004C  D025               	goto	l97
+   693  00004E                     l101:
+   694                           
+   695                           ;main.c: 139: tempCON = B2CON;
+   696  00004E  CEA0 F01B          	movff	3744,OdbierzRamke@tempCON	;volatile
+   697                           
+   698                           ;main.c: 140: break;
+   699  000052  D022               	goto	l97
+   700  000054                     l102:
+   701                           
+   702                           ;main.c: 142: tempCON = B3CON;
+   703  000054  CEB0 F01B          	movff	3760,OdbierzRamke@tempCON	;volatile
+   704                           
+   705                           ;main.c: 143: break;
+   706  000058  D01F               	goto	l97
+   707  00005A                     l103:
+   708                           
+   709                           ;main.c: 145: tempCON = B4CON;
+   710  00005A  CEC0 F01B          	movff	3776,OdbierzRamke@tempCON	;volatile
+   711                           
+   712                           ;main.c: 146: break;
+   713  00005E  D01C               	goto	l97
+   714  000060                     l104:
+   715                           
+   716                           ;main.c: 148: tempCON = B5CON;
+   717  000060  CED0 F01B          	movff	3792,OdbierzRamke@tempCON	;volatile
+   718                           
+   719                           ;main.c: 149: break;
+   720  000064  D019               	goto	l97
+   721  000066                     l1073:
+   722  000066  501A               	movf	OdbierzRamke@k,w,c
+   723                           
+   724                           ; Switch size 1, requested type "space"
+   725                           ; Number of cases is 8, Range of values is 0 to 7
+   726                           ; switch strategies available:
+   727                           ; Name         Instructions Cycles
+   728                           ; simple_byte           25    13 (average)
+   729                           ;	Chosen strategy is simple_byte
+   730  000068  0A00               	xorlw	0	; case 0
+   731  00006A  B4D8               	btfsc	status,2,c
+   732  00006C  D7E4               	goto	l96
+   733  00006E  0A01               	xorlw	1	; case 1
+   734  000070  B4D8               	btfsc	status,2,c
+   735  000072  D7E4               	goto	l98
+   736  000074  0A03               	xorlw	3	; case 2
+   737  000076  B4D8               	btfsc	status,2,c
+   738  000078  D7E4               	goto	l99
+   739  00007A  0A01               	xorlw	1	; case 3
+   740  00007C  B4D8               	btfsc	status,2,c
+   741  00007E  D7E4               	goto	l100
+   742  000080  0A07               	xorlw	7	; case 4
+   743  000082  B4D8               	btfsc	status,2,c
+   744  000084  D7E4               	goto	l101
+   745  000086  0A01               	xorlw	1	; case 5
+   746  000088  B4D8               	btfsc	status,2,c
+   747  00008A  D7E4               	goto	l102
+   748  00008C  0A03               	xorlw	3	; case 6
+   749  00008E  B4D8               	btfsc	status,2,c
+   750  000090  D7E4               	goto	l103
+   751  000092  0A01               	xorlw	1	; case 7
+   752  000094  B4D8               	btfsc	status,2,c
+   753  000096  D7E4               	goto	l104
+   754  000098                     l97:
+   755                           
+   756                           ;main.c: 152: if((tempCON & 0x80) > 0)
+   757  000098  AE1B               	btfss	OdbierzRamke@tempCON,7,c
+   758  00009A  0012               	return	
+   759                           
+   760                           ;main.c: 153: {
+   761                           ;main.c: 154: pointerU8 = &RXB0D0;
+   762  00009C  0E0F               	movlw	15	;volatile
+   763  00009E  6E19               	movwf	OdbierzRamke@pointerU8+1,c
+   764  0000A0  0E66               	movlw	102	;volatile
+   765  0000A2  6E18               	movwf	OdbierzRamke@pointerU8,c
+   766                           
+   767                           ;main.c: 155: for(i=0;i<8;i++)
+   768  0000A4  6E16               	movwf	??_OdbierzRamke& (0+255),c
+   769  0000A6  0E00               	movlw	0
+   770  0000A8  6E1C               	movwf	OdbierzRamke@i,c
+   771  0000AA  5016               	movf	??_OdbierzRamke& (0+255),w,c
+   772  0000AC  D016               	goto	L1
+   773  0000AE                     l1081:
+   774                           
+   775                           ;main.c: 156: {
+   776                           ;main.c: 157: buforCAN[iloscBajtow++]=(*(pointerU8+i));
+   777  0000AE  501C               	movf	OdbierzRamke@i,w,c
+   778  0000B0  0D01               	mullw	1
+   779  0000B2  50F3               	movf	prodl,w,c
+   780  0000B4  2418               	addwf	OdbierzRamke@pointerU8,w,c
+   781  0000B6  6ED9               	movwf	fsr2l,c
+   782  0000B8  50F4               	movf	prodh,w,c
+   783  0000BA  2019               	addwfc	OdbierzRamke@pointerU8+1,w,c
+   784  0000BC  6EDA               	movwf	fsr2h,c
+   785  0000BE  5024               	movf	_iloscBajtow,w,c
+   786  0000C0  0D01               	mullw	1
+   787  0000C2  0100               	movlb	0	; () banked
+   788  0000C4  0E60               	movlw	low _buforCAN
+   789  0000C6  24F3               	addwf	prodl,w,c
+   790  0000C8  6EE1               	movwf	fsr1l,c
+   791  0000CA  0100               	movlb	0	; () banked
+   792  0000CC  0E00               	movlw	high _buforCAN
+   793  0000CE  20F4               	addwfc	prodh,w,c
+   794  0000D0  6EE2               	movwf	fsr1h,c
+   795  0000D2  CFDF FFE7          	movff	indf2,indf1
+   796                           
+   797                           ; BSR set to: 0
+   798  0000D6  2A24               	incf	_iloscBajtow,f,c
+   799                           
+   800                           ; BSR set to: 0
+   801  0000D8  2A1C               	incf	OdbierzRamke@i,f,c
+   802  0000DA                     L1:
+   803                           
+   804                           ; BSR set to: 0
+   805  0000DA  0E07               	movlw	7
+   806  0000DC  641C               	cpfsgt	OdbierzRamke@i,c
+   807  0000DE  D7E7               	goto	l1081
+   808                           
+   809                           ;main.c: 158: }
+   810                           ;main.c: 159: if(ramekInicjalizacji < 10)
+   811                           
+   812                           ; BSR set to: 0
+   813  0000E0  0E0A               	movlw	10
+   814  0000E2  6025               	cpfslt	_ramekInicjalizacji,c
+   815  0000E4  D034               	goto	l1115
+   816                           
+   817                           ;main.c: 160: {
+   818                           ;main.c: 161: for(i=0; i<8; i++)
+   819  0000E6  6E16               	movwf	??_OdbierzRamke& (0+255),c
+   820  0000E8  0E00               	movlw	0
+   821  0000EA  6E1C               	movwf	OdbierzRamke@i,c
+   822  0000EC  5016               	movf	??_OdbierzRamke& (0+255),w,c
+   823  0000EE  D01B               	goto	L2
+   824  0000F0                     l1097:
+   825                           
+   826                           ;main.c: 162: {
+   827                           ;main.c: 163: if(buforCAN[i] != ((ramekInicjalizacji*10)+i))
+   828  0000F0  501C               	movf	OdbierzRamke@i,w,c
+   829  0000F2  0D01               	mullw	1
+   830  0000F4  0100               	movlb	0	; () banked
+   831  0000F6  0E60               	movlw	low _buforCAN
+   832  0000F8  24F3               	addwf	prodl,w,c
+   833  0000FA  6ED9               	movwf	fsr2l,c
+   834  0000FC  0100               	movlb	0	; () banked
+   835  0000FE  0E00               	movlw	high _buforCAN
+   836  000100  20F4               	addwfc	prodh,w,c
+   837  000102  6EDA               	movwf	fsr2h,c
+   838  000104  50DF               	movf	indf2,w,c
+   839  000106  6E16               	movwf	??_OdbierzRamke& (0+255),c
+   840  000108  6A17               	clrf	(??_OdbierzRamke+1)& (0+255),c
+   841  00010A  5025               	movf	_ramekInicjalizacji,w,c
+   842  00010C  0D0A               	mullw	10
+   843  00010E  501C               	movf	OdbierzRamke@i,w,c
+   844  000110  26F3               	addwf	prodl,f,c
+   845  000112  0E00               	movlw	0
+   846  000114  22F4               	addwfc	prodh,f,c
+   847  000116  5017               	movf	??_OdbierzRamke+1,w,c
+   848  000118  18F4               	xorwf	prodh,w,c
+   849  00011A  E102               	bnz	u415
+   850  00011C  5016               	movf	??_OdbierzRamke,w,c
+   851  00011E  18F3               	xorwf	prodl,w,c
+   852  000120                     u415:
+   853  000120  A4D8               	btfss	status,2,c
+   854  000122  D004               	goto	l1105
+   855                           
+   856                           ; BSR set to: 0
+   857                           
+   858                           ; BSR set to: 0
+   859                           
+   860                           ; BSR set to: 0
+   861                           ;main.c: 164: {
+   862                           ;main.c: 165: break;
+   863  000124  2A1C               	incf	OdbierzRamke@i,f,c
+   864  000126                     L2:
+   865                           
+   866                           ; BSR set to: 0
+   867  000126  0E07               	movlw	7
+   868  000128  641C               	cpfsgt	OdbierzRamke@i,c
+   869  00012A  D7E2               	goto	l1097
+   870  00012C                     l1105:
+   871                           
+   872                           ;main.c: 166: }
+   873                           ;main.c: 167: }
+   874                           ;main.c: 168: if(i==8)
+   875  00012C  501C               	movf	OdbierzRamke@i,w,c
+   876  00012E  0A08               	xorlw	8
+   877  000130  A4D8               	btfss	status,2,c
+   878  000132  D006               	goto	l1111
+   879                           
+   880                           ;main.c: 169: {
+   881                           ;main.c: 170: iloscBajtow = 0;
+   882  000134  6E16               	movwf	??_OdbierzRamke& (0+255),c
+   883  000136  0E00               	movlw	0
+   884  000138  6E24               	movwf	_iloscBajtow,c
+   885  00013A  5016               	movf	??_OdbierzRamke& (0+255),w,c
+   886                           
+   887                           ;main.c: 171: ramekInicjalizacji++;
+   888  00013C  2A25               	incf	_ramekInicjalizacji,f,c
+   889                           
+   890                           ;main.c: 172: }
+   891  00013E  D04D               	goto	l1127
+   892  000140                     l1111:
+   893                           
+   894                           ;main.c: 173: else
+   895                           ;main.c: 174: {
+   896                           ;main.c: 176: iloscBajtow = 0;
+   897  000140  6E16               	movwf	??_OdbierzRamke& (0+255),c
+   898  000142  0E00               	movlw	0
+   899  000144  6E24               	movwf	_iloscBajtow,c
+   900  000146  5016               	movf	??_OdbierzRamke& (0+255),w,c
+   901                           
+   902                           ;main.c: 177: ResetDevice();
+   903  000148  ECF6  F001         	call	_ResetDevice	;wreg free
+   904  00014C  D046               	goto	l1127
+   905  00014E                     l1115:
+   906                           
+   907                           ;main.c: 180: else if((iloscBajtow >= 64))
+   908  00014E  0E3F               	movlw	63
+   909  000150  6424               	cpfsgt	_iloscBajtow,c
+   910  000152  D043               	goto	l1127
+   911                           
+   912                           ;main.c: 181: {
+   913                           ;main.c: 182: LATAbits.LATA5 = !LATAbits.LATA5;
+   914  000154  BA89               	btfsc	3977,5,c	;volatile
+   915  000156  D002               	goto	u450
+   916  000158  0E01               	movlw	1
+   917  00015A  D001               	goto	u456
+   918  00015C                     u450:
+   919  00015C  0E00               	movlw	0
+   920  00015E                     u456:
+   921  00015E  6E16               	movwf	??_OdbierzRamke& (0+255),c
+   922  000160  3A16               	swapf	??_OdbierzRamke,f,c
+   923  000162  4616               	rlncf	??_OdbierzRamke,f,c
+   924  000164  5089               	movf	3977,w,c	;volatile
+   925  000166  1816               	xorwf	??_OdbierzRamke,w,c
+   926  000168  0BDF               	andlw	-33
+   927  00016A  1816               	xorwf	??_OdbierzRamke,w,c
+   928  00016C  6E89               	movwf	3977,c	;volatile
+   929                           
+   930                           ;main.c: 183: EraseFlash(SourceAddr.Val32, SourceAddr.Val32+(unsigned long)64);
+   931  00016E  C01F  F001         	movff	_SourceAddr,?_EraseFlash
+   932  000172  C020  F002         	movff	_SourceAddr+1,?_EraseFlash+1
+   933  000176  C021  F003         	movff	_SourceAddr+2,?_EraseFlash+2
+   934  00017A  C022  F004         	movff	_SourceAddr+3,?_EraseFlash+3
+   935  00017E  0E40               	movlw	64
+   936  000180  241F               	addwf	_SourceAddr,w,c
+   937  000182  6E05               	movwf	?_EraseFlash+4,c
+   938  000184  0E00               	movlw	0
+   939  000186  2020               	addwfc	_SourceAddr+1,w,c
+   940  000188  6E06               	movwf	?_EraseFlash+5,c
+   941  00018A  0E00               	movlw	0
+   942  00018C  2021               	addwfc	_SourceAddr+2,w,c
+   943  00018E  6E07               	movwf	?_EraseFlash+6,c
+   944  000190  0E00               	movlw	0
+   945  000192  2022               	addwfc	_SourceAddr+3,w,c
+   946  000194  6E08               	movwf	?_EraseFlash+7,c
+   947  000196  EC8C  F002         	call	_EraseFlash	;wreg free
+   948                           
+   949                           ;main.c: 184: WriteBytesFlash(SourceAddr.Val32,64,buforCAN);
+   950  00019A  C01F  F001         	movff	_SourceAddr,?_WriteBytesFlash
+   951  00019E  C020  F002         	movff	_SourceAddr+1,?_WriteBytesFlash+1
+   952  0001A2  C021  F003         	movff	_SourceAddr+2,?_WriteBytesFlash+2
+   953  0001A6  C022  F004         	movff	_SourceAddr+3,?_WriteBytesFlash+3
+   954  0001AA  0E00               	movlw	0
+   955  0001AC  6E06               	movwf	?_WriteBytesFlash+5,c
+   956  0001AE  0E40               	movlw	64
+   957  0001B0  6E05               	movwf	?_WriteBytesFlash+4,c
+   958  0001B2  0100               	movlb	0	; () banked
+   959  0001B4  0E00               	movlw	high _buforCAN
+   960  0001B6  6E08               	movwf	?_WriteBytesFlash+7,c
+   961  0001B8  0100               	movlb	0	; () banked
+   962  0001BA  0E60               	movlw	low _buforCAN
+   963  0001BC  6E07               	movwf	?_WriteBytesFlash+6,c
+   964  0001BE  EC03  F002         	call	_WriteBytesFlash	;wreg free
+   965                           
+   966                           ;main.c: 185: SourceAddr.Val32 += 64;
+   967  0001C2  0E40               	movlw	64
+   968  0001C4  261F               	addwf	_SourceAddr,f,c
+   969  0001C6  0E00               	movlw	0
+   970  0001C8  2220               	addwfc	_SourceAddr+1,f,c
+   971  0001CA  0E00               	movlw	0
+   972  0001CC  2221               	addwfc	_SourceAddr+2,f,c
+   973  0001CE  0E00               	movlw	0
+   974  0001D0  2222               	addwfc	_SourceAddr+3,f,c
+   975                           
+   976                           ;main.c: 186: iloscBajtow = 0;
+   977  0001D2  6E16               	movwf	??_OdbierzRamke& (0+255),c
+   978  0001D4  0E00               	movlw	0
+   979  0001D6  6E24               	movwf	_iloscBajtow,c
+   980  0001D8  5016               	movf	??_OdbierzRamke& (0+255),w,c
+   981  0001DA                     l1127:
+   982                           
+   983                           ;main.c: 187: }
+   984                           ;main.c: 188: TMR0 = 62500;
+   985  0001DA  0EF4               	movlw	244
+   986  0001DC  6ED7               	movwf	4055,c	;volatile
+   987  0001DE  0E24               	movlw	36
+   988  0001E0  6ED6               	movwf	4054,c	;volatile
+   989                           
+   990                           ;main.c: 189: counter = 0;
+   991  0001E2  6E16               	movwf	??_OdbierzRamke& (0+255),c
+   992  0001E4  0E00               	movlw	0
+   993  0001E6  6E23               	movwf	_counter,c
+   994  0001E8  5016               	movf	??_OdbierzRamke& (0+255),w,c
+   995  0001EA  0004               	clrwdt		;# 
+   996                           
+   997                           ;main.c: 191: switch(k)
+   998  0001EC  D026               	goto	l1149
+   999  0001EE                     l1131:
+  1000                           
+  1001                           ;main.c: 194: RXB0CON = 0;
+  1002  0001EE  0E00               	movlw	0
+  1003  0001F0  6E60               	movwf	3936,c	;volatile
+  1004                           
+  1005                           ;main.c: 195: break;
+  1006  0001F2  0012               	return	
+  1007  0001F4                     l1133:
+  1008                           
+  1009                           ;main.c: 197: RXB1CON = 0;
+  1010  0001F4  0E00               	movlw	0
+  1011  0001F6  010F               	movlb	15	; () banked
+  1012  0001F8  010F               	movlb	15	; () banked
+  1013  0001FA  6F30               	movwf	48,b	;volatile
+  1014                           
+  1015                           ;main.c: 198: break;
+  1016  0001FC  0012               	return	
+  1017  0001FE                     l1135:
+  1018                           
+  1019                           ;main.c: 200: B0CON = 0;
+  1020  0001FE  0E00               	movlw	0
+  1021  000200  010E               	movlb	14	; () banked
+  1022  000202  010E               	movlb	14	; () banked
+  1023  000204  6F80               	movwf	128,b	;volatile
+  1024                           
+  1025                           ;main.c: 201: break;
+  1026  000206  0012               	return	
+  1027  000208                     l1137:
+  1028                           
+  1029                           ;main.c: 203: B1CON = 0;
+  1030  000208  0E00               	movlw	0
+  1031  00020A  010E               	movlb	14	; () banked
+  1032  00020C  010E               	movlb	14	; () banked
+  1033  00020E  6F90               	movwf	144,b	;volatile
+  1034                           
+  1035                           ;main.c: 204: break;
+  1036  000210  0012               	return	
+  1037  000212                     l1139:
+  1038                           
+  1039                           ;main.c: 206: B2CON = 0;
+  1040  000212  0E00               	movlw	0
+  1041  000214  010E               	movlb	14	; () banked
+  1042  000216  010E               	movlb	14	; () banked
+  1043  000218  6FA0               	movwf	160,b	;volatile
+  1044                           
+  1045                           ;main.c: 207: break;
+  1046  00021A  0012               	return	
+  1047  00021C                     l1141:
+  1048                           
+  1049                           ;main.c: 209: B3CON = 0;
+  1050  00021C  0E00               	movlw	0
+  1051  00021E  010E               	movlb	14	; () banked
+  1052  000220  010E               	movlb	14	; () banked
+  1053  000222  6FB0               	movwf	176,b	;volatile
+  1054                           
+  1055                           ;main.c: 210: break;
+  1056  000224  0012               	return	
+  1057  000226                     l1143:
+  1058                           
+  1059                           ;main.c: 212: B4CON = 0;
+  1060  000226  0E00               	movlw	0
+  1061  000228  010E               	movlb	14	; () banked
+  1062  00022A  010E               	movlb	14	; () banked
+  1063  00022C  6FC0               	movwf	192,b	;volatile
+  1064                           
+  1065                           ;main.c: 213: break;
+  1066  00022E  0012               	return	
+  1067  000230                     l1145:
+  1068                           
+  1069                           ;main.c: 215: B5CON = 0;
+  1070  000230  0E00               	movlw	0
+  1071  000232  010E               	movlb	14	; () banked
+  1072  000234  010E               	movlb	14	; () banked
+  1073  000236  6FD0               	movwf	208,b	;volatile
+  1074                           
+  1075                           ;main.c: 216: break;
+  1076  000238  0012               	return	
+  1077  00023A                     l1149:
+  1078  00023A  501A               	movf	OdbierzRamke@k,w,c
+  1079                           
+  1080                           ; Switch size 1, requested type "space"
+  1081                           ; Number of cases is 8, Range of values is 0 to 7
+  1082                           ; switch strategies available:
+  1083                           ; Name         Instructions Cycles
+  1084                           ; simple_byte           25    13 (average)
+  1085                           ;	Chosen strategy is simple_byte
+  1086  00023C  0A00               	xorlw	0	; case 0
+  1087  00023E  B4D8               	btfsc	status,2,c
+  1088  000240  D7D6               	goto	l1131
+  1089  000242  0A01               	xorlw	1	; case 1
+  1090  000244  B4D8               	btfsc	status,2,c
+  1091  000246  D7D6               	goto	l1133
+  1092  000248  0A03               	xorlw	3	; case 2
+  1093  00024A  B4D8               	btfsc	status,2,c
+  1094  00024C  D7D8               	goto	l1135
+  1095  00024E  0A01               	xorlw	1	; case 3
+  1096  000250  B4D8               	btfsc	status,2,c
+  1097  000252  D7DA               	goto	l1137
+  1098  000254  0A07               	xorlw	7	; case 4
+  1099  000256  B4D8               	btfsc	status,2,c
+  1100  000258  D7DC               	goto	l1139
+  1101  00025A  0A01               	xorlw	1	; case 5
+  1102  00025C  B4D8               	btfsc	status,2,c
+  1103  00025E  D7DE               	goto	l1141
+  1104  000260  0A03               	xorlw	3	; case 6
+  1105  000262  B4D8               	btfsc	status,2,c
+  1106  000264  D7E0               	goto	l1143
+  1107  000266  0A01               	xorlw	1	; case 7
+  1108  000268  A4D8               	btfss	status,2,c
+  1109  00026A  0012               	return	
+  1110  00026C  D7E1               	goto	l1145
+  1111  00026E                     __end_of_OdbierzRamke:
+  1112                           	opt stack 0
+  1113                           tblptru	equ	0xFF8
+  1114                           prodh	equ	0xFF4
+  1115                           prodl	equ	0xFF3
+  1116                           intcon	equ	0xFF2
+  1117                           postinc0	equ	0xFEE
+  1118                           wreg	equ	0xFE8
+  1119                           indf1	equ	0xFE7
+  1120                           fsr1h	equ	0xFE2
+  1121                           fsr1l	equ	0xFE1
+  1122                           indf2	equ	0xFDF
+  1123                           fsr2h	equ	0xFDA
+  1124                           fsr2l	equ	0xFD9
+  1125                           status	equ	0xFD8
+  1126                           
+  1127 ;; *************** function _WriteBytesFlash *****************
+  1128 ;; Defined at:
+  1129 ;;		line 26 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Flash\WriteBytesFlash.c"
+  1130 ;; Parameters:    Size  Location     Type
+  1131 ;;  startaddr       4    0[COMRAM] unsigned long 
+  1132 ;;  num_bytes       2    4[COMRAM] unsigned int 
+  1133 ;;  flash_array     2    6[COMRAM] PTR unsigned char 
+  1134 ;;		 -> buforCAN(65), 
+  1135 ;; Auto vars:     Size  Location     Type
+  1136 ;;  saddress        4   17[COMRAM] unsigned long 
+  1137 ;;  startptr        3   14[COMRAM] PTR unsigned char 
+  1138 ;;		 -> ROM(2047), 
+  1139 ;;  saveptr         3    9[COMRAM] PTR unsigned char 
+  1140 ;;		 -> ROM(2047), 
+  1141 ;;  flag            1   13[COMRAM] unsigned char 
+  1142 ;;  write_byte      1   12[COMRAM] unsigned char 
+  1143 ;; Return value:  Size  Location     Type
+  1144 ;;		None               void
+  1145 ;; Registers used:
+  1146 ;;		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru
+  1147 ;; Tracked objects:
+  1148 ;;		On entry : 0/0
+  1149 ;;		On exit  : 0/0
+  1150 ;;		Unchanged: 0/0
+  1151 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+  1152 ;;      Params:         8       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1153 ;;      Locals:        12       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1154 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1155 ;;      Totals:        21       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1156 ;;Total ram usage:       21 bytes
+  1157 ;; Hardware stack levels used:    1
+  1158 ;; This function calls:
+  1159 ;;		Nothing
+  1160 ;; This function is called by:
+  1161 ;;		_OdbierzRamke
+  1162 ;; This function uses a non-reentrant model
+  1163 ;;
+  1164                           
+  1165                           	psect	text2
+  1166  000406                     __ptext2:
+  1167                           	opt stack 0
+  1168  000406                     _WriteBytesFlash:
+  1169                           	opt stack 28
+  1170                           
+  1171                           ;incstack = 0
+  1172                           ;incstack = 0
+  1173  000406  6E09               	movwf	??_WriteBytesFlash& (0+255),c
+  1174  000408  0E00               	movlw	0
+  1175  00040A  6E0D               	movwf	WriteBytesFlash@write_byte,c
+  1176  00040C  5009               	movf	??_WriteBytesFlash& (0+255),w,c
+  1177  00040E  6E09               	movwf	??_WriteBytesFlash& (0+255),c
+  1178  000410  0E00               	movlw	0
+  1179  000412  6E0E               	movwf	WriteBytesFlash@flag,c
+  1180  000414  5009               	movf	??_WriteBytesFlash& (0+255),w,c
+  1181  000416  C001  F012         	movff	WriteBytesFlash@startaddr,WriteBytesFlash@saddress
+  1182  00041A  C002  F013         	movff	WriteBytesFlash@startaddr+1,WriteBytesFlash@saddress+1
+  1183  00041E  C003  F014         	movff	WriteBytesFlash@startaddr+2,WriteBytesFlash@saddress+2
+  1184  000422  C004  F015         	movff	WriteBytesFlash@startaddr+3,WriteBytesFlash@saddress+3
+  1185  000426  0E06               	movlw	6
+  1186  000428  6E09               	movwf	??_WriteBytesFlash& (0+255),c
+  1187  00042A                     u295:
+  1188  00042A  90D8               	bcf	status,0,c
+  1189  00042C  3204               	rrcf	WriteBytesFlash@startaddr+3,f,c
+  1190  00042E  3203               	rrcf	WriteBytesFlash@startaddr+2,f,c
+  1191  000430  3202               	rrcf	WriteBytesFlash@startaddr+1,f,c
+  1192  000432  3201               	rrcf	WriteBytesFlash@startaddr,f,c
+  1193  000434  2E09               	decfsz	??_WriteBytesFlash& (0+255),f,c
+  1194  000436  D7F9               	goto	u295
+  1195  000438  0E06               	movlw	6
+  1196  00043A                     u305:
+  1197  00043A  90D8               	bcf	status,0,c
+  1198  00043C  3601               	rlcf	WriteBytesFlash@startaddr,f,c
+  1199  00043E  3602               	rlcf	WriteBytesFlash@startaddr+1,f,c
+  1200  000440  3603               	rlcf	WriteBytesFlash@startaddr+2,f,c
+  1201  000442  3604               	rlcf	WriteBytesFlash@startaddr+3,f,c
+  1202  000444  2EE8               	decfsz	wreg,f,c
+  1203  000446  D7F9               	goto	u305
+  1204  000448  0E40               	movlw	64
+  1205  00044A  2601               	addwf	WriteBytesFlash@startaddr,f,c
+  1206  00044C  0E00               	movlw	0
+  1207  00044E  2202               	addwfc	WriteBytesFlash@startaddr+1,f,c
+  1208  000450  0E00               	movlw	0
+  1209  000452  2203               	addwfc	WriteBytesFlash@startaddr+2,f,c
+  1210  000454  0E00               	movlw	0
+  1211  000456  2204               	addwfc	WriteBytesFlash@startaddr+3,f,c
+  1212  000458  5012               	movf	WriteBytesFlash@saddress,w,c
+  1213  00045A  0800               	sublw	0
+  1214  00045C  2401               	addwf	WriteBytesFlash@startaddr,w,c
+  1215  00045E  6E0D               	movwf	WriteBytesFlash@write_byte,c
+  1216  000460  D056               	goto	l1063
+  1217  000462                     l173:
+  1218  000462  C012  F00F         	movff	WriteBytesFlash@saddress,WriteBytesFlash@startptr
+  1219  000466  C013  F010         	movff	WriteBytesFlash@saddress+1,WriteBytesFlash@startptr+1
+  1220  00046A  C014  F011         	movff	WriteBytesFlash@saddress+2,WriteBytesFlash@startptr+2
+  1221  00046E  D01C               	goto	l1041
+  1222  000470                     l1031:
+  1223  000470  C007  FFD9         	movff	WriteBytesFlash@flash_array,fsr2l
+  1224  000474  C008  FFDA         	movff	WriteBytesFlash@flash_array+1,fsr2h
+  1225  000478  50DF               	movf	indf2,w,c
+  1226  00047A  C00F  FFF6         	movff	WriteBytesFlash@startptr,tblptrl
+  1227  00047E  C010  FFF7         	movff	WriteBytesFlash@startptr+1,tblptrh
+  1228  000482  C011  FFF8         	movff	WriteBytesFlash@startptr+2,tblptru
+  1229  000486  6EF5               	movwf	tablat,c
+  1230  000488  000C               	tblwt		*
+  1231  00048A  4A07               	infsnz	WriteBytesFlash@flash_array,f,c
+  1232  00048C  2A08               	incf	WriteBytesFlash@flash_array+1,f,c
+  1233  00048E  0E01               	movlw	1
+  1234  000490  260F               	addwf	WriteBytesFlash@startptr,f,c
+  1235  000492  0E00               	movlw	0
+  1236  000494  2210               	addwfc	WriteBytesFlash@startptr+1,f,c
+  1237  000496  0E00               	movlw	0
+  1238  000498  2211               	addwfc	WriteBytesFlash@startptr+2,f,c
+  1239  00049A  0605               	decf	WriteBytesFlash@num_bytes,f,c
+  1240  00049C  A0D8               	btfss	status,0,c
+  1241  00049E  0606               	decf	WriteBytesFlash@num_bytes+1,f,c
+  1242  0004A0  5006               	movf	(WriteBytesFlash@num_bytes+1)& (0+255),w,c
+  1243  0004A2  1005               	iorwf	WriteBytesFlash@num_bytes& (0+255),w,c
+  1244  0004A4  B4D8               	btfsc	status,2,c
+  1245  0004A6  D004               	goto	l177
+  1246  0004A8                     l1041:
+  1247  0004A8  060D               	decf	WriteBytesFlash@write_byte,f,c
+  1248  0004AA  280D               	incf	WriteBytesFlash@write_byte& (0+255),w,c
+  1249  0004AC  A4D8               	btfss	status,2,c
+  1250  0004AE  D7E0               	goto	l1031
+  1251  0004B0                     l177:
+  1252  0004B0  C00F  F00A         	movff	WriteBytesFlash@startptr,WriteBytesFlash@saveptr
+  1253  0004B4  C010  F00B         	movff	WriteBytesFlash@startptr+1,WriteBytesFlash@saveptr+1
+  1254  0004B8  C011  F00C         	movff	WriteBytesFlash@startptr+2,WriteBytesFlash@saveptr+2
+  1255  0004BC  C012  F00F         	movff	WriteBytesFlash@saddress,WriteBytesFlash@startptr
+  1256  0004C0  C013  F010         	movff	WriteBytesFlash@saddress+1,WriteBytesFlash@startptr+1
+  1257  0004C4  C014  F011         	movff	WriteBytesFlash@saddress+2,WriteBytesFlash@startptr+2
+  1258  0004C8  8E7F               	bsf	3967,7,c	;volatile
+  1259  0004CA  9C7F               	bcf	3967,6,c	;volatile
+  1260  0004CC  847F               	bsf	3967,2,c	;volatile
+  1261  0004CE  AEF2               	btfss	intcon,7,c	;volatile
+  1262  0004D0  D005               	goto	l1047
+  1263  0004D2  9EF2               	bcf	intcon,7,c	;volatile
+  1264  0004D4  6E09               	movwf	??_WriteBytesFlash& (0+255),c
+  1265  0004D6  0E01               	movlw	1
+  1266  0004D8  6E0E               	movwf	WriteBytesFlash@flag,c
+  1267  0004DA  5009               	movf	??_WriteBytesFlash& (0+255),w,c
+  1268  0004DC                     l1047:
+  1269  0004DC  0E55               	movlw	85
+  1270  0004DE  6E7E               	movwf	3966,c	;volatile
+  1271  0004E0  0EAA               	movlw	170
+  1272  0004E2  6E7E               	movwf	3966,c	;volatile
+  1273  0004E4  827F               	bsf	3967,1,c	;volatile
+  1274  0004E6  947F               	bcf	3967,2,c	;volatile
+  1275  0004E8  500E               	movf	WriteBytesFlash@flag,w,c
+  1276  0004EA  B4D8               	btfsc	status,2,c
+  1277  0004EC  D005               	goto	l179
+  1278  0004EE  8EF2               	bsf	intcon,7,c	;volatile
+  1279  0004F0  6E09               	movwf	??_WriteBytesFlash& (0+255),c
+  1280  0004F2  0E00               	movlw	0
+  1281  0004F4  6E0E               	movwf	WriteBytesFlash@flag,c
+  1282  0004F6  5009               	movf	??_WriteBytesFlash& (0+255),w,c
+  1283  0004F8                     l179:
+  1284  0004F8  6E09               	movwf	??_WriteBytesFlash& (0+255),c
+  1285  0004FA  0E40               	movlw	64
+  1286  0004FC  6E0D               	movwf	WriteBytesFlash@write_byte,c
+  1287  0004FE  5009               	movf	??_WriteBytesFlash& (0+255),w,c
+  1288  000500  500A               	movf	WriteBytesFlash@saveptr,w,c
+  1289  000502  6E12               	movwf	WriteBytesFlash@saddress,c
+  1290  000504  500B               	movf	WriteBytesFlash@saveptr+1,w,c
+  1291  000506  6E13               	movwf	WriteBytesFlash@saddress+1,c
+  1292  000508  500C               	movf	WriteBytesFlash@saveptr+2,w,c
+  1293  00050A  6E14               	movwf	WriteBytesFlash@saddress+2,c
+  1294  00050C  6A15               	clrf	WriteBytesFlash@saddress+3,c
+  1295  00050E                     l1063:
+  1296  00050E  5006               	movf	WriteBytesFlash@num_bytes+1,w,c
+  1297  000510  1005               	iorwf	WriteBytesFlash@num_bytes,w,c
+  1298  000512  B4D8               	btfsc	status,2,c
+  1299  000514  0012               	return	
+  1300  000516  D7A5               	goto	l173
+  1301  000518                     __end_of_WriteBytesFlash:
+  1302                           	opt stack 0
+  1303                           tblptru	equ	0xFF8
+  1304                           tblptrh	equ	0xFF7
+  1305                           tblptrl	equ	0xFF6
+  1306                           tablat	equ	0xFF5
+  1307                           prodh	equ	0xFF4
+  1308                           prodl	equ	0xFF3
+  1309                           intcon	equ	0xFF2
+  1310                           postinc0	equ	0xFEE
+  1311                           wreg	equ	0xFE8
+  1312                           indf1	equ	0xFE7
+  1313                           fsr1h	equ	0xFE2
+  1314                           fsr1l	equ	0xFE1
+  1315                           indf2	equ	0xFDF
+  1316                           fsr2h	equ	0xFDA
+  1317                           fsr2l	equ	0xFD9
+  1318                           status	equ	0xFD8
+  1319                           
+  1320 ;; *************** function _EraseFlash *****************
+  1321 ;; Defined at:
+  1322 ;;		line 27 in file "C:\Program Files (x86)\Microchip\xc8\v1.21\sources\pic18\plib\Flash\EraseFlash.c"
+  1323 ;; Parameters:    Size  Location     Type
+  1324 ;;  startaddr       4    0[COMRAM] unsigned long 
+  1325 ;;  endaddr         4    4[COMRAM] unsigned long 
+  1326 ;; Auto vars:     Size  Location     Type
+  1327 ;;  flash_addr      4   10[COMRAM] struct .
+  1328 ;;  flag            1    9[COMRAM] unsigned char 
+  1329 ;; Return value:  Size  Location     Type
+  1330 ;;		None               void
+  1331 ;; Registers used:
+  1332 ;;		wreg, status,2, status,0
+  1333 ;; Tracked objects:
+  1334 ;;		On entry : 0/0
+  1335 ;;		On exit  : 0/0
+  1336 ;;		Unchanged: 0/0
+  1337 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+  1338 ;;      Params:         8       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1339 ;;      Locals:         5       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1340 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1341 ;;      Totals:        14       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1342 ;;Total ram usage:       14 bytes
+  1343 ;; Hardware stack levels used:    1
+  1344 ;; This function calls:
+  1345 ;;		Nothing
+  1346 ;; This function is called by:
+  1347 ;;		_OdbierzRamke
+  1348 ;; This function uses a non-reentrant model
+  1349 ;;
+  1350                           
+  1351                           	psect	text3
+  1352  000518                     __ptext3:
+  1353                           	opt stack 0
+  1354  000518                     _EraseFlash:
+  1355                           	opt stack 28
+  1356                           
+  1357                           ;incstack = 0
+  1358                           ;incstack = 0
+  1359  000518  6E09               	movwf	??_EraseFlash& (0+255),c
+  1360  00051A  0E00               	movlw	0
+  1361  00051C  6E0A               	movwf	EraseFlash@flag,c
+  1362  00051E  5009               	movf	??_EraseFlash& (0+255),w,c
+  1363  000520  C001  F00B         	movff	EraseFlash@startaddr,EraseFlash@flash_addr
+  1364  000524  C002  F00C         	movff	EraseFlash@startaddr+1,EraseFlash@flash_addr+1
+  1365  000528  C003  F00D         	movff	EraseFlash@startaddr+2,EraseFlash@flash_addr+2
+  1366  00052C  C004  F00E         	movff	EraseFlash@startaddr+3,EraseFlash@flash_addr+3
+  1367  000530  D025               	goto	l158
+  1368  000532                     l159:
+  1369  000532  C00D  FFF8         	movff	EraseFlash@flash_addr+2,tblptru	;volatile
+  1370  000536  C00C  FFF7         	movff	EraseFlash@flash_addr+1,tblptrh	;volatile
+  1371  00053A  C00B  FFF6         	movff	EraseFlash@flash_addr,tblptrl	;volatile
+  1372  00053E  8E7F               	bsf	3967,7,c	;volatile
+  1373  000540  9C7F               	bcf	3967,6,c	;volatile
+  1374  000542  847F               	bsf	3967,2,c	;volatile
+  1375  000544  887F               	bsf	3967,4,c	;volatile
+  1376  000546  AEF2               	btfss	intcon,7,c	;volatile
+  1377  000548  D005               	goto	l1007
+  1378  00054A  9EF2               	bcf	intcon,7,c	;volatile
+  1379  00054C  6E09               	movwf	??_EraseFlash& (0+255),c
+  1380  00054E  0E01               	movlw	1
+  1381  000550  6E0A               	movwf	EraseFlash@flag,c
+  1382  000552  5009               	movf	??_EraseFlash& (0+255),w,c
+  1383  000554                     l1007:
+  1384  000554  0E55               	movlw	85
+  1385  000556  6E7E               	movwf	3966,c	;volatile
+  1386  000558  0EAA               	movlw	170
+  1387  00055A  6E7E               	movwf	3966,c	;volatile
+  1388  00055C  827F               	bsf	3967,1,c	;volatile
+  1389  00055E  500A               	movf	EraseFlash@flag,w,c
+  1390  000560  A4D8               	btfss	status,2,c
+  1391  000562  8EF2               	bsf	intcon,7,c	;volatile
+  1392  000564  0E40               	movlw	64
+  1393  000566  240B               	addwf	EraseFlash@flash_addr,w,c
+  1394  000568  6E0B               	movwf	EraseFlash@flash_addr,c
+  1395  00056A  0E00               	movlw	0
+  1396  00056C  200C               	addwfc	EraseFlash@flash_addr+1,w,c
+  1397  00056E  6E0C               	movwf	EraseFlash@flash_addr+1,c
+  1398  000570  0E00               	movlw	0
+  1399  000572  200D               	addwfc	EraseFlash@flash_addr+2,w,c
+  1400  000574  6E0D               	movwf	EraseFlash@flash_addr+2,c
+  1401  000576  0E00               	movlw	0
+  1402  000578  200E               	addwfc	EraseFlash@flash_addr+3,w,c
+  1403  00057A  6E0E               	movwf	EraseFlash@flash_addr+3,c
+  1404  00057C                     l158:
+  1405  00057C  5005               	movf	EraseFlash@endaddr,w,c
+  1406  00057E  5C0B               	subwf	EraseFlash@flash_addr,w,c
+  1407  000580  5006               	movf	EraseFlash@endaddr+1,w,c
+  1408  000582  580C               	subwfb	EraseFlash@flash_addr+1,w,c
+  1409  000584  5007               	movf	EraseFlash@endaddr+2,w,c
+  1410  000586  580D               	subwfb	EraseFlash@flash_addr+2,w,c
+  1411  000588  5008               	movf	EraseFlash@endaddr+3,w,c
+  1412  00058A  580E               	subwfb	EraseFlash@flash_addr+3,w,c
+  1413  00058C  B0D8               	btfsc	status,0,c
+  1414  00058E  0012               	return	
+  1415  000590  D7D0               	goto	l159
+  1416  000592                     __end_of_EraseFlash:
+  1417                           	opt stack 0
+  1418                           tblptru	equ	0xFF8
+  1419                           tblptrh	equ	0xFF7
+  1420                           tblptrl	equ	0xFF6
+  1421                           tablat	equ	0xFF5
+  1422                           prodh	equ	0xFF4
+  1423                           prodl	equ	0xFF3
+  1424                           intcon	equ	0xFF2
+  1425                           postinc0	equ	0xFEE
+  1426                           wreg	equ	0xFE8
+  1427                           indf1	equ	0xFE7
+  1428                           fsr1h	equ	0xFE2
+  1429                           fsr1l	equ	0xFE1
+  1430                           indf2	equ	0xFDF
+  1431                           fsr2h	equ	0xFDA
+  1432                           fsr2l	equ	0xFD9
+  1433                           status	equ	0xFD8
+  1434                           
+  1435 ;; *************** function _ResetDevice *****************
+  1436 ;; Defined at:
+  1437 ;;		line 221 in file "main.c"
+  1438 ;; Parameters:    Size  Location     Type
+  1439 ;;		None
+  1440 ;; Auto vars:     Size  Location     Type
+  1441 ;;		None
+  1442 ;; Return value:  Size  Location     Type
+  1443 ;;		None               void
+  1444 ;; Registers used:
+  1445 ;;		None
+  1446 ;; Tracked objects:
+  1447 ;;		On entry : 0/0
+  1448 ;;		On exit  : 0/0
+  1449 ;;		Unchanged: 0/0
+  1450 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14
+  1451 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1452 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1453 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1454 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0
+  1455 ;;Total ram usage:        0 bytes
+  1456 ;; Hardware stack levels used:    1
+  1457 ;; This function calls:
+  1458 ;;		Nothing
+  1459 ;; This function is called by:
+  1460 ;;		_OdbierzRamke
+  1461 ;;		_main
+  1462 ;; This function uses a non-reentrant model
+  1463 ;;
+  1464                           
+  1465                           	psect	text4
+  1466  0003EC                     __ptext4:
+  1467                           	opt stack 0
+  1468  0003EC                     _ResetDevice:
+  1469                           	opt stack 29
+  1470                           
+  1471                           ;incstack = 0
+  1472                           ;incstack = 0
+  1473  0003EC  EF00 F006          	goto	3072	;# 
+  1474  0003F0  0012               	return	
+  1475  0003F2                     __end_of_ResetDevice:
+  1476                           	opt stack 0
+  1477  0000                     tblptru	equ	0xFF8
+  1478                           tblptrh	equ	0xFF7
+  1479                           tblptrl	equ	0xFF6
+  1480                           tablat	equ	0xFF5
+  1481                           prodh	equ	0xFF4
+  1482                           prodl	equ	0xFF3
+  1483                           intcon	equ	0xFF2
+  1484                           postinc0	equ	0xFEE
+  1485                           wreg	equ	0xFE8
+  1486                           indf1	equ	0xFE7
+  1487                           fsr1h	equ	0xFE2
+  1488                           fsr1l	equ	0xFE1
+  1489                           indf2	equ	0xFDF
+  1490                           fsr2h	equ	0xFDA
+  1491                           fsr2l	equ	0xFD9
+  1492                           status	equ	0xFD8
+  1493                           tblptru	equ	0xFF8
+  1494                           tblptrh	equ	0xFF7
+  1495                           tblptrl	equ	0xFF6
+  1496                           tablat	equ	0xFF5
+  1497                           prodh	equ	0xFF4
+  1498                           prodl	equ	0xFF3
+  1499                           intcon	equ	0xFF2
+  1500                           postinc0	equ	0xFEE
+  1501                           wreg	equ	0xFE8
+  1502                           indf1	equ	0xFE7
+  1503                           fsr1h	equ	0xFE2
+  1504                           fsr1l	equ	0xFE1
+  1505                           indf2	equ	0xFDF
+  1506                           fsr2h	equ	0xFDA
+  1507                           fsr2l	equ	0xFD9
+  1508                           status	equ	0xFD8
+  1509                           
+  1510                           	psect	rparam
+  1511  0000                     tblptru	equ	0xFF8
+  1512                           tblptrh	equ	0xFF7
+  1513                           tblptrl	equ	0xFF6
+  1514                           tablat	equ	0xFF5
+  1515                           prodh	equ	0xFF4
+  1516                           prodl	equ	0xFF3
+  1517                           intcon	equ	0xFF2
+  1518                           postinc0	equ	0xFEE
+  1519                           wreg	equ	0xFE8
+  1520                           indf1	equ	0xFE7
+  1521                           fsr1h	equ	0xFE2
+  1522                           fsr1l	equ	0xFE1
+  1523                           indf2	equ	0xFDF
+  1524                           fsr2h	equ	0xFDA
+  1525                           fsr2l	equ	0xFD9
+  1526                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         72
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           95     30      37
+    BANK0           160      0      65
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+    BANK8           256      0       0
+    BANK9           256      0       0
+    BANK10          256      0       0
+    BANK11          256      0       0
+    BANK12          256      0       0
+    BANK13          256      0       0
+    BANK14           65      0       0
+
+Pointer List with Targets:
+
+    WriteBytesFlash@saveptr	PTR unsigned char  size(3) Largest target is 2047
+		 -> ROM(CODE[2047]), 
+
+    WriteBytesFlash@flash_array	PTR unsigned char  size(2) Largest target is 65
+		 -> buforCAN(BANK0[65]), 
+
+    WriteBytesFlash@startptr	PTR unsigned char  size(3) Largest target is 2047
+		 -> ROM(CODE[2047]), 
+
+    OdbierzRamke@pointerU8	PTR volatile unsigned char  size(2) Largest target is 1
+		 -> RXB0D0(ABS[1]), 
+
+
+Critical Paths under _main in COMRAM
+
+    _main->_OdbierzRamke
+    _OdbierzRamke->_WriteBytesFlash
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Critical Paths under _main in BANK8
+
+    None.
+
+Critical Paths under _main in BANK9
+
+    None.
+
+Critical Paths under _main in BANK10
+
+    None.
+
+Critical Paths under _main in BANK11
+
+    None.
+
+Critical Paths under _main in BANK12
+
+    None.
+
+Critical Paths under _main in BANK13
+
+    None.
+
+Critical Paths under _main in BANK14
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 2     2      0     808
+                                             28 COMRAM     2     2      0
+                       _OdbierzRamke
+                        _ResetDevice
+ ---------------------------------------------------------------------------------
+ (1) _OdbierzRamke                                         9     9      0     785
+                                             21 COMRAM     7     7      0
+                        _ResetDevice
+                         _EraseFlash
+                    _WriteBytesFlash
+ ---------------------------------------------------------------------------------
+ (2) _WriteBytesFlash                                     21    13      8     302
+                                              0 COMRAM    21    13      8
+ ---------------------------------------------------------------------------------
+ (2) _EraseFlash                                          14     6      8     182
+                                              0 COMRAM    14     6      8
+ ---------------------------------------------------------------------------------
+ (1) _ResetDevice                                          0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _OdbierzRamke
+     _ResetDevice
+     _EraseFlash
+     _WriteBytesFlash
+   _ResetDevice
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             E40      0       0      35        0.0%
+EEDATA             400      0       0       0        0.0%
+BITBANK13          100      0       0      31        0.0%
+BANK13             100      0       0      32        0.0%
+BITBANK12          100      0       0      29        0.0%
+BANK12             100      0       0      30        0.0%
+BITBANK11          100      0       0      27        0.0%
+BANK11             100      0       0      28        0.0%
+BITBANK10          100      0       0      25        0.0%
+BANK10             100      0       0      26        0.0%
+BITBANK9           100      0       0      23        0.0%
+BANK9              100      0       0      24        0.0%
+BITBANK8           100      0       0      21        0.0%
+BANK8              100      0       0      22        0.0%
+BITBANK7           100      0       0      19        0.0%
+BANK7              100      0       0      20        0.0%
+BITBANK6           100      0       0      17        0.0%
+BANK6              100      0       0      18        0.0%
+BITBANK5           100      0       0      15        0.0%
+BANK5              100      0       0      16        0.0%
+BITBANK4           100      0       0      13        0.0%
+BANK4              100      0       0      14        0.0%
+BITBANK3           100      0       0      11        0.0%
+BANK3              100      0       0      12        0.0%
+BITBANK2           100      0       0       9        0.0%
+BANK2              100      0       0      10        0.0%
+BITBANK1           100      0       0       7        0.0%
+BANK1              100      0       0       8        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0      41       5       40.6%
+BITCOMRAM           5F      0       0       0        0.0%
+COMRAM              5F     1E      25       1       38.9%
+BITBANK14           41      0       0      33        0.0%
+BANK14              41      0       0      34        0.0%
+BITSFR_2             0      0       0      40        0.0%
+SFR_2                0      0       0      40        0.0%
+BITSFR_1             0      0       0      40        0.0%
+SFR_1                0      0       0      40        0.0%
+BITSFR               0      0       0      40        0.0%
+SFR                  0      0       0      40        0.0%
+STACK                0      0       2       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      66       6        0.0%
+DATA                 0      0      68       3        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V1.21 build 54009 
+Symbol Table                                                                                   Fri Nov 21 11:16:44 2014
+
+                        l96 0036                          l97 0098                          l98 003C  
+                        l99 0042                 __CFG_BORV$1 000000                __CFG_CP0$OFF 000000  
+              __CFG_CP1$OFF 000000                __CFG_CP2$OFF 000000                __CFG_CP3$OFF 000000  
+                       l100 0048                         l101 004E                         l102 0054  
+                       l103 005A                         l104 0060                         l173 0462  
+                       l158 057C                         l159 0532                         l177 04B0  
+                       l179 04F8                __CFG_CPB$OFF 000000                         u305 043A  
+                       u415 0120                         u450 015C                __CFG_CPD$OFF 000000  
+                       u295 042A                         u456 015E                         prod 000FF3  
+                       wreg 000FE8                        l1007 0554                        l1031 0470  
+                      l1111 0140                        l1041 04A8                        l1105 012C  
+                      l1201 03A0                        l1131 01EE                        l1115 014E  
+                      l1211 03D0                        l1141 021C                        l1133 01F4  
+                      l1047 04DC                        l1063 050E                        l1143 0226  
+                      l1135 01FE                        l1127 01DA                        l1145 0230  
+                      l1137 0208                        l1081 00AE                        l1073 0066  
+                      l1139 0212                        l1149 023A                        l1183 02AC  
+                      l1097 00F0                        _RCON 000FD0                        _TMR0 000FD6  
+              __CFG_WRTB$ON 000000                __CFG_WRTC$ON 000000               ?_OdbierzRamke 0001  
+                      _main 026E                        fsr2h 000FDA                        indf1 000FE7  
+                      fsr1l 000FE1                        indf2 000FDF                        fsr2l 000FD9  
+             __CFG_BOREN$ON 000000                        prodh 000FF4                        prodl 000FF3  
+                      start 001C               __CFG_IESO$OFF 000000      WriteBytesFlash@saveptr 000A  
+             __CFG_FOSC$HS1 000000               __CFG_MCLRE$ON 000000                       _B0CON 000E80  
+                     _B1CON 000E90                       _B2CON 000EA0                       _B3CON 000EB0  
+                     _B4CON 000EC0                       _B5CON 000ED0                       ?_main 0001  
+                     _T0CON 000FD5                       _MSEL0 000E79                       _TRISA 000F92  
+                     _TRISB 000F93                       _TRISC 000F94               __CFG_WRT0$OFF 000000  
+             __CFG_WRT1$OFF 000000               __CFG_WRT2$OFF 000000               __CFG_WRT3$OFF 000000  
+            __CFG_EBTR0$OFF 000000              __CFG_FCMEN$OFF 000000              __CFG_EBTR1$OFF 000000  
+            __CFG_EBTR2$OFF 000000              __CFG_EBTR3$OFF 000000                  _EraseFlash 0518  
+             __CFG_WRTD$OFF 000000              __CFG_EBTRB$OFF 000000     WriteBytesFlash@saddress 0012  
+                     tablat 000FF5              ??_OdbierzRamke 0016                       status 000FD8  
+           __initialization 0592     WriteBytesFlash@startptr 000F                __end_of_main 03EC  
+                    ??_main 001D               __activetblptr 000002              __CFG_RETEN$OFF 000000  
+ WriteBytesFlash@write_byte 000D               ??_ResetDevice 0001                      _CANCON 000F6F  
+                    _EECON2 000F7E             __CFG_BBSIZ$BB1K 000000           EraseFlash@endaddr 0005  
+                    _RXB0D0 000F66              __CFG_PWRTEN$ON 000000              __CFG_XINST$OFF 000000  
+            __CFG_STVREN$ON 000000                      clear_0 0598                      clear_1 05A4  
+                    tblptrh 000FF7                      tblptrl 000FF6                      tblptru 000FF8  
+               ?_EraseFlash 0001                  _SourceAddr 001F                  __accesstop 0060  
+   __end_of__initialization 05AA    WriteBytesFlash@num_bytes 0005         __end_of_ResetDevice 03F2  
+            __pcstackCOMRAM 0001    WriteBytesFlash@startaddr 0001        __end_of_OdbierzRamke 026E  
+                __pbssBANK0 0060             __CFG_PLLCFG$OFF 000000         __size_of_EraseFlash 007A  
+  __size_of_WriteBytesFlash 0112                     _ECANCON 000F72                     _CANSTAT 000F6E  
+             OdbierzRamke@i 001C               OdbierzRamke@k 001A            __CFG_CANMX$PORTC 000000  
+                   _TBLPTRH 000FF7                     _TBLPTRL 000FF6                     _TBLPTRU 000FF8  
+                   _RXB0CON 000F60             __CFG_WDTPS$1024 000000                     _RXB1CON 000F30  
+                   _RXFCON0 000E46                     _RXFCON1 000E47                 _ResetDevice 03EC  
+                   __Hparam 0000                     __Lparam 0000                     __pcinit 0592  
+                   __ramtop 0F00                     __ptext0 026E                     __ptext1 0020  
+                   __ptext2 0406                     __ptext3 0518                     __ptext4 03EC  
+                 _T0CONbits 000FD5                     _counter 0023           __CFG_MSSPMSK$MSK7 000000  
+      end_of_initialization 05AA        EraseFlash@flash_addr 000B               __Lmediumconst 0000  
+     OdbierzRamke@pointerU8 0018       __size_of_OdbierzRamke 024E                     postinc0 000FEE  
+         ??_WriteBytesFlash 0009                   _TRISAbits 000F92                   _TRISCbits 000F94  
+              ??_EraseFlash 0009                _OdbierzRamke 0020          __end_of_EraseFlash 0592  
+WriteBytesFlash@flash_array 0007         start_initialization 0592         OdbierzRamke@tempCON 001B  
+               __pbssCOMRAM 001F                 _BRGCON1bits 000E43                 _BRGCON2bits 000E44  
+               _BRGCON3bits 000E45                ?_ResetDevice 0001                    _LATAbits 000F89  
+                  _RXF0EIDH 000EE2                    _RXF0EIDL 000EE3             _WriteBytesFlash 0406  
+                  _RXF0SIDH 000EE0                    _RXF0SIDL 000EE1                    _RXM0EIDH 000EFA  
+                  _RXM0EIDL 000EFB                    _RXM0SIDH 000EF8                    _RXM0SIDL 000EF9  
+                 main@Delay 001E            __CFG_SOSCSEL$DIG 000000              EraseFlash@flag 000A  
+                _EECON1bits 000F7F                    __Hrparam 0000                    __Lrparam 0000  
+       EraseFlash@startaddr 0001                 _iloscBajtow 0024          _ramekInicjalizacji 0025  
+              _RXF0SIDLbits 000EE1                    _buforCAN 0060        __size_of_ResetDevice 0006  
+             __size_of_main 017E     __end_of_WriteBytesFlash 0518         WriteBytesFlash@flag 000E  
+       __CFG_INTOSCSEL$HIGH 000000          __CFG_WDTEN$SWDTDIS 000000                  _INTCONbits 000FF2  
+       __CFG_BORPWR$ZPBORMV 000000            ?_WriteBytesFlash 0001  

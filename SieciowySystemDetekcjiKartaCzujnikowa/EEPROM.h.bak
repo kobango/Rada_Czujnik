@@ -1,0 +1,16 @@
+/* 
+ * File:   EEPROM.h
+ * Author: Pawe³
+ *
+ * Created on 5 lipiec 2013, 09:29
+ */
+
+#ifndef EEPROM_H
+    #define	EEPROM_H
+
+    unsigned char ReadfromEEPROM(unsigned int Address);
+    void WritetoEEPROM(unsigned int Address, unsigned char Data);
+    void UstawFlagi(void);
+
+#endif	/* EEPROM_H */
+

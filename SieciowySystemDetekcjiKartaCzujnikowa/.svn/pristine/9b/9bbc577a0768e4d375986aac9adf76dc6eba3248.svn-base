@@ -1,0 +1,13 @@
+_EraseFlash: CODE, 1764 0 142
+_SetupCanB: CODE, 1906 0 142
+_main: CODE, 32 0 330
+_SetupCanClockB: CODE, 932 0 78
+__initialization: CODE, 1280 0 24
+_ZapiszDane: CODE, 668 0 264
+_przerzucBufDoRamB: CODE, 1314 0 74
+_ResetDevice: CODE, 1010 0 6
+_SetupMaskB: CODE, 1622 0 142
+_OdbierzRamkeCanB: CODE, 1484 0 138
+_ReadFlash: CODE, 1388 0 96
+_WriteBytesFlash: CODE, 362 0 306
+Total: 1742

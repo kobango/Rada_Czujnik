@@ -1,0 +1,11 @@
+#
+#Fri Nov 21 19:49:46 CET 2014
+default.languagetoolchain.version=3.44
+conf.ids=default,Parkingi
+default.languagetoolchain.dir=C\:\\Program Files (x86)\\Microchip\\mplabc18\\v3.44\\bin
+default.com-microchip-mplab-nbide-toolchainC18-C18LanguageToolchain.md5=d681cd6c530ae120034db667377ccd6a
+Parkingi.com-microchip-mplab-nbide-toolchainC18-C18LanguageToolchain.md5=d681cd6c530ae120034db667377ccd6a
+com-microchip-mplab-nbide-embedded-makeproject-MakeProject.md5=f654f11d585cacf70b570c49f2939b4c
+Parkingi.languagetoolchain.dir=C\:\\Program Files (x86)\\Microchip\\mplabc18\\v3.44\\bin
+host.platform=windows
+Parkingi.languagetoolchain.version=3.44

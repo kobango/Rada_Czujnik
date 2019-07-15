@@ -1,0 +1,19 @@
+#ifndef INTERRUPTS_H
+
+extern unsigned int SygnalZgloszeniaU16;
+extern unsigned char Kanal;
+extern unsigned int CTMU_ADC;
+extern unsigned int dzwiekU16;
+extern unsigned int timer_opoznienie_dzwiekuU16;
+
+void WylaczPrzerwania(void);
+void SygnalZielone(void);
+void SygnalPotwierdzenie(void);
+void DzwiekGlosniczek(void);
+void Wibrator(void);
+void PodswietlenieLED(void);
+ 
+void InterruptHandlerLow(void);//void interrupt_at_low_vector(void);
+void InterruptHandlerHigh(void);//void interrupt_at_high_vector(void);
+
+#endif

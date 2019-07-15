@@ -1,0 +1,230 @@
+/* 
+ * File:   main.c
+ * Author: Mariusz
+ *
+ * Created on 29 sierpie? 2012, 14:17
+ */
+
+#include "main.h"
+#include "CAN.h"
+#define FLASH_V1_4
+#include <plib.h>
+#include <xc.h>
+
+#define PROGRAM_START 0xC00      //start of application program, do not write below this address
+
+#define VERSION_MAJOR 0x01       //this cannot be zero!
+#define VERSION_MINOR 0x00
+
+#define LED LATAbits.LATA5
+
+typedef short          Word16;
+typedef unsigned short UWord16;
+typedef long           Word32;
+typedef unsigned long  UWord32;
+
+typedef union tuReg32 {
+  UWord32 Val32;
+
+  struct {
+    UWord16 LW;
+    UWord16 HW;
+  } Word;
+
+  char Val[4];
+} uReg32;
+
+
+
+// PIC18F26K80 Configuration Bit Settings
+
+
+
+// CONFIG1L
+#pragma config RETEN = OFF      // VREG Sleep Enable bit (Ultra low-power regulator is Disabled (Controlled by REGSLP bit))
+#pragma config INTOSCSEL = HIGH // LF-INTOSC Low-power Enable bit (LF-INTOSC in High-power mode during Sleep)
+#pragma config SOSCSEL = DIG    // SOSC Power Selection and mode Configuration bits (Digital (SCLKI) mode)
+#pragma config XINST = OFF      // Extended Instruction Set (Disabled)
+
+// CONFIG1H
+#pragma config FOSC = HS1       // Oscillator (HS oscillator (Medium power, 4 MHz - 16 MHz))
+#pragma config PLLCFG = OFF     // PLL x4 Enable bit (Disabled)
+#pragma config FCMEN = OFF      // Fail-Safe Clock Monitor (Disabled)
+#pragma config IESO = OFF       // Internal External Oscillator Switch Over Mode (Disabled)
+
+// CONFIG2L
+#pragma config PWRTEN = ON      // Power Up Timer (Enabled)
+#pragma config BOREN = ON       // Brown Out Detect (Controlled with SBOREN bit)
+#pragma config BORV = 1         // Brown-out Reset Voltage bits (2.7V)
+#pragma config BORPWR = ZPBORMV // BORMV Power level (ZPBORMV instead of BORMV is selected)
+
+// CONFIG2H
+#pragma config WDTEN = SWDTDIS  // Watchdog Timer (WDT enabled in hardware; SWDTEN bit disabled)
+#pragma config WDTPS = 1024     // Watchdog Postscaler (1:1024)
+
+// CONFIG3H
+#pragma config CANMX = PORTC    // ECAN Mux bit (ECAN TX and RX pins are located on RC6 and RC7, respectively)
+#pragma config MSSPMSK = MSK7   // MSSP address masking (7 Bit address masking mode)
+#pragma config MCLRE = ON       // Master Clear Enable (MCLR Enabled, RE3 Disabled)
+
+// CONFIG4L
+#pragma config STVREN = ON      // Stack Overflow Reset (Enabled)
+#pragma config BBSIZ = BB1K     // Boot Block Size (1K word Boot Block size)
+
+// CONFIG5L
+#pragma config CP0 = OFF        // Code Protect 00800-03FFF (Disabled)
+#pragma config CP1 = OFF        // Code Protect 04000-07FFF (Disabled)
+#pragma config CP2 = OFF        // Code Protect 08000-0BFFF (Disabled)
+#pragma config CP3 = OFF        // Code Protect 0C000-0FFFF (Disabled)
+
+// CONFIG5H
+#pragma config CPB = OFF        // Code Protect Boot (Disabled)
+#pragma config CPD = OFF        // Data EE Read Protect (Disabled)
+
+// CONFIG6L
+#pragma config WRT0 = OFF       // Table Write Protect 00800-03FFF (Disabled)
+#pragma config WRT1 = OFF       // Table Write Protect 04000-07FFF (Disabled)
+#pragma config WRT2 = OFF       // Table Write Protect 08000-0BFFF (Disabled)
+#pragma config WRT3 = OFF       // Table Write Protect 0C000-0FFFF (Disabled)
+
+// CONFIG6H
+#pragma config WRTC = ON        // Config. Write Protect (Enabled)
+#pragma config WRTB = ON        // Table Write Protect Boot (Enabled)
+#pragma config WRTD = OFF       // Data EE Write Protect (Disabled)
+
+// CONFIG7L
+#pragma config EBTR0 = OFF      // Table Read Protect 00800-03FFF (Disabled)
+#pragma config EBTR1 = OFF      // Table Read Protect 04000-07FFF (Disabled)
+#pragma config EBTR2 = OFF      // Table Read Protect 08000-0BFFF (Disabled)
+#pragma config EBTR3 = OFF      // Table Read Protect 0C000-0FFFF (Disabled)
+
+// CONFIG7H
+#pragma config EBTRB = OFF      // Table Read Protect Boot (Disabled)
+
+
+
+struct FlagiStruct Flagi;
+
+void ResetDevice(void);
+
+uReg32 SourceAddr;
+unsigned char buforCAN[72];
+
+#asm
+PSECT intcode
+GOTO 0xc08
+PSECT intcodelo
+GOTO 0xc18
+
+#endasm
+
+int main(void)
+{
+    uReg32 Delay;
+    unsigned char counter = 0;
+
+    TRISA = 0xFF;
+    TRISB = 0xFF;
+    TRISAbits.TRISA5 = 0;
+    LED = 0;
+    TRISC = 0xFF;
+    TRISCbits.TRISC6 = 0;
+
+//    RCON = 0xFF;
+
+    T0CON = 0x00;
+    T0CONbits.T0PS = 0x05; // presc 64, osc FCY/4, 16bit
+    
+    INTCONbits.TMR0IE = 0;
+    INTCONbits.TMR0IF = 0;
+
+    SourceAddr.Val32 = 0x9FFE;
+    ReadFlash(SourceAddr.Val32,2,Delay.Val);
+
+    if ((Delay.Val32 & 0x000000FF) != 0xFF)
+    {
+        if(Delay.Val[0] < 5)
+        {
+            Delay.Val[0] = 5;
+        }
+        TMR0 = 62500; // flaga co 1s
+
+        /* Enable Timer */
+        T0CONbits.TMR0ON = 1;
+    }
+
+    SetupCanB();
+    SourceAddr.Val32 = PROGRAM_START;
+
+    for(;;)
+    {
+        if(PIR5bits.RXBnIF == 1 || PIR5bits.RXB0IF == 1 || PIR5bits.RXB1IF == 1)
+        {
+            //check to see if buffer 1 is full
+            if(RXB0CONbits.RXFUL)
+            {
+                    // set the buffer full flag and the buffer received flag
+                    canRxMessage.buffer = 1;
+                    PIR5bits.RXB0IF = 0;
+                    RXB0CONbits.RXFUL = 0;
+            }
+            // check to see if buffer 2 is full
+            else if(RXB1CONbits.RXFUL)
+            {
+                    // set the buffer full flag and the buffer received flag
+                    canRxMessage.buffer = 2;
+                    PIR5bits.RXB1IF = 0;
+                    RXB1CONbits.RXFUL = 0;
+            }
+            OdbierzRamkeCanB(&canRxMessage);
+            TMR0 = 62500;
+            counter = 0;
+
+            PIR5bits.RXBnIF = 0;
+        }
+        if(INTCONbits.TMR0IF == 1)
+        {
+            TMR0IF = 0;
+            if(++counter >= Delay.Val[0])
+            {
+                ResetDevice();
+            }
+        }
+        ClrWdt();
+    }
+}
+
+void ZapiszDane(void)
+{
+    static int k, i = 0;
+
+
+        for(k = 0; k < canRxMessage.data_length; ++k) 
+        {
+            buforCAN[k+i] = canRxMessage.data[k];
+        }
+
+        i += canRxMessage.data_length;
+
+        if(i >= 64)
+        {
+            LED = !LED;
+            EraseFlash(SourceAddr.Val32, SourceAddr.Val32+64);
+            WriteBytesFlash(SourceAddr.Val32,64,buforCAN);
+            SourceAddr.Val32 += 64;
+            i = 0;
+        }
+}
+
+void ResetDevice(void) {
+
+  asm(" goto 0xC00");
+}
+
+/*void ResetDeviceasPOR(void) {
+
+  RCONbits.POR = 1;//_POR = 1;
+  asm(" goto 0xC00");
+//  asm(" goto 0x1000");
+
+}*/

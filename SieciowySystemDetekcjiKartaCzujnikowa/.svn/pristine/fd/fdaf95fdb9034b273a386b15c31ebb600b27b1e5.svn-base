@@ -1,0 +1,128 @@
+#include "main.h"
+#include "CAN.h"
+
+
+mID ramkaCanRxCzujnika, ramkaCanTxCzujnika;
+
+
+/*******************************************************************
+Funkcja: static void RamkaStanuCzujnika(mID *message)
+Opis funkcji: Ramka obrabiajaca dane z czujnika na stan wewy
+Data: 11.07.2013
+Autor: Pawel Kasperek
+*****************************************************************/
+static void RamkaStanuCzujnika(mID *message)
+{
+    BYTE stanU8;
+    WORD adresU16;
+
+    if(message->message_type == CAN_MSG_DATA)
+    {
+        adresU16 = (WORD)message->id;
+        //jaki adres ramki i jaki stan czujnika
+        stanU8 = message->data[0];
+        //przekaz do funkcji WeWy
+        AktualizujDaneCzujnika(adresU16, stanU8);
+    }
+}
+
+/*******************************************************************
+Funkcja: void ObsluzRamkeCan(void)
+Opis funkcji: obsluga rozpakowanej ramki CAN
+Data: 20.08.2012
+Autor: Mariusz Chrobak
+*****************************************************************/
+void ObsluzRamkeCzujnika(void)
+{
+    unsigned char id_ramki;
+
+    id_ramki = (unsigned char)(ramkaCanRxCzujnika.id>>18);
+    id_ramki &= 0x7F;
+    switch(id_ramki)
+    {
+        case 0x01:
+            RamkaStanuCzujnika(&ramkaCanRxCzujnika);
+            break;
+    }
+//    if(ramkaCanRxKarty.message_type == CAN_MSG_RTR)
+//    {
+//        GenerujCAN_ID(&ramkaCanRxKarty,id_ramki);
+//        WyslijRamkeCan(&ramkaCanRxKarty);
+//    }
+
+}
+
+/*******************************************************************
+Funkcja: static void RamkaResetuCzujnika(mID *message, CzujnikStruct *czujnikPointer)
+Opis funkcji: wysylanie ramki resetu
+Data: 13.09.2013
+Autor: Pawel Kasperek
+*****************************************************************/
+static void RamkaResetuCzujnika(mID *message, CzujnikStruct *czujnikPointer)
+{
+    message->frame_type = CAN_FRAME_EXT;
+    message->message_type = CAN_MSG_DATA;
+
+    message->id = (DWORD)0x07<<18 |(DWORD)czujnikPointer->adresCzujnikaU16;
+
+    message->data_length = 4;
+    if(czujnikPointer->Flagi.wyslijReset)
+    {
+        message->data[0] = 1;
+    }
+    else
+    {
+        message->data[0] = 0;
+    }
+    czujnikPointer->Flagi.wyslijReset = 0;
+
+    message->data[1] = 1;
+
+    if(czujnikPointer->Flagi.wyslijUczenieTla)
+    {
+        message->data[2] = 1;
+    }
+    else
+    {
+        message->data[2] = 0;
+    }
+    czujnikPointer->Flagi.wyslijUczenieTla = 0;
+}
+
+/*******************************************************************
+Funkcja: void WyslijRamkeDoCzujnikow(void)
+Opis funkcji: wysylanie ramek do czujnikow
+Data: 13.09.2013
+Autor: Pawel Kasperek
+*****************************************************************/
+BYTE WyslijRamkeDoCzujnikow(void)
+{
+    BYTE i, k;
+
+    for(i=0; i<WEWY; i++)
+    {
+        for(k=0; k<DETEKTOROW_NA_WEWY; k++)
+        {
+            if(kartaCzujnikowa.weWy[i].czujnik[k].Flagi.wyslijReset ||
+                    kartaCzujnikowa.weWy[i].czujnik[k].Flagi.wyslijUczenieTla)
+            {
+                break;
+            }
+        }
+        if(k<DETEKTOROW_NA_WEWY)
+        {
+            break;
+        }
+    }
+
+    if(i<WEWY)
+    {
+        RamkaResetuCzujnika(&ramkaCanTxCzujnika, &kartaCzujnikowa.weWy[i].czujnik[k]);
+        WyslijRamkeCan(&ramkaCanTxCzujnika);
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}

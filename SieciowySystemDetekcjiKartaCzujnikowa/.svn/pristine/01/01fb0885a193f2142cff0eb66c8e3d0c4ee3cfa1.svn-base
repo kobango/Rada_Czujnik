@@ -1,0 +1,10 @@
+build/default/production/main.o:  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa.X/main.c  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa.X/WeWy.h  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa.X/main.h  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa.X/CAN.h  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa.X/EEPROM.h  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa.X/GenericTypeDefs.h  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa.X/RamkiKarty.h  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa.X/interrupts.h  \
+

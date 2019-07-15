@@ -1,0 +1,7 @@
+build/default/debug/EEPROM.o:  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa.X/EEPROM.c  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa.X/WeWy.h  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa.X/main.h  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa.X/CAN.h  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa.X/GenericTypeDefs.h  \
+

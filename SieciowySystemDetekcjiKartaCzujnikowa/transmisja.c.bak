@@ -1,0 +1,43 @@
+#include "main.h"
+#include "RamkiKarty.h"
+#include "RamkiCzujnikow.h"
+#include "transmisja.h"
+#include "CAN.h"
+
+
+DaneCanStruct DaneCan;
+/*******************************************************************
+Funkcja: void TransmisjaDanych(void)
+Opis funkcji: funkcja sprawdzajaca zdarzenia dotyczace CANa
+Data: 14.11.2013
+Modyfikacje: Pawel kasperek
+*****************************************************************/
+void TransmisjaDanych(void)
+{
+    mID canMessage;
+    static BYTE ramkaStanu=0;
+
+    // wyslij Stan wzbudzenia przycisku przy kazdej zmianie i co 2 sek
+    if(DaneCan.Flagi.wyslijRamkeStanu == 1)
+    {
+        //wyslij ramke stanu
+        if(++ramkaStanu > TIMER_RAMKI_STANU)
+        {
+            ramkaStanu = 0;
+            WyslijRamkeStanu(&canMessage);
+        }
+        DaneCan.Flagi.wyslijRamkeStanu = 0;
+    }    
+    if(OdbierzRamkeCan(&canMessage))
+    {
+        kartaCzujnikowa.statusLed.Flagi.ramkaRx = 1;
+        if((canMessage.buffer == 0) || (canMessage.buffer == 1))
+        {
+            ObsluzRamkeCan(&canMessage);
+        }
+        else
+        {
+            ObsluzRamkeCzujnika(&canMessage);
+        }
+    }
+}

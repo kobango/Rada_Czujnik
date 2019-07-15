@@ -1,0 +1,10 @@
+build/default/debug/RamkiKarty.o:  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa/RamkiKarty.c  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa/WeWy.h  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa/CAN.h  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa/RamkiKarty.h  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa/EEPROM.h  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa/main.h  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa/GenericTypeDefs.h  \
+	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa/transmisja.h  \
+

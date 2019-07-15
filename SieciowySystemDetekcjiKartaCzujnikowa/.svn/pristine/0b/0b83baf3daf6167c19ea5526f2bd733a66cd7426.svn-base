@@ -1,0 +1,12 @@
+
+#ifndef RAMKICZUJNIKOW_H
+    #define	RAMKICZUJNIKOW_H
+    #include "CAN.h"
+
+    extern mID ramkaCanRxCzujnika;
+    
+    void ObsluzRamkeCzujnika(void);
+
+
+#endif	/* RAMKICZUJNIKOW_H */
+

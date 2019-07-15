@@ -1,0 +1,73 @@
+#ifndef WEWY_H
+    #define	WEWY_H
+
+#include "GenericTypeDefs.h"
+    #define WEWY 8
+    #define DETEKTOROW_NA_WEWY 4
+
+    #define BAJTOW_NAZWY 8
+
+    #define TIMER_UCZENIA_TLA 20
+    #define TIMER_WYKONANIA_UCZENIA_TLA 200
+
+    typedef struct{
+        WORD_VAL x,y;
+    }PozycjaXYStruct;
+
+    typedef struct{
+        PozycjaXYStruct pozycjaXY;
+        BYTE skalaU8;
+    }CzujnikNaMapieStruct;
+
+    typedef struct{
+        union
+        {
+            BYTE flagiU8;
+            struct{
+                unsigned ramkaRx : 1;
+                unsigned ramkaTx : 1;
+            };
+        }Flagi;
+    }StatusLedStruct;
+
+    typedef struct {
+        union
+        {
+            BYTE flagiU8;
+
+            struct{
+                unsigned stan : 1;
+                unsigned przypisanyCzujnik : 1;
+                unsigned nieGada : 1;
+            };
+        }Flagi;
+
+        BYTE frameCounterU8;
+        WORD timerRamkiRxCanU16;
+        WORD adresCzujnikaU16;
+
+    }CzujnikStruct;
+
+    typedef struct {
+        union
+        {
+            BYTE flagiU8;
+
+            struct{
+                unsigned stan : 1;
+                unsigned error : 1;
+                unsigned reset : 1;
+                unsigned uczenieTla : 1;
+            };
+        }Flagi;
+        CzujnikStruct czujnik[DETEKTOROW_NA_WEWY];
+        WORD adresBazowejU16;
+        BYTE timerResetuU8, timerUczeniaTlaU8;
+    }WeWyStruct;
+
+    extern rom BYTE nazwyWlasneCzujnikow[];
+    
+    void ObsluzWeWy(void);
+    BYTE AktualizujDaneCzujnika(WORD adresU16, BYTE stanU8, BYTE frameCounterU8);
+#endif	/* WEWY_H */
+

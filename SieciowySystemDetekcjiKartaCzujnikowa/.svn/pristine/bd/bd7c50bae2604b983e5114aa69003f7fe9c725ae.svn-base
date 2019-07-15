@@ -1,0 +1,67 @@
+#include "main.h"
+#include "CAN.h"
+
+/*******************************************************************
+Funkcja: unsigned char ReadfromEEPROM(unsigned int Address)
+Opis funkcji: Czytanie pojedynczego bajtu ze wskazanego adresu
+Data: sierpien 2012
+Autor: Mariusz Chrobak
+*****************************************************************/
+unsigned char ReadfromEEPROM(unsigned int Address)
+{
+    EEADRH = (unsigned char)(Address>>8); // Load the high byte of the EEPROM address
+    EEADR = (unsigned char)Address; // Load the low byte of the EEPROM address
+    EECON1bits.RD = 1; // Do the read
+    EECON1bits.EEPGD = 0;
+    EECON1bits.CFGS = 0;
+    return EEDATA; // Return with the data
+}
+
+/*******************************************************************
+Funkcja: void WritetoEEPROM(unsigned int Address, unsigned char Data)
+Opis funkcji: Zapis pojedynczego bajtu pod wskazany adres
+Data: sierpien 2012
+Autor: Mariusz Chrobak
+*****************************************************************/
+void WritetoEEPROM(unsigned int Address, unsigned char Data)
+{
+    static unsigned char GIE_Status; // Variable to save Global Interrupt Enable bit
+
+    EEADRH = (unsigned char)(Address>>8); // Load the high byte of the EEPROM address
+    EEADR = (unsigned char)Address; // Load the low byte of the EEPROM address
+    EEDATA = Data; // Load the EEPROM data
+    EECON1bits.WREN = 1; // Enable EEPROM writes
+    GIE_Status = INTCONbits.GIE; // Save the Global Interrupt Enable bit
+    INTCONbits.GIE = 0; // Disable global interrupts
+    EECON2 = 0x55; // Required sequence to start the write cycle
+    EECON2 = 0xAA; // Required sequence to start the write cycle
+    EECON1bits.WR = 1; // Required sequence to start the write cycle
+    INTCONbits.GIE = GIE_Status; // Restore the Global Interrupt Enable bit
+    EECON1bits.WREN = 0; // Disable EEPROM writes
+    while (EECON1bits.WR); // Wait for the write cycle to complete
+}
+/*******************************************************************
+Funkcja: void UstawFlagi(void)
+Opis funkcji: Odczytywanie z wew FLASH ustawien przycisku
+Data: sierpien 2012
+Autor: Mariusz Chrobak
+*****************************************************************/
+void UstawFlagi(void)
+{
+    WORD temp[4];
+    BYTE i;
+    BYTE *pointerU8;
+
+    pointerU8 = (BYTE*)&kartaCzujnikowa;
+
+    for(i=0; i<sizeof(kartaCzujnikowa); i++, pointerU8++)
+    {
+        *pointerU8 = ReadfromEEPROM(EEPROM_OFFSET+i);
+
+    }
+    ReadFlash(0x400,4,temp);
+    //TODO opanowac dwubajtowy adres
+    DaneCan.adresCAN = ((unsigned int)temp[2]<<8) | (unsigned int)temp[0];
+//    DaneCan.adresCAN = (unsigned int)temp[0];
+}
+

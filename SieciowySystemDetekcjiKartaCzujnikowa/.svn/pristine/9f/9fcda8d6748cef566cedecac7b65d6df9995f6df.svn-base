@@ -1,0 +1,12 @@
+
+#ifndef RAMKIKARTY_H
+    #define	RAMKIKARTY_H
+    #include "CAN.h"
+
+
+    void ObsluzRamkeCan(mID *message);
+    void WyslijRamkeStanu(mID* canMessage);
+
+
+#endif	/* RAMKIKARTY_H */
+

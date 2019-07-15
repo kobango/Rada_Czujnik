@@ -1,0 +1,293 @@
+#include "main.h"
+#include "transmisja.h"
+#include "CAN.h"
+#include "RamkiKarty.h"
+#include "RamkiCzujnikow.h"
+
+#define BITRATE 50000
+#define NTQ 20 //20 time quanta in a bit time
+#define BRP_VAL ((FCY/(2*NTQ*BITRATE))-1)
+
+static void SetupCanClock(void);
+static void SetupMask(void);
+
+
+/*******************************************************************
+Funkcja: void SetupCan(void)
+Opis funkcji: inicjalizacja portu CAN - 100kbps
+Data: 15.04.2011
+*****************************************************************/
+void SetupCan(void)
+{
+
+    // Enter CAN module into config mode
+    CANCON = 0x80;
+    while((CANSTAT & 0xE0)!=0x80)
+    {
+        ;
+    }
+
+    BSEL0 = 0;
+    TXB0CON = 0;
+    RXB0CON = 0;
+    RXB1CON = 0;
+    B0CON = 0;
+    B1CON = 0;
+    PIE5 = 0;
+    IPR5 = 0xFF;
+    PIR5 = 0;
+    BIE0 = 0;
+
+    // Enter CAN module into Mode 2
+    ECANCON = 0x90;
+
+    //ustawienie predkosci przesylu danych
+    SetupCanClock();
+
+    //ustawienie maski
+    SetupMask();
+
+    CIOCON = 0x00; // CIOCON: CAN I/O CONTROL REGISTER str 437
+    //bit 0 CLKSEL: CAN Clock Source Selection bit
+    //1 = Use the oscillator as the source of the CAN system clock
+    //0 = Use the PLL as the source of the CAN system clock
+        // Enter CAN module into normal mode
+    CANCON = 0x00;
+    while((CANSTAT & 0xE0) > 0)
+    {
+        ;
+    }
+}
+
+/*******************************************************************
+Funkcja: static void SetupMask(void)
+Opis funkcji: funkcja ustawiajaca wlasciwy adres i filtr danych
+Data: 15.04.2011
+*****************************************************************/
+static void SetupMask(void)
+{
+    MSEL0 = 0x50; // filtry 0 i 1 do maski 0, filtry 2 i 3 do maski 1
+    MSEL1 = 0x55; // filtry 4, 5, 6, 7 do maski 1
+    MSEL2 = 0x55; // filtry 8, 9, 10, 11 do maski 1
+    MSEL3 = 0x55; // filtry 12, 13, 14, 15 do maski 1
+
+    // Konfiguracja maski 0 - filtrowanie pojedynczego adresu
+    RXM0SIDH = 0b00000000;
+    RXM0SIDL = 0b00001011; // tylko extended
+    RXM0EIDH = 0xFF;
+    RXM0EIDL = 0xFF;
+
+    // Konfiguracja maski 1 - filtrowanie adresów czujniczków
+    RXM1SIDH = 0xFF;
+    RXM1SIDL = 0xFF; // tylko extended
+    RXM1EIDH = 0;
+    RXM1EIDL = 0;
+
+    // Konfiguracja filtra 0 i 1 - ramki kart czujnikowych
+    RXF0SIDH = 0x00;
+    RXF0SIDL = 0x01;
+    RXF0SIDLbits.EXIDEN = 1;
+    RXF0EIDH = (BYTE)(DaneCan.adresCAN>>8);
+	RXF0EIDH |= 0x40;
+    RXF0EIDL = (BYTE)DaneCan.adresCAN;
+
+    RXF1SIDH = 0x00;
+    RXF1SIDL = 0x01;    //ramki kart czujnikowych
+    RXF1SIDLbits.EXIDEN = 1;
+    RXF1EIDH = 0x7F;//akceptuj broadcasty
+    RXF1EIDL = 0xFF;//akceptuj broadcasty
+
+    //Konfiguracja filtra 2 - ramki stanu czujnikow przewodowych i bezprzewodowych
+    RXF2SIDH = 0;
+    RXF2SIDL = 0x20;
+    RXF2SIDLbits.EXIDEN = 1;
+    RXF2EIDH = 0;
+    RXF2EIDL = 0;
+
+    //przypisz filtr 0 i 1 do RXB0
+//    RXFBCON0 = 0x00;
+    //przypisz filtr 2 do RXB1
+//    RXFBCON1 = 0x01;
+
+    // Wlacz filtr 0, 1 i 2
+    RXFCON0 = 0x07;
+
+}
+
+/*******************************************************************
+Funkcja: static void SetupCanClock(void)
+Opis funkcji: funkcja ustawiajaca predkosc przesylu danych
+Data: 15.04.2011
+*****************************************************************/
+static void SetupCanClock(void)
+{
+    BRGCON1bits.BRP = BRP_VAL;         // Sync Segment = 1 TQ (0b00)  // 0b001111; // 2x16
+    BRGCON2bits.SEG1PH = 0b111; // Phase Segment 1 = 8 TQ
+    BRGCON2bits.PRSEG = 0b100; // Propagation Delay = 5 TQ
+    BRGCON3bits.SEG2PH = 0b101; // Phase Segment 2 = 6 TQ
+
+    BRGCON2bits.SAM = 1;
+    BRGCON2bits.SEG2PHTS = 1;
+}
+
+/*******************************************************************
+Funkcja: static void przerzucBufDoRam(BYTE* Ram, BYTE* Buf)
+Opis funkcji: funkcja kopiujaca paczke danych do bufora wyjsciowego
+Data: 15.04.2011
+*****************************************************************/
+static void przerzucBufDoRam(BYTE* Ram, BYTE* Buf)
+{
+    BYTE i;
+    for(i=0 ;i<8; ++i)
+    {
+        Ram[i]=(*(Buf+i));
+    }
+}
+
+/*******************************************************************
+Funkcja: void WyslijRamkeCan(mID * message)
+Opis funkcji: funkcja kopiujÄ?ca paczkÄ? danych do bufora wyj??ciowego
+Data: 15.04.2011
+*****************************************************************/
+void WyslijRamkeCan(mID * message)
+{
+    BOOL pointerUstawiony = FALSE;
+    BYTE *pointerU8;
+    //znajdz wolny bufor do wyslania danych
+    //poczekaj az poprzednia ramka zostanie wyslana
+    while(!pointerUstawiony)
+    {
+        if(!TXB0CONbits.TXREQ)
+        {
+            //TXB0 wolny - ustaw pointer
+            pointerU8 = &TXB0CON;
+            pointerUstawiony = TRUE;
+        }
+        else if(!TXB1CONbits.TXREQ)
+        {
+            //TXB1 wolny - ustaw pointer
+            pointerU8 = &TXB1CON;
+            pointerUstawiony = TRUE;
+        }
+        else if(!TXB2CONbits.TXREQ)
+        {
+            //TXB2 wolny - ustaw pointer
+            pointerU8 = &TXB2CON;
+            pointerUstawiony = TRUE;
+        }
+    }
+    //zatrzymaj transmisje
+    while(COMSTATbits.TXWARN)
+    {
+        Reset();
+    }
+    kartaCzujnikowa.timerRamkiTxCANU8 = 0;
+    *(pointerU8+4) = message->id.v[0]; //TXBnEIDL
+    *(pointerU8+3) = message->id.v[1]; //TXBnEIDH
+    *(pointerU8+2) = ((message->id.v[2]&0xFC)*8) | (message->id.v[2] & (0x03)); //TXBnSIDL
+    *(pointerU8+2) |= 0x08; //TXBnSIDLbits.EXIDE = 1;
+    *(pointerU8+1) = (BYTE)message->id.w[1]/32; //TXBnSIDH
+
+    *(pointerU8+5) = 0; //TXBnDLC
+    /* check to see if the message is an RTR message */
+    if(message->message_type==CAN_MSG_RTR)
+    {
+        *(pointerU8+5) |= 0x40; //TXBnDLCbits.TXRTR = 1;
+    }
+    else
+    {
+        *(pointerU8+5) = (message->data_length & 0x0F); //TXBnDLCbits.DLC
+        /* fill the data */
+        przerzucBufDoRam(pointerU8+6, message->data);
+    }
+
+    *(pointerU8) |= 0x08; //TXBnCONbits.TXREQ = 1;
+}
+
+/*******************************************************************
+Funkcja: void OdbierzRamkeCan(mID * message)
+Opis funkcji: funkcja konwertujaca bufor wejsciowy do przyjaznej formy
+Data: 15.04.2011
+*****************************************************************/
+BOOL OdbierzRamkeCan(mID * message)
+{
+    BYTE *pointerU8;
+    switch(CANCON&0x0F)
+    {
+        case 0:
+            pointerU8 = &RXB0CON;
+            break;
+        case 1:
+            pointerU8 = &RXB1CON;
+            break;
+        case 2:
+            pointerU8 = &B0CON;
+            break;
+        case 3:
+            pointerU8 = &B1CON;
+            break;
+        case 4:
+            pointerU8 = &B2CON;
+            break;
+        case 5:
+            pointerU8 = &B3CON;
+            break;
+        case 6:
+            pointerU8 = &B4CON;
+            break;
+        case 7:
+            pointerU8 = &B5CON;
+            break;
+
+    }
+    //sprawdz czy cos w buforze jest
+    if((*pointerU8&0x80) == 0x80) //RXB0CONbits.RXFUL == 1
+    {
+        message->buffer = *pointerU8 & 0x1F;//RXBnCON & 0x0F
+        message->id.v[0] = *(pointerU8+4);//RXBnEIDL;
+        message->id.v[1] = *(pointerU8+3);//RXBnEIDH;
+        message->id.v[2] = (*(pointerU8+2)/8) | (*(pointerU8+2)&0x03);//(RXBnSIDL/8) | (RXBnSIDL&0x03);
+        message->id.w[1] |= (WORD)*(pointerU8+1)*32;//(WORD)RXBnSIDH*32;
+        message->frame_type=CAN_FRAME_EXT;
+
+        // check to see what type of message it is
+        // normal message
+        if((*(pointerU8+5)&0x40) == 0) //RXB0DLCbits.RXRTR == 0
+        {
+            message->message_type = CAN_MSG_DATA;
+            message->data_length= *(pointerU8+5)&0x0F;//RXBnDLC & 0x0F;
+            przerzucBufDoRam(message->data, pointerU8+6);
+            if(message->data_length > 8)
+                message->data_length=8;
+        }
+        // RTR message
+        else
+        {
+            message->message_type=CAN_MSG_RTR;
+        }
+        *pointerU8 &= ~0x80;// clear RXFUL bit in RXBnCON
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
+    }
+}
+
+
+/*******************************************************************
+Funkcja: void UzupelnijRamkeDanychCan(mID * message, unsigned int identyfikator)
+Opis funkcji: funkcja przygotowujaca ramke danych do przeslania
+Data: 20.08.2012
+Modyfikacje: Mariusz Chrobak
+*****************************************************************/
+void GenerujCAN_ID(mID * message, BYTE frameID)
+{
+    message->frame_type = CAN_FRAME_EXT;
+    message->message_type = CAN_MSG_DATA;
+    message->id.Val = 0;
+    message->id.v[2] = frameID * 4;
+    message->id.w[0] = DaneCan.adresCAN;
+    message->id.v[2] |= 0x01;
+    message->id.v[1] |= 0x40;
+}

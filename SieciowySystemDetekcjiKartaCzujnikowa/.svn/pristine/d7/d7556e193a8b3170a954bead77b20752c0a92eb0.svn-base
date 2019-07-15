@@ -1,0 +1,24 @@
+/*
+ * File:   main.h
+ * Author: Pawel
+ *
+ * Created on 1 kwiecie? 2012, 14:21
+ */
+
+#ifndef main_H
+#define main_H
+
+    #include <p18f26k80.h>
+
+    #define FCY 16000000//8000000/2
+
+    struct FlagiStruct
+    {
+        unsigned noweDane   : 1;
+    };
+
+    extern struct FlagiStruct Flagi;
+    void ZapiszDane(void);
+#endif
+
+
