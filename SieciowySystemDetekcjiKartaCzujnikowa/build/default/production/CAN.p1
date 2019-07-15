@@ -2548,7 +2548,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "390
 [; ;CAN.c: 390:     message->id.v[1] |= 0x00;
 [e =| *U + &U . . *U _message 4 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _message 4 2 `ui `ux -> -> 0 `i `uc ]
+"391
+[; ;CAN.c: 391:     message ->id.bits.b16 = 0;
+[e = . . . *U _message 4 6 16 -> -> 0 `i `uc ]
 "392
-[; ;CAN.c: 392: }
+[; ;CAN.c: 392:     message ->id.bits.b17 = 0;
+[e = . . . *U _message 4 6 17 -> -> 0 `i `uc ]
+"393
+[; ;CAN.c: 393: }
 [e :UE 1170 ]
 }

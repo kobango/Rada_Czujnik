@@ -18587,5 +18587,6 @@ void CAN_GenID(mID * message, BYTE frameID)
     message->id.w[0] = DaneCan.adresCAN + 0x0010;
     message->id.v[2] |= 0x00;
     message->id.v[1] |= 0x00;
-
+    message ->id.bits.b16 = 0;
+    message ->id.bits.b17 = 0;
 }
