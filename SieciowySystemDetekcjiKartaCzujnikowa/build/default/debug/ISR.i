@@ -18220,6 +18220,7 @@ void INI_LED_Start(void);
 UINT8 LED_Update(void);
 void Fulfillment_Lvl_Set(UINT a);
 UINT Fulfillment_Lvl_Get(void);
+UINT LED_Error(void);
 # 5 "ISR.c" 2
 # 16 "ISR.c"
 void __attribute__((picinterrupt(("low_priority")))) ISR_low (void)
@@ -18239,7 +18240,7 @@ void __attribute__((picinterrupt(("low_priority")))) ISR_low (void)
 
             DetectorLedRadar.Flags.obsluzWeWy = 1;
 
-            if(++ramkaStanuU8 > 2)
+            if(++ramkaStanuU8 > (5*10))
                 {
                     ramkaStanuU8 = 0;
                     DaneCan.Flags.wyslijRamkeStanu = 1;

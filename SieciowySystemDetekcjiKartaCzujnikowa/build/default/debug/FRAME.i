@@ -18198,6 +18198,35 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
     void InterruptHandlerHigh(void);
     void INI_All(void);
 # 3 "FRAME.c" 2
+# 1 "./LED.h" 1
+# 12 "./LED.h"
+void INI_LED_Start(void);
+UINT8 LED_Update(void);
+void Fulfillment_Lvl_Set(UINT a);
+UINT Fulfillment_Lvl_Get(void);
+UINT LED_Error(void);
+# 4 "FRAME.c" 2
+# 1 "./FRAME.h" 1
+# 12 "./FRAME.h"
+extern mID ramkaCanRxCzujnika[5];
+void FRAME_HandleCanFrame(mID * message);
+# 5 "FRAME.c" 2
+# 1 "./MOC_Funct.h" 1
+
+
+
+
+
+
+
+UINT MOC_StanWzbudzenia(void);
+UINT MOC_Wynikowa_wartosc_roznicowa(void);
+UINT MOC_Frame_Counter(void);
+UINT MOC_Aktualna_Temperatura(void);
+UINT MOC_NOTWORK(void);
+UINT MOC_RSSI_ramki(void);
+UINT MOC_LQI_ramki(void);
+# 6 "FRAME.c" 2
 
 typedef short Word16;
 typedef unsigned short UWord16;
@@ -18233,14 +18262,14 @@ static void FRAME_SensorExcitationStatus(mID *message)
 
 
 
-        message->data[0] = 0b01;
-        message->data[1] = 0xFF;
-        message->data[2] = 0xFF;
-        message->data[3] = 0x00;
-        message->data[4] = 18;
-        message->data[5] = 0x00;
-        message->data[6] = 0x00;
-        message->data[7] = 0x00;
+        message->data[0] = MOC_StanWzbudzenia();
+        message->data[1] = MOC_Wynikowa_wartosc_roznicowa() & 0x00FF;
+        message->data[2] = MOC_Wynikowa_wartosc_roznicowa()>>8;
+        message->data[3] = MOC_Frame_Counter();
+        message->data[4] = MOC_Aktualna_Temperatura();
+        message->data[5] = MOC_NOTWORK();
+        message->data[6] = MOC_RSSI_ramki();
+        message->data[7] = MOC_LQI_ramki();
 
 
 
@@ -18347,7 +18376,7 @@ static void FRAME_AveragingTimes(mID *message)
     }
     else
     {
-# 186 "FRAME.c"
+# 189 "FRAME.c"
     }
 }
 
@@ -18364,7 +18393,7 @@ static void FRAME_AxisStatus(mID *message)
     if(message->message_type == 0x02)
     {
         message->data_length = 1;
-# 212 "FRAME.c"
+# 215 "FRAME.c"
         message->data[0] = 0xFF;
     }
     else
@@ -18400,13 +18429,13 @@ static void FRAME_DeviceReset(mID *message)
     if(message->message_type == 0x02)
     {
         message->data_length = 1;
-# 259 "FRAME.c"
+# 262 "FRAME.c"
         message->data[0] = 0xFF;
     }
     else
     {
         message->data_length = 1;
-# 285 "FRAME.c"
+# 288 "FRAME.c"
         message->data[0] = 0xFF;
     }
 }
@@ -18419,7 +18448,7 @@ static void FRAME_DeviceReset(mID *message)
 
 static void FRAME_Plot(mID *message)
 {
-# 307 "FRAME.c"
+# 310 "FRAME.c"
     message->data_length = 1;
     message->data[0] = 0xFF;
 }
@@ -18432,7 +18461,7 @@ static void FRAME_Plot(mID *message)
 
 static void FRAME_MapPosition(mID *message)
 {
-# 334 "FRAME.c"
+# 337 "FRAME.c"
 }
 
 
@@ -18443,7 +18472,7 @@ static void FRAME_MapPosition(mID *message)
 
 static void FRAME_SoftwareVersion(mID *message)
 {
-# 357 "FRAME.c"
+# 360 "FRAME.c"
 }
 
 
@@ -18455,13 +18484,13 @@ static void FRAME_SoftwareVersion(mID *message)
 static void FRAME_AnalogValue(mID *message, WORD set)
 {
     WORD i;
-# 383 "FRAME.c"
+# 386 "FRAME.c"
 }
-# 408 "FRAME.c"
+# 411 "FRAME.c"
 static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
 {
     WORD i;
-# 431 "FRAME.c"
+# 434 "FRAME.c"
 }
 
 
@@ -18524,8 +18553,13 @@ void FRAME_HandleCanFrame(mID * message)
         message->id.v[2] = identyfikator*4;
         CAN_GenID(message,identyfikator);
         CAN_SendFrame(message);
-# 501 "FRAME.c"
-       while(RXB0CONbits.FILHIT3);
+# 504 "FRAME.c"
+       while(RXB0CONbits.FILHIT3)
+       {
+           if(TXB0CONbits.TXERR == 1){
+               LED_Error();
+           }
+       };
 
 
     }

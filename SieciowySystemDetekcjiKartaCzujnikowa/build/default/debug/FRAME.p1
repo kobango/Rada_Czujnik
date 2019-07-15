@@ -35,12 +35,51 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./CAN.h: 20:     typedef struct{
 [s S15 `uc 1 `uc 1 `uc 1 `uc 1 `S6 1 `uc -> 8 `i `uc 1 ]
 [n S15 . buffer_status message_type frame_type buffer id data data_length ]
-"39
+"8 ./MOC_Funct.h
+[; ;./MOC_Funct.h: 8: UINT MOC_StanWzbudzenia(void);
+[v _MOC_StanWzbudzenia `(ui ~T0 @X0 0 ef ]
+"9
+[; ;./MOC_Funct.h: 9: UINT MOC_Wynikowa_wartosc_roznicowa(void);
+[v _MOC_Wynikowa_wartosc_roznicowa `(ui ~T0 @X0 0 ef ]
+"10
+[; ;./MOC_Funct.h: 10: UINT MOC_Frame_Counter(void);
+[v _MOC_Frame_Counter `(ui ~T0 @X0 0 ef ]
+"11
+[; ;./MOC_Funct.h: 11: UINT MOC_Aktualna_Temperatura(void);
+[v _MOC_Aktualna_Temperatura `(ui ~T0 @X0 0 ef ]
+"12
+[; ;./MOC_Funct.h: 12: UINT MOC_NOTWORK(void);
+[v _MOC_NOTWORK `(ui ~T0 @X0 0 ef ]
+"13
+[; ;./MOC_Funct.h: 13: UINT MOC_RSSI_ramki(void);
+[v _MOC_RSSI_ramki `(ui ~T0 @X0 0 ef ]
+"14
+[; ;./MOC_Funct.h: 14: UINT MOC_LQI_ramki(void);
+[v _MOC_LQI_ramki `(ui ~T0 @X0 0 ef ]
+"39 ./CAN.h
 [; ;./CAN.h: 39:     void CAN_GenID(mID * message,BYTE frameID);
 [v _CAN_GenID `(v ~T0 @X0 0 ef2`*S15`uc ]
 "38
 [; ;./CAN.h: 38:     void CAN_SendFrame(mID * message);
 [v _CAN_SendFrame `(v ~T0 @X0 0 ef1`*S15 ]
+"20867 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20867:     struct {
+[s S673 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S673 . TXPRI0 TXPRI1 . TXREQ TXERR TXLARB TXABT TXBIF ]
+"20877
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20877:     struct {
+[s S674 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S674 . TXB0PRI0 TXB0PRI1 . TXB0REQ TXB0ERR TXB0LARB TXB0ABT TX0IF ]
+"20866
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20866: typedef union {
+[u S672 `S673 1 `S674 1 ]
+[n S672 . . . ]
+"20888
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20888: extern volatile TXB0CONbits_t TXB0CONbits __attribute__((address(0xF40)));
+[v _TXB0CONbits `VS672 ~T0 @X0 0 e@3904 ]
+"16 ./LED.h
+[; ;./LED.h: 16: UINT LED_Error(void);
+[v _LED_Error `(ui ~T0 @X0 0 ef ]
 "23534 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 23534:     struct {
 [s S757 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -1314,616 +1353,616 @@ Version 4.0 HI-TECH Software Intermediate Code
 "32473
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32473: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"20 FRAME.c
-[; ;FRAME.c: 20: mID ramkaCanRxKarty[5], ramkaCanTxKarty;
+"23 FRAME.c
+[; ;FRAME.c: 23: mID ramkaCanRxKarty[5], ramkaCanTxKarty;
 [v _ramkaCanRxKarty `S15 ~T0 @X0 -> 5 `i e ]
 [v _ramkaCanTxKarty `S15 ~T0 @X0 1 e ]
-"28
-[; ;FRAME.c: 28: static void FRAME_SensorExcitationStatus(mID *message)
+"31
+[; ;FRAME.c: 31: static void FRAME_SensorExcitationStatus(mID *message)
 [v _FRAME_SensorExcitationStatus `(v ~T0 @X0 1 sf1`*S15 ]
-"29
-[; ;FRAME.c: 29: {
+"32
+[; ;FRAME.c: 32: {
 {
 [e :U _FRAME_SensorExcitationStatus ]
-"28
-[; ;FRAME.c: 28: static void FRAME_SensorExcitationStatus(mID *message)
-[v _message `*S15 ~T0 @X0 1 r1 ]
-"29
-[; ;FRAME.c: 29: {
-[f ]
-"30
-[; ;FRAME.c: 30:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1109  ]
 "31
-[; ;FRAME.c: 31:     {
-{
+[; ;FRAME.c: 31: static void FRAME_SensorExcitationStatus(mID *message)
+[v _message `*S15 ~T0 @X0 1 r1 ]
 "32
-[; ;FRAME.c: 32:         message->data_length = 8;
+[; ;FRAME.c: 32: {
+[f ]
+"33
+[; ;FRAME.c: 33:     if(message->message_type == 0x02)
+[e $ ! == -> . *U _message 1 `i -> 2 `i 1109  ]
+"34
+[; ;FRAME.c: 34:     {
+{
+"35
+[; ;FRAME.c: 35:         message->data_length = 8;
 [e = . *U _message 6 -> -> 8 `i `uc ]
-"38
-[; ;FRAME.c: 38:         message->data[0] = 0b01;
-[e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 1 `i `uc ]
-"39
-[; ;FRAME.c: 39:         message->data[1] = 0xFF;
-[e = *U + &U . *U _message 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 255 `i `uc ]
-"40
-[; ;FRAME.c: 40:         message->data[2] = 0xFF;
-[e = *U + &U . *U _message 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 255 `i `uc ]
 "41
-[; ;FRAME.c: 41:         message->data[3] = 0x00;
-[e = *U + &U . *U _message 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 0 `i `uc ]
+[; ;FRAME.c: 41:         message->data[0] = MOC_StanWzbudzenia();
+[e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> ( _MOC_StanWzbudzenia ..  `uc ]
 "42
-[; ;FRAME.c: 42:         message->data[4] = 18;
-[e = *U + &U . *U _message 5 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 18 `i `uc ]
+[; ;FRAME.c: 42:         message->data[1] = MOC_Wynikowa_wartosc_roznicowa() & 0x00FF;
+[e = *U + &U . *U _message 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> & ( _MOC_Wynikowa_wartosc_roznicowa ..  -> -> 255 `i `ui `uc ]
 "43
-[; ;FRAME.c: 43:         message->data[5] = 0x00;
-[e = *U + &U . *U _message 5 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 0 `i `uc ]
+[; ;FRAME.c: 43:         message->data[2] = MOC_Wynikowa_wartosc_roznicowa()>>8;
+[e = *U + &U . *U _message 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> >> ( _MOC_Wynikowa_wartosc_roznicowa ..  -> 8 `i `uc ]
 "44
-[; ;FRAME.c: 44:         message->data[6] = 0x00;
-[e = *U + &U . *U _message 5 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 0 `i `uc ]
+[; ;FRAME.c: 44:         message->data[3] = MOC_Frame_Counter();
+[e = *U + &U . *U _message 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> ( _MOC_Frame_Counter ..  `uc ]
 "45
-[; ;FRAME.c: 45:         message->data[7] = 0x00;
-[e = *U + &U . *U _message 5 * -> -> -> 7 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 0 `i `uc ]
-"49
-[; ;FRAME.c: 49:     }
+[; ;FRAME.c: 45:         message->data[4] = MOC_Aktualna_Temperatura();
+[e = *U + &U . *U _message 5 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> ( _MOC_Aktualna_Temperatura ..  `uc ]
+"46
+[; ;FRAME.c: 46:         message->data[5] = MOC_NOTWORK();
+[e = *U + &U . *U _message 5 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> ( _MOC_NOTWORK ..  `uc ]
+"47
+[; ;FRAME.c: 47:         message->data[6] = MOC_RSSI_ramki();
+[e = *U + &U . *U _message 5 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> ( _MOC_RSSI_ramki ..  `uc ]
+"48
+[; ;FRAME.c: 48:         message->data[7] = MOC_LQI_ramki();
+[e = *U + &U . *U _message 5 * -> -> -> 7 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> ( _MOC_LQI_ramki ..  `uc ]
+"52
+[; ;FRAME.c: 52:     }
 }
 [e $U 1110  ]
-"50
-[; ;FRAME.c: 50:     else
-[e :U 1109 ]
-"51
-[; ;FRAME.c: 51:     {
-{
 "53
-[; ;FRAME.c: 53:     }
+[; ;FRAME.c: 53:     else
+[e :U 1109 ]
+"54
+[; ;FRAME.c: 54:     {
+{
+"56
+[; ;FRAME.c: 56:     }
 }
 [e :U 1110 ]
-"54
-[; ;FRAME.c: 54: }
+"57
+[; ;FRAME.c: 57: }
 [e :UE 1108 ]
 }
-"62
-[; ;FRAME.c: 62: static void FRAME_AccelerometerStatus(mID *message)
+"65
+[; ;FRAME.c: 65: static void FRAME_AccelerometerStatus(mID *message)
 [v _FRAME_AccelerometerStatus `(v ~T0 @X0 1 sf1`*S15 ]
-"63
-[; ;FRAME.c: 63: {
+"66
+[; ;FRAME.c: 66: {
 {
 [e :U _FRAME_AccelerometerStatus ]
-"62
-[; ;FRAME.c: 62: static void FRAME_AccelerometerStatus(mID *message)
-[v _message `*S15 ~T0 @X0 1 r1 ]
-"63
-[; ;FRAME.c: 63: {
-[f ]
-"64
-[; ;FRAME.c: 64:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1112  ]
 "65
-[; ;FRAME.c: 65:     {
-{
+[; ;FRAME.c: 65: static void FRAME_AccelerometerStatus(mID *message)
+[v _message `*S15 ~T0 @X0 1 r1 ]
 "66
-[; ;FRAME.c: 66:         message->data_length = 1;
+[; ;FRAME.c: 66: {
+[f ]
+"67
+[; ;FRAME.c: 67:     if(message->message_type == 0x02)
+[e $ ! == -> . *U _message 1 `i -> 2 `i 1112  ]
+"68
+[; ;FRAME.c: 68:     {
+{
+"69
+[; ;FRAME.c: 69:         message->data_length = 1;
 [e = . *U _message 6 -> -> 1 `i `uc ]
-"70
-[; ;FRAME.c: 70:         message->data[0] = 0xFF;
+"73
+[; ;FRAME.c: 73:         message->data[0] = 0xFF;
 [e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 255 `i `uc ]
-"71
-[; ;FRAME.c: 71:     }
+"74
+[; ;FRAME.c: 74:     }
 }
 [e $U 1113  ]
-"72
-[; ;FRAME.c: 72:     else
-[e :U 1112 ]
-"73
-[; ;FRAME.c: 73:     {
-{
 "75
-[; ;FRAME.c: 75:     }
+[; ;FRAME.c: 75:     else
+[e :U 1112 ]
+"76
+[; ;FRAME.c: 76:     {
+{
+"78
+[; ;FRAME.c: 78:     }
 }
 [e :U 1113 ]
-"76
-[; ;FRAME.c: 76: }
+"79
+[; ;FRAME.c: 79: }
 [e :UE 1111 ]
 }
-"84
-[; ;FRAME.c: 84: static void FRAME_ExcitationValue(mID *message)
+"87
+[; ;FRAME.c: 87: static void FRAME_ExcitationValue(mID *message)
 [v _FRAME_ExcitationValue `(v ~T0 @X0 1 sf1`*S15 ]
-"85
-[; ;FRAME.c: 85: {
+"88
+[; ;FRAME.c: 88: {
 {
 [e :U _FRAME_ExcitationValue ]
-"84
-[; ;FRAME.c: 84: static void FRAME_ExcitationValue(mID *message)
-[v _message `*S15 ~T0 @X0 1 r1 ]
-"85
-[; ;FRAME.c: 85: {
-[f ]
-"86
-[; ;FRAME.c: 86:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1115  ]
 "87
-[; ;FRAME.c: 87:     {
-{
+[; ;FRAME.c: 87: static void FRAME_ExcitationValue(mID *message)
+[v _message `*S15 ~T0 @X0 1 r1 ]
 "88
-[; ;FRAME.c: 88:         message->data_length = 1;
+[; ;FRAME.c: 88: {
+[f ]
+"89
+[; ;FRAME.c: 89:     if(message->message_type == 0x02)
+[e $ ! == -> . *U _message 1 `i -> 2 `i 1115  ]
+"90
+[; ;FRAME.c: 90:     {
+{
+"91
+[; ;FRAME.c: 91:         message->data_length = 1;
 [e = . *U _message 6 -> -> 1 `i `uc ]
-"93
-[; ;FRAME.c: 93:         message->data[0] = 0xFF;
+"96
+[; ;FRAME.c: 96:         message->data[0] = 0xFF;
 [e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 255 `i `uc ]
-"94
-[; ;FRAME.c: 94:     }
+"97
+[; ;FRAME.c: 97:     }
 }
 [e $U 1116  ]
-"95
-[; ;FRAME.c: 95:     else
+"98
+[; ;FRAME.c: 98:     else
 [e :U 1115 ]
-"96
-[; ;FRAME.c: 96:     {
-{
 "99
-[; ;FRAME.c: 99:     }
+[; ;FRAME.c: 99:     {
+{
+"102
+[; ;FRAME.c: 102:     }
 }
 [e :U 1116 ]
-"100
-[; ;FRAME.c: 100: }
+"103
+[; ;FRAME.c: 103: }
 [e :UE 1114 ]
 }
-"108
-[; ;FRAME.c: 108: static void FRAME_ExcitationMultiplier(mID *message)
+"111
+[; ;FRAME.c: 111: static void FRAME_ExcitationMultiplier(mID *message)
 [v _FRAME_ExcitationMultiplier `(v ~T0 @X0 1 sf1`*S15 ]
-"109
-[; ;FRAME.c: 109: {
+"112
+[; ;FRAME.c: 112: {
 {
 [e :U _FRAME_ExcitationMultiplier ]
-"108
-[; ;FRAME.c: 108: static void FRAME_ExcitationMultiplier(mID *message)
+"111
+[; ;FRAME.c: 111: static void FRAME_ExcitationMultiplier(mID *message)
 [v _message `*S15 ~T0 @X0 1 r1 ]
-"109
-[; ;FRAME.c: 109: {
-[f ]
-"110
-[; ;FRAME.c: 110:     WORD i;
-[v _i `us ~T0 @X0 1 a ]
 "112
-[; ;FRAME.c: 112:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1118  ]
+[; ;FRAME.c: 112: {
+[f ]
 "113
-[; ;FRAME.c: 113:     {
-{
-"114
-[; ;FRAME.c: 114:         message->data_length = 1;
-[e = . *U _message 6 -> -> 1 `i `uc ]
+[; ;FRAME.c: 113:     WORD i;
+[v _i `us ~T0 @X0 1 a ]
 "115
-[; ;FRAME.c: 115:         for(i=0; i<3; i++)
+[; ;FRAME.c: 115:     if(message->message_type == 0x02)
+[e $ ! == -> . *U _message 1 `i -> 2 `i 1118  ]
+"116
+[; ;FRAME.c: 116:     {
+{
+"117
+[; ;FRAME.c: 117:         message->data_length = 1;
+[e = . *U _message 6 -> -> 1 `i `uc ]
+"118
+[; ;FRAME.c: 118:         for(i=0; i<3; i++)
 {
 [e = _i -> -> 0 `i `us ]
 [e $ < -> _i `ui -> -> 3 `i `ui 1119  ]
 [e $U 1120  ]
 [e :U 1119 ]
-"116
-[; ;FRAME.c: 116:         {
-{
 "119
-[; ;FRAME.c: 119:         }
+[; ;FRAME.c: 119:         {
+{
+"122
+[; ;FRAME.c: 122:         }
 }
 [e ++ _i -> -> 1 `i `us ]
 [e $ < -> _i `ui -> -> 3 `i `ui 1119  ]
 [e :U 1120 ]
 }
-"120
-[; ;FRAME.c: 120:         message->data[0] = 0xFF;
+"123
+[; ;FRAME.c: 123:         message->data[0] = 0xFF;
 [e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 255 `i `uc ]
-"121
-[; ;FRAME.c: 121:     }
+"124
+[; ;FRAME.c: 124:     }
 }
 [e $U 1122  ]
-"122
-[; ;FRAME.c: 122:     else
+"125
+[; ;FRAME.c: 125:     else
 [e :U 1118 ]
-"123
-[; ;FRAME.c: 123:     {
+"126
+[; ;FRAME.c: 126:     {
 {
-"127
-[; ;FRAME.c: 127:     }
+"130
+[; ;FRAME.c: 130:     }
 }
 [e :U 1122 ]
-"128
-[; ;FRAME.c: 128: }
+"131
+[; ;FRAME.c: 131: }
 [e :UE 1117 ]
 }
-"136
-[; ;FRAME.c: 136: static void FRAME_AveragingTimes(mID *message)
+"139
+[; ;FRAME.c: 139: static void FRAME_AveragingTimes(mID *message)
 [v _FRAME_AveragingTimes `(v ~T0 @X0 1 sf1`*S15 ]
-"137
-[; ;FRAME.c: 137: {
+"140
+[; ;FRAME.c: 140: {
 {
 [e :U _FRAME_AveragingTimes ]
-"136
-[; ;FRAME.c: 136: static void FRAME_AveragingTimes(mID *message)
-[v _message `*S15 ~T0 @X0 1 r1 ]
-"137
-[; ;FRAME.c: 137: {
-[f ]
-"138
-[; ;FRAME.c: 138:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1124  ]
 "139
-[; ;FRAME.c: 139:     {
-{
+[; ;FRAME.c: 139: static void FRAME_AveragingTimes(mID *message)
+[v _message `*S15 ~T0 @X0 1 r1 ]
 "140
-[; ;FRAME.c: 140:         message->data_length = 1;
+[; ;FRAME.c: 140: {
+[f ]
+"141
+[; ;FRAME.c: 141:     if(message->message_type == 0x02)
+[e $ ! == -> . *U _message 1 `i -> 2 `i 1124  ]
+"142
+[; ;FRAME.c: 142:     {
+{
+"143
+[; ;FRAME.c: 143:         message->data_length = 1;
 [e = . *U _message 6 -> -> 1 `i `uc ]
-"148
-[; ;FRAME.c: 148:         message->data[0] = 0xFF;
+"151
+[; ;FRAME.c: 151:         message->data[0] = 0xFF;
 [e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 255 `i `uc ]
-"149
-[; ;FRAME.c: 149:     }
+"152
+[; ;FRAME.c: 152:     }
 }
 [e $U 1125  ]
-"150
-[; ;FRAME.c: 150:     else
+"153
+[; ;FRAME.c: 153:     else
 [e :U 1124 ]
-"151
-[; ;FRAME.c: 151:     {
+"154
+[; ;FRAME.c: 154:     {
 {
-"186
-[; ;FRAME.c: 186:     }
+"189
+[; ;FRAME.c: 189:     }
 }
 [e :U 1125 ]
-"187
-[; ;FRAME.c: 187: }
+"190
+[; ;FRAME.c: 190: }
 [e :UE 1123 ]
 }
-"195
-[; ;FRAME.c: 195: static void FRAME_AxisStatus(mID *message)
+"198
+[; ;FRAME.c: 198: static void FRAME_AxisStatus(mID *message)
 [v _FRAME_AxisStatus `(v ~T0 @X0 1 sf1`*S15 ]
-"196
-[; ;FRAME.c: 196: {
+"199
+[; ;FRAME.c: 199: {
 {
 [e :U _FRAME_AxisStatus ]
-"195
-[; ;FRAME.c: 195: static void FRAME_AxisStatus(mID *message)
+"198
+[; ;FRAME.c: 198: static void FRAME_AxisStatus(mID *message)
 [v _message `*S15 ~T0 @X0 1 r1 ]
-"196
-[; ;FRAME.c: 196: {
-[f ]
-"197
-[; ;FRAME.c: 197:     WORD i;
-[v _i `us ~T0 @X0 1 a ]
 "199
-[; ;FRAME.c: 199:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1127  ]
+[; ;FRAME.c: 199: {
+[f ]
 "200
-[; ;FRAME.c: 200:     {
+[; ;FRAME.c: 200:     WORD i;
+[v _i `us ~T0 @X0 1 a ]
+"202
+[; ;FRAME.c: 202:     if(message->message_type == 0x02)
+[e $ ! == -> . *U _message 1 `i -> 2 `i 1127  ]
+"203
+[; ;FRAME.c: 203:     {
 {
-"201
-[; ;FRAME.c: 201:         message->data_length = 1;
+"204
+[; ;FRAME.c: 204:         message->data_length = 1;
 [e = . *U _message 6 -> -> 1 `i `uc ]
-"212
-[; ;FRAME.c: 212:         message->data[0] = 0xFF;
+"215
+[; ;FRAME.c: 215:         message->data[0] = 0xFF;
 [e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 255 `i `uc ]
-"213
-[; ;FRAME.c: 213:     }
+"216
+[; ;FRAME.c: 216:     }
 }
 [e $U 1128  ]
-"214
-[; ;FRAME.c: 214:     else
-[e :U 1127 ]
-"215
-[; ;FRAME.c: 215:     {
-{
 "217
-[; ;FRAME.c: 217:     }
+[; ;FRAME.c: 217:     else
+[e :U 1127 ]
+"218
+[; ;FRAME.c: 218:     {
+{
+"220
+[; ;FRAME.c: 220:     }
 }
 [e :U 1128 ]
-"218
-[; ;FRAME.c: 218: }
+"221
+[; ;FRAME.c: 221: }
 [e :UE 1126 ]
 }
-"226
-[; ;FRAME.c: 226: static void FRAME_DataUpdateAndChangeOption(mID *message)
+"229
+[; ;FRAME.c: 229: static void FRAME_DataUpdateAndChangeOption(mID *message)
 [v _FRAME_DataUpdateAndChangeOption `(v ~T0 @X0 1 sf1`*S15 ]
-"227
-[; ;FRAME.c: 227: {
+"230
+[; ;FRAME.c: 230: {
 {
 [e :U _FRAME_DataUpdateAndChangeOption ]
-"226
-[; ;FRAME.c: 226: static void FRAME_DataUpdateAndChangeOption(mID *message)
+"229
+[; ;FRAME.c: 229: static void FRAME_DataUpdateAndChangeOption(mID *message)
 [v _message `*S15 ~T0 @X0 1 r1 ]
-"227
-[; ;FRAME.c: 227: {
+"230
+[; ;FRAME.c: 230: {
 [f ]
-"234
-[; ;FRAME.c: 234: }
+"237
+[; ;FRAME.c: 237: }
 [e :UE 1129 ]
 }
-"242
-[; ;FRAME.c: 242: static void FRAME_DeviceReset(mID *message)
+"245
+[; ;FRAME.c: 245: static void FRAME_DeviceReset(mID *message)
 [v _FRAME_DeviceReset `(v ~T0 @X0 1 sf1`*S15 ]
-"243
-[; ;FRAME.c: 243: {
+"246
+[; ;FRAME.c: 246: {
 {
 [e :U _FRAME_DeviceReset ]
-"242
-[; ;FRAME.c: 242: static void FRAME_DeviceReset(mID *message)
-[v _message `*S15 ~T0 @X0 1 r1 ]
-"243
-[; ;FRAME.c: 243: {
-[f ]
-"244
-[; ;FRAME.c: 244:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1131  ]
 "245
-[; ;FRAME.c: 245:     {
-{
+[; ;FRAME.c: 245: static void FRAME_DeviceReset(mID *message)
+[v _message `*S15 ~T0 @X0 1 r1 ]
 "246
-[; ;FRAME.c: 246:         message->data_length = 1;
+[; ;FRAME.c: 246: {
+[f ]
+"247
+[; ;FRAME.c: 247:     if(message->message_type == 0x02)
+[e $ ! == -> . *U _message 1 `i -> 2 `i 1131  ]
+"248
+[; ;FRAME.c: 248:     {
+{
+"249
+[; ;FRAME.c: 249:         message->data_length = 1;
 [e = . *U _message 6 -> -> 1 `i `uc ]
-"259
-[; ;FRAME.c: 259:         message->data[0] = 0xFF;
+"262
+[; ;FRAME.c: 262:         message->data[0] = 0xFF;
 [e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 255 `i `uc ]
-"260
-[; ;FRAME.c: 260:     }
+"263
+[; ;FRAME.c: 263:     }
 }
 [e $U 1132  ]
-"261
-[; ;FRAME.c: 261:     else
+"264
+[; ;FRAME.c: 264:     else
 [e :U 1131 ]
-"262
-[; ;FRAME.c: 262:     {
+"265
+[; ;FRAME.c: 265:     {
 {
-"263
-[; ;FRAME.c: 263:         message->data_length = 1;
+"266
+[; ;FRAME.c: 266:         message->data_length = 1;
 [e = . *U _message 6 -> -> 1 `i `uc ]
-"285
-[; ;FRAME.c: 285:         message->data[0] = 0xFF;
+"288
+[; ;FRAME.c: 288:         message->data[0] = 0xFF;
 [e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 255 `i `uc ]
-"286
-[; ;FRAME.c: 286:     }
+"289
+[; ;FRAME.c: 289:     }
 }
 [e :U 1132 ]
-"287
-[; ;FRAME.c: 287: }
+"290
+[; ;FRAME.c: 290: }
 [e :UE 1130 ]
 }
-"295
-[; ;FRAME.c: 295: static void FRAME_Plot(mID *message)
+"298
+[; ;FRAME.c: 298: static void FRAME_Plot(mID *message)
 [v _FRAME_Plot `(v ~T0 @X0 1 sf1`*S15 ]
-"296
-[; ;FRAME.c: 296: {
+"299
+[; ;FRAME.c: 299: {
 {
 [e :U _FRAME_Plot ]
-"295
-[; ;FRAME.c: 295: static void FRAME_Plot(mID *message)
+"298
+[; ;FRAME.c: 298: static void FRAME_Plot(mID *message)
 [v _message `*S15 ~T0 @X0 1 r1 ]
-"296
-[; ;FRAME.c: 296: {
+"299
+[; ;FRAME.c: 299: {
 [f ]
-"307
-[; ;FRAME.c: 307:     message->data_length = 1;
+"310
+[; ;FRAME.c: 310:     message->data_length = 1;
 [e = . *U _message 6 -> -> 1 `i `uc ]
-"308
-[; ;FRAME.c: 308:     message->data[0] = 0xFF;
+"311
+[; ;FRAME.c: 311:     message->data[0] = 0xFF;
 [e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 255 `i `uc ]
-"309
-[; ;FRAME.c: 309: }
+"312
+[; ;FRAME.c: 312: }
 [e :UE 1133 ]
 }
-"317
-[; ;FRAME.c: 317: static void FRAME_MapPosition(mID *message)
+"320
+[; ;FRAME.c: 320: static void FRAME_MapPosition(mID *message)
 [v _FRAME_MapPosition `(v ~T0 @X0 1 sf1`*S15 ]
-"318
-[; ;FRAME.c: 318: {
+"321
+[; ;FRAME.c: 321: {
 {
 [e :U _FRAME_MapPosition ]
-"317
-[; ;FRAME.c: 317: static void FRAME_MapPosition(mID *message)
+"320
+[; ;FRAME.c: 320: static void FRAME_MapPosition(mID *message)
 [v _message `*S15 ~T0 @X0 1 r1 ]
-"318
-[; ;FRAME.c: 318: {
+"321
+[; ;FRAME.c: 321: {
 [f ]
-"334
-[; ;FRAME.c: 334: }
+"337
+[; ;FRAME.c: 337: }
 [e :UE 1134 ]
 }
-"342
-[; ;FRAME.c: 342: static void FRAME_SoftwareVersion(mID *message)
+"345
+[; ;FRAME.c: 345: static void FRAME_SoftwareVersion(mID *message)
 [v _FRAME_SoftwareVersion `(v ~T0 @X0 1 sf1`*S15 ]
-"343
-[; ;FRAME.c: 343: {
+"346
+[; ;FRAME.c: 346: {
 {
 [e :U _FRAME_SoftwareVersion ]
-"342
-[; ;FRAME.c: 342: static void FRAME_SoftwareVersion(mID *message)
+"345
+[; ;FRAME.c: 345: static void FRAME_SoftwareVersion(mID *message)
 [v _message `*S15 ~T0 @X0 1 r1 ]
-"343
-[; ;FRAME.c: 343: {
+"346
+[; ;FRAME.c: 346: {
 [f ]
-"357
-[; ;FRAME.c: 357: }
+"360
+[; ;FRAME.c: 360: }
 [e :UE 1135 ]
 }
-"365
-[; ;FRAME.c: 365: static void FRAME_AnalogValue(mID *message, WORD set)
+"368
+[; ;FRAME.c: 368: static void FRAME_AnalogValue(mID *message, WORD set)
 [v _FRAME_AnalogValue `(v ~T0 @X0 1 sf2`*S15`us ]
-"366
-[; ;FRAME.c: 366: {
+"369
+[; ;FRAME.c: 369: {
 {
 [e :U _FRAME_AnalogValue ]
-"365
-[; ;FRAME.c: 365: static void FRAME_AnalogValue(mID *message, WORD set)
+"368
+[; ;FRAME.c: 368: static void FRAME_AnalogValue(mID *message, WORD set)
 [v _message `*S15 ~T0 @X0 1 r1 ]
 [v _set `us ~T0 @X0 1 r2 ]
-"366
-[; ;FRAME.c: 366: {
+"369
+[; ;FRAME.c: 369: {
 [f ]
-"367
-[; ;FRAME.c: 367:     WORD i;
+"370
+[; ;FRAME.c: 370:     WORD i;
 [v _i `us ~T0 @X0 1 a ]
-"383
-[; ;FRAME.c: 383: }
+"386
+[; ;FRAME.c: 386: }
 [e :UE 1136 ]
 }
-"408
-[; ;FRAME.c: 408: static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
+"411
+[; ;FRAME.c: 411: static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
 [v _FRAME_AdressOfNeighbors `(v ~T0 @X0 1 sf2`*S15`us ]
-"409
-[; ;FRAME.c: 409: {
+"412
+[; ;FRAME.c: 412: {
 {
 [e :U _FRAME_AdressOfNeighbors ]
-"408
-[; ;FRAME.c: 408: static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
+"411
+[; ;FRAME.c: 411: static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
 [v _message `*S15 ~T0 @X0 1 r1 ]
 [v _nrRamki `us ~T0 @X0 1 r2 ]
-"409
-[; ;FRAME.c: 409: {
+"412
+[; ;FRAME.c: 412: {
 [f ]
-"410
-[; ;FRAME.c: 410:     WORD i;
+"413
+[; ;FRAME.c: 413:     WORD i;
 [v _i `us ~T0 @X0 1 a ]
-"431
-[; ;FRAME.c: 431: }
+"434
+[; ;FRAME.c: 434: }
 [e :UE 1137 ]
 }
-"438
-[; ;FRAME.c: 438: void FRAME_HandleCanFrame(mID * message)
+"441
+[; ;FRAME.c: 441: void FRAME_HandleCanFrame(mID * message)
 [v _FRAME_HandleCanFrame `(v ~T0 @X0 1 ef1`*S15 ]
-"439
-[; ;FRAME.c: 439: {
+"442
+[; ;FRAME.c: 442: {
 {
 [e :U _FRAME_HandleCanFrame ]
-"438
-[; ;FRAME.c: 438: void FRAME_HandleCanFrame(mID * message)
+"441
+[; ;FRAME.c: 441: void FRAME_HandleCanFrame(mID * message)
 [v _message `*S15 ~T0 @X0 1 r1 ]
-"439
-[; ;FRAME.c: 439: {
+"442
+[; ;FRAME.c: 442: {
 [f ]
-"440
-[; ;FRAME.c: 440:     BYTE identyfikator = (BYTE) message->id.v[2]/4;
+"443
+[; ;FRAME.c: 443:     BYTE identyfikator = (BYTE) message->id.v[2]/4;
 [v _identyfikator `uc ~T0 @X0 1 a ]
 [e = _identyfikator -> / -> *U + &U . . *U _message 4 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . . *U _message 4 2 `ui `ux `i -> 4 `i `uc ]
-"442
-[; ;FRAME.c: 442:     switch(identyfikator)
-[e $U 1140  ]
-"443
-[; ;FRAME.c: 443:     {
-{
-"444
-[; ;FRAME.c: 444:         case 0x01:
-[e :U 1141 ]
 "445
-[; ;FRAME.c: 445:             FRAME_SensorExcitationStatus(message);
-[e ( _FRAME_SensorExcitationStatus (1 _message ]
+[; ;FRAME.c: 445:     switch(identyfikator)
+[e $U 1140  ]
 "446
-[; ;FRAME.c: 446:             break;
-[e $U 1139  ]
+[; ;FRAME.c: 446:     {
+{
 "447
-[; ;FRAME.c: 447:         case 0x02:
-[e :U 1142 ]
+[; ;FRAME.c: 447:         case 0x01:
+[e :U 1141 ]
 "448
-[; ;FRAME.c: 448:             FRAME_AccelerometerStatus(message);
-[e ( _FRAME_AccelerometerStatus (1 _message ]
+[; ;FRAME.c: 448:             FRAME_SensorExcitationStatus(message);
+[e ( _FRAME_SensorExcitationStatus (1 _message ]
 "449
 [; ;FRAME.c: 449:             break;
 [e $U 1139  ]
 "450
-[; ;FRAME.c: 450:         case 0x03:
-[e :U 1143 ]
+[; ;FRAME.c: 450:         case 0x02:
+[e :U 1142 ]
 "451
-[; ;FRAME.c: 451:             FRAME_ExcitationValue(message);
-[e ( _FRAME_ExcitationValue (1 _message ]
+[; ;FRAME.c: 451:             FRAME_AccelerometerStatus(message);
+[e ( _FRAME_AccelerometerStatus (1 _message ]
 "452
 [; ;FRAME.c: 452:             break;
 [e $U 1139  ]
 "453
-[; ;FRAME.c: 453:         case 0x04:
-[e :U 1144 ]
+[; ;FRAME.c: 453:         case 0x03:
+[e :U 1143 ]
 "454
-[; ;FRAME.c: 454:             FRAME_ExcitationMultiplier(message);
-[e ( _FRAME_ExcitationMultiplier (1 _message ]
+[; ;FRAME.c: 454:             FRAME_ExcitationValue(message);
+[e ( _FRAME_ExcitationValue (1 _message ]
 "455
 [; ;FRAME.c: 455:             break;
 [e $U 1139  ]
 "456
-[; ;FRAME.c: 456:         case 0x05:
-[e :U 1145 ]
+[; ;FRAME.c: 456:         case 0x04:
+[e :U 1144 ]
 "457
-[; ;FRAME.c: 457:             FRAME_AveragingTimes(message);
-[e ( _FRAME_AveragingTimes (1 _message ]
+[; ;FRAME.c: 457:             FRAME_ExcitationMultiplier(message);
+[e ( _FRAME_ExcitationMultiplier (1 _message ]
 "458
 [; ;FRAME.c: 458:             break;
 [e $U 1139  ]
 "459
-[; ;FRAME.c: 459:         case 0x06:
-[e :U 1146 ]
+[; ;FRAME.c: 459:         case 0x05:
+[e :U 1145 ]
 "460
-[; ;FRAME.c: 460:             FRAME_AxisStatus(message);
-[e ( _FRAME_AxisStatus (1 _message ]
+[; ;FRAME.c: 460:             FRAME_AveragingTimes(message);
+[e ( _FRAME_AveragingTimes (1 _message ]
 "461
 [; ;FRAME.c: 461:             break;
 [e $U 1139  ]
 "462
-[; ;FRAME.c: 462:         case 0x07:
-[e :U 1147 ]
+[; ;FRAME.c: 462:         case 0x06:
+[e :U 1146 ]
 "463
-[; ;FRAME.c: 463:             FRAME_DeviceReset(message);
-[e ( _FRAME_DeviceReset (1 _message ]
+[; ;FRAME.c: 463:             FRAME_AxisStatus(message);
+[e ( _FRAME_AxisStatus (1 _message ]
 "464
 [; ;FRAME.c: 464:             break;
 [e $U 1139  ]
 "465
-[; ;FRAME.c: 465:         case 0x09:
-[e :U 1148 ]
+[; ;FRAME.c: 465:         case 0x07:
+[e :U 1147 ]
 "466
-[; ;FRAME.c: 466:             FRAME_Plot(message);
-[e ( _FRAME_Plot (1 _message ]
+[; ;FRAME.c: 466:             FRAME_DeviceReset(message);
+[e ( _FRAME_DeviceReset (1 _message ]
 "467
 [; ;FRAME.c: 467:             break;
 [e $U 1139  ]
 "468
-[; ;FRAME.c: 468:         case 0x0A:
-[e :U 1149 ]
+[; ;FRAME.c: 468:         case 0x09:
+[e :U 1148 ]
 "469
-[; ;FRAME.c: 469:             FRAME_MapPosition(message);
-[e ( _FRAME_MapPosition (1 _message ]
+[; ;FRAME.c: 469:             FRAME_Plot(message);
+[e ( _FRAME_Plot (1 _message ]
 "470
 [; ;FRAME.c: 470:             break;
 [e $U 1139  ]
 "471
-[; ;FRAME.c: 471:         case 0x0B:
-[e :U 1150 ]
+[; ;FRAME.c: 471:         case 0x0A:
+[e :U 1149 ]
 "472
-[; ;FRAME.c: 472:             FRAME_SoftwareVersion(message);
-[e ( _FRAME_SoftwareVersion (1 _message ]
+[; ;FRAME.c: 472:             FRAME_MapPosition(message);
+[e ( _FRAME_MapPosition (1 _message ]
 "473
 [; ;FRAME.c: 473:             break;
 [e $U 1139  ]
 "474
-[; ;FRAME.c: 474:         case 0x0C:
-[e :U 1151 ]
+[; ;FRAME.c: 474:         case 0x0B:
+[e :U 1150 ]
 "475
-[; ;FRAME.c: 475:         case 0x0D:
-[e :U 1152 ]
+[; ;FRAME.c: 475:             FRAME_SoftwareVersion(message);
+[e ( _FRAME_SoftwareVersion (1 _message ]
 "476
-[; ;FRAME.c: 476:             FRAME_AnalogValue(message, identyfikator - 0x0C);
-[e ( _FRAME_AnalogValue (2 , _message -> - -> _identyfikator `i -> 12 `i `us ]
+[; ;FRAME.c: 476:             break;
+[e $U 1139  ]
 "477
-[; ;FRAME.c: 477:             break;
-[e $U 1139  ]
+[; ;FRAME.c: 477:         case 0x0C:
+[e :U 1151 ]
 "478
-[; ;FRAME.c: 478:         case 0x10:
-[e :U 1153 ]
+[; ;FRAME.c: 478:         case 0x0D:
+[e :U 1152 ]
 "479
-[; ;FRAME.c: 479:         case 0x11:
-[e :U 1154 ]
+[; ;FRAME.c: 479:             FRAME_AnalogValue(message, identyfikator - 0x0C);
+[e ( _FRAME_AnalogValue (2 , _message -> - -> _identyfikator `i -> 12 `i `us ]
 "480
-[; ;FRAME.c: 480:             FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
-[e ( _FRAME_AdressOfNeighbors (2 , _message -> - -> _identyfikator `i -> 16 `i `us ]
-"481
-[; ;FRAME.c: 481:             break;
+[; ;FRAME.c: 480:             break;
 [e $U 1139  ]
+"481
+[; ;FRAME.c: 481:         case 0x10:
+[e :U 1153 ]
 "482
-[; ;FRAME.c: 482:     }
+[; ;FRAME.c: 482:         case 0x11:
+[e :U 1154 ]
+"483
+[; ;FRAME.c: 483:             FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
+[e ( _FRAME_AdressOfNeighbors (2 , _message -> - -> _identyfikator `i -> 16 `i `us ]
+"484
+[; ;FRAME.c: 484:             break;
+[e $U 1139  ]
+"485
+[; ;FRAME.c: 485:     }
 }
 [e $U 1139  ]
 [e :U 1140 ]
@@ -1943,42 +1982,61 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 17 `i 1154
  1139 ]
 [e :U 1139 ]
-"483
-[; ;FRAME.c: 483:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1155  ]
-"484
-[; ;FRAME.c: 484:     {
-{
 "486
-[; ;FRAME.c: 486:         message->frame_type = 0x03;
-[e = . *U _message 2 -> -> 3 `i `uc ]
+[; ;FRAME.c: 486:     if(message->message_type == 0x02)
+[e $ ! == -> . *U _message 1 `i -> 2 `i 1155  ]
 "487
-[; ;FRAME.c: 487:         message->message_type = 0x01;
-[e = . *U _message 1 -> -> 1 `i `uc ]
-"488
-[; ;FRAME.c: 488:         message->id.Val = 0;
-[e = . . *U _message 4 0 -> -> -> 0 `i `l `ul ]
+[; ;FRAME.c: 487:     {
+{
+"489
+[; ;FRAME.c: 489:         message->frame_type = 0x03;
+[e = . *U _message 2 -> -> 3 `i `uc ]
 "490
-[; ;FRAME.c: 490:         message->id.v[2] = identyfikator*4;
-[e = *U + &U . . *U _message 4 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . . *U _message 4 2 `ui `ux -> * -> _identyfikator `i -> 4 `i `uc ]
+[; ;FRAME.c: 490:         message->message_type = 0x01;
+[e = . *U _message 1 -> -> 1 `i `uc ]
 "491
-[; ;FRAME.c: 491:         CAN_GenID(message,identyfikator);
+[; ;FRAME.c: 491:         message->id.Val = 0;
+[e = . . *U _message 4 0 -> -> -> 0 `i `l `ul ]
+"493
+[; ;FRAME.c: 493:         message->id.v[2] = identyfikator*4;
+[e = *U + &U . . *U _message 4 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . . *U _message 4 2 `ui `ux -> * -> _identyfikator `i -> 4 `i `uc ]
+"494
+[; ;FRAME.c: 494:         CAN_GenID(message,identyfikator);
 [e ( _CAN_GenID (2 , _message _identyfikator ]
-"492
-[; ;FRAME.c: 492:         CAN_SendFrame(message);
+"495
+[; ;FRAME.c: 495:         CAN_SendFrame(message);
 [e ( _CAN_SendFrame (1 _message ]
-"501
-[; ;FRAME.c: 501:        while(RXB0CONbits.FILHIT3);
+"504
+[; ;FRAME.c: 504:        while(RXB0CONbits.FILHIT3)
 [e $U 1156  ]
 [e :U 1157 ]
+"505
+[; ;FRAME.c: 505:        {
+{
+"506
+[; ;FRAME.c: 506:            if(TXB0CONbits.TXERR == 1){
+[e $ ! == -> . . _TXB0CONbits 0 4 `i -> 1 `i 1159  ]
+{
+"507
+[; ;FRAME.c: 507:                LED_Error();
+[e ( _LED_Error ..  ]
+"508
+[; ;FRAME.c: 508:            }
+}
+[e :U 1159 ]
+"509
+[; ;FRAME.c: 509:        };
+}
 [e :U 1156 ]
+"504
+[; ;FRAME.c: 504:        while(RXB0CONbits.FILHIT3)
 [e $ != -> . . _RXB0CONbits 2 3 `i -> 0 `i 1157  ]
 [e :U 1158 ]
-"504
-[; ;FRAME.c: 504:     }
+"512
+[; ;FRAME.c: 512:     }
 }
 [e :U 1155 ]
-"505
-[; ;FRAME.c: 505: }
+"513
+[; ;FRAME.c: 513: }
 [e :UE 1138 ]
 }

@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c CAN.c LED.c TMR1.c FRAME.c INI.c ISR.c TRM.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c CAN.c LED.c TMR1.c FRAME.c INI.c ISR.c TRM.c MOC_Funct.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/CAN.p1 ${OBJECTDIR}/LED.p1 ${OBJECTDIR}/TMR1.p1 ${OBJECTDIR}/FRAME.p1 ${OBJECTDIR}/INI.p1 ${OBJECTDIR}/ISR.p1 ${OBJECTDIR}/TRM.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/CAN.p1.d ${OBJECTDIR}/LED.p1.d ${OBJECTDIR}/TMR1.p1.d ${OBJECTDIR}/FRAME.p1.d ${OBJECTDIR}/INI.p1.d ${OBJECTDIR}/ISR.p1.d ${OBJECTDIR}/TRM.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/CAN.p1 ${OBJECTDIR}/LED.p1 ${OBJECTDIR}/TMR1.p1 ${OBJECTDIR}/FRAME.p1 ${OBJECTDIR}/INI.p1 ${OBJECTDIR}/ISR.p1 ${OBJECTDIR}/TRM.p1 ${OBJECTDIR}/MOC_Funct.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/CAN.p1.d ${OBJECTDIR}/LED.p1.d ${OBJECTDIR}/TMR1.p1.d ${OBJECTDIR}/FRAME.p1.d ${OBJECTDIR}/INI.p1.d ${OBJECTDIR}/ISR.p1.d ${OBJECTDIR}/TRM.p1.d ${OBJECTDIR}/MOC_Funct.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/CAN.p1 ${OBJECTDIR}/LED.p1 ${OBJECTDIR}/TMR1.p1 ${OBJECTDIR}/FRAME.p1 ${OBJECTDIR}/INI.p1 ${OBJECTDIR}/ISR.p1 ${OBJECTDIR}/TRM.p1
+OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/CAN.p1 ${OBJECTDIR}/LED.p1 ${OBJECTDIR}/TMR1.p1 ${OBJECTDIR}/FRAME.p1 ${OBJECTDIR}/INI.p1 ${OBJECTDIR}/ISR.p1 ${OBJECTDIR}/TRM.p1 ${OBJECTDIR}/MOC_Funct.p1
 
 # Source Files
-SOURCEFILES=main.c CAN.c LED.c TMR1.c FRAME.c INI.c ISR.c TRM.c
+SOURCEFILES=main.c CAN.c LED.c TMR1.c FRAME.c INI.c ISR.c TRM.c MOC_Funct.c
 
 
 CFLAGS=
@@ -157,6 +157,14 @@ ${OBJECTDIR}/TRM.p1: TRM.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/TRM.d ${OBJECTDIR}/TRM.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/TRM.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/MOC_Funct.p1: MOC_Funct.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/MOC_Funct.p1.d 
+	@${RM} ${OBJECTDIR}/MOC_Funct.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/MOC_Funct.p1 MOC_Funct.c 
+	@-${MV} ${OBJECTDIR}/MOC_Funct.d ${OBJECTDIR}/MOC_Funct.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/MOC_Funct.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -221,6 +229,14 @@ ${OBJECTDIR}/TRM.p1: TRM.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/TRM.p1 TRM.c 
 	@-${MV} ${OBJECTDIR}/TRM.d ${OBJECTDIR}/TRM.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/TRM.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/MOC_Funct.p1: MOC_Funct.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/MOC_Funct.p1.d 
+	@${RM} ${OBJECTDIR}/MOC_Funct.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/MOC_Funct.p1 MOC_Funct.c 
+	@-${MV} ${OBJECTDIR}/MOC_Funct.d ${OBJECTDIR}/MOC_Funct.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/MOC_Funct.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

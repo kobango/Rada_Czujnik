@@ -1339,8 +1339,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;TRM.c: 27:         canMessage.id.Val = 0;
 [e = . . _canMessage 4 0 -> -> -> 0 `i `l `ul ]
 "28
-[; ;TRM.c: 28:         canMessage.id.v[2] = 0x09 *4;
-[e = *U + &U . . _canMessage 4 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . . _canMessage 4 2 `ui `ux -> * -> 9 `i -> 4 `i `uc ]
+[; ;TRM.c: 28:         canMessage.id.v[2] = 0x01 *4;
+[e = *U + &U . . _canMessage 4 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . . _canMessage 4 2 `ui `ux -> * -> 1 `i -> 4 `i `uc ]
 "29
 [; ;TRM.c: 29:         FRAME_HandleCanFrame(&canMessage);
 [e ( _FRAME_HandleCanFrame (1 &U _canMessage ]

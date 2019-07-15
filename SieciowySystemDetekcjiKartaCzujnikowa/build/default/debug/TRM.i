@@ -18245,7 +18245,7 @@ void TRM_DataTransmition(void)
 
         canMessage.message_type = 0x02;
         canMessage.id.Val = 0;
-        canMessage.id.v[2] = 0x09 *4;
+        canMessage.id.v[2] = 0x01 *4;
         FRAME_HandleCanFrame(&canMessage);
 # 46 "TRM.c"
         DaneCan.Flags.wyslijRamkeStanu = 0;

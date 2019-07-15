@@ -1,8 +1,7 @@
-build/default/debug/FRAME.p1:  \
-FRAME.c  \
+build/default/production/MOC_Funct.p1:  \
+MOC_Funct.c  \
 CAN.h  \
 GenericTypeDefs.h  \
 main.h  \
 LED.h  \
-FRAME.h  \
 MOC_Funct.h 

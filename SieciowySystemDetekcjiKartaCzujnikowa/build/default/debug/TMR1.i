@@ -18164,6 +18164,7 @@ void INI_LED_Start(void);
 UINT8 LED_Update(void);
 void Fulfillment_Lvl_Set(UINT a);
 UINT Fulfillment_Lvl_Get(void);
+UINT LED_Error(void);
 # 11 "TMR1.c" 2
 
 

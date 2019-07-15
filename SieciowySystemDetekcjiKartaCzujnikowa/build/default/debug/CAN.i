@@ -18283,64 +18283,7 @@ void CAN_Setup(void)
         ;
     }
 }
-
-void SetupCanB(void)
-{
-
-    CANCON = 0x80;
-    while((CANSTAT & 0xE0)!=0x80)
-    {
-        ;
-    }
-
-
-    ECANCON = 0x40;
-
-
-    CAN_SetupClock();
-
-
-    CAN_SetupMask();
-
-    BSEL0bits.B0TXEN = 0;
-    BSEL0bits.B1TXEN = 0;
-    BSEL0bits.B2TXEN = 1;
-    TXB0CONbits.TXPRI0 = 1;
-    TXB0CONbits.TXPRI1 = 1;
-
-    CANCON = 0x00;
-    while((CANSTAT & 0xE0) > 0)
-    {
-        ;
-    }
-
-
-    RXB0CON = 0x00;
-    RXB1CON = 0x00;
-    B0CON = 0x00;
-    B1CON = 0x00;
-
-
-    PIE3bits.TXBnIE = 0;
-    IPR3bits.TXBnIP = 0;
-
-    PIR3bits.TXBnIF = 0;
-
-
-    PIE3bits.RXBnIE = 0;
-    IPR3bits.RXBnIP = 0;
-
-    PIR3bits.RXBnIF = 0;
-
-    BIE0bits.B0IE = 1;
-    BIE0bits.RXB0IE = 1;
-
-    CIOCON = 0x00;
-
-
-
-}
-# 138 "CAN.c"
+# 81 "CAN.c"
 static void CAN_SetupMask(void)
 {
     MSEL0 = 0x50;
@@ -18634,15 +18577,15 @@ BOOL CAN_TakeFrame(mID * message)
         return FALSE;
     }
 }
-# 439 "CAN.c"
+# 382 "CAN.c"
 void CAN_GenID(mID * message, BYTE frameID)
 {
 
     message->frame_type = 0x03;
     message->message_type = 0x01;
-    message->id.w[1] = (WORD)frameID * (WORD)4;
-    message->id.w[0] = DaneCan.adresCAN;
+    message->id.w[1] = 0x0025;
+    message->id.w[0] = 0x8006;
     message->id.v[2] |= 0x01;
-    message->id.v[1] |= 0x40;
+    message->id.v[1] |= 0x00;
 
 }

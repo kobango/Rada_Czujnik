@@ -1,6 +1,8 @@
 #include "CAN.h"
 #include "main.h"
 #include "LED.h"
+#include "FRAME.h"
+#include "MOC_Funct.h"
 
 typedef short          Word16;
 typedef unsigned short UWord16;
@@ -30,21 +32,25 @@ static void FRAME_SensorExcitationStatus(mID *message) // id = 0x01
 {
     if(message->message_type == CAN_MSG_RTR)
     {
-        message->data_length = 8;
+        message->data_length = 5;
         //message->data[0] = Flagi.zgloszenie;
         //message->data[1] = (unsigned char)(Sensor->obliczonaWynikowaRoznicaZgloszeniaMaxU16 >> 8);
         //message->data[2] = (unsigned char)Sensor->obliczonaWynikowaRoznicaZgloszeniaMaxU16;
         //message->data[3] = Flagi.frameCounterU8++;
         //message->data[4] = (unsigned char)Thermistor->temperaturaS8;
-        message->data[0] = 0b01;
-        message->data[1] = 0xFF;
-        message->data[2] = 0xFF;
-        message->data[3] = 0x00;
-        message->data[4] = 18;
-        message->data[5] = 0x00;
-        message->data[6] = 0x00;
-        message->data[7] = 0x00;
-        
+        //message->data[0] = 0x11;// MOC_StanWzbudzenia();
+        //message->data[1] = 0x11;//MOC_Wynikowa_wartosc_roznicowa() & 0x00FF;
+        //message->data[2] = 0x11;//MOC_Wynikowa_wartosc_roznicowa()>>8;
+        //message->data[3] = 0x11;//MOC_Frame_Counter();
+        //message->data[4] = 0x11;//MOC_Aktualna_Temperatura();
+        //message->data[5] = 0x11;//MOC_NOTWORK();
+        //message->data[6] = 0x11;//MOC_RSSI_ramki();
+        //message->data[7] = 0x00;//MOC_LQI_ramki();
+        message->data[0] = 0x00;// MOC_StanWzbudzenia();
+        message->data[1] = 0x88;//MOC_Wynikowa_wartosc_roznicowa() & 0x00FF;
+        message->data[2] = 0x88;//MOC_Wynikowa_wartosc_roznicowa()>>8;
+        message->data[3] = 0x00;//MOC_Frame_Counter();
+        message->data[4] = 0x00;
         //wyczysc maksymalna wartosc odczytu
         //Sensor->obliczonaWynikowaRoznicaZgloszeniaMaxU16 = 0;
     }

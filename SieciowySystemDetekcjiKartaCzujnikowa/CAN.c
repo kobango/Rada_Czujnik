@@ -384,9 +384,9 @@ void CAN_GenID(mID * message, BYTE frameID)
     
     message->frame_type = CAN_FRAME_EXT;
     message->message_type = CAN_MSG_DATA;
-    message->id.w[1] = (WORD)frameID * (WORD)4;
-    message->id.w[0] = DaneCan.adresCAN;
-    message->id.v[2] |= 0x01;
-    message->id.v[1] |= 0x40;
+    message->id.w[1] = 0x0025;//(WORD)frameID * (WORD)4;
+    message->id.w[0] = 0x8006;//DaneCan.adresCAN;
+    message->id.v[2] |= 0x01; //0x01;
+    message->id.v[1] |= 0x00;//0x40;
      
 }

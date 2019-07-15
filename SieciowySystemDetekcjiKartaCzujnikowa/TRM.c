@@ -24,7 +24,7 @@ void TRM_DataTransmition(void)
     {
         //wyslij ramke stanu
         canMessage.message_type = CAN_MSG_RTR;
-        canMessage.id.Val = 0;
+        canMessage.id.Val = 0; //
         canMessage.id.v[2] = 0x01   *4; // 0x09*4
         FRAME_HandleCanFrame(&canMessage);
 /*        for(i=0; i<WEWY; i++)

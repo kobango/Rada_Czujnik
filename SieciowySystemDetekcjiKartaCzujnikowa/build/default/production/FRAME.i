@@ -18206,6 +18206,27 @@ void Fulfillment_Lvl_Set(UINT a);
 UINT Fulfillment_Lvl_Get(void);
 UINT LED_Error(void);
 # 4 "FRAME.c" 2
+# 1 "./FRAME.h" 1
+# 12 "./FRAME.h"
+extern mID ramkaCanRxCzujnika[5];
+void FRAME_HandleCanFrame(mID * message);
+# 5 "FRAME.c" 2
+# 1 "./MOC_Funct.h" 1
+
+
+
+
+
+
+
+UINT MOC_StanWzbudzenia(void);
+UINT MOC_Wynikowa_wartosc_roznicowa(void);
+UINT MOC_Frame_Counter(void);
+UINT MOC_Aktualna_Temperatura(void);
+UINT MOC_NOTWORK(void);
+UINT MOC_RSSI_ramki(void);
+UINT MOC_LQI_ramki(void);
+# 6 "FRAME.c" 2
 
 typedef short Word16;
 typedef unsigned short UWord16;
@@ -18235,21 +18256,13 @@ static void FRAME_SensorExcitationStatus(mID *message)
 {
     if(message->message_type == 0x02)
     {
-        message->data_length = 8;
-
-
-
-
-
-        message->data[0] = 0b01;
-        message->data[1] = 0xFF;
-        message->data[2] = 0xFF;
+        message->data_length = 5;
+# 49 "FRAME.c"
+        message->data[0] = 0x00;
+        message->data[1] = 0x88;
+        message->data[2] = 0x88;
         message->data[3] = 0x00;
-        message->data[4] = 18;
-        message->data[5] = 0x00;
-        message->data[6] = 0x00;
-        message->data[7] = 0x00;
-
+        message->data[4] = 0x00;
 
 
     }
@@ -18355,7 +18368,7 @@ static void FRAME_AveragingTimes(mID *message)
     }
     else
     {
-# 187 "FRAME.c"
+# 193 "FRAME.c"
     }
 }
 
@@ -18372,7 +18385,7 @@ static void FRAME_AxisStatus(mID *message)
     if(message->message_type == 0x02)
     {
         message->data_length = 1;
-# 213 "FRAME.c"
+# 219 "FRAME.c"
         message->data[0] = 0xFF;
     }
     else
@@ -18408,13 +18421,13 @@ static void FRAME_DeviceReset(mID *message)
     if(message->message_type == 0x02)
     {
         message->data_length = 1;
-# 260 "FRAME.c"
+# 266 "FRAME.c"
         message->data[0] = 0xFF;
     }
     else
     {
         message->data_length = 1;
-# 286 "FRAME.c"
+# 292 "FRAME.c"
         message->data[0] = 0xFF;
     }
 }
@@ -18427,7 +18440,7 @@ static void FRAME_DeviceReset(mID *message)
 
 static void FRAME_Plot(mID *message)
 {
-# 308 "FRAME.c"
+# 314 "FRAME.c"
     message->data_length = 1;
     message->data[0] = 0xFF;
 }
@@ -18440,7 +18453,7 @@ static void FRAME_Plot(mID *message)
 
 static void FRAME_MapPosition(mID *message)
 {
-# 335 "FRAME.c"
+# 341 "FRAME.c"
 }
 
 
@@ -18451,7 +18464,7 @@ static void FRAME_MapPosition(mID *message)
 
 static void FRAME_SoftwareVersion(mID *message)
 {
-# 358 "FRAME.c"
+# 364 "FRAME.c"
 }
 
 
@@ -18463,13 +18476,13 @@ static void FRAME_SoftwareVersion(mID *message)
 static void FRAME_AnalogValue(mID *message, WORD set)
 {
     WORD i;
-# 384 "FRAME.c"
+# 390 "FRAME.c"
 }
-# 409 "FRAME.c"
+# 415 "FRAME.c"
 static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
 {
     WORD i;
-# 432 "FRAME.c"
+# 438 "FRAME.c"
 }
 
 
@@ -18532,7 +18545,7 @@ void FRAME_HandleCanFrame(mID * message)
         message->id.v[2] = identyfikator*4;
         CAN_GenID(message,identyfikator);
         CAN_SendFrame(message);
-# 502 "FRAME.c"
+# 508 "FRAME.c"
        while(RXB0CONbits.FILHIT3)
        {
            if(TXB0CONbits.TXERR == 1){

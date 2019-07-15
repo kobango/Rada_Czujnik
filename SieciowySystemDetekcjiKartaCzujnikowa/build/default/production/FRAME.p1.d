@@ -3,4 +3,6 @@ FRAME.c  \
 CAN.h  \
 GenericTypeDefs.h  \
 main.h  \
-LED.h 
+LED.h  \
+FRAME.h  \
+MOC_Funct.h 

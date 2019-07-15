@@ -1303,8 +1303,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _TMR1_Timer_reset ..  ]
 "26
 [; ;ISR.c: 26:             static BYTE ramkaStanuU8=0;
-[v F10678 `uc ~T0 @X0 1 s ramkaStanuU8 ]
-[i F10678
+[v F10679 `uc ~T0 @X0 1 s ramkaStanuU8 ]
+[i F10679
 -> -> 0 `i `uc
 ]
 "29
@@ -1314,14 +1314,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ISR.c: 31:             DetectorLedRadar.Flags.obsluzWeWy = 1;
 [e = . . . _DetectorLedRadar 0 1 0 -> -> 1 `i `uc ]
 "33
-[; ;ISR.c: 33:             if(++ramkaStanuU8 > 2)
-[e $ ! > -> =+ F10678 -> -> 1 `i `uc `i -> 2 `i 1110  ]
+[; ;ISR.c: 33:             if(++ramkaStanuU8 > (5*10))
+[e $ ! > -> =+ F10679 -> -> 1 `i `uc `i * -> 5 `i -> 10 `i 1110  ]
 "34
 [; ;ISR.c: 34:                 {
 {
 "35
 [; ;ISR.c: 35:                     ramkaStanuU8 = 0;
-[e = F10678 -> -> 0 `i `uc ]
+[e = F10679 -> -> 0 `i `uc ]
 "36
 [; ;ISR.c: 36:                     DaneCan.Flags.wyslijRamkeStanu = 1;
 [e = . . . _DaneCan 0 1 0 -> -> 1 `i `uc ]

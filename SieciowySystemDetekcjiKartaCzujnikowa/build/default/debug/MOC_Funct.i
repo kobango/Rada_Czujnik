@@ -1,4 +1,4 @@
-# 1 "INI.c"
+# 1 "MOC_Funct.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "INI.c" 2
+# 1 "MOC_Funct.c" 2
 
 
 
@@ -17914,12 +17914,9 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 9 "INI.c" 2
+# 9 "MOC_Funct.c" 2
 
-# 1 "./main.h" 1
-
-
-
+# 1 "./CAN.h" 1
 
 
 # 1 "./GenericTypeDefs.h" 1
@@ -18148,7 +18145,36 @@ typedef union _QWORD_VAL
         unsigned char b63:1;
     } bits;
 } QWORD_VAL;
-# 6 "./main.h" 2
+# 3 "./CAN.h" 2
+# 15 "./CAN.h"
+    typedef enum{
+        KARTA,
+        CZUJNIK
+    }TARGET_ENUM;
+
+    typedef struct{
+
+            unsigned char buffer_status;
+
+            unsigned char message_type;
+
+            unsigned char frame_type;
+
+            unsigned char buffer;
+
+
+            DWORD_VAL id;
+            unsigned char data[8];
+            unsigned char data_length;
+    }mID;
+
+    void CAN_Setup(void);
+    BOOL CAN_TakeFrame(mID * message);
+    void CAN_SendFrame(mID * message);
+    void CAN_GenID(mID * message,BYTE frameID);
+# 10 "MOC_Funct.c" 2
+
+# 1 "./main.h" 1
 # 45 "./main.h"
     typedef struct{
          union
@@ -18178,36 +18204,7 @@ typedef union _QWORD_VAL
     void zapisUstawienDoEEPROM(void);
     void InterruptHandlerHigh(void);
     void INI_All(void);
-# 10 "INI.c" 2
-
-# 1 "./CAN.h" 1
-# 15 "./CAN.h"
-    typedef enum{
-        KARTA,
-        CZUJNIK
-    }TARGET_ENUM;
-
-    typedef struct{
-
-            unsigned char buffer_status;
-
-            unsigned char message_type;
-
-            unsigned char frame_type;
-
-            unsigned char buffer;
-
-
-            DWORD_VAL id;
-            unsigned char data[8];
-            unsigned char data_length;
-    }mID;
-
-    void CAN_Setup(void);
-    BOOL CAN_TakeFrame(mID * message);
-    void CAN_SendFrame(mID * message);
-    void CAN_GenID(mID * message,BYTE frameID);
-# 11 "INI.c" 2
+# 11 "MOC_Funct.c" 2
 
 # 1 "./LED.h" 1
 # 12 "./LED.h"
@@ -18216,74 +18213,62 @@ UINT8 LED_Update(void);
 void Fulfillment_Lvl_Set(UINT a);
 UINT Fulfillment_Lvl_Get(void);
 UINT LED_Error(void);
-# 12 "INI.c" 2
+# 12 "MOC_Funct.c" 2
 
-# 1 "./TMR1.h" 1
-
-
+# 1 "./MOC_Funct.h" 1
 
 
 
 
 
 
-UINT8 INI_Timer(void);
-UINT8 TMR1_Timer_reset(void);
-void TMR1_Update_flag_Set(UINT a);
-UINT TMR1_Update_flag_Get(void);
-# 13 "INI.c" 2
+
+UINT MOC_StanWzbudzenia(void);
+UINT MOC_Wynikowa_wartosc_roznicowa(void);
+UINT MOC_Frame_Counter(void);
+UINT MOC_Aktualna_Temperatura(void);
+UINT MOC_NOTWORK(void);
+UINT MOC_RSSI_ramki(void);
+UINT MOC_LQI_ramki(void);
+# 13 "MOC_Funct.c" 2
+
+UINT MOC_StanWzbudzenia(void);
+UINT MOC_Wynikowa_wartosc_roznicowa(void);
+UINT MOC_Frame_Counter(void);
+UINT MOC_Aktualna_Temperatura(void);
+UINT MOC_NOTWORK(void);
+UINT MOC_RSSI_ramki(void);
+UINT MOC_LQI_ramki(void);
 
 
-void INI_GlobalInterrupt(void);
-static void INI_OUTPUT(void);
-void INI_All(void);
-# 27 "INI.c"
-static void INI_OUTPUT(void)
+UINT MOC_StanWzbudzenia(void)
 {
-
-
-    LATA = 0;
-    LATB = 0;
-    LATC = 0;
-    TRISA = 0x0C;
-    TRISB = 0b10001000;
-    TRISC = 0xBF;
-    RCONbits.IPEN = 1;
-
-
-    DetectorLedRadar.Flags.inicjalizacja = 1;
-
+    return 1;
 }
-# 52 "INI.c"
-void INI_All(void)
+
+UINT MOC_Wynikowa_wartosc_roznicowa(void)
 {
-
-    WDTCONbits.SWDTEN = 1;
-
-
-
-
-
-
-
-    __asm(" clrwdt");
-    INI_OUTPUT();
-
-    CAN_Setup();
-    INI_GlobalInterrupt();
-
-    INI_Timer();
-
-    INI_LED_Start();
-
+    return 0x1234;
 }
-void INI_GlobalInterrupt(void)
-{
-INTCONbits.GIEH=1;
-INTCONbits.GIEL=1;
-RCONbits.IPEN=1;
-IPEN =1;
 
-PEIE=1;
-TMR1IP = 0;
+UINT MOC_Frame_Counter(void)
+{
+    return 0x22;
+}
+UINT MOC_Aktualna_Temperatura(void)
+{
+    return 0x24;
+}
+UINT MOC_NOTWORK(void)
+{
+    return 0x21;
+}
+UINT MOC_RSSI_ramki(void)
+{
+    return 0xEE;
+}
+
+UINT MOC_LQI_ramki(void)
+{
+    return 0xE1;
 }

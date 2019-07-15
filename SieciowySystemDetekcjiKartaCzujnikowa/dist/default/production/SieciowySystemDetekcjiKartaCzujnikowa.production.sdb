@@ -3,17 +3,17 @@
 [d edition pro ]
 [d chip 18F4680 ]
 [d frameptr 4065 ]
-"247 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
+"247 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
 [e E10433 _BOOL `uc
 FALSE 0
 TRUE 1
 ]
-"33 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
+"33 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 [e E10640 LED_RGA `uc
 RED 0
 GREEN 1
 ]
-"56 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\TRM.c
+"56 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TRM.c
 [e E10433 _BOOL `uc
 FALSE 0
 TRUE 1
@@ -46,7 +46,7 @@ TRUE 1
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"22 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
+"22 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
 [v _CAN_Setup CAN_Setup `(v  1 e 1 0 ]
 "81
 [v _CAN_SetupMask CAN_SetupMask `(v  1 s 1 CAN_SetupMask ]
@@ -60,43 +60,43 @@ TRUE 1
 [v _CAN_TakeFrame CAN_TakeFrame `(E10433  1 e 1 0 ]
 "382
 [v _CAN_GenID CAN_GenID `(v  1 e 1 0 ]
-"29 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+"31 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 [v _FRAME_SensorExcitationStatus FRAME_SensorExcitationStatus `(v  1 s 1 FRAME_SensorExcitationStatus ]
-"63
+"69
 [v _FRAME_AccelerometerStatus FRAME_AccelerometerStatus `(v  1 s 1 FRAME_AccelerometerStatus ]
-"85
+"91
 [v _FRAME_ExcitationValue FRAME_ExcitationValue `(v  1 s 1 FRAME_ExcitationValue ]
-"109
+"115
 [v _FRAME_ExcitationMultiplier FRAME_ExcitationMultiplier `(v  1 s 1 FRAME_ExcitationMultiplier ]
-"137
+"143
 [v _FRAME_AveragingTimes FRAME_AveragingTimes `(v  1 s 1 FRAME_AveragingTimes ]
-"196
+"202
 [v _FRAME_AxisStatus FRAME_AxisStatus `(v  1 s 1 FRAME_AxisStatus ]
-"243
+"249
 [v _FRAME_DeviceReset FRAME_DeviceReset `(v  1 s 1 FRAME_DeviceReset ]
-"296
+"302
 [v _FRAME_Plot FRAME_Plot `(v  1 s 1 FRAME_Plot ]
-"318
+"324
 [v _FRAME_MapPosition FRAME_MapPosition `(v  1 s 1 FRAME_MapPosition ]
-"343
+"349
 [v _FRAME_SoftwareVersion FRAME_SoftwareVersion `(v  1 s 1 FRAME_SoftwareVersion ]
-"366
+"372
 [v _FRAME_AnalogValue FRAME_AnalogValue `(v  1 s 1 FRAME_AnalogValue ]
-"409
+"415
 [v _FRAME_AdressOfNeighbors FRAME_AdressOfNeighbors `(v  1 s 1 FRAME_AdressOfNeighbors ]
-"439
+"445
 [v _FRAME_HandleCanFrame FRAME_HandleCanFrame `(v  1 e 1 0 ]
-"27 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
+"27 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
 [v _INI_OUTPUT INI_OUTPUT `(v  1 s 1 INI_OUTPUT ]
 "52
 [v _INI_All INI_All `(v  1 e 1 0 ]
 "74
 [v _INI_GlobalInterrupt INI_GlobalInterrupt `(v  1 e 1 0 ]
-"16 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\ISR.c
+"16 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\ISR.c
 [v _ISR_low ISR_low `IIL(v  1 e 1 0 ]
 "53
 [v _ISR_high ISR_high `IIH(v  1 e 1 0 ]
-"31 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
+"31 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 [v _LED_Error LED_Error `(ui  1 e 2 0 ]
 "81
 [v _LED_Update LED_Update `(uc  1 e 1 0 ]
@@ -110,9 +110,9 @@ TRUE 1
 [v _INI_LED_Start INI_LED_Start `(v  1 e 1 0 ]
 "224
 [v _LED_Control LED_Control `(uc  1 e 1 0 ]
-"89 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\main.c
+"89 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\main.c
 [v _main main `(v  1 e 1 0 ]
-"32 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\TMR1.c
+"32 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TMR1.c
 [v _TMR1_Update_flag_Set TMR1_Update_flag_Set `(v  1 e 1 0 ]
 [v i1_TMR1_Update_flag_Set TMR1_Update_flag_Set `(v  1 e 1 0 ]
 "47
@@ -121,7 +121,7 @@ TRUE 1
 [v _TMR1_Timer_reset TMR1_Timer_reset `(uc  1 e 1 0 ]
 "92
 [v _INI_Timer INI_Timer `(uc  1 e 1 0 ]
-"16 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\TRM.c
+"16 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TRM.c
 [v _TRM_DataTransmition TRM_DataTransmition `(v  1 e 1 0 ]
 "4422 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
 [v _RXFCON0 RXFCON0 `VEuc  1 e 1 @3540 ]
@@ -555,7 +555,7 @@ TRUE 1
 [v _TMR1IP TMR1IP `VEb  1 e 0 @31992 ]
 "39117
 [v _TMR1ON TMR1ON `VEb  1 e 0 @32360 ]
-"29 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
+"29 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 [v _Fulfillment_Lvl Fulfillment_Lvl `ui  1 s 2 Fulfillment_Lvl ]
 [s S24 . 1 `uc 1 obsluzWeWy 1 0 :1:0 
 `uc 1 error 1 0 :1:1 
@@ -563,26 +563,26 @@ TRUE 1
 `uc 1 inicjalizacja 1 0 :1:3 
 `uc 1 ramkaTx 1 0 :1:4 
 ]
-"77 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\main.c
+"77 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\main.c
 [u S30 . 1 `uc 1 flagiU8 1 0 `S24 1 . 1 0 ]
 [s S33 . 2 `S30 1 Flags 1 0 `uc 1 timerRamkiTxCANU8 1 1 ]
 [v _DetectorLedRadar DetectorLedRadar `S33  1 e 2 0 ]
-"19 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\TMR1.c
+"19 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TMR1.c
 [v _TMR1_Update_flag TMR1_Update_flag `ui  1 s 2 TMR1_Update_flag ]
 [s S162 . 1 `uc 1 wyslijRamkeStanu 1 0 :1:0 
 `uc 1 wyslijRamkeUczeniaTla 1 0 :1:1 
 `uc 1 wyslijRamkeResetuCzujnikow 1 0 :1:2 
 ]
-"7 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\TRM.c
+"7 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TRM.c
 [u S166 . 2 `us 1 FlagiU16 2 0 `S162 1 . 1 0 ]
 [s S169 . 4 `S166 1 Flags 2 0 `us 1 adresCAN 2 2 ]
 [v _DaneCan DaneCan `S169  1 e 4 0 ]
-"89 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\main.c
+"89 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\main.c
 [v _main main `(v  1 e 1 0 ]
 {
 "113
 } 0
-"16 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\TRM.c
+"16 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TRM.c
 [v _TRM_DataTransmition TRM_DataTransmition `(v  1 e 1 0 ]
 {
 [s S350 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -646,13 +646,13 @@ TRUE 1
 [v TRM_DataTransmition@canMessage canMessage `S427  1 a 17 20 ]
 "67
 } 0
-"439 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+"445 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 [v _FRAME_HandleCanFrame FRAME_HandleCanFrame `(v  1 e 1 0 ]
 {
-"441
+"447
 [v FRAME_HandleCanFrame@identyfikator identyfikator `uc  1 a 1 19 ]
 [s S350 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
-"439
+"445
 [s S353 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
 [s S358 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
 [s S361 . 2 `uc 1 b0 1 0 :1:0 
@@ -710,14 +710,14 @@ TRUE 1
 [u S419 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S350 1 word 4 0 `S353 1 byte 4 0 `S383 1 wordUnion 4 0 `S386 1 bits 4 0 ]
 [s S427 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S419 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_HandleCanFrame@message message `*.39S427  1 p 2 15 ]
-"511
+"517
 } 0
-"31 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
+"31 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 [v _LED_Error LED_Error `(ui  1 e 2 0 ]
 {
 "36
 } 0
-"343 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+"349 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 [v _FRAME_SoftwareVersion FRAME_SoftwareVersion `(v  1 s 1 FRAME_SoftwareVersion ]
 {
 [s S350 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -778,9 +778,9 @@ TRUE 1
 [u S419 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S350 1 word 4 0 `S353 1 byte 4 0 `S383 1 wordUnion 4 0 `S386 1 bits 4 0 ]
 [s S427 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S419 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_SoftwareVersion@message message `*.39S427  1 p 2 5 ]
-"358
+"364
 } 0
-"29
+"31
 [v _FRAME_SensorExcitationStatus FRAME_SensorExcitationStatus `(v  1 s 1 FRAME_SensorExcitationStatus ]
 {
 [s S350 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -841,9 +841,9 @@ TRUE 1
 [u S419 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S350 1 word 4 0 `S353 1 byte 4 0 `S383 1 wordUnion 4 0 `S386 1 bits 4 0 ]
 [s S427 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S419 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_SensorExcitationStatus@message message `*.39S427  1 p 2 5 ]
-"55
+"61
 } 0
-"296
+"302
 [v _FRAME_Plot FRAME_Plot `(v  1 s 1 FRAME_Plot ]
 {
 [s S350 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -904,9 +904,9 @@ TRUE 1
 [u S419 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S350 1 word 4 0 `S353 1 byte 4 0 `S383 1 wordUnion 4 0 `S386 1 bits 4 0 ]
 [s S427 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S419 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_Plot@message message `*.39S427  1 p 2 5 ]
-"310
+"316
 } 0
-"318
+"324
 [v _FRAME_MapPosition FRAME_MapPosition `(v  1 s 1 FRAME_MapPosition ]
 {
 [s S350 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -967,9 +967,9 @@ TRUE 1
 [u S419 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S350 1 word 4 0 `S353 1 byte 4 0 `S383 1 wordUnion 4 0 `S386 1 bits 4 0 ]
 [s S427 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S419 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_MapPosition@message message `*.39S427  1 p 2 5 ]
-"335
+"341
 } 0
-"85
+"91
 [v _FRAME_ExcitationValue FRAME_ExcitationValue `(v  1 s 1 FRAME_ExcitationValue ]
 {
 [s S350 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -1030,15 +1030,15 @@ TRUE 1
 [u S419 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S350 1 word 4 0 `S353 1 byte 4 0 `S383 1 wordUnion 4 0 `S386 1 bits 4 0 ]
 [s S427 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S419 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_ExcitationValue@message message `*.39S427  1 p 2 5 ]
-"101
+"107
 } 0
-"109
+"115
 [v _FRAME_ExcitationMultiplier FRAME_ExcitationMultiplier `(v  1 s 1 FRAME_ExcitationMultiplier ]
 {
-"111
+"117
 [v FRAME_ExcitationMultiplier@i i `us  1 a 2 8 ]
 [s S350 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
-"109
+"115
 [s S353 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
 [s S358 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
 [s S361 . 2 `uc 1 b0 1 0 :1:0 
@@ -1096,9 +1096,9 @@ TRUE 1
 [u S419 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S350 1 word 4 0 `S353 1 byte 4 0 `S383 1 wordUnion 4 0 `S386 1 bits 4 0 ]
 [s S427 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S419 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_ExcitationMultiplier@message message `*.39S427  1 p 2 5 ]
-"129
+"135
 } 0
-"243
+"249
 [v _FRAME_DeviceReset FRAME_DeviceReset `(v  1 s 1 FRAME_DeviceReset ]
 {
 [s S350 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -1159,9 +1159,9 @@ TRUE 1
 [u S419 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S350 1 word 4 0 `S353 1 byte 4 0 `S383 1 wordUnion 4 0 `S386 1 bits 4 0 ]
 [s S427 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S419 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_DeviceReset@message message `*.39S427  1 p 2 5 ]
-"288
+"294
 } 0
-"196
+"202
 [v _FRAME_AxisStatus FRAME_AxisStatus `(v  1 s 1 FRAME_AxisStatus ]
 {
 [s S350 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -1222,9 +1222,9 @@ TRUE 1
 [u S419 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S350 1 word 4 0 `S353 1 byte 4 0 `S383 1 wordUnion 4 0 `S386 1 bits 4 0 ]
 [s S427 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S419 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_AxisStatus@message message `*.39S427  1 p 2 5 ]
-"219
+"225
 } 0
-"137
+"143
 [v _FRAME_AveragingTimes FRAME_AveragingTimes `(v  1 s 1 FRAME_AveragingTimes ]
 {
 [s S350 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -1285,9 +1285,9 @@ TRUE 1
 [u S419 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S350 1 word 4 0 `S353 1 byte 4 0 `S383 1 wordUnion 4 0 `S386 1 bits 4 0 ]
 [s S427 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S419 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_AveragingTimes@message message `*.39S427  1 p 2 5 ]
-"188
+"194
 } 0
-"366
+"372
 [v _FRAME_AnalogValue FRAME_AnalogValue `(v  1 s 1 FRAME_AnalogValue ]
 {
 [s S350 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -1349,9 +1349,9 @@ TRUE 1
 [s S427 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S419 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_AnalogValue@message message `*.39S427  1 p 2 5 ]
 [v FRAME_AnalogValue@set set `us  1 p 2 7 ]
-"384
+"390
 } 0
-"409
+"415
 [v _FRAME_AdressOfNeighbors FRAME_AdressOfNeighbors `(v  1 s 1 FRAME_AdressOfNeighbors ]
 {
 [s S350 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -1413,9 +1413,9 @@ TRUE 1
 [s S427 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S419 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_AdressOfNeighbors@message message `*.39S427  1 p 2 5 ]
 [v FRAME_AdressOfNeighbors@nrRamki nrRamki `us  1 p 2 7 ]
-"432
+"438
 } 0
-"63
+"69
 [v _FRAME_AccelerometerStatus FRAME_AccelerometerStatus `(v  1 s 1 FRAME_AccelerometerStatus ]
 {
 [s S350 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -1476,9 +1476,9 @@ TRUE 1
 [u S419 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S350 1 word 4 0 `S353 1 byte 4 0 `S383 1 wordUnion 4 0 `S386 1 bits 4 0 ]
 [s S427 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S419 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_AccelerometerStatus@message message `*.39S427  1 p 2 5 ]
-"77
+"83
 } 0
-"183 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
+"183 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
 [v _CAN_SendFrame CAN_SendFrame `(v  1 e 1 0 ]
 {
 [s S350 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -1685,7 +1685,7 @@ TRUE 1
 [v ___awdiv@divisor divisor `i  1 p 2 7 ]
 "41
 } 0
-"169 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
+"169 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
 [v _CAN_MoveBuffIntoFrame CAN_MoveBuffIntoFrame `(v  1 s 1 CAN_MoveBuffIntoFrame ]
 {
 "171
@@ -1695,7 +1695,7 @@ TRUE 1
 [v CAN_MoveBuffIntoFrame@Buf Buf `*.39uc  1 p 2 7 ]
 "176
 } 0
-"32 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\TMR1.c
+"32 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TMR1.c
 [v _TMR1_Update_flag_Set TMR1_Update_flag_Set `(v  1 e 1 0 ]
 {
 [v TMR1_Update_flag_Set@a a `ui  1 p 2 5 ]
@@ -1706,7 +1706,7 @@ TRUE 1
 {
 "50
 } 0
-"81 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
+"81 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 [v _LED_Update LED_Update `(uc  1 e 1 0 ]
 {
 "84
@@ -1747,7 +1747,7 @@ TRUE 1
 [v ___lwdiv@divisor divisor `ui  1 p 2 7 ]
 "30
 } 0
-"108 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
+"108 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 [v _LED_Right LED_Right `(ui  1 e 2 0 ]
 {
 "112
@@ -1765,22 +1765,22 @@ TRUE 1
 [v LED_Left@a a `ui  1 p 2 5 ]
 "149
 } 0
-"52 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
+"52 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
 [v _INI_All INI_All `(v  1 e 1 0 ]
 {
 "73
 } 0
-"92 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\TMR1.c
+"92 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TMR1.c
 [v _INI_Timer INI_Timer `(uc  1 e 1 0 ]
 {
 "105
 } 0
-"27 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
+"27 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
 [v _INI_OUTPUT INI_OUTPUT `(v  1 s 1 INI_OUTPUT ]
 {
 "42
 } 0
-"199 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
+"199 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 [v _INI_LED_Start INI_LED_Start `(v  1 e 1 0 ]
 {
 "209
@@ -1794,12 +1794,12 @@ TRUE 1
 [v LED_Control@color color `E10640  1 a 1 9 ]
 "426
 } 0
-"74 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
+"74 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
 [v _INI_GlobalInterrupt INI_GlobalInterrupt `(v  1 e 1 0 ]
 {
 "83
 } 0
-"22 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
+"22 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
 [v _CAN_Setup CAN_Setup `(v  1 e 1 0 ]
 {
 "64
@@ -1814,14 +1814,14 @@ TRUE 1
 {
 "162
 } 0
-"16 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\ISR.c
+"16 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\ISR.c
 [v _ISR_low ISR_low `IIL(v  1 e 1 0 ]
 {
 "26
 [v ISR_low@ramkaStanuU8 ramkaStanuU8 `uc  1 s 1 ramkaStanuU8 ]
 "43
 } 0
-"32 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\TMR1.c
+"32 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TMR1.c
 [v i1_TMR1_Update_flag_Set TMR1_Update_flag_Set `(v  1 e 1 0 ]
 {
 [v i1TMR1_Update_flag_Set@a a `ui  1 p 2 0 ]
@@ -1835,7 +1835,7 @@ TRUE 1
 [v TMR1_Timer_reset@t1L t1L `VEuc  1 a 1 0 ]
 "80
 } 0
-"53 C:\Users\hp\Desktop\SieciowySystemDetekcjiKartaCzujnikowa\ISR.c
+"53 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\ISR.c
 [v _ISR_high ISR_high `IIH(v  1 e 1 0 ]
 {
 "57

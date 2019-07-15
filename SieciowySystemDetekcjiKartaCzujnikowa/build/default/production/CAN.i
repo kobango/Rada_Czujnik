@@ -18583,9 +18583,9 @@ void CAN_GenID(mID * message, BYTE frameID)
 
     message->frame_type = 0x03;
     message->message_type = 0x01;
-    message->id.w[1] = (WORD)frameID * (WORD)4;
-    message->id.w[0] = DaneCan.adresCAN;
+    message->id.w[1] = 0x0025;
+    message->id.w[0] = 0x8006;
     message->id.v[2] |= 0x01;
-    message->id.v[1] |= 0x40;
+    message->id.v[1] |= 0x00;
 
 }
