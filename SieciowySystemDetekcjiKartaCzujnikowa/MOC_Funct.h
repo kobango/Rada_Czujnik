@@ -12,6 +12,13 @@ UINT MOC_Aktualna_Temperatura(void);
 UINT MOC_NOTWORK(void);
 UINT MOC_RSSI_ramki(void);
 UINT MOC_LQI_ramki(void);
+UINT MOCK_PrzyspieszenieX(void);
+UINT MOCK_PrzyspieszenieY(void);
+UINT MOCK_PrzyspieszenieZ(void);
+UINT MOCK_Klikniecie_Spadek(void);
+UINT MOCK_Background(void);
 
-#endif	/* MOC H */
+UINT MOCK_SoftwareReset(void);
+        
+#endif	/* MOCK H */
 

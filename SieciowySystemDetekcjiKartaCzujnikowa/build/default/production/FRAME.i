@@ -18180,6 +18180,8 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
                 unsigned uczenieTla : 1;
                 unsigned inicjalizacja : 1;
                 unsigned ramkaTx : 1;
+                unsigned wykonanoZapisDoFlash: 1;
+                unsigned pomiarTla: 8;
             };
         }Flags;
 
@@ -18227,7 +18229,39 @@ UINT MOC_Aktualna_Temperatura(void);
 UINT MOC_NOTWORK(void);
 UINT MOC_RSSI_ramki(void);
 UINT MOC_LQI_ramki(void);
+UINT MOCK_PrzyspieszenieX(void);
+UINT MOCK_PrzyspieszenieY(void);
+UINT MOCK_PrzyspieszenieZ(void);
+UINT MOCK_Klikniecie_Spadek(void);
+UINT MOCK_Background(void);
+
+UINT MOCK_SoftwareReset(void);
 # 6 "FRAME.c" 2
+# 1 "./TRM.h" 1
+# 11 "./TRM.h"
+    typedef struct
+    {
+        union
+        {
+            WORD FlagiU16;
+
+            struct
+            {
+                unsigned wyslijRamkeStanu : 1;
+                unsigned wyslijRamkeUczeniaTla : 1;
+                unsigned wyslijRamkeResetuCzujnikow : 1;
+
+            };
+        }Flags;
+
+        WORD adresCAN;
+
+
+    }DaneCanStruct;
+    extern DaneCanStruct DaneCan;
+
+    void TRM_DataTransmition(void);
+# 7 "FRAME.c" 2
 
 typedef short Word16;
 typedef unsigned short UWord16;
@@ -18269,7 +18303,7 @@ static void FRAME_SensorExcitationStatus(mID *message)
         message->data[3] = MOC_Frame_Counter();
         message->data[4] = MOC_Aktualna_Temperatura();
         message->data[5] = MOC_NOTWORK();
-# 56 "FRAME.c"
+# 57 "FRAME.c"
     }
     else
     {
@@ -18287,11 +18321,14 @@ static void FRAME_AccelerometerStatus(mID *message)
 {
     if(message->message_type == 0x02)
     {
-        message->data_length = 1;
+        message->data_length = 4;
 
 
 
-        message->data[0] = 0xFF;
+        message->data[0] = MOCK_PrzyspieszenieX();
+        message->data[1] = MOCK_PrzyspieszenieY();
+        message->data[2] = MOCK_PrzyspieszenieZ();
+        message->data[3] = MOCK_Klikniecie_Spadek();
     }
     else
     {
@@ -18373,7 +18410,7 @@ static void FRAME_AveragingTimes(mID *message)
     }
     else
     {
-# 193 "FRAME.c"
+# 197 "FRAME.c"
     }
 }
 
@@ -18390,7 +18427,7 @@ static void FRAME_AxisStatus(mID *message)
     if(message->message_type == 0x02)
     {
         message->data_length = 1;
-# 219 "FRAME.c"
+# 223 "FRAME.c"
         message->data[0] = 0xFF;
     }
     else
@@ -18426,13 +18463,13 @@ static void FRAME_DeviceReset(mID *message)
     if(message->message_type == 0x02)
     {
         message->data_length = 1;
-# 266 "FRAME.c"
+# 281 "FRAME.c"
         message->data[0] = 0xFF;
     }
     else
     {
         message->data_length = 1;
-# 292 "FRAME.c"
+# 307 "FRAME.c"
         message->data[0] = 0xFF;
     }
 }
@@ -18445,7 +18482,7 @@ static void FRAME_DeviceReset(mID *message)
 
 static void FRAME_Plot(mID *message)
 {
-# 314 "FRAME.c"
+# 329 "FRAME.c"
     message->data_length = 1;
     message->data[0] = 0xFF;
 }
@@ -18458,7 +18495,7 @@ static void FRAME_Plot(mID *message)
 
 static void FRAME_MapPosition(mID *message)
 {
-# 341 "FRAME.c"
+# 356 "FRAME.c"
 }
 
 
@@ -18469,7 +18506,7 @@ static void FRAME_MapPosition(mID *message)
 
 static void FRAME_SoftwareVersion(mID *message)
 {
-# 364 "FRAME.c"
+# 379 "FRAME.c"
 }
 
 
@@ -18481,13 +18518,13 @@ static void FRAME_SoftwareVersion(mID *message)
 static void FRAME_AnalogValue(mID *message, WORD set)
 {
     WORD i;
-# 390 "FRAME.c"
+# 405 "FRAME.c"
 }
-# 415 "FRAME.c"
+# 430 "FRAME.c"
 static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
 {
     WORD i;
-# 438 "FRAME.c"
+# 453 "FRAME.c"
 }
 
 
@@ -18550,7 +18587,7 @@ void FRAME_HandleCanFrame(mID * message)
         message->id.v[2] = identyfikator*4;
         CAN_GenID(message,identyfikator);
         CAN_SendFrame(message);
-# 510 "FRAME.c"
+# 525 "FRAME.c"
        while(RXB0CONbits.FILHIT3)
        {
            if(TXB0CONbits.TXERR == 1){
@@ -18558,7 +18595,7 @@ void FRAME_HandleCanFrame(mID * message)
            }
            else
            {
-               LED_Clear();
+
            }
 
        };

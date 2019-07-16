@@ -5,6 +5,9 @@
 
 
 DaneCanStruct DaneCan;
+// Ustawi? DaneCan.adresCAN  = Adres // 0x4001
+
+
 /***************************************************************************************/
 /**
 * @author Pawel Kasperek

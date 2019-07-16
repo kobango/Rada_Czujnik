@@ -18152,6 +18152,8 @@ typedef union _QWORD_VAL
                 unsigned uczenieTla : 1;
                 unsigned inicjalizacja : 1;
                 unsigned ramkaTx : 1;
+                unsigned wykonanoZapisDoFlash: 1;
+                unsigned pomiarTla: 8;
             };
         }Flags;
 
@@ -18189,6 +18191,7 @@ typedef union _QWORD_VAL
         }Flags;
 
         WORD adresCAN;
+
 
     }DaneCanStruct;
     extern DaneCanStruct DaneCan;

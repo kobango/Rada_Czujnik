@@ -385,9 +385,12 @@ void CAN_GenID(mID * message, BYTE frameID)
     message->frame_type = CAN_FRAME_EXT;
     message->message_type = CAN_MSG_DATA;
     message->id.w[1] = (WORD)frameID * (WORD)4; //0x004 ; //0x0025;//(WORD)frameID * (WORD)4;
-    message->id.w[0] = DaneCan.adresCAN + 0x0010; //0x012b; //0x8006;//DaneCan.adresCAN;
+    message->id.w[0] = DaneCan.adresCAN + 0x4001; //0x012b; //0x8006;//DaneCan.adresCAN; // ID obiektu, domyslnie 0 + warto?c do ustawienia.
     message->id.v[2] |= 0x00; //0x01; //0x01;
     message->id.v[1] |= 0x00; //0x00;//0x40;
     message ->id.bits.b16 = 0;
     message ->id.bits.b17 = 0;
+    
+    
+    
 }

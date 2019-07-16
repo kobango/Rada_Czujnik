@@ -18152,6 +18152,8 @@ typedef union _QWORD_VAL
                 unsigned uczenieTla : 1;
                 unsigned inicjalizacja : 1;
                 unsigned ramkaTx : 1;
+                unsigned wykonanoZapisDoFlash: 1;
+                unsigned pomiarTla: 8;
             };
         }Flags;
 
@@ -18189,6 +18191,7 @@ typedef union _QWORD_VAL
         }Flags;
 
         WORD adresCAN;
+
 
     }DaneCanStruct;
     extern DaneCanStruct DaneCan;
@@ -18584,9 +18587,12 @@ void CAN_GenID(mID * message, BYTE frameID)
     message->frame_type = 0x03;
     message->message_type = 0x01;
     message->id.w[1] = (WORD)frameID * (WORD)4;
-    message->id.w[0] = DaneCan.adresCAN + 0x0010;
+    message->id.w[0] = DaneCan.adresCAN + 0x4001;
     message->id.v[2] |= 0x00;
     message->id.v[1] |= 0x00;
     message ->id.bits.b16 = 0;
     message ->id.bits.b17 = 0;
+
+
+
 }

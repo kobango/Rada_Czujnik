@@ -5,4 +5,5 @@ GenericTypeDefs.h  \
 main.h  \
 LED.h  \
 FRAME.h  \
-MOC_Funct.h 
+MOC_Funct.h  \
+TRM.h 

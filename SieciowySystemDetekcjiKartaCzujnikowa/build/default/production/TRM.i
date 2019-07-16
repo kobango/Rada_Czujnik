@@ -18152,6 +18152,8 @@ typedef union _QWORD_VAL
                 unsigned uczenieTla : 1;
                 unsigned inicjalizacja : 1;
                 unsigned ramkaTx : 1;
+                unsigned wykonanoZapisDoFlash: 1;
+                unsigned pomiarTla: 8;
             };
         }Flags;
 
@@ -18223,6 +18225,7 @@ void FRAME_HandleCanFrame(mID * message);
 
         WORD adresCAN;
 
+
     }DaneCanStruct;
     extern DaneCanStruct DaneCan;
 
@@ -18232,7 +18235,7 @@ void FRAME_HandleCanFrame(mID * message);
 
 
 DaneCanStruct DaneCan;
-# 16 "TRM.c"
+# 19 "TRM.c"
 void TRM_DataTransmition(void)
 {
     static BYTE weWyU8 = 0, czujnikWeWyU8 = 0;
@@ -18247,7 +18250,7 @@ void TRM_DataTransmition(void)
         canMessage.id.Val = 0;
         canMessage.id.v[2] = 0x01 *4;
         FRAME_HandleCanFrame(&canMessage);
-# 46 "TRM.c"
+# 49 "TRM.c"
         DaneCan.Flags.wyslijRamkeStanu = 0;
     }
 

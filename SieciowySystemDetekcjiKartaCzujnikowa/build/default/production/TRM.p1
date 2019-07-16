@@ -50,8 +50,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./FRAME.h
 [; ;./FRAME.h: 13: void FRAME_HandleCanFrame(mID * message);
 [v _FRAME_HandleCanFrame `(v ~T0 @X0 0 ef1`*S1105 ]
-"56 TRM.c
-[; ;TRM.c: 56:     if(CAN_TakeFrame(&canMessage))
+"59 TRM.c
+[; ;TRM.c: 59:     if(CAN_TakeFrame(&canMessage))
 [c E10433 0 1 .. ]
 [n E10433 _BOOL FALSE TRUE  ]
 "37 ./CAN.h
@@ -1302,99 +1302,99 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7 TRM.c
 [; ;TRM.c: 7: DaneCanStruct DaneCan;
 [v _DaneCan `S1106 ~T0 @X0 1 e ]
-"16
-[; ;TRM.c: 16: void TRM_DataTransmition(void)
+"19
+[; ;TRM.c: 19: void TRM_DataTransmition(void)
 [v _TRM_DataTransmition `(v ~T0 @X0 1 ef ]
-"17
-[; ;TRM.c: 17: {
+"20
+[; ;TRM.c: 20: {
 {
 [e :U _TRM_DataTransmition ]
 [f ]
-"18
-[; ;TRM.c: 18:     static BYTE weWyU8 = 0, czujnikWeWyU8 = 0;
-[v F10693 `uc ~T0 @X0 1 s weWyU8 ]
-[i F10693
+"21
+[; ;TRM.c: 21:     static BYTE weWyU8 = 0, czujnikWeWyU8 = 0;
+[v F10695 `uc ~T0 @X0 1 s weWyU8 ]
+[i F10695
 -> -> 0 `i `uc
 ]
-[v F10694 `uc ~T0 @X0 1 s czujnikWeWyU8 ]
-[i F10694
+[v F10696 `uc ~T0 @X0 1 s czujnikWeWyU8 ]
+[i F10696
 -> -> 0 `i `uc
 ]
-"19
-[; ;TRM.c: 19:     BYTE i;
+"22
+[; ;TRM.c: 22:     BYTE i;
 [v _i `uc ~T0 @X0 1 a ]
-"20
-[; ;TRM.c: 20:     mID canMessage;
-[v _canMessage `S1105 ~T0 @X0 1 a ]
 "23
-[; ;TRM.c: 23:     if(DaneCan.Flags.wyslijRamkeStanu)
-[e $ ! != -> . . . _DaneCan 0 1 0 `i -> 0 `i 1110  ]
-"24
-[; ;TRM.c: 24:     {
-{
+[; ;TRM.c: 23:     mID canMessage;
+[v _canMessage `S1105 ~T0 @X0 1 a ]
 "26
-[; ;TRM.c: 26:         canMessage.message_type = 0x02;
-[e = . _canMessage 1 -> -> 2 `i `uc ]
+[; ;TRM.c: 26:     if(DaneCan.Flags.wyslijRamkeStanu)
+[e $ ! != -> . . . _DaneCan 0 1 0 `i -> 0 `i 1110  ]
 "27
-[; ;TRM.c: 27:         canMessage.id.Val = 0;
-[e = . . _canMessage 4 0 -> -> -> 0 `i `l `ul ]
-"28
-[; ;TRM.c: 28:         canMessage.id.v[2] = 0x01 *4;
-[e = *U + &U . . _canMessage 4 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . . _canMessage 4 2 `ui `ux -> * -> 1 `i -> 4 `i `uc ]
+[; ;TRM.c: 27:     {
+{
 "29
-[; ;TRM.c: 29:         FRAME_HandleCanFrame(&canMessage);
+[; ;TRM.c: 29:         canMessage.message_type = 0x02;
+[e = . _canMessage 1 -> -> 2 `i `uc ]
+"30
+[; ;TRM.c: 30:         canMessage.id.Val = 0;
+[e = . . _canMessage 4 0 -> -> -> 0 `i `l `ul ]
+"31
+[; ;TRM.c: 31:         canMessage.id.v[2] = 0x01 *4;
+[e = *U + &U . . _canMessage 4 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . . _canMessage 4 2 `ui `ux -> * -> 1 `i -> 4 `i `uc ]
+"32
+[; ;TRM.c: 32:         FRAME_HandleCanFrame(&canMessage);
 [e ( _FRAME_HandleCanFrame (1 &U _canMessage ]
-"46
-[; ;TRM.c: 46:         DaneCan.Flags.wyslijRamkeStanu = 0;
+"49
+[; ;TRM.c: 49:         DaneCan.Flags.wyslijRamkeStanu = 0;
 [e = . . . _DaneCan 0 1 0 -> -> 0 `i `uc ]
-"47
-[; ;TRM.c: 47:     }
+"50
+[; ;TRM.c: 50:     }
 }
 [e :U 1110 ]
-"50
-[; ;TRM.c: 50:     if(DaneCan.Flags.wyslijRamkeUczeniaTla)
-[e $ ! != -> . . . _DaneCan 0 1 1 `i -> 0 `i 1111  ]
-"51
-[; ;TRM.c: 51:     {
-{
 "53
-[; ;TRM.c: 53:     }
+[; ;TRM.c: 53:     if(DaneCan.Flags.wyslijRamkeUczeniaTla)
+[e $ ! != -> . . . _DaneCan 0 1 1 `i -> 0 `i 1111  ]
+"54
+[; ;TRM.c: 54:     {
+{
+"56
+[; ;TRM.c: 56:     }
 }
 [e :U 1111 ]
-"56
-[; ;TRM.c: 56:     if(CAN_TakeFrame(&canMessage))
-[e $ ! != -> ( _CAN_TakeFrame (1 &U _canMessage `ui -> -> 0 `i `ui 1112  ]
-"57
-[; ;TRM.c: 57:     {
-{
-"58
-[; ;TRM.c: 58:         if((canMessage.buffer == 0) || (canMessage.buffer == 1))
-[e $ ! || == -> . _canMessage 3 `i -> 0 `i == -> . _canMessage 3 `i -> 1 `i 1113  ]
 "59
-[; ;TRM.c: 59:         {
-{
+[; ;TRM.c: 59:     if(CAN_TakeFrame(&canMessage))
+[e $ ! != -> ( _CAN_TakeFrame (1 &U _canMessage `ui -> -> 0 `i `ui 1112  ]
 "60
-[; ;TRM.c: 60:             FRAME_HandleCanFrame(&canMessage);
-[e ( _FRAME_HandleCanFrame (1 &U _canMessage ]
+[; ;TRM.c: 60:     {
+{
 "61
-[; ;TRM.c: 61:         }
+[; ;TRM.c: 61:         if((canMessage.buffer == 0) || (canMessage.buffer == 1))
+[e $ ! || == -> . _canMessage 3 `i -> 0 `i == -> . _canMessage 3 `i -> 1 `i 1113  ]
+"62
+[; ;TRM.c: 62:         {
+{
+"63
+[; ;TRM.c: 63:             FRAME_HandleCanFrame(&canMessage);
+[e ( _FRAME_HandleCanFrame (1 &U _canMessage ]
+"64
+[; ;TRM.c: 64:         }
 }
 [e $U 1114  ]
-"62
-[; ;TRM.c: 62:         else
-[e :U 1113 ]
-"63
-[; ;TRM.c: 63:         {
-{
 "65
-[; ;TRM.c: 65:         }
+[; ;TRM.c: 65:         else
+[e :U 1113 ]
+"66
+[; ;TRM.c: 66:         {
+{
+"68
+[; ;TRM.c: 68:         }
 }
 [e :U 1114 ]
-"66
-[; ;TRM.c: 66:     }
+"69
+[; ;TRM.c: 69:     }
 }
 [e :U 1112 ]
-"67
-[; ;TRM.c: 67: }
+"70
+[; ;TRM.c: 70: }
 [e :UE 1109 ]
 }

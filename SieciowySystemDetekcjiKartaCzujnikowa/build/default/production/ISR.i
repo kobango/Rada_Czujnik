@@ -18152,6 +18152,8 @@ typedef union _QWORD_VAL
                 unsigned uczenieTla : 1;
                 unsigned inicjalizacja : 1;
                 unsigned ramkaTx : 1;
+                unsigned wykonanoZapisDoFlash: 1;
+                unsigned pomiarTla: 8;
             };
         }Flags;
 
@@ -18192,6 +18194,7 @@ typedef union _QWORD_VAL
         }Flags;
 
         WORD adresCAN;
+
 
     }DaneCanStruct;
     extern DaneCanStruct DaneCan;
@@ -18241,7 +18244,7 @@ void __attribute__((picinterrupt(("low_priority")))) ISR_low (void)
 
             DetectorLedRadar.Flags.obsluzWeWy = 1;
 
-            if(++ramkaStanuU8 > (5*10))
+            if(++ramkaStanuU8 > (2*10))
                 {
                     ramkaStanuU8 = 0;
                     DaneCan.Flags.wyslijRamkeStanu = 1;

@@ -20,7 +20,7 @@
     #define EEPROM_OFFSET 0x100
 
     #define CZAS_OCZEKIWANIA_NA_RAMKE_CAN 1//100 //razy 100ms  //aktualni 100 ms
-    #define TIMER_RAMKI_STANU   (5*10)//(20*10)   //aktualni 200ms      //razy 100ms - 5 sek
+    #define TIMER_RAMKI_STANU   (2*10)//(5*10)//(20*10)   //aktualni 200ms      //razy 100ms - 5 sek
 //#define PARKINGI
 #ifdef PARKINGI
 //    #define TIMER_RAPORTOWANIA_CZUJNICZKOW ((WORD)20*(WORD)60*(WORD)15)    //razy 50ms - 15min
@@ -53,9 +53,11 @@
                 unsigned uczenieTla : 1;
                 unsigned inicjalizacja : 1;
                 unsigned ramkaTx : 1;
+                unsigned wykonanoZapisDoFlash: 1;
+                unsigned pomiarTla: 8;
             };
         }Flags;
-
+        
         BYTE timerRamkiTxCANU8;
     }KartaStruct;
 	/////////////////////////////////////////////////////////////////

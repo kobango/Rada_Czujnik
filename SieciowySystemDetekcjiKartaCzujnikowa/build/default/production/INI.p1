@@ -54,8 +54,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _RCONbits `VS1044 ~T0 @X0 0 e@4048 ]
 "50 ./main.h
 [; ;./main.h: 50:             struct{
-[s S1104 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1104 . obsluzWeWy error uczenieTla inicjalizacja ramkaTx ]
+[s S1104 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :8 `uc 1 ]
+[n S1104 . obsluzWeWy error uczenieTla inicjalizacja ramkaTx wykonanoZapisDoFlash pomiarTla ]
 "47
 [; ;./main.h: 47:         {
 [u S1103 `uc 1 `S1104 1 ]
@@ -64,8 +64,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./main.h: 45:     typedef struct{
 [s S1102 `S1103 1 `uc 1 ]
 [n S1102 . Flags timerRamkiTxCANU8 ]
-"65
-[; ;./main.h: 65:     extern KartaStruct DetectorLedRadar;
+"67
+[; ;./main.h: 67:     extern KartaStruct DetectorLedRadar;
 [v _DetectorLedRadar `S1102 ~T0 @X0 0 e ]
 "31276 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31276:     struct {

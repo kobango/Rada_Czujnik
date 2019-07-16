@@ -24,7 +24,8 @@
         }Flags;
 
         WORD adresCAN;
-
+        
+        
     }DaneCanStruct;
     extern DaneCanStruct DaneCan;
 

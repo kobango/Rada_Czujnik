@@ -12,8 +12,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _TMR1_Update_flag_Set `(v ~T0 @X0 0 ef1`ui ]
 "50 ./main.h
 [; ;./main.h: 50:             struct{
-[s S1104 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1104 . obsluzWeWy error uczenieTla inicjalizacja ramkaTx ]
+[s S1104 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :8 `uc 1 ]
+[n S1104 . obsluzWeWy error uczenieTla inicjalizacja ramkaTx wykonanoZapisDoFlash pomiarTla ]
 "47
 [; ;./main.h: 47:         {
 [u S1103 `uc 1 `S1104 1 ]
@@ -22,8 +22,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./main.h: 45:     typedef struct{
 [s S1102 `S1103 1 `uc 1 ]
 [n S1102 . Flags timerRamkiTxCANU8 ]
-"65
-[; ;./main.h: 65:     extern KartaStruct DetectorLedRadar;
+"67
+[; ;./main.h: 67:     extern KartaStruct DetectorLedRadar;
 [v _DetectorLedRadar `S1102 ~T0 @X0 0 e ]
 "18 ./TRM.h
 [; ;./TRM.h: 18:             {
@@ -37,8 +37,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./TRM.h: 12:     {
 [s S1105 `S1106 1 `us 1 ]
 [n S1105 . Flags adresCAN ]
-"29
-[; ;./TRM.h: 29:     extern DaneCanStruct DaneCan;
+"30
+[; ;./TRM.h: 30:     extern DaneCanStruct DaneCan;
 [v _DaneCan `S1105 ~T0 @X0 0 e ]
 [t T47 __interrupt high_priority ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
@@ -1303,8 +1303,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _TMR1_Timer_reset ..  ]
 "26
 [; ;ISR.c: 26:             static BYTE ramkaStanuU8=0;
-[v F10680 `uc ~T0 @X0 1 s ramkaStanuU8 ]
-[i F10680
+[v F10682 `uc ~T0 @X0 1 s ramkaStanuU8 ]
+[i F10682
 -> -> 0 `i `uc
 ]
 "29
@@ -1314,14 +1314,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;ISR.c: 31:             DetectorLedRadar.Flags.obsluzWeWy = 1;
 [e = . . . _DetectorLedRadar 0 1 0 -> -> 1 `i `uc ]
 "33
-[; ;ISR.c: 33:             if(++ramkaStanuU8 > (5*10))
-[e $ ! > -> =+ F10680 -> -> 1 `i `uc `i * -> 5 `i -> 10 `i 1110  ]
+[; ;ISR.c: 33:             if(++ramkaStanuU8 > (2*10))
+[e $ ! > -> =+ F10682 -> -> 1 `i `uc `i * -> 2 `i -> 10 `i 1110  ]
 "34
 [; ;ISR.c: 34:                 {
 {
 "35
 [; ;ISR.c: 35:                     ramkaStanuU8 = 0;
-[e = F10680 -> -> 0 `i `uc ]
+[e = F10682 -> -> 0 `i `uc ]
 "36
 [; ;ISR.c: 36:                     DaneCan.Flags.wyslijRamkeStanu = 1;
 [e = . . . _DaneCan 0 1 0 -> -> 1 `i `uc ]

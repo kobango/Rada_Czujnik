@@ -123,8 +123,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./TRM.h: 12:     {
 [s S1105 `S1106 1 `us 1 ]
 [n S1105 . Flags adresCAN ]
-"29
-[; ;./TRM.h: 29:     extern DaneCanStruct DaneCan;
+"30
+[; ;./TRM.h: 30:     extern DaneCanStruct DaneCan;
 [v _DaneCan `S1105 ~T0 @X0 0 e ]
 "15128 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 15128: extern volatile unsigned char RXF0EIDL __attribute__((address(0xF03)));
@@ -335,8 +335,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _COMSTATbits `VS797 ~T0 @X0 0 e@3956 ]
 "50 ./main.h
 [; ;./main.h: 50:             struct{
-[s S1104 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1104 . obsluzWeWy error uczenieTla inicjalizacja ramkaTx ]
+[s S1104 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :8 `uc 1 ]
+[n S1104 . obsluzWeWy error uczenieTla inicjalizacja ramkaTx wykonanoZapisDoFlash pomiarTla ]
 "47
 [; ;./main.h: 47:         {
 [u S1103 `uc 1 `S1104 1 ]
@@ -345,8 +345,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./main.h: 45:     typedef struct{
 [s S1102 `S1103 1 `uc 1 ]
 [n S1102 . Flags timerRamkiTxCANU8 ]
-"65
-[; ;./main.h: 65:     extern KartaStruct DetectorLedRadar;
+"67
+[; ;./main.h: 67:     extern KartaStruct DetectorLedRadar;
 [v _DetectorLedRadar `S1102 ~T0 @X0 0 e ]
 "24047 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 24047: extern volatile unsigned char RXB0EIDL __attribute__((address(0xF64)));
@@ -2540,8 +2540,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;CAN.c: 387:     message->id.w[1] = (WORD)frameID * (WORD)4;
 [e = *U + &U . . *U _message 4 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _message 4 1 `ui `ux -> * -> -> _frameID `us `ui -> -> -> 4 `i `us `ui `us ]
 "388
-[; ;CAN.c: 388:     message->id.w[0] = DaneCan.adresCAN + 0x0010;
-[e = *U + &U . . *U _message 4 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _message 4 1 `ui `ux -> + -> . _DaneCan 1 `ui -> -> 16 `i `ui `us ]
+[; ;CAN.c: 388:     message->id.w[0] = DaneCan.adresCAN + 0x4001;
+[e = *U + &U . . *U _message 4 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _message 4 1 `ui `ux -> + -> . _DaneCan 1 `ui -> -> 16385 `i `ui `us ]
 "389
 [; ;CAN.c: 389:     message->id.v[2] |= 0x00;
 [e =| *U + &U . . *U _message 4 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . . *U _message 4 2 `ui `ux -> -> 0 `i `uc ]
@@ -2554,7 +2554,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "392
 [; ;CAN.c: 392:     message ->id.bits.b17 = 0;
 [e = . . . *U _message 4 6 17 -> -> 0 `i `uc ]
-"393
-[; ;CAN.c: 393: }
+"396
+[; ;CAN.c: 396: }
 [e :UE 1170 ]
 }

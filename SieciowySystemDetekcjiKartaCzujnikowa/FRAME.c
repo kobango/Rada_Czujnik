@@ -3,6 +3,7 @@
 #include "LED.h"
 #include "FRAME.h"
 #include "MOC_Funct.h"
+#include "TRM.h"
 
 typedef short          Word16;
 typedef unsigned short UWord16;
@@ -70,11 +71,14 @@ static void FRAME_AccelerometerStatus(mID *message) // id = 0x02
 {
     if(message->message_type == CAN_MSG_RTR)
     {
-        message->data_length = 1;
+        message->data_length = 4;
         //message->data[0] = Accelerometer->przyspieszenieXU8;
         //message->data[1] = Accelerometer->przyspieszenieYU8;
         //message->data[2] = Accelerometer->przyspieszenieZU8;
-        message->data[0] = 0xFF;
+        message->data[0] = MOCK_PrzyspieszenieX();
+        message->data[1] = MOCK_PrzyspieszenieY();
+        message->data[2] = MOCK_PrzyspieszenieZ();
+        message->data[3] = MOCK_Klikniecie_Spadek();
     }
     else
     {
@@ -263,6 +267,17 @@ static void FRAME_DeviceReset(mID *message) //0x07
         RCON &= ~(1<<6); //kasowanie software reset po odczycie ramki
         Flagi.wykonanoZapisDoFlash = 0;
         */
+        
+        //message->data[0] = MOCK_SoftwareReset();//stan software reset
+        //message->data[1] = Flags.wykonanoZapisDoFlash;
+        //message->data[2] = MOCK_Background();
+        //message->data[3] = 0;
+        //message->data[4] = DaneCan->rokU16;
+        //message->data[5] = DaneCan->miesiacU16;
+        //message->data[6] = DaneCan->dzienU16;
+        //message->data[7] = DaneCan->godzinaU16; 
+        //RCON &= ~(1<<6); //kasowanie software reset po odczycie ramki
+        //Flags.wykonanoZapisDoFlash = 0;
         message->data[0] = 0xFF;
     }
     else
@@ -369,7 +384,7 @@ Opis funkcji:
 Data: 14.03.2014
 Autor: Pawel Kasperek
 *****************************************************************/
-static void FRAME_AnalogValue(mID *message, WORD set)
+static void FRAME_AnalogValue(mID *message, WORD set) //id = 0x0B
 {
     WORD i;
     /*
@@ -507,14 +522,14 @@ void FRAME_HandleCanFrame(mID * message)
 //        TXB0CONbits.TXREQ = 1;  
         
         
-       while(RXB0CONbits.FILHIT3)
+       while(RXB0CONbits.FILHIT3) // Poczekaj a? wysle wiadomo?c
        {
-           if(TXB0CONbits.TXERR == 1){
+           if(TXB0CONbits.TXERR == 1){ // Je?li b??d wyswietl 
                LED_Error();
            }
            else
            {
-               LED_Clear();
+               //LED_Clear();
            }    
            
        };
