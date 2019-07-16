@@ -84,5 +84,5 @@ UINT MOCK_SoftwareReset(void)
 }
 UINT MOCK_Background(void)
 {
-    return 8
+    return 8;
 }
