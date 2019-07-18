@@ -62,6 +62,43 @@ Version 4.0 HI-TECH Software Intermediate Code
 "18
 [; ;./MOC_Funct.h: 18: UINT MOCK_Klikniecie_Spadek(void);
 [v _MOCK_Klikniecie_Spadek `(ui ~T0 @X0 0 ef ]
+"31137 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31137: extern volatile unsigned char RCON __attribute__((address(0xFD0)));
+[v _RCON `Vuc ~T0 @X0 0 e@4048 ]
+"73 ./main.h
+[; ;./main.h: 73:         struct CANStruct{
+[s S1109 :1 `uc 1 :1 `uc 1 :1 `uc 1 `us 1 ]
+[n S1109 CANStruct wyslijRamkeDanych odebranoDane CanAktywny identyfikatorU16 ]
+"63
+[; ;./main.h: 63:     struct FlagStruct{
+[s S1108 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 `S1109 1 `uc 1 ]
+[n S1108 FlagStruct pomiarTla detekcja zgloszenie zapisDoFlash wykonanoZapisDoFlash pomiarAccelerometer wykonanoReset aktualizacjaSasiadow CAN frameCounterU8 ]
+"112
+[; ;./main.h: 112:  extern struct FlagStruct Flagi;
+[v _Flagi `S1108 ~T0 @X0 0 e ]
+"46
+[; ;./main.h: 46:     {
+[s S1106 `us 1 `us 1 ]
+[n S1106 PozycjaNaMapceStruct xU16 yU16 ]
+"15 ./DetekcjaSasiadow.h
+[; ;./DetekcjaSasiadow.h: 15:     typedef struct{
+[s S1103 `s 1 `s 1 `s 1 `s -> 25 `i ]
+[n S1103 . pointerU16 aktualnaWartoscSredniaS16 poprzedniaWartoscSredniaS16 wartosciHistoryczneS16 ]
+"21
+[; ;./DetekcjaSasiadow.h: 21:     typedef struct{
+[s S1104 `us 1 `us 1 `us 1 `s -> 3 `i `S1103 1 ]
+[n S1104 . aktualnaWartoscU16 aktualnyStanU16 poprzedniStanU16 przesuniecieTlaS16 historia ]
+"27
+[; ;./DetekcjaSasiadow.h: 27:     typedef struct{
+[s S1105 `us 1 `*S1104 1 ]
+[n S1105 . adres pointerNaSasiada ]
+"52 ./main.h
+[; ;./main.h: 52:         {
+[s S1107 `us 1 `us 1 `us 1 `S1106 1 `us 1 `us 1 `S1105 -> 8 `i `us 1 `us 1 `us 1 `us 1 `us 1 ]
+[n S1107 DaneStruct numerSeryjnyU16 startupU16 wersjaOprogramowaniaU16 PozycjaNaMapce wersjaSprzetuU16 timerRysowaniaWykresuU16 sasiedzi rokU16 miesiacU16 dzienU16 godzinaU16 minutaU16 ]
+"111
+[; ;./main.h: 111:     extern struct DaneStruct *Dane;
+[v _Dane `*S1107 ~T0 @X0 0 e ]
 "39 ./CAN.h
 [; ;./CAN.h: 39:     void CAN_GenID(mID * message,BYTE frameID);
 [v _CAN_GenID `(v ~T0 @X0 0 ef2`*S15`uc ]
@@ -1378,7 +1415,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "34
 [; ;FRAME.c: 34:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1112  ]
+[e $ ! == -> . *U _message 1 `i -> 2 `i 1119  ]
 "35
 [; ;FRAME.c: 35:     {
 {
@@ -1406,20 +1443,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "57
 [; ;FRAME.c: 57:     }
 }
-[e $U 1113  ]
+[e $U 1120  ]
 "58
 [; ;FRAME.c: 58:     else
-[e :U 1112 ]
+[e :U 1119 ]
 "59
 [; ;FRAME.c: 59:     {
 {
 "61
 [; ;FRAME.c: 61:     }
 }
-[e :U 1113 ]
+[e :U 1120 ]
 "62
 [; ;FRAME.c: 62: }
-[e :UE 1111 ]
+[e :UE 1118 ]
 }
 "70
 [; ;FRAME.c: 70: static void FRAME_AccelerometerStatus(mID *message)
@@ -1436,7 +1473,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "72
 [; ;FRAME.c: 72:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1115  ]
+[e $ ! == -> . *U _message 1 `i -> 2 `i 1122  ]
 "73
 [; ;FRAME.c: 73:     {
 {
@@ -1458,20 +1495,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "82
 [; ;FRAME.c: 82:     }
 }
-[e $U 1116  ]
+[e $U 1123  ]
 "83
 [; ;FRAME.c: 83:     else
-[e :U 1115 ]
+[e :U 1122 ]
 "84
 [; ;FRAME.c: 84:     {
 {
 "86
 [; ;FRAME.c: 86:     }
 }
-[e :U 1116 ]
+[e :U 1123 ]
 "87
 [; ;FRAME.c: 87: }
-[e :UE 1114 ]
+[e :UE 1121 ]
 }
 "95
 [; ;FRAME.c: 95: static void FRAME_ExcitationValue(mID *message)
@@ -1488,7 +1525,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "97
 [; ;FRAME.c: 97:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1118  ]
+[e $ ! == -> . *U _message 1 `i -> 2 `i 1125  ]
 "98
 [; ;FRAME.c: 98:     {
 {
@@ -1501,20 +1538,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "105
 [; ;FRAME.c: 105:     }
 }
-[e $U 1119  ]
+[e $U 1126  ]
 "106
 [; ;FRAME.c: 106:     else
-[e :U 1118 ]
+[e :U 1125 ]
 "107
 [; ;FRAME.c: 107:     {
 {
 "110
 [; ;FRAME.c: 110:     }
 }
-[e :U 1119 ]
+[e :U 1126 ]
 "111
 [; ;FRAME.c: 111: }
-[e :UE 1117 ]
+[e :UE 1124 ]
 }
 "119
 [; ;FRAME.c: 119: static void FRAME_ExcitationMultiplier(mID *message)
@@ -1534,7 +1571,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _i `us ~T0 @X0 1 a ]
 "123
 [; ;FRAME.c: 123:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1121  ]
+[e $ ! == -> . *U _message 1 `i -> 2 `i 1128  ]
 "124
 [; ;FRAME.c: 124:     {
 {
@@ -1545,9 +1582,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;FRAME.c: 126:         for(i=0; i<3; i++)
 {
 [e = _i -> -> 0 `i `us ]
-[e $ < -> _i `ui -> -> 3 `i `ui 1122  ]
-[e $U 1123  ]
-[e :U 1122 ]
+[e $ < -> _i `ui -> -> 3 `i `ui 1129  ]
+[e $U 1130  ]
+[e :U 1129 ]
 "127
 [; ;FRAME.c: 127:         {
 {
@@ -1555,8 +1592,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;FRAME.c: 130:         }
 }
 [e ++ _i -> -> 1 `i `us ]
-[e $ < -> _i `ui -> -> 3 `i `ui 1122  ]
-[e :U 1123 ]
+[e $ < -> _i `ui -> -> 3 `i `ui 1129  ]
+[e :U 1130 ]
 }
 "131
 [; ;FRAME.c: 131:         message->data[0] = 0xFF;
@@ -1564,20 +1601,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "132
 [; ;FRAME.c: 132:     }
 }
-[e $U 1125  ]
+[e $U 1132  ]
 "133
 [; ;FRAME.c: 133:     else
-[e :U 1121 ]
+[e :U 1128 ]
 "134
 [; ;FRAME.c: 134:     {
 {
 "138
 [; ;FRAME.c: 138:     }
 }
-[e :U 1125 ]
+[e :U 1132 ]
 "139
 [; ;FRAME.c: 139: }
-[e :UE 1120 ]
+[e :UE 1127 ]
 }
 "147
 [; ;FRAME.c: 147: static void FRAME_AveragingTimes(mID *message)
@@ -1594,7 +1631,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "149
 [; ;FRAME.c: 149:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1127  ]
+[e $ ! == -> . *U _message 1 `i -> 2 `i 1134  ]
 "150
 [; ;FRAME.c: 150:     {
 {
@@ -1607,20 +1644,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "160
 [; ;FRAME.c: 160:     }
 }
-[e $U 1128  ]
+[e $U 1135  ]
 "161
 [; ;FRAME.c: 161:     else
-[e :U 1127 ]
+[e :U 1134 ]
 "162
 [; ;FRAME.c: 162:     {
 {
 "197
 [; ;FRAME.c: 197:     }
 }
-[e :U 1128 ]
+[e :U 1135 ]
 "198
 [; ;FRAME.c: 198: }
-[e :UE 1126 ]
+[e :UE 1133 ]
 }
 "206
 [; ;FRAME.c: 206: static void FRAME_AxisStatus(mID *message)
@@ -1640,7 +1677,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _i `us ~T0 @X0 1 a ]
 "210
 [; ;FRAME.c: 210:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1130  ]
+[e $ ! == -> . *U _message 1 `i -> 2 `i 1137  ]
 "211
 [; ;FRAME.c: 211:     {
 {
@@ -1653,20 +1690,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "224
 [; ;FRAME.c: 224:     }
 }
-[e $U 1131  ]
+[e $U 1138  ]
 "225
 [; ;FRAME.c: 225:     else
-[e :U 1130 ]
+[e :U 1137 ]
 "226
 [; ;FRAME.c: 226:     {
 {
 "228
 [; ;FRAME.c: 228:     }
 }
-[e :U 1131 ]
+[e :U 1138 ]
 "229
 [; ;FRAME.c: 229: }
-[e :UE 1129 ]
+[e :UE 1136 ]
 }
 "237
 [; ;FRAME.c: 237: static void FRAME_DataUpdateAndChangeOption(mID *message)
@@ -1683,7 +1720,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "245
 [; ;FRAME.c: 245: }
-[e :UE 1132 ]
+[e :UE 1139 ]
 }
 "253
 [; ;FRAME.c: 253: static void FRAME_DeviceReset(mID *message)
@@ -1700,23 +1737,50 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "255
 [; ;FRAME.c: 255:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1134  ]
+[e $ ! == -> . *U _message 1 `i -> 2 `i 1141  ]
 "256
 [; ;FRAME.c: 256:     {
 {
 "257
 [; ;FRAME.c: 257:         message->data_length = 1;
 [e = . *U _message 6 -> -> 1 `i `uc ]
-"281
-[; ;FRAME.c: 281:         message->data[0] = 0xFF;
-[e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 255 `i `uc ]
+"259
+[; ;FRAME.c: 259:         message->data[0] = (RCON>>6) & 0x01;
+[e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> & >> -> _RCON `i -> 6 `i -> 1 `i `uc ]
+"260
+[; ;FRAME.c: 260:         message->data[1] = Flagi.wykonanoZapisDoFlash;
+[e = *U + &U . *U _message 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux . _Flagi 4 ]
+"261
+[; ;FRAME.c: 261:         message->data[2] = Flagi.pomiarTla;
+[e = *U + &U . *U _message 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux . _Flagi 0 ]
+"262
+[; ;FRAME.c: 262:         message->data[3] = 0;
+[e = *U + &U . *U _message 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 0 `i `uc ]
+"263
+[; ;FRAME.c: 263:         message->data[4] = Dane->rokU16;
+[e = *U + &U . *U _message 5 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> . *U _Dane 7 `uc ]
+"264
+[; ;FRAME.c: 264:         message->data[5] = Dane->miesiacU16;
+[e = *U + &U . *U _message 5 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> . *U _Dane 8 `uc ]
+"265
+[; ;FRAME.c: 265:         message->data[6] = Dane->dzienU16;
+[e = *U + &U . *U _message 5 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> . *U _Dane 9 `uc ]
+"266
+[; ;FRAME.c: 266:         message->data[7] = Dane->godzinaU16;
+[e = *U + &U . *U _message 5 * -> -> -> 7 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> . *U _Dane 10 `uc ]
+"267
+[; ;FRAME.c: 267:         RCON &= ~(1<<6);
+[e =& _RCON -> ~ << -> 1 `i -> 6 `i `Vuc ]
+"268
+[; ;FRAME.c: 268:         Flagi.wykonanoZapisDoFlash = 0;
+[e = . _Flagi 4 -> -> 0 `i `uc ]
 "282
 [; ;FRAME.c: 282:     }
 }
-[e $U 1135  ]
+[e $U 1142  ]
 "283
 [; ;FRAME.c: 283:     else
-[e :U 1134 ]
+[e :U 1141 ]
 "284
 [; ;FRAME.c: 284:     {
 {
@@ -1729,10 +1793,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "308
 [; ;FRAME.c: 308:     }
 }
-[e :U 1135 ]
+[e :U 1142 ]
 "309
 [; ;FRAME.c: 309: }
-[e :UE 1133 ]
+[e :UE 1140 ]
 }
 "317
 [; ;FRAME.c: 317: static void FRAME_Plot(mID *message)
@@ -1755,7 +1819,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 255 `i `uc ]
 "331
 [; ;FRAME.c: 331: }
-[e :UE 1136 ]
+[e :UE 1143 ]
 }
 "339
 [; ;FRAME.c: 339: static void FRAME_MapPosition(mID *message)
@@ -1772,7 +1836,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "356
 [; ;FRAME.c: 356: }
-[e :UE 1137 ]
+[e :UE 1144 ]
 }
 "364
 [; ;FRAME.c: 364: static void FRAME_SoftwareVersion(mID *message)
@@ -1789,7 +1853,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "379
 [; ;FRAME.c: 379: }
-[e :UE 1138 ]
+[e :UE 1145 ]
 }
 "387
 [; ;FRAME.c: 387: static void FRAME_AnalogValue(mID *message, WORD set)
@@ -1810,7 +1874,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _i `us ~T0 @X0 1 a ]
 "405
 [; ;FRAME.c: 405: }
-[e :UE 1139 ]
+[e :UE 1146 ]
 }
 "430
 [; ;FRAME.c: 430: static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
@@ -1831,7 +1895,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _i `us ~T0 @X0 1 a ]
 "453
 [; ;FRAME.c: 453: }
-[e :UE 1140 ]
+[e :UE 1147 ]
 }
 "460
 [; ;FRAME.c: 460: void FRAME_HandleCanFrame(mID * message)
@@ -1852,148 +1916,148 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _identyfikator -> / -> *U + &U . . *U _message 4 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . . *U _message 4 2 `ui `ux `i -> 4 `i `uc ]
 "464
 [; ;FRAME.c: 464:     switch(identyfikator)
-[e $U 1143  ]
+[e $U 1150  ]
 "465
 [; ;FRAME.c: 465:     {
 {
 "466
 [; ;FRAME.c: 466:         case 0x01:
-[e :U 1144 ]
+[e :U 1151 ]
 "467
 [; ;FRAME.c: 467:             FRAME_SensorExcitationStatus(message);
 [e ( _FRAME_SensorExcitationStatus (1 _message ]
 "468
 [; ;FRAME.c: 468:             break;
-[e $U 1142  ]
+[e $U 1149  ]
 "469
 [; ;FRAME.c: 469:         case 0x02:
-[e :U 1145 ]
+[e :U 1152 ]
 "470
 [; ;FRAME.c: 470:             FRAME_AccelerometerStatus(message);
 [e ( _FRAME_AccelerometerStatus (1 _message ]
 "471
 [; ;FRAME.c: 471:             break;
-[e $U 1142  ]
+[e $U 1149  ]
 "472
 [; ;FRAME.c: 472:         case 0x03:
-[e :U 1146 ]
+[e :U 1153 ]
 "473
 [; ;FRAME.c: 473:             FRAME_ExcitationValue(message);
 [e ( _FRAME_ExcitationValue (1 _message ]
 "474
 [; ;FRAME.c: 474:             break;
-[e $U 1142  ]
+[e $U 1149  ]
 "475
 [; ;FRAME.c: 475:         case 0x04:
-[e :U 1147 ]
+[e :U 1154 ]
 "476
 [; ;FRAME.c: 476:             FRAME_ExcitationMultiplier(message);
 [e ( _FRAME_ExcitationMultiplier (1 _message ]
 "477
 [; ;FRAME.c: 477:             break;
-[e $U 1142  ]
+[e $U 1149  ]
 "478
 [; ;FRAME.c: 478:         case 0x05:
-[e :U 1148 ]
+[e :U 1155 ]
 "479
 [; ;FRAME.c: 479:             FRAME_AveragingTimes(message);
 [e ( _FRAME_AveragingTimes (1 _message ]
 "480
 [; ;FRAME.c: 480:             break;
-[e $U 1142  ]
+[e $U 1149  ]
 "481
 [; ;FRAME.c: 481:         case 0x06:
-[e :U 1149 ]
+[e :U 1156 ]
 "482
 [; ;FRAME.c: 482:             FRAME_AxisStatus(message);
 [e ( _FRAME_AxisStatus (1 _message ]
 "483
 [; ;FRAME.c: 483:             break;
-[e $U 1142  ]
+[e $U 1149  ]
 "484
 [; ;FRAME.c: 484:         case 0x07:
-[e :U 1150 ]
+[e :U 1157 ]
 "485
 [; ;FRAME.c: 485:             FRAME_DeviceReset(message);
 [e ( _FRAME_DeviceReset (1 _message ]
 "486
 [; ;FRAME.c: 486:             break;
-[e $U 1142  ]
+[e $U 1149  ]
 "487
 [; ;FRAME.c: 487:         case 0x09:
-[e :U 1151 ]
+[e :U 1158 ]
 "488
 [; ;FRAME.c: 488:             FRAME_Plot(message);
 [e ( _FRAME_Plot (1 _message ]
 "489
 [; ;FRAME.c: 489:             break;
-[e $U 1142  ]
+[e $U 1149  ]
 "490
 [; ;FRAME.c: 490:         case 0x0A:
-[e :U 1152 ]
+[e :U 1159 ]
 "491
 [; ;FRAME.c: 491:             FRAME_MapPosition(message);
 [e ( _FRAME_MapPosition (1 _message ]
 "492
 [; ;FRAME.c: 492:             break;
-[e $U 1142  ]
+[e $U 1149  ]
 "493
 [; ;FRAME.c: 493:         case 0x0B:
-[e :U 1153 ]
+[e :U 1160 ]
 "494
 [; ;FRAME.c: 494:             FRAME_SoftwareVersion(message);
 [e ( _FRAME_SoftwareVersion (1 _message ]
 "495
 [; ;FRAME.c: 495:             break;
-[e $U 1142  ]
+[e $U 1149  ]
 "496
 [; ;FRAME.c: 496:         case 0x0C:
-[e :U 1154 ]
+[e :U 1161 ]
 "497
 [; ;FRAME.c: 497:         case 0x0D:
-[e :U 1155 ]
+[e :U 1162 ]
 "498
 [; ;FRAME.c: 498:             FRAME_AnalogValue(message, identyfikator - 0x0C);
 [e ( _FRAME_AnalogValue (2 , _message -> - -> _identyfikator `i -> 12 `i `us ]
 "499
 [; ;FRAME.c: 499:             break;
-[e $U 1142  ]
+[e $U 1149  ]
 "500
 [; ;FRAME.c: 500:         case 0x10:
-[e :U 1156 ]
+[e :U 1163 ]
 "501
 [; ;FRAME.c: 501:         case 0x11:
-[e :U 1157 ]
+[e :U 1164 ]
 "502
 [; ;FRAME.c: 502:             FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
 [e ( _FRAME_AdressOfNeighbors (2 , _message -> - -> _identyfikator `i -> 16 `i `us ]
 "503
 [; ;FRAME.c: 503:             break;
-[e $U 1142  ]
+[e $U 1149  ]
 "504
 [; ;FRAME.c: 504:     }
 }
-[e $U 1142  ]
-[e :U 1143 ]
-[e [\ -> _identyfikator `i , $ -> 1 `i 1144
- , $ -> 2 `i 1145
- , $ -> 3 `i 1146
- , $ -> 4 `i 1147
- , $ -> 5 `i 1148
- , $ -> 6 `i 1149
- , $ -> 7 `i 1150
- , $ -> 9 `i 1151
- , $ -> 10 `i 1152
- , $ -> 11 `i 1153
- , $ -> 12 `i 1154
- , $ -> 13 `i 1155
- , $ -> 16 `i 1156
- , $ -> 17 `i 1157
- 1142 ]
-[e :U 1142 ]
+[e $U 1149  ]
+[e :U 1150 ]
+[e [\ -> _identyfikator `i , $ -> 1 `i 1151
+ , $ -> 2 `i 1152
+ , $ -> 3 `i 1153
+ , $ -> 4 `i 1154
+ , $ -> 5 `i 1155
+ , $ -> 6 `i 1156
+ , $ -> 7 `i 1157
+ , $ -> 9 `i 1158
+ , $ -> 10 `i 1159
+ , $ -> 11 `i 1160
+ , $ -> 12 `i 1161
+ , $ -> 13 `i 1162
+ , $ -> 16 `i 1163
+ , $ -> 17 `i 1164
+ 1149 ]
+[e :U 1149 ]
 "505
 [; ;FRAME.c: 505:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1158  ]
+[e $ ! == -> . *U _message 1 `i -> 2 `i 1165  ]
 "506
 [; ;FRAME.c: 506:     {
 {
@@ -2017,14 +2081,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _CAN_SendFrame (1 _message ]
 "525
 [; ;FRAME.c: 525:        while(RXB0CONbits.FILHIT3)
-[e $U 1159  ]
-[e :U 1160 ]
+[e $U 1166  ]
+[e :U 1167 ]
 "526
 [; ;FRAME.c: 526:        {
 {
 "527
 [; ;FRAME.c: 527:            if(TXB0CONbits.TXERR == 1){
-[e $ ! == -> . . _TXB0CONbits 0 4 `i -> 1 `i 1162  ]
+[e $ ! == -> . . _TXB0CONbits 0 4 `i -> 1 `i 1169  ]
 {
 "528
 [; ;FRAME.c: 528:                LED_Error();
@@ -2032,30 +2096,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 "529
 [; ;FRAME.c: 529:            }
 }
-[e $U 1163  ]
+[e $U 1170  ]
 "530
 [; ;FRAME.c: 530:            else
-[e :U 1162 ]
+[e :U 1169 ]
 "531
 [; ;FRAME.c: 531:            {
 {
 "533
 [; ;FRAME.c: 533:            }
 }
-[e :U 1163 ]
+[e :U 1170 ]
 "535
 [; ;FRAME.c: 535:        };
 }
-[e :U 1159 ]
+[e :U 1166 ]
 "525
 [; ;FRAME.c: 525:        while(RXB0CONbits.FILHIT3)
-[e $ != -> . . _RXB0CONbits 2 3 `i -> 0 `i 1160  ]
-[e :U 1161 ]
+[e $ != -> . . _RXB0CONbits 2 3 `i -> 0 `i 1167  ]
+[e :U 1168 ]
 "539
 [; ;FRAME.c: 539:     }
 }
-[e :U 1158 ]
+[e :U 1165 ]
 "540
 [; ;FRAME.c: 540: }
-[e :UE 1141 ]
+[e :UE 1148 ]
 }

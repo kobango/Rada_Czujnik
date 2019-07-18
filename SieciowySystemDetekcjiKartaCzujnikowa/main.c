@@ -76,6 +76,10 @@
 */
 KartaStruct DetectorLedRadar;
 
+struct DaneStruct *Dane = &daneU16[0];
+struct FlagStruct Flagi;
+
+
 
 
 /***************************************************************************************/

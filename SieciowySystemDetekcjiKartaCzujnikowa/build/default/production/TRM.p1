@@ -1,16 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "18 ./TRM.h
 [; ;./TRM.h: 18:             {
-[s S1108 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1108 . wyslijRamkeStanu wyslijRamkeUczeniaTla wyslijRamkeResetuCzujnikow ]
+[s S1115 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1115 . wyslijRamkeStanu wyslijRamkeUczeniaTla wyslijRamkeResetuCzujnikow ]
 "14
 [; ;./TRM.h: 14:         {
-[u S1107 `us 1 `S1108 1 ]
-[n S1107 . FlagiU16 . ]
+[u S1114 `us 1 `S1115 1 ]
+[n S1114 . FlagiU16 . ]
 "12
 [; ;./TRM.h: 12:     {
-[s S1106 `S1107 1 `us 1 ]
-[n S1106 . Flags adresCAN ]
+[s S1113 `S1114 1 `us 1 ]
+[n S1113 . Flags adresCAN ]
 "141 ./GenericTypeDefs.h
 [; ;./GenericTypeDefs.h: 141:     {
 [s S1094 `us 1 `us 1 ]
@@ -45,18 +45,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S1093 _DWORD_VAL Val w v word byte wordUnion bits ]
 "20 ./CAN.h
 [; ;./CAN.h: 20:     typedef struct{
-[s S1105 `uc 1 `uc 1 `uc 1 `uc 1 `S1093 1 `uc -> 8 `i `uc 1 ]
-[n S1105 . buffer_status message_type frame_type buffer id data data_length ]
+[s S1112 `uc 1 `uc 1 `uc 1 `uc 1 `S1093 1 `uc -> 8 `i `uc 1 ]
+[n S1112 . buffer_status message_type frame_type buffer id data data_length ]
 "13 ./FRAME.h
 [; ;./FRAME.h: 13: void FRAME_HandleCanFrame(mID * message);
-[v _FRAME_HandleCanFrame `(v ~T0 @X0 0 ef1`*S1105 ]
+[v _FRAME_HandleCanFrame `(v ~T0 @X0 0 ef1`*S1112 ]
 "59 TRM.c
 [; ;TRM.c: 59:     if(CAN_TakeFrame(&canMessage))
 [c E10433 0 1 .. ]
 [n E10433 _BOOL FALSE TRUE  ]
 "37 ./CAN.h
 [; ;./CAN.h: 37:     BOOL CAN_TakeFrame(mID * message);
-[v _CAN_TakeFrame `(E10433 ~T0 @X0 0 ef1`*S1105 ]
+[v _CAN_TakeFrame `(E10433 ~T0 @X0 0 ef1`*S1112 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 54: __asm("RXF6SIDH equ 0D60h");
 [; <" RXF6SIDH equ 0D60h ;# ">
@@ -1301,7 +1301,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 0FFFh ;# ">
 "7 TRM.c
 [; ;TRM.c: 7: DaneCanStruct DaneCan;
-[v _DaneCan `S1106 ~T0 @X0 1 e ]
+[v _DaneCan `S1113 ~T0 @X0 1 e ]
 "19
 [; ;TRM.c: 19: void TRM_DataTransmition(void)
 [v _TRM_DataTransmition `(v ~T0 @X0 1 ef ]
@@ -1312,12 +1312,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "21
 [; ;TRM.c: 21:     static BYTE weWyU8 = 0, czujnikWeWyU8 = 0;
-[v F10695 `uc ~T0 @X0 1 s weWyU8 ]
-[i F10695
+[v F10748 `uc ~T0 @X0 1 s weWyU8 ]
+[i F10748
 -> -> 0 `i `uc
 ]
-[v F10696 `uc ~T0 @X0 1 s czujnikWeWyU8 ]
-[i F10696
+[v F10749 `uc ~T0 @X0 1 s czujnikWeWyU8 ]
+[i F10749
 -> -> 0 `i `uc
 ]
 "22
@@ -1325,10 +1325,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _i `uc ~T0 @X0 1 a ]
 "23
 [; ;TRM.c: 23:     mID canMessage;
-[v _canMessage `S1105 ~T0 @X0 1 a ]
+[v _canMessage `S1112 ~T0 @X0 1 a ]
 "26
 [; ;TRM.c: 26:     if(DaneCan.Flags.wyslijRamkeStanu)
-[e $ ! != -> . . . _DaneCan 0 1 0 `i -> 0 `i 1110  ]
+[e $ ! != -> . . . _DaneCan 0 1 0 `i -> 0 `i 1117  ]
 "27
 [; ;TRM.c: 27:     {
 {
@@ -1350,26 +1350,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 "50
 [; ;TRM.c: 50:     }
 }
-[e :U 1110 ]
+[e :U 1117 ]
 "53
 [; ;TRM.c: 53:     if(DaneCan.Flags.wyslijRamkeUczeniaTla)
-[e $ ! != -> . . . _DaneCan 0 1 1 `i -> 0 `i 1111  ]
+[e $ ! != -> . . . _DaneCan 0 1 1 `i -> 0 `i 1118  ]
 "54
 [; ;TRM.c: 54:     {
 {
 "56
 [; ;TRM.c: 56:     }
 }
-[e :U 1111 ]
+[e :U 1118 ]
 "59
 [; ;TRM.c: 59:     if(CAN_TakeFrame(&canMessage))
-[e $ ! != -> ( _CAN_TakeFrame (1 &U _canMessage `ui -> -> 0 `i `ui 1112  ]
+[e $ ! != -> ( _CAN_TakeFrame (1 &U _canMessage `ui -> -> 0 `i `ui 1119  ]
 "60
 [; ;TRM.c: 60:     {
 {
 "61
 [; ;TRM.c: 61:         if((canMessage.buffer == 0) || (canMessage.buffer == 1))
-[e $ ! || == -> . _canMessage 3 `i -> 0 `i == -> . _canMessage 3 `i -> 1 `i 1113  ]
+[e $ ! || == -> . _canMessage 3 `i -> 0 `i == -> . _canMessage 3 `i -> 1 `i 1120  ]
 "62
 [; ;TRM.c: 62:         {
 {
@@ -1379,22 +1379,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "64
 [; ;TRM.c: 64:         }
 }
-[e $U 1114  ]
+[e $U 1121  ]
 "65
 [; ;TRM.c: 65:         else
-[e :U 1113 ]
+[e :U 1120 ]
 "66
 [; ;TRM.c: 66:         {
 {
 "68
 [; ;TRM.c: 68:         }
 }
-[e :U 1114 ]
+[e :U 1121 ]
 "69
 [; ;TRM.c: 69:     }
 }
-[e :U 1112 ]
+[e :U 1119 ]
 "70
 [; ;TRM.c: 70: }
-[e :UE 1109 ]
+[e :UE 1116 ]
 }

@@ -3,6 +3,7 @@ FRAME.c  \
 CAN.h  \
 GenericTypeDefs.h  \
 main.h  \
+DetekcjaSasiadow.h  \
 LED.h  \
 FRAME.h  \
 MOC_Funct.h  \

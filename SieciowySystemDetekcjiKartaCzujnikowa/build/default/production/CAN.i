@@ -18140,7 +18140,76 @@ typedef union _QWORD_VAL
     } bits;
 } QWORD_VAL;
 # 6 "./main.h" 2
+
+# 1 "./DetekcjaSasiadow.h" 1
+# 15 "./DetekcjaSasiadow.h"
+    typedef struct{
+        SHORT pointerU16;
+        SHORT aktualnaWartoscSredniaS16, poprzedniaWartoscSredniaS16;
+        SHORT wartosciHistoryczneS16[25];
+    }historiaStruct;
+
+    typedef struct{
+        WORD aktualnaWartoscU16, aktualnyStanU16, poprzedniStanU16;
+        SHORT przesuniecieTlaS16[3];
+        historiaStruct historia;
+    }wartosciSasiadaStruct;
+
+    typedef struct{
+        WORD adres;
+        wartosciSasiadaStruct *pointerNaSasiada;
+    }sasiadStruct;
+
+
+
+    void AktualizacjaTlaOdSasiadow(void);
+
+
+    extern wartosciSasiadaStruct wartosciSasiada[8];
+# 7 "./main.h" 2
 # 45 "./main.h"
+    struct PozycjaNaMapceStruct
+    {
+        WORD xU16;
+        WORD yU16;
+    };
+
+    struct DaneStruct
+        {
+            WORD numerSeryjnyU16;
+            WORD startupU16;
+            WORD wersjaOprogramowaniaU16;
+            struct PozycjaNaMapceStruct PozycjaNaMapce;
+            WORD wersjaSprzetuU16;
+            WORD timerRysowaniaWykresuU16;
+            sasiadStruct sasiedzi[8];
+            WORD rokU16, miesiacU16, dzienU16, godzinaU16, minutaU16;
+        };
+
+    struct FlagStruct{
+  unsigned pomiarTla :1;
+  unsigned detekcja :1;
+  unsigned zgloszenie :1;
+  unsigned zapisDoFlash :1;
+  unsigned wykonanoZapisDoFlash :1;
+        unsigned pomiarAccelerometer :1;
+        unsigned wykonanoReset :1;
+        unsigned aktualizacjaSasiadow : 1;
+
+        struct CANStruct{
+            unsigned wyslijRamkeDanych :1;
+            unsigned odebranoDane :1;
+            unsigned CanAktywny : 1;
+            WORD identyfikatorU16;
+            }CAN;
+
+            BYTE frameCounterU8;
+  };
+
+
+
+
+
     typedef struct{
          union
         {
@@ -18164,6 +18233,9 @@ typedef union _QWORD_VAL
 
 
     extern KartaStruct DetectorLedRadar;
+
+    extern struct DaneStruct *Dane;
+ extern struct FlagStruct Flagi;
 
     extern void _startup (void);
     void WylaczPrzerwania(void);

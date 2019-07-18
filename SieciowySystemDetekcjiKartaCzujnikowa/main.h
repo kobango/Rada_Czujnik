@@ -4,6 +4,8 @@
 #include <xc.h>
 //    #include <p18f26k80.h>
 #include "GenericTypeDefs.h"
+#include "DetekcjaSasiadow.h"
+
     #define FLASH_V1_4
 //    #include <flash.h>
  //   #include "WeWy.h"
@@ -39,6 +41,46 @@
 
     #define Const_ADR 0x9FFE
 
+     /////////////////////////////////////////////////////////////////////
+    struct PozycjaNaMapceStruct
+    {
+        WORD xU16;
+        WORD yU16;
+    }; 
+
+    struct DaneStruct
+        {
+            WORD numerSeryjnyU16;
+            WORD startupU16;
+            WORD wersjaOprogramowaniaU16;
+            struct PozycjaNaMapceStruct PozycjaNaMapce;
+            WORD wersjaSprzetuU16;
+            WORD timerRysowaniaWykresuU16;
+            sasiadStruct sasiedzi[MAX_SASIADOW];
+            WORD rokU16, miesiacU16, dzienU16, godzinaU16, minutaU16;
+        };	
+        
+    struct FlagStruct{
+		unsigned pomiarTla 	:1;
+		unsigned detekcja	:1;
+		unsigned zgloszenie	:1;
+		unsigned zapisDoFlash   :1;
+		unsigned wykonanoZapisDoFlash :1;
+        unsigned pomiarAccelerometer :1;
+        unsigned wykonanoReset :1;
+        unsigned aktualizacjaSasiadow : 1;
+
+        struct CANStruct{
+            unsigned wyslijRamkeDanych :1;
+            unsigned odebranoDane :1;
+            unsigned CanAktywny : 1;
+            WORD identyfikatorU16;
+            }CAN;
+            
+            BYTE frameCounterU8;
+		};
+        
+    
     /////////////////////////////////////////////////////////////////
 
 
@@ -65,6 +107,9 @@
 
 
     extern KartaStruct DetectorLedRadar;
+    
+    extern struct DaneStruct *Dane;
+	extern struct FlagStruct Flagi;
 
     extern void _startup (void);
     void WylaczPrzerwania(void);

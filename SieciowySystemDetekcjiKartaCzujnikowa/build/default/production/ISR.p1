@@ -10,36 +10,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 "11
 [; ;./TMR1.h: 11: void TMR1_Update_flag_Set(UINT a);
 [v _TMR1_Update_flag_Set `(v ~T0 @X0 0 ef1`ui ]
-"50 ./main.h
-[; ;./main.h: 50:             struct{
-[s S1104 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :8 `uc 1 ]
-[n S1104 . obsluzWeWy error uczenieTla inicjalizacja ramkaTx wykonanoZapisDoFlash pomiarTla ]
-"47
-[; ;./main.h: 47:         {
-[u S1103 `uc 1 `S1104 1 ]
-[n S1103 . flagiU8 . ]
-"45
-[; ;./main.h: 45:     typedef struct{
-[s S1102 `S1103 1 `uc 1 ]
-[n S1102 . Flags timerRamkiTxCANU8 ]
-"67
-[; ;./main.h: 67:     extern KartaStruct DetectorLedRadar;
-[v _DetectorLedRadar `S1102 ~T0 @X0 0 e ]
+"92 ./main.h
+[; ;./main.h: 92:             struct{
+[s S1111 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :8 `uc 1 ]
+[n S1111 . obsluzWeWy error uczenieTla inicjalizacja ramkaTx wykonanoZapisDoFlash pomiarTla ]
+"89
+[; ;./main.h: 89:         {
+[u S1110 `uc 1 `S1111 1 ]
+[n S1110 . flagiU8 . ]
+"87
+[; ;./main.h: 87:     typedef struct{
+[s S1109 `S1110 1 `uc 1 ]
+[n S1109 . Flags timerRamkiTxCANU8 ]
+"109
+[; ;./main.h: 109:     extern KartaStruct DetectorLedRadar;
+[v _DetectorLedRadar `S1109 ~T0 @X0 0 e ]
 "18 ./TRM.h
 [; ;./TRM.h: 18:             {
-[s S1107 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1107 . wyslijRamkeStanu wyslijRamkeUczeniaTla wyslijRamkeResetuCzujnikow ]
+[s S1114 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1114 . wyslijRamkeStanu wyslijRamkeUczeniaTla wyslijRamkeResetuCzujnikow ]
 "14
 [; ;./TRM.h: 14:         {
-[u S1106 `us 1 `S1107 1 ]
-[n S1106 . FlagiU16 . ]
+[u S1113 `us 1 `S1114 1 ]
+[n S1113 . FlagiU16 . ]
 "12
 [; ;./TRM.h: 12:     {
-[s S1105 `S1106 1 `us 1 ]
-[n S1105 . Flags adresCAN ]
+[s S1112 `S1113 1 `us 1 ]
+[n S1112 . Flags adresCAN ]
 "30
 [; ;./TRM.h: 30:     extern DaneCanStruct DaneCan;
-[v _DaneCan `S1105 ~T0 @X0 0 e ]
+[v _DaneCan `S1112 ~T0 @X0 0 e ]
 [t T47 __interrupt high_priority ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 54: __asm("RXF6SIDH equ 0D60h");
@@ -1294,7 +1294,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "21
 [; ;ISR.c: 21:     if(TMR1IF==1)
-[e $ ! == -> _TMR1IF `i -> 1 `i 1109  ]
+[e $ ! == -> _TMR1IF `i -> 1 `i 1116  ]
 "22
 [; ;ISR.c: 22:         {
 {
@@ -1303,8 +1303,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _TMR1_Timer_reset ..  ]
 "26
 [; ;ISR.c: 26:             static BYTE ramkaStanuU8=0;
-[v F10682 `uc ~T0 @X0 1 s ramkaStanuU8 ]
-[i F10682
+[v F10735 `uc ~T0 @X0 1 s ramkaStanuU8 ]
+[i F10735
 -> -> 0 `i `uc
 ]
 "29
@@ -1315,30 +1315,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . . _DetectorLedRadar 0 1 0 -> -> 1 `i `uc ]
 "33
 [; ;ISR.c: 33:             if(++ramkaStanuU8 > (2*10))
-[e $ ! > -> =+ F10682 -> -> 1 `i `uc `i * -> 2 `i -> 10 `i 1110  ]
+[e $ ! > -> =+ F10735 -> -> 1 `i `uc `i * -> 2 `i -> 10 `i 1117  ]
 "34
 [; ;ISR.c: 34:                 {
 {
 "35
 [; ;ISR.c: 35:                     ramkaStanuU8 = 0;
-[e = F10682 -> -> 0 `i `uc ]
+[e = F10735 -> -> 0 `i `uc ]
 "36
 [; ;ISR.c: 36:                     DaneCan.Flags.wyslijRamkeStanu = 1;
 [e = . . . _DaneCan 0 1 0 -> -> 1 `i `uc ]
 "37
 [; ;ISR.c: 37:                 }
 }
-[e :U 1110 ]
+[e :U 1117 ]
 "41
 [; ;ISR.c: 41:             TMR1IF=0;
 [e = _TMR1IF -> -> 0 `i `b ]
 "42
 [; ;ISR.c: 42:         }
 }
-[e :U 1109 ]
+[e :U 1116 ]
 "43
 [; ;ISR.c: 43: }
-[e :UE 1108 ]
+[e :UE 1115 ]
 }
 [v $root$_ISR_high `(v ~T0 @X0 0 e ]
 "53
@@ -1351,5 +1351,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "57
 [; ;ISR.c: 57: }
-[e :UE 1111 ]
+[e :UE 1118 ]
 }

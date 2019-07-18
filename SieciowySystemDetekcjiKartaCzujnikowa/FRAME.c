@@ -255,7 +255,7 @@ static void FRAME_DeviceReset(mID *message) //0x07
     if(message->message_type == CAN_MSG_RTR)
     {
         message->data_length = 1;
-        /*
+        
         message->data[0] = (RCON>>6) & 0x01; //stan software reset
         message->data[1] = Flagi.wykonanoZapisDoFlash;
         message->data[2] = Flagi.pomiarTla;
@@ -266,7 +266,7 @@ static void FRAME_DeviceReset(mID *message) //0x07
         message->data[7] = Dane->godzinaU16;
         RCON &= ~(1<<6); //kasowanie software reset po odczycie ramki
         Flagi.wykonanoZapisDoFlash = 0;
-        */
+        
         
         //message->data[0] = MOCK_SoftwareReset();//stan software reset
         //message->data[1] = Flags.wykonanoZapisDoFlash;
@@ -278,7 +278,7 @@ static void FRAME_DeviceReset(mID *message) //0x07
         //message->data[7] = DaneCan->godzinaU16; 
         //RCON &= ~(1<<6); //kasowanie software reset po odczycie ramki
         //Flags.wykonanoZapisDoFlash = 0;
-        message->data[0] = 0xFF;
+        
     }
     else
     {

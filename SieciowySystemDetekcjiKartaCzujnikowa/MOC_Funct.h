@@ -1,6 +1,6 @@
 
-#ifndef MOC H
-#define	MOC H
+#ifndef MOC_H
+#define	MOC_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
