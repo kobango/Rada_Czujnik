@@ -18170,18 +18170,18 @@ typedef union _QWORD_VAL
 # 45 "./main.h"
     struct PozycjaNaMapceStruct
     {
-        WORD xU16;
-        WORD yU16;
+        WORD xU16 ;
+        WORD yU16 ;
     };
 
     struct DaneStruct
         {
-            WORD numerSeryjnyU16;
-            WORD startupU16;
-            WORD wersjaOprogramowaniaU16;
+            WORD numerSeryjnyU16 ;
+            WORD startupU16 ;
+            WORD wersjaOprogramowaniaU16 ;
             struct PozycjaNaMapceStruct PozycjaNaMapce;
-            WORD wersjaSprzetuU16;
-            WORD timerRysowaniaWykresuU16;
+            WORD wersjaSprzetuU16 ;
+            WORD timerRysowaniaWykresuU16 ;
             sasiadStruct sasiedzi[8];
             WORD rokU16, miesiacU16, dzienU16, godzinaU16, minutaU16;
         };
@@ -18341,7 +18341,7 @@ void TRM_DataTransmition(void)
         }
         else
         {
-
+            FRAME_HandleCanFrame(&canMessage);
         }
     }
 }

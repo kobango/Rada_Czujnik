@@ -16,5 +16,8 @@ UINT Fulfillment_Lvl_Get(void);
 UINT LED_Error(void);
 UINT LED_Clear(void);
 
+void LOCK_Set(BYTE k);
+BYTE LOCK_Get(void);
+
 #endif	/* LED_H */
 

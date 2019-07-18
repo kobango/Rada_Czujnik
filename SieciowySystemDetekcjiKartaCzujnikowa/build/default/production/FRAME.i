@@ -18200,18 +18200,18 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 45 "./main.h"
     struct PozycjaNaMapceStruct
     {
-        WORD xU16;
-        WORD yU16;
+        WORD xU16 ;
+        WORD yU16 ;
     };
 
     struct DaneStruct
         {
-            WORD numerSeryjnyU16;
-            WORD startupU16;
-            WORD wersjaOprogramowaniaU16;
+            WORD numerSeryjnyU16 ;
+            WORD startupU16 ;
+            WORD wersjaOprogramowaniaU16 ;
             struct PozycjaNaMapceStruct PozycjaNaMapce;
-            WORD wersjaSprzetuU16;
-            WORD timerRysowaniaWykresuU16;
+            WORD wersjaSprzetuU16 ;
+            WORD timerRysowaniaWykresuU16 ;
             sasiadStruct sasiedzi[8];
             WORD rokU16, miesiacU16, dzienU16, godzinaU16, minutaU16;
         };
@@ -18282,6 +18282,9 @@ void Fulfillment_Lvl_Set(UINT a);
 UINT Fulfillment_Lvl_Get(void);
 UINT LED_Error(void);
 UINT LED_Clear(void);
+
+void LOCK_Set(BYTE k);
+BYTE LOCK_Get(void);
 # 4 "FRAME.c" 2
 # 1 "./FRAME.h" 1
 # 12 "./FRAME.h"
@@ -18354,6 +18357,7 @@ typedef union tuReg32 {
 } uReg32;
 
 mID ramkaCanRxKarty[5], ramkaCanTxKarty;
+static BYTE IsInNeighbors(UINT message_adress);
 
 
 
@@ -18371,18 +18375,37 @@ static void FRAME_SensorExcitationStatus(mID *message)
 
 
 
-        message->data[0] = MOC_StanWzbudzenia();
+        message->data[0] = LOCK_Get();
         message->data[1] = MOC_Wynikowa_wartosc_roznicowa() >> 8 ;
         message->data[2] = MOC_Wynikowa_wartosc_roznicowa() & 0x00FF;
         message->data[3] = MOC_Frame_Counter();
         message->data[4] = MOC_Aktualna_Temperatura();
         message->data[5] = MOC_NOTWORK();
-# 57 "FRAME.c"
+# 58 "FRAME.c"
     }
     else
     {
-
+        if(IsInNeighbors(message->id.w[0]))
+        {
+        LOCK_Set(message->data[0]);
+        }
     }
+}
+
+static BYTE IsInNeighbors(UINT message_adress)
+{
+    WORD i;
+
+    for(i=0; i<4; i++)
+        {
+            if(message_adress == Dane->sasiedzi[i+(4*0x10)].adres )
+            {
+                return 1;
+            }
+
+
+        }
+    return 0;
 }
 
 
@@ -18484,7 +18507,7 @@ static void FRAME_AveragingTimes(mID *message)
     }
     else
     {
-# 197 "FRAME.c"
+# 217 "FRAME.c"
     }
 }
 
@@ -18501,7 +18524,7 @@ static void FRAME_AxisStatus(mID *message)
     if(message->message_type == 0x02)
     {
         message->data_length = 1;
-# 223 "FRAME.c"
+# 243 "FRAME.c"
         message->data[0] = 0xFF;
     }
     else
@@ -18548,12 +18571,12 @@ static void FRAME_DeviceReset(mID *message)
         message->data[7] = Dane->godzinaU16;
         RCON &= ~(1<<6);
         Flagi.wykonanoZapisDoFlash = 0;
-# 282 "FRAME.c"
+# 302 "FRAME.c"
     }
     else
     {
         message->data_length = 1;
-# 307 "FRAME.c"
+# 327 "FRAME.c"
         message->data[0] = 0xFF;
     }
 }
@@ -18566,9 +18589,17 @@ static void FRAME_DeviceReset(mID *message)
 
 static void FRAME_Plot(mID *message)
 {
-# 329 "FRAME.c"
-    message->data_length = 1;
-    message->data[0] = 0xFF;
+
+    if(message->message_type == 0x02)
+    {
+        message->data[0] = (BYTE)(Dane->timerRysowaniaWykresuU16/10);
+    }
+    else
+    {
+        Dane->timerRysowaniaWykresuU16 = (WORD)message->data[0]*10;
+    }
+
+
 }
 
 
@@ -18579,7 +18610,7 @@ static void FRAME_Plot(mID *message)
 
 static void FRAME_MapPosition(mID *message)
 {
-# 356 "FRAME.c"
+# 375 "FRAME.c"
 }
 
 
@@ -18590,7 +18621,19 @@ static void FRAME_MapPosition(mID *message)
 
 static void FRAME_SoftwareVersion(mID *message)
 {
-# 379 "FRAME.c"
+
+    if(message->message_type == 0x02)
+    {
+        message->data_length = 4;
+        message->data[0] = (unsigned char)(Dane->wersjaOprogramowaniaU16 >> 8);
+        message->data[1] = (unsigned char)Dane->wersjaOprogramowaniaU16;
+        message->data[2] = (unsigned char)(Dane->wersjaSprzetuU16 >> 8);
+        message->data[3] = (unsigned char)Dane->wersjaSprzetuU16;
+    }
+    else
+    {
+
+    }
 }
 
 
@@ -18602,13 +18645,62 @@ static void FRAME_SoftwareVersion(mID *message)
 static void FRAME_AnalogValue(mID *message, WORD set)
 {
     WORD i;
-# 405 "FRAME.c"
+# 424 "FRAME.c"
 }
-# 430 "FRAME.c"
+
+
+
+
+
+
+
+static void FRAME_PrzypisanieDokarty(mID *message)
+{
+    if(message->message_type == 0x02)
+    {
+        message->data_length = 1;
+        message->data[0] = 0xFF;
+    }
+    else
+    {
+
+    }
+}
+
+
+
+
+
+
 static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
 {
     WORD i;
-# 453 "FRAME.c"
+
+
+
+    if(message->message_type == 0x02)
+    {
+
+        message->data_length = 8;
+        for(i=0; i<4; i++)
+        {
+            message->data[2*i] = (BYTE)(Dane->sasiedzi[i+(4*nrRamki)].adres >> 8);
+            message->data[(2*i)+1] = (BYTE)Dane->sasiedzi[i+(4*nrRamki)].adres;
+        }
+
+    }
+    else
+    {
+
+        for(i=0; i<4; i++)
+        {
+            Dane->sasiedzi[i+(4*nrRamki)].adres = ((WORD)message->data[2*i] << 8) |
+                    (WORD)message->data[(2*i)+1];
+
+            Dane->sasiedzi[i+(4*nrRamki)].pointerNaSasiada = &wartosciSasiada[i+(4*nrRamki)];
+        }
+
+    }
 }
 
 
@@ -18619,11 +18711,15 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
 void FRAME_HandleCanFrame(mID * message)
 {
     BYTE identyfikator = (BYTE) message->id.v[2]/4;
+    if(identyfikator != 0x01)
+    {
+        int x = 0;
+    }
 
     switch(identyfikator)
     {
         case 0x01:
-            FRAME_SensorExcitationStatus(message);
+
             break;
         case 0x02:
             FRAME_AccelerometerStatus(message);
@@ -18656,7 +18752,12 @@ void FRAME_HandleCanFrame(mID * message)
         case 0x0D:
             FRAME_AnalogValue(message, identyfikator - 0x0C);
             break;
+        case 0x0F:
+            FRAME_PrzypisanieDokarty(message);
+            break;
         case 0x10:
+            FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
+            break;
         case 0x11:
             FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
             break;
@@ -18671,7 +18772,7 @@ void FRAME_HandleCanFrame(mID * message)
         message->id.v[2] = identyfikator*4;
         CAN_GenID(message,identyfikator);
         CAN_SendFrame(message);
-# 525 "FRAME.c"
+# 560 "FRAME.c"
        while(RXB0CONbits.FILHIT3)
        {
            if(TXB0CONbits.TXERR == 1){

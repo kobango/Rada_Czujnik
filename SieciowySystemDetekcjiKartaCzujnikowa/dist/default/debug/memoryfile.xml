@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.hex">
+    <memory name="program">
+      <units>bytes</units>
+      <length>65536</length>
+      <used>4199</used>
+      <free>61337</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>3328</length>
+      <used>730</used>
+      <free>2598</free>
+    </memory>
+  </executable>
+</project>

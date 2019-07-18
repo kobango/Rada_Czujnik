@@ -10,6 +10,7 @@ Funkcja: static WORD AktualizacjaHistorii(wartosciSasiadaStruct *pointer)
 Opis funkcji: sprawdzenie stanu ustalonego odczytow
 Data: 24.11.2016
 *****************************************************************/
+/*
 static void AktualizujTlo(WORD nrSasiadaU16, WORD stanSasiadaU16, historiaStruct *historiaPointer )
 {
     WORD j;
@@ -36,12 +37,13 @@ static void AktualizujTlo(WORD nrSasiadaU16, WORD stanSasiadaU16, historiaStruct
         }
     }
 }
-
+*/
 /*******************************************************************
 Funkcja: static WORD AktualizacjaHistorii(wartosciSasiadaStruct *pointer)
 Opis funkcji: sprawdzenie stanu ustalonego odczytow
 Data: 24.11.2016
 *****************************************************************/
+/*
 static WORD AktualizacjaHistorii(historiaStruct *pointer, SHORT aktualnaWartoscS16)
 {
     WORD i, minU16=0xFFFF, maxU16=0;
@@ -79,11 +81,14 @@ WORD UsrednijSwojeTlo(WORD *wartosciHistoryczneU16)
     }
     return (WORD)(tempU32/i);
 }
+ * 
+ * */
 /*******************************************************************
 Funkcja: void AktualizacjaTlaOdSasiadow(void)
 Opis funkcji: sprawdzenie wszystkich sasiadow i wprowadzenie odpowiednich zmian
 Data: 24.11.2016
 *****************************************************************/
+/*
 void AktualizacjaTlaOdSasiadow(void)
 {
     WORD i, j, zmianaU16, brakSasiadowU16=0, mojSkokTlaU16;
@@ -185,4 +190,6 @@ void AktualizacjaTlaOdSasiadow(void)
         }
         
     }
+  
 }
+*/

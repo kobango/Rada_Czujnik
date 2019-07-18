@@ -38,7 +38,7 @@ unsigned int daneU16[PM_ROW_SIZE + 1];
 const unsigned int __attribute__((address(0x1400), aligned(512)))ustawieniaU16[PM_ROW_SIZE + 1] = {
 	0x05, 		//Dane->numerSeryjnyU16 nie uzywane - ustawiane w bootloaderze
 	10,		//Dane->startupU16
-	WERSJA_OPROGRAMOWANIA,//Dane->wersjaOprogramowaniaU16 (major, minor)
+	Dane->wersjaOprogramowaniaU16, //Dane->wersjaOprogramowaniaU16 (major, minor),
     0,              //Dane->PozycjaNaMapce->xU16
     0,              //Dane->PozycjaNaMapce->yU16
     0,              //Dane->wersjaPlytki (ASCII), wersjaHardware (hex)
@@ -148,7 +148,7 @@ static void WritePM(unsigned int * ptrData, uReg32 SourceAddr)
 			/* Device ID errata workaround: Reload data at address with LSB of 0x18 */
 	      WriteLatch(TempAddr.Word.HW, TempAddr.Word.LW,TempData.Word.HW,TempData.Word.LW);
 
-			WriteMem(PM_ROW_WRITE);
+			//WriteMem(PM_ROW_WRITE);
 		}
 
 		SourceAddr.Val32 = SourceAddr.Val32 + 2;

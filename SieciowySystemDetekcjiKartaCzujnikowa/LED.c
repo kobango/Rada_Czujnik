@@ -26,8 +26,13 @@ UINT LED_Clear(void);
 void Fulfillment_Lvl_Set(UINT a);
 UINT Fulfillment_Lvl_Get(void);
 
+void LOCK_Set(BYTE k);
+BYTE LOCK_Get(void);
+
+
 
 static UINT Fulfillment_Lvl = 20;  /**< Percentage of glowing LEDs with one color.*/
+static BYTE LOCK = 0;    // IS Target lock? 0 or 1
 
 UINT LED_Error(void)
 {
@@ -36,11 +41,22 @@ UINT LED_Error(void)
     return 1;
 }
 
+
 UINT LED_Clear(void)
 {
     LED_Control(RED,0b0000000000);
     LED_Control(GREEN,0b1010101010);
     return 1;
+}
+
+void LOCK_Set(BYTE k)
+{
+    LOCK = k;
+}
+
+BYTE LOCK_Get(void)
+{
+    return LOCK;
 }
 
 /***************************************************************************************/
@@ -93,9 +109,17 @@ UINT8 LED_Update(void)
     static UINT pos1 = INIT_WEKTORA_POZYCJI; /**< Start Wector for Green LED */
     static UINT pos2 = INIT_WEKTORA_POZYCJI; /**< Start Wector for Red LED */
     
-    
+    if(LOCK == 0)
+    {
+    LED_Control(RED,0b0000000000);
     LED_Light_Pos(Green,pos2,Fulfillment_Lvl);
+    
+    }
+    else
+    {
+    LED_Control(Green,0b0000000000);
     LED_Light_Pos(RED,pos1,Fulfillment_Lvl);
+    }
     pos1 = LED_Right(pos1);
     pos2 = LED_Left(pos2);
     

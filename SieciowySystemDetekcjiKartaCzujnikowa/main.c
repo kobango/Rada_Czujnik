@@ -5,6 +5,7 @@
 #include "TMR1.h"
 #include "LED.h"
 #include "INI.h"
+#include "flash.h"
 
 // PIC18F26K80 Configuration Bit Settings
 
@@ -76,7 +77,7 @@
 */
 KartaStruct DetectorLedRadar;
 
-struct DaneStruct *Dane = &daneU16[0];
+struct DaneStruct *Dane ;
 struct FlagStruct Flagi;
 
 

@@ -22,6 +22,7 @@ typedef union tuReg32 {
 } uReg32;
 
 mID ramkaCanRxKarty[RX_BUF_SIZE], ramkaCanTxKarty;
+static BYTE IsInNeighbors(UINT message_adress);
 
 /*******************************************************************
 Funkcja: void StatusWzbudzeniaCzujnika(mID *message);
@@ -39,7 +40,7 @@ static void FRAME_SensorExcitationStatus(mID *message) // id = 0x01
         //message->data[2] = (unsigned char)Sensor->obliczonaWynikowaRoznicaZgloszeniaMaxU16;
         //message->data[3] = Flagi.frameCounterU8++;
         //message->data[4] = (unsigned char)Thermistor->temperaturaS8;
-        message->data[0] = MOC_StanWzbudzenia();
+        message->data[0] = LOCK_Get();
         message->data[1] = MOC_Wynikowa_wartosc_roznicowa() >> 8 ;
         message->data[2] = MOC_Wynikowa_wartosc_roznicowa() & 0x00FF;
         message->data[3] = MOC_Frame_Counter();
@@ -57,8 +58,27 @@ static void FRAME_SensorExcitationStatus(mID *message) // id = 0x01
     }
     else
     {
-
+        if(IsInNeighbors(message->id.w[0]))
+        {
+        LOCK_Set(message->data[0]);
+        }
     }
+}
+
+static BYTE IsInNeighbors(UINT message_adress)
+{
+    WORD i;
+    //0x10
+    for(i=0; i<4; i++)
+        {
+            if(message_adress == Dane->sasiedzi[i+(4*0x10)].adres )
+            {
+                return 1;
+            }
+            //zapisz adres struktury
+            
+        } 
+    return 0;
 }
 
 /*******************************************************************
@@ -316,7 +336,7 @@ Autor: Pawel Kasperek
 *****************************************************************/
 static void FRAME_Plot(mID *message) //id = 0x09
 {
-    /*
+    
     if(message->message_type == CAN_MSG_RTR)
     {
         message->data[0] = (BYTE)(Dane->timerRysowaniaWykresuU16/10);
@@ -325,9 +345,8 @@ static void FRAME_Plot(mID *message) //id = 0x09
     {
         Dane->timerRysowaniaWykresuU16 = (WORD)message->data[0]*10;
     }
-     */
-    message->data_length = 1;
-    message->data[0] = 0xFF;
+     
+    
 }
 
 /*******************************************************************
@@ -363,7 +382,7 @@ Autor: Pawel Kasperek
 *****************************************************************/
 static void FRAME_SoftwareVersion(mID *message) //id = 0x0B
 {
-    /*
+    
     if(message->message_type == CAN_MSG_RTR)
     {
         message->data_length = 4;
@@ -375,7 +394,7 @@ static void FRAME_SoftwareVersion(mID *message) //id = 0x0B
     else
     {
 
-    } */
+    } 
 }
 
 /*******************************************************************
@@ -410,46 +429,53 @@ Opis funkcji:
 Data: 14.03.2014
 Autor: Pawel Kasperek
 *****************************************************************/
-//static void PrzypisanieDokarty(mID *message)
-//{
-//    if(message->message_type == CAN_MSG_RTR)
-//    {
-//
-//    }
-//    else
-//    {
-//
-//    }
-//}
+static void FRAME_PrzypisanieDokarty(mID *message) // 0x0F
+{
+    if(message->message_type == CAN_MSG_RTR)
+    {
+        message->data_length = 1;
+        message->data[0] = 0xFF;
+    }
+    else
+    {
+           // NONE
+    }
+}
 /*******************************************************************
 Funkcja: void AdresySasiadow(mID *message, WORD nrRamki);
 Opis funkcji:
 Data: 17.11.2016
 Autor: Pawel Kasperek
 *****************************************************************/
-static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
+static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)  //0x10
 {
     WORD i;
-    /*
+    
+    
+    
     if(message->message_type == CAN_MSG_RTR)
     {
+        
         message->data_length = 8;
         for(i=0; i<4; i++)
         {
             message->data[2*i] = (BYTE)(Dane->sasiedzi[i+(4*nrRamki)].adres >> 8);
             message->data[(2*i)+1] = (BYTE)Dane->sasiedzi[i+(4*nrRamki)].adres;
         }
+        
     }
     else
     {
+        
         for(i=0; i<4; i++)
         {
             Dane->sasiedzi[i+(4*nrRamki)].adres =  ((WORD)message->data[2*i] << 8) |
                     (WORD)message->data[(2*i)+1];
             //zapisz adres struktury
             Dane->sasiedzi[i+(4*nrRamki)].pointerNaSasiada = &wartosciSasiada[i+(4*nrRamki)];
-        }        
-    } */
+        } 
+                 
+    } 
 }
 
 /*******************************************************************
@@ -460,13 +486,14 @@ Data: 15.04.2011
 void FRAME_HandleCanFrame(mID * message)
 {
     BYTE identyfikator = (BYTE) message->id.v[2]/4;
+   
     
     switch(identyfikator)
     {
         case 0x01:
             FRAME_SensorExcitationStatus(message);
             break;
-        case 0x02:
+        /*case 0x02:
             FRAME_AccelerometerStatus(message);
             break;
         case 0x03:
@@ -497,9 +524,19 @@ void FRAME_HandleCanFrame(mID * message)
         case 0x0D:
             FRAME_AnalogValue(message, identyfikator - 0x0C);
             break;
+        case 0x0F:
+            FRAME_PrzypisanieDokarty(message);
+            break;
         case 0x10:
+            FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
+            break;
         case 0x11:
             FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
+            break;
+         * */
+        default:
+          FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
+
             break;
     }
     if(message->message_type == CAN_MSG_RTR)
