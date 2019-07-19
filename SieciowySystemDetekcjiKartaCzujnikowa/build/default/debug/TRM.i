@@ -18335,7 +18335,7 @@ void TRM_DataTransmition(void)
 
     if(CAN_TakeFrame(&canMessage))
     {
-        BYTE identyfikator = (BYTE) canMessage->id.v[2]/4;
+
 
         if((canMessage.buffer == 0) || (canMessage.buffer == 1))
         {

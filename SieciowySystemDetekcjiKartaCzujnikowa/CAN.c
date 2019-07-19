@@ -99,7 +99,7 @@ static void CAN_SetupMask(void)
 
     // Konfiguracja filtra 0 i 1 - ramki kart czujnikowych
     RXF0SIDH = 0x00;
-    RXF0SIDL = 0x01;
+    RXF0SIDL = 0x01;//0x01;
     RXF0SIDLbits.EXIDEN = 1;
     RXF0EIDH = (BYTE)(DaneCan.adresCAN>>8);
 	RXF0EIDH |= 0x40;
@@ -112,11 +112,32 @@ static void CAN_SetupMask(void)
     RXF1EIDL = 0xFF;//akceptuj broadcasty
 
     //Konfiguracja filtra 2 - ramki stanu czujnikow przewodowych i bezprzewodowych
-    RXF2SIDH = 0;
-    RXF2SIDL = 0x20;
+    RXF2SIDH = 0x00;
+    RXF2SIDL = 0x20;//0x20;
     RXF2SIDLbits.EXIDEN = 1;
     RXF2EIDH = 0;
     RXF2EIDL = 0;
+    
+    //Konfiguracja filtra 3 - ramka nr 2
+    RXF3SIDH = 0x00;
+    RXF3SIDL = 0x40;//0x20;
+    RXF3SIDLbits.EXIDEN = 1;
+    RXF3EIDH = 0;
+    RXF3EIDL = 0;
+    
+    //Konfiguracja filtra 4 - ramka nr 0x10
+    RXF5SIDH = 0b00000010;
+    RXF5SIDL = 0b00000000;//0x20;//0x20;
+    RXF4SIDLbits.EXIDEN = 1;
+    RXF4EIDH = 0;
+    RXF4EIDL = 0;
+    
+     //Konfiguracja filtra 5 - ramka nr 0x11
+    RXF5SIDH = 0b00000010;
+    RXF5SIDL = 0b00100000;//0x20;//0x20;
+    RXF5SIDLbits.EXIDEN = 1;
+    RXF5EIDH = 0;
+    RXF5EIDL = 0;
 
     //przypisz filtr 0 i 1 do RXB0
 //    RXFBCON0 = 0x00;
@@ -124,7 +145,8 @@ static void CAN_SetupMask(void)
 //    RXFBCON1 = 0x01;
 
     // Wlacz filtr 0, 1 i 2
-  //  RXFCON0 = 0x07; // ZAPAMIETAC
+    RXFCON0 = 0b00111111;//0x07; // ZAPAMIETAC 
+    
 
 }
 
@@ -287,7 +309,11 @@ BOOL CAN_TakeFrame(mID * message)
         message->buffer = RXB0CON & 0x1F;
         message->id.v[0] = RXB0EIDL;
         message->id.v[1] = RXB0EIDH;
-        message->id.v[2] = (RXB0SIDL/8) | (RXB0SIDL&0x03);
+        UINT op_id = (RXB0SIDL/8) | (RXB0SIDL&0x03);
+        message->id.v[2] = op_id;
+        if(op_id>0x0008){
+            int a = 0;
+        }
         message->id.w[1] |= (WORD)RXB0SIDH*32;
         message->frame_type=CAN_FRAME_EXT;
 
@@ -386,7 +412,7 @@ void CAN_GenID(mID * message, BYTE frameID)
     message->message_type = CAN_MSG_DATA;
     message->id.w[1] = (WORD)frameID * (WORD)4; //0x004 ; //0x0025;//(WORD)frameID * (WORD)4;
     message->id.w[0] = DaneCan.adresCAN + 0x012c; //0x012b; //0x8006;//DaneCan.adresCAN; // ID obiektu, domyslnie 0 + warto?c do ustawienia.
-    message->id.v[2] |= 0x00; //0x01; //0x01;
+    message->id.v[2] |= 0x01; //0x01; //0x01;
     message->id.v[1] |= 0x00; //0x00;//0x40;
     message ->id.bits.b16 = 0;
     message ->id.bits.b17 = 0;

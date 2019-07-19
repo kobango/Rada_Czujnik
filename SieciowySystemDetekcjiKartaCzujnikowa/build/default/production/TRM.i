@@ -18335,8 +18335,11 @@ void TRM_DataTransmition(void)
 
     if(CAN_TakeFrame(&canMessage))
     {
+
+
         if((canMessage.buffer == 0) || (canMessage.buffer == 1))
         {
+
             FRAME_HandleCanFrame(&canMessage);
         }
         else

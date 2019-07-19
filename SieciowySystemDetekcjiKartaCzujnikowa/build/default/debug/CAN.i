@@ -18393,12 +18393,42 @@ static void CAN_SetupMask(void)
     RXF1EIDL = 0xFF;
 
 
-    RXF2SIDH = 0;
+    RXF2SIDH = 0x00;
     RXF2SIDL = 0x20;
     RXF2SIDLbits.EXIDEN = 1;
     RXF2EIDH = 0;
     RXF2EIDL = 0;
-# 129 "CAN.c"
+
+
+    RXF3SIDH = 0x00;
+    RXF3SIDL = 0x40;
+    RXF3SIDLbits.EXIDEN = 1;
+    RXF3EIDH = 0;
+    RXF3EIDL = 0;
+
+
+    RXF5SIDH = 0b00000010;
+    RXF5SIDL = 0b00000000;
+    RXF4SIDLbits.EXIDEN = 1;
+    RXF4EIDH = 0;
+    RXF4EIDL = 0;
+
+
+    RXF5SIDH = 0b00000010;
+    RXF5SIDL = 0b00100000;
+    RXF5SIDLbits.EXIDEN = 1;
+    RXF5EIDH = 0;
+    RXF5EIDL = 0;
+
+
+
+
+
+
+
+    RXFCON0 = 0b00111111;
+
+
 }
 
 
@@ -18560,7 +18590,11 @@ BOOL CAN_TakeFrame(mID * message)
         message->buffer = RXB0CON & 0x1F;
         message->id.v[0] = RXB0EIDL;
         message->id.v[1] = RXB0EIDH;
-        message->id.v[2] = (RXB0SIDL/8) | (RXB0SIDL&0x03);
+        UINT op_id = (RXB0SIDL/8) | (RXB0SIDL&0x03);
+        message->id.v[2] = op_id;
+        if(op_id>0x0008){
+            int a = 0;
+        }
         message->id.w[1] |= (WORD)RXB0SIDH*32;
         message->frame_type=0x03;
 
@@ -18644,7 +18678,7 @@ BOOL CAN_TakeFrame(mID * message)
         return FALSE;
     }
 }
-# 382 "CAN.c"
+# 408 "CAN.c"
 void CAN_GenID(mID * message, BYTE frameID)
 {
 
@@ -18652,7 +18686,7 @@ void CAN_GenID(mID * message, BYTE frameID)
     message->message_type = 0x01;
     message->id.w[1] = (WORD)frameID * (WORD)4;
     message->id.w[0] = DaneCan.adresCAN + 0x012c;
-    message->id.v[2] |= 0x00;
+    message->id.v[2] |= 0x01;
     message->id.v[1] |= 0x00;
     message ->id.bits.b16 = 0;
     message ->id.bits.b17 = 0;

@@ -58,6 +58,7 @@ static void FRAME_SensorExcitationStatus(mID *message) // id = 0x01
     }
     else
     {
+        int theta = message->id.w[0];
         if(IsInNeighbors(message->id.w[0]))
         {
         LOCK_Set(message->data[0]);
@@ -493,7 +494,7 @@ void FRAME_HandleCanFrame(mID * message)
         case 0x01:
             FRAME_SensorExcitationStatus(message);
             break;
-        /*case 0x02:
+        case 0x02:
             FRAME_AccelerometerStatus(message);
             break;
         case 0x03:
@@ -533,9 +534,9 @@ void FRAME_HandleCanFrame(mID * message)
         case 0x11:
             FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
             break;
-         * */
+       
         default:
-          FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
+          FRAME_SensorExcitationStatus(message);
 
             break;
     }

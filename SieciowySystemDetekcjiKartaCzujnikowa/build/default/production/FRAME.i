@@ -18385,6 +18385,7 @@ static void FRAME_SensorExcitationStatus(mID *message)
     }
     else
     {
+        int theta = message->id.w[0];
         if(IsInNeighbors(message->id.w[0]))
         {
         LOCK_Set(message->data[0]);
@@ -18507,7 +18508,7 @@ static void FRAME_AveragingTimes(mID *message)
     }
     else
     {
-# 217 "FRAME.c"
+# 218 "FRAME.c"
     }
 }
 
@@ -18524,7 +18525,7 @@ static void FRAME_AxisStatus(mID *message)
     if(message->message_type == 0x02)
     {
         message->data_length = 1;
-# 243 "FRAME.c"
+# 244 "FRAME.c"
         message->data[0] = 0xFF;
     }
     else
@@ -18571,12 +18572,12 @@ static void FRAME_DeviceReset(mID *message)
         message->data[7] = Dane->godzinaU16;
         RCON &= ~(1<<6);
         Flagi.wykonanoZapisDoFlash = 0;
-# 302 "FRAME.c"
+# 303 "FRAME.c"
     }
     else
     {
         message->data_length = 1;
-# 327 "FRAME.c"
+# 328 "FRAME.c"
         message->data[0] = 0xFF;
     }
 }
@@ -18610,7 +18611,7 @@ static void FRAME_Plot(mID *message)
 
 static void FRAME_MapPosition(mID *message)
 {
-# 375 "FRAME.c"
+# 376 "FRAME.c"
 }
 
 
@@ -18645,7 +18646,7 @@ static void FRAME_SoftwareVersion(mID *message)
 static void FRAME_AnalogValue(mID *message, WORD set)
 {
     WORD i;
-# 424 "FRAME.c"
+# 425 "FRAME.c"
 }
 
 
@@ -18711,15 +18712,12 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
 void FRAME_HandleCanFrame(mID * message)
 {
     BYTE identyfikator = (BYTE) message->id.v[2]/4;
-    if(identyfikator != 0x01)
-    {
-        int x = 0;
-    }
+
 
     switch(identyfikator)
     {
         case 0x01:
-
+            FRAME_SensorExcitationStatus(message);
             break;
         case 0x02:
             FRAME_AccelerometerStatus(message);
@@ -18761,6 +18759,11 @@ void FRAME_HandleCanFrame(mID * message)
         case 0x11:
             FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
             break;
+
+        default:
+          FRAME_SensorExcitationStatus(message);
+
+            break;
     }
     if(message->message_type == 0x02)
     {
@@ -18772,7 +18775,7 @@ void FRAME_HandleCanFrame(mID * message)
         message->id.v[2] = identyfikator*4;
         CAN_GenID(message,identyfikator);
         CAN_SendFrame(message);
-# 560 "FRAME.c"
+# 563 "FRAME.c"
        while(RXB0CONbits.FILHIT3)
        {
            if(TXB0CONbits.TXERR == 1){
