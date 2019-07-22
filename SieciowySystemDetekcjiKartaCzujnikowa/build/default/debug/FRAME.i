@@ -18385,6 +18385,29 @@ static void FRAME_SensorExcitationStatus(mID *message)
     }
     else
     {
+        WORD k;
+        WORD Saturn = Dane->sasiedzi[0+(4*0x10)].adres;
+        if(Saturn == 11)
+        {
+            int Satrun_prime = Saturn;
+
+            for(k=0;k<400;k++)
+            {
+            LED_Clear();
+            }
+            int terra =Satrun_prime;
+
+        }
+        else
+        {
+            int Satrun_prime = Saturn;
+            for(k=0;k<400;k++)
+            {
+            LED_Error();
+            }
+            int terra =Satrun_prime;
+        }
+
         if(0x12b==message->id.w[0])
         {
         LOCK_Set(message->data[0]);
@@ -18507,7 +18530,7 @@ static void FRAME_AveragingTimes(mID *message)
     }
     else
     {
-# 217 "FRAME.c"
+# 240 "FRAME.c"
     }
 }
 
@@ -18524,7 +18547,7 @@ static void FRAME_AxisStatus(mID *message)
     if(message->message_type == 0x02)
     {
         message->data_length = 1;
-# 243 "FRAME.c"
+# 266 "FRAME.c"
         message->data[0] = 0xFF;
     }
     else
@@ -18571,12 +18594,12 @@ static void FRAME_DeviceReset(mID *message)
         message->data[7] = Dane->godzinaU16;
         RCON &= ~(1<<6);
         Flagi.wykonanoZapisDoFlash = 0;
-# 302 "FRAME.c"
+# 325 "FRAME.c"
     }
     else
     {
         message->data_length = 1;
-# 327 "FRAME.c"
+# 350 "FRAME.c"
         message->data[0] = 0xFF;
     }
 }
@@ -18610,7 +18633,7 @@ static void FRAME_Plot(mID *message)
 
 static void FRAME_MapPosition(mID *message)
 {
-# 375 "FRAME.c"
+# 398 "FRAME.c"
 }
 
 
@@ -18645,7 +18668,7 @@ static void FRAME_SoftwareVersion(mID *message)
 static void FRAME_AnalogValue(mID *message, WORD set)
 {
     WORD i;
-# 424 "FRAME.c"
+# 447 "FRAME.c"
 }
 
 
@@ -18691,10 +18714,13 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
     }
     else
     {
+        WORD uranos = message->data[2] | message->data[3];
+         WORD zeta =(WORD) uranos;
 
+         WORD gaja = message->data[0] | message->data[1];
         for(i=0; i<4; i++)
         {
-            Dane->sasiedzi[i+(4*nrRamki)].adres = ((WORD)message->data[2*i] << 8) |
+            Dane->sasiedzi[i+(4*nrRamki)].adres = ((WORD)message->data[2*i]) |
                     (WORD)message->data[(2*i)+1];
 
             Dane->sasiedzi[i+(4*nrRamki)].pointerNaSasiada = &wartosciSasiada[i+(4*nrRamki)];
@@ -18718,7 +18744,7 @@ void FRAME_HandleCanFrame(mID * message)
         case 0x01:
             FRAME_SensorExcitationStatus(message);
             break;
-# 537 "FRAME.c"
+# 563 "FRAME.c"
         default:
           FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
 
@@ -18734,7 +18760,7 @@ void FRAME_HandleCanFrame(mID * message)
         message->id.v[2] = identyfikator*4;
         CAN_GenID(message,identyfikator);
         CAN_SendFrame(message);
-# 562 "FRAME.c"
+# 588 "FRAME.c"
        while(RXB0CONbits.FILHIT3)
        {
            if(TXB0CONbits.TXERR == 1){

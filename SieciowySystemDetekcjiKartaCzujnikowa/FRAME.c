@@ -58,6 +58,29 @@ static void FRAME_SensorExcitationStatus(mID *message) // id = 0x01
     }
     else
     {
+        WORD k;
+        WORD Saturn  = Dane->sasiedzi[0+(4*0x10)].adres;
+        if(Saturn == 11)
+        {
+            int Satrun_prime = Saturn;
+            
+            for(k=0;k<400;k++)
+            {
+            LED_Clear();
+            }
+            int terra =Satrun_prime;
+            
+        }
+        else
+        {
+            int Satrun_prime = Saturn;
+            for(k=0;k<400;k++)
+            {
+            LED_Error();
+            }       
+            int terra =Satrun_prime;
+        }    
+        
         if(0x12b==message->id.w[0])
         {
         LOCK_Set(message->data[0]);
@@ -466,10 +489,13 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)  //0x10
     }
     else
     {
-        
+        WORD uranos = message->data[2] | message->data[3];
+         WORD zeta =(WORD) uranos; 
+         
+         WORD gaja = message->data[0] | message->data[1];
         for(i=0; i<4; i++)
         {
-            Dane->sasiedzi[i+(4*nrRamki)].adres =  ((WORD)message->data[2*i] << 8) |
+            Dane->sasiedzi[i+(4*nrRamki)].adres =  ((WORD)message->data[2*i]) |
                     (WORD)message->data[(2*i)+1];
             //zapisz adres struktury
             Dane->sasiedzi[i+(4*nrRamki)].pointerNaSasiada = &wartosciSasiada[i+(4*nrRamki)];

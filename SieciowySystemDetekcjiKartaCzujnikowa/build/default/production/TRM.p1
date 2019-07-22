@@ -1367,37 +1367,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 "60
 [; ;TRM.c: 60:     {
 {
-"61
-[; ;TRM.c: 61:         if((canMessage.buffer == 0) || (canMessage.buffer == 1))
-[e $ ! || == -> . _canMessage 3 `i -> 0 `i == -> . _canMessage 3 `i -> 1 `i 1120  ]
-"62
-[; ;TRM.c: 62:         {
-{
 "63
-[; ;TRM.c: 63:             FRAME_HandleCanFrame(&canMessage);
-[e ( _FRAME_HandleCanFrame (1 &U _canMessage ]
+[; ;TRM.c: 63:         if((canMessage.buffer == 0) || (canMessage.buffer == 1))
+[e $ ! || == -> . _canMessage 3 `i -> 0 `i == -> . _canMessage 3 `i -> 1 `i 1120  ]
 "64
-[; ;TRM.c: 64:         }
+[; ;TRM.c: 64:         {
+{
+"66
+[; ;TRM.c: 66:             FRAME_HandleCanFrame(&canMessage);
+[e ( _FRAME_HandleCanFrame (1 &U _canMessage ]
+"67
+[; ;TRM.c: 67:         }
 }
 [e $U 1121  ]
-"65
-[; ;TRM.c: 65:         else
-[e :U 1120 ]
-"66
-[; ;TRM.c: 66:         {
-{
-"67
-[; ;TRM.c: 67:             FRAME_HandleCanFrame(&canMessage);
-[e ( _FRAME_HandleCanFrame (1 &U _canMessage ]
 "68
-[; ;TRM.c: 68:         }
+[; ;TRM.c: 68:         else
+[e :U 1120 ]
+"69
+[; ;TRM.c: 69:         {
+{
+"70
+[; ;TRM.c: 70:             FRAME_HandleCanFrame(&canMessage);
+[e ( _FRAME_HandleCanFrame (1 &U _canMessage ]
+"71
+[; ;TRM.c: 71:         }
 }
 [e :U 1121 ]
-"69
-[; ;TRM.c: 69:     }
+"72
+[; ;TRM.c: 72:     }
 }
 [e :U 1119 ]
-"70
-[; ;TRM.c: 70: }
+"73
+[; ;TRM.c: 73: }
 [e :UE 1116 ]
 }
