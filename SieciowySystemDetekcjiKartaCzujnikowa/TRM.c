@@ -58,7 +58,7 @@ void TRM_DataTransmition(void)
     //sprawdz czy jest cos na CANie
     if(CAN_TakeFrame(&canMessage))
     {
-        BYTE identyfikator = (BYTE) canMessage->id.v[2]/4;
+        
         
         if((canMessage.buffer == 0) || (canMessage.buffer == 1))
         {

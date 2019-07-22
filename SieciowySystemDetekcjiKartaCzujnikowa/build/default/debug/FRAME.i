@@ -18385,7 +18385,7 @@ static void FRAME_SensorExcitationStatus(mID *message)
     }
     else
     {
-        if(IsInNeighbors(message->id.w[0]))
+        if(0x12b==message->id.w[0])
         {
         LOCK_Set(message->data[0]);
         }
