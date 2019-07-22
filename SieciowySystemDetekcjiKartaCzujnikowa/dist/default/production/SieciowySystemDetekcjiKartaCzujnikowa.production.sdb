@@ -60,7 +60,7 @@ TRUE 1
 [v _CAN_SendFrame CAN_SendFrame `(v  1 e 1 0 ]
 "269
 [v _CAN_TakeFrame CAN_TakeFrame `(E10433  1 e 1 0 ]
-"408
+"406
 [v _CAN_GenID CAN_GenID `(v  1 e 1 0 ]
 "33 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 [v _FRAME_SensorExcitationStatus FRAME_SensorExcitationStatus `(v  1 s 1 FRAME_SensorExcitationStatus ]
@@ -90,7 +90,7 @@ TRUE 1
 [v _FRAME_PrzypisanieDokarty FRAME_PrzypisanieDokarty `(v  1 s 1 FRAME_PrzypisanieDokarty ]
 "451
 [v _FRAME_AdressOfNeighbors FRAME_AdressOfNeighbors `(v  1 s 1 FRAME_AdressOfNeighbors ]
-"487
+"495
 [v _FRAME_HandleCanFrame FRAME_HandleCanFrame `(v  1 e 1 0 ]
 "27 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
 [v _INI_OUTPUT INI_OUTPUT `(v  1 s 1 INI_OUTPUT ]
@@ -104,6 +104,8 @@ TRUE 1
 [v _ISR_high ISR_high `IIH(v  1 e 1 0 ]
 "37 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 [v _LED_Error LED_Error `(ui  1 e 2 0 ]
+"45
+[v _LED_Clear LED_Clear `(ui  1 e 2 0 ]
 "52
 [v _LOCK_Set LOCK_Set `(v  1 e 1 0 ]
 "57
@@ -555,22 +557,22 @@ TRUE 1
 [v _TMR1H TMR1H `VEuc  1 e 1 @4047 ]
 "31137
 [v _RCON RCON `VEuc  1 e 1 @4048 ]
-[s S3695 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[s S3697 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "31180
-[s S3697 . 1 `uc 1 . 1 0 :1:0 
+[s S3699 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S3700 . 1 `uc 1 . 1 0 :2:0 
+[s S3702 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S3703 . 1 `uc 1 . 1 0 :3:0 
+[s S3705 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S3706 . 1 `uc 1 . 1 0 :4:0 
+[s S3708 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S3709 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S3711 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -579,22 +581,22 @@ TRUE 1
 `uc 1 SBOREN 1 0 :1:6 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S3718 . 1 `uc 1 BOR 1 0 :1:0 
+[s S3720 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
 `uc 1 RI 1 0 :1:4 
 ]
-[u S3724 . 1 `S3695 1 . 1 0 `S3697 1 . 1 0 `S3700 1 . 1 0 `S3703 1 . 1 0 `S3706 1 . 1 0 `S3709 1 . 1 0 `S3718 1 . 1 0 ]
-[v _RCONbits RCONbits `VES3724  1 e 1 @4048 ]
-[s S3777 . 1 `uc 1 SWDTEN 1 0 :1:0 
+[u S3726 . 1 `S3697 1 . 1 0 `S3699 1 . 1 0 `S3702 1 . 1 0 `S3705 1 . 1 0 `S3708 1 . 1 0 `S3711 1 . 1 0 `S3720 1 . 1 0 ]
+[v _RCONbits RCONbits `VES3726  1 e 1 @4048 ]
+[s S3779 . 1 `uc 1 SWDTEN 1 0 :1:0 
 ]
 "31283
-[s S3779 . 1 `uc 1 SWDTE 1 0 :1:0 
+[s S3781 . 1 `uc 1 SWDTE 1 0 :1:0 
 ]
-[u S3781 . 1 `S3777 1 . 1 0 `S3779 1 . 1 0 ]
-[v _WDTCONbits WDTCONbits `VES3781  1 e 1 @4049 ]
-[s S3796 . 1 `uc 1 RBIF 1 0 :1:0 
+[u S3783 . 1 `S3779 1 . 1 0 `S3781 1 . 1 0 ]
+[v _WDTCONbits WDTCONbits `VES3783  1 e 1 @4049 ]
+[s S3798 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -604,7 +606,7 @@ TRUE 1
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "32196
-[s S3805 . 1 `uc 1 . 1 0 :1:0 
+[s S3807 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -613,12 +615,12 @@ TRUE 1
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S3814 . 1 `uc 1 . 1 0 :6:0 
+[s S3816 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S3818 . 1 `S3796 1 . 1 0 `S3805 1 . 1 0 `S3814 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES3818  1 e 1 @4082 ]
+[u S3820 . 1 `S3798 1 . 1 0 `S3807 1 . 1 0 `S3816 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES3820  1 e 1 @4082 ]
 "35643
 [v _IPEN IPEN `VEb  1 e 0 @32391 ]
 "35646
@@ -748,16 +750,16 @@ TRUE 1
 ]
 [u S638 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S569 1 word 4 0 `S572 1 byte 4 0 `S602 1 wordUnion 4 0 `S605 1 bits 4 0 ]
 [s S646 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S638 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
-[v TRM_DataTransmition@canMessage canMessage `S646  1 a 17 36 ]
+[v TRM_DataTransmition@canMessage canMessage `S646  1 a 17 38 ]
 "73
 } 0
-"487 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+"495 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 [v _FRAME_HandleCanFrame FRAME_HandleCanFrame `(v  1 e 1 0 ]
 {
-"489
-[v FRAME_HandleCanFrame@identyfikator identyfikator `uc  1 a 1 35 ]
+"497
+[v FRAME_HandleCanFrame@identyfikator identyfikator `uc  1 a 1 37 ]
 [s S569 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
-"487
+"495
 [s S572 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
 [s S577 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
 [s S580 . 2 `uc 1 b0 1 0 :1:0 
@@ -814,8 +816,8 @@ TRUE 1
 ]
 [u S638 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S569 1 word 4 0 `S572 1 byte 4 0 `S602 1 wordUnion 4 0 `S605 1 bits 4 0 ]
 [s S646 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S638 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
-[v FRAME_HandleCanFrame@message message `*.39S646  1 p 2 31 ]
-"578
+[v FRAME_HandleCanFrame@message message `*.39S646  1 p 2 33 ]
+"586
 } 0
 "37 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 [v _LED_Error LED_Error `(ui  1 e 2 0 ]
@@ -888,7 +890,10 @@ TRUE 1
 "33
 [v _FRAME_SensorExcitationStatus FRAME_SensorExcitationStatus `(v  1 s 1 FRAME_SensorExcitationStatus ]
 {
+"61
+[v FRAME_SensorExcitationStatus@theta theta `i  1 a 2 16 ]
 [s S569 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
+"33
 [s S572 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
 [s S577 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
 [s S580 . 2 `uc 1 b0 1 0 :1:0 
@@ -1567,8 +1572,10 @@ TRUE 1
 "451
 [v _FRAME_AdressOfNeighbors FRAME_AdressOfNeighbors `(v  1 s 1 FRAME_AdressOfNeighbors ]
 {
+"478
+[v FRAME_AdressOfNeighbors@k k `us  1 a 2 29 ]
 "453
-[v FRAME_AdressOfNeighbors@i i `us  1 a 2 29 ]
+[v FRAME_AdressOfNeighbors@i i `us  1 a 2 31 ]
 [s S569 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
 "451
 [s S572 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
@@ -1629,7 +1636,7 @@ TRUE 1
 [s S646 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S638 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_AdressOfNeighbors@message message `*.39S646  1 p 2 11 ]
 [v FRAME_AdressOfNeighbors@nrRamki nrRamki `us  1 p 2 13 ]
-"480
+"488
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -1640,6 +1647,11 @@ TRUE 1
 [v ___wmul@multiplier multiplier `ui  1 p 2 5 ]
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 7 ]
 "53
+} 0
+"45 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
+[v _LED_Clear LED_Clear `(ui  1 e 2 0 ]
+{
+"50
 } 0
 "91 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 [v _FRAME_AccelerometerStatus FRAME_AccelerometerStatus `(v  1 s 1 FRAME_AccelerometerStatus ]
@@ -1787,7 +1799,7 @@ TRUE 1
 [v CAN_SendFrame@message message `*.39S646  1 p 2 10 ]
 "262
 } 0
-"408
+"406
 [v _CAN_GenID CAN_GenID `(v  1 e 1 0 ]
 {
 [s S569 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -1849,16 +1861,16 @@ TRUE 1
 [s S646 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S638 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v CAN_GenID@message message `*.39S646  1 p 2 5 ]
 [v CAN_GenID@frameID frameID `uc  1 p 1 7 ]
-"422
+"420
 } 0
 "269
 [v _CAN_TakeFrame CAN_TakeFrame `(E10433  1 e 1 0 ]
 {
 "312
-[v CAN_TakeFrame@op_id op_id `ui  1 a 2 19 ]
+[v CAN_TakeFrame@op_id op_id `ui  1 a 2 17 ]
 "271
-[v CAN_TakeFrame@k k `uc  1 a 1 22 ]
-[v CAN_TakeFrame@tempCON tempCON `uc  1 a 1 21 ]
+[v CAN_TakeFrame@k k `uc  1 a 1 20 ]
+[v CAN_TakeFrame@tempCON tempCON `uc  1 a 1 19 ]
 [s S569 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
 "269
 [s S572 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
@@ -1918,7 +1930,7 @@ TRUE 1
 [u S638 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S569 1 word 4 0 `S572 1 byte 4 0 `S602 1 wordUnion 4 0 `S605 1 bits 4 0 ]
 [s S646 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S638 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v CAN_TakeFrame@message message `*.39S646  1 p 2 13 ]
-"399
+"397
 } 0
 "7 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]

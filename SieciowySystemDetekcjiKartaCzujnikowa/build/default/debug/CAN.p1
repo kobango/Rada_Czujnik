@@ -2388,321 +2388,309 @@ Version 4.0 HI-TECH Software Intermediate Code
 "313
 [; ;CAN.c: 313:         message->id.v[2] = op_id;
 [e = *U + &U . . *U _message 4 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . . *U _message 4 2 `ui `ux -> _op_id `uc ]
-"314
-[; ;CAN.c: 314:         if(op_id>0x0008){
-[e $ ! > _op_id -> -> 8 `i `ui 1153  ]
-{
 "315
-[; ;CAN.c: 315:             int a = 0;
-[v _a `i ~T0 @X0 1 a ]
-[e = _a -> 0 `i ]
-"316
-[; ;CAN.c: 316:         }
-}
-[e :U 1153 ]
-"317
-[; ;CAN.c: 317:         message->id.w[1] |= (WORD)RXB0SIDH*32;
+[; ;CAN.c: 315:         message->id.w[1] |= (WORD)RXB0SIDH*32;
 [e =| *U + &U . . *U _message 4 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _message 4 1 `ui `ux -> * -> -> _RXB0SIDH `us `ui -> -> 32 `i `ui `us ]
-"318
-[; ;CAN.c: 318:         message->frame_type=0x03;
+"316
+[; ;CAN.c: 316:         message->frame_type=0x03;
 [e = . *U _message 2 -> -> 3 `i `uc ]
-"322
-[; ;CAN.c: 322:         if(RXB0DLCbits.RXRTR == 0)
-[e $ ! == -> . . _RXB0DLCbits 0 6 `i -> 0 `i 1154  ]
-"323
-[; ;CAN.c: 323:         {
+"320
+[; ;CAN.c: 320:         if(RXB0DLCbits.RXRTR == 0)
+[e $ ! == -> . . _RXB0DLCbits 0 6 `i -> 0 `i 1153  ]
+"321
+[; ;CAN.c: 321:         {
 {
-"324
-[; ;CAN.c: 324:             message->message_type = 0x01;
+"322
+[; ;CAN.c: 322:             message->message_type = 0x01;
 [e = . *U _message 1 -> -> 1 `i `uc ]
-"325
-[; ;CAN.c: 325:             message->data_length= RXB0DLC & 0x0F;
+"323
+[; ;CAN.c: 323:             message->data_length= RXB0DLC & 0x0F;
 [e = . *U _message 6 -> & -> _RXB0DLC `i -> 15 `i `uc ]
-"326
-[; ;CAN.c: 326:             if(message->data_length > 8)
-[e $ ! > -> . *U _message 6 `i -> 8 `i 1155  ]
+"324
+[; ;CAN.c: 324:             if(message->data_length > 8)
+[e $ ! > -> . *U _message 6 `i -> 8 `i 1154  ]
+"325
+[; ;CAN.c: 325:             {
+{
 "327
-[; ;CAN.c: 327:             {
+[; ;CAN.c: 327:                 switch(k)
+[e $U 1156  ]
+"328
+[; ;CAN.c: 328:                 {
 {
 "329
-[; ;CAN.c: 329:                 switch(k)
-[e $U 1157  ]
-"330
-[; ;CAN.c: 330:                 {
-{
-"331
-[; ;CAN.c: 331:                     case 0:
-[e :U 1158 ]
-"332
-[; ;CAN.c: 332:                         RXB0CON = 0;
-[e = _RXB0CON -> -> 0 `i `uc ]
-"333
-[; ;CAN.c: 333:                         break;
-[e $U 1156  ]
-"334
-[; ;CAN.c: 334:                     case 1:
-[e :U 1159 ]
-"335
-[; ;CAN.c: 335:                         RXB1CON = 0;
-[e = _RXB1CON -> -> 0 `i `uc ]
-"336
-[; ;CAN.c: 336:                         break;
-[e $U 1156  ]
-"337
-[; ;CAN.c: 337:                     case 2:
-[e :U 1160 ]
-"338
-[; ;CAN.c: 338:                         B0CON = 0;
-[e = _B0CON -> -> 0 `i `uc ]
-"339
-[; ;CAN.c: 339:                         break;
-[e $U 1156  ]
-"340
-[; ;CAN.c: 340:                     case 3:
-[e :U 1161 ]
-"341
-[; ;CAN.c: 341:                         B1CON = 0;
-[e = _B1CON -> -> 0 `i `uc ]
-"342
-[; ;CAN.c: 342:                         break;
-[e $U 1156  ]
-"343
-[; ;CAN.c: 343:                     case 4:
-[e :U 1162 ]
-"344
-[; ;CAN.c: 344:                         B2CON = 0;
-[e = _B2CON -> -> 0 `i `uc ]
-"345
-[; ;CAN.c: 345:                         break;
-[e $U 1156  ]
-"346
-[; ;CAN.c: 346:                     case 5:
-[e :U 1163 ]
-"347
-[; ;CAN.c: 347:                         B3CON = 0;
-[e = _B3CON -> -> 0 `i `uc ]
-"348
-[; ;CAN.c: 348:                         break;
-[e $U 1156  ]
-"349
-[; ;CAN.c: 349:                     case 6:
-[e :U 1164 ]
-"350
-[; ;CAN.c: 350:                         B4CON = 0;
-[e = _B4CON -> -> 0 `i `uc ]
-"351
-[; ;CAN.c: 351:                         break;
-[e $U 1156  ]
-"352
-[; ;CAN.c: 352:                     case 7:
-[e :U 1165 ]
-"353
-[; ;CAN.c: 353:                         B5CON = 0;
-[e = _B5CON -> -> 0 `i `uc ]
-"354
-[; ;CAN.c: 354:                         break;
-[e $U 1156  ]
-"355
-[; ;CAN.c: 355:                 }
-}
-[e $U 1156  ]
+[; ;CAN.c: 329:                     case 0:
 [e :U 1157 ]
-[e [\ -> _k `i , $ -> 0 `i 1158
- , $ -> 1 `i 1159
- , $ -> 2 `i 1160
- , $ -> 3 `i 1161
- , $ -> 4 `i 1162
- , $ -> 5 `i 1163
- , $ -> 6 `i 1164
- , $ -> 7 `i 1165
- 1156 ]
+"330
+[; ;CAN.c: 330:                         RXB0CON = 0;
+[e = _RXB0CON -> -> 0 `i `uc ]
+"331
+[; ;CAN.c: 331:                         break;
+[e $U 1155  ]
+"332
+[; ;CAN.c: 332:                     case 1:
+[e :U 1158 ]
+"333
+[; ;CAN.c: 333:                         RXB1CON = 0;
+[e = _RXB1CON -> -> 0 `i `uc ]
+"334
+[; ;CAN.c: 334:                         break;
+[e $U 1155  ]
+"335
+[; ;CAN.c: 335:                     case 2:
+[e :U 1159 ]
+"336
+[; ;CAN.c: 336:                         B0CON = 0;
+[e = _B0CON -> -> 0 `i `uc ]
+"337
+[; ;CAN.c: 337:                         break;
+[e $U 1155  ]
+"338
+[; ;CAN.c: 338:                     case 3:
+[e :U 1160 ]
+"339
+[; ;CAN.c: 339:                         B1CON = 0;
+[e = _B1CON -> -> 0 `i `uc ]
+"340
+[; ;CAN.c: 340:                         break;
+[e $U 1155  ]
+"341
+[; ;CAN.c: 341:                     case 4:
+[e :U 1161 ]
+"342
+[; ;CAN.c: 342:                         B2CON = 0;
+[e = _B2CON -> -> 0 `i `uc ]
+"343
+[; ;CAN.c: 343:                         break;
+[e $U 1155  ]
+"344
+[; ;CAN.c: 344:                     case 5:
+[e :U 1162 ]
+"345
+[; ;CAN.c: 345:                         B3CON = 0;
+[e = _B3CON -> -> 0 `i `uc ]
+"346
+[; ;CAN.c: 346:                         break;
+[e $U 1155  ]
+"347
+[; ;CAN.c: 347:                     case 6:
+[e :U 1163 ]
+"348
+[; ;CAN.c: 348:                         B4CON = 0;
+[e = _B4CON -> -> 0 `i `uc ]
+"349
+[; ;CAN.c: 349:                         break;
+[e $U 1155  ]
+"350
+[; ;CAN.c: 350:                     case 7:
+[e :U 1164 ]
+"351
+[; ;CAN.c: 351:                         B5CON = 0;
+[e = _B5CON -> -> 0 `i `uc ]
+"352
+[; ;CAN.c: 352:                         break;
+[e $U 1155  ]
+"353
+[; ;CAN.c: 353:                 }
+}
+[e $U 1155  ]
 [e :U 1156 ]
-"356
-[; ;CAN.c: 356:                 return FALSE;
+[e [\ -> _k `i , $ -> 0 `i 1157
+ , $ -> 1 `i 1158
+ , $ -> 2 `i 1159
+ , $ -> 3 `i 1160
+ , $ -> 4 `i 1161
+ , $ -> 5 `i 1162
+ , $ -> 6 `i 1163
+ , $ -> 7 `i 1164
+ 1155 ]
+[e :U 1155 ]
+"354
+[; ;CAN.c: 354:                 return FALSE;
 [e ) . `E10433 0 ]
 [e $UE 1141  ]
-"357
-[; ;CAN.c: 357:             }
+"355
+[; ;CAN.c: 355:             }
 }
-[e :U 1155 ]
-"358
-[; ;CAN.c: 358:             CAN_MoveBuffIntoFrame(message->data, &RXB0D0);
+[e :U 1154 ]
+"356
+[; ;CAN.c: 356:             CAN_MoveBuffIntoFrame(message->data, &RXB0D0);
 [e ( _CAN_MoveBuffIntoFrame (2 , &U . *U _message 5 -> &U _RXB0D0 `*uc ]
+"357
+[; ;CAN.c: 357:         }
+}
+[e $U 1165  ]
 "359
-[; ;CAN.c: 359:         }
+[; ;CAN.c: 359:         else
+[e :U 1153 ]
+"360
+[; ;CAN.c: 360:         {
+{
+"361
+[; ;CAN.c: 361:             message->message_type=0x02;
+[e = . *U _message 1 -> -> 2 `i `uc ]
+"362
+[; ;CAN.c: 362:         }
+}
+[e :U 1165 ]
+"364
+[; ;CAN.c: 364:         switch(k)
+[e $U 1167  ]
+"365
+[; ;CAN.c: 365:         {
+{
+"366
+[; ;CAN.c: 366:             case 0:
+[e :U 1168 ]
+"367
+[; ;CAN.c: 367:                 RXB0CON = 0;
+[e = _RXB0CON -> -> 0 `i `uc ]
+"368
+[; ;CAN.c: 368:                 break;
+[e $U 1166  ]
+"369
+[; ;CAN.c: 369:             case 1:
+[e :U 1169 ]
+"370
+[; ;CAN.c: 370:                 RXB1CON = 0;
+[e = _RXB1CON -> -> 0 `i `uc ]
+"371
+[; ;CAN.c: 371:                 break;
+[e $U 1166  ]
+"372
+[; ;CAN.c: 372:             case 2:
+[e :U 1170 ]
+"373
+[; ;CAN.c: 373:                 B0CON = 0;
+[e = _B0CON -> -> 0 `i `uc ]
+"374
+[; ;CAN.c: 374:                 break;
+[e $U 1166  ]
+"375
+[; ;CAN.c: 375:             case 3:
+[e :U 1171 ]
+"376
+[; ;CAN.c: 376:                 B1CON = 0;
+[e = _B1CON -> -> 0 `i `uc ]
+"377
+[; ;CAN.c: 377:                 break;
+[e $U 1166  ]
+"378
+[; ;CAN.c: 378:             case 4:
+[e :U 1172 ]
+"379
+[; ;CAN.c: 379:                 B2CON = 0;
+[e = _B2CON -> -> 0 `i `uc ]
+"380
+[; ;CAN.c: 380:                 break;
+[e $U 1166  ]
+"381
+[; ;CAN.c: 381:             case 5:
+[e :U 1173 ]
+"382
+[; ;CAN.c: 382:                 B3CON = 0;
+[e = _B3CON -> -> 0 `i `uc ]
+"383
+[; ;CAN.c: 383:                 break;
+[e $U 1166  ]
+"384
+[; ;CAN.c: 384:             case 6:
+[e :U 1174 ]
+"385
+[; ;CAN.c: 385:                 B4CON = 0;
+[e = _B4CON -> -> 0 `i `uc ]
+"386
+[; ;CAN.c: 386:                 break;
+[e $U 1166  ]
+"387
+[; ;CAN.c: 387:             case 7:
+[e :U 1175 ]
+"388
+[; ;CAN.c: 388:                 B5CON = 0;
+[e = _B5CON -> -> 0 `i `uc ]
+"389
+[; ;CAN.c: 389:                 break;
+[e $U 1166  ]
+"390
+[; ;CAN.c: 390:         }
 }
 [e $U 1166  ]
-"361
-[; ;CAN.c: 361:         else
-[e :U 1154 ]
-"362
-[; ;CAN.c: 362:         {
-{
-"363
-[; ;CAN.c: 363:             message->message_type=0x02;
-[e = . *U _message 1 -> -> 2 `i `uc ]
-"364
-[; ;CAN.c: 364:         }
-}
-[e :U 1166 ]
-"366
-[; ;CAN.c: 366:         switch(k)
-[e $U 1168  ]
-"367
-[; ;CAN.c: 367:         {
-{
-"368
-[; ;CAN.c: 368:             case 0:
-[e :U 1169 ]
-"369
-[; ;CAN.c: 369:                 RXB0CON = 0;
-[e = _RXB0CON -> -> 0 `i `uc ]
-"370
-[; ;CAN.c: 370:                 break;
-[e $U 1167  ]
-"371
-[; ;CAN.c: 371:             case 1:
-[e :U 1170 ]
-"372
-[; ;CAN.c: 372:                 RXB1CON = 0;
-[e = _RXB1CON -> -> 0 `i `uc ]
-"373
-[; ;CAN.c: 373:                 break;
-[e $U 1167  ]
-"374
-[; ;CAN.c: 374:             case 2:
-[e :U 1171 ]
-"375
-[; ;CAN.c: 375:                 B0CON = 0;
-[e = _B0CON -> -> 0 `i `uc ]
-"376
-[; ;CAN.c: 376:                 break;
-[e $U 1167  ]
-"377
-[; ;CAN.c: 377:             case 3:
-[e :U 1172 ]
-"378
-[; ;CAN.c: 378:                 B1CON = 0;
-[e = _B1CON -> -> 0 `i `uc ]
-"379
-[; ;CAN.c: 379:                 break;
-[e $U 1167  ]
-"380
-[; ;CAN.c: 380:             case 4:
-[e :U 1173 ]
-"381
-[; ;CAN.c: 381:                 B2CON = 0;
-[e = _B2CON -> -> 0 `i `uc ]
-"382
-[; ;CAN.c: 382:                 break;
-[e $U 1167  ]
-"383
-[; ;CAN.c: 383:             case 5:
-[e :U 1174 ]
-"384
-[; ;CAN.c: 384:                 B3CON = 0;
-[e = _B3CON -> -> 0 `i `uc ]
-"385
-[; ;CAN.c: 385:                 break;
-[e $U 1167  ]
-"386
-[; ;CAN.c: 386:             case 6:
-[e :U 1175 ]
-"387
-[; ;CAN.c: 387:                 B4CON = 0;
-[e = _B4CON -> -> 0 `i `uc ]
-"388
-[; ;CAN.c: 388:                 break;
-[e $U 1167  ]
-"389
-[; ;CAN.c: 389:             case 7:
-[e :U 1176 ]
-"390
-[; ;CAN.c: 390:                 B5CON = 0;
-[e = _B5CON -> -> 0 `i `uc ]
-"391
-[; ;CAN.c: 391:                 break;
-[e $U 1167  ]
-"392
-[; ;CAN.c: 392:         }
-}
-[e $U 1167  ]
-[e :U 1168 ]
-[e [\ -> _k `i , $ -> 0 `i 1169
- , $ -> 1 `i 1170
- , $ -> 2 `i 1171
- , $ -> 3 `i 1172
- , $ -> 4 `i 1173
- , $ -> 5 `i 1174
- , $ -> 6 `i 1175
- , $ -> 7 `i 1176
- 1167 ]
 [e :U 1167 ]
-"393
-[; ;CAN.c: 393:         return TRUE;
+[e [\ -> _k `i , $ -> 0 `i 1168
+ , $ -> 1 `i 1169
+ , $ -> 2 `i 1170
+ , $ -> 3 `i 1171
+ , $ -> 4 `i 1172
+ , $ -> 5 `i 1173
+ , $ -> 6 `i 1174
+ , $ -> 7 `i 1175
+ 1166 ]
+[e :U 1166 ]
+"391
+[; ;CAN.c: 391:         return TRUE;
 [e ) . `E10433 1 ]
 [e $UE 1141  ]
-"394
-[; ;CAN.c: 394:     }
+"392
+[; ;CAN.c: 392:     }
 }
-[e $U 1177  ]
-"395
-[; ;CAN.c: 395:     else
+[e $U 1176  ]
+"393
+[; ;CAN.c: 393:     else
 [e :U 1152 ]
-"396
-[; ;CAN.c: 396:     {
+"394
+[; ;CAN.c: 394:     {
 {
-"397
-[; ;CAN.c: 397:         return FALSE;
+"395
+[; ;CAN.c: 395:         return FALSE;
 [e ) . `E10433 0 ]
 [e $UE 1141  ]
-"398
-[; ;CAN.c: 398:     }
+"396
+[; ;CAN.c: 396:     }
 }
-[e :U 1177 ]
-"399
-[; ;CAN.c: 399: }
+[e :U 1176 ]
+"397
+[; ;CAN.c: 397: }
 [e :UE 1141 ]
 }
-"408
-[; ;CAN.c: 408: void CAN_GenID(mID * message, BYTE frameID)
+"406
+[; ;CAN.c: 406: void CAN_GenID(mID * message, BYTE frameID)
 [v _CAN_GenID `(v ~T0 @X0 1 ef2`*S1115`uc ]
-"409
-[; ;CAN.c: 409: {
+"407
+[; ;CAN.c: 407: {
 {
 [e :U _CAN_GenID ]
-"408
-[; ;CAN.c: 408: void CAN_GenID(mID * message, BYTE frameID)
+"406
+[; ;CAN.c: 406: void CAN_GenID(mID * message, BYTE frameID)
 [v _message `*S1115 ~T0 @X0 1 r1 ]
 [v _frameID `uc ~T0 @X0 1 r2 ]
-"409
-[; ;CAN.c: 409: {
+"407
+[; ;CAN.c: 407: {
 [f ]
-"411
-[; ;CAN.c: 411:     message->frame_type = 0x03;
+"409
+[; ;CAN.c: 409:     message->frame_type = 0x03;
 [e = . *U _message 2 -> -> 3 `i `uc ]
-"412
-[; ;CAN.c: 412:     message->message_type = 0x01;
+"410
+[; ;CAN.c: 410:     message->message_type = 0x01;
 [e = . *U _message 1 -> -> 1 `i `uc ]
-"413
-[; ;CAN.c: 413:     message->id.w[1] = (WORD)frameID * (WORD)4;
+"411
+[; ;CAN.c: 411:     message->id.w[1] = (WORD)frameID * (WORD)4;
 [e = *U + &U . . *U _message 4 1 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _message 4 1 `ui `ux -> * -> -> _frameID `us `ui -> -> -> 4 `i `us `ui `us ]
-"414
-[; ;CAN.c: 414:     message->id.w[0] = DaneCan.adresCAN + 0x012c;
+"412
+[; ;CAN.c: 412:     message->id.w[0] = DaneCan.adresCAN + 0x012c;
 [e = *U + &U . . *U _message 4 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _message 4 1 `ui `ux -> + -> . _DaneCan 1 `ui -> -> 300 `i `ui `us ]
-"415
-[; ;CAN.c: 415:     message->id.v[2] |= 0x01;
+"413
+[; ;CAN.c: 413:     message->id.v[2] |= 0x01;
 [e =| *U + &U . . *U _message 4 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . . *U _message 4 2 `ui `ux -> -> 1 `i `uc ]
-"416
-[; ;CAN.c: 416:     message->id.v[1] |= 0x00;
+"414
+[; ;CAN.c: 414:     message->id.v[1] |= 0x00;
 [e =| *U + &U . . *U _message 4 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . . *U _message 4 2 `ui `ux -> -> 0 `i `uc ]
-"417
-[; ;CAN.c: 417:     message ->id.bits.b16 = 0;
+"415
+[; ;CAN.c: 415:     message ->id.bits.b16 = 0;
 [e = . . . *U _message 4 6 16 -> -> 0 `i `uc ]
-"418
-[; ;CAN.c: 418:     message ->id.bits.b17 = 0;
+"416
+[; ;CAN.c: 416:     message ->id.bits.b17 = 0;
 [e = . . . *U _message 4 6 17 -> -> 0 `i `uc ]
-"422
-[; ;CAN.c: 422: }
-[e :UE 1178 ]
+"420
+[; ;CAN.c: 420: }
+[e :UE 1177 ]
 }

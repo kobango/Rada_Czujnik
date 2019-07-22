@@ -311,9 +311,7 @@ BOOL CAN_TakeFrame(mID * message)
         message->id.v[1] = RXB0EIDH;
         UINT op_id = (RXB0SIDL/8) | (RXB0SIDL&0x03);
         message->id.v[2] = op_id;
-        if(op_id>0x0008){
-            int a = 0;
-        }
+        
         message->id.w[1] |= (WORD)RXB0SIDH*32;
         message->frame_type=CAN_FRAME_EXT;
 

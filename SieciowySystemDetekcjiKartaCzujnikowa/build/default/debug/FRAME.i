@@ -18385,8 +18385,8 @@ static void FRAME_SensorExcitationStatus(mID *message)
     }
     else
     {
-        int theta = message->id.w[0];
-        if(IsInNeighbors(message->id.w[0]))
+        int theta = message->id.Val;
+        if(IsInNeighbors(theta))
         {
         LOCK_Set(message->data[0]);
         }
@@ -18692,13 +18692,21 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
     }
     else
     {
-
         for(i=0; i<4; i++)
         {
             Dane->sasiedzi[i+(4*nrRamki)].adres = ((WORD)message->data[2*i] << 8) |
                     (WORD)message->data[(2*i)+1];
 
+
             Dane->sasiedzi[i+(4*nrRamki)].pointerNaSasiada = &wartosciSasiada[i+(4*nrRamki)];
+            if(Dane->sasiedzi[i+(4*nrRamki)].adres==16){
+                WORD k;
+                for(k=0;k<100;k++)
+                {
+                    LED_Clear();
+                }
+
+            }
         }
 
     }
@@ -18775,7 +18783,7 @@ void FRAME_HandleCanFrame(mID * message)
         message->id.v[2] = identyfikator*4;
         CAN_GenID(message,identyfikator);
         CAN_SendFrame(message);
-# 563 "FRAME.c"
+# 571 "FRAME.c"
        while(RXB0CONbits.FILHIT3)
        {
            if(TXB0CONbits.TXERR == 1){

@@ -59,7 +59,7 @@ static void FRAME_SensorExcitationStatus(mID *message) // id = 0x01
     else
     {
         int theta = message->id.w[0];
-        if(IsInNeighbors(message->id.w[0]))
+        if(IsInNeighbors(theta))
         {
         LOCK_Set(message->data[0]);
         }
@@ -467,15 +467,23 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)  //0x10
     }
     else
     {
-        
         for(i=0; i<4; i++)
         {
             Dane->sasiedzi[i+(4*nrRamki)].adres =  ((WORD)message->data[2*i] << 8) |
                     (WORD)message->data[(2*i)+1];
+           
             //zapisz adres struktury
             Dane->sasiedzi[i+(4*nrRamki)].pointerNaSasiada = &wartosciSasiada[i+(4*nrRamki)];
+            if(Dane->sasiedzi[i+(4*nrRamki)].adres==16){
+                WORD k;
+                for(k=0;k<100;k++)
+                {
+                    LED_Clear();
+                }
+                
+            }
         } 
-                 
+              
     } 
 }
 
