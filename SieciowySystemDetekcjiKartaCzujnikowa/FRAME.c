@@ -59,7 +59,7 @@ static void FRAME_SensorExcitationStatus(mID *message) // id = 0x01
     else
     {
         WORD k;
-        WORD Saturn  = Dane->sasiedzi[0+(4*0x10)].adres;
+        WORD Saturn  = Dane->sasiedzi[0+(4*0)].adres;
         if(Saturn == 11)
         {
             int Satrun_prime = Saturn;
@@ -94,7 +94,7 @@ static BYTE IsInNeighbors(UINT message_adress)
     //0x10
     for(i=0; i<4; i++)
         {
-            if(message_adress == Dane->sasiedzi[i+(4*0x10)].adres )
+            if(message_adress == Dane->sasiedzi[i+(4*0)].adres )
             {
                 return 1;
             }
@@ -475,15 +475,15 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)  //0x10
     WORD i;
     
     
-    
+    WORD kier = (nrRamki-0x10);
     if(message->message_type == CAN_MSG_RTR)
     {
         
         message->data_length = 8;
         for(i=0; i<4; i++)
         {
-            message->data[2*i] = (BYTE)(Dane->sasiedzi[i+(4*nrRamki)].adres >> 8);
-            message->data[(2*i)+1] = (BYTE)Dane->sasiedzi[i+(4*nrRamki)].adres;
+            message->data[2*i] = (BYTE)(Dane->sasiedzi[i+(4*kier)].adres >> 8);
+            message->data[(2*i)+1] = (BYTE)Dane->sasiedzi[i+(4*kier)].adres;
         }
         
     }
@@ -495,10 +495,10 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)  //0x10
          WORD gaja = message->data[0] | message->data[1];
         for(i=0; i<4; i++)
         {
-            Dane->sasiedzi[i+(4*nrRamki)].adres =  ((WORD)message->data[2*i]) |
+            Dane->sasiedzi[i+(4*kier)].adres =  ((WORD)message->data[2*i]) |
                     (WORD)message->data[(2*i)+1];
             //zapisz adres struktury
-            Dane->sasiedzi[i+(4*nrRamki)].pointerNaSasiada = &wartosciSasiada[i+(4*nrRamki)];
+            Dane->sasiedzi[i+(4*kier)].pointerNaSasiada = &wartosciSasiada[i+(4*kier)];
         } 
                  
     } 

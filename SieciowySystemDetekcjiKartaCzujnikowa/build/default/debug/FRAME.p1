@@ -1463,9 +1463,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;FRAME.c: 61:         WORD k;
 [v _k `us ~T0 @X0 1 a ]
 "62
-[; ;FRAME.c: 62:         WORD Saturn = Dane->sasiedzi[0+(4*0x10)].adres;
+[; ;FRAME.c: 62:         WORD Saturn = Dane->sasiedzi[0+(4*0)].adres;
 [v _Saturn `us ~T0 @X0 1 a ]
-[e = _Saturn . *U + &U . *U _Dane 6 * -> -> + -> 0 `i * -> 4 `i -> 16 `i `ui `ux -> -> # *U &U . *U _Dane 6 `ui `ux 0 ]
+[e = _Saturn . *U + &U . *U _Dane 6 * -> -> + -> 0 `i * -> 4 `i -> 0 `i `ui `ux -> -> # *U &U . *U _Dane 6 `ui `ux 0 ]
 "63
 [; ;FRAME.c: 63:         if(Saturn == 11)
 [e $ ! == -> _Saturn `ui -> -> 11 `i `ui 1121  ]
@@ -1590,8 +1590,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;FRAME.c: 96:         {
 {
 "97
-[; ;FRAME.c: 97:             if(message_adress == Dane->sasiedzi[i+(4*0x10)].adres )
-[e $ ! == _message_adress -> . *U + &U . *U _Dane 6 * -> + -> _i `ui -> * -> 4 `i -> 16 `i `ui `ux -> -> # *U &U . *U _Dane 6 `ui `ux 0 `ui 1134  ]
+[; ;FRAME.c: 97:             if(message_adress == Dane->sasiedzi[i+(4*0)].adres )
+[e $ ! == _message_adress -> . *U + &U . *U _Dane 6 * -> + -> _i `ui -> * -> 4 `i -> 0 `i `ui `ux -> -> # *U &U . *U _Dane 6 `ui `ux 0 `ui 1134  ]
 "98
 [; ;FRAME.c: 98:             {
 {
@@ -2151,6 +2151,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "475
 [; ;FRAME.c: 475:     WORD i;
 [v _i `us ~T0 @X0 1 a ]
+"478
+[; ;FRAME.c: 478:     WORD kier = (nrRamki-0x10);
+[v _kier `us ~T0 @X0 1 a ]
+[e = _kier -> - -> _nrRamki `ui -> -> 16 `i `ui `us ]
 "479
 [; ;FRAME.c: 479:     if(message->message_type == 0x02)
 [e $ ! == -> . *U _message 1 `i -> 2 `i 1169  ]
@@ -2171,11 +2175,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;FRAME.c: 484:         {
 {
 "485
-[; ;FRAME.c: 485:             message->data[2*i] = (BYTE)(Dane->sasiedzi[i+(4*nrRamki)].adres >> 8);
-[e = *U + &U . *U _message 5 * -> * -> -> 2 `i `ui -> _i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> >> -> . *U + &U . *U _Dane 6 * -> + -> _i `ui * -> -> 4 `i `ui -> _nrRamki `ui `ux -> -> # *U &U . *U _Dane 6 `ui `ux 0 `ui -> 8 `i `uc ]
+[; ;FRAME.c: 485:             message->data[2*i] = (BYTE)(Dane->sasiedzi[i+(4*kier)].adres >> 8);
+[e = *U + &U . *U _message 5 * -> * -> -> 2 `i `ui -> _i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> >> -> . *U + &U . *U _Dane 6 * -> + -> _i `ui * -> -> 4 `i `ui -> _kier `ui `ux -> -> # *U &U . *U _Dane 6 `ui `ux 0 `ui -> 8 `i `uc ]
 "486
-[; ;FRAME.c: 486:             message->data[(2*i)+1] = (BYTE)Dane->sasiedzi[i+(4*nrRamki)].adres;
-[e = *U + &U . *U _message 5 * -> + * -> -> 2 `i `ui -> _i `ui -> -> 1 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> . *U + &U . *U _Dane 6 * -> + -> _i `ui * -> -> 4 `i `ui -> _nrRamki `ui `ux -> -> # *U &U . *U _Dane 6 `ui `ux 0 `uc ]
+[; ;FRAME.c: 486:             message->data[(2*i)+1] = (BYTE)Dane->sasiedzi[i+(4*kier)].adres;
+[e = *U + &U . *U _message 5 * -> + * -> -> 2 `i `ui -> _i `ui -> -> 1 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> . *U + &U . *U _Dane 6 * -> + -> _i `ui * -> -> 4 `i `ui -> _kier `ui `ux -> -> # *U &U . *U _Dane 6 `ui `ux 0 `uc ]
 "487
 [; ;FRAME.c: 487:         }
 }
@@ -2216,11 +2220,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;FRAME.c: 497:         {
 {
 "498
-[; ;FRAME.c: 498:             Dane->sasiedzi[i+(4*nrRamki)].adres = ((WORD)message->data[2*i]) |
-[e = . *U + &U . *U _Dane 6 * -> + -> _i `ui * -> -> 4 `i `ui -> _nrRamki `ui `ux -> -> # *U &U . *U _Dane 6 `ui `ux 0 -> | -> -> *U + &U . *U _message 5 * -> * -> -> 2 `i `ui -> _i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `us `ui -> -> *U + &U . *U _message 5 * -> + * -> -> 2 `i `ui -> _i `ui -> -> 1 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `us `ui `us ]
+[; ;FRAME.c: 498:             Dane->sasiedzi[i+(4*kier)].adres = ((WORD)message->data[2*i]) |
+[e = . *U + &U . *U _Dane 6 * -> + -> _i `ui * -> -> 4 `i `ui -> _kier `ui `ux -> -> # *U &U . *U _Dane 6 `ui `ux 0 -> | -> -> *U + &U . *U _message 5 * -> * -> -> 2 `i `ui -> _i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `us `ui -> -> *U + &U . *U _message 5 * -> + * -> -> 2 `i `ui -> _i `ui -> -> 1 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `us `ui `us ]
 "501
-[; ;FRAME.c: 501:             Dane->sasiedzi[i+(4*nrRamki)].pointerNaSasiada = &wartosciSasiada[i+(4*nrRamki)];
-[e = . *U + &U . *U _Dane 6 * -> + -> _i `ui * -> -> 4 `i `ui -> _nrRamki `ui `ux -> -> # *U &U . *U _Dane 6 `ui `ux 1 &U *U + &U _wartosciSasiada * -> + -> _i `ui * -> -> 4 `i `ui -> _nrRamki `ui `ux -> -> # *U &U _wartosciSasiada `ui `ux ]
+[; ;FRAME.c: 501:             Dane->sasiedzi[i+(4*kier)].pointerNaSasiada = &wartosciSasiada[i+(4*kier)];
+[e = . *U + &U . *U _Dane 6 * -> + -> _i `ui * -> -> 4 `i `ui -> _kier `ui `ux -> -> # *U &U . *U _Dane 6 `ui `ux 1 &U *U + &U _wartosciSasiada * -> + -> _i `ui * -> -> 4 `i `ui -> _kier `ui `ux -> -> # *U &U _wartosciSasiada `ui `ux ]
 "502
 [; ;FRAME.c: 502:         }
 }
