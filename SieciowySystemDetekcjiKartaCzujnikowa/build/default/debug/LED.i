@@ -1,4 +1,4 @@
-# 1 "FRAME.c"
+# 1 "LED.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,268 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "FRAME.c" 2
-# 1 "./CAN.h" 1
-
-
-# 1 "./GenericTypeDefs.h" 1
-# 48 "./GenericTypeDefs.h"
-typedef enum _BOOL { FALSE = 0, TRUE } BOOL;
-# 58 "./GenericTypeDefs.h"
-typedef unsigned char BYTE;
-typedef unsigned short int WORD;
-typedef unsigned long DWORD;
-typedef unsigned long long QWORD;
-typedef signed char CHAR;
-typedef signed short int SHORT;
-typedef signed long LONG;
-typedef signed long long LONGLONG;
-
-
-typedef void VOID;
-
-typedef char CHAR8;
-typedef unsigned char UCHAR8;
-
-
-
-
-
-typedef signed int INT;
-typedef signed char INT8;
-typedef signed short int INT16;
-typedef signed long int INT32;
-typedef signed long long INT64;
-
-typedef unsigned int UINT;
-typedef unsigned char UINT8;
-typedef unsigned short int UINT16;
-typedef unsigned long int UINT32;
-typedef unsigned long long UINT64;
-
-typedef union _BYTE_VAL
-{
-    BYTE Val;
-    struct
-    {
-        unsigned char b0:1;
-        unsigned char b1:1;
-        unsigned char b2:1;
-        unsigned char b3:1;
-        unsigned char b4:1;
-        unsigned char b5:1;
-        unsigned char b6:1;
-        unsigned char b7:1;
-    } bits;
-} BYTE_VAL, BYTE_BITS;
-
-typedef union _WORD_VAL
-{
-    WORD Val;
-    BYTE v[2];
-    struct
-    {
-        BYTE LB;
-        BYTE HB;
-    } byte;
-    struct
-    {
-        unsigned char b0:1;
-        unsigned char b1:1;
-        unsigned char b2:1;
-        unsigned char b3:1;
-        unsigned char b4:1;
-        unsigned char b5:1;
-        unsigned char b6:1;
-        unsigned char b7:1;
-        unsigned char b8:1;
-        unsigned char b9:1;
-        unsigned char b10:1;
-        unsigned char b11:1;
-        unsigned char b12:1;
-        unsigned char b13:1;
-        unsigned char b14:1;
-        unsigned char b15:1;
-    } bits;
-} WORD_VAL, WORD_BITS;
-
-typedef union _DWORD_VAL
-{
-    DWORD Val;
- WORD w[2];
-    BYTE v[4];
-    struct
-    {
-        WORD LW;
-        WORD HW;
-    } word;
-    struct
-    {
-        BYTE LB;
-        BYTE HB;
-        BYTE UB;
-        BYTE MB;
-    } byte;
-    struct
-    {
-        WORD_VAL low;
-        WORD_VAL high;
-    }wordUnion;
-    struct
-    {
-        unsigned char b0:1;
-        unsigned char b1:1;
-        unsigned char b2:1;
-        unsigned char b3:1;
-        unsigned char b4:1;
-        unsigned char b5:1;
-        unsigned char b6:1;
-        unsigned char b7:1;
-        unsigned char b8:1;
-        unsigned char b9:1;
-        unsigned char b10:1;
-        unsigned char b11:1;
-        unsigned char b12:1;
-        unsigned char b13:1;
-        unsigned char b14:1;
-        unsigned char b15:1;
-        unsigned char b16:1;
-        unsigned char b17:1;
-        unsigned char b18:1;
-        unsigned char b19:1;
-        unsigned char b20:1;
-        unsigned char b21:1;
-        unsigned char b22:1;
-        unsigned char b23:1;
-        unsigned char b24:1;
-        unsigned char b25:1;
-        unsigned char b26:1;
-        unsigned char b27:1;
-        unsigned char b28:1;
-        unsigned char b29:1;
-        unsigned char b30:1;
-        unsigned char b31:1;
-    } bits;
-} DWORD_VAL;
-
-typedef union _QWORD_VAL
-{
-    QWORD Val;
- DWORD d[2];
- WORD w[4];
-    BYTE v[8];
-    struct
-    {
-        DWORD LD;
-        DWORD HD;
-    } dword;
-    struct
-    {
-        WORD LW;
-        WORD HW;
-        WORD UW;
-        WORD MW;
-    } word;
-    struct
-    {
-        unsigned char b0:1;
-        unsigned char b1:1;
-        unsigned char b2:1;
-        unsigned char b3:1;
-        unsigned char b4:1;
-        unsigned char b5:1;
-        unsigned char b6:1;
-        unsigned char b7:1;
-        unsigned char b8:1;
-        unsigned char b9:1;
-        unsigned char b10:1;
-        unsigned char b11:1;
-        unsigned char b12:1;
-        unsigned char b13:1;
-        unsigned char b14:1;
-        unsigned char b15:1;
-        unsigned char b16:1;
-        unsigned char b17:1;
-        unsigned char b18:1;
-        unsigned char b19:1;
-        unsigned char b20:1;
-        unsigned char b21:1;
-        unsigned char b22:1;
-        unsigned char b23:1;
-        unsigned char b24:1;
-        unsigned char b25:1;
-        unsigned char b26:1;
-        unsigned char b27:1;
-        unsigned char b28:1;
-        unsigned char b29:1;
-        unsigned char b30:1;
-        unsigned char b31:1;
-        unsigned char b32:1;
-        unsigned char b33:1;
-        unsigned char b34:1;
-        unsigned char b35:1;
-        unsigned char b36:1;
-        unsigned char b37:1;
-        unsigned char b38:1;
-        unsigned char b39:1;
-        unsigned char b40:1;
-        unsigned char b41:1;
-        unsigned char b42:1;
-        unsigned char b43:1;
-        unsigned char b44:1;
-        unsigned char b45:1;
-        unsigned char b46:1;
-        unsigned char b47:1;
-        unsigned char b48:1;
-        unsigned char b49:1;
-        unsigned char b50:1;
-        unsigned char b51:1;
-        unsigned char b52:1;
-        unsigned char b53:1;
-        unsigned char b54:1;
-        unsigned char b55:1;
-        unsigned char b56:1;
-        unsigned char b57:1;
-        unsigned char b58:1;
-        unsigned char b59:1;
-        unsigned char b60:1;
-        unsigned char b61:1;
-        unsigned char b62:1;
-        unsigned char b63:1;
-    } bits;
-} QWORD_VAL;
-# 3 "./CAN.h" 2
-# 15 "./CAN.h"
-    typedef enum{
-        KARTA,
-        CZUJNIK
-    }TARGET_ENUM;
-
-    typedef struct{
-
-            unsigned char buffer_status;
-
-            unsigned char message_type;
-
-            unsigned char frame_type;
-
-            unsigned char buffer;
-
-
-            DWORD_VAL id;
-            unsigned char data[8];
-            unsigned char data_length;
-    }mID;
-
-    void CAN_Setup(void);
-    BOOL CAN_TakeFrame(mID * message);
-    void CAN_SendFrame(mID * message);
-    void CAN_GenID(mID * message,BYTE frameID);
-# 2 "FRAME.c" 2
-# 1 "./main.h" 1
-
-
-
+# 1 "LED.c" 2
+# 10 "LED.c"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -18167,115 +17907,247 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 4 "./main.h" 2
+# 10 "LED.c" 2
 
-
-
-# 1 "./DetekcjaSasiadow.h" 1
-# 15 "./DetekcjaSasiadow.h"
-    typedef struct{
-        SHORT pointerU16;
-        SHORT aktualnaWartoscSredniaS16, poprzedniaWartoscSredniaS16;
-        SHORT wartosciHistoryczneS16[25];
-    }historiaStruct;
-
-    typedef struct{
-        WORD aktualnaWartoscU16, aktualnyStanU16, poprzedniStanU16;
-        SHORT przesuniecieTlaS16[3];
-        historiaStruct historia;
-    }wartosciSasiadaStruct;
-
-    typedef struct{
-        WORD adres;
-        wartosciSasiadaStruct *pointerNaSasiada;
-    }sasiadStruct;
-
-
-
-    void AktualizacjaTlaOdSasiadow(void);
-
-
-    extern wartosciSasiadaStruct wartosciSasiada[8];
-# 7 "./main.h" 2
-# 45 "./main.h"
-    struct PozycjaNaMapceStruct
-    {
-        WORD xU16 ;
-        WORD yU16 ;
-    };
-
-    struct DaneStruct
-        {
-            WORD numerSeryjnyU16 ;
-            WORD startupU16 ;
-            WORD wersjaOprogramowaniaU16 ;
-            struct PozycjaNaMapceStruct PozycjaNaMapce;
-            WORD wersjaSprzetuU16 ;
-            WORD timerRysowaniaWykresuU16 ;
-            sasiadStruct sasiedzi[8];
-            WORD rokU16, miesiacU16, dzienU16, godzinaU16, minutaU16;
-        };
-
-    struct FlagStruct{
-  unsigned pomiarTla :1;
-  unsigned detekcja :1;
-  unsigned zgloszenie :1;
-  unsigned zapisDoFlash :1;
-  unsigned wykonanoZapisDoFlash :1;
-        unsigned pomiarAccelerometer :1;
-        unsigned wykonanoReset :1;
-        unsigned aktualizacjaSasiadow : 1;
-
-        struct CANStruct{
-            unsigned wyslijRamkeDanych :1;
-            unsigned odebranoDane :1;
-            unsigned CanAktywny : 1;
-            WORD identyfikatorU16;
-            }CAN;
-
-            BYTE frameCounterU8;
-  };
-
-
-
-
-
-    typedef struct{
-         union
-        {
-            BYTE flagiU8;
-
-            struct{
-                unsigned obsluzWeWy : 1;
-                unsigned error : 1;
-                unsigned uczenieTla : 1;
-                unsigned inicjalizacja : 1;
-                unsigned ramkaTx : 1;
-                unsigned wykonanoZapisDoFlash: 1;
-                unsigned pomiarTla: 8;
-            };
-        }Flags;
-
-        BYTE timerRamkiTxCANU8;
-    }KartaStruct;
-
-
-
-
-    extern KartaStruct DetectorLedRadar;
-
-    extern struct DaneStruct *Dane;
- extern struct FlagStruct Flagi;
-
-    extern void _startup (void);
-    void WylaczPrzerwania(void);
-    void WlaczPotwierdzenie(void);
-    void zapisUstawienDoEEPROM(void);
-    void InterruptHandlerHigh(void);
-    void INI_All(void);
-# 3 "FRAME.c" 2
 # 1 "./LED.h" 1
-# 12 "./LED.h"
+
+
+
+
+
+
+# 1 "./GenericTypeDefs.h" 1
+# 48 "./GenericTypeDefs.h"
+typedef enum _BOOL { FALSE = 0, TRUE } BOOL;
+# 58 "./GenericTypeDefs.h"
+typedef unsigned char BYTE;
+typedef unsigned short int WORD;
+typedef unsigned long DWORD;
+typedef unsigned long long QWORD;
+typedef signed char CHAR;
+typedef signed short int SHORT;
+typedef signed long LONG;
+typedef signed long long LONGLONG;
+
+
+typedef void VOID;
+
+typedef char CHAR8;
+typedef unsigned char UCHAR8;
+
+
+
+
+
+typedef signed int INT;
+typedef signed char INT8;
+typedef signed short int INT16;
+typedef signed long int INT32;
+typedef signed long long INT64;
+
+typedef unsigned int UINT;
+typedef unsigned char UINT8;
+typedef unsigned short int UINT16;
+typedef unsigned long int UINT32;
+typedef unsigned long long UINT64;
+
+typedef union _BYTE_VAL
+{
+    BYTE Val;
+    struct
+    {
+        unsigned char b0:1;
+        unsigned char b1:1;
+        unsigned char b2:1;
+        unsigned char b3:1;
+        unsigned char b4:1;
+        unsigned char b5:1;
+        unsigned char b6:1;
+        unsigned char b7:1;
+    } bits;
+} BYTE_VAL, BYTE_BITS;
+
+typedef union _WORD_VAL
+{
+    WORD Val;
+    BYTE v[2];
+    struct
+    {
+        BYTE LB;
+        BYTE HB;
+    } byte;
+    struct
+    {
+        unsigned char b0:1;
+        unsigned char b1:1;
+        unsigned char b2:1;
+        unsigned char b3:1;
+        unsigned char b4:1;
+        unsigned char b5:1;
+        unsigned char b6:1;
+        unsigned char b7:1;
+        unsigned char b8:1;
+        unsigned char b9:1;
+        unsigned char b10:1;
+        unsigned char b11:1;
+        unsigned char b12:1;
+        unsigned char b13:1;
+        unsigned char b14:1;
+        unsigned char b15:1;
+    } bits;
+} WORD_VAL, WORD_BITS;
+
+typedef union _DWORD_VAL
+{
+    DWORD Val;
+ WORD w[2];
+    BYTE v[4];
+    struct
+    {
+        WORD LW;
+        WORD HW;
+    } word;
+    struct
+    {
+        BYTE LB;
+        BYTE HB;
+        BYTE UB;
+        BYTE MB;
+    } byte;
+    struct
+    {
+        WORD_VAL low;
+        WORD_VAL high;
+    }wordUnion;
+    struct
+    {
+        unsigned char b0:1;
+        unsigned char b1:1;
+        unsigned char b2:1;
+        unsigned char b3:1;
+        unsigned char b4:1;
+        unsigned char b5:1;
+        unsigned char b6:1;
+        unsigned char b7:1;
+        unsigned char b8:1;
+        unsigned char b9:1;
+        unsigned char b10:1;
+        unsigned char b11:1;
+        unsigned char b12:1;
+        unsigned char b13:1;
+        unsigned char b14:1;
+        unsigned char b15:1;
+        unsigned char b16:1;
+        unsigned char b17:1;
+        unsigned char b18:1;
+        unsigned char b19:1;
+        unsigned char b20:1;
+        unsigned char b21:1;
+        unsigned char b22:1;
+        unsigned char b23:1;
+        unsigned char b24:1;
+        unsigned char b25:1;
+        unsigned char b26:1;
+        unsigned char b27:1;
+        unsigned char b28:1;
+        unsigned char b29:1;
+        unsigned char b30:1;
+        unsigned char b31:1;
+    } bits;
+} DWORD_VAL;
+
+typedef union _QWORD_VAL
+{
+    QWORD Val;
+ DWORD d[2];
+ WORD w[4];
+    BYTE v[8];
+    struct
+    {
+        DWORD LD;
+        DWORD HD;
+    } dword;
+    struct
+    {
+        WORD LW;
+        WORD HW;
+        WORD UW;
+        WORD MW;
+    } word;
+    struct
+    {
+        unsigned char b0:1;
+        unsigned char b1:1;
+        unsigned char b2:1;
+        unsigned char b3:1;
+        unsigned char b4:1;
+        unsigned char b5:1;
+        unsigned char b6:1;
+        unsigned char b7:1;
+        unsigned char b8:1;
+        unsigned char b9:1;
+        unsigned char b10:1;
+        unsigned char b11:1;
+        unsigned char b12:1;
+        unsigned char b13:1;
+        unsigned char b14:1;
+        unsigned char b15:1;
+        unsigned char b16:1;
+        unsigned char b17:1;
+        unsigned char b18:1;
+        unsigned char b19:1;
+        unsigned char b20:1;
+        unsigned char b21:1;
+        unsigned char b22:1;
+        unsigned char b23:1;
+        unsigned char b24:1;
+        unsigned char b25:1;
+        unsigned char b26:1;
+        unsigned char b27:1;
+        unsigned char b28:1;
+        unsigned char b29:1;
+        unsigned char b30:1;
+        unsigned char b31:1;
+        unsigned char b32:1;
+        unsigned char b33:1;
+        unsigned char b34:1;
+        unsigned char b35:1;
+        unsigned char b36:1;
+        unsigned char b37:1;
+        unsigned char b38:1;
+        unsigned char b39:1;
+        unsigned char b40:1;
+        unsigned char b41:1;
+        unsigned char b42:1;
+        unsigned char b43:1;
+        unsigned char b44:1;
+        unsigned char b45:1;
+        unsigned char b46:1;
+        unsigned char b47:1;
+        unsigned char b48:1;
+        unsigned char b49:1;
+        unsigned char b50:1;
+        unsigned char b51:1;
+        unsigned char b52:1;
+        unsigned char b53:1;
+        unsigned char b54:1;
+        unsigned char b55:1;
+        unsigned char b56:1;
+        unsigned char b57:1;
+        unsigned char b58:1;
+        unsigned char b59:1;
+        unsigned char b60:1;
+        unsigned char b61:1;
+        unsigned char b62:1;
+        unsigned char b63:1;
+    } bits;
+} QWORD_VAL;
+# 7 "./LED.h" 2
+
+
+
+
+
 void INI_LED_Start(void);
 UINT8 LED_Update(void);
 void Fulfillment_Lvl_Set(UINT a);
@@ -18285,601 +18157,363 @@ UINT LED_Clear(void);
 
 void LOCK_Set(BYTE k);
 BYTE LOCK_Get(void);
-# 4 "FRAME.c" 2
-# 1 "./FRAME.h" 1
-# 12 "./FRAME.h"
-extern mID ramkaCanRxCzujnika[5];
-void FRAME_HandleCanFrame(mID * message);
-# 5 "FRAME.c" 2
-# 1 "./MOC_Funct.h" 1
+# 11 "LED.c" 2
 
 
 
+typedef enum LED_RGA {RED = 0,GREEN = 1}LED_RGA_type;
+
+UINT8 LED_Control(LED_RGA_type color, UINT diode);
+void INI_LED_Start(void);
+UINT LED_Vect_Create(void);
+UINT LED_Right(UINT a);
+UINT LED_Left(UINT a);
+UINT LED_Light_Pos(LED_RGA_type color,UINT pos, UINT fulfillment);
+UINT8 LED_Update(void);
+UINT LED_Error(void);
+UINT LED_Clear(void);
+
+void Fulfillment_Lvl_Set(UINT a);
+UINT Fulfillment_Lvl_Get(void);
+
+void LOCK_Set(BYTE k);
+BYTE LOCK_Get(void);
 
 
 
+static UINT Fulfillment_Lvl = 20;
+static BYTE LOCK = 0;
 
-UINT MOC_StanWzbudzenia(void);
-UINT MOC_Wynikowa_wartosc_roznicowa(void);
-UINT MOC_Frame_Counter(void);
-UINT MOC_Aktualna_Temperatura(void);
-UINT MOC_NOTWORK(void);
-UINT MOC_RSSI_ramki(void);
-UINT MOC_LQI_ramki(void);
-UINT MOCK_PrzyspieszenieX(void);
-UINT MOCK_PrzyspieszenieY(void);
-UINT MOCK_PrzyspieszenieZ(void);
-UINT MOCK_Klikniecie_Spadek(void);
-UINT MOCK_Background(void);
-
-UINT MOCK_SoftwareReset(void);
-# 6 "FRAME.c" 2
-# 1 "./TRM.h" 1
-# 11 "./TRM.h"
-    typedef struct
-    {
-        union
-        {
-            WORD FlagiU16;
-
-            struct
-            {
-                unsigned wyslijRamkeStanu : 1;
-                unsigned wyslijRamkeUczeniaTla : 1;
-                unsigned wyslijRamkeResetuCzujnikow : 1;
-
-            };
-        }Flags;
-
-        WORD adresCAN;
-
-
-    }DaneCanStruct;
-    extern DaneCanStruct DaneCan;
-
-    void TRM_DataTransmition(void);
-# 7 "FRAME.c" 2
-
-typedef short Word16;
-typedef unsigned short UWord16;
-typedef long Word32;
-typedef unsigned long UWord32;
-
-typedef union tuReg32 {
-  UWord32 Val32;
-
-  struct {
-    UWord16 LW;
-    UWord16 HW;
-  } Word;
-
-  char Val[4];
-} uReg32;
-
-mID ramkaCanRxKarty[5], ramkaCanTxKarty;
-BYTE IsInNeighbors(UINT message_adress);
-
-volatile UINT NeightAdress1 = 0;
-volatile UINT NeightAdress2 = 0;
-volatile UINT NeightAdress3 = 0;
-volatile UINT NeightAdress4 = 0;
-volatile UINT NeightAdress5 = 0;
-volatile UINT NeightAdress6 = 0;
-volatile UINT NeightAdress7 = 0;
-volatile UINT NeightAdress8 = 0;
-# 43 "FRAME.c"
-static void FRAME_SensorExcitationStatus(mID *message)
+UINT LED_Error(void)
 {
-    if(message->message_type == 0x02)
+    LED_Control(RED,0b1010101010);
+    LED_Control(GREEN,0b0000000000);
+    return 1;
+}
+
+
+UINT LED_Clear(void)
+{
+    LED_Control(RED,0b0000000000);
+    LED_Control(GREEN,0b1010101010);
+    return 1;
+}
+
+void LOCK_Set(BYTE k)
+{
+    LOCK = k;
+}
+
+BYTE LOCK_Get(void)
+{
+    return LOCK;
+}
+# 73 "LED.c"
+void Fulfillment_Lvl_Set(UINT a)
+{
+    Fulfillment_Lvl = a;
+}
+# 89 "LED.c"
+UINT Fulfillment_Lvl_Get(void)
+{
+    return Fulfillment_Lvl;
+}
+# 105 "LED.c"
+UINT8 LED_Update(void)
+{
+    static LED_RGA_type Red = RED;
+    static LED_RGA_type Green = GREEN;
+    static UINT pos1 = 0b0000000001;
+    static UINT pos2 = 0b0000000001;
+
+    if(LOCK == 0)
     {
-        message->data_length = 6;
+    LED_Control(RED,0b0000000000);
+    LED_Light_Pos(Green,pos2,Fulfillment_Lvl);
 
-
-
-
-
-        message->data[0] = LOCK_Get();
-        message->data[1] = MOC_Wynikowa_wartosc_roznicowa() >> 8 ;
-        message->data[2] = MOC_Wynikowa_wartosc_roznicowa() & 0x00FF;
-        message->data[3] = MOC_Frame_Counter();
-        message->data[4] = MOC_Aktualna_Temperatura();
-        message->data[5] = MOC_NOTWORK();
-# 68 "FRAME.c"
     }
     else
     {
+    LED_Control(Green,0b0000000000);
+    LED_Light_Pos(RED,pos1,Fulfillment_Lvl);
+    }
+    pos1 = LED_Right(pos1);
+    pos2 = LED_Left(pos2);
 
-        WORD iterator_beta;
-
-
-        if(IsInNeighbors(11))
+    return 1;
+}
+# 140 "LED.c"
+UINT LED_Right(UINT a)
+{
+    if ((a & 0b0000000001) == 0b0000000001)
+    {
+        UINT b = a & 0b1111111110;
+        b = b >> 1;
+        b = b | 0b1000000000;
+        return b;
+    }
+    else
+    {
+        a =a >> 1;
+        return a;
+    }
+}
+# 167 "LED.c"
+UINT LED_Left(UINT a)
+{
+    if ((a & 0b1000000000) == 0b1000000000)
+    {
+        UINT b = a & 0b0111111111;
+        b = b << 1;
+        b = b | 0b0000000001;
+        return b;
+    }
+    else
+    {
+        a = a << 1;
+        return a;
+    }
+}
+# 196 "LED.c"
+UINT LED_Light_Pos(LED_RGA_type color,UINT pos, UINT fulfillment)
+{
+    UINT pos2 =pos;
+    UINT LED_array = 0b0000000000;
+    UINT flage = fulfillment/10;
+    if(color == RED)
+    {
+        while(flage>0)
         {
+            LED_array = pos2|LED_array;
+            pos2 = LED_Left(pos2);
+            flage = flage - 1;
+        }
+    }
+    else
+    {
+        while(flage>0)
+        {
+            LED_array = pos2|LED_array;
+            pos2 = LED_Right(pos2);
+            flage = flage - 1;
+        }
+    }
+    LED_Control(color, LED_array);
+    return LED_array;
+}
+# 231 "LED.c"
+void INI_LED_Start(void)
+{
+    TRISA = TRISA & 0b00000001;
+    TRISB = TRISB & 0b11111100;
+    TRISE = TRISE & 0b11111000;
+    TRISD = TRISD & 0b00000000;
+    LED_Control(RED,0b0000000000);
+    LED_Control(GREEN,0b0000000000);
 
 
-            for(iterator_beta=0;iterator_beta<400;iterator_beta++)
-            {
-            LED_Clear();
-            }
+}
+# 256 "LED.c"
+UINT8 LED_Control(LED_RGA_type color,UINT diode)
+{
+    UINT cos =1;
+    if(color == RED)
+    {
 
-
+        if((diode & 0b0000000001)== 0b0000000001)
+        {
+            LATD = LATD | ~0b11101111;
         }
         else
         {
-
-            for(iterator_beta=0;iterator_beta<400;iterator_beta++)
-            {
-            LED_Error();
-            }
-
+            LATD = LATD &0b11101111;
         }
 
-        if(0x12b==message->id.w[0])
+        if((diode & 0b0000000010) == 0b0000000010)
         {
-        LOCK_Set(message->data[0]);
-        }
-    }
-}
-
-BYTE IsInNeighbors(UINT message_adress)
-{
-    WORD i;
-
-    if(NeightAdress1==message_adress)
-    {
-        return 1;
-    }
-    if(NeightAdress2==message_adress)
-    {
-        return 1;
-    }
-    if(NeightAdress3==message_adress)
-    {
-        return 1;
-    }
-    if(NeightAdress4==message_adress)
-    {
-        return 1;
-    }
-    if(NeightAdress5==message_adress)
-    {
-        return 1;
-    }
-    if(NeightAdress6==message_adress)
-    {
-        return 1;
-    }
-    if(NeightAdress7==message_adress)
-    {
-        return 1;
-    }
-    if(NeightAdress8==message_adress)
-    {
-        return 1;
-    }
-# 153 "FRAME.c"
-    return 0;
-}
-
-
-
-
-
-
-
-static void FRAME_AccelerometerStatus(mID *message)
-{
-    if(message->message_type == 0x02)
-    {
-        message->data_length = 4;
-
-
-
-        message->data[0] = MOCK_PrzyspieszenieX();
-        message->data[1] = MOCK_PrzyspieszenieY();
-        message->data[2] = MOCK_PrzyspieszenieZ();
-        message->data[3] = MOCK_Klikniecie_Spadek();
-    }
-    else
-    {
-
-    }
-}
-
-
-
-
-
-
-
-static void FRAME_ExcitationValue(mID *message)
-{
-    if(message->message_type == 0x02)
-    {
-        message->data_length = 1;
-
-
-
-
-        message->data[0] = 0xFF;
-    }
-    else
-    {
-
-
-    }
-}
-
-
-
-
-
-
-
-static void FRAME_ExcitationMultiplier(mID *message)
-{
-    WORD i;
-
-    if(message->message_type == 0x02)
-    {
-        message->data_length = 1;
-        for(i=0; i<3; i++)
-        {
-
-
-        }
-        message->data[0] = 0xFF;
-    }
-    else
-    {
-
-
-
-    }
-}
-
-
-
-
-
-
-
-static void FRAME_AveragingTimes(mID *message)
-{
-    if(message->message_type == 0x02)
-    {
-        message->data_length = 1;
-
-
-
-
-
-
-
-        message->data[0] = 0xFF;
-    }
-    else
-    {
-# 289 "FRAME.c"
-    }
-}
-
-
-
-
-
-
-
-static void FRAME_AxisStatus(mID *message)
-{
-    WORD i;
-
-    if(message->message_type == 0x02)
-    {
-        message->data_length = 1;
-# 315 "FRAME.c"
-        message->data[0] = 0xFF;
-    }
-    else
-    {
-
-    }
-}
-
-
-
-
-
-
-
-static void FRAME_DataUpdateAndChangeOption(mID *message)
-{
-
-
-
-
-
-
-}
-
-
-
-
-
-
-
-static void FRAME_DeviceReset(mID *message)
-{
-    if(message->message_type == 0x02)
-    {
-        message->data_length = 1;
-
-        message->data[0] = (RCON>>6) & 0x01;
-        message->data[1] = Flagi.wykonanoZapisDoFlash;
-        message->data[2] = Flagi.pomiarTla;
-        message->data[3] = 0;
-        message->data[4] = Dane->rokU16;
-        message->data[5] = Dane->miesiacU16;
-        message->data[6] = Dane->dzienU16;
-        message->data[7] = Dane->godzinaU16;
-        RCON &= ~(1<<6);
-        Flagi.wykonanoZapisDoFlash = 0;
-# 374 "FRAME.c"
-    }
-    else
-    {
-        message->data_length = 1;
-# 399 "FRAME.c"
-        message->data[0] = 0xFF;
-    }
-}
-
-
-
-
-
-
-
-static void FRAME_Plot(mID *message)
-{
-
-    if(message->message_type == 0x02)
-    {
-        message->data[0] = (BYTE)(Dane->timerRysowaniaWykresuU16/10);
-    }
-    else
-    {
-        Dane->timerRysowaniaWykresuU16 = (WORD)message->data[0]*10;
-    }
-
-
-}
-
-
-
-
-
-
-
-static void FRAME_MapPosition(mID *message)
-{
-# 447 "FRAME.c"
-}
-
-
-
-
-
-
-
-static void FRAME_SoftwareVersion(mID *message)
-{
-
-    if(message->message_type == 0x02)
-    {
-        message->data_length = 4;
-        message->data[0] = (unsigned char)(Dane->wersjaOprogramowaniaU16 >> 8);
-        message->data[1] = (unsigned char)Dane->wersjaOprogramowaniaU16;
-        message->data[2] = (unsigned char)(Dane->wersjaSprzetuU16 >> 8);
-        message->data[3] = (unsigned char)Dane->wersjaSprzetuU16;
-    }
-    else
-    {
-
-    }
-}
-
-
-
-
-
-
-
-static void FRAME_AnalogValue(mID *message, WORD set)
-{
-    WORD i;
-# 496 "FRAME.c"
-}
-
-
-
-
-
-
-
-static void FRAME_PrzypisanieDokarty(mID *message)
-{
-    if(message->message_type == 0x02)
-    {
-        message->data_length = 1;
-        message->data[0] = 0xFF;
-    }
-    else
-    {
-
-    }
-}
-
-
-
-
-
-
-static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
-{
-    WORD iterator_alfa;
-
-
-    WORD kier = (nrRamki-0x10);
-    if(message->message_type == 0x02)
-    {
-
-        message->data_length = 8;
-
-        if(kier == 0)
-        {
-        message->data[0] = NeightAdress1>> 8;
-        message->data[1] = NeightAdress1;
-        message->data[2] = NeightAdress2>> 8;
-        message->data[3] = NeightAdress2;
-        message->data[4] = NeightAdress3>> 8;
-        message->data[5] = NeightAdress3;
-        message->data[6] = NeightAdress4>> 8;
-        message->data[7] = NeightAdress4;
+            LATD = LATD | ~0b10111111;
         }
         else
         {
-        message->data[0] = NeightAdress5>> 8;
-        message->data[1] = NeightAdress5;
-        message->data[2] = NeightAdress6>> 8;
-        message->data[3] = NeightAdress6;
-        message->data[4] = NeightAdress7>> 8;
-        message->data[5] = NeightAdress7;
-        message->data[6] = NeightAdress8>> 8;
-        message->data[7] = NeightAdress8;
+            LATD = LATD & 0b10111111;
         }
-# 563 "FRAME.c"
-    }
-    else
-    {
-        WORD uranos = (message->data[2] << 8 ) | message->data[3];
-        WORD zeta =(WORD) uranos;
 
-
-
-         WORD gaja = message->data[0] << 8 | message->data[1];
-         WORD zeta_secodus =(WORD) gaja;
-
-        if(kier == 0)
+        if((diode & 0b0000000100) == 0b0000000100)
         {
-         NeightAdress1 = (message->data[0] << 8)| message->data[1];
-         NeightAdress2 = (message->data[2] << 8)| message->data[3];
-         NeightAdress3 = (message->data[4] << 8)| message->data[5];
-         NeightAdress4 = (message->data[6] << 8)| message->data[7];
+            LATB = LATB | ~0b11111110;
         }
         else
         {
-         NeightAdress5 = (message->data[0] << 8)| message->data[1];
-         NeightAdress6 = (message->data[2] << 8)| message->data[3];
-         NeightAdress7 = (message->data[4] << 8)| message->data[5];
-         NeightAdress8 = (message->data[6] << 8)| message->data[7];
+            LATB = LATB & 0b11111110;
         }
-# 615 "FRAME.c"
-    }
-}
 
 
+        if((diode & 0b0000001000) == 0b0000001000)
+        {
+            LATA = LATA | ~0b11111101;
+        }
+        else
+        {
+            LATA = LATA & 0b11111101;
+        }
 
 
+        if((diode & 0b0000010000) == 0b0000010000)
+        {
+            LATA = LATA | ~0b11110111;
+        }
+        else
+        {
+            LATA = LATA & 0b11110111;
+        }
 
 
-void FRAME_HandleCanFrame(mID * message)
-{
-    BYTE identyfikator = (BYTE) message->id.v[2]/4;
+        if((diode & 0b0000100000) == 0b0000100000)
+        {
+            LATA = LATA | ~0b11011111;
+        }
+        else
+        {
+            LATA = LATA & 0b11011111;
+        }
+
+        if((diode & 0b0001000000) == 0b0001000000)
+        {
+            LATE = LATE | ~0b11111101;
+        }
+        else
+        {
+            LATE = LATE & 0b11111101;
+        }
+
+        if((diode & 0b0010000000) == 0b0010000000)
+        {
+            LATA = LATA | ~0b01111111;
+        }
+        else
+        {
+            LATA = LATA & 0b01111111;
+        }
 
 
-    if(identyfikator != 0x01)
-    {
-        WORD ident = identyfikator;
-        int alfa = ident;
-    }
+        if((diode & 0b0100000000) == 0b0100000000)
+        {
+            LATD = LATD | ~0b11111110;
+        }
+        else
+        {
+            LATD = LATD & 0b11111110;
+        }
 
-    switch(identyfikator)
-    {
-        case 0x01:
-            FRAME_SensorExcitationStatus(message);
-            break;
-        case 0x02:
-            FRAME_AccelerometerStatus(message);
-            break;
-        case 0x03:
-            FRAME_ExcitationValue(message);
-            break;
-        case 0x04:
-            FRAME_ExcitationMultiplier(message);
-            break;
-        case 0x05:
-            FRAME_AveragingTimes(message);
-            break;
-        case 0x06:
-            FRAME_AxisStatus(message);
-            break;
-        case 0x07:
-            FRAME_DeviceReset(message);
-            break;
-        case 0x09:
-            FRAME_Plot(message);
-            break;
-        case 0x0A:
-            FRAME_MapPosition(message);
-            break;
-        case 0x0B:
-            FRAME_SoftwareVersion(message);
-            break;
-        case 0x0C:
-        case 0x0D:
-            FRAME_AnalogValue(message, identyfikator - 0x0C);
-            break;
-        case 0x0F:
-            FRAME_PrzypisanieDokarty(message);
-            break;
-        case 0x10:
-            FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
-            break;
-        case 0x11:
-            FRAME_AdressOfNeighbors(message, identyfikator - 0x11);
-            break;
-
-
-
-
-
-
+        if((diode & 0b1000000000) == 0b1000000000)
+        {
+            LATD = LATD | ~0b11111011;
+        }
+        else
+        {
+            LATD = LATD & 0b11111011;
+        }
 
     }
-    if(message->message_type == 0x02)
+
+    if(color == GREEN)
     {
 
-        message->frame_type = 0x03;
-        message->message_type = 0x01;
-        message->id.Val = 0;
-
-        message->id.v[2] = identyfikator*4;
-        CAN_GenID(message,identyfikator);
-        CAN_SendFrame(message);
-# 707 "FRAME.c"
-       while(RXB0CONbits.FILHIT3)
-       {
-           if(TXB0CONbits.TXERR == 1){
-               LED_Error();
-           }
-           else
-           {
-
-           }
-
-       };
+        if((diode & 0b0000000001) == 0b0000000001)
+        {
+            LATD = LATD | ~0b11011111;
+        }
+        else
+        {
+            LATD = LATD & 0b11011111;
+        }
 
 
+        if((diode & 0b0000000010) == 0b0000000010)
+        {
+            LATD = LATD | ~0b01111111;
+        }
+        else
+        {
+            LATD = LATD & 0b01111111;
+        }
+
+
+        if((diode & 0b0000000100) == 0b0000000100)
+        {
+            LATB = LATB | ~0b11111101;
+        }
+        else
+        {
+            LATB = LATB & 0b11111101;
+        }
+
+        if((diode & 0b0000001000) == 0b0000001000)
+        {
+            LATA = LATA | ~0b11111011;
+        }
+        else
+        {
+            LATA = LATA & 0b11111011;
+        }
+
+
+        if((diode & 0b0000010000) == 0b0000010000)
+        {
+            LATA = LATA | ~0b11101111;
+        }
+        else
+        {
+            LATA = LATA & 0b11101111;
+        }
+
+
+        if((diode & 0b0000100000) == 0b0000100000)
+        {
+            LATE = LATE | ~0b11111110;
+        }
+        else
+        {
+            LATE = LATE & 0b11111110;
+        }
+
+
+        if((diode & 0b0001000000) == 0b0001000000)
+        {
+            LATE = LATE | ~0b11111011;
+        }
+        else
+        {
+            LATE = LATE & 0b11111011;
+        }
+
+        if((diode & 0b0010000000) == 0b0010000000)
+        {
+            LATA = LATA | ~0b10111111;
+        }
+        else
+        {
+            LATA = LATA & 0b10111111;
+        }
+
+        if((diode & 0b0100000000) == 0b0100000000)
+        {
+            LATD = LATD | ~0b11111101;
+        }
+        else
+        {
+            LATD = LATD & 0b11111101;
+        }
+
+        if((diode & 0b1000000000) == 0b1000000000)
+        {
+            LATD = LATD | ~0b11110111;
+        }
+        else
+        {
+            LATD = LATD &0b11110111;
+        }
 
     }
+    return 1;
 }

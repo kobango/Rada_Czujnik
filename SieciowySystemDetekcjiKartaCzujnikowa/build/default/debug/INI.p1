@@ -1,168 +1,127 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"141 ./GenericTypeDefs.h
-[; ;./GenericTypeDefs.h: 141:     {
-[s S7 `us 1 `us 1 ]
-[n S7 . LW HW ]
-"146
-[; ;./GenericTypeDefs.h: 146:     {
-[s S8 `uc 1 `uc 1 `uc 1 `uc 1 ]
-[n S8 . LB HB UB MB ]
-"110
-[; ;./GenericTypeDefs.h: 110:     {
-[s S4 `uc 1 `uc 1 ]
-[n S4 . LB HB ]
-"115
-[; ;./GenericTypeDefs.h: 115:     {
-[s S5 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S5 . b0 b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b12 b13 b14 b15 ]
-"106
-[; ;./GenericTypeDefs.h: 106: {
-[u S3 `us 1 `uc -> 2 `i `S4 1 `S5 1 ]
-[n S3 _WORD_VAL Val v byte bits ]
-"153
-[; ;./GenericTypeDefs.h: 153:     {
-[s S9 `S3 1 `S3 1 ]
-[n S9 . low high ]
-"158
-[; ;./GenericTypeDefs.h: 158:     {
-[s S10 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S10 . b0 b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b12 b13 b14 b15 b16 b17 b18 b19 b20 b21 b22 b23 b24 b25 b26 b27 b28 b29 b30 b31 ]
-"136
-[; ;./GenericTypeDefs.h: 136: {
-[u S6 `ul 1 `us -> 2 `i `uc -> 4 `i `S7 1 `S8 1 `S9 1 `S10 1 ]
-[n S6 _DWORD_VAL Val w v word byte wordUnion bits ]
-"20 ./CAN.h
-[; ;./CAN.h: 20:     typedef struct{
-[s S15 `uc 1 `uc 1 `uc 1 `uc 1 `S6 1 `uc -> 8 `i `uc 1 ]
-[n S15 . buffer_status message_type frame_type buffer id data data_length ]
-"20 ./LED.h
-[; ;./LED.h: 20: BYTE LOCK_Get(void);
-[v _LOCK_Get `(uc ~T0 @X0 0 ef ]
-"9 ./MOC_Funct.h
-[; ;./MOC_Funct.h: 9: UINT MOC_Wynikowa_wartosc_roznicowa(void);
-[v _MOC_Wynikowa_wartosc_roznicowa `(ui ~T0 @X0 0 ef ]
-"10
-[; ;./MOC_Funct.h: 10: UINT MOC_Frame_Counter(void);
-[v _MOC_Frame_Counter `(ui ~T0 @X0 0 ef ]
-"11
-[; ;./MOC_Funct.h: 11: UINT MOC_Aktualna_Temperatura(void);
-[v _MOC_Aktualna_Temperatura `(ui ~T0 @X0 0 ef ]
-"12
-[; ;./MOC_Funct.h: 12: UINT MOC_NOTWORK(void);
-[v _MOC_NOTWORK `(ui ~T0 @X0 0 ef ]
-"25 FRAME.c
-[; ;FRAME.c: 25: BYTE IsInNeighbors(UINT message_adress);
-[v _IsInNeighbors `(uc ~T0 @X0 0 ef1`ui ]
-"17 ./LED.h
-[; ;./LED.h: 17: UINT LED_Clear(void);
-[v _LED_Clear `(ui ~T0 @X0 0 ef ]
-"16
-[; ;./LED.h: 16: UINT LED_Error(void);
-[v _LED_Error `(ui ~T0 @X0 0 ef ]
-"19
-[; ;./LED.h: 19: void LOCK_Set(BYTE k);
-[v _LOCK_Set `(v ~T0 @X0 0 ef1`uc ]
-"15 ./MOC_Funct.h
-[; ;./MOC_Funct.h: 15: UINT MOCK_PrzyspieszenieX(void);
-[v _MOCK_PrzyspieszenieX `(ui ~T0 @X0 0 ef ]
-"16
-[; ;./MOC_Funct.h: 16: UINT MOCK_PrzyspieszenieY(void);
-[v _MOCK_PrzyspieszenieY `(ui ~T0 @X0 0 ef ]
-"17
-[; ;./MOC_Funct.h: 17: UINT MOCK_PrzyspieszenieZ(void);
-[v _MOCK_PrzyspieszenieZ `(ui ~T0 @X0 0 ef ]
-"18
-[; ;./MOC_Funct.h: 18: UINT MOCK_Klikniecie_Spadek(void);
-[v _MOCK_Klikniecie_Spadek `(ui ~T0 @X0 0 ef ]
-"31137 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31137: extern volatile unsigned char RCON __attribute__((address(0xFD0)));
-[v _RCON `Vuc ~T0 @X0 0 e@4048 ]
-"73 ./main.h
-[; ;./main.h: 73:         struct CANStruct{
-[s S1109 :1 `uc 1 :1 `uc 1 :1 `uc 1 `us 1 ]
-[n S1109 CANStruct wyslijRamkeDanych odebranoDane CanAktywny identyfikatorU16 ]
-"63
-[; ;./main.h: 63:     struct FlagStruct{
-[s S1108 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 `S1109 1 `uc 1 ]
-[n S1108 FlagStruct pomiarTla detekcja zgloszenie zapisDoFlash wykonanoZapisDoFlash pomiarAccelerometer wykonanoReset aktualizacjaSasiadow CAN frameCounterU8 ]
-"112
-[; ;./main.h: 112:  extern struct FlagStruct Flagi;
-[v _Flagi `S1108 ~T0 @X0 0 e ]
-"46
-[; ;./main.h: 46:     {
-[s S1106 `us 1 `us 1 ]
-[n S1106 PozycjaNaMapceStruct xU16 yU16 ]
-"15 ./DetekcjaSasiadow.h
-[; ;./DetekcjaSasiadow.h: 15:     typedef struct{
-[s S1103 `s 1 `s 1 `s 1 `s -> 25 `i ]
-[n S1103 . pointerU16 aktualnaWartoscSredniaS16 poprzedniaWartoscSredniaS16 wartosciHistoryczneS16 ]
-"21
-[; ;./DetekcjaSasiadow.h: 21:     typedef struct{
-[s S1104 `us 1 `us 1 `us 1 `s -> 3 `i `S1103 1 ]
-[n S1104 . aktualnaWartoscU16 aktualnyStanU16 poprzedniStanU16 przesuniecieTlaS16 historia ]
-"27
-[; ;./DetekcjaSasiadow.h: 27:     typedef struct{
-[s S1105 `us 1 `*S1104 1 ]
-[n S1105 . adres pointerNaSasiada ]
-"52 ./main.h
-[; ;./main.h: 52:         {
-[s S1107 `us 1 `us 1 `us 1 `S1106 1 `us 1 `us 1 `S1105 -> 8 `i `us 1 `us 1 `us 1 `us 1 `us 1 ]
-[n S1107 DaneStruct numerSeryjnyU16 startupU16 wersjaOprogramowaniaU16 PozycjaNaMapce wersjaSprzetuU16 timerRysowaniaWykresuU16 sasiedzi rokU16 miesiacU16 dzienU16 godzinaU16 minutaU16 ]
-"111
-[; ;./main.h: 111:     extern struct DaneStruct *Dane;
-[v _Dane `*S1107 ~T0 @X0 0 e ]
-"39 ./CAN.h
-[; ;./CAN.h: 39:     void CAN_GenID(mID * message,BYTE frameID);
-[v _CAN_GenID `(v ~T0 @X0 0 ef2`*S15`uc ]
-"38
-[; ;./CAN.h: 38:     void CAN_SendFrame(mID * message);
-[v _CAN_SendFrame `(v ~T0 @X0 0 ef1`*S15 ]
-"20867 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20867:     struct {
-[s S673 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S673 . TXPRI0 TXPRI1 . TXREQ TXERR TXLARB TXABT TXBIF ]
-"20877
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20877:     struct {
-[s S674 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S674 . TXB0PRI0 TXB0PRI1 . TXB0REQ TXB0ERR TXB0LARB TXB0ABT TX0IF ]
-"20866
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20866: typedef union {
-[u S672 `S673 1 `S674 1 ]
-[n S672 . . . ]
-"20888
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20888: extern volatile TXB0CONbits_t TXB0CONbits __attribute__((address(0xF40)));
-[v _TXB0CONbits `VS672 ~T0 @X0 0 e@3904 ]
-"23534
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 23534:     struct {
-[s S757 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S757 . FILHIT0 JTOFF_FILHIT1 RXB0DBEN_FILHIT2 RXRTRRO_FILHIT3 FILHIT4 RXM0_RTRRO RXM1 RXFUL ]
-"23544
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 23544:     struct {
-[s S758 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S758 . . JTOFF RXB0DBEN RXRTRRO . RXM0 ]
-"23552
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 23552:     struct {
-[s S759 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S759 . . FILHIT1 FILHIT2 FILHIT3 . RTRRO ]
-"23560
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 23560:     struct {
-[s S760 :2 `uc 1 :1 `uc 1 ]
-[n S760 . . RXBODBEN ]
-"23564
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 23564:     struct {
-[s S761 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S761 . RXB0FILHIT0 RXB0FILHIT1 RXB0FILHIT2 RXB0FILHIT3 RXB0FILHIT4 RXB0M0 RXB0M1 RXB0FUL ]
-"23574
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 23574:     struct {
-[s S762 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S762 . . RXB0RTRR0 . RXB0RTRRO ]
-"23533
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 23533: typedef union {
-[u S756 `S757 1 `S758 1 `S759 1 `S760 1 `S761 1 `S762 1 ]
-[n S756 . . . . . . . ]
-"23581
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 23581: extern volatile RXB0CONbits_t RXB0CONbits __attribute__((address(0xF60)));
-[v _RXB0CONbits `VS756 ~T0 @X0 0 e@3936 ]
+"26331 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 26331: extern volatile unsigned char LATA __attribute__((address(0xF89)));
+[v _LATA `Vuc ~T0 @X0 0 e@3977 ]
+"26443
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 26443: extern volatile unsigned char LATB __attribute__((address(0xF8A)));
+[v _LATB `Vuc ~T0 @X0 0 e@3978 ]
+"26555
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 26555: extern volatile unsigned char LATC __attribute__((address(0xF8B)));
+[v _LATC `Vuc ~T0 @X0 0 e@3979 ]
+"26831
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 26831: extern volatile unsigned char TRISA __attribute__((address(0xF92)));
+[v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
+"27053
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 27053: extern volatile unsigned char TRISB __attribute__((address(0xF93)));
+[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
+"27275
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 27275: extern volatile unsigned char TRISC __attribute__((address(0xF94)));
+[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
+"31143
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31143:     struct {
+[s S1045 :1 `uc 1 ]
+[n S1045 . NOT_BOR ]
+"31146
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31146:     struct {
+[s S1046 :1 `uc 1 :1 `uc 1 ]
+[n S1046 . . NOT_POR ]
+"31150
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31150:     struct {
+[s S1047 :2 `uc 1 :1 `uc 1 ]
+[n S1047 . . NOT_PD ]
+"31154
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31154:     struct {
+[s S1048 :3 `uc 1 :1 `uc 1 ]
+[n S1048 . . NOT_TO ]
+"31158
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31158:     struct {
+[s S1049 :4 `uc 1 :1 `uc 1 ]
+[n S1049 . . NOT_RI ]
+"31162
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31162:     struct {
+[s S1050 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1050 . nBOR nPOR nPD nTO nRI . SBOREN IPEN ]
+"31172
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31172:     struct {
+[s S1051 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1051 . BOR POR PD TO RI ]
+"31142
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31142: typedef union {
+[u S1044 `S1045 1 `S1046 1 `S1047 1 `S1048 1 `S1049 1 `S1050 1 `S1051 1 ]
+[n S1044 . . . . . . . . ]
+"31180
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31180: extern volatile RCONbits_t RCONbits __attribute__((address(0xFD0)));
+[v _RCONbits `VS1044 ~T0 @X0 0 e@4048 ]
+"92 ./main.h
+[; ;./main.h: 92:             struct{
+[s S1111 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :8 `uc 1 ]
+[n S1111 . obsluzWeWy error uczenieTla inicjalizacja ramkaTx wykonanoZapisDoFlash pomiarTla ]
+"89
+[; ;./main.h: 89:         {
+[u S1110 `uc 1 `S1111 1 ]
+[n S1110 . flagiU8 . ]
+"87
+[; ;./main.h: 87:     typedef struct{
+[s S1109 `S1110 1 `uc 1 ]
+[n S1109 . Flags timerRamkiTxCANU8 ]
+"109
+[; ;./main.h: 109:     extern KartaStruct DetectorLedRadar;
+[v _DetectorLedRadar `S1109 ~T0 @X0 0 e ]
+"31276 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31276:     struct {
+[s S1053 :1 `uc 1 ]
+[n S1053 . SWDTEN ]
+"31279
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31279:     struct {
+[s S1054 :1 `uc 1 ]
+[n S1054 . SWDTE ]
+"31275
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31275: typedef union {
+[u S1052 `S1053 1 `S1054 1 ]
+[n S1052 . . . ]
+"31283
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31283: extern volatile WDTCONbits_t WDTCONbits __attribute__((address(0xFD1)));
+[v _WDTCONbits `VS1052 ~T0 @X0 0 e@4049 ]
+"36 ./CAN.h
+[; ;./CAN.h: 36:     void CAN_Setup(void);
+[v _CAN_Setup `(v ~T0 @X0 0 ef ]
+"15 INI.c
+[; ;INI.c: 15: void INI_GlobalInterrupt(void);
+[v _INI_GlobalInterrupt `(v ~T0 @X0 0 ef ]
+"9 ./TMR1.h
+[; ;./TMR1.h: 9: UINT8 INI_Timer(void);
+[v _INI_Timer `(uc ~T0 @X0 0 ef ]
+"12 ./LED.h
+[; ;./LED.h: 12: void INI_LED_Start(void);
+[v _INI_LED_Start `(v ~T0 @X0 0 ef ]
+"32170 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32170:     struct {
+[s S1082 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1082 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"32180
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32180:     struct {
+[s S1083 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1083 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"32190
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32190:     struct {
+[s S1084 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1084 . . GIEL GIEH ]
+"32169
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32169: typedef union {
+[u S1081 `S1082 1 `S1083 1 `S1084 1 ]
+[n S1081 . . . . ]
+"32196
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32196: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
+[v _INTCONbits `VS1081 ~T0 @X0 0 e@4082 ]
+"35643
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 35643: extern volatile __bit IPEN __attribute__((address(0x7E87)));
+[v _IPEN `Vb ~T0 @X0 0 e@32391 ]
+"36087
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 36087: extern volatile __bit PEIE __attribute__((address(0x7F96)));
+[v _PEIE `Vb ~T0 @X0 0 e@32662 ]
+"39114
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 39114: extern volatile __bit TMR1IP __attribute__((address(0x7CF8)));
+[v _TMR1IP `Vb ~T0 @X0 0 e@31992 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 54: __asm("RXF6SIDH equ 0D60h");
 [; <" RXF6SIDH equ 0D60h ;# ">
@@ -1405,1277 +1364,102 @@ Version 4.0 HI-TECH Software Intermediate Code
 "32473
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32473: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"24 FRAME.c
-[; ;FRAME.c: 24: mID ramkaCanRxKarty[5], ramkaCanTxKarty;
-[v _ramkaCanRxKarty `S15 ~T0 @X0 -> 5 `i e ]
-[v _ramkaCanTxKarty `S15 ~T0 @X0 1 e ]
-"27
-[; ;FRAME.c: 27: volatile UINT NeightAdress1 = 0;
-[v _NeightAdress1 `Vui ~T0 @X0 1 e ]
-[i _NeightAdress1
--> -> 0 `i `ui
-]
+"27 INI.c
+[; ;INI.c: 27: static void INI_OUTPUT(void)
+[v _INI_OUTPUT `(v ~T0 @X0 1 sf ]
 "28
-[; ;FRAME.c: 28: volatile UINT NeightAdress2 = 0;
-[v _NeightAdress2 `Vui ~T0 @X0 1 e ]
-[i _NeightAdress2
--> -> 0 `i `ui
-]
-"29
-[; ;FRAME.c: 29: volatile UINT NeightAdress3 = 0;
-[v _NeightAdress3 `Vui ~T0 @X0 1 e ]
-[i _NeightAdress3
--> -> 0 `i `ui
-]
-"30
-[; ;FRAME.c: 30: volatile UINT NeightAdress4 = 0;
-[v _NeightAdress4 `Vui ~T0 @X0 1 e ]
-[i _NeightAdress4
--> -> 0 `i `ui
-]
+[; ;INI.c: 28: {
+{
+[e :U _INI_OUTPUT ]
+[f ]
 "31
-[; ;FRAME.c: 31: volatile UINT NeightAdress5 = 0;
-[v _NeightAdress5 `Vui ~T0 @X0 1 e ]
-[i _NeightAdress5
--> -> 0 `i `ui
-]
+[; ;INI.c: 31:     LATA = 0;
+[e = _LATA -> -> 0 `i `uc ]
 "32
-[; ;FRAME.c: 32: volatile UINT NeightAdress6 = 0;
-[v _NeightAdress6 `Vui ~T0 @X0 1 e ]
-[i _NeightAdress6
--> -> 0 `i `ui
-]
+[; ;INI.c: 32:     LATB = 0;
+[e = _LATB -> -> 0 `i `uc ]
 "33
-[; ;FRAME.c: 33: volatile UINT NeightAdress7 = 0;
-[v _NeightAdress7 `Vui ~T0 @X0 1 e ]
-[i _NeightAdress7
--> -> 0 `i `ui
-]
+[; ;INI.c: 33:     LATC = 0;
+[e = _LATC -> -> 0 `i `uc ]
 "34
-[; ;FRAME.c: 34: volatile UINT NeightAdress8 = 0;
-[v _NeightAdress8 `Vui ~T0 @X0 1 e ]
-[i _NeightAdress8
--> -> 0 `i `ui
-]
-"43
-[; ;FRAME.c: 43: static void FRAME_SensorExcitationStatus(mID *message)
-[v _FRAME_SensorExcitationStatus `(v ~T0 @X0 1 sf1`*S15 ]
-"44
-[; ;FRAME.c: 44: {
-{
-[e :U _FRAME_SensorExcitationStatus ]
-"43
-[; ;FRAME.c: 43: static void FRAME_SensorExcitationStatus(mID *message)
-[v _message `*S15 ~T0 @X0 1 r1 ]
-"44
-[; ;FRAME.c: 44: {
-[f ]
-"45
-[; ;FRAME.c: 45:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1119  ]
-"46
-[; ;FRAME.c: 46:     {
-{
-"47
-[; ;FRAME.c: 47:         message->data_length = 6;
-[e = . *U _message 6 -> -> 6 `i `uc ]
+[; ;INI.c: 34:     TRISA = 0x0C;
+[e = _TRISA -> -> 12 `i `uc ]
+"35
+[; ;INI.c: 35:     TRISB = 0b10001000;
+[e = _TRISB -> -> 136 `i `uc ]
+"36
+[; ;INI.c: 36:     TRISC = 0xBF;
+[e = _TRISC -> -> 191 `i `uc ]
+"37
+[; ;INI.c: 37:     RCONbits.IPEN = 1;
+[e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
+"40
+[; ;INI.c: 40:     DetectorLedRadar.Flags.inicjalizacja = 1;
+[e = . . . _DetectorLedRadar 0 1 3 -> -> 1 `i `uc ]
+"42
+[; ;INI.c: 42: }
+[e :UE 1113 ]
+}
+"52
+[; ;INI.c: 52: void INI_All(void)
+[v _INI_All `(v ~T0 @X0 1 ef ]
 "53
-[; ;FRAME.c: 53:         message->data[0] = LOCK_Get();
-[e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux ( _LOCK_Get ..  ]
-"54
-[; ;FRAME.c: 54:         message->data[1] = MOC_Wynikowa_wartosc_roznicowa() >> 8 ;
-[e = *U + &U . *U _message 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> >> ( _MOC_Wynikowa_wartosc_roznicowa ..  -> 8 `i `uc ]
+[; ;INI.c: 53: {
+{
+[e :U _INI_All ]
+[f ]
 "55
-[; ;FRAME.c: 55:         message->data[2] = MOC_Wynikowa_wartosc_roznicowa() & 0x00FF;
-[e = *U + &U . *U _message 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> & ( _MOC_Wynikowa_wartosc_roznicowa ..  -> -> 255 `i `ui `uc ]
-"56
-[; ;FRAME.c: 56:         message->data[3] = MOC_Frame_Counter();
-[e = *U + &U . *U _message 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> ( _MOC_Frame_Counter ..  `uc ]
-"57
-[; ;FRAME.c: 57:         message->data[4] = MOC_Aktualna_Temperatura();
-[e = *U + &U . *U _message 5 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> ( _MOC_Aktualna_Temperatura ..  `uc ]
-"58
-[; ;FRAME.c: 58:         message->data[5] = MOC_NOTWORK();
-[e = *U + &U . *U _message 5 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> ( _MOC_NOTWORK ..  `uc ]
-"68
-[; ;FRAME.c: 68:     }
-}
-[e $U 1120  ]
+[; ;INI.c: 55:     WDTCONbits.SWDTEN = 1;
+[e = . . _WDTCONbits 0 0 -> -> 1 `i `uc ]
+"63
+[; ;INI.c: 63:     __asm(" clrwdt");
+[; <"  clrwdt ;# ">
+"64
+[; ;INI.c: 64:     INI_OUTPUT();
+[e ( _INI_OUTPUT ..  ]
+"66
+[; ;INI.c: 66:     CAN_Setup();
+[e ( _CAN_Setup ..  ]
+"67
+[; ;INI.c: 67:     INI_GlobalInterrupt();
+[e ( _INI_GlobalInterrupt ..  ]
 "69
-[; ;FRAME.c: 69:     else
-[e :U 1119 ]
-"70
-[; ;FRAME.c: 70:     {
-{
-"72
-[; ;FRAME.c: 72:         WORD iterator_beta;
-[v _iterator_beta `us ~T0 @X0 1 a ]
+[; ;INI.c: 69:     INI_Timer();
+[e ( _INI_Timer ..  ]
+"71
+[; ;INI.c: 71:     INI_LED_Start();
+[e ( _INI_LED_Start ..  ]
+"73
+[; ;INI.c: 73: }
+[e :UE 1114 ]
+}
+"74
+[; ;INI.c: 74: void INI_GlobalInterrupt(void)
+[v _INI_GlobalInterrupt `(v ~T0 @X0 1 ef ]
 "75
-[; ;FRAME.c: 75:         if(IsInNeighbors(11))
-[e $ ! != -> ( _IsInNeighbors (1 -> -> 11 `i `ui `i -> 0 `i 1121  ]
+[; ;INI.c: 75: {
+{
+[e :U _INI_GlobalInterrupt ]
+[f ]
 "76
-[; ;FRAME.c: 76:         {
-{
+[; ;INI.c: 76: INTCONbits.GIEH=1;
+[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
+"77
+[; ;INI.c: 77: INTCONbits.GIEL=1;
+[e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
+"78
+[; ;INI.c: 78: RCONbits.IPEN=1;
+[e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
 "79
-[; ;FRAME.c: 79:             for(iterator_beta=0;iterator_beta<400;iterator_beta++)
-{
-[e = _iterator_beta -> -> 0 `i `us ]
-[e $ < -> _iterator_beta `ui -> -> 400 `i `ui 1122  ]
-[e $U 1123  ]
-[e :U 1122 ]
-"80
-[; ;FRAME.c: 80:             {
-{
+[; ;INI.c: 79: IPEN =1;
+[e = _IPEN -> -> 1 `i `b ]
 "81
-[; ;FRAME.c: 81:             LED_Clear();
-[e ( _LED_Clear ..  ]
+[; ;INI.c: 81: PEIE=1;
+[e = _PEIE -> -> 1 `i `b ]
 "82
-[; ;FRAME.c: 82:             }
-}
-[e ++ _iterator_beta -> -> 1 `i `us ]
-[e $ < -> _iterator_beta `ui -> -> 400 `i `ui 1122  ]
-[e :U 1123 ]
-}
-"85
-[; ;FRAME.c: 85:         }
-}
-[e $U 1125  ]
-"86
-[; ;FRAME.c: 86:         else
-[e :U 1121 ]
-"87
-[; ;FRAME.c: 87:         {
-{
-"89
-[; ;FRAME.c: 89:             for(iterator_beta=0;iterator_beta<400;iterator_beta++)
-{
-[e = _iterator_beta -> -> 0 `i `us ]
-[e $ < -> _iterator_beta `ui -> -> 400 `i `ui 1126  ]
-[e $U 1127  ]
-[e :U 1126 ]
-"90
-[; ;FRAME.c: 90:             {
-{
-"91
-[; ;FRAME.c: 91:             LED_Error();
-[e ( _LED_Error ..  ]
-"92
-[; ;FRAME.c: 92:             }
-}
-[e ++ _iterator_beta -> -> 1 `i `us ]
-[e $ < -> _iterator_beta `ui -> -> 400 `i `ui 1126  ]
-[e :U 1127 ]
-}
-"94
-[; ;FRAME.c: 94:         }
-}
-[e :U 1125 ]
-"96
-[; ;FRAME.c: 96:         if(0x12b==message->id.w[0])
-[e $ ! == -> -> 299 `i `ui -> *U + &U . . *U _message 4 1 * -> -> -> 0 `i `ui `ux -> -> # *U &U . . *U _message 4 1 `ui `ux `ui 1129  ]
-"97
-[; ;FRAME.c: 97:         {
-{
-"98
-[; ;FRAME.c: 98:         LOCK_Set(message->data[0]);
-[e ( _LOCK_Set (1 *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux ]
-"99
-[; ;FRAME.c: 99:         }
-}
-[e :U 1129 ]
-"100
-[; ;FRAME.c: 100:     }
-}
-[e :U 1120 ]
-"101
-[; ;FRAME.c: 101: }
-[e :UE 1118 ]
-}
-"103
-[; ;FRAME.c: 103: BYTE IsInNeighbors(UINT message_adress)
-[v _IsInNeighbors `(uc ~T0 @X0 1 ef1`ui ]
-"104
-[; ;FRAME.c: 104: {
-{
-[e :U _IsInNeighbors ]
-"103
-[; ;FRAME.c: 103: BYTE IsInNeighbors(UINT message_adress)
-[v _message_adress `ui ~T0 @X0 1 r1 ]
-"104
-[; ;FRAME.c: 104: {
-[f ]
-"105
-[; ;FRAME.c: 105:     WORD i;
-[v _i `us ~T0 @X0 1 a ]
-"107
-[; ;FRAME.c: 107:     if(NeightAdress1==message_adress)
-[e $ ! == _NeightAdress1 _message_adress 1131  ]
-"108
-[; ;FRAME.c: 108:     {
-{
-"109
-[; ;FRAME.c: 109:         return 1;
-[e ) -> -> 1 `i `uc ]
-[e $UE 1130  ]
-"110
-[; ;FRAME.c: 110:     }
-}
-[e :U 1131 ]
-"111
-[; ;FRAME.c: 111:     if(NeightAdress2==message_adress)
-[e $ ! == _NeightAdress2 _message_adress 1132  ]
-"112
-[; ;FRAME.c: 112:     {
-{
-"113
-[; ;FRAME.c: 113:         return 1;
-[e ) -> -> 1 `i `uc ]
-[e $UE 1130  ]
-"114
-[; ;FRAME.c: 114:     }
-}
-[e :U 1132 ]
-"115
-[; ;FRAME.c: 115:     if(NeightAdress3==message_adress)
-[e $ ! == _NeightAdress3 _message_adress 1133  ]
-"116
-[; ;FRAME.c: 116:     {
-{
-"117
-[; ;FRAME.c: 117:         return 1;
-[e ) -> -> 1 `i `uc ]
-[e $UE 1130  ]
-"118
-[; ;FRAME.c: 118:     }
-}
-[e :U 1133 ]
-"119
-[; ;FRAME.c: 119:     if(NeightAdress4==message_adress)
-[e $ ! == _NeightAdress4 _message_adress 1134  ]
-"120
-[; ;FRAME.c: 120:     {
-{
-"121
-[; ;FRAME.c: 121:         return 1;
-[e ) -> -> 1 `i `uc ]
-[e $UE 1130  ]
-"122
-[; ;FRAME.c: 122:     }
-}
-[e :U 1134 ]
-"123
-[; ;FRAME.c: 123:     if(NeightAdress5==message_adress)
-[e $ ! == _NeightAdress5 _message_adress 1135  ]
-"124
-[; ;FRAME.c: 124:     {
-{
-"125
-[; ;FRAME.c: 125:         return 1;
-[e ) -> -> 1 `i `uc ]
-[e $UE 1130  ]
-"126
-[; ;FRAME.c: 126:     }
-}
-[e :U 1135 ]
-"127
-[; ;FRAME.c: 127:     if(NeightAdress6==message_adress)
-[e $ ! == _NeightAdress6 _message_adress 1136  ]
-"128
-[; ;FRAME.c: 128:     {
-{
-"129
-[; ;FRAME.c: 129:         return 1;
-[e ) -> -> 1 `i `uc ]
-[e $UE 1130  ]
-"130
-[; ;FRAME.c: 130:     }
-}
-[e :U 1136 ]
-"131
-[; ;FRAME.c: 131:     if(NeightAdress7==message_adress)
-[e $ ! == _NeightAdress7 _message_adress 1137  ]
-"132
-[; ;FRAME.c: 132:     {
-{
-"133
-[; ;FRAME.c: 133:         return 1;
-[e ) -> -> 1 `i `uc ]
-[e $UE 1130  ]
-"134
-[; ;FRAME.c: 134:     }
-}
-[e :U 1137 ]
-"135
-[; ;FRAME.c: 135:     if(NeightAdress8==message_adress)
-[e $ ! == _NeightAdress8 _message_adress 1138  ]
-"136
-[; ;FRAME.c: 136:     {
-{
-"137
-[; ;FRAME.c: 137:         return 1;
-[e ) -> -> 1 `i `uc ]
-[e $UE 1130  ]
-"138
-[; ;FRAME.c: 138:     }
-}
-[e :U 1138 ]
-"153
-[; ;FRAME.c: 153:     return 0;
-[e ) -> -> 0 `i `uc ]
-[e $UE 1130  ]
-"154
-[; ;FRAME.c: 154: }
-[e :UE 1130 ]
-}
-"162
-[; ;FRAME.c: 162: static void FRAME_AccelerometerStatus(mID *message)
-[v _FRAME_AccelerometerStatus `(v ~T0 @X0 1 sf1`*S15 ]
-"163
-[; ;FRAME.c: 163: {
-{
-[e :U _FRAME_AccelerometerStatus ]
-"162
-[; ;FRAME.c: 162: static void FRAME_AccelerometerStatus(mID *message)
-[v _message `*S15 ~T0 @X0 1 r1 ]
-"163
-[; ;FRAME.c: 163: {
-[f ]
-"164
-[; ;FRAME.c: 164:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1140  ]
-"165
-[; ;FRAME.c: 165:     {
-{
-"166
-[; ;FRAME.c: 166:         message->data_length = 4;
-[e = . *U _message 6 -> -> 4 `i `uc ]
-"170
-[; ;FRAME.c: 170:         message->data[0] = MOCK_PrzyspieszenieX();
-[e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> ( _MOCK_PrzyspieszenieX ..  `uc ]
-"171
-[; ;FRAME.c: 171:         message->data[1] = MOCK_PrzyspieszenieY();
-[e = *U + &U . *U _message 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> ( _MOCK_PrzyspieszenieY ..  `uc ]
-"172
-[; ;FRAME.c: 172:         message->data[2] = MOCK_PrzyspieszenieZ();
-[e = *U + &U . *U _message 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> ( _MOCK_PrzyspieszenieZ ..  `uc ]
-"173
-[; ;FRAME.c: 173:         message->data[3] = MOCK_Klikniecie_Spadek();
-[e = *U + &U . *U _message 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> ( _MOCK_Klikniecie_Spadek ..  `uc ]
-"174
-[; ;FRAME.c: 174:     }
-}
-[e $U 1141  ]
-"175
-[; ;FRAME.c: 175:     else
-[e :U 1140 ]
-"176
-[; ;FRAME.c: 176:     {
-{
-"178
-[; ;FRAME.c: 178:     }
-}
-[e :U 1141 ]
-"179
-[; ;FRAME.c: 179: }
-[e :UE 1139 ]
-}
-"187
-[; ;FRAME.c: 187: static void FRAME_ExcitationValue(mID *message)
-[v _FRAME_ExcitationValue `(v ~T0 @X0 1 sf1`*S15 ]
-"188
-[; ;FRAME.c: 188: {
-{
-[e :U _FRAME_ExcitationValue ]
-"187
-[; ;FRAME.c: 187: static void FRAME_ExcitationValue(mID *message)
-[v _message `*S15 ~T0 @X0 1 r1 ]
-"188
-[; ;FRAME.c: 188: {
-[f ]
-"189
-[; ;FRAME.c: 189:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1143  ]
-"190
-[; ;FRAME.c: 190:     {
-{
-"191
-[; ;FRAME.c: 191:         message->data_length = 1;
-[e = . *U _message 6 -> -> 1 `i `uc ]
-"196
-[; ;FRAME.c: 196:         message->data[0] = 0xFF;
-[e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 255 `i `uc ]
-"197
-[; ;FRAME.c: 197:     }
-}
-[e $U 1144  ]
-"198
-[; ;FRAME.c: 198:     else
-[e :U 1143 ]
-"199
-[; ;FRAME.c: 199:     {
-{
-"202
-[; ;FRAME.c: 202:     }
-}
-[e :U 1144 ]
-"203
-[; ;FRAME.c: 203: }
-[e :UE 1142 ]
-}
-"211
-[; ;FRAME.c: 211: static void FRAME_ExcitationMultiplier(mID *message)
-[v _FRAME_ExcitationMultiplier `(v ~T0 @X0 1 sf1`*S15 ]
-"212
-[; ;FRAME.c: 212: {
-{
-[e :U _FRAME_ExcitationMultiplier ]
-"211
-[; ;FRAME.c: 211: static void FRAME_ExcitationMultiplier(mID *message)
-[v _message `*S15 ~T0 @X0 1 r1 ]
-"212
-[; ;FRAME.c: 212: {
-[f ]
-"213
-[; ;FRAME.c: 213:     WORD i;
-[v _i `us ~T0 @X0 1 a ]
-"215
-[; ;FRAME.c: 215:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1146  ]
-"216
-[; ;FRAME.c: 216:     {
-{
-"217
-[; ;FRAME.c: 217:         message->data_length = 1;
-[e = . *U _message 6 -> -> 1 `i `uc ]
-"218
-[; ;FRAME.c: 218:         for(i=0; i<3; i++)
-{
-[e = _i -> -> 0 `i `us ]
-[e $ < -> _i `ui -> -> 3 `i `ui 1147  ]
-[e $U 1148  ]
-[e :U 1147 ]
-"219
-[; ;FRAME.c: 219:         {
-{
-"222
-[; ;FRAME.c: 222:         }
-}
-[e ++ _i -> -> 1 `i `us ]
-[e $ < -> _i `ui -> -> 3 `i `ui 1147  ]
-[e :U 1148 ]
-}
-"223
-[; ;FRAME.c: 223:         message->data[0] = 0xFF;
-[e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 255 `i `uc ]
-"224
-[; ;FRAME.c: 224:     }
-}
-[e $U 1150  ]
-"225
-[; ;FRAME.c: 225:     else
-[e :U 1146 ]
-"226
-[; ;FRAME.c: 226:     {
-{
-"230
-[; ;FRAME.c: 230:     }
-}
-[e :U 1150 ]
-"231
-[; ;FRAME.c: 231: }
-[e :UE 1145 ]
-}
-"239
-[; ;FRAME.c: 239: static void FRAME_AveragingTimes(mID *message)
-[v _FRAME_AveragingTimes `(v ~T0 @X0 1 sf1`*S15 ]
-"240
-[; ;FRAME.c: 240: {
-{
-[e :U _FRAME_AveragingTimes ]
-"239
-[; ;FRAME.c: 239: static void FRAME_AveragingTimes(mID *message)
-[v _message `*S15 ~T0 @X0 1 r1 ]
-"240
-[; ;FRAME.c: 240: {
-[f ]
-"241
-[; ;FRAME.c: 241:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1152  ]
-"242
-[; ;FRAME.c: 242:     {
-{
-"243
-[; ;FRAME.c: 243:         message->data_length = 1;
-[e = . *U _message 6 -> -> 1 `i `uc ]
-"251
-[; ;FRAME.c: 251:         message->data[0] = 0xFF;
-[e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 255 `i `uc ]
-"252
-[; ;FRAME.c: 252:     }
-}
-[e $U 1153  ]
-"253
-[; ;FRAME.c: 253:     else
-[e :U 1152 ]
-"254
-[; ;FRAME.c: 254:     {
-{
-"289
-[; ;FRAME.c: 289:     }
-}
-[e :U 1153 ]
-"290
-[; ;FRAME.c: 290: }
-[e :UE 1151 ]
-}
-"298
-[; ;FRAME.c: 298: static void FRAME_AxisStatus(mID *message)
-[v _FRAME_AxisStatus `(v ~T0 @X0 1 sf1`*S15 ]
-"299
-[; ;FRAME.c: 299: {
-{
-[e :U _FRAME_AxisStatus ]
-"298
-[; ;FRAME.c: 298: static void FRAME_AxisStatus(mID *message)
-[v _message `*S15 ~T0 @X0 1 r1 ]
-"299
-[; ;FRAME.c: 299: {
-[f ]
-"300
-[; ;FRAME.c: 300:     WORD i;
-[v _i `us ~T0 @X0 1 a ]
-"302
-[; ;FRAME.c: 302:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1155  ]
-"303
-[; ;FRAME.c: 303:     {
-{
-"304
-[; ;FRAME.c: 304:         message->data_length = 1;
-[e = . *U _message 6 -> -> 1 `i `uc ]
-"315
-[; ;FRAME.c: 315:         message->data[0] = 0xFF;
-[e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 255 `i `uc ]
-"316
-[; ;FRAME.c: 316:     }
-}
-[e $U 1156  ]
-"317
-[; ;FRAME.c: 317:     else
-[e :U 1155 ]
-"318
-[; ;FRAME.c: 318:     {
-{
-"320
-[; ;FRAME.c: 320:     }
-}
-[e :U 1156 ]
-"321
-[; ;FRAME.c: 321: }
-[e :UE 1154 ]
-}
-"329
-[; ;FRAME.c: 329: static void FRAME_DataUpdateAndChangeOption(mID *message)
-[v _FRAME_DataUpdateAndChangeOption `(v ~T0 @X0 1 sf1`*S15 ]
-"330
-[; ;FRAME.c: 330: {
-{
-[e :U _FRAME_DataUpdateAndChangeOption ]
-"329
-[; ;FRAME.c: 329: static void FRAME_DataUpdateAndChangeOption(mID *message)
-[v _message `*S15 ~T0 @X0 1 r1 ]
-"330
-[; ;FRAME.c: 330: {
-[f ]
-"337
-[; ;FRAME.c: 337: }
-[e :UE 1157 ]
-}
-"345
-[; ;FRAME.c: 345: static void FRAME_DeviceReset(mID *message)
-[v _FRAME_DeviceReset `(v ~T0 @X0 1 sf1`*S15 ]
-"346
-[; ;FRAME.c: 346: {
-{
-[e :U _FRAME_DeviceReset ]
-"345
-[; ;FRAME.c: 345: static void FRAME_DeviceReset(mID *message)
-[v _message `*S15 ~T0 @X0 1 r1 ]
-"346
-[; ;FRAME.c: 346: {
-[f ]
-"347
-[; ;FRAME.c: 347:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1159  ]
-"348
-[; ;FRAME.c: 348:     {
-{
-"349
-[; ;FRAME.c: 349:         message->data_length = 1;
-[e = . *U _message 6 -> -> 1 `i `uc ]
-"351
-[; ;FRAME.c: 351:         message->data[0] = (RCON>>6) & 0x01;
-[e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> & >> -> _RCON `i -> 6 `i -> 1 `i `uc ]
-"352
-[; ;FRAME.c: 352:         message->data[1] = Flagi.wykonanoZapisDoFlash;
-[e = *U + &U . *U _message 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux . _Flagi 4 ]
-"353
-[; ;FRAME.c: 353:         message->data[2] = Flagi.pomiarTla;
-[e = *U + &U . *U _message 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux . _Flagi 0 ]
-"354
-[; ;FRAME.c: 354:         message->data[3] = 0;
-[e = *U + &U . *U _message 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 0 `i `uc ]
-"355
-[; ;FRAME.c: 355:         message->data[4] = Dane->rokU16;
-[e = *U + &U . *U _message 5 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> . *U _Dane 7 `uc ]
-"356
-[; ;FRAME.c: 356:         message->data[5] = Dane->miesiacU16;
-[e = *U + &U . *U _message 5 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> . *U _Dane 8 `uc ]
-"357
-[; ;FRAME.c: 357:         message->data[6] = Dane->dzienU16;
-[e = *U + &U . *U _message 5 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> . *U _Dane 9 `uc ]
-"358
-[; ;FRAME.c: 358:         message->data[7] = Dane->godzinaU16;
-[e = *U + &U . *U _message 5 * -> -> -> 7 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> . *U _Dane 10 `uc ]
-"359
-[; ;FRAME.c: 359:         RCON &= ~(1<<6);
-[e =& _RCON -> ~ << -> 1 `i -> 6 `i `Vuc ]
-"360
-[; ;FRAME.c: 360:         Flagi.wykonanoZapisDoFlash = 0;
-[e = . _Flagi 4 -> -> 0 `i `uc ]
-"374
-[; ;FRAME.c: 374:     }
-}
-[e $U 1160  ]
-"375
-[; ;FRAME.c: 375:     else
-[e :U 1159 ]
-"376
-[; ;FRAME.c: 376:     {
-{
-"377
-[; ;FRAME.c: 377:         message->data_length = 1;
-[e = . *U _message 6 -> -> 1 `i `uc ]
-"399
-[; ;FRAME.c: 399:         message->data[0] = 0xFF;
-[e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 255 `i `uc ]
-"400
-[; ;FRAME.c: 400:     }
-}
-[e :U 1160 ]
-"401
-[; ;FRAME.c: 401: }
-[e :UE 1158 ]
-}
-"409
-[; ;FRAME.c: 409: static void FRAME_Plot(mID *message)
-[v _FRAME_Plot `(v ~T0 @X0 1 sf1`*S15 ]
-"410
-[; ;FRAME.c: 410: {
-{
-[e :U _FRAME_Plot ]
-"409
-[; ;FRAME.c: 409: static void FRAME_Plot(mID *message)
-[v _message `*S15 ~T0 @X0 1 r1 ]
-"410
-[; ;FRAME.c: 410: {
-[f ]
-"412
-[; ;FRAME.c: 412:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1162  ]
-"413
-[; ;FRAME.c: 413:     {
-{
-"414
-[; ;FRAME.c: 414:         message->data[0] = (BYTE)(Dane->timerRysowaniaWykresuU16/10);
-[e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> / -> . *U _Dane 5 `ui -> -> 10 `i `ui `uc ]
-"415
-[; ;FRAME.c: 415:     }
-}
-[e $U 1163  ]
-"416
-[; ;FRAME.c: 416:     else
-[e :U 1162 ]
-"417
-[; ;FRAME.c: 417:     {
-{
-"418
-[; ;FRAME.c: 418:         Dane->timerRysowaniaWykresuU16 = (WORD)message->data[0]*10;
-[e = . *U _Dane 5 -> * -> -> *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `us `ui -> -> 10 `i `ui `us ]
-"419
-[; ;FRAME.c: 419:     }
-}
-[e :U 1163 ]
-"422
-[; ;FRAME.c: 422: }
-[e :UE 1161 ]
-}
-"430
-[; ;FRAME.c: 430: static void FRAME_MapPosition(mID *message)
-[v _FRAME_MapPosition `(v ~T0 @X0 1 sf1`*S15 ]
-"431
-[; ;FRAME.c: 431: {
-{
-[e :U _FRAME_MapPosition ]
-"430
-[; ;FRAME.c: 430: static void FRAME_MapPosition(mID *message)
-[v _message `*S15 ~T0 @X0 1 r1 ]
-"431
-[; ;FRAME.c: 431: {
-[f ]
-"447
-[; ;FRAME.c: 447: }
-[e :UE 1164 ]
-}
-"455
-[; ;FRAME.c: 455: static void FRAME_SoftwareVersion(mID *message)
-[v _FRAME_SoftwareVersion `(v ~T0 @X0 1 sf1`*S15 ]
-"456
-[; ;FRAME.c: 456: {
-{
-[e :U _FRAME_SoftwareVersion ]
-"455
-[; ;FRAME.c: 455: static void FRAME_SoftwareVersion(mID *message)
-[v _message `*S15 ~T0 @X0 1 r1 ]
-"456
-[; ;FRAME.c: 456: {
-[f ]
-"458
-[; ;FRAME.c: 458:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1166  ]
-"459
-[; ;FRAME.c: 459:     {
-{
-"460
-[; ;FRAME.c: 460:         message->data_length = 4;
-[e = . *U _message 6 -> -> 4 `i `uc ]
-"461
-[; ;FRAME.c: 461:         message->data[0] = (unsigned char)(Dane->wersjaOprogramowaniaU16 >> 8);
-[e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> >> -> . *U _Dane 2 `ui -> 8 `i `uc ]
-"462
-[; ;FRAME.c: 462:         message->data[1] = (unsigned char)Dane->wersjaOprogramowaniaU16;
-[e = *U + &U . *U _message 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> . *U _Dane 2 `uc ]
-"463
-[; ;FRAME.c: 463:         message->data[2] = (unsigned char)(Dane->wersjaSprzetuU16 >> 8);
-[e = *U + &U . *U _message 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> >> -> . *U _Dane 4 `ui -> 8 `i `uc ]
-"464
-[; ;FRAME.c: 464:         message->data[3] = (unsigned char)Dane->wersjaSprzetuU16;
-[e = *U + &U . *U _message 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> . *U _Dane 4 `uc ]
-"465
-[; ;FRAME.c: 465:     }
-}
-[e $U 1167  ]
-"466
-[; ;FRAME.c: 466:     else
-[e :U 1166 ]
-"467
-[; ;FRAME.c: 467:     {
-{
-"469
-[; ;FRAME.c: 469:     }
-}
-[e :U 1167 ]
-"470
-[; ;FRAME.c: 470: }
-[e :UE 1165 ]
-}
-"478
-[; ;FRAME.c: 478: static void FRAME_AnalogValue(mID *message, WORD set)
-[v _FRAME_AnalogValue `(v ~T0 @X0 1 sf2`*S15`us ]
-"479
-[; ;FRAME.c: 479: {
-{
-[e :U _FRAME_AnalogValue ]
-"478
-[; ;FRAME.c: 478: static void FRAME_AnalogValue(mID *message, WORD set)
-[v _message `*S15 ~T0 @X0 1 r1 ]
-[v _set `us ~T0 @X0 1 r2 ]
-"479
-[; ;FRAME.c: 479: {
-[f ]
-"480
-[; ;FRAME.c: 480:     WORD i;
-[v _i `us ~T0 @X0 1 a ]
-"496
-[; ;FRAME.c: 496: }
-[e :UE 1168 ]
-}
-"504
-[; ;FRAME.c: 504: static void FRAME_PrzypisanieDokarty(mID *message)
-[v _FRAME_PrzypisanieDokarty `(v ~T0 @X0 1 sf1`*S15 ]
-"505
-[; ;FRAME.c: 505: {
-{
-[e :U _FRAME_PrzypisanieDokarty ]
-"504
-[; ;FRAME.c: 504: static void FRAME_PrzypisanieDokarty(mID *message)
-[v _message `*S15 ~T0 @X0 1 r1 ]
-"505
-[; ;FRAME.c: 505: {
-[f ]
-"506
-[; ;FRAME.c: 506:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1170  ]
-"507
-[; ;FRAME.c: 507:     {
-{
-"508
-[; ;FRAME.c: 508:         message->data_length = 1;
-[e = . *U _message 6 -> -> 1 `i `uc ]
-"509
-[; ;FRAME.c: 509:         message->data[0] = 0xFF;
-[e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> -> 255 `i `uc ]
-"510
-[; ;FRAME.c: 510:     }
-}
-[e $U 1171  ]
-"511
-[; ;FRAME.c: 511:     else
-[e :U 1170 ]
-"512
-[; ;FRAME.c: 512:     {
-{
-"514
-[; ;FRAME.c: 514:     }
-}
-[e :U 1171 ]
-"515
-[; ;FRAME.c: 515: }
-[e :UE 1169 ]
-}
-"522
-[; ;FRAME.c: 522: static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
-[v _FRAME_AdressOfNeighbors `(v ~T0 @X0 1 sf2`*S15`us ]
-"523
-[; ;FRAME.c: 523: {
-{
-[e :U _FRAME_AdressOfNeighbors ]
-"522
-[; ;FRAME.c: 522: static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
-[v _message `*S15 ~T0 @X0 1 r1 ]
-[v _nrRamki `us ~T0 @X0 1 r2 ]
-"523
-[; ;FRAME.c: 523: {
-[f ]
-"524
-[; ;FRAME.c: 524:     WORD iterator_alfa;
-[v _iterator_alfa `us ~T0 @X0 1 a ]
-"527
-[; ;FRAME.c: 527:     WORD kier = (nrRamki-0x10);
-[v _kier `us ~T0 @X0 1 a ]
-[e = _kier -> - -> _nrRamki `ui -> -> 16 `i `ui `us ]
-"528
-[; ;FRAME.c: 528:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1173  ]
-"529
-[; ;FRAME.c: 529:     {
-{
-"531
-[; ;FRAME.c: 531:         message->data_length = 8;
-[e = . *U _message 6 -> -> 8 `i `uc ]
-"533
-[; ;FRAME.c: 533:         if(kier == 0)
-[e $ ! == -> _kier `ui -> -> 0 `i `ui 1174  ]
-"534
-[; ;FRAME.c: 534:         {
-{
-"535
-[; ;FRAME.c: 535:         message->data[0] = NeightAdress1>> 8;
-[e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> >> _NeightAdress1 -> 8 `i `uc ]
-"536
-[; ;FRAME.c: 536:         message->data[1] = NeightAdress1;
-[e = *U + &U . *U _message 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> _NeightAdress1 `uc ]
-"537
-[; ;FRAME.c: 537:         message->data[2] = NeightAdress2>> 8;
-[e = *U + &U . *U _message 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> >> _NeightAdress2 -> 8 `i `uc ]
-"538
-[; ;FRAME.c: 538:         message->data[3] = NeightAdress2;
-[e = *U + &U . *U _message 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> _NeightAdress2 `uc ]
-"539
-[; ;FRAME.c: 539:         message->data[4] = NeightAdress3>> 8;
-[e = *U + &U . *U _message 5 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> >> _NeightAdress3 -> 8 `i `uc ]
-"540
-[; ;FRAME.c: 540:         message->data[5] = NeightAdress3;
-[e = *U + &U . *U _message 5 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> _NeightAdress3 `uc ]
-"541
-[; ;FRAME.c: 541:         message->data[6] = NeightAdress4>> 8;
-[e = *U + &U . *U _message 5 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> >> _NeightAdress4 -> 8 `i `uc ]
-"542
-[; ;FRAME.c: 542:         message->data[7] = NeightAdress4;
-[e = *U + &U . *U _message 5 * -> -> -> 7 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> _NeightAdress4 `uc ]
-"543
-[; ;FRAME.c: 543:         }
-}
-[e $U 1175  ]
-"544
-[; ;FRAME.c: 544:         else
-[e :U 1174 ]
-"545
-[; ;FRAME.c: 545:         {
-{
-"546
-[; ;FRAME.c: 546:         message->data[0] = NeightAdress5>> 8;
-[e = *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> >> _NeightAdress5 -> 8 `i `uc ]
-"547
-[; ;FRAME.c: 547:         message->data[1] = NeightAdress5;
-[e = *U + &U . *U _message 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> _NeightAdress5 `uc ]
-"548
-[; ;FRAME.c: 548:         message->data[2] = NeightAdress6>> 8;
-[e = *U + &U . *U _message 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> >> _NeightAdress6 -> 8 `i `uc ]
-"549
-[; ;FRAME.c: 549:         message->data[3] = NeightAdress6;
-[e = *U + &U . *U _message 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> _NeightAdress6 `uc ]
-"550
-[; ;FRAME.c: 550:         message->data[4] = NeightAdress7>> 8;
-[e = *U + &U . *U _message 5 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> >> _NeightAdress7 -> 8 `i `uc ]
-"551
-[; ;FRAME.c: 551:         message->data[5] = NeightAdress7;
-[e = *U + &U . *U _message 5 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> _NeightAdress7 `uc ]
-"552
-[; ;FRAME.c: 552:         message->data[6] = NeightAdress8>> 8;
-[e = *U + &U . *U _message 5 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> >> _NeightAdress8 -> 8 `i `uc ]
-"553
-[; ;FRAME.c: 553:         message->data[7] = NeightAdress8;
-[e = *U + &U . *U _message 5 * -> -> -> 7 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux -> _NeightAdress8 `uc ]
-"554
-[; ;FRAME.c: 554:         }
-}
-[e :U 1175 ]
-"563
-[; ;FRAME.c: 563:     }
-}
-[e $U 1176  ]
-"564
-[; ;FRAME.c: 564:     else
-[e :U 1173 ]
-"565
-[; ;FRAME.c: 565:     {
-{
-"566
-[; ;FRAME.c: 566:         WORD uranos = (message->data[2] << 8 ) | message->data[3];
-[v _uranos `us ~T0 @X0 1 a ]
-[e = _uranos -> | << -> *U + &U . *U _message 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `i -> 8 `i -> *U + &U . *U _message 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `i `us ]
-"567
-[; ;FRAME.c: 567:         WORD zeta =(WORD) uranos;
-[v _zeta `us ~T0 @X0 1 a ]
-[e = _zeta _uranos ]
-"571
-[; ;FRAME.c: 571:          WORD gaja = message->data[0] << 8 | message->data[1];
-[v _gaja `us ~T0 @X0 1 a ]
-[e = _gaja -> | << -> *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `i -> 8 `i -> *U + &U . *U _message 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `i `us ]
-"572
-[; ;FRAME.c: 572:          WORD zeta_secodus =(WORD) gaja;
-[v _zeta_secodus `us ~T0 @X0 1 a ]
-[e = _zeta_secodus _gaja ]
-"574
-[; ;FRAME.c: 574:         if(kier == 0)
-[e $ ! == -> _kier `ui -> -> 0 `i `ui 1177  ]
-"575
-[; ;FRAME.c: 575:         {
-{
-"576
-[; ;FRAME.c: 576:          NeightAdress1 = (message->data[0] << 8)| message->data[1];
-[e = _NeightAdress1 -> | << -> *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `i -> 8 `i -> *U + &U . *U _message 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `i `ui ]
-"577
-[; ;FRAME.c: 577:          NeightAdress2 = (message->data[2] << 8)| message->data[3];
-[e = _NeightAdress2 -> | << -> *U + &U . *U _message 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `i -> 8 `i -> *U + &U . *U _message 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `i `ui ]
-"578
-[; ;FRAME.c: 578:          NeightAdress3 = (message->data[4] << 8)| message->data[5];
-[e = _NeightAdress3 -> | << -> *U + &U . *U _message 5 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `i -> 8 `i -> *U + &U . *U _message 5 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `i `ui ]
-"579
-[; ;FRAME.c: 579:          NeightAdress4 = (message->data[6] << 8)| message->data[7];
-[e = _NeightAdress4 -> | << -> *U + &U . *U _message 5 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `i -> 8 `i -> *U + &U . *U _message 5 * -> -> -> 7 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `i `ui ]
-"580
-[; ;FRAME.c: 580:         }
-}
-[e $U 1178  ]
-"581
-[; ;FRAME.c: 581:         else
-[e :U 1177 ]
-"582
-[; ;FRAME.c: 582:         {
-{
-"583
-[; ;FRAME.c: 583:          NeightAdress5 = (message->data[0] << 8)| message->data[1];
-[e = _NeightAdress5 -> | << -> *U + &U . *U _message 5 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `i -> 8 `i -> *U + &U . *U _message 5 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `i `ui ]
-"584
-[; ;FRAME.c: 584:          NeightAdress6 = (message->data[2] << 8)| message->data[3];
-[e = _NeightAdress6 -> | << -> *U + &U . *U _message 5 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `i -> 8 `i -> *U + &U . *U _message 5 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `i `ui ]
-"585
-[; ;FRAME.c: 585:          NeightAdress7 = (message->data[4] << 8)| message->data[5];
-[e = _NeightAdress7 -> | << -> *U + &U . *U _message 5 * -> -> -> 4 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `i -> 8 `i -> *U + &U . *U _message 5 * -> -> -> 5 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `i `ui ]
-"586
-[; ;FRAME.c: 586:          NeightAdress8 = (message->data[6] << 8)| message->data[7];
-[e = _NeightAdress8 -> | << -> *U + &U . *U _message 5 * -> -> -> 6 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `i -> 8 `i -> *U + &U . *U _message 5 * -> -> -> 7 `i `ui `ux -> -> # *U &U . *U _message 5 `ui `ux `i `ui ]
-"587
-[; ;FRAME.c: 587:         }
-}
-[e :U 1178 ]
-"615
-[; ;FRAME.c: 615:     }
-}
-[e :U 1176 ]
-"616
-[; ;FRAME.c: 616: }
-[e :UE 1172 ]
-}
-"623
-[; ;FRAME.c: 623: void FRAME_HandleCanFrame(mID * message)
-[v _FRAME_HandleCanFrame `(v ~T0 @X0 1 ef1`*S15 ]
-"624
-[; ;FRAME.c: 624: {
-{
-[e :U _FRAME_HandleCanFrame ]
-"623
-[; ;FRAME.c: 623: void FRAME_HandleCanFrame(mID * message)
-[v _message `*S15 ~T0 @X0 1 r1 ]
-"624
-[; ;FRAME.c: 624: {
-[f ]
-"625
-[; ;FRAME.c: 625:     BYTE identyfikator = (BYTE) message->id.v[2]/4;
-[v _identyfikator `uc ~T0 @X0 1 a ]
-[e = _identyfikator -> / -> *U + &U . . *U _message 4 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . . *U _message 4 2 `ui `ux `i -> 4 `i `uc ]
-"628
-[; ;FRAME.c: 628:     if(identyfikator != 0x01)
-[e $ ! != -> _identyfikator `i -> 1 `i 1180  ]
-"629
-[; ;FRAME.c: 629:     {
-{
-"630
-[; ;FRAME.c: 630:         WORD ident = identyfikator;
-[v _ident `us ~T0 @X0 1 a ]
-[e = _ident -> _identyfikator `us ]
-"631
-[; ;FRAME.c: 631:         int alfa = ident;
-[v _alfa `i ~T0 @X0 1 a ]
-[e = _alfa -> _ident `i ]
-"632
-[; ;FRAME.c: 632:     }
-}
-[e :U 1180 ]
-"634
-[; ;FRAME.c: 634:     switch(identyfikator)
-[e $U 1182  ]
-"635
-[; ;FRAME.c: 635:     {
-{
-"636
-[; ;FRAME.c: 636:         case 0x01:
-[e :U 1183 ]
-"637
-[; ;FRAME.c: 637:             FRAME_SensorExcitationStatus(message);
-[e ( _FRAME_SensorExcitationStatus (1 _message ]
-"638
-[; ;FRAME.c: 638:             break;
-[e $U 1181  ]
-"639
-[; ;FRAME.c: 639:         case 0x02:
-[e :U 1184 ]
-"640
-[; ;FRAME.c: 640:             FRAME_AccelerometerStatus(message);
-[e ( _FRAME_AccelerometerStatus (1 _message ]
-"641
-[; ;FRAME.c: 641:             break;
-[e $U 1181  ]
-"642
-[; ;FRAME.c: 642:         case 0x03:
-[e :U 1185 ]
-"643
-[; ;FRAME.c: 643:             FRAME_ExcitationValue(message);
-[e ( _FRAME_ExcitationValue (1 _message ]
-"644
-[; ;FRAME.c: 644:             break;
-[e $U 1181  ]
-"645
-[; ;FRAME.c: 645:         case 0x04:
-[e :U 1186 ]
-"646
-[; ;FRAME.c: 646:             FRAME_ExcitationMultiplier(message);
-[e ( _FRAME_ExcitationMultiplier (1 _message ]
-"647
-[; ;FRAME.c: 647:             break;
-[e $U 1181  ]
-"648
-[; ;FRAME.c: 648:         case 0x05:
-[e :U 1187 ]
-"649
-[; ;FRAME.c: 649:             FRAME_AveragingTimes(message);
-[e ( _FRAME_AveragingTimes (1 _message ]
-"650
-[; ;FRAME.c: 650:             break;
-[e $U 1181  ]
-"651
-[; ;FRAME.c: 651:         case 0x06:
-[e :U 1188 ]
-"652
-[; ;FRAME.c: 652:             FRAME_AxisStatus(message);
-[e ( _FRAME_AxisStatus (1 _message ]
-"653
-[; ;FRAME.c: 653:             break;
-[e $U 1181  ]
-"654
-[; ;FRAME.c: 654:         case 0x07:
-[e :U 1189 ]
-"655
-[; ;FRAME.c: 655:             FRAME_DeviceReset(message);
-[e ( _FRAME_DeviceReset (1 _message ]
-"656
-[; ;FRAME.c: 656:             break;
-[e $U 1181  ]
-"657
-[; ;FRAME.c: 657:         case 0x09:
-[e :U 1190 ]
-"658
-[; ;FRAME.c: 658:             FRAME_Plot(message);
-[e ( _FRAME_Plot (1 _message ]
-"659
-[; ;FRAME.c: 659:             break;
-[e $U 1181  ]
-"660
-[; ;FRAME.c: 660:         case 0x0A:
-[e :U 1191 ]
-"661
-[; ;FRAME.c: 661:             FRAME_MapPosition(message);
-[e ( _FRAME_MapPosition (1 _message ]
-"662
-[; ;FRAME.c: 662:             break;
-[e $U 1181  ]
-"663
-[; ;FRAME.c: 663:         case 0x0B:
-[e :U 1192 ]
-"664
-[; ;FRAME.c: 664:             FRAME_SoftwareVersion(message);
-[e ( _FRAME_SoftwareVersion (1 _message ]
-"665
-[; ;FRAME.c: 665:             break;
-[e $U 1181  ]
-"666
-[; ;FRAME.c: 666:         case 0x0C:
-[e :U 1193 ]
-"667
-[; ;FRAME.c: 667:         case 0x0D:
-[e :U 1194 ]
-"668
-[; ;FRAME.c: 668:             FRAME_AnalogValue(message, identyfikator - 0x0C);
-[e ( _FRAME_AnalogValue (2 , _message -> - -> _identyfikator `i -> 12 `i `us ]
-"669
-[; ;FRAME.c: 669:             break;
-[e $U 1181  ]
-"670
-[; ;FRAME.c: 670:         case 0x0F:
-[e :U 1195 ]
-"671
-[; ;FRAME.c: 671:             FRAME_PrzypisanieDokarty(message);
-[e ( _FRAME_PrzypisanieDokarty (1 _message ]
-"672
-[; ;FRAME.c: 672:             break;
-[e $U 1181  ]
-"673
-[; ;FRAME.c: 673:         case 0x10:
-[e :U 1196 ]
-"674
-[; ;FRAME.c: 674:             FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
-[e ( _FRAME_AdressOfNeighbors (2 , _message -> - -> _identyfikator `i -> 16 `i `us ]
-"675
-[; ;FRAME.c: 675:             break;
-[e $U 1181  ]
-"676
-[; ;FRAME.c: 676:         case 0x11:
-[e :U 1197 ]
-"677
-[; ;FRAME.c: 677:             FRAME_AdressOfNeighbors(message, identyfikator - 0x11);
-[e ( _FRAME_AdressOfNeighbors (2 , _message -> - -> _identyfikator `i -> 17 `i `us ]
-"678
-[; ;FRAME.c: 678:             break;
-[e $U 1181  ]
-"686
-[; ;FRAME.c: 686:     }
-}
-[e $U 1181  ]
-[e :U 1182 ]
-[e [\ -> _identyfikator `i , $ -> 1 `i 1183
- , $ -> 2 `i 1184
- , $ -> 3 `i 1185
- , $ -> 4 `i 1186
- , $ -> 5 `i 1187
- , $ -> 6 `i 1188
- , $ -> 7 `i 1189
- , $ -> 9 `i 1190
- , $ -> 10 `i 1191
- , $ -> 11 `i 1192
- , $ -> 12 `i 1193
- , $ -> 13 `i 1194
- , $ -> 15 `i 1195
- , $ -> 16 `i 1196
- , $ -> 17 `i 1197
- 1181 ]
-[e :U 1181 ]
-"687
-[; ;FRAME.c: 687:     if(message->message_type == 0x02)
-[e $ ! == -> . *U _message 1 `i -> 2 `i 1198  ]
-"688
-[; ;FRAME.c: 688:     {
-{
-"690
-[; ;FRAME.c: 690:         message->frame_type = 0x03;
-[e = . *U _message 2 -> -> 3 `i `uc ]
-"691
-[; ;FRAME.c: 691:         message->message_type = 0x01;
-[e = . *U _message 1 -> -> 1 `i `uc ]
-"692
-[; ;FRAME.c: 692:         message->id.Val = 0;
-[e = . . *U _message 4 0 -> -> -> 0 `i `l `ul ]
-"694
-[; ;FRAME.c: 694:         message->id.v[2] = identyfikator*4;
-[e = *U + &U . . *U _message 4 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . . *U _message 4 2 `ui `ux -> * -> _identyfikator `i -> 4 `i `uc ]
-"695
-[; ;FRAME.c: 695:         CAN_GenID(message,identyfikator);
-[e ( _CAN_GenID (2 , _message _identyfikator ]
-"696
-[; ;FRAME.c: 696:         CAN_SendFrame(message);
-[e ( _CAN_SendFrame (1 _message ]
-"707
-[; ;FRAME.c: 707:        while(RXB0CONbits.FILHIT3)
-[e $U 1199  ]
-[e :U 1200 ]
-"708
-[; ;FRAME.c: 708:        {
-{
-"709
-[; ;FRAME.c: 709:            if(TXB0CONbits.TXERR == 1){
-[e $ ! == -> . . _TXB0CONbits 0 4 `i -> 1 `i 1202  ]
-{
-"710
-[; ;FRAME.c: 710:                LED_Error();
-[e ( _LED_Error ..  ]
-"711
-[; ;FRAME.c: 711:            }
-}
-[e $U 1203  ]
-"712
-[; ;FRAME.c: 712:            else
-[e :U 1202 ]
-"713
-[; ;FRAME.c: 713:            {
-{
-"715
-[; ;FRAME.c: 715:            }
-}
-[e :U 1203 ]
-"717
-[; ;FRAME.c: 717:        };
-}
-[e :U 1199 ]
-"707
-[; ;FRAME.c: 707:        while(RXB0CONbits.FILHIT3)
-[e $ != -> . . _RXB0CONbits 2 3 `i -> 0 `i 1200  ]
-[e :U 1201 ]
-"721
-[; ;FRAME.c: 721:     }
-}
-[e :U 1198 ]
-"722
-[; ;FRAME.c: 722: }
-[e :UE 1179 ]
+[; ;INI.c: 82: TMR1IP = 0;
+[e = _TMR1IP -> -> 0 `i `b ]
+"83
+[; ;INI.c: 83: }
+[e :UE 1115 ]
 }

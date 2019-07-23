@@ -174,7 +174,7 @@ FRAME_DeviceReset@message 26 0 COMRAM 1
 CAN_MoveBuffIntoFrame@Buf 28 0 COMRAM 1
 __end_of_FRAME_ExcitationValue 13E6 0 CODE 0
 ?_LED_Left 26 0 COMRAM 1
-stackhi CFF 0 ABS 0
+stackhi CF3 0 ABS 0
 _FRAME_ExcitationValue 13B0 0 CODE 0
 CAN_MoveBuffIntoFrame@Ram 26 0 COMRAM 1
 __HcstackBANK0 0 0 ABS 0
@@ -726,9 +726,9 @@ bssBANK0 60 DB BANK0 60 1
 bssBIGRAM DC 2FB BIGRAM DC 1
 text6 1636 1653 CODE 1636 0
 %locals
-dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
+dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
-C:\Users\hp\AppData\Local\Temp\s6mo.
+C:\Users\hp\AppData\Local\Temp\s3d8.
 8751 114E 0 CODE 0
 8753 114E 0 CODE 0
 8756 114E 0 CODE 0

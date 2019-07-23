@@ -24,7 +24,15 @@ typedef union tuReg32 {
 mID ramkaCanRxKarty[RX_BUF_SIZE], ramkaCanTxKarty;
 BYTE IsInNeighbors(UINT message_adress);
 
-volatile UINT NeightAdress[MAX_SASIADOW] = {0, 0, 0, 0, 0, 0, 0, 0};
+volatile UINT NeightAdress1 = 0;
+volatile UINT NeightAdress2 = 0;
+volatile UINT NeightAdress3 = 0;
+volatile UINT NeightAdress4 = 0;
+volatile UINT NeightAdress5 = 0;
+volatile UINT NeightAdress6 = 0;
+volatile UINT NeightAdress7 = 0;
+volatile UINT NeightAdress8 = 0;
+
 
 /*******************************************************************
 Funkcja: void StatusWzbudzeniaCzujnika(mID *message);
@@ -62,27 +70,27 @@ static void FRAME_SensorExcitationStatus(mID *message) // id = 0x01
     {
         
         WORD iterator_beta;
-        int Saturn  = NeightAdress[0];
+       
         
-        if(Saturn == 12)
+        if(IsInNeighbors(11))
         {
-            int Satrun_prime = Saturn;
+            
             
             for(iterator_beta=0;iterator_beta<400;iterator_beta++)
             {
             LED_Clear();
             }
-            int terra =Satrun_prime;
+            
             
         }
         else
         {
-            int Satrun_prime = Saturn;
+            
             for(iterator_beta=0;iterator_beta<400;iterator_beta++)
             {
             LED_Error();
             }       
-            int terra =Satrun_prime;
+            
         }    
         
         if(0x12b==message->id.w[0])
@@ -95,7 +103,42 @@ static void FRAME_SensorExcitationStatus(mID *message) // id = 0x01
 BYTE IsInNeighbors(UINT message_adress)
 {
     WORD i;
+    
+    if(NeightAdress1==message_adress)
+    {
+        return 1;
+    }
+    if(NeightAdress2==message_adress)
+    {
+        return 1;
+    }
+    if(NeightAdress3==message_adress)
+    {
+        return 1;
+    }
+    if(NeightAdress4==message_adress)
+    {
+        return 1;
+    }
+    if(NeightAdress5==message_adress)
+    {
+        return 1;
+    }
+    if(NeightAdress6==message_adress)
+    {
+        return 1;
+    }
+    if(NeightAdress7==message_adress)
+    {
+        return 1;
+    }
+    if(NeightAdress8==message_adress)
+    {
+        return 1;
+    }
+    
     //0x10
+    /*
     for(i=0; i<8; i++)
         {
             if(message_adress == NeightAdress[i] )
@@ -106,6 +149,7 @@ BYTE IsInNeighbors(UINT message_adress)
             //zapisz adres struktury
             
         } 
+    */
     return 0;
 }
 
@@ -485,23 +529,62 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)  //0x10
     {
         
         message->data_length = 8;
+        
+        if(kier == 0)
+        {
+        message->data[0] = NeightAdress1>> 8;
+        message->data[1] = NeightAdress1;
+        message->data[2] = NeightAdress2>> 8;
+        message->data[3] = NeightAdress2;
+        message->data[4] = NeightAdress3>> 8;
+        message->data[5] = NeightAdress3;
+        message->data[6] = NeightAdress4>> 8;
+        message->data[7] = NeightAdress4;
+        }
+        else
+        {
+        message->data[0] = NeightAdress5>> 8;
+        message->data[1] = NeightAdress5;
+        message->data[2] = NeightAdress6>> 8;
+        message->data[3] = NeightAdress6;
+        message->data[4] = NeightAdress7>> 8;
+        message->data[5] = NeightAdress7;
+        message->data[6] = NeightAdress8>> 8;
+        message->data[7] = NeightAdress8;    
+        }
+        
+        /*
         for(iterator_alfa=0; iterator_alfa<4; iterator_alfa++)
         {
             message->data[(2*iterator_alfa)] = ((BYTE)NeightAdress[(iterator_alfa+(4*kier))] >> 8);
             message->data[((2*iterator_alfa)+1)] = (BYTE)NeightAdress[(iterator_alfa+(4*kier))];
         }
-        
+        */
     }
     else
     {
         WORD uranos = (message->data[2] << 8 ) | message->data[3];
         WORD zeta =(WORD) uranos; 
          
-        WORD kier = (nrRamki-0x10);
+      
          
          WORD gaja = message->data[0] << 8 | message->data[1];
          WORD zeta_secodus =(WORD) gaja; 
          
+        if(kier == 0)
+        {
+         NeightAdress1 = (message->data[0] << 8)| message->data[1];
+         NeightAdress2 = (message->data[2] << 8)| message->data[3];
+         NeightAdress3 = (message->data[4] << 8)| message->data[5];
+         NeightAdress4 = (message->data[6] << 8)| message->data[7];                 
+        }
+        else
+        {
+         NeightAdress5 = (message->data[0] << 8)| message->data[1];
+         NeightAdress6 = (message->data[2] << 8)| message->data[3];
+         NeightAdress7 = (message->data[4] << 8)| message->data[5];
+         NeightAdress8 = (message->data[6] << 8)| message->data[7];     
+        }
          /*
         for(i=0; i<4; i++)
         {
@@ -511,11 +594,21 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)  //0x10
             
         } 
           * */
-         
+         /*
          for(iterator_alfa=0; iterator_alfa<4;iterator_alfa++)
          {
-             NeightAdress[(iterator_alfa+(4*kier))] =  (message->data[2*iterator_alfa] << 8)| message->data[((2*iterator_alfa)+1)];
+             if(iterator_alfa>3)
+             {
+                 
+             }
+             else
+             {
+                 NeightAdress[(iterator_alfa+(4*kier))] =  (message->data[2*iterator_alfa] << 8)| message->data[((2*iterator_alfa)+1)];
+         
+             }
+             
          }
+          * */
          
          
                  
