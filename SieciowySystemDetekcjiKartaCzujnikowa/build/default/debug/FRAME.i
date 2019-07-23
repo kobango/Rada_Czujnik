@@ -18392,7 +18392,7 @@ static void FRAME_SensorExcitationStatus(mID *message)
         WORD iterator_beta;
 
 
-        if(IsInNeighbors(11))
+        if(IsInNeighbors(12))
         {
 
 

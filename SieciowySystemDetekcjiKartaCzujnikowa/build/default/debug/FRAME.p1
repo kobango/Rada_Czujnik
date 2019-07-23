@@ -1511,8 +1511,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;FRAME.c: 72:         WORD iterator_beta;
 [v _iterator_beta `us ~T0 @X0 1 a ]
 "75
-[; ;FRAME.c: 75:         if(IsInNeighbors(11))
-[e $ ! != -> ( _IsInNeighbors (1 -> -> 11 `i `ui `i -> 0 `i 1121  ]
+[; ;FRAME.c: 75:         if(IsInNeighbors(12))
+[e $ ! != -> ( _IsInNeighbors (1 -> -> 12 `i `ui `i -> 0 `i 1121  ]
 "76
 [; ;FRAME.c: 76:         {
 {

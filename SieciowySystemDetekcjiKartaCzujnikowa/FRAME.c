@@ -72,7 +72,7 @@ static void FRAME_SensorExcitationStatus(mID *message) // id = 0x01
         WORD iterator_beta;
        
         
-        if(IsInNeighbors(11))
+        if(IsInNeighbors(12))
         {
             
             

@@ -76,7 +76,7 @@ intcode CODE 0 8 8 6 1
 dataCOMRAM COMRAM 1 41 41 9 1
 bssBIGRAM BIGRAM 1 DC DC 220 1
 bssCOMRAM COMRAM 1 1 1 20 1
-$C:\Users\hp\AppData\Local\Temp\s3d8.o
+$C:\Users\hp\AppData\Local\Temp\s7f4.o
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 5C 5C 4 1
 reset_vec CODE 0 0 0 4 1
@@ -808,51 +808,51 @@ BEA text4 CODE >101:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcji
 14AC text0 CODE >115:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\main.c
 14B0 text0 CODE >116:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\main.c
 14B2 text0 CODE >117:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\main.c
-114E cinit CODE >8751:C:\Users\hp\AppData\Local\Temp\s3d8.
-114E cinit CODE >8753:C:\Users\hp\AppData\Local\Temp\s3d8.
-114E cinit CODE >8756:C:\Users\hp\AppData\Local\Temp\s3d8.
-114E cinit CODE >8859:C:\Users\hp\AppData\Local\Temp\s3d8.
-1150 cinit CODE >8860:C:\Users\hp\AppData\Local\Temp\s3d8.
-1152 cinit CODE >8861:C:\Users\hp\AppData\Local\Temp\s3d8.
-1154 cinit CODE >8862:C:\Users\hp\AppData\Local\Temp\s3d8.
-1156 cinit CODE >8863:C:\Users\hp\AppData\Local\Temp\s3d8.
-1158 cinit CODE >8864:C:\Users\hp\AppData\Local\Temp\s3d8.
-115A cinit CODE >8865:C:\Users\hp\AppData\Local\Temp\s3d8.
-115E cinit CODE >8866:C:\Users\hp\AppData\Local\Temp\s3d8.
-1162 cinit CODE >8867:C:\Users\hp\AppData\Local\Temp\s3d8.
-1162 cinit CODE >8868:C:\Users\hp\AppData\Local\Temp\s3d8.
-1164 cinit CODE >8869:C:\Users\hp\AppData\Local\Temp\s3d8.
-1168 cinit CODE >8870:C:\Users\hp\AppData\Local\Temp\s3d8.
-116A cinit CODE >8871:C:\Users\hp\AppData\Local\Temp\s3d8.
-116C cinit CODE >8872:C:\Users\hp\AppData\Local\Temp\s3d8.
-116E cinit CODE >8876:C:\Users\hp\AppData\Local\Temp\s3d8.
-1172 cinit CODE >8877:C:\Users\hp\AppData\Local\Temp\s3d8.
-1176 cinit CODE >8878:C:\Users\hp\AppData\Local\Temp\s3d8.
-1176 cinit CODE >8879:C:\Users\hp\AppData\Local\Temp\s3d8.
-1178 cinit CODE >8880:C:\Users\hp\AppData\Local\Temp\s3d8.
-117A cinit CODE >8881:C:\Users\hp\AppData\Local\Temp\s3d8.
-117C cinit CODE >8882:C:\Users\hp\AppData\Local\Temp\s3d8.
-117E cinit CODE >8883:C:\Users\hp\AppData\Local\Temp\s3d8.
-1180 cinit CODE >8884:C:\Users\hp\AppData\Local\Temp\s3d8.
-1182 cinit CODE >8887:C:\Users\hp\AppData\Local\Temp\s3d8.
-1186 cinit CODE >8888:C:\Users\hp\AppData\Local\Temp\s3d8.
-1188 cinit CODE >8889:C:\Users\hp\AppData\Local\Temp\s3d8.
-1188 cinit CODE >8890:C:\Users\hp\AppData\Local\Temp\s3d8.
-118A cinit CODE >8891:C:\Users\hp\AppData\Local\Temp\s3d8.
-118C cinit CODE >8892:C:\Users\hp\AppData\Local\Temp\s3d8.
-118E cinit CODE >8895:C:\Users\hp\AppData\Local\Temp\s3d8.
-1192 cinit CODE >8896:C:\Users\hp\AppData\Local\Temp\s3d8.
-1194 cinit CODE >8897:C:\Users\hp\AppData\Local\Temp\s3d8.
-1194 cinit CODE >8898:C:\Users\hp\AppData\Local\Temp\s3d8.
-1196 cinit CODE >8899:C:\Users\hp\AppData\Local\Temp\s3d8.
-1198 cinit CODE >8900:C:\Users\hp\AppData\Local\Temp\s3d8.
-119A cinit CODE >8906:C:\Users\hp\AppData\Local\Temp\s3d8.
-119A cinit CODE >8908:C:\Users\hp\AppData\Local\Temp\s3d8.
-119C cinit CODE >8909:C:\Users\hp\AppData\Local\Temp\s3d8.
-119E cinit CODE >8911:C:\Users\hp\AppData\Local\Temp\s3d8.
-11A0 cinit CODE >8912:C:\Users\hp\AppData\Local\Temp\s3d8.
-11A2 cinit CODE >8913:C:\Users\hp\AppData\Local\Temp\s3d8.
-11A4 cinit CODE >8914:C:\Users\hp\AppData\Local\Temp\s3d8.
+114E cinit CODE >8751:C:\Users\hp\AppData\Local\Temp\s7f4.
+114E cinit CODE >8753:C:\Users\hp\AppData\Local\Temp\s7f4.
+114E cinit CODE >8756:C:\Users\hp\AppData\Local\Temp\s7f4.
+114E cinit CODE >8859:C:\Users\hp\AppData\Local\Temp\s7f4.
+1150 cinit CODE >8860:C:\Users\hp\AppData\Local\Temp\s7f4.
+1152 cinit CODE >8861:C:\Users\hp\AppData\Local\Temp\s7f4.
+1154 cinit CODE >8862:C:\Users\hp\AppData\Local\Temp\s7f4.
+1156 cinit CODE >8863:C:\Users\hp\AppData\Local\Temp\s7f4.
+1158 cinit CODE >8864:C:\Users\hp\AppData\Local\Temp\s7f4.
+115A cinit CODE >8865:C:\Users\hp\AppData\Local\Temp\s7f4.
+115E cinit CODE >8866:C:\Users\hp\AppData\Local\Temp\s7f4.
+1162 cinit CODE >8867:C:\Users\hp\AppData\Local\Temp\s7f4.
+1162 cinit CODE >8868:C:\Users\hp\AppData\Local\Temp\s7f4.
+1164 cinit CODE >8869:C:\Users\hp\AppData\Local\Temp\s7f4.
+1168 cinit CODE >8870:C:\Users\hp\AppData\Local\Temp\s7f4.
+116A cinit CODE >8871:C:\Users\hp\AppData\Local\Temp\s7f4.
+116C cinit CODE >8872:C:\Users\hp\AppData\Local\Temp\s7f4.
+116E cinit CODE >8876:C:\Users\hp\AppData\Local\Temp\s7f4.
+1172 cinit CODE >8877:C:\Users\hp\AppData\Local\Temp\s7f4.
+1176 cinit CODE >8878:C:\Users\hp\AppData\Local\Temp\s7f4.
+1176 cinit CODE >8879:C:\Users\hp\AppData\Local\Temp\s7f4.
+1178 cinit CODE >8880:C:\Users\hp\AppData\Local\Temp\s7f4.
+117A cinit CODE >8881:C:\Users\hp\AppData\Local\Temp\s7f4.
+117C cinit CODE >8882:C:\Users\hp\AppData\Local\Temp\s7f4.
+117E cinit CODE >8883:C:\Users\hp\AppData\Local\Temp\s7f4.
+1180 cinit CODE >8884:C:\Users\hp\AppData\Local\Temp\s7f4.
+1182 cinit CODE >8887:C:\Users\hp\AppData\Local\Temp\s7f4.
+1186 cinit CODE >8888:C:\Users\hp\AppData\Local\Temp\s7f4.
+1188 cinit CODE >8889:C:\Users\hp\AppData\Local\Temp\s7f4.
+1188 cinit CODE >8890:C:\Users\hp\AppData\Local\Temp\s7f4.
+118A cinit CODE >8891:C:\Users\hp\AppData\Local\Temp\s7f4.
+118C cinit CODE >8892:C:\Users\hp\AppData\Local\Temp\s7f4.
+118E cinit CODE >8895:C:\Users\hp\AppData\Local\Temp\s7f4.
+1192 cinit CODE >8896:C:\Users\hp\AppData\Local\Temp\s7f4.
+1194 cinit CODE >8897:C:\Users\hp\AppData\Local\Temp\s7f4.
+1194 cinit CODE >8898:C:\Users\hp\AppData\Local\Temp\s7f4.
+1196 cinit CODE >8899:C:\Users\hp\AppData\Local\Temp\s7f4.
+1198 cinit CODE >8900:C:\Users\hp\AppData\Local\Temp\s7f4.
+119A cinit CODE >8906:C:\Users\hp\AppData\Local\Temp\s7f4.
+119A cinit CODE >8908:C:\Users\hp\AppData\Local\Temp\s7f4.
+119C cinit CODE >8909:C:\Users\hp\AppData\Local\Temp\s7f4.
+119E cinit CODE >8911:C:\Users\hp\AppData\Local\Temp\s7f4.
+11A0 cinit CODE >8912:C:\Users\hp\AppData\Local\Temp\s7f4.
+11A2 cinit CODE >8913:C:\Users\hp\AppData\Local\Temp\s7f4.
+11A4 cinit CODE >8914:C:\Users\hp\AppData\Local\Temp\s7f4.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -883,7 +883,7 @@ _RXM1SIDH F1C 0 ABS 0 - dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa
 _RXM1SIDL F1D 0 ABS 0 - dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 CAN_TakeFrame@k 33 0 COMRAM 1 cstackCOMRAM dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\hp\AppData\Local\Temp\s3d8.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\hp\AppData\Local\Temp\s7f4.o
 FRAME_Plot@message 2D 0 COMRAM 1 cstackCOMRAM dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
@@ -905,12 +905,12 @@ _PEIE 7F96 0 ABS 0 - dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.de
 _PIE3 FA3 0 ABS 0 - dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 _PIR3 FA4 0 ABS 0 - dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 _RCON FD0 0 ABS 0 - dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
-___sp 0 0 STACK 2 stack C:\Users\hp\AppData\Local\Temp\s3d8.o
+___sp 0 0 STACK 2 stack C:\Users\hp\AppData\Local\Temp\s7f4.o
 _main 1486 0 CODE 0 text0 dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 btemp 4A 0 COMRAM 1 temp dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __size_of_FRAME_ExcitationValue 0 0 ABS 0 - dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __HbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
-start 5C 0 CODE 0 init C:\Users\hp\AppData\Local\Temp\s3d8.o
+start 5C 0 CODE 0 init C:\Users\hp\AppData\Local\Temp\s7f4.o
 __size_of___awdiv 0 0 ABS 0 - dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __size_of_FRAME_Plot 0 0 ABS 0 - dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __size_of_main 0 0 ABS 0 - dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
@@ -927,11 +927,11 @@ ttemp6 4E 0 COMRAM 1 temp dist/default/debug\SieciowySystemDetekcjiKartaCzujniko
 ttemp7 52 0 COMRAM 1 temp dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __LbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
-__accesstop 60 0 ABS 0 - C:\Users\hp\AppData\Local\Temp\s3d8.o
-intlevel0 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\s3d8.o
-intlevel1 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\s3d8.o
-intlevel2 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\s3d8.o
-intlevel3 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\s3d8.o
+__accesstop 60 0 ABS 0 - C:\Users\hp\AppData\Local\Temp\s7f4.o
+intlevel0 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\s7f4.o
+intlevel1 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\s7f4.o
+intlevel2 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\s7f4.o
+intlevel3 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\s7f4.o
 _LED_Update F24 0 CODE 0 text36 dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 _WDTCONbits FD1 0 ABS 0 - dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
@@ -961,8 +961,8 @@ __end_of_FRAME_AnalogValue 1654 0 CODE 0 text22 dist/default/debug\SieciowySyste
 _MOCK_Klikniecie_Spadek 1604 0 CODE 0 text28 dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 ___awdiv@dividend 26 0 COMRAM 1 cstackCOMRAM dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 ?_MOC_Wynikowa_wartosc_roznicowa 26 0 COMRAM 1 cstackCOMRAM dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\hp\AppData\Local\Temp\s3d8.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\hp\AppData\Local\Temp\s3d8.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\hp\AppData\Local\Temp\s7f4.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\hp\AppData\Local\Temp\s7f4.o
 LED_Light_Pos@pos 2D 0 COMRAM 1 cstackCOMRAM dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 _CANCON F6F 0 ABS 0 - dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
@@ -1073,7 +1073,7 @@ __Hbank11 0 0 ABS 0 bank11 dist/default/debug\SieciowySystemDetekcjiKartaCzujnik
 __Hbank12 0 0 ABS 0 bank12 dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __Hbigram 0 0 ABS 0 bigram dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\hp\AppData\Local\Temp\s3d8.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\hp\AppData\Local\Temp\s7f4.o
 __end_of_CAN_MoveBuffIntoFrame 14DE 0 CODE 0 text33 dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __size_of_CAN_TakeFrame 0 0 ABS 0 - dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __end_of_FRAME_AdressOfNeighbors 388 0 CODE 0 text23 dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
@@ -1322,8 +1322,8 @@ __size_of_LED_Control 0 0 ABS 0 - dist/default/debug\SieciowySystemDetekcjiKarta
 _IsInNeighbors F9E 0 CODE 0 text13 dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __end_of_FRAME_AveragingTimes 1452 0 CODE 0 text21 dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 FRAME_SensorExcitationStatus@message 2B 0 COMRAM 1 cstackCOMRAM dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
-stackhi CF3 0 ABS 0 - C:\Users\hp\AppData\Local\Temp\s3d8.o
-stacklo 2FC 0 ABS 0 - C:\Users\hp\AppData\Local\Temp\s3d8.o
+stackhi CF3 0 ABS 0 - C:\Users\hp\AppData\Local\Temp\s7f4.o
+stacklo 2FC 0 ABS 0 - C:\Users\hp\AppData\Local\Temp\s7f4.o
 __Lintcode 8 0 CODE 0 intcode dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __size_of_MOC_Aktualna_Temperatura 0 0 ABS 0 - dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __Lintret 0 0 ABS 0 intret dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
@@ -1433,7 +1433,7 @@ __Ltext48 0 0 ABS 0 text48 dist/default/debug\SieciowySystemDetekcjiKartaCzujnik
 __Ltext49 0 0 ABS 0 text49 dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __Ltext51 0 0 ABS 0 text51 dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __Ltext52 0 0 ABS 0 text52 dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
-__ramtop D00 0 RAM 0 ramtop C:\Users\hp\AppData\Local\Temp\s3d8.o
+__ramtop D00 0 RAM 0 ramtop C:\Users\hp\AppData\Local\Temp\s7f4.o
 _CAN_SetupClock 14DE 0 CODE 0 text49 dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __Lpowerup 5C 0 CODE 0 powerup dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o

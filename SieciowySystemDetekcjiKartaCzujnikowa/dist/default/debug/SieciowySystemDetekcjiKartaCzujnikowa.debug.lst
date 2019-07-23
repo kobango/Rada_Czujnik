@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.05 build -831301201 
-                                                                                               Tue Jul 23 14:21:46 2019
+                                                                                               Tue Jul 23 14:34:08 2019
 
 Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1 
      1                           	processor	18F4680
@@ -1436,10 +1436,10 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1391  000B74                     l3608:
   1392                           
   1393                           ;FRAME.c: 70:     {;FRAME.c: 72:         WORD iterator_beta;;FRAME.c: 75:         if(IsI
-      +                          nNeighbors(11))
+      +                          nNeighbors(12))
   1394  000B74  0E00               	movlw	0
   1395  000B76  6E27               	movwf	IsInNeighbors@message_adress+1,c
-  1396  000B78  0E0B               	movlw	11
+  1396  000B78  0E0C               	movlw	12
   1397  000B7A  6E26               	movwf	IsInNeighbors@message_adress,c
   1398  000B7C  ECCF  F007         	call	_IsInNeighbors	;wreg free
   1399  000B80  0900               	iorlw	0
@@ -7605,7 +7605,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.05 build -831301201 
-Symbol Table                                                                                   Tue Jul 23 14:21:46 2019
+Symbol Table                                                                                   Tue Jul 23 14:34:08 2019
 
                 __end_of_FRAME_DeviceReset 0CD0                      ?_FRAME_AveragingTimes 0026  
                              ___awdiv@sign 002B                                         bsr 000FE0  

@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.05\pic\dat\en_msgs.txt \
   -cs -h+dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.sym \
   --cmf=dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.cmf \
-  -z -Q18F4680 -oC:\Users\hp\AppData\Local\Temp\s3d8.2 \
+  -z -Q18F4680 -oC:\Users\hp\AppData\Local\Temp\s7f4.2 \
   --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/debug/SieciowySystemDetekcjiKartaCzujnikowa.debug.map -E1 \
   -ver=XC8 --acfsm=1493 -ASTACK=02FCh-0CF3h -pstack=STACK -ACODE=00h-0FD2Fh \
@@ -27,7 +27,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\hp\AppData\Local\Temp\s3d8.o \
+  C:\Users\hp\AppData\Local\Temp\s7f4.o \
   dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o 
 
 Object code version is 3.11
@@ -40,7 +40,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\hp\AppData\Local\Temp\s3d8.o
+C:\Users\hp\AppData\Local\Temp\s7f4.o
                 init                                 5C       5C        4        C       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
