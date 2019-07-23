@@ -11,5 +11,8 @@
 
 extern mID ramkaCanRxCzujnika[RX_BUF_SIZE];
 void FRAME_HandleCanFrame(mID * message);
+
+
+
 #endif	/* RAMKICZUJNIKA_H */
 

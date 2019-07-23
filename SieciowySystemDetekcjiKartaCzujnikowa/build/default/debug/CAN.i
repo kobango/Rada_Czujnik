@@ -18379,6 +18379,12 @@ static void CAN_SetupMask(void)
     RXM1EIDL = 0;
 
 
+    RXM0SIDH = 0x00;
+    RXM0SIDL = 0x00;
+    RXM0EIDH = 0;
+    RXM0EIDL = 0;
+
+
     RXF0SIDH = 0x00;
     RXF0SIDL = 0x01;
     RXF0SIDLbits.EXIDEN = 1;
@@ -18398,7 +18404,21 @@ static void CAN_SetupMask(void)
     RXF2SIDLbits.EXIDEN = 1;
     RXF2EIDH = 0;
     RXF2EIDL = 0;
-# 129 "CAN.c"
+
+
+    RXF3SIDH = 0x00;
+    RXF3SIDL = 0x00;
+    RXF3EIDH = 0x00;
+ RXF3EIDH |= 0x00;
+    RXF3EIDL = 0x00;
+
+
+
+
+
+
+    RXFCON0 = 0x0F;
+
 }
 
 
@@ -18644,7 +18664,7 @@ BOOL CAN_TakeFrame(mID * message)
         return FALSE;
     }
 }
-# 382 "CAN.c"
+# 394 "CAN.c"
 void CAN_GenID(mID * message, BYTE frameID)
 {
 

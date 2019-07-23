@@ -24,6 +24,8 @@ typedef union tuReg32 {
 mID ramkaCanRxKarty[RX_BUF_SIZE], ramkaCanTxKarty;
 static BYTE IsInNeighbors(UINT message_adress);
 
+static UINT NeightAdress [MAX_SASIADOW];
+
 /*******************************************************************
 Funkcja: void StatusWzbudzeniaCzujnika(mID *message);
 Opis funkcji: Czujnik cyklicznie wysyla swoj stan
@@ -58,13 +60,14 @@ static void FRAME_SensorExcitationStatus(mID *message) // id = 0x01
     }
     else
     {
-        WORD k;
-        WORD Saturn  = Dane->sasiedzi[0+(4*0)].adres;
-        if(Saturn == 11)
+        
+        WORD iterator_beta;
+        WORD Saturn  = NeightAdress[0];
+        if(IsInNeighbors(11))
         {
             int Satrun_prime = Saturn;
             
-            for(k=0;k<400;k++)
+            for(iterator_beta=0;iterator_beta<400;iterator_beta++)
             {
             LED_Clear();
             }
@@ -74,7 +77,7 @@ static void FRAME_SensorExcitationStatus(mID *message) // id = 0x01
         else
         {
             int Satrun_prime = Saturn;
-            for(k=0;k<400;k++)
+            for(iterator_beta=0;iterator_beta<400;iterator_beta++)
             {
             LED_Error();
             }       
@@ -92,9 +95,9 @@ static BYTE IsInNeighbors(UINT message_adress)
 {
     WORD i;
     //0x10
-    for(i=0; i<4; i++)
+    for(i=0; i<8; i++)
         {
-            if(message_adress == Dane->sasiedzi[i+(4*0)].adres )
+            if(message_adress == NeightAdress[i] )
             {
                 return 1;
             }
@@ -472,7 +475,7 @@ Autor: Pawel Kasperek
 *****************************************************************/
 static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)  //0x10
 {
-    WORD i;
+    WORD iterator_alfa;
     
     
     WORD kier = (nrRamki-0x10);
@@ -480,26 +483,36 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)  //0x10
     {
         
         message->data_length = 8;
-        for(i=0; i<4; i++)
+        for(iterator_alfa=0; iterator_alfa<4; iterator_alfa++)
         {
-            message->data[2*i] = (BYTE)(Dane->sasiedzi[i+(4*kier)].adres >> 8);
-            message->data[(2*i)+1] = (BYTE)Dane->sasiedzi[i+(4*kier)].adres;
+            message->data[2*iterator_alfa] = (BYTE)(NeightAdress[iterator_alfa+(4*kier)] >> 8);
+            message->data[(2*iterator_alfa)+1] = (BYTE)NeightAdress[iterator_alfa+(4*kier)];
         }
         
     }
     else
     {
-        WORD uranos = message->data[2] | message->data[3];
+        WORD uranos = (message->data[2] << 8 ) | message->data[3];
          WORD zeta =(WORD) uranos; 
          
-         WORD gaja = message->data[0] | message->data[1];
+        WORD kier = (nrRamki-0x10);
+         
+         WORD gaja = message->data[0] << 8 | message->data[1];
+         WORD zeta_secodus =(WORD) gaja; 
+         
+         /*
         for(i=0; i<4; i++)
         {
-            Dane->sasiedzi[i+(4*kier)].adres =  ((WORD)message->data[2*i]) |
+            NeightAdress[i+(4*kier)] =  ((WORD)message->data[2*i]) |
                     (WORD)message->data[(2*i)+1];
             //zapisz adres struktury
-            Dane->sasiedzi[i+(4*kier)].pointerNaSasiada = &wartosciSasiada[i+(4*kier)];
+            
         } 
+          * */
+         for(iterator_alfa=0; iterator_alfa<4;iterator_alfa++)
+         {
+             NeightAdress[iterator_alfa+(4*kier)] =  message->data[2*iterator_alfa] << 8| message->data[((2*iterator_alfa)+1)];
+         }
                  
     } 
 }
@@ -514,12 +527,18 @@ void FRAME_HandleCanFrame(mID * message)
     BYTE identyfikator = (BYTE) message->id.v[2]/4;
    
     
+    if(identyfikator != 0x01)
+    {
+        WORD ident = identyfikator;
+        int alfa = ident;
+    }
+    
     switch(identyfikator)
     {
         case 0x01:
             FRAME_SensorExcitationStatus(message);
             break;
-        /*case 0x02:
+        case 0x02:
             FRAME_AccelerometerStatus(message);
             break;
         case 0x03:
@@ -557,13 +576,15 @@ void FRAME_HandleCanFrame(mID * message)
             FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
             break;
         case 0x11:
-            FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
+            FRAME_AdressOfNeighbors(message, identyfikator - 0x11);
             break;
-         * */
+         
+            /*
         default:
           FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
 
             break;
+             * */
     }
     if(message->message_type == CAN_MSG_RTR)
     {

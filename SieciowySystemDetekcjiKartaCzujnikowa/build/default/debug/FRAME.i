@@ -18359,6 +18359,8 @@ typedef union tuReg32 {
 mID ramkaCanRxKarty[5], ramkaCanTxKarty;
 static BYTE IsInNeighbors(UINT message_adress);
 
+static UINT NeightAdress [8];
+
 
 
 
@@ -18381,17 +18383,18 @@ static void FRAME_SensorExcitationStatus(mID *message)
         message->data[3] = MOC_Frame_Counter();
         message->data[4] = MOC_Aktualna_Temperatura();
         message->data[5] = MOC_NOTWORK();
-# 58 "FRAME.c"
+# 60 "FRAME.c"
     }
     else
     {
-        WORD k;
-        WORD Saturn = Dane->sasiedzi[0+(4*0)].adres;
-        if(Saturn == 11)
+
+        WORD iterator_beta;
+        WORD Saturn = NeightAdress[0];
+        if(IsInNeighbors(11))
         {
             int Satrun_prime = Saturn;
 
-            for(k=0;k<400;k++)
+            for(iterator_beta=0;iterator_beta<400;iterator_beta++)
             {
             LED_Clear();
             }
@@ -18401,7 +18404,7 @@ static void FRAME_SensorExcitationStatus(mID *message)
         else
         {
             int Satrun_prime = Saturn;
-            for(k=0;k<400;k++)
+            for(iterator_beta=0;iterator_beta<400;iterator_beta++)
             {
             LED_Error();
             }
@@ -18419,9 +18422,9 @@ static BYTE IsInNeighbors(UINT message_adress)
 {
     WORD i;
 
-    for(i=0; i<4; i++)
+    for(i=0; i<8; i++)
         {
-            if(message_adress == Dane->sasiedzi[i+(4*0)].adres )
+            if(message_adress == NeightAdress[i] )
             {
                 return 1;
             }
@@ -18530,7 +18533,7 @@ static void FRAME_AveragingTimes(mID *message)
     }
     else
     {
-# 240 "FRAME.c"
+# 243 "FRAME.c"
     }
 }
 
@@ -18547,7 +18550,7 @@ static void FRAME_AxisStatus(mID *message)
     if(message->message_type == 0x02)
     {
         message->data_length = 1;
-# 266 "FRAME.c"
+# 269 "FRAME.c"
         message->data[0] = 0xFF;
     }
     else
@@ -18594,12 +18597,12 @@ static void FRAME_DeviceReset(mID *message)
         message->data[7] = Dane->godzinaU16;
         RCON &= ~(1<<6);
         Flagi.wykonanoZapisDoFlash = 0;
-# 325 "FRAME.c"
+# 328 "FRAME.c"
     }
     else
     {
         message->data_length = 1;
-# 350 "FRAME.c"
+# 353 "FRAME.c"
         message->data[0] = 0xFF;
     }
 }
@@ -18633,7 +18636,7 @@ static void FRAME_Plot(mID *message)
 
 static void FRAME_MapPosition(mID *message)
 {
-# 398 "FRAME.c"
+# 401 "FRAME.c"
 }
 
 
@@ -18668,7 +18671,7 @@ static void FRAME_SoftwareVersion(mID *message)
 static void FRAME_AnalogValue(mID *message, WORD set)
 {
     WORD i;
-# 447 "FRAME.c"
+# 450 "FRAME.c"
 }
 
 
@@ -18697,7 +18700,7 @@ static void FRAME_PrzypisanieDokarty(mID *message)
 
 static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
 {
-    WORD i;
+    WORD iterator_alfa;
 
 
     WORD kier = (nrRamki-0x10);
@@ -18705,26 +18708,27 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
     {
 
         message->data_length = 8;
-        for(i=0; i<4; i++)
+        for(iterator_alfa=0; iterator_alfa<4; iterator_alfa++)
         {
-            message->data[2*i] = (BYTE)(Dane->sasiedzi[i+(4*kier)].adres >> 8);
-            message->data[(2*i)+1] = (BYTE)Dane->sasiedzi[i+(4*kier)].adres;
+            message->data[2*iterator_alfa] = (BYTE)(NeightAdress[iterator_alfa+(4*kier)] >> 8);
+            message->data[(2*iterator_alfa)+1] = (BYTE)NeightAdress[iterator_alfa+(4*kier)];
         }
 
     }
     else
     {
-        WORD uranos = message->data[2] | message->data[3];
+        WORD uranos = (message->data[2] << 8 ) | message->data[3];
          WORD zeta =(WORD) uranos;
 
-         WORD gaja = message->data[0] | message->data[1];
-        for(i=0; i<4; i++)
-        {
-            Dane->sasiedzi[i+(4*kier)].adres = ((WORD)message->data[2*i]) |
-                    (WORD)message->data[(2*i)+1];
+        WORD kier = (nrRamki-0x10);
 
-            Dane->sasiedzi[i+(4*kier)].pointerNaSasiada = &wartosciSasiada[i+(4*kier)];
-        }
+         WORD gaja = message->data[0] << 8 | message->data[1];
+         WORD zeta_secodus =(WORD) gaja;
+# 512 "FRAME.c"
+         for(iterator_alfa=0; iterator_alfa<4;iterator_alfa++)
+         {
+             NeightAdress[iterator_alfa+(4*kier)] = message->data[2*iterator_alfa] << 8| message->data[((2*iterator_alfa)+1)];
+         }
 
     }
 }
@@ -18739,16 +18743,64 @@ void FRAME_HandleCanFrame(mID * message)
     BYTE identyfikator = (BYTE) message->id.v[2]/4;
 
 
+    if(identyfikator != 0x01)
+    {
+        WORD ident = identyfikator;
+        int alfa = ident;
+    }
+
     switch(identyfikator)
     {
         case 0x01:
             FRAME_SensorExcitationStatus(message);
             break;
-# 563 "FRAME.c"
-        default:
-          FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
-
+        case 0x02:
+            FRAME_AccelerometerStatus(message);
             break;
+        case 0x03:
+            FRAME_ExcitationValue(message);
+            break;
+        case 0x04:
+            FRAME_ExcitationMultiplier(message);
+            break;
+        case 0x05:
+            FRAME_AveragingTimes(message);
+            break;
+        case 0x06:
+            FRAME_AxisStatus(message);
+            break;
+        case 0x07:
+            FRAME_DeviceReset(message);
+            break;
+        case 0x09:
+            FRAME_Plot(message);
+            break;
+        case 0x0A:
+            FRAME_MapPosition(message);
+            break;
+        case 0x0B:
+            FRAME_SoftwareVersion(message);
+            break;
+        case 0x0C:
+        case 0x0D:
+            FRAME_AnalogValue(message, identyfikator - 0x0C);
+            break;
+        case 0x0F:
+            FRAME_PrzypisanieDokarty(message);
+            break;
+        case 0x10:
+            FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
+            break;
+        case 0x11:
+            FRAME_AdressOfNeighbors(message, identyfikator - 0x11);
+            break;
+
+
+
+
+
+
+
     }
     if(message->message_type == 0x02)
     {
@@ -18760,7 +18812,7 @@ void FRAME_HandleCanFrame(mID * message)
         message->id.v[2] = identyfikator*4;
         CAN_GenID(message,identyfikator);
         CAN_SendFrame(message);
-# 588 "FRAME.c"
+# 609 "FRAME.c"
        while(RXB0CONbits.FILHIT3)
        {
            if(TXB0CONbits.TXERR == 1){

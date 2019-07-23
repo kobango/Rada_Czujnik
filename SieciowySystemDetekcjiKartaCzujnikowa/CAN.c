@@ -96,6 +96,12 @@ static void CAN_SetupMask(void)
     RXM1SIDL = 0xFF; // tylko extended
     RXM1EIDH = 0;
     RXM1EIDL = 0;
+    
+    // Konfiguracja maski 0 - filtrowanie adresów czujniczków
+    RXM0SIDH = 0x00;
+    RXM0SIDL = 0x00; // tylko extended
+    RXM0EIDH = 0;
+    RXM0EIDL = 0;
 
     // Konfiguracja filtra 0 i 1 - ramki kart czujnikowych
     RXF0SIDH = 0x00;
@@ -118,13 +124,19 @@ static void CAN_SetupMask(void)
     RXF2EIDH = 0;
     RXF2EIDL = 0;
 
+    // filtr 3 puszcza wszystko 
+    RXF3SIDH = 0x00;
+    RXF3SIDL = 0x00;
+    RXF3EIDH = 0x00;
+	RXF3EIDH |= 0x00;
+    RXF3EIDL = 0x00;
     //przypisz filtr 0 i 1 do RXB0
 //    RXFBCON0 = 0x00;
     //przypisz filtr 2 do RXB1
 //    RXFBCON1 = 0x01;
 
-    // Wlacz filtr 0, 1 i 2
-  //  RXFCON0 = 0x07; // ZAPAMIETAC
+    // Wlacz filtr 0, 1 i 2 ,3
+    RXFCON0 = 0x0F; // ZAPAMIETAC
 
 }
 
