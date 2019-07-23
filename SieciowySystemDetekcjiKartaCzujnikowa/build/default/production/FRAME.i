@@ -18357,9 +18357,9 @@ typedef union tuReg32 {
 } uReg32;
 
 mID ramkaCanRxKarty[5], ramkaCanTxKarty;
-static BYTE IsInNeighbors(UINT message_adress);
+BYTE IsInNeighbors(UINT message_adress);
 
-static UINT NeightAdress [8];
+volatile UINT NeightAdress[8] = {0, 0, 0, 0, 0, 0, 0, 0};
 
 
 
@@ -18389,8 +18389,9 @@ static void FRAME_SensorExcitationStatus(mID *message)
     {
 
         WORD iterator_beta;
-        WORD Saturn = NeightAdress[0];
-        if(IsInNeighbors(11))
+        int Saturn = NeightAdress[0];
+
+        if(Saturn == 12)
         {
             int Satrun_prime = Saturn;
 
@@ -18418,7 +18419,7 @@ static void FRAME_SensorExcitationStatus(mID *message)
     }
 }
 
-static BYTE IsInNeighbors(UINT message_adress)
+BYTE IsInNeighbors(UINT message_adress)
 {
     WORD i;
 
@@ -18427,6 +18428,7 @@ static BYTE IsInNeighbors(UINT message_adress)
             if(message_adress == NeightAdress[i] )
             {
                 return 1;
+
             }
 
 
@@ -18533,7 +18535,7 @@ static void FRAME_AveragingTimes(mID *message)
     }
     else
     {
-# 243 "FRAME.c"
+# 245 "FRAME.c"
     }
 }
 
@@ -18550,7 +18552,7 @@ static void FRAME_AxisStatus(mID *message)
     if(message->message_type == 0x02)
     {
         message->data_length = 1;
-# 269 "FRAME.c"
+# 271 "FRAME.c"
         message->data[0] = 0xFF;
     }
     else
@@ -18597,12 +18599,12 @@ static void FRAME_DeviceReset(mID *message)
         message->data[7] = Dane->godzinaU16;
         RCON &= ~(1<<6);
         Flagi.wykonanoZapisDoFlash = 0;
-# 328 "FRAME.c"
+# 330 "FRAME.c"
     }
     else
     {
         message->data_length = 1;
-# 353 "FRAME.c"
+# 355 "FRAME.c"
         message->data[0] = 0xFF;
     }
 }
@@ -18636,7 +18638,7 @@ static void FRAME_Plot(mID *message)
 
 static void FRAME_MapPosition(mID *message)
 {
-# 401 "FRAME.c"
+# 403 "FRAME.c"
 }
 
 
@@ -18671,7 +18673,7 @@ static void FRAME_SoftwareVersion(mID *message)
 static void FRAME_AnalogValue(mID *message, WORD set)
 {
     WORD i;
-# 450 "FRAME.c"
+# 452 "FRAME.c"
 }
 
 
@@ -18710,25 +18712,27 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
         message->data_length = 8;
         for(iterator_alfa=0; iterator_alfa<4; iterator_alfa++)
         {
-            message->data[2*iterator_alfa] = (BYTE)(NeightAdress[iterator_alfa+(4*kier)] >> 8);
-            message->data[(2*iterator_alfa)+1] = (BYTE)NeightAdress[iterator_alfa+(4*kier)];
+            message->data[(2*iterator_alfa)] = ((BYTE)NeightAdress[(iterator_alfa+(4*kier))] >> 8);
+            message->data[((2*iterator_alfa)+1)] = (BYTE)NeightAdress[(iterator_alfa+(4*kier))];
         }
 
     }
     else
     {
         WORD uranos = (message->data[2] << 8 ) | message->data[3];
-         WORD zeta =(WORD) uranos;
+        WORD zeta =(WORD) uranos;
 
         WORD kier = (nrRamki-0x10);
 
          WORD gaja = message->data[0] << 8 | message->data[1];
          WORD zeta_secodus =(WORD) gaja;
-# 512 "FRAME.c"
+# 515 "FRAME.c"
          for(iterator_alfa=0; iterator_alfa<4;iterator_alfa++)
          {
-             NeightAdress[iterator_alfa+(4*kier)] = message->data[2*iterator_alfa] << 8| message->data[((2*iterator_alfa)+1)];
+             NeightAdress[(iterator_alfa+(4*kier))] = (message->data[2*iterator_alfa] << 8)| message->data[((2*iterator_alfa)+1)];
          }
+
+
 
     }
 }
@@ -18812,7 +18816,7 @@ void FRAME_HandleCanFrame(mID * message)
         message->id.v[2] = identyfikator*4;
         CAN_GenID(message,identyfikator);
         CAN_SendFrame(message);
-# 609 "FRAME.c"
+# 614 "FRAME.c"
        while(RXB0CONbits.FILHIT3)
        {
            if(TXB0CONbits.TXERR == 1){

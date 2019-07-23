@@ -18314,7 +18314,7 @@ void FRAME_HandleCanFrame(mID * message);
 static void CAN_SetupClock(void);
 static void CAN_SetupMask(void);
 void CAN_Setup(void);
-# 22 "CAN.c"
+# 23 "CAN.c"
 void CAN_Setup(void)
 {
 
@@ -18358,7 +18358,7 @@ void CAN_Setup(void)
         ;
     }
 }
-# 81 "CAN.c"
+# 82 "CAN.c"
 static void CAN_SetupMask(void)
 {
     MSEL0 = 0x50;
@@ -18664,7 +18664,7 @@ BOOL CAN_TakeFrame(mID * message)
         return FALSE;
     }
 }
-# 394 "CAN.c"
+# 395 "CAN.c"
 void CAN_GenID(mID * message, BYTE frameID)
 {
 

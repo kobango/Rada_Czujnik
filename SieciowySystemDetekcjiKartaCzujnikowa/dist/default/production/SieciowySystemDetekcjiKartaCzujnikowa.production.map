@@ -6,7 +6,7 @@ Linker command line:
   -cs \
   -h+dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.sym \
   --cmf=dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.cmf \
-  -z -Q18F4680 -oC:\Users\hp\AppData\Local\Temp\s89o.2 \
+  -z -Q18F4680 -oC:\Users\hp\AppData\Local\Temp\s8so.2 \
   --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/SieciowySystemDetekcjiKartaCzujnikowa.production.map \
   -E1 -ver=XC8 --acfsm=1493 -ASTACK=02FBh-0CFFh -pstack=STACK \
@@ -27,7 +27,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\hp\AppData\Local\Temp\s89o.o \
+  C:\Users\hp\AppData\Local\Temp\s8so.o \
   dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o 
 
 Object code version is 3.11
@@ -40,7 +40,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\hp\AppData\Local\Temp\s89o.o
+C:\Users\hp\AppData\Local\Temp\s8so.o
                 init                                 5C       5C        4        C       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
@@ -49,66 +49,65 @@ dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
                 intcodelo                            18       18       44        C       0
                 intcode                               8        8        6        4       0
                 temp                                 59       59        1        1       1
-                intcode_body                       1536     1536        6      A93       0
-                text52                             13F6     13F6       24        C       0
-                text51                             1512     1512        A        C       0
-                text49                             13CE     13CE       28        C       0
-                text48                              D3E      D3E       8C        C       0
-                text47                              FA4      FA4       5C        C       0
-                text46                             14B4     14B4        E        C       0
-                text45                              892      892      152        C       0
-                text44                             1342     1342       34        C       0
-                text43                             1456     1456       1E        C       0
-                text42                             148E     148E       18        C       0
-                text41                             1474     1474       1A        C       0
-                text40                             11E8     11E8       42        C       0
-                text39                             1152     1152       4C        C       0
-                text38                             10B2     10B2       52        C       0
-                text37                              BFA      BFA       B0        C       0
-                text36                              E4E      E4E       7A        C       0
-                text35                             1508     1508        A        C       0
-                text34                             14FE     14FE        A        C       0
-                text33                             13A4     13A4       2A        C       0
-                text32                              DCA      DCA       84        C       0
-                text31                               60       60      27C        C       0
-                text30                              CAA      CAA       94        C       0
-                text29                              724      724      16E        C       0
-                text28                             14F4     14F4        A        C       0
-                text27                             14EA     14EA        A        C       0
-                text26                             14E0     14E0        A        C       0
-                text25                             14D6     14D6        A        C       0
-                text24                              EC8      EC8       76        C       0
-                text23                              2DC      2DC      23A        C       0
-                text22                             1542     1542        2      A93       0
-                text21                             130C     130C       36        C       0
-                text20                             12D6     12D6       36        C       0
-                text19                              B16      B16       E4        C       0
-                text18                             1104     1104       4E        C       0
-                text17                             12A0     12A0       36        C       0
-                text16                             1540     1540        2      A93       0
-                text15                             105A     105A       58        C       0
-                text14                             126A     126A       36        C       0
-                text13                             122A     122A       40        C       0
-                text12                             1438     1438       1E        C       0
-                text11                             141A     141A       1E        C       0
-                text10                             153C     153C        4      A93       0
-                text9                              152E     152E        8      A93       0
-                text8                              14CC     14CC        A        C       0
-                text7                              14A6     14A6        E        C       0
-                text6                              1526     1526        8      A93       0
-                text5                              14C2     14C2        A        C       0
-                text4                               9E4      9E4      132        C       0
-                text3                               F3E      F3E       66        C       0
-                text2                               516      516      20E        C       0
-                text1                              119E     119E       4A        C       0
-                text0                              1376     1376       2E        C       0
+                intcode_body                       14E0     14E0        6      A68       0
+                text51                             13A0     13A0       24        C       0
+                text50                             14BC     14BC        A        C       0
+                text48                             1378     1378       28        C       0
+                text47                              D28      D28       8C        C       0
+                text46                              F8E      F8E       5C        C       0
+                text45                             145E     145E        E        C       0
+                text44                              884      884      152        C       0
+                text43                             12EC     12EC       34        C       0
+                text42                             1400     1400       1E        C       0
+                text41                             1438     1438       18        C       0
+                text40                             141E     141E       1A        C       0
+                text39                             11D2     11D2       42        C       0
+                text38                             113C     113C       4C        C       0
+                text37                             109C     109C       52        C       0
+                text36                              BE4      BE4       B0        C       0
+                text35                              E38      E38       7A        C       0
+                text34                             14B2     14B2        A        C       0
+                text33                             14A8     14A8        A        C       0
+                text32                             134E     134E       2A        C       0
+                text31                              DB4      DB4       84        C       0
+                text30                               60       60      27C        C       0
+                text29                              C94      C94       94        C       0
+                text28                              716      716      16E        C       0
+                text27                             149E     149E        A        C       0
+                text26                             1494     1494        A        C       0
+                text25                             148A     148A        A        C       0
+                text24                             1480     1480        A        C       0
+                text23                              EB2      EB2       76        C       0
+                text22                              2DC      2DC      22C        C       0
+                text21                             14EC     14EC        2      A68       0
+                text20                             12B6     12B6       36        C       0
+                text19                             1280     1280       36        C       0
+                text18                              B00      B00       E4        C       0
+                text17                             10EE     10EE       4E        C       0
+                text16                             124A     124A       36        C       0
+                text15                             14EA     14EA        2      A68       0
+                text14                             1044     1044       58        C       0
+                text13                             1214     1214       36        C       0
+                text12                             13E2     13E2       1E        C       0
+                text11                             13C4     13C4       1E        C       0
+                text10                             14E6     14E6        4      A68       0
+                text9                              14D8     14D8        8      A68       0
+                text8                              1476     1476        A        C       0
+                text7                              1450     1450        E        C       0
+                text6                              14D0     14D0        8      A68       0
+                text5                              146C     146C        A        C       0
+                text4                               9D6      9D6      12A        C       0
+                text3                               F28      F28       66        C       0
+                text2                               508      508      20E        C       0
+                text1                              1188     1188       4A        C       0
+                text0                              1320     1320       2E        C       0
                 cstackCOMRAM                          1        1       3F        1       1
                 bssBIGRAM                            DB       DB      220       DB       1
                 bssBANK0                             60       60       7B       60       1
                 dataCOMRAM                           50       50        9        1       1
                 bssCOMRAM                            40       40       10        1       1
-                cinit                              1000     1000       5A        C       0
-                idataCOMRAM                        151C     151C        9        C       0
+                cinit                               FEA      FEA       5A        C       0
+                idataCOMRAM                        14C6     14C6        9        C       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -118,61 +117,60 @@ TOTAL           Name                               Link     Load   Length     Sp
                 intcode                               8        8        6         0
                 init                                 5C       5C        4         0
                 reset_vec                             0        0        4         0
-                intcode_body                       1536     1536        6         0
-                text52                             13F6     13F6       24         0
-                text51                             1512     1512        A         0
-                text49                             13CE     13CE       28         0
-                text48                              D3E      D3E       8C         0
-                text47                              FA4      FA4       5C         0
-                text46                             14B4     14B4        E         0
-                text45                              892      892      152         0
-                text44                             1342     1342       34         0
-                text43                             1456     1456       1E         0
-                text42                             148E     148E       18         0
-                text41                             1474     1474       1A         0
-                text40                             11E8     11E8       42         0
-                text39                             1152     1152       4C         0
-                text38                             10B2     10B2       52         0
-                text37                              BFA      BFA       B0         0
-                text36                              E4E      E4E       7A         0
-                text35                             1508     1508        A         0
-                text34                             14FE     14FE        A         0
-                text33                             13A4     13A4       2A         0
-                text32                              DCA      DCA       84         0
-                text31                               60       60      27C         0
-                text30                              CAA      CAA       94         0
-                text29                              724      724      16E         0
-                text28                             14F4     14F4        A         0
-                text27                             14EA     14EA        A         0
-                text26                             14E0     14E0        A         0
-                text25                             14D6     14D6        A         0
-                text24                              EC8      EC8       76         0
-                text23                              2DC      2DC      23A         0
-                text22                             1542     1542        2         0
-                text21                             130C     130C       36         0
-                text20                             12D6     12D6       36         0
-                text19                              B16      B16       E4         0
-                text18                             1104     1104       4E         0
-                text17                             12A0     12A0       36         0
-                text16                             1540     1540        2         0
-                text15                             105A     105A       58         0
-                text14                             126A     126A       36         0
-                text13                             122A     122A       40         0
-                text12                             1438     1438       1E         0
-                text11                             141A     141A       1E         0
-                text10                             153C     153C        4         0
-                text9                              152E     152E        8         0
-                text8                              14CC     14CC        A         0
-                text7                              14A6     14A6        E         0
-                text6                              1526     1526        8         0
-                text5                              14C2     14C2        A         0
-                text4                               9E4      9E4      132         0
-                text3                               F3E      F3E       66         0
-                text2                               516      516      20E         0
-                text1                              119E     119E       4A         0
-                text0                              1376     1376       2E         0
-                cinit                              1000     1000       5A         0
-                idataCOMRAM                        151C     151C        9         0
+                intcode_body                       14E0     14E0        6         0
+                text51                             13A0     13A0       24         0
+                text50                             14BC     14BC        A         0
+                text48                             1378     1378       28         0
+                text47                              D28      D28       8C         0
+                text46                              F8E      F8E       5C         0
+                text45                             145E     145E        E         0
+                text44                              884      884      152         0
+                text43                             12EC     12EC       34         0
+                text42                             1400     1400       1E         0
+                text41                             1438     1438       18         0
+                text40                             141E     141E       1A         0
+                text39                             11D2     11D2       42         0
+                text38                             113C     113C       4C         0
+                text37                             109C     109C       52         0
+                text36                              BE4      BE4       B0         0
+                text35                              E38      E38       7A         0
+                text34                             14B2     14B2        A         0
+                text33                             14A8     14A8        A         0
+                text32                             134E     134E       2A         0
+                text31                              DB4      DB4       84         0
+                text30                               60       60      27C         0
+                text29                              C94      C94       94         0
+                text28                              716      716      16E         0
+                text27                             149E     149E        A         0
+                text26                             1494     1494        A         0
+                text25                             148A     148A        A         0
+                text24                             1480     1480        A         0
+                text23                              EB2      EB2       76         0
+                text22                              2DC      2DC      22C         0
+                text21                             14EC     14EC        2         0
+                text20                             12B6     12B6       36         0
+                text19                             1280     1280       36         0
+                text18                              B00      B00       E4         0
+                text17                             10EE     10EE       4E         0
+                text16                             124A     124A       36         0
+                text15                             14EA     14EA        2         0
+                text14                             1044     1044       58         0
+                text13                             1214     1214       36         0
+                text12                             13E2     13E2       1E         0
+                text11                             13C4     13C4       1E         0
+                text10                             14E6     14E6        4         0
+                text9                              14D8     14D8        8         0
+                text8                              1476     1476        A         0
+                text7                              1450     1450        E         0
+                text6                              14D0     14D0        8         0
+                text5                              146C     146C        A         0
+                text4                               9D6      9D6      12A         0
+                text3                               F28      F28       66         0
+                text2                               508      508      20E         0
+                text1                              1188     1188       4A         0
+                text0                              1320     1320       2E         0
+                cinit                               FEA      FEA       5A         0
+                idataCOMRAM                        14C6     14C6        9         0
 
         CLASS   CONST          
 
@@ -239,10 +237,10 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 reset_vec                      000000  000004  000004         0       0  CODE    
                 cstackCOMRAM                   000001  000059  00005A         1       1  COMRAM  
                 intcode                        000008  000006  00000E         4       0  CODE    
-                intcodelo                      000018  00150D  001525         C       0  CODE    
+                intcodelo                      000018  0014B7  0014CF         C       0  CODE    
                 bssBANK0                       000060  00007B  0000DB        60       1  BANK0   
                 bssBIGRAM                      0000DB  000220  0002FB        DB       1  BIGRAM  
-                text6                          001526  00001E  001544       A93       0  CODE    
+                text6                          0014D0  00001E  0014EE       A68       0  CODE    
                 idloc                          200000  000008  200008    200000       0  IDLOC   
                 config                         300000  00000E  30000E    300000       0  CONFIG  
 
@@ -265,20 +263,20 @@ UNUSED ADDRESS RANGES
                          0002FB-000CFF              A05
         CODE             000004-000007                4
                          00000E-000017                A
-                         001525-001525                1
-                         001544-00FFFF             EABC
+                         0014CF-0014CF                1
+                         0014EE-00FFFF             EB12
         COMRAM           00005A-00005F                6
         CONST            000004-000007                4
                          00000E-000017                A
-                         001525-001525                1
-                         001544-00FFFF             EABC
+                         0014CF-0014CF                1
+                         0014EE-00FFFF             EB12
         EEDATA           F00000-F003FF              400
-        MEDIUMCONST      001525-001525                1
-                         001544-00FFFF             EABC
+        MEDIUMCONST      0014CF-0014CF                1
+                         0014EE-00FFFF             EB12
         RAM              0002FB-000CFF              100
         SFR              000D00-000FFF              100
-        SMALLCONST       001525-001525                1
-                         001544-00FFFF              100
+        SMALLCONST       0014CF-0014CF                1
+                         0014EE-00FFFF              100
         STACK            0002FB-000CFF              A05
 
                                   Symbol Table
@@ -309,7 +307,7 @@ FRAME_AccelerometerStatus@message              cstackCOMRAM 000008
 FRAME_AdressOfNeighbors@gaja                   cstackCOMRAM 000020
 FRAME_AdressOfNeighbors@iterator_alfa          cstackCOMRAM 000024
 FRAME_AdressOfNeighbors@kier                   cstackCOMRAM 000022
-FRAME_AdressOfNeighbors@kier_3196              cstackCOMRAM 00001E
+FRAME_AdressOfNeighbors@kier_3191              cstackCOMRAM 00001E
 FRAME_AdressOfNeighbors@message                cstackCOMRAM 000006
 FRAME_AdressOfNeighbors@nrRamki                cstackCOMRAM 000008
 FRAME_AdressOfNeighbors@uranos                 cstackCOMRAM 00001C
@@ -327,15 +325,13 @@ FRAME_HandleCanFrame@message                   cstackCOMRAM 000026
 FRAME_MapPosition@message                      cstackCOMRAM 000006
 FRAME_Plot@message                             cstackCOMRAM 00000D
 FRAME_PrzypisanieDokarty@message               cstackCOMRAM 000006
-FRAME_SensorExcitationStatus@Satrun_prime      cstackCOMRAM 000014
-FRAME_SensorExcitationStatus@Satrun_prime_2160 cstackCOMRAM 000016
-FRAME_SensorExcitationStatus@Saturn            cstackCOMRAM 000018
-FRAME_SensorExcitationStatus@iterator_beta     cstackCOMRAM 00001A
-FRAME_SensorExcitationStatus@message           cstackCOMRAM 00000C
+FRAME_SensorExcitationStatus@Satrun_prime      cstackCOMRAM 000013
+FRAME_SensorExcitationStatus@Satrun_prime_2155 cstackCOMRAM 000015
+FRAME_SensorExcitationStatus@Saturn            cstackCOMRAM 000017
+FRAME_SensorExcitationStatus@iterator_beta     cstackCOMRAM 000019
+FRAME_SensorExcitationStatus@message           cstackCOMRAM 00000B
 FRAME_SoftwareVersion@message                  cstackCOMRAM 000006
 ISR_low@ramkaStanuU8                           bssCOMRAM    00004D
-IsInNeighbors@i                                cstackCOMRAM 00000A
-IsInNeighbors@message_adress                   cstackCOMRAM 000006
 LED_Control@color                              cstackCOMRAM 00000A
 LED_Control@diode                              cstackCOMRAM 000006
 LED_Left@a                                     cstackCOMRAM 000006
@@ -370,40 +366,40 @@ _BRGCON3bits                                   (abs)        000F72
 _BSEL0                                         (abs)        000DF8
 _CANCON                                        (abs)        000F6F
 _CANSTAT                                       (abs)        000F6E
-_CAN_GenID                                     text30       000CAA
-_CAN_MoveBuffIntoFrame                         text33       0013A4
-_CAN_SendFrame                                 text29       000724
-_CAN_Setup                                     text47       000FA4
-_CAN_SetupClock                                text49       0013CE
-_CAN_SetupMask                                 text48       000D3E
-_CAN_TakeFrame                                 text31       000060
+_CAN_GenID                                     text29       000C94
+_CAN_MoveBuffIntoFrame                         text32       00134E
+_CAN_SendFrame                                 text28       000716
+_CAN_Setup                                     text46       000F8E
+_CAN_SetupClock                                text48       001378
+_CAN_SetupMask                                 text47       000D28
+_CAN_TakeFrame                                 text30       000060
 _CIOCON                                        (abs)        000F73
 _COMSTATbits                                   (abs)        000F74
 _Dane                                          bssCOMRAM    000049
 _DaneCan                                       bssCOMRAM    000040
 _DetectorLedRadar                              bssCOMRAM    000044
 _ECANCON                                       (abs)        000F77
-_FRAME_AccelerometerStatus                     text24       000EC8
-_FRAME_AdressOfNeighbors                       text23       0002DC
-_FRAME_AnalogValue                             text22       001542
-_FRAME_AveragingTimes                          text21       00130C
-_FRAME_AxisStatus                              text20       0012D6
-_FRAME_DeviceReset                             text19       000B16
-_FRAME_ExcitationMultiplier                    text18       001104
-_FRAME_ExcitationValue                         text17       0012A0
-_FRAME_HandleCanFrame                          text2        000516
-_FRAME_MapPosition                             text16       001540
-_FRAME_Plot                                    text15       00105A
-_FRAME_PrzypisanieDokarty                      text14       00126A
-_FRAME_SensorExcitationStatus                  text4        0009E4
-_FRAME_SoftwareVersion                         text3        000F3E
+_FRAME_AccelerometerStatus                     text23       000EB2
+_FRAME_AdressOfNeighbors                       text22       0002DC
+_FRAME_AnalogValue                             text21       0014EC
+_FRAME_AveragingTimes                          text20       0012B6
+_FRAME_AxisStatus                              text19       001280
+_FRAME_DeviceReset                             text18       000B00
+_FRAME_ExcitationMultiplier                    text17       0010EE
+_FRAME_ExcitationValue                         text16       00124A
+_FRAME_HandleCanFrame                          text2        000508
+_FRAME_MapPosition                             text15       0014EA
+_FRAME_Plot                                    text14       001044
+_FRAME_PrzypisanieDokarty                      text13       001214
+_FRAME_SensorExcitationStatus                  text4        0009D6
+_FRAME_SoftwareVersion                         text3        000F28
 _Flagi                                         bssBANK0     0000D6
 _Fulfillment_Lvl                               dataCOMRAM   000056
-_INI_All                                       text41       001474
-_INI_GlobalInterrupt                           text46       0014B4
-_INI_LED_Start                                 text44       001342
-_INI_OUTPUT                                    text43       001456
-_INI_Timer                                     text42       00148E
+_INI_All                                       text40       00141E
+_INI_GlobalInterrupt                           text45       00145E
+_INI_LED_Start                                 text43       0012EC
+_INI_OUTPUT                                    text42       001400
+_INI_Timer                                     text41       001438
 _INTCONbits                                    (abs)        000FF2
 _IPEN                                          (abs)        007E87
 _IPR3                                          (abs)        000FA5
@@ -412,30 +408,29 @@ _IRCF1                                         (abs)        007E9D
 _IRCF2                                         (abs)        007E9E
 _ISR_high                                      intcode      000008
 _ISR_low                                       intcodelo    000018
-_IsInNeighbors                                 text13       00122A
 _LATA                                          (abs)        000F89
 _LATB                                          (abs)        000F8A
 _LATC                                          (abs)        000F8B
 _LATD                                          (abs)        000F8C
 _LATE                                          (abs)        000F8D
-_LED_Clear                                     text12       001438
-_LED_Control                                   text45       000892
-_LED_Error                                     text11       00141A
-_LED_Left                                      text40       0011E8
-_LED_Light_Pos                                 text37       000BFA
-_LED_Right                                     text39       001152
-_LED_Update                                    text36       000E4E
+_LED_Clear                                     text12       0013E2
+_LED_Control                                   text44       000884
+_LED_Error                                     text11       0013C4
+_LED_Left                                      text39       0011D2
+_LED_Light_Pos                                 text36       000BE4
+_LED_Right                                     text38       00113C
+_LED_Update                                    text35       000E38
 _LOCK                                          bssCOMRAM    00004F
-_LOCK_Get                                      text10       00153C
-_LOCK_Set                                      text9        00152E
-_MOCK_Klikniecie_Spadek                        text28       0014F4
-_MOCK_PrzyspieszenieX                          text27       0014EA
-_MOCK_PrzyspieszenieY                          text26       0014E0
-_MOCK_PrzyspieszenieZ                          text25       0014D6
-_MOC_Aktualna_Temperatura                      text8        0014CC
-_MOC_Frame_Counter                             text7        0014A6
-_MOC_NOTWORK                                   text6        001526
-_MOC_Wynikowa_wartosc_roznicowa                text5        0014C2
+_LOCK_Get                                      text10       0014E6
+_LOCK_Set                                      text9        0014D8
+_MOCK_Klikniecie_Spadek                        text27       00149E
+_MOCK_PrzyspieszenieX                          text26       001494
+_MOCK_PrzyspieszenieY                          text25       00148A
+_MOCK_PrzyspieszenieZ                          text24       001480
+_MOC_Aktualna_Temperatura                      text8        001476
+_MOC_Frame_Counter                             text7        001450
+_MOC_NOTWORK                                   text6        0014D0
+_MOC_Wynikowa_wartosc_roznicowa                text5        00146C
 _MSEL0                                         (abs)        000DF0
 _MSEL1                                         (abs)        000DF1
 _MSEL2                                         (abs)        000DF2
@@ -492,16 +487,16 @@ _TMR1IF                                        (abs)        007CF0
 _TMR1IP                                        (abs)        007CF8
 _TMR1L                                         (abs)        000FCE
 _TMR1ON                                        (abs)        007E68
-_TMR1_Timer_reset                              text52       0013F6
+_TMR1_Timer_reset                              text51       0013A0
 _TMR1_Update_flag                              bssCOMRAM    000047
-_TMR1_Update_flag_Get                          text35       001508
-_TMR1_Update_flag_Set                          text34       0014FE
+_TMR1_Update_flag_Get                          text34       0014B2
+_TMR1_Update_flag_Set                          text33       0014A8
 _TRISA                                         (abs)        000F92
 _TRISB                                         (abs)        000F93
 _TRISC                                         (abs)        000F94
 _TRISD                                         (abs)        000F95
 _TRISE                                         (abs)        000F96
-_TRM_DataTransmition                           text1        00119E
+_TRM_DataTransmition                           text1        001188
 _TXB0CON                                       (abs)        000F40
 _TXB0CONbits                                   (abs)        000F40
 _WDTCONbits                                    (abs)        000FD1
@@ -650,10 +645,9 @@ __Htext45                                      text45       000000
 __Htext46                                      text46       000000
 __Htext47                                      text47       000000
 __Htext48                                      text48       000000
-__Htext49                                      text49       000000
 __Htext5                                       text5        000000
+__Htext50                                      text50       000000
 __Htext51                                      text51       000000
-__Htext52                                      text52       000000
 __Htext6                                       text6        000000
 __Htext7                                       text7        000000
 __Htext8                                       text8        000000
@@ -770,10 +764,9 @@ __Ltext45                                      text45       000000
 __Ltext46                                      text46       000000
 __Ltext47                                      text47       000000
 __Ltext48                                      text48       000000
-__Ltext49                                      text49       000000
 __Ltext5                                       text5        000000
+__Ltext50                                      text50       000000
 __Ltext51                                      text51       000000
-__Ltext52                                      text52       000000
 __Ltext6                                       text6        000000
 __Ltext7                                       text7        000000
 __Ltext8                                       text8        000000
@@ -781,7 +774,7 @@ __Ltext9                                       text9        000000
 __S0                                           (abs)        30000E
 __S1                                           (abs)        0002FB
 __S2                                           (abs)        000000
-___awdiv                                       text32       000DCA
+___awdiv                                       text31       000DB4
 ___awdiv@counter                               cstackCOMRAM 00000A
 ___awdiv@dividend                              cstackCOMRAM 000006
 ___awdiv@divisor                               cstackCOMRAM 000008
@@ -789,7 +782,7 @@ ___awdiv@quotient                              cstackCOMRAM 00000C
 ___awdiv@sign                                  cstackCOMRAM 00000B
 ___inthi_sp                                    stack        000000
 ___intlo_sp                                    stack        000000
-___lwdiv                                       text38       0010B2
+___lwdiv                                       text37       00109C
 ___lwdiv@counter                               cstackCOMRAM 00000C
 ___lwdiv@dividend                              cstackCOMRAM 000006
 ___lwdiv@divisor                               cstackCOMRAM 000008
@@ -799,125 +792,123 @@ ___rparam_used                                 (abs)        000001
 ___sp                                          stack        000000
 __accesstop                                    (abs)        000060
 __activetblptr                                 (abs)        000002
-__end_of_CAN_GenID                             text30       000D3E
-__end_of_CAN_MoveBuffIntoFrame                 text33       0013CE
-__end_of_CAN_SendFrame                         text29       000892
-__end_of_CAN_Setup                             text47       001000
-__end_of_CAN_SetupClock                        text49       0013F6
-__end_of_CAN_SetupMask                         text48       000DCA
-__end_of_CAN_TakeFrame                         text31       0002DC
-__end_of_FRAME_AccelerometerStatus             text24       000F3E
-__end_of_FRAME_AdressOfNeighbors               text23       000516
-__end_of_FRAME_AnalogValue                     text22       001544
-__end_of_FRAME_AveragingTimes                  text21       001342
-__end_of_FRAME_AxisStatus                      text20       00130C
-__end_of_FRAME_DeviceReset                     text19       000BFA
-__end_of_FRAME_ExcitationMultiplier            text18       001152
-__end_of_FRAME_ExcitationValue                 text17       0012D6
-__end_of_FRAME_HandleCanFrame                  text2        000724
-__end_of_FRAME_MapPosition                     text16       001542
-__end_of_FRAME_Plot                            text15       0010B2
-__end_of_FRAME_PrzypisanieDokarty              text14       0012A0
-__end_of_FRAME_SensorExcitationStatus          text4        000B16
-__end_of_FRAME_SoftwareVersion                 text3        000FA4
-__end_of_INI_All                               text41       00148E
-__end_of_INI_GlobalInterrupt                   text46       0014C2
-__end_of_INI_LED_Start                         text44       001376
-__end_of_INI_OUTPUT                            text43       001474
-__end_of_INI_Timer                             text42       0014A6
-__end_of_ISR_high                              intcode_body 00153C
+__end_of_CAN_GenID                             text29       000D28
+__end_of_CAN_MoveBuffIntoFrame                 text32       001378
+__end_of_CAN_SendFrame                         text28       000884
+__end_of_CAN_Setup                             text46       000FEA
+__end_of_CAN_SetupClock                        text48       0013A0
+__end_of_CAN_SetupMask                         text47       000DB4
+__end_of_CAN_TakeFrame                         text30       0002DC
+__end_of_FRAME_AccelerometerStatus             text23       000F28
+__end_of_FRAME_AdressOfNeighbors               text22       000508
+__end_of_FRAME_AnalogValue                     text21       0014EE
+__end_of_FRAME_AveragingTimes                  text20       0012EC
+__end_of_FRAME_AxisStatus                      text19       0012B6
+__end_of_FRAME_DeviceReset                     text18       000BE4
+__end_of_FRAME_ExcitationMultiplier            text17       00113C
+__end_of_FRAME_ExcitationValue                 text16       001280
+__end_of_FRAME_HandleCanFrame                  text2        000716
+__end_of_FRAME_MapPosition                     text15       0014EC
+__end_of_FRAME_Plot                            text14       00109C
+__end_of_FRAME_PrzypisanieDokarty              text13       00124A
+__end_of_FRAME_SensorExcitationStatus          text4        000B00
+__end_of_FRAME_SoftwareVersion                 text3        000F8E
+__end_of_INI_All                               text40       001438
+__end_of_INI_GlobalInterrupt                   text45       00146C
+__end_of_INI_LED_Start                         text43       001320
+__end_of_INI_OUTPUT                            text42       00141E
+__end_of_INI_Timer                             text41       001450
+__end_of_ISR_high                              intcode_body 0014E6
 __end_of_ISR_low                               intcodelo    00005C
-__end_of_IsInNeighbors                         text13       00126A
-__end_of_LED_Clear                             text12       001456
-__end_of_LED_Control                           text45       0009E4
-__end_of_LED_Error                             text11       001438
-__end_of_LED_Left                              text40       00122A
-__end_of_LED_Light_Pos                         text37       000CAA
-__end_of_LED_Right                             text39       00119E
-__end_of_LED_Update                            text36       000EC8
-__end_of_LOCK_Get                              text10       001540
-__end_of_LOCK_Set                              text9        001536
-__end_of_MOCK_Klikniecie_Spadek                text28       0014FE
-__end_of_MOCK_PrzyspieszenieX                  text27       0014F4
-__end_of_MOCK_PrzyspieszenieY                  text26       0014EA
-__end_of_MOCK_PrzyspieszenieZ                  text25       0014E0
-__end_of_MOC_Aktualna_Temperatura              text8        0014D6
-__end_of_MOC_Frame_Counter                     text7        0014B4
-__end_of_MOC_NOTWORK                           text6        00152E
-__end_of_MOC_Wynikowa_wartosc_roznicowa        text5        0014CC
-__end_of_TMR1_Timer_reset                      text52       00141A
-__end_of_TMR1_Update_flag_Get                  text35       001512
-__end_of_TMR1_Update_flag_Set                  text34       001508
-__end_of_TRM_DataTransmition                   text1        0011E8
-__end_of___awdiv                               text32       000E4E
-__end_of___lwdiv                               text38       001104
-__end_of__initialization                       cinit        00104C
-__end_of_main                                  text0        0013A4
-__end_ofi1_TMR1_Update_flag_Set                text51       00151C
-__initialization                               cinit        001000
+__end_of_LED_Clear                             text12       001400
+__end_of_LED_Control                           text44       0009D6
+__end_of_LED_Error                             text11       0013E2
+__end_of_LED_Left                              text39       001214
+__end_of_LED_Light_Pos                         text36       000C94
+__end_of_LED_Right                             text38       001188
+__end_of_LED_Update                            text35       000EB2
+__end_of_LOCK_Get                              text10       0014EA
+__end_of_LOCK_Set                              text9        0014E0
+__end_of_MOCK_Klikniecie_Spadek                text27       0014A8
+__end_of_MOCK_PrzyspieszenieX                  text26       00149E
+__end_of_MOCK_PrzyspieszenieY                  text25       001494
+__end_of_MOCK_PrzyspieszenieZ                  text24       00148A
+__end_of_MOC_Aktualna_Temperatura              text8        001480
+__end_of_MOC_Frame_Counter                     text7        00145E
+__end_of_MOC_NOTWORK                           text6        0014D8
+__end_of_MOC_Wynikowa_wartosc_roznicowa        text5        001476
+__end_of_TMR1_Timer_reset                      text51       0013C4
+__end_of_TMR1_Update_flag_Get                  text34       0014BC
+__end_of_TMR1_Update_flag_Set                  text33       0014B2
+__end_of_TRM_DataTransmition                   text1        0011D2
+__end_of___awdiv                               text31       000E38
+__end_of___lwdiv                               text37       0010EE
+__end_of__initialization                       cinit        001036
+__end_of_main                                  text0        00134E
+__end_ofi1_TMR1_Update_flag_Set                text50       0014C6
+__initialization                               cinit        000FEA
 __mediumconst                                  mediumconst  000000
 __pbssBANK0                                    bssBANK0     000060
 __pbssBIGRAM                                   bssBIGRAM    0000DB
 __pbssCOMRAM                                   bssCOMRAM    000040
-__pcinit                                       cinit        001000
+__pcinit                                       cinit        000FEA
 __pcstackCOMRAM                                cstackCOMRAM 000001
 __pdataCOMRAM                                  dataCOMRAM   000050
-__pidataCOMRAM                                 idataCOMRAM  00151C
+__pidataCOMRAM                                 idataCOMRAM  0014C6
 __pintcode                                     intcode      000008
-__pintcode_body                                intcode_body 001536
+__pintcode_body                                intcode_body 0014E0
 __pintcodelo                                   intcodelo    000018
-__ptext0                                       text0        001376
-__ptext1                                       text1        00119E
-__ptext10                                      text10       00153C
-__ptext11                                      text11       00141A
-__ptext12                                      text12       001438
-__ptext13                                      text13       00122A
-__ptext14                                      text14       00126A
-__ptext15                                      text15       00105A
-__ptext16                                      text16       001540
-__ptext17                                      text17       0012A0
-__ptext18                                      text18       001104
-__ptext19                                      text19       000B16
-__ptext2                                       text2        000516
-__ptext20                                      text20       0012D6
-__ptext21                                      text21       00130C
-__ptext22                                      text22       001542
-__ptext23                                      text23       0002DC
-__ptext24                                      text24       000EC8
-__ptext25                                      text25       0014D6
-__ptext26                                      text26       0014E0
-__ptext27                                      text27       0014EA
-__ptext28                                      text28       0014F4
-__ptext29                                      text29       000724
-__ptext3                                       text3        000F3E
-__ptext30                                      text30       000CAA
-__ptext31                                      text31       000060
-__ptext32                                      text32       000DCA
-__ptext33                                      text33       0013A4
-__ptext34                                      text34       0014FE
-__ptext35                                      text35       001508
-__ptext36                                      text36       000E4E
-__ptext37                                      text37       000BFA
-__ptext38                                      text38       0010B2
-__ptext39                                      text39       001152
-__ptext4                                       text4        0009E4
-__ptext40                                      text40       0011E8
-__ptext41                                      text41       001474
-__ptext42                                      text42       00148E
-__ptext43                                      text43       001456
-__ptext44                                      text44       001342
-__ptext45                                      text45       000892
-__ptext46                                      text46       0014B4
-__ptext47                                      text47       000FA4
-__ptext48                                      text48       000D3E
-__ptext49                                      text49       0013CE
-__ptext5                                       text5        0014C2
-__ptext51                                      text51       001512
-__ptext52                                      text52       0013F6
-__ptext6                                       text6        001526
-__ptext7                                       text7        0014A6
-__ptext8                                       text8        0014CC
-__ptext9                                       text9        00152E
+__ptext0                                       text0        001320
+__ptext1                                       text1        001188
+__ptext10                                      text10       0014E6
+__ptext11                                      text11       0013C4
+__ptext12                                      text12       0013E2
+__ptext13                                      text13       001214
+__ptext14                                      text14       001044
+__ptext15                                      text15       0014EA
+__ptext16                                      text16       00124A
+__ptext17                                      text17       0010EE
+__ptext18                                      text18       000B00
+__ptext19                                      text19       001280
+__ptext2                                       text2        000508
+__ptext20                                      text20       0012B6
+__ptext21                                      text21       0014EC
+__ptext22                                      text22       0002DC
+__ptext23                                      text23       000EB2
+__ptext24                                      text24       001480
+__ptext25                                      text25       00148A
+__ptext26                                      text26       001494
+__ptext27                                      text27       00149E
+__ptext28                                      text28       000716
+__ptext29                                      text29       000C94
+__ptext3                                       text3        000F28
+__ptext30                                      text30       000060
+__ptext31                                      text31       000DB4
+__ptext32                                      text32       00134E
+__ptext33                                      text33       0014A8
+__ptext34                                      text34       0014B2
+__ptext35                                      text35       000E38
+__ptext36                                      text36       000BE4
+__ptext37                                      text37       00109C
+__ptext38                                      text38       00113C
+__ptext39                                      text39       0011D2
+__ptext4                                       text4        0009D6
+__ptext40                                      text40       00141E
+__ptext41                                      text41       001438
+__ptext42                                      text42       001400
+__ptext43                                      text43       0012EC
+__ptext44                                      text44       000884
+__ptext45                                      text45       00145E
+__ptext46                                      text46       000F8E
+__ptext47                                      text47       000D28
+__ptext48                                      text48       001378
+__ptext5                                       text5        00146C
+__ptext50                                      text50       0014BC
+__ptext51                                      text51       0013A0
+__ptext6                                       text6        0014D0
+__ptext7                                       text7        001450
+__ptext8                                       text8        001476
+__ptext9                                       text9        0014D8
 __ramtop                                       ramtop       000D00
 __size_of_CAN_GenID                            (abs)        000000
 __size_of_CAN_MoveBuffIntoFrame                (abs)        000000
@@ -947,7 +938,6 @@ __size_of_INI_OUTPUT                           (abs)        000000
 __size_of_INI_Timer                            (abs)        000000
 __size_of_ISR_high                             (abs)        000000
 __size_of_ISR_low                              (abs)        000000
-__size_of_IsInNeighbors                        (abs)        000000
 __size_of_LED_Clear                            (abs)        000000
 __size_of_LED_Control                          (abs)        000000
 __size_of_LED_Error                            (abs)        000000
@@ -974,16 +964,16 @@ __size_of___lwdiv                              (abs)        000000
 __size_of_main                                 (abs)        000000
 __size_ofi1_TMR1_Update_flag_Set               (abs)        000000
 __smallconst                                   smallconst   000000
-_main                                          text0        001376
+_main                                          text0        001320
 _ramkaCanRxKarty                               bssBANK0     000060
 _ramkaCanTxKarty                               bssBANK0     0000B5
 _wartosciSasiada                               bssBIGRAM    0000DB
 btemp                                          temp         000059
-end_of_initialization                          cinit        00104C
+end_of_initialization                          cinit        001036
 i1TMR1_Update_flag_Set@a                       cstackCOMRAM 000001
-i1_TMR1_Update_flag_Set                        text51       001512
+i1_TMR1_Update_flag_Set                        text50       0014BC
 int$flags                                      temp         000059
-int_func                                       intcode_body 001536
+int_func                                       intcode_body 0014E0
 intlevel0                                      text         000000
 intlevel1                                      text         000000
 intlevel2                                      text         000000
@@ -991,7 +981,7 @@ intlevel3                                      text         000000
 stackhi                                        (abs)        000CFF
 stacklo                                        (abs)        0002FB
 start                                          init         00005C
-start_initialization                           cinit        001000
+start_initialization                           cinit        000FEA
 ttemp5                                         temp         00005A
 ttemp6                                         temp         00005D
 ttemp7                                         temp         000061
@@ -1067,7 +1057,7 @@ Total ram usage:       17 bytes
 
  *************** function _FRAME_HandleCanFrame *****************
  Defined at:
-		line 525 in file "FRAME.c"
+		line 530 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2   37[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1116,7 +1106,7 @@ Total ram usage:        9 bytes
 
  *************** function _FRAME_SoftwareVersion *****************
  Defined at:
-		line 409 in file "FRAME.c"
+		line 411 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2    5[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1149,15 +1139,15 @@ Total ram usage:        3 bytes
  Defined at:
 		line 35 in file "FRAME.c"
  Parameters:    Size  Location     Type
-  message         2   11[COMRAM] PTR struct .
+  message         2   10[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
  Auto vars:     Size  Location     Type
-  Satrun_prime    2   21[COMRAM] int 
+  Satrun_prime    2   20[COMRAM] int 
   terra           2    0        int 
-  Satrun_prime    2   19[COMRAM] int 
+  Satrun_prime    2   18[COMRAM] int 
   terra           2    0        int 
-  iterator_bet    2   25[COMRAM] unsigned short 
-  Saturn          2   23[COMRAM] unsigned short 
+  iterator_bet    2   24[COMRAM] unsigned short 
+  Saturn          2   22[COMRAM] int 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -1175,7 +1165,6 @@ Total ram usage:       16 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
-		_IsInNeighbors
 		_LED_Clear
 		_LED_Error
 		_LOCK_Get
@@ -1430,39 +1419,9 @@ Total ram usage:        0 bytes
  This function uses a non-reentrant model
 
 
- *************** function _IsInNeighbors *****************
- Defined at:
-		line 94 in file "FRAME.c"
- Parameters:    Size  Location     Type
-  message_adre    2    5[COMRAM] unsigned int 
- Auto vars:     Size  Location     Type
-  i               2    9[COMRAM] unsigned short 
- Return value:  Size  Location     Type
-                  1    wreg      unsigned char 
- Registers used:
-		wreg, fsr2l, fsr2h, status,2, status,0
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12
-      Params:         2       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         6       0       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        6 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    3
- This function calls:
-		Nothing
- This function is called by:
-		_FRAME_SensorExcitationStatus
- This function uses a non-reentrant model
-
-
  *************** function _FRAME_PrzypisanieDokarty *****************
  Defined at:
-		line 458 in file "FRAME.c"
+		line 460 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2    5[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1493,7 +1452,7 @@ Total ram usage:        3 bytes
 
  *************** function _FRAME_Plot *****************
  Defined at:
-		line 363 in file "FRAME.c"
+		line 365 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2   12[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1524,7 +1483,7 @@ Total ram usage:        3 bytes
 
  *************** function _FRAME_MapPosition *****************
  Defined at:
-		line 384 in file "FRAME.c"
+		line 386 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2    5[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1555,7 +1514,7 @@ Total ram usage:        2 bytes
 
  *************** function _FRAME_ExcitationValue *****************
  Defined at:
-		line 141 in file "FRAME.c"
+		line 143 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2    5[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1586,7 +1545,7 @@ Total ram usage:        3 bytes
 
  *************** function _FRAME_ExcitationMultiplier *****************
  Defined at:
-		line 165 in file "FRAME.c"
+		line 167 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2    5[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1617,7 +1576,7 @@ Total ram usage:        5 bytes
 
  *************** function _FRAME_DeviceReset *****************
  Defined at:
-		line 299 in file "FRAME.c"
+		line 301 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2    5[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1648,7 +1607,7 @@ Total ram usage:        3 bytes
 
  *************** function _FRAME_AxisStatus *****************
  Defined at:
-		line 252 in file "FRAME.c"
+		line 254 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2    5[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1679,7 +1638,7 @@ Total ram usage:        3 bytes
 
  *************** function _FRAME_AveragingTimes *****************
  Defined at:
-		line 193 in file "FRAME.c"
+		line 195 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2    5[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1710,7 +1669,7 @@ Total ram usage:        3 bytes
 
  *************** function _FRAME_AnalogValue *****************
  Defined at:
-		line 432 in file "FRAME.c"
+		line 434 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2    5[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1742,7 +1701,7 @@ Total ram usage:        4 bytes
 
  *************** function _FRAME_AdressOfNeighbors *****************
  Defined at:
-		line 476 in file "FRAME.c"
+		line 478 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2    5[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1780,7 +1739,7 @@ Total ram usage:       32 bytes
 
  *************** function _FRAME_AccelerometerStatus *****************
  Defined at:
-		line 116 in file "FRAME.c"
+		line 118 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2    7[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1934,7 +1893,7 @@ Total ram usage:        2 bytes
 
  *************** function _CAN_SendFrame *****************
  Defined at:
-		line 195 in file "CAN.c"
+		line 196 in file "CAN.c"
  Parameters:    Size  Location     Type
   message         2   10[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1965,7 +1924,7 @@ Total ram usage:        5 bytes
 
  *************** function _CAN_GenID *****************
  Defined at:
-		line 394 in file "CAN.c"
+		line 395 in file "CAN.c"
  Parameters:    Size  Location     Type
   message         2    5[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1997,7 +1956,7 @@ Total ram usage:        7 bytes
 
  *************** function _CAN_TakeFrame *****************
  Defined at:
-		line 259 in file "CAN.c"
+		line 260 in file "CAN.c"
  Parameters:    Size  Location     Type
   message         2   13[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -2064,7 +2023,7 @@ Total ram usage:        8 bytes
 
  *************** function _CAN_MoveBuffIntoFrame *****************
  Defined at:
-		line 181 in file "CAN.c"
+		line 182 in file "CAN.c"
  Parameters:    Size  Location     Type
   Ram             2    5[COMRAM] PTR unsigned char 
 		 -> TRM_DataTransmition@canMessage(17), RXB0D0(1), 
@@ -2514,7 +2473,7 @@ Total ram usage:        0 bytes
 
  *************** function _CAN_Setup *****************
  Defined at:
-		line 22 in file "CAN.c"
+		line 23 in file "CAN.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2545,7 +2504,7 @@ Total ram usage:        1 bytes
 
  *************** function _CAN_SetupMask *****************
  Defined at:
-		line 81 in file "CAN.c"
+		line 82 in file "CAN.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2575,7 +2534,7 @@ Total ram usage:        0 bytes
 
  *************** function _CAN_SetupClock *****************
  Defined at:
-		line 148 in file "CAN.c"
+		line 149 in file "CAN.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2729,71 +2688,70 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 FRAME.c
-		_FRAME_ExcitationMultiplier		CODE           	1104	0000	79
-		_FRAME_SensorExcitationStatus		CODE           	09E4	0000	307
-		_FRAME_ExcitationValue		CODE           	12A0	0000	55
-		_FRAME_SoftwareVersion		CODE           	0F3E	0000	103
-		_IsInNeighbors 		CODE           	122A	0000	65
-		_FRAME_AxisStatus		CODE           	12D6	0000	55
-		_FRAME_AnalogValue		CODE           	1542	0000	3
-		_FRAME_Plot    		CODE           	105A	0000	89
-		_FRAME_HandleCanFrame		CODE           	0516	0000	527
-		_FRAME_DeviceReset		CODE           	0B16	0000	229
-		_FRAME_MapPosition		CODE           	1540	0000	3
-		_FRAME_AdressOfNeighbors		CODE           	02DC	0000	571
-		_FRAME_PrzypisanieDokarty		CODE           	126A	0000	55
-		_FRAME_AveragingTimes		CODE           	130C	0000	55
-		_FRAME_AccelerometerStatus		CODE           	0EC8	0000	119
+		_FRAME_ExcitationMultiplier		CODE           	10EE	0000	79
+		_FRAME_SensorExcitationStatus		CODE           	09D6	0000	299
+		_FRAME_ExcitationValue		CODE           	124A	0000	55
+		_FRAME_SoftwareVersion		CODE           	0F28	0000	103
+		_FRAME_AxisStatus		CODE           	1280	0000	55
+		_FRAME_AnalogValue		CODE           	14EC	0000	3
+		_FRAME_Plot    		CODE           	1044	0000	89
+		_FRAME_HandleCanFrame		CODE           	0508	0000	527
+		_FRAME_DeviceReset		CODE           	0B00	0000	229
+		_FRAME_MapPosition		CODE           	14EA	0000	3
+		_FRAME_AdressOfNeighbors		CODE           	02DC	0000	557
+		_FRAME_PrzypisanieDokarty		CODE           	1214	0000	55
+		_FRAME_AveragingTimes		CODE           	12B6	0000	55
+		_FRAME_AccelerometerStatus		CODE           	0EB2	0000	119
 
-FRAME.c estimated size: 2315
+FRAME.c estimated size: 2228
 
 TMR1.c
-		_TMR1_Timer_reset		CODE           	13F6	0000	37
-		_TMR1_Update_flag_Set		CODE           	14FE	0000	11
-		_INI_Timer     		CODE           	148E	0000	25
-		_TMR1_Update_flag_Get		CODE           	1508	0000	11
+		_TMR1_Timer_reset		CODE           	13A0	0000	37
+		_TMR1_Update_flag_Set		CODE           	14A8	0000	11
+		_INI_Timer     		CODE           	1438	0000	25
+		_TMR1_Update_flag_Get		CODE           	14B2	0000	11
 
 TMR1.c estimated size: 84
 
 LED.c
-		_LOCK_Get      		CODE           	153C	0000	5
-		_LOCK_Set      		CODE           	152E	0000	9
-		_LED_Update    		CODE           	0E4E	0000	123
-		_LED_Left      		CODE           	11E8	0000	67
-		_LED_Right     		CODE           	1152	0000	77
-		_INI_LED_Start 		CODE           	1342	0000	53
-		_LED_Clear     		CODE           	1438	0000	31
-		_LED_Light_Pos 		CODE           	0BFA	0000	177
-		_LED_Control   		CODE           	0892	0000	339
-		_LED_Error     		CODE           	141A	0000	31
+		_LOCK_Get      		CODE           	14E6	0000	5
+		_LOCK_Set      		CODE           	14D8	0000	9
+		_LED_Update    		CODE           	0E38	0000	123
+		_LED_Left      		CODE           	11D2	0000	67
+		_LED_Right     		CODE           	113C	0000	77
+		_INI_LED_Start 		CODE           	12EC	0000	53
+		_LED_Clear     		CODE           	13E2	0000	31
+		_LED_Light_Pos 		CODE           	0BE4	0000	177
+		_LED_Control   		CODE           	0884	0000	339
+		_LED_Error     		CODE           	13C4	0000	31
 
 LED.c estimated size: 912
 
 TRM.c
-		_TRM_DataTransmition		CODE           	119E	0000	75
+		_TRM_DataTransmition		CODE           	1188	0000	75
 
 TRM.c estimated size: 75
 
 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lwdiv.c
-		___lwdiv       		CODE           	10B2	0000	83
+		___lwdiv       		CODE           	109C	0000	83
 
 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lwdiv.c estimated size: 83
 
 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
-		___awdiv       		CODE           	0DCA	0000	133
+		___awdiv       		CODE           	0DB4	0000	133
 
 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c estimated size: 133
 
 INI.c
-		_INI_GlobalInterrupt		CODE           	14B4	0000	15
-		_INI_OUTPUT    		CODE           	1456	0000	31
-		_INI_All       		CODE           	1474	0000	27
+		_INI_GlobalInterrupt		CODE           	145E	0000	15
+		_INI_OUTPUT    		CODE           	1400	0000	31
+		_INI_All       		CODE           	141E	0000	27
 
 INI.c estimated size: 73
 
 shared
-		i1_TMR1_Update_flag_Set		CODE           	1512	0000	11
-		__initialization		CODE           	1000	0000	77
+		i1_TMR1_Update_flag_Set		CODE           	14BC	0000	11
+		__initialization		CODE           	0FEA	0000	77
 
 shared estimated size: 88
 
@@ -2804,30 +2762,30 @@ ISR.c
 ISR.c estimated size: 82
 
 MOC_Funct.c
-		_MOC_Frame_Counter		CODE           	14A6	0000	15
-		_MOC_NOTWORK   		CODE           	1526	0000	9
-		_MOC_Wynikowa_wartosc_roznicowa		CODE           	14C2	0000	11
-		_MOCK_Klikniecie_Spadek		CODE           	14F4	0000	11
-		_MOCK_PrzyspieszenieX		CODE           	14EA	0000	11
-		_MOC_Aktualna_Temperatura		CODE           	14CC	0000	11
-		_MOCK_PrzyspieszenieY		CODE           	14E0	0000	11
-		_MOCK_PrzyspieszenieZ		CODE           	14D6	0000	11
+		_MOC_Frame_Counter		CODE           	1450	0000	15
+		_MOC_NOTWORK   		CODE           	14D0	0000	9
+		_MOC_Wynikowa_wartosc_roznicowa		CODE           	146C	0000	11
+		_MOCK_Klikniecie_Spadek		CODE           	149E	0000	11
+		_MOCK_PrzyspieszenieX		CODE           	1494	0000	11
+		_MOC_Aktualna_Temperatura		CODE           	1476	0000	11
+		_MOCK_PrzyspieszenieY		CODE           	148A	0000	11
+		_MOCK_PrzyspieszenieZ		CODE           	1480	0000	11
 
 MOC_Funct.c estimated size: 90
 
 main.c
-		_main          		CODE           	1376	0000	47
+		_main          		CODE           	1320	0000	47
 
 main.c estimated size: 47
 
 CAN.c
 		_CAN_TakeFrame 		CODE           	0060	0000	637
-		_CAN_GenID     		CODE           	0CAA	0000	149
-		_CAN_Setup     		CODE           	0FA4	0000	93
-		_CAN_SendFrame 		CODE           	0724	0000	367
-		_CAN_MoveBuffIntoFrame		CODE           	13A4	0000	43
-		_CAN_SetupMask 		CODE           	0D3E	0000	141
-		_CAN_SetupClock		CODE           	13CE	0000	41
+		_CAN_GenID     		CODE           	0C94	0000	149
+		_CAN_Setup     		CODE           	0F8E	0000	93
+		_CAN_SendFrame 		CODE           	0716	0000	367
+		_CAN_MoveBuffIntoFrame		CODE           	134E	0000	43
+		_CAN_SetupMask 		CODE           	0D28	0000	141
+		_CAN_SetupClock		CODE           	1378	0000	41
 
 CAN.c estimated size: 1471
 

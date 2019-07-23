@@ -11,6 +11,7 @@ static void CAN_SetupClock(void);
 static void CAN_SetupMask(void);
 void CAN_Setup(void);
 
+
 /***************************************************************************************/
 /**
 * @author Pawe? Kasperek
