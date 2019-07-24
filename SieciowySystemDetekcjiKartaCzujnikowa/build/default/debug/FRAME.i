@@ -18752,7 +18752,7 @@ static void FRAME_PrzypisanieDokarty(mID *message)
 
 static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
 {
-    WORD i;
+    WORD it;
 
 
     WORD kier = (nrRamki-0x10);
@@ -18764,24 +18764,24 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
         if(kier == 0)
         {
         message->data[0] = (NeightAdress1>> 8);
-        message->data[1] = NeightAdress1;
+        message->data[1] = NeightAdress1 & 0b11111111;
         message->data[2] = (NeightAdress2>> 8);
-        message->data[3] = NeightAdress2;
+        message->data[3] = NeightAdress2 & 0b11111111;
         message->data[4] = (NeightAdress3>> 8);
-        message->data[5] = NeightAdress3;
+        message->data[5] = NeightAdress3 & 0b11111111;
         message->data[6] = (NeightAdress4>> 8);
-        message->data[7] = NeightAdress4;
+        message->data[7] = NeightAdress4 & 0b11111111;
         }
         else
         {
         message->data[0] = (NeightAdress5>> 8);
-        message->data[1] = NeightAdress5;
+        message->data[1] = NeightAdress5 & 0b11111111;
         message->data[2] = (NeightAdress6>> 8);
-        message->data[3] = NeightAdress6;
+        message->data[3] = NeightAdress6 & 0b11111111;
         message->data[4] = (NeightAdress7>> 8);
-        message->data[5] = NeightAdress7;
+        message->data[5] = NeightAdress7 & 0b11111111;
         message->data[6] = (NeightAdress8>> 8);
-        message->data[7] = NeightAdress8;
+        message->data[7] = NeightAdress8 & 0b11111111;
         }
 
 
@@ -18794,27 +18794,27 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
         if(kier == 0)
         {
          NeightAdress1 = (message->data[0] << 8)| message->data[1];
+         Dane->sasiedzi[0].adres = (WORD) NeightAdress1;
          NeightAdress2 = (message->data[2] << 8)| message->data[3];
+         Dane->sasiedzi[1].adres = (WORD) NeightAdress2;
          NeightAdress3 = (message->data[4] << 8)| message->data[5];
+         Dane->sasiedzi[2].adres = (WORD) NeightAdress3;
          NeightAdress4 = (message->data[6] << 8)| message->data[7];
+         Dane->sasiedzi[3].adres = (WORD) NeightAdress4;
 
-         for(i=0; i<4; i++)
-            {
-            Dane->sasiedzi[i+(4*kier)].adres = (message->data[2*i] << 8)| message->data[(2*i)+1];
 
-            }
         }
         else
         {
          NeightAdress5 = (message->data[0] << 8)| message->data[1];
+         Dane->sasiedzi[4].adres = (WORD) NeightAdress5;
          NeightAdress6 = (message->data[2] << 8)| message->data[3];
+         Dane->sasiedzi[5].adres = (WORD) NeightAdress6;
          NeightAdress7 = (message->data[4] << 8)| message->data[5];
+         Dane->sasiedzi[6].adres = (WORD) NeightAdress7;
          NeightAdress8 = (message->data[6] << 8)| message->data[7];
-         for(i=0; i<4; i++)
-            {
-            Dane->sasiedzi[i+(4*kier)].adres = (message->data[2*i] << 8)| message->data[(2*i)+1];
+         Dane->sasiedzi[7].adres = (WORD) NeightAdress8;
 
-            }
         }
 # 627 "FRAME.c"
     }
