@@ -1299,6 +1299,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 "32473
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32473: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
+"15 ./FRAME.h
+[; ;./FRAME.h: 15: volatile UINT NeightAdress1;
+[v _NeightAdress1 `Vui ~T0 @X0 1 e ]
+"16
+[; ;./FRAME.h: 16: volatile UINT NeightAdress2;
+[v _NeightAdress2 `Vui ~T0 @X0 1 e ]
+"17
+[; ;./FRAME.h: 17: volatile UINT NeightAdress3;
+[v _NeightAdress3 `Vui ~T0 @X0 1 e ]
+"18
+[; ;./FRAME.h: 18: volatile UINT NeightAdress4;
+[v _NeightAdress4 `Vui ~T0 @X0 1 e ]
+"19
+[; ;./FRAME.h: 19: volatile UINT NeightAdress5;
+[v _NeightAdress5 `Vui ~T0 @X0 1 e ]
+"20
+[; ;./FRAME.h: 20: volatile UINT NeightAdress6;
+[v _NeightAdress6 `Vui ~T0 @X0 1 e ]
+"21
+[; ;./FRAME.h: 21: volatile UINT NeightAdress7;
+[v _NeightAdress7 `Vui ~T0 @X0 1 e ]
+"22
+[; ;./FRAME.h: 22: volatile UINT NeightAdress8;
+[v _NeightAdress8 `Vui ~T0 @X0 1 e ]
 "7 TRM.c
 [; ;TRM.c: 7: DaneCanStruct DaneCan;
 [v _DaneCan `S1113 ~T0 @X0 1 e ]
@@ -1312,12 +1336,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "21
 [; ;TRM.c: 21:     static BYTE weWyU8 = 0, czujnikWeWyU8 = 0;
-[v F10750 `uc ~T0 @X0 1 s weWyU8 ]
-[i F10750
+[v F10758 `uc ~T0 @X0 1 s weWyU8 ]
+[i F10758
 -> -> 0 `i `uc
 ]
-[v F10751 `uc ~T0 @X0 1 s czujnikWeWyU8 ]
-[i F10751
+[v F10759 `uc ~T0 @X0 1 s czujnikWeWyU8 ]
+[i F10759
 -> -> 0 `i `uc
 ]
 "22

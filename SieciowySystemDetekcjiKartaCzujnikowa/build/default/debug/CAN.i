@@ -18306,6 +18306,15 @@ typedef union _QWORD_VAL
 # 12 "./FRAME.h"
 extern mID ramkaCanRxCzujnika[5];
 void FRAME_HandleCanFrame(mID * message);
+
+volatile UINT NeightAdress1;
+volatile UINT NeightAdress2;
+volatile UINT NeightAdress3;
+volatile UINT NeightAdress4;
+volatile UINT NeightAdress5;
+volatile UINT NeightAdress6;
+volatile UINT NeightAdress7;
+volatile UINT NeightAdress8;
 # 4 "CAN.c" 2
 
 
@@ -18339,6 +18348,7 @@ void CAN_Setup(void)
     PIR3 = 0x00;
     BIE0 = 0;
 
+    DaneCan.adresCAN = 0x12c;
 
     ECANCON = 0x90;
 
@@ -18360,7 +18370,7 @@ void CAN_Setup(void)
         ;
     }
 }
-# 82 "CAN.c"
+# 83 "CAN.c"
 static void CAN_SetupMask(void)
 {
     MSEL0 = 0x50;
@@ -18377,21 +18387,21 @@ static void CAN_SetupMask(void)
 
     RXM1SIDH = 0xFF;
     RXM1SIDL = 0xFF;
-    RXM1EIDH = 0;
-    RXM1EIDL = 0;
+    RXM1EIDH = 0xFF;
+    RXM1EIDL = 0xFF;
 
 
     RXM0SIDH = 0x00;
     RXM0SIDL = 0x00;
-    RXM0EIDH = 0;
-    RXM0EIDL = 0;
+
+
 
 
     RXF0SIDH = 0x00;
     RXF0SIDL = 0x01;
     RXF0SIDLbits.EXIDEN = 1;
     RXF0EIDH = (BYTE)(DaneCan.adresCAN>>8);
- RXF0EIDH |= 0x40;
+
     RXF0EIDL = (BYTE)DaneCan.adresCAN;
 
     RXF1SIDH = 0x00;
@@ -18404,22 +18414,23 @@ static void CAN_SetupMask(void)
     RXF2SIDH = 0;
     RXF2SIDL = 0x20;
     RXF2SIDLbits.EXIDEN = 1;
-    RXF2EIDH = 0;
-    RXF2EIDL = 0;
+    RXF2EIDH = (BYTE)(NeightAdress1>>8);
+    RXF2EIDL = (BYTE)(NeightAdress1 & 0xFF);
 
-
-    RXF3SIDH = 0x00;
-    RXF3SIDL = 0x00;
-    RXF3EIDH = 0x00;
- RXF3EIDH |= 0x00;
-    RXF3EIDL = 0x00;
-
-
+    RXF3SIDH = 0;
+    RXF3SIDL = 0x20;
+    RXF3SIDLbits.EXIDEN = 1;
+    RXF3EIDH = (BYTE)(NeightAdress2>>8);
+    RXF3EIDL = (BYTE)(NeightAdress2 & 0xFF);
 
 
 
+    RXFBCON0 = 0b00000000;
 
-    RXFCON0 = 0x0F;
+    RXFBCON1 = 0b00010001;
+
+
+
 
 }
 
@@ -18666,14 +18677,14 @@ BOOL CAN_TakeFrame(mID * message)
         return FALSE;
     }
 }
-# 395 "CAN.c"
+# 397 "CAN.c"
 void CAN_GenID(mID * message, BYTE frameID)
 {
 
     message->frame_type = 0x03;
     message->message_type = 0x01;
     message->id.w[1] = (WORD)frameID * (WORD)4;
-    message->id.w[0] = DaneCan.adresCAN + 0x012c;
+    message->id.w[0] = DaneCan.adresCAN;
     message->id.v[2] |= 0x00;
     message->id.v[1] |= 0x00;
     message ->id.bits.b16 = 0;

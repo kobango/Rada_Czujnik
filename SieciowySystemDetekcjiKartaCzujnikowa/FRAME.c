@@ -22,16 +22,17 @@ typedef union tuReg32 {
 } uReg32;
 
 mID ramkaCanRxKarty[RX_BUF_SIZE], ramkaCanTxKarty;
-BYTE IsInNeighbors(UINT message_adress);
+UINT IsInNeighbors(UINT message_adress);
 
-volatile UINT NeightAdress1 = 0;
-volatile UINT NeightAdress2 = 0;
+volatile UINT NeightAdress1 = 299;
+volatile UINT NeightAdress2 = 111;
 volatile UINT NeightAdress3 = 0;
 volatile UINT NeightAdress4 = 0;
 volatile UINT NeightAdress5 = 0;
 volatile UINT NeightAdress6 = 0;
 volatile UINT NeightAdress7 = 0;
 volatile UINT NeightAdress8 = 0;
+
 
 
 /*******************************************************************
@@ -42,6 +43,8 @@ Autor: Pawel Kasperek
 *****************************************************************/
 static void FRAME_SensorExcitationStatus(mID *message) // id = 0x01
 {
+    
+    static UINT statwect = 0b00000000;
     if(message->message_type == CAN_MSG_RTR)
     {
         message->data_length = 6;
@@ -69,80 +72,65 @@ static void FRAME_SensorExcitationStatus(mID *message) // id = 0x01
     else
     {
         
-        WORD iterator_beta;
+        UINT tru = IsInNeighbors(message->id.w[0]);
        
         
-        if(IsInNeighbors(12))
+        if(message->data[0]==0)
         {
-            
-            
-            for(iterator_beta=0;iterator_beta<400;iterator_beta++)
-            {
-            LED_Clear();
-            }
-            
-            
+          
+            statwect = statwect &( ~tru );
         }
         else
         {
-            
-            for(iterator_beta=0;iterator_beta<400;iterator_beta++)
-            {
-            LED_Error();
-            }       
-            
-        }    
+            statwect = statwect| tru;
+        }
         
-        if(0x12b==message->id.w[0])
+        if(statwect>0)
         {
-        LOCK_Set(message->data[0]);
+        LOCK_Set(1);
+        }
+        else
+        {
+        LOCK_Set(0);   
         }
     }
 }
 
-BYTE IsInNeighbors(UINT message_adress)
+UINT IsInNeighbors(UINT message_adress)
 {
     WORD i;
-    /*
-    for(i=0; i<8; i++)
-        {
-        if(message_adress==Dane->sasiedzi[(i)].adres)
-            {
-            return 1;
-            }
-        }
-     */     
+       
     if(NeightAdress1==message_adress)
     {
-        return 1;
+        return 0b1;
     }
     if(NeightAdress2==message_adress)
     {
-        return 1;
+        return 0b10;
     }
     if(NeightAdress3==message_adress)
     {
-        return 1;
+        return 0b100;
     }
     if(NeightAdress4==message_adress)
     {
-        return 1;
+        return 0b1000;
     }
     if(NeightAdress5==message_adress)
     {
-        return 1;
+        return 0b10000;
     }
     if(NeightAdress6==message_adress)
     {
-        return 1;
+        return 0b100000;
     }
     if(NeightAdress7==message_adress)
     {
-        return 1;
+        return 0b1000000;
     }
     if(NeightAdress8==message_adress)
     {
-        return 1;
+        return 0b10000000;
     }
     
     //0x10

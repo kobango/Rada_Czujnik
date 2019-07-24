@@ -18279,6 +18279,15 @@ typedef union _QWORD_VAL
 
 extern mID ramkaCanRxCzujnika[5];
 void FRAME_HandleCanFrame(mID * message);
+
+volatile UINT NeightAdress1;
+volatile UINT NeightAdress2;
+volatile UINT NeightAdress3;
+volatile UINT NeightAdress4;
+volatile UINT NeightAdress5;
+volatile UINT NeightAdress6;
+volatile UINT NeightAdress7;
+volatile UINT NeightAdress8;
 # 3 "TRM.c" 2
 # 1 "./TRM.h" 1
 # 11 "./TRM.h"

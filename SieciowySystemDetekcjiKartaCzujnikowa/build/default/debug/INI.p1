@@ -1429,37 +1429,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 "71
 [; ;INI.c: 71:     INI_LED_Start();
 [e ( _INI_LED_Start ..  ]
-"73
-[; ;INI.c: 73: }
+"75
+[; ;INI.c: 75: }
 [e :UE 1114 ]
 }
-"74
-[; ;INI.c: 74: void INI_GlobalInterrupt(void)
+"76
+[; ;INI.c: 76: void INI_GlobalInterrupt(void)
 [v _INI_GlobalInterrupt `(v ~T0 @X0 1 ef ]
-"75
-[; ;INI.c: 75: {
+"77
+[; ;INI.c: 77: {
 {
 [e :U _INI_GlobalInterrupt ]
 [f ]
-"76
-[; ;INI.c: 76: INTCONbits.GIEH=1;
-[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
-"77
-[; ;INI.c: 77: INTCONbits.GIEL=1;
-[e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
 "78
-[; ;INI.c: 78: RCONbits.IPEN=1;
-[e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
+[; ;INI.c: 78: INTCONbits.GIEH=1;
+[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
 "79
-[; ;INI.c: 79: IPEN =1;
-[e = _IPEN -> -> 1 `i `b ]
+[; ;INI.c: 79: INTCONbits.GIEL=1;
+[e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
+"80
+[; ;INI.c: 80: RCONbits.IPEN=1;
+[e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
 "81
-[; ;INI.c: 81: PEIE=1;
-[e = _PEIE -> -> 1 `i `b ]
-"82
-[; ;INI.c: 82: TMR1IP = 0;
-[e = _TMR1IP -> -> 0 `i `b ]
+[; ;INI.c: 81: IPEN =1;
+[e = _IPEN -> -> 1 `i `b ]
 "83
-[; ;INI.c: 83: }
+[; ;INI.c: 83: PEIE=1;
+[e = _PEIE -> -> 1 `i `b ]
+"84
+[; ;INI.c: 84: TMR1IP = 0;
+[e = _TMR1IP -> -> 0 `i `b ]
+"85
+[; ;INI.c: 85: }
 [e :UE 1115 ]
 }
