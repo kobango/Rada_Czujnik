@@ -328,12 +328,12 @@ Autor: Pawel Kasperek
 *****************************************************************/
 static void FRAME_DataUpdateAndChangeOption(mID *message)
 {
-    /*
+    
     Dane->rokU16 = message->data[4];
     Dane->miesiacU16 = message->data[5];
     Dane->dzienU16 = message->data[6];
     Dane->godzinaU16 = message->data[7];
-     */
+    
 }
 
 /*******************************************************************
@@ -375,7 +375,7 @@ static void FRAME_DeviceReset(mID *message) //0x07
     else
     {
         message->data_length = 1;
-        /*
+        
         if(message->data[2])
         {
             Flagi.pomiarTla = 1;
@@ -388,14 +388,14 @@ static void FRAME_DeviceReset(mID *message) //0x07
         {
             if(message->data[1])
             {
-                ZaktualizujDateZmianyUstawien(message);
-                ZapisZmiennychDoFLASH();
+                FRAME_DataUpdateAndChangeOption(message);
+                //ZapisZmiennychDoFLASH();
             }
             if(message->data[0])
             {
                 Reset();
             }
-        }*/
+        }
         message->data[0] = 0xFF;
     }
 }
@@ -505,12 +505,16 @@ static void FRAME_PrzypisanieDokarty(mID *message) // 0x0F
 {
     if(message->message_type == CAN_MSG_RTR)
     {
-        message->data_length = 1;
-        message->data[0] = 0xFF;
+        message->data_length = 3;
+        message->data[0] = (unsigned char)Dane->NrKarty >> 8 ;
+        message->data[1] = (unsigned char)Dane->NrKarty ;
+        message->data[2] = (unsigned char)Dane->Nr_WeWy ;
+        
     }
     else
     {
-           // NONE
+         Dane->NrKarty = (message->data[0] << 8) | (message->data[1]);
+         Dane->Nr_WeWy = (message->data[2]);
     }
 }
 /*******************************************************************
@@ -532,24 +536,24 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)  //0x10
         
         if(kier == 0)
         {
-        message->data[0] = NeightAdress1>> 8;
+        message->data[0] = (NeightAdress1>> 8);
         message->data[1] = NeightAdress1;
-        message->data[2] = NeightAdress2>> 8;
+        message->data[2] = (NeightAdress2>> 8);
         message->data[3] = NeightAdress2;
-        message->data[4] = NeightAdress3>> 8;
+        message->data[4] = (NeightAdress3>> 8);
         message->data[5] = NeightAdress3;
-        message->data[6] = NeightAdress4>> 8;
+        message->data[6] = (NeightAdress4>> 8);
         message->data[7] = NeightAdress4;
         }
         else
         {
-        message->data[0] = NeightAdress5>> 8;
+        message->data[0] = (NeightAdress5>> 8);
         message->data[1] = NeightAdress5;
-        message->data[2] = NeightAdress6>> 8;
+        message->data[2] = (NeightAdress6>> 8);
         message->data[3] = NeightAdress6;
-        message->data[4] = NeightAdress7>> 8;
+        message->data[4] = (NeightAdress7>> 8);
         message->data[5] = NeightAdress7;
-        message->data[6] = NeightAdress8>> 8;
+        message->data[6] = (NeightAdress8>> 8);
         message->data[7] = NeightAdress8;    
         }
         
@@ -563,13 +567,7 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)  //0x10
     }
     else
     {
-        WORD uranos = (message->data[2] << 8 ) | message->data[3];
-        WORD zeta =(WORD) uranos; 
-         
-      
-         
-         WORD gaja = message->data[0] << 8 | message->data[1];
-         WORD zeta_secodus =(WORD) gaja; 
+        
          
         if(kier == 0)
         {
@@ -671,10 +669,10 @@ void FRAME_HandleCanFrame(mID * message)
             FRAME_PrzypisanieDokarty(message);
             break;
         case 0x10:
-            FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
+            FRAME_AdressOfNeighbors(message,0x10);
             break;
         case 0x11:
-            FRAME_AdressOfNeighbors(message, identyfikator - 0x11);
+            FRAME_AdressOfNeighbors(message,0x11);
             break;
          
             /*

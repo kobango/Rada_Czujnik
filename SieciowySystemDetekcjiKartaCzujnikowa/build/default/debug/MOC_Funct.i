@@ -18224,6 +18224,8 @@ typedef union _QWORD_VAL
             WORD timerRysowaniaWykresuU16 ;
             sasiadStruct sasiedzi[8];
             WORD rokU16, miesiacU16, dzienU16, godzinaU16, minutaU16;
+            WORD NrKarty;
+            WORD Nr_WeWy;
         };
 
     struct FlagStruct{

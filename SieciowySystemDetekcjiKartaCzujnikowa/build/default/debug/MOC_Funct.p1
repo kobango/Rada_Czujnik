@@ -1286,13 +1286,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "40
 [; ;MOC_Funct.c: 40:     static UINT zeta = 0x11;
-[v F10769 `ui ~T0 @X0 1 s zeta ]
-[i F10769
+[v F10771 `ui ~T0 @X0 1 s zeta ]
+[i F10771
 -> -> 17 `i `ui
 ]
 "41
 [; ;MOC_Funct.c: 41:     return zeta++;
-[e ) ++ F10769 -> -> 1 `i `ui ]
+[e ) ++ F10771 -> -> 1 `i `ui ]
 [e $UE 1115  ]
 "42
 [; ;MOC_Funct.c: 42: }

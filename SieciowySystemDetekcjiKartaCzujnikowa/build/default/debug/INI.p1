@@ -52,20 +52,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "31180
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31180: extern volatile RCONbits_t RCONbits __attribute__((address(0xFD0)));
 [v _RCONbits `VS1044 ~T0 @X0 0 e@4048 ]
-"92 ./main.h
-[; ;./main.h: 92:             struct{
+"94 ./main.h
+[; ;./main.h: 94:             struct{
 [s S1111 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :8 `uc 1 ]
 [n S1111 . obsluzWeWy error uczenieTla inicjalizacja ramkaTx wykonanoZapisDoFlash pomiarTla ]
-"89
-[; ;./main.h: 89:         {
+"91
+[; ;./main.h: 91:         {
 [u S1110 `uc 1 `S1111 1 ]
 [n S1110 . flagiU8 . ]
-"87
-[; ;./main.h: 87:     typedef struct{
+"89
+[; ;./main.h: 89:     typedef struct{
 [s S1109 `S1110 1 `uc 1 ]
 [n S1109 . Flags timerRamkiTxCANU8 ]
-"109
-[; ;./main.h: 109:     extern KartaStruct DetectorLedRadar;
+"111
+[; ;./main.h: 111:     extern KartaStruct DetectorLedRadar;
 [v _DetectorLedRadar `S1109 ~T0 @X0 0 e ]
 "31276 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31276:     struct {

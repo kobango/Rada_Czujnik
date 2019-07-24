@@ -58,6 +58,8 @@
             WORD timerRysowaniaWykresuU16 ;
             sasiadStruct sasiedzi[MAX_SASIADOW];
             WORD rokU16, miesiacU16, dzienU16, godzinaU16, minutaU16;
+            WORD NrKarty;
+            WORD Nr_WeWy;
         };	
         
     struct FlagStruct{

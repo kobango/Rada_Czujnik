@@ -1,14 +1,14 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"92 ./main.h
-[; ;./main.h: 92:             struct{
+"94 ./main.h
+[; ;./main.h: 94:             struct{
 [s S1111 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :8 `uc 1 ]
 [n S1111 . obsluzWeWy error uczenieTla inicjalizacja ramkaTx wykonanoZapisDoFlash pomiarTla ]
-"89
-[; ;./main.h: 89:         {
+"91
+[; ;./main.h: 91:         {
 [u S1110 `uc 1 `S1111 1 ]
 [n S1110 . flagiU8 . ]
-"87
-[; ;./main.h: 87:     typedef struct{
+"89
+[; ;./main.h: 89:     typedef struct{
 [s S1109 `S1110 1 `uc 1 ]
 [n S1109 . Flags timerRamkiTxCANU8 ]
 "46
@@ -29,14 +29,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S1104 . adres pointerNaSasiada ]
 "52 ./main.h
 [; ;./main.h: 52:         {
-[s S1106 `us 1 `us 1 `us 1 `S1105 1 `us 1 `us 1 `S1104 -> 8 `i `us 1 `us 1 `us 1 `us 1 `us 1 ]
-[n S1106 DaneStruct numerSeryjnyU16 startupU16 wersjaOprogramowaniaU16 PozycjaNaMapce wersjaSprzetuU16 timerRysowaniaWykresuU16 sasiedzi rokU16 miesiacU16 dzienU16 godzinaU16 minutaU16 ]
-"73
-[; ;./main.h: 73:         struct CANStruct{
+[s S1106 `us 1 `us 1 `us 1 `S1105 1 `us 1 `us 1 `S1104 -> 8 `i `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 ]
+[n S1106 DaneStruct numerSeryjnyU16 startupU16 wersjaOprogramowaniaU16 PozycjaNaMapce wersjaSprzetuU16 timerRysowaniaWykresuU16 sasiedzi rokU16 miesiacU16 dzienU16 godzinaU16 minutaU16 NrKarty Nr_WeWy ]
+"75
+[; ;./main.h: 75:         struct CANStruct{
 [s S1108 :1 `uc 1 :1 `uc 1 :1 `uc 1 `us 1 ]
 [n S1108 CANStruct wyslijRamkeDanych odebranoDane CanAktywny identyfikatorU16 ]
-"63
-[; ;./main.h: 63:     struct FlagStruct{
+"65
+[; ;./main.h: 65:     struct FlagStruct{
 [s S1107 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 `S1108 1 `uc 1 ]
 [n S1107 FlagStruct pomiarTla detekcja zgloszenie zapisDoFlash wykonanoZapisDoFlash pomiarAccelerometer wykonanoReset aktualizacjaSasiadow CAN frameCounterU8 ]
 [p mainexit ]

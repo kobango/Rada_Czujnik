@@ -18214,6 +18214,8 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
             WORD timerRysowaniaWykresuU16 ;
             sasiadStruct sasiedzi[8];
             WORD rokU16, miesiacU16, dzienU16, godzinaU16, minutaU16;
+            WORD NrKarty;
+            WORD Nr_WeWy;
         };
 
     struct FlagStruct{
@@ -18594,10 +18596,10 @@ static void FRAME_AxisStatus(mID *message)
 static void FRAME_DataUpdateAndChangeOption(mID *message)
 {
 
-
-
-
-
+    Dane->rokU16 = message->data[4];
+    Dane->miesiacU16 = message->data[5];
+    Dane->dzienU16 = message->data[6];
+    Dane->godzinaU16 = message->data[7];
 
 }
 
@@ -18628,7 +18630,27 @@ static void FRAME_DeviceReset(mID *message)
     else
     {
         message->data_length = 1;
-# 399 "FRAME.c"
+
+        if(message->data[2])
+        {
+            Flagi.pomiarTla = 1;
+            if(message->data[1])
+            {
+                Flagi.zapisDoFlash = 1;
+            }
+        }
+        else
+        {
+            if(message->data[1])
+            {
+                FRAME_DataUpdateAndChangeOption(message);
+
+            }
+            if(message->data[0])
+            {
+                __asm(" reset");
+            }
+        }
         message->data[0] = 0xFF;
     }
 }
@@ -18710,12 +18732,16 @@ static void FRAME_PrzypisanieDokarty(mID *message)
 {
     if(message->message_type == 0x02)
     {
-        message->data_length = 1;
-        message->data[0] = 0xFF;
+        message->data_length = 3;
+        message->data[0] = (unsigned char)Dane->NrKarty >> 8 ;
+        message->data[1] = (unsigned char)Dane->NrKarty ;
+        message->data[2] = (unsigned char)Dane->Nr_WeWy ;
+
     }
     else
     {
-
+         Dane->NrKarty = (message->data[0] << 8) | (message->data[1]);
+         Dane->Nr_WeWy = (message->data[2]);
     }
 }
 
@@ -18737,37 +18763,31 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
 
         if(kier == 0)
         {
-        message->data[0] = NeightAdress1>> 8;
+        message->data[0] = (NeightAdress1>> 8);
         message->data[1] = NeightAdress1;
-        message->data[2] = NeightAdress2>> 8;
+        message->data[2] = (NeightAdress2>> 8);
         message->data[3] = NeightAdress2;
-        message->data[4] = NeightAdress3>> 8;
+        message->data[4] = (NeightAdress3>> 8);
         message->data[5] = NeightAdress3;
-        message->data[6] = NeightAdress4>> 8;
+        message->data[6] = (NeightAdress4>> 8);
         message->data[7] = NeightAdress4;
         }
         else
         {
-        message->data[0] = NeightAdress5>> 8;
+        message->data[0] = (NeightAdress5>> 8);
         message->data[1] = NeightAdress5;
-        message->data[2] = NeightAdress6>> 8;
+        message->data[2] = (NeightAdress6>> 8);
         message->data[3] = NeightAdress6;
-        message->data[4] = NeightAdress7>> 8;
+        message->data[4] = (NeightAdress7>> 8);
         message->data[5] = NeightAdress7;
-        message->data[6] = NeightAdress8>> 8;
+        message->data[6] = (NeightAdress8>> 8);
         message->data[7] = NeightAdress8;
         }
-# 563 "FRAME.c"
+# 567 "FRAME.c"
     }
     else
     {
-        WORD uranos = (message->data[2] << 8 ) | message->data[3];
-        WORD zeta =(WORD) uranos;
 
-
-
-         WORD gaja = message->data[0] << 8 | message->data[1];
-         WORD zeta_secodus =(WORD) gaja;
 
         if(kier == 0)
         {
@@ -18783,7 +18803,7 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
          NeightAdress7 = (message->data[4] << 8)| message->data[5];
          NeightAdress8 = (message->data[6] << 8)| message->data[7];
         }
-# 615 "FRAME.c"
+# 613 "FRAME.c"
     }
 }
 
@@ -18843,10 +18863,10 @@ void FRAME_HandleCanFrame(mID * message)
             FRAME_PrzypisanieDokarty(message);
             break;
         case 0x10:
-            FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
+            FRAME_AdressOfNeighbors(message,0x10);
             break;
         case 0x11:
-            FRAME_AdressOfNeighbors(message, identyfikator - 0x11);
+            FRAME_AdressOfNeighbors(message,0x11);
             break;
 
 
@@ -18866,7 +18886,7 @@ void FRAME_HandleCanFrame(mID * message)
         message->id.v[2] = identyfikator*4;
         CAN_GenID(message,identyfikator);
         CAN_SendFrame(message);
-# 707 "FRAME.c"
+# 705 "FRAME.c"
        while(RXB0CONbits.FILHIT3)
        {
            if(TXB0CONbits.TXERR == 1){
