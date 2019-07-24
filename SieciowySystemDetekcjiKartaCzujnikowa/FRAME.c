@@ -103,7 +103,15 @@ static void FRAME_SensorExcitationStatus(mID *message) // id = 0x01
 BYTE IsInNeighbors(UINT message_adress)
 {
     WORD i;
-    
+    /*
+    for(i=0; i<8; i++)
+        {
+        if(message_adress==Dane->sasiedzi[(i)].adres)
+            {
+            return 1;
+            }
+        }
+     */     
     if(NeightAdress1==message_adress)
     {
         return 1;
@@ -525,7 +533,7 @@ Autor: Pawel Kasperek
 *****************************************************************/
 static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)  //0x10
 {
-    WORD iterator_alfa;
+    WORD i;
     
     
     WORD kier = (nrRamki-0x10);
@@ -557,13 +565,8 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)  //0x10
         message->data[7] = NeightAdress8;    
         }
         
-        /*
-        for(iterator_alfa=0; iterator_alfa<4; iterator_alfa++)
-        {
-            message->data[(2*iterator_alfa)] = ((BYTE)NeightAdress[(iterator_alfa+(4*kier))] >> 8);
-            message->data[((2*iterator_alfa)+1)] = (BYTE)NeightAdress[(iterator_alfa+(4*kier))];
-        }
-        */
+       
+        
     }
     else
     {
@@ -574,14 +577,25 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)  //0x10
          NeightAdress1 = (message->data[0] << 8)| message->data[1];
          NeightAdress2 = (message->data[2] << 8)| message->data[3];
          NeightAdress3 = (message->data[4] << 8)| message->data[5];
-         NeightAdress4 = (message->data[6] << 8)| message->data[7];                 
+         NeightAdress4 = (message->data[6] << 8)| message->data[7]; 
+         
+         for(i=0; i<4; i++)
+            {
+            Dane->sasiedzi[i+(4*kier)].adres =  (message->data[2*i] << 8)| message->data[(2*i)+1];
+            //zapisz adres struktury
+            }      
         }
         else
         {
          NeightAdress5 = (message->data[0] << 8)| message->data[1];
          NeightAdress6 = (message->data[2] << 8)| message->data[3];
          NeightAdress7 = (message->data[4] << 8)| message->data[5];
-         NeightAdress8 = (message->data[6] << 8)| message->data[7];     
+         NeightAdress8 = (message->data[6] << 8)| message->data[7];
+         for(i=0; i<4; i++)
+            {
+            Dane->sasiedzi[i+(4*kier)].adres =  (message->data[2*i] << 8)| message->data[(2*i)+1];
+            //zapisz adres struktury
+            } 
         }
          /*
         for(i=0; i<4; i++)
