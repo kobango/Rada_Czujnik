@@ -11,6 +11,8 @@
 #include "CAN.h"
 #include "LED.h"
 #include "TMR1.h"
+#include "EEPROM.h"
+#include "FRAME.h"
 
 void INI_GlobalInterrupt(void);
 static void INI_OUTPUT(void);
@@ -55,9 +57,9 @@ void INI_All(void)
     WDTCONbits.SWDTEN = 1;
 
     //odczytaj zane z wewnetrznego EEPROM
-//    NVMInit();
+    NVMInit();
 //    UstawFlagi();
-
+    ReadDataToEEPROM();
     //inicjalizacja zmiennych i peryferii
     
     ClrWdt();

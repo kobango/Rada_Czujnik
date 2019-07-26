@@ -4,6 +4,7 @@
 #include "FRAME.h"
 #include "MOC_Funct.h"
 #include "TRM.h"
+#include "EEPROM.h"
 
 typedef short          Word16;
 typedef unsigned short UWord16;
@@ -23,8 +24,10 @@ typedef union tuReg32 {
 
 mID ramkaCanRxKarty[RX_BUF_SIZE], ramkaCanTxKarty;
 UINT IsInNeighbors(UINT message_adress);
+void ReadDataToEEPROM(void);
+void WriteDataToEEPROM(void);
 
-volatile UINT NeightAdress1 = 299;
+volatile UINT NeightAdress1 = 10;
 volatile UINT NeightAdress2 = 111;
 volatile UINT NeightAdress3 = 0;
 volatile UINT NeightAdress4 = 0;
@@ -377,7 +380,8 @@ static void FRAME_DeviceReset(mID *message) //0x07
             Flagi.pomiarTla = 1;
             if(message->data[1])
             {
-                Flagi.zapisDoFlash = 1;
+                //Flagi.zapisDoFlash = 1;
+                WriteDataToEEPROM();
             }
         }
         else
@@ -385,6 +389,7 @@ static void FRAME_DeviceReset(mID *message) //0x07
             if(message->data[1])
             {
                 FRAME_DataUpdateAndChangeOption(message);
+                WriteDataToEEPROM();
                 //ZapisZmiennychDoFLASH();
             }
             if(message->data[0])
@@ -394,6 +399,34 @@ static void FRAME_DeviceReset(mID *message) //0x07
         }
         message->data[0] = 0xFF;
     }
+}
+
+void ReadDataToEEPROM(void)
+{
+    NVMRead(&NeightAdress1,1,2);  
+    NVMRead(&NeightAdress2,4,2);
+    NVMRead(&NeightAdress3,7,2);
+    NVMRead(&NeightAdress4,10,2);
+    NVMRead(&NeightAdress5,13,2);
+    NVMRead(&NeightAdress6,16,2);
+    NVMRead(&NeightAdress7,19,2);
+    NVMRead(&NeightAdress8,22,2);
+    
+    
+}
+
+void WriteDataToEEPROM(void)
+{
+    
+    NVMWrite(&NeightAdress1,1,2);  
+    NVMWrite(&NeightAdress2,4,2);
+    NVMWrite(&NeightAdress3,7,2);
+    NVMWrite(&NeightAdress4,10,2);
+    NVMWrite(&NeightAdress5,13,2);
+    NVMWrite(&NeightAdress6,16,2);
+    NVMWrite(&NeightAdress7,19,2);
+    NVMWrite(&NeightAdress8,22,2);
+    
 }
 
 /*******************************************************************
@@ -563,26 +596,20 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)  //0x10
         if(kier == 0)
         {
          NeightAdress1 = (message->data[0] << 8)| message->data[1];
-         Dane->sasiedzi[0].adres = (WORD) NeightAdress1;
          NeightAdress2 = (message->data[2] << 8)| message->data[3];
-         Dane->sasiedzi[1].adres = (WORD) NeightAdress2;
          NeightAdress3 = (message->data[4] << 8)| message->data[5];
-         Dane->sasiedzi[2].adres = (WORD) NeightAdress3;
          NeightAdress4 = (message->data[6] << 8)| message->data[7];
-         Dane->sasiedzi[3].adres = (WORD) NeightAdress4;
+         CAN_SetupFilter_Ne();
          
               
         }
         else
         {
          NeightAdress5 = (message->data[0] << 8)| message->data[1];
-         Dane->sasiedzi[4].adres = (WORD) NeightAdress5;
          NeightAdress6 = (message->data[2] << 8)| message->data[3];
-         Dane->sasiedzi[5].adres = (WORD) NeightAdress6;
          NeightAdress7 = (message->data[4] << 8)| message->data[5];
-         Dane->sasiedzi[6].adres = (WORD) NeightAdress7;
          NeightAdress8 = (message->data[6] << 8)| message->data[7];
-         Dane->sasiedzi[7].adres = (WORD) NeightAdress8;
+         CAN_SetupFilter_Ne();
          
         }
          /*

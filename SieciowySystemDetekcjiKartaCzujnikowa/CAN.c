@@ -9,6 +9,7 @@
 
 static void CAN_SetupClock(void);
 static void CAN_SetupMask(void);
+void CAN_SetupFilter_Ne(void);
 void CAN_Setup(void);
 
 
@@ -42,7 +43,7 @@ void CAN_Setup(void)
     PIR3 = 0x00;
     BIE0 = 0;
     
-    DaneCan.adresCAN = 0x12c;
+    DaneCan.adresCAN = 36;
     // Enter CAN module into Mode 2
     ECANCON = 0x90;
 
@@ -119,28 +120,75 @@ static void CAN_SetupMask(void)
     RXF1EIDH = 0x7F;//akceptuj broadcasty
     RXF1EIDL = 0xFF;//akceptuj broadcasty
 
+    CAN_SetupFilter_Ne();
+    
+    //przypisz filtr 0 i 1 do RXB0
+    RXFBCON0 = 0b00000000;//0b011;
+    //przypisz filtr 2 do RXB1
+    RXFBCON1 = 0b00010001;//0b100;
+    
+    RXFBCON2 = 0b00010001;
+    
+    RXFBCON3 = 0b00010001;
+    
+    RXFBCON4 = 0b00010001;
+    // Wlacz filtr 0, 1 i 2 
+    //RXFCON0 = 0x07; // ZAPAMIETAC
+    
+}
+
+void CAN_SetupFilter_Ne(void)
+{
     //Konfiguracja filtra 2 - ramki stanu czujnikow przewodowych i bezprzewodowych
+    // Filtr 2 s?siad pierwszy
     RXF2SIDH = 0;
     RXF2SIDL = 0x20;
     RXF2SIDLbits.EXIDEN = 1;
     RXF2EIDH = (BYTE)(NeightAdress1>>8);
     RXF2EIDL = (BYTE)(NeightAdress1 & 0xFF);
     
+    // Filtr 3 s?siad nr.2
     RXF3SIDH = 0;
     RXF3SIDL = 0x20;
     RXF3SIDLbits.EXIDEN = 1;
     RXF3EIDH = (BYTE)(NeightAdress2>>8);
     RXF3EIDL = (BYTE)(NeightAdress2 & 0xFF);
-
     
-    //przypisz filtr 0 i 1 do RXB0
-    RXFBCON0 = 0b00000000;//0b011;
-    //przypisz filtr 2 do RXB1
-    RXFBCON1 = 0b00010001;//0b100;
-
-    // Wlacz filtr 0, 1 i 2 
-    //RXFCON0 = 0x07; // ZAPAMIETAC
+    RXF4SIDH = 0;
+    RXF4SIDL = 0x20;
+    RXF4SIDLbits.EXIDEN = 1;
+    RXF4EIDH = (BYTE)(NeightAdress3>>8);
+    RXF4EIDL = (BYTE)(NeightAdress3 & 0xFF);
     
+    RXF5SIDH = 0;
+    RXF5SIDL = 0x20;
+    RXF5SIDLbits.EXIDEN = 1;
+    RXF5EIDH = (BYTE)(NeightAdress4>>8);
+    RXF5EIDL = (BYTE)(NeightAdress4 & 0xFF);
+    
+    RXF6SIDH = 0;
+    RXF6SIDL = 0x20;
+    RXF6SIDLbits.EXIDEN = 1;
+    RXF6EIDH = (BYTE)(NeightAdress5>>8);
+    RXF6EIDL = (BYTE)(NeightAdress5 & 0xFF);
+    
+    RXF7SIDH = 0;
+    RXF7SIDL = 0x20;
+    RXF7SIDLbits.EXIDEN = 1;
+    RXF7EIDH = (BYTE)(NeightAdress6>>8);
+    RXF7EIDL = (BYTE)(NeightAdress6 & 0xFF);
+    
+    RXF8SIDH = 0;
+    RXF8SIDL = 0x20;
+    RXF8SIDLbits.EXIDEN = 1;
+    RXF8EIDH = (BYTE)(NeightAdress7>>8);
+    RXF8EIDL = (BYTE)(NeightAdress7 & 0xFF);
+    
+    RXF9SIDH = 0;
+    RXF9SIDL = 0x20;
+    RXF9SIDLbits.EXIDEN = 1;
+    RXF9EIDH = (BYTE)(NeightAdress8>>8);
+    RXF9EIDL = (BYTE)(NeightAdress8 & 0xFF);
 }
 
 /*******************************************************************

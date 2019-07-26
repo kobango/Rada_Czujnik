@@ -10,20 +10,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "11
 [; ;./TMR1.h: 11: void TMR1_Update_flag_Set(UINT a);
 [v _TMR1_Update_flag_Set `(v ~T0 @X0 0 ef1`ui ]
-"94 ./main.h
-[; ;./main.h: 94:             struct{
+"102 ./main.h
+[; ;./main.h: 102:             struct{
 [s S1111 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :8 `uc 1 ]
 [n S1111 . obsluzWeWy error uczenieTla inicjalizacja ramkaTx wykonanoZapisDoFlash pomiarTla ]
-"91
-[; ;./main.h: 91:         {
+"99
+[; ;./main.h: 99:         {
 [u S1110 `uc 1 `S1111 1 ]
 [n S1110 . flagiU8 . ]
-"89
-[; ;./main.h: 89:     typedef struct{
+"97
+[; ;./main.h: 97:     typedef struct{
 [s S1109 `S1110 1 `uc 1 ]
 [n S1109 . Flags timerRamkiTxCANU8 ]
-"111
-[; ;./main.h: 111:     extern KartaStruct DetectorLedRadar;
+"119
+[; ;./main.h: 119:     extern KartaStruct DetectorLedRadar;
 [v _DetectorLedRadar `S1109 ~T0 @X0 0 e ]
 "18 ./TRM.h
 [; ;./TRM.h: 18:             {

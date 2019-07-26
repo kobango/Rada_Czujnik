@@ -18167,7 +18167,7 @@ typedef union _QWORD_VAL
 
     extern wartosciSasiadaStruct wartosciSasiada[8];
 # 7 "./main.h" 2
-# 45 "./main.h"
+# 53 "./main.h"
     struct PozycjaNaMapceStruct
     {
         WORD xU16 ;
@@ -18363,6 +18363,9 @@ static void Init(void);
  void WriteLatch(unsigned short addrhi1, unsigned short addrlo1,unsigned short addrhi2,unsigned short addrlo2);
 # 8 "main.c" 2
 # 18 "main.c"
+#pragma config IDLOC0 = 100u;
+
+
 #pragma config OSC = IRCIO67
 #pragma config FCMEN = OFF
 #pragma config IESO = OFF
@@ -18427,7 +18430,7 @@ KartaStruct DetectorLedRadar;
 
 struct DaneStruct *Dane ;
 struct FlagStruct Flagi;
-# 94 "main.c"
+# 97 "main.c"
 void main(void)
 {
     INI_All();
@@ -18448,6 +18451,7 @@ void main(void)
             TMR1_Update_flag_Set(0);
 
         }
+
 
         TRM_DataTransmition();
         __asm(" clrwdt");

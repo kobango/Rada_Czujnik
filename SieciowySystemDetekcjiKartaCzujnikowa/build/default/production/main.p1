@@ -1,18 +1,18 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"94 ./main.h
-[; ;./main.h: 94:             struct{
+"102 ./main.h
+[; ;./main.h: 102:             struct{
 [s S1111 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :8 `uc 1 ]
 [n S1111 . obsluzWeWy error uczenieTla inicjalizacja ramkaTx wykonanoZapisDoFlash pomiarTla ]
-"91
-[; ;./main.h: 91:         {
+"99
+[; ;./main.h: 99:         {
 [u S1110 `uc 1 `S1111 1 ]
 [n S1110 . flagiU8 . ]
-"89
-[; ;./main.h: 89:     typedef struct{
+"97
+[; ;./main.h: 97:     typedef struct{
 [s S1109 `S1110 1 `uc 1 ]
 [n S1109 . Flags timerRamkiTxCANU8 ]
-"46
-[; ;./main.h: 46:     {
+"54
+[; ;./main.h: 54:     {
 [s S1105 `us 1 `us 1 ]
 [n S1105 PozycjaNaMapceStruct xU16 yU16 ]
 "15 ./DetekcjaSasiadow.h
@@ -27,16 +27,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./DetekcjaSasiadow.h: 27:     typedef struct{
 [s S1104 `us 1 `*S1103 1 ]
 [n S1104 . adres pointerNaSasiada ]
-"52 ./main.h
-[; ;./main.h: 52:         {
+"60 ./main.h
+[; ;./main.h: 60:         {
 [s S1106 `us 1 `us 1 `us 1 `S1105 1 `us 1 `us 1 `S1104 -> 8 `i `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 ]
 [n S1106 DaneStruct numerSeryjnyU16 startupU16 wersjaOprogramowaniaU16 PozycjaNaMapce wersjaSprzetuU16 timerRysowaniaWykresuU16 sasiedzi rokU16 miesiacU16 dzienU16 godzinaU16 minutaU16 NrKarty Nr_WeWy ]
-"75
-[; ;./main.h: 75:         struct CANStruct{
+"83
+[; ;./main.h: 83:         struct CANStruct{
 [s S1108 :1 `uc 1 :1 `uc 1 :1 `uc 1 `us 1 ]
 [n S1108 CANStruct wyslijRamkeDanych odebranoDane CanAktywny identyfikatorU16 ]
-"65
-[; ;./main.h: 65:     struct FlagStruct{
+"73
+[; ;./main.h: 73:     struct FlagStruct{
 [s S1107 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 `S1108 1 `uc 1 ]
 [n S1107 FlagStruct pomiarTla detekcja zgloszenie zapisDoFlash wykonanoZapisDoFlash pomiarAccelerometer wykonanoReset aktualizacjaSasiadow CAN frameCounterU8 ]
 [p mainexit ]
@@ -1301,141 +1301,143 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32473: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "18 main.c
+[p x IDLOC0 = 100u; ]
+"21
 [p x OSC = IRCIO67 ]
-"19
+"22
 [p x FCMEN = OFF ]
-"20
-[p x IESO = OFF ]
 "23
+[p x IESO = OFF ]
+"26
 [p x PWRT = OFF ]
-"24
+"27
 [p x BOREN = BOHW ]
-"25
-[p x BORV = 3 ]
 "28
+[p x BORV = 3 ]
+"31
 [p x WDT = OFF ]
-"29
-[p x WDTPS = 32768 ]
 "32
+[p x WDTPS = 32768 ]
+"35
 [p x PBADEN = ON ]
-"33
+"36
 [p x LPT1OSC = OFF ]
-"34
-[p x MCLRE = ON ]
 "37
-[p x STVREN = ON ]
-"38
-[p x LVP = OFF ]
-"39
-[p x BBSIZ = 1024 ]
+[p x MCLRE = ON ]
 "40
-[p x XINST = OFF ]
+[p x STVREN = ON ]
+"41
+[p x LVP = OFF ]
+"42
+[p x BBSIZ = 1024 ]
 "43
-[p x CP0 = OFF ]
-"44
-[p x CP1 = OFF ]
-"45
-[p x CP2 = OFF ]
+[p x XINST = OFF ]
 "46
-[p x CP3 = OFF ]
+[p x CP0 = OFF ]
+"47
+[p x CP1 = OFF ]
+"48
+[p x CP2 = OFF ]
 "49
+[p x CP3 = OFF ]
+"52
 [p x CPB = OFF ]
-"50
-[p x CPD = OFF ]
 "53
-[p x WRT0 = OFF ]
-"54
-[p x WRT1 = OFF ]
-"55
-[p x WRT2 = OFF ]
+[p x CPD = OFF ]
 "56
-[p x WRT3 = OFF ]
+[p x WRT0 = OFF ]
+"57
+[p x WRT1 = OFF ]
+"58
+[p x WRT2 = OFF ]
 "59
+[p x WRT3 = OFF ]
+"62
 [p x WRTC = OFF ]
-"60
+"63
 [p x WRTB = OFF ]
-"61
-[p x WRTD = OFF ]
 "64
-[p x EBTR0 = OFF ]
-"65
-[p x EBTR1 = OFF ]
-"66
-[p x EBTR2 = OFF ]
+[p x WRTD = OFF ]
 "67
-[p x EBTR3 = OFF ]
+[p x EBTR0 = OFF ]
+"68
+[p x EBTR1 = OFF ]
+"69
+[p x EBTR2 = OFF ]
 "70
+[p x EBTR3 = OFF ]
+"73
 [p x EBTRB = OFF ]
-"78
-[v _DetectorLedRadar `S1109 ~T0 @X0 1 e ]
-"80
-[v _Dane `*S1106 ~T0 @X0 1 e ]
 "81
+[v _DetectorLedRadar `S1109 ~T0 @X0 1 e ]
+"83
+[v _Dane `*S1106 ~T0 @X0 1 e ]
+"84
 [v _Flagi `S1107 ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"94
-[; ;main.c: 94: void main(void)
+"97
+[; ;main.c: 97: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"95
-[; ;main.c: 95: {
+"98
+[; ;main.c: 98: {
 {
 [e :U _main ]
 [f ]
-"96
-[; ;main.c: 96:     INI_All();
+"99
+[; ;main.c: 99:     INI_All();
 [e ( _INI_All ..  ]
-"98
-[; ;main.c: 98:     RCON = 0xFF;
+"101
+[; ;main.c: 101:     RCON = 0xFF;
 [e = _RCON -> -> 255 `i `uc ]
-"100
-[; ;main.c: 100:     for(;;)
+"103
+[; ;main.c: 103:     for(;;)
 {
 [e :U 1118 ]
-"101
-[; ;main.c: 101:     {
-{
-"102
-[; ;main.c: 102:         if(DetectorLedRadar.Flags.obsluzWeWy == 1)
-[e $ ! == -> . . . _DetectorLedRadar 0 1 0 `i -> 1 `i 1121  ]
-"103
-[; ;main.c: 103:         {
-{
 "104
-[; ;main.c: 104:             DetectorLedRadar.Flags.obsluzWeWy = 0;
-[e = . . . _DetectorLedRadar 0 1 0 -> -> 0 `i `uc ]
+[; ;main.c: 104:     {
+{
+"105
+[; ;main.c: 105:         if(DetectorLedRadar.Flags.obsluzWeWy == 1)
+[e $ ! == -> . . . _DetectorLedRadar 0 1 0 `i -> 1 `i 1121  ]
 "106
-[; ;main.c: 106:         }
+[; ;main.c: 106:         {
+{
+"107
+[; ;main.c: 107:             DetectorLedRadar.Flags.obsluzWeWy = 0;
+[e = . . . _DetectorLedRadar 0 1 0 -> -> 0 `i `uc ]
+"109
+[; ;main.c: 109:         }
 }
 [e :U 1121 ]
-"108
-[; ;main.c: 108:         if(TMR1_Update_flag_Get()==1)
-[e $ ! == ( _TMR1_Update_flag_Get ..  -> -> 1 `i `ui 1122  ]
-"109
-[; ;main.c: 109:         {
-{
-"110
-[; ;main.c: 110:             LED_Update();
-[e ( _LED_Update ..  ]
 "111
-[; ;main.c: 111:             TMR1_Update_flag_Set(0);
-[e ( _TMR1_Update_flag_Set (1 -> -> 0 `i `ui ]
+[; ;main.c: 111:         if(TMR1_Update_flag_Get()==1)
+[e $ ! == ( _TMR1_Update_flag_Get ..  -> -> 1 `i `ui 1122  ]
+"112
+[; ;main.c: 112:         {
+{
 "113
-[; ;main.c: 113:         }
+[; ;main.c: 113:             LED_Update();
+[e ( _LED_Update ..  ]
+"114
+[; ;main.c: 114:             TMR1_Update_flag_Set(0);
+[e ( _TMR1_Update_flag_Set (1 -> -> 0 `i `ui ]
+"116
+[; ;main.c: 116:         }
 }
 [e :U 1122 ]
-"115
-[; ;main.c: 115:         TRM_DataTransmition();
+"119
+[; ;main.c: 119:         TRM_DataTransmition();
 [e ( _TRM_DataTransmition ..  ]
-"116
-[; ;main.c: 116:         __asm(" clrwdt");
+"120
+[; ;main.c: 120:         __asm(" clrwdt");
 [; <"  clrwdt ;# ">
-"117
-[; ;main.c: 117:     }
+"121
+[; ;main.c: 121:     }
 }
 [e $U 1118  ]
 [e :U 1119 ]
 }
-"118
-[; ;main.c: 118: }
+"122
+[; ;main.c: 122: }
 [e :UE 1117 ]
 }

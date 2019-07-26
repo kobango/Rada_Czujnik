@@ -18172,6 +18172,7 @@ typedef union _QWORD_VAL
     BOOL CAN_TakeFrame(mID * message);
     void CAN_SendFrame(mID * message);
     void CAN_GenID(mID * message,BYTE frameID);
+    void CAN_SetupFilter_Ne(void);
 # 10 "MOC_Funct.c" 2
 
 # 1 "./main.h" 1
@@ -18207,7 +18208,7 @@ typedef union _QWORD_VAL
 
     extern wartosciSasiadaStruct wartosciSasiada[8];
 # 7 "./main.h" 2
-# 45 "./main.h"
+# 53 "./main.h"
     struct PozycjaNaMapceStruct
     {
         WORD xU16 ;

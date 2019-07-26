@@ -1,9 +1,10 @@
 #include "main.h"
 #include "transmisja.h"
 #include "EEPROM.h"
+#include "FRAME.h"
 
 WORD        ustawieniaKarty;
-WORD        nazwyPrzyciskow;
+WORD        neighborsAdress;
 WORD        czujnikiNaMapie;
 
 WORD nextEEPosition;
@@ -29,8 +30,8 @@ BOOL NVMInit(void)
     nextEEPosition = 0;
 
     result &= NVMalloc(sizeof(KartaStruct), &ustawieniaKarty);
-    result &= NVMalloc((WORD)WEWY*(WORD)DETEKTOROW_NA_WEWY*(WORD)BAJTOW_NAZWY, &nazwyPrzyciskow);
-    result &= NVMalloc((WORD)WEWY*(WORD)DETEKTOROW_NA_WEWY*(WORD)sizeof(CzujnikNaMapieStruct), &czujnikiNaMapie);
+    result &= NVMalloc(8*sizeof(NeightAdress1), &neighborsAdress);
+    
 
     return result;
 }
@@ -103,6 +104,8 @@ Opis funkcji: Odczytywanie z wew FLASH ustawien przycisku
 Data: sierpien 2012
 Autor: Mariusz Chrobak
 *****************************************************************/
+
+/*
 void UstawFlagi(void)
 {
     WORD temp[4];
@@ -127,4 +130,5 @@ void UstawFlagi(void)
 //    DaneCan.adresCAN = ((unsigned int)temp[2]<<8) | (unsigned int)temp[0];
     DaneCan.adresCAN = (unsigned int)temp[0];
 }
+ * */
 

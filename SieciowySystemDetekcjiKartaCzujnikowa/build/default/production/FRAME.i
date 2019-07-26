@@ -263,6 +263,7 @@ typedef union _QWORD_VAL
     BOOL CAN_TakeFrame(mID * message);
     void CAN_SendFrame(mID * message);
     void CAN_GenID(mID * message,BYTE frameID);
+    void CAN_SetupFilter_Ne(void);
 # 2 "FRAME.c" 2
 # 1 "./main.h" 1
 
@@ -18197,7 +18198,7 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
     extern wartosciSasiadaStruct wartosciSasiada[8];
 # 7 "./main.h" 2
-# 45 "./main.h"
+# 53 "./main.h"
     struct PozycjaNaMapceStruct
     {
         WORD xU16 ;
@@ -18292,6 +18293,8 @@ BYTE LOCK_Get(void);
 # 12 "./FRAME.h"
 extern mID ramkaCanRxCzujnika[5];
 void FRAME_HandleCanFrame(mID * message);
+void ReadDataToEEPROM(void);
+void WriteDataToEEPROM(void);
 
 volatile UINT NeightAdress1;
 volatile UINT NeightAdress2;
@@ -18350,6 +18353,17 @@ UINT MOCK_SoftwareReset(void);
 
     void TRM_DataTransmition(void);
 # 7 "FRAME.c" 2
+# 1 "./EEPROM.h" 1
+# 14 "./EEPROM.h"
+    BOOL NVMInit(void);
+    void NVMRead(BYTE *dest, WORD addr, WORD count);
+    void NVMWrite(BYTE *source, WORD addr, WORD count);
+    void UstawFlagi(void);
+
+    extern WORD ustawieniaKarty;
+    extern WORD nazwyPrzyciskow;
+    extern WORD czujnikiNaMapie;
+# 8 "FRAME.c" 2
 
 typedef short Word16;
 typedef unsigned short UWord16;
@@ -18369,8 +18383,10 @@ typedef union tuReg32 {
 
 mID ramkaCanRxKarty[5], ramkaCanTxKarty;
 UINT IsInNeighbors(UINT message_adress);
+void ReadDataToEEPROM(void);
+void WriteDataToEEPROM(void);
 
-volatile UINT NeightAdress1 = 299;
+volatile UINT NeightAdress1 = 10;
 volatile UINT NeightAdress2 = 111;
 volatile UINT NeightAdress3 = 0;
 volatile UINT NeightAdress4 = 0;
@@ -18378,7 +18394,7 @@ volatile UINT NeightAdress5 = 0;
 volatile UINT NeightAdress6 = 0;
 volatile UINT NeightAdress7 = 0;
 volatile UINT NeightAdress8 = 0;
-# 44 "FRAME.c"
+# 47 "FRAME.c"
 static void FRAME_SensorExcitationStatus(mID *message)
 {
 
@@ -18397,7 +18413,7 @@ static void FRAME_SensorExcitationStatus(mID *message)
         message->data[3] = MOC_Frame_Counter();
         message->data[4] = MOC_Aktualna_Temperatura();
         message->data[5] = MOC_NOTWORK();
-# 71 "FRAME.c"
+# 74 "FRAME.c"
     }
     else
     {
@@ -18462,7 +18478,7 @@ UINT IsInNeighbors(UINT message_adress)
     {
         return 0b10000000;
     }
-# 149 "FRAME.c"
+# 152 "FRAME.c"
     return 0;
 }
 
@@ -18565,7 +18581,7 @@ static void FRAME_AveragingTimes(mID *message)
     }
     else
     {
-# 285 "FRAME.c"
+# 288 "FRAME.c"
     }
 }
 
@@ -18582,7 +18598,7 @@ static void FRAME_AxisStatus(mID *message)
     if(message->message_type == 0x02)
     {
         message->data_length = 1;
-# 311 "FRAME.c"
+# 314 "FRAME.c"
         message->data[0] = 0xFF;
     }
     else
@@ -18629,7 +18645,7 @@ static void FRAME_DeviceReset(mID *message)
         message->data[7] = Dane->godzinaU16;
         RCON &= ~(1<<6);
         Flagi.wykonanoZapisDoFlash = 0;
-# 370 "FRAME.c"
+# 373 "FRAME.c"
     }
     else
     {
@@ -18640,7 +18656,8 @@ static void FRAME_DeviceReset(mID *message)
             Flagi.pomiarTla = 1;
             if(message->data[1])
             {
-                Flagi.zapisDoFlash = 1;
+
+                WriteDataToEEPROM();
             }
         }
         else
@@ -18648,6 +18665,7 @@ static void FRAME_DeviceReset(mID *message)
             if(message->data[1])
             {
                 FRAME_DataUpdateAndChangeOption(message);
+                WriteDataToEEPROM();
 
             }
             if(message->data[0])
@@ -18657,6 +18675,34 @@ static void FRAME_DeviceReset(mID *message)
         }
         message->data[0] = 0xFF;
     }
+}
+
+void ReadDataToEEPROM(void)
+{
+    NVMRead(&NeightAdress1,1,2);
+    NVMRead(&NeightAdress2,4,2);
+    NVMRead(&NeightAdress3,7,2);
+    NVMRead(&NeightAdress4,10,2);
+    NVMRead(&NeightAdress5,13,2);
+    NVMRead(&NeightAdress6,16,2);
+    NVMRead(&NeightAdress7,19,2);
+    NVMRead(&NeightAdress8,22,2);
+
+
+}
+
+void WriteDataToEEPROM(void)
+{
+
+    NVMWrite(&NeightAdress1,1,2);
+    NVMWrite(&NeightAdress2,4,2);
+    NVMWrite(&NeightAdress3,7,2);
+    NVMWrite(&NeightAdress4,10,2);
+    NVMWrite(&NeightAdress5,13,2);
+    NVMWrite(&NeightAdress6,16,2);
+    NVMWrite(&NeightAdress7,19,2);
+    NVMWrite(&NeightAdress8,22,2);
+
 }
 
 
@@ -18688,7 +18734,7 @@ static void FRAME_Plot(mID *message)
 
 static void FRAME_MapPosition(mID *message)
 {
-# 443 "FRAME.c"
+# 476 "FRAME.c"
 }
 
 
@@ -18723,7 +18769,7 @@ static void FRAME_SoftwareVersion(mID *message)
 static void FRAME_AnalogValue(mID *message, WORD set)
 {
     WORD i;
-# 492 "FRAME.c"
+# 525 "FRAME.c"
 }
 
 
@@ -18798,29 +18844,23 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
         if(kier == 0)
         {
          NeightAdress1 = (message->data[0] << 8)| message->data[1];
-         Dane->sasiedzi[0].adres = (WORD) NeightAdress1;
          NeightAdress2 = (message->data[2] << 8)| message->data[3];
-         Dane->sasiedzi[1].adres = (WORD) NeightAdress2;
          NeightAdress3 = (message->data[4] << 8)| message->data[5];
-         Dane->sasiedzi[2].adres = (WORD) NeightAdress3;
          NeightAdress4 = (message->data[6] << 8)| message->data[7];
-         Dane->sasiedzi[3].adres = (WORD) NeightAdress4;
+         CAN_SetupFilter_Ne();
 
 
         }
         else
         {
          NeightAdress5 = (message->data[0] << 8)| message->data[1];
-         Dane->sasiedzi[4].adres = (WORD) NeightAdress5;
          NeightAdress6 = (message->data[2] << 8)| message->data[3];
-         Dane->sasiedzi[5].adres = (WORD) NeightAdress6;
          NeightAdress7 = (message->data[4] << 8)| message->data[5];
-         Dane->sasiedzi[6].adres = (WORD) NeightAdress7;
          NeightAdress8 = (message->data[6] << 8)| message->data[7];
-         Dane->sasiedzi[7].adres = (WORD) NeightAdress8;
+         CAN_SetupFilter_Ne();
 
         }
-# 615 "FRAME.c"
+# 642 "FRAME.c"
     }
 }
 
@@ -18903,7 +18943,7 @@ void FRAME_HandleCanFrame(mID * message)
         message->id.v[2] = identyfikator*4;
         CAN_GenID(message,identyfikator);
         CAN_SendFrame(message);
-# 707 "FRAME.c"
+# 734 "FRAME.c"
        while(RXB0CONbits.FILHIT3)
        {
            if(TXB0CONbits.TXERR == 1){

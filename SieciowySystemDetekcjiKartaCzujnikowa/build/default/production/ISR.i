@@ -18167,7 +18167,7 @@ typedef union _QWORD_VAL
 
     extern wartosciSasiadaStruct wartosciSasiada[8];
 # 7 "./main.h" 2
-# 45 "./main.h"
+# 53 "./main.h"
     struct PozycjaNaMapceStruct
     {
         WORD xU16 ;

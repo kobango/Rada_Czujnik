@@ -7,4 +7,5 @@ DetekcjaSasiadow.h  \
 LED.h  \
 FRAME.h  \
 MOC_Funct.h  \
-TRM.h 
+TRM.h  \
+EEPROM.h 

@@ -18176,7 +18176,7 @@ typedef union _QWORD_VAL
 
     extern wartosciSasiadaStruct wartosciSasiada[8];
 # 7 "./main.h" 2
-# 45 "./main.h"
+# 53 "./main.h"
     struct PozycjaNaMapceStruct
     {
         WORD xU16 ;
@@ -18283,6 +18283,7 @@ typedef union _QWORD_VAL
     BOOL CAN_TakeFrame(mID * message);
     void CAN_SendFrame(mID * message);
     void CAN_GenID(mID * message,BYTE frameID);
+    void CAN_SetupFilter_Ne(void);
 # 11 "INI.c" 2
 
 # 1 "./LED.h" 1
@@ -18313,11 +18314,40 @@ void TMR1_Update_flag_Set(UINT a);
 UINT TMR1_Update_flag_Get(void);
 # 13 "INI.c" 2
 
+# 1 "./EEPROM.h" 1
+# 14 "./EEPROM.h"
+    BOOL NVMInit(void);
+    void NVMRead(BYTE *dest, WORD addr, WORD count);
+    void NVMWrite(BYTE *source, WORD addr, WORD count);
+    void UstawFlagi(void);
+
+    extern WORD ustawieniaKarty;
+    extern WORD nazwyPrzyciskow;
+    extern WORD czujnikiNaMapie;
+# 14 "INI.c" 2
+
+# 1 "./FRAME.h" 1
+# 12 "./FRAME.h"
+extern mID ramkaCanRxCzujnika[5];
+void FRAME_HandleCanFrame(mID * message);
+void ReadDataToEEPROM(void);
+void WriteDataToEEPROM(void);
+
+volatile UINT NeightAdress1;
+volatile UINT NeightAdress2;
+volatile UINT NeightAdress3;
+volatile UINT NeightAdress4;
+volatile UINT NeightAdress5;
+volatile UINT NeightAdress6;
+volatile UINT NeightAdress7;
+volatile UINT NeightAdress8;
+# 15 "INI.c" 2
+
 
 void INI_GlobalInterrupt(void);
 static void INI_OUTPUT(void);
 void INI_All(void);
-# 27 "INI.c"
+# 29 "INI.c"
 static void INI_OUTPUT(void)
 {
 
@@ -18334,16 +18364,16 @@ static void INI_OUTPUT(void)
     DetectorLedRadar.Flags.inicjalizacja = 1;
 
 }
-# 52 "INI.c"
+# 54 "INI.c"
 void INI_All(void)
 {
 
     WDTCONbits.SWDTEN = 1;
 
 
+    NVMInit();
 
-
-
+    ReadDataToEEPROM();
 
 
     __asm(" clrwdt");

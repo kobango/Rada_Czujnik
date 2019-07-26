@@ -37,4 +37,6 @@
     BOOL CAN_TakeFrame(mID * message);
     void CAN_SendFrame(mID * message);
     void CAN_GenID(mID * message,BYTE frameID);
+    void CAN_SetupFilter_Ne(void);
+    
 #endif

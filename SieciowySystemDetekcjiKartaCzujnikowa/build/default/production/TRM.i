@@ -18167,7 +18167,7 @@ typedef union _QWORD_VAL
 
     extern wartosciSasiadaStruct wartosciSasiada[8];
 # 7 "./main.h" 2
-# 45 "./main.h"
+# 53 "./main.h"
     struct PozycjaNaMapceStruct
     {
         WORD xU16 ;
@@ -18275,10 +18275,13 @@ typedef union _QWORD_VAL
     BOOL CAN_TakeFrame(mID * message);
     void CAN_SendFrame(mID * message);
     void CAN_GenID(mID * message,BYTE frameID);
+    void CAN_SetupFilter_Ne(void);
 # 11 "./FRAME.h" 2
 
 extern mID ramkaCanRxCzujnika[5];
 void FRAME_HandleCanFrame(mID * message);
+void ReadDataToEEPROM(void);
+void WriteDataToEEPROM(void);
 
 volatile UINT NeightAdress1;
 volatile UINT NeightAdress2;

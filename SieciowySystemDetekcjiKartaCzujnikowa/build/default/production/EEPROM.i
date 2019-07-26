@@ -1,4 +1,4 @@
-# 1 "LED.c"
+# 1 "EEPROM.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,11 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "LED.c" 2
-# 10 "LED.c"
+# 1 "EEPROM.c" 2
+# 1 "./main.h" 1
+
+
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -17907,13 +17910,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 10 "LED.c" 2
-
-# 1 "./LED.h" 1
-
-
-
-
+# 4 "./main.h" 2
 
 
 # 1 "./GenericTypeDefs.h" 1
@@ -18142,378 +18139,286 @@ typedef union _QWORD_VAL
         unsigned char b63:1;
     } bits;
 } QWORD_VAL;
-# 7 "./LED.h" 2
+# 6 "./main.h" 2
+
+# 1 "./DetekcjaSasiadow.h" 1
+# 15 "./DetekcjaSasiadow.h"
+    typedef struct{
+        SHORT pointerU16;
+        SHORT aktualnaWartoscSredniaS16, poprzedniaWartoscSredniaS16;
+        SHORT wartosciHistoryczneS16[25];
+    }historiaStruct;
+
+    typedef struct{
+        WORD aktualnaWartoscU16, aktualnyStanU16, poprzedniStanU16;
+        SHORT przesuniecieTlaS16[3];
+        historiaStruct historia;
+    }wartosciSasiadaStruct;
+
+    typedef struct{
+        WORD adres;
+        wartosciSasiadaStruct *pointerNaSasiada;
+    }sasiadStruct;
 
 
 
+    void AktualizacjaTlaOdSasiadow(void);
 
 
-void INI_LED_Start(void);
-UINT8 LED_Update(void);
-void Fulfillment_Lvl_Set(UINT a);
-UINT Fulfillment_Lvl_Get(void);
-UINT LED_Error(void);
-UINT LED_Clear(void);
-
-void LOCK_Set(BYTE k);
-BYTE LOCK_Get(void);
-# 11 "LED.c" 2
-
-
-
-typedef enum LED_RGA {RED = 0,GREEN = 1}LED_RGA_type;
-
-UINT8 LED_Control(LED_RGA_type color, UINT diode);
-void INI_LED_Start(void);
-UINT LED_Vect_Create(void);
-UINT LED_Right(UINT a);
-UINT LED_Left(UINT a);
-UINT LED_Light_Pos(LED_RGA_type color,UINT pos, UINT fulfillment);
-UINT8 LED_Update(void);
-UINT LED_Error(void);
-UINT LED_Clear(void);
-
-void Fulfillment_Lvl_Set(UINT a);
-UINT Fulfillment_Lvl_Get(void);
-
-void LOCK_Set(BYTE k);
-BYTE LOCK_Get(void);
-
-
-
-static UINT Fulfillment_Lvl = 20;
-static BYTE LOCK = 0;
-
-UINT LED_Error(void)
-{
-    LED_Control(RED,0b1010101010);
-    LED_Control(GREEN,0b0000000000);
-    return 1;
-}
-
-
-UINT LED_Clear(void)
-{
-    LED_Control(RED,0b0000000000);
-    LED_Control(GREEN,0b1010101010);
-    return 1;
-}
-
-void LOCK_Set(BYTE k)
-{
-    LOCK = k;
-}
-
-BYTE LOCK_Get(void)
-{
-    return LOCK;
-}
-# 73 "LED.c"
-void Fulfillment_Lvl_Set(UINT a)
-{
-    Fulfillment_Lvl = a;
-}
-# 89 "LED.c"
-UINT Fulfillment_Lvl_Get(void)
-{
-    return Fulfillment_Lvl;
-}
-# 105 "LED.c"
-UINT8 LED_Update(void)
-{
-    static LED_RGA_type Red = RED;
-    static LED_RGA_type Green = GREEN;
-    static UINT pos1 = 0b0000000001;
-    static UINT pos2 = 0b0000000001;
-
-    if(LOCK == 0)
+    extern wartosciSasiadaStruct wartosciSasiada[8];
+# 7 "./main.h" 2
+# 53 "./main.h"
+    struct PozycjaNaMapceStruct
     {
-    LED_Control(RED,0b0000000000);
-    LED_Light_Pos(Green,pos2,Fulfillment_Lvl);
+        WORD xU16 ;
+        WORD yU16 ;
+    };
 
-    }
-    else
+    struct DaneStruct
+        {
+            WORD numerSeryjnyU16 ;
+            WORD startupU16 ;
+            WORD wersjaOprogramowaniaU16 ;
+            struct PozycjaNaMapceStruct PozycjaNaMapce;
+            WORD wersjaSprzetuU16 ;
+            WORD timerRysowaniaWykresuU16 ;
+            sasiadStruct sasiedzi[8];
+            WORD rokU16, miesiacU16, dzienU16, godzinaU16, minutaU16;
+            WORD NrKarty;
+            WORD Nr_WeWy;
+        };
+
+    struct FlagStruct{
+  unsigned pomiarTla :1;
+  unsigned detekcja :1;
+  unsigned zgloszenie :1;
+  unsigned zapisDoFlash :1;
+  unsigned wykonanoZapisDoFlash :1;
+        unsigned pomiarAccelerometer :1;
+        unsigned wykonanoReset :1;
+        unsigned aktualizacjaSasiadow : 1;
+
+        struct CANStruct{
+            unsigned wyslijRamkeDanych :1;
+            unsigned odebranoDane :1;
+            unsigned CanAktywny : 1;
+            WORD identyfikatorU16;
+            }CAN;
+
+            BYTE frameCounterU8;
+  };
+
+
+
+
+
+    typedef struct{
+         union
+        {
+            BYTE flagiU8;
+
+            struct{
+                unsigned obsluzWeWy : 1;
+                unsigned error : 1;
+                unsigned uczenieTla : 1;
+                unsigned inicjalizacja : 1;
+                unsigned ramkaTx : 1;
+                unsigned wykonanoZapisDoFlash: 1;
+                unsigned pomiarTla: 8;
+            };
+        }Flags;
+
+        BYTE timerRamkiTxCANU8;
+    }KartaStruct;
+
+
+
+
+    extern KartaStruct DetectorLedRadar;
+
+    extern struct DaneStruct *Dane;
+ extern struct FlagStruct Flagi;
+
+    extern void _startup (void);
+    void WylaczPrzerwania(void);
+    void WlaczPotwierdzenie(void);
+    void zapisUstawienDoEEPROM(void);
+    void InterruptHandlerHigh(void);
+    void INI_All(void);
+# 2 "EEPROM.c" 2
+# 1 "./transmisja.h" 1
+# 11 "./transmisja.h"
+    typedef struct
     {
-    LED_Control(Green,0b0000000000);
-    LED_Light_Pos(RED,pos1,Fulfillment_Lvl);
-    }
-    pos1 = LED_Right(pos1);
-    pos2 = LED_Left(pos2);
+        union
+        {
+            WORD FlagiU16;
 
-    return 1;
-}
-# 140 "LED.c"
-UINT LED_Right(UINT a)
+            struct
+            {
+                unsigned wyslijRamkeStanu : 1;
+                unsigned wyslijRamkeUczeniaTla : 1;
+                unsigned wyslijRamkeResetuCzujnikow : 1;
+
+            };
+        }Flagi;
+
+        WORD adresCAN;
+
+    }DaneCanStruct;
+    extern DaneCanStruct DaneCan;
+
+    void TransmisjaDanych(void);
+# 3 "EEPROM.c" 2
+# 1 "./EEPROM.h" 1
+# 14 "./EEPROM.h"
+    BOOL NVMInit(void);
+    void NVMRead(BYTE *dest, WORD addr, WORD count);
+    void NVMWrite(BYTE *source, WORD addr, WORD count);
+    void UstawFlagi(void);
+
+    extern WORD ustawieniaKarty;
+    extern WORD nazwyPrzyciskow;
+    extern WORD czujnikiNaMapie;
+# 4 "EEPROM.c" 2
+# 1 "./FRAME.h" 1
+# 10 "./FRAME.h"
+# 1 "./CAN.h" 1
+# 15 "./CAN.h"
+    typedef enum{
+        KARTA,
+        CZUJNIK
+    }TARGET_ENUM;
+
+    typedef struct{
+
+            unsigned char buffer_status;
+
+            unsigned char message_type;
+
+            unsigned char frame_type;
+
+            unsigned char buffer;
+
+
+            DWORD_VAL id;
+            unsigned char data[8];
+            unsigned char data_length;
+    }mID;
+
+    void CAN_Setup(void);
+    BOOL CAN_TakeFrame(mID * message);
+    void CAN_SendFrame(mID * message);
+    void CAN_GenID(mID * message,BYTE frameID);
+    void CAN_SetupFilter_Ne(void);
+# 11 "./FRAME.h" 2
+
+extern mID ramkaCanRxCzujnika[5];
+void FRAME_HandleCanFrame(mID * message);
+void ReadDataToEEPROM(void);
+void WriteDataToEEPROM(void);
+
+volatile UINT NeightAdress1;
+volatile UINT NeightAdress2;
+volatile UINT NeightAdress3;
+volatile UINT NeightAdress4;
+volatile UINT NeightAdress5;
+volatile UINT NeightAdress6;
+volatile UINT NeightAdress7;
+volatile UINT NeightAdress8;
+# 5 "EEPROM.c" 2
+
+WORD ustawieniaKarty;
+WORD neighborsAdress;
+WORD czujnikiNaMapie;
+
+WORD nextEEPosition;
+BOOL NVMalloc(WORD size, WORD *location)
 {
-    if ((a & 0b0000000001) == 0b0000000001)
+
+
+    if ((nextEEPosition + (WORD)size) > (WORD)0x400)
     {
-        UINT b = a & 0b1111111110;
-        b = b >> 1;
-        b = b | 0b1000000000;
-        return b;
-    }
-    else
-    {
-        a =a >> 1;
-        return a;
-    }
-}
-# 167 "LED.c"
-UINT LED_Left(UINT a)
-{
-    if ((a & 0b1000000000) == 0b1000000000)
-    {
-        UINT b = a & 0b0111111111;
-        b = b << 1;
-        b = b | 0b0000000001;
-        return b;
-    }
-    else
-    {
-        a = a << 1;
-        return a;
-    }
-}
-# 196 "LED.c"
-UINT LED_Light_Pos(LED_RGA_type color,UINT pos, UINT fulfillment)
-{
-    UINT pos2 =pos;
-    UINT LED_array = 0b0000000000;
-    UINT flage = fulfillment/10;
-    if(color == RED)
-    {
-        while(flage>0)
-        {
-            LED_array = pos2|LED_array;
-            pos2 = LED_Left(pos2);
-            flage = flage - 1;
-        }
-    }
-    else
-    {
-        while(flage>0)
-        {
-            LED_array = pos2|LED_array;
-            pos2 = LED_Right(pos2);
-            flage = flage - 1;
-        }
-    }
-    LED_Control(color, LED_array);
-    return LED_array;
-}
-# 231 "LED.c"
-void INI_LED_Start(void)
-{
-    TRISA = TRISA & 0b00000001;
-    TRISB = TRISB & 0b11111100;
-    TRISE = TRISE & 0b11111000;
-    TRISD = TRISD & 0b00000000;
-    LED_Control(RED,0b0000000000);
-    LED_Control(GREEN,0b0000000000);
-
-
-}
-# 256 "LED.c"
-UINT8 LED_Control(LED_RGA_type color,UINT diode)
-{
-    UINT cos =1;
-    if(color == RED)
-    {
-
-        if((diode & 0b0000000001)== 0b0000000001)
-        {
-            LATD = LATD | ~0b11101111;
-        }
-        else
-        {
-            LATD = LATD &0b11101111;
-        }
-
-        if((diode & 0b0000000010) == 0b0000000010)
-        {
-            LATD = LATD | ~0b10111111;
-        }
-        else
-        {
-            LATD = LATD & 0b10111111;
-        }
-
-        if((diode & 0b0000000100) == 0b0000000100)
-        {
-            LATB = LATB | ~0b11111110;
-        }
-        else
-        {
-            LATB = LATB & 0b11111110;
-        }
-
-
-        if((diode & 0b0000001000) == 0b0000001000)
-        {
-            LATA = LATA | ~0b11111101;
-        }
-        else
-        {
-            LATA = LATA & 0b11111101;
-        }
-
-
-        if((diode & 0b0000010000) == 0b0000010000)
-        {
-            LATA = LATA | ~0b11110111;
-        }
-        else
-        {
-            LATA = LATA & 0b11110111;
-        }
-
-
-        if((diode & 0b0000100000) == 0b0000100000)
-        {
-            LATA = LATA | ~0b11011111;
-        }
-        else
-        {
-            LATA = LATA & 0b11011111;
-        }
-
-        if((diode & 0b0001000000) == 0b0001000000)
-        {
-            LATE = LATE | ~0b11111101;
-        }
-        else
-        {
-            LATE = LATE & 0b11111101;
-        }
-
-        if((diode & 0b0010000000) == 0b0010000000)
-        {
-            LATA = LATA | ~0b01111111;
-        }
-        else
-        {
-            LATA = LATA & 0b01111111;
-        }
-
-
-        if((diode & 0b0100000000) == 0b0100000000)
-        {
-            LATD = LATD | ~0b11111110;
-        }
-        else
-        {
-            LATD = LATD & 0b11111110;
-        }
-
-        if((diode & 0b1000000000) == 0b1000000000)
-        {
-            LATD = LATD | ~0b11111011;
-        }
-        else
-        {
-            LATD = LATD & 0b11111011;
-        }
-
+        return FALSE;
     }
 
-    if(color == GREEN)
+    *location = nextEEPosition;
+    nextEEPosition += size;
+    return TRUE;
+}
+
+
+BOOL NVMInit(void)
+{
+    BOOL result = TRUE;
+
+    nextEEPosition = 0;
+
+    result &= NVMalloc(sizeof(KartaStruct), &ustawieniaKarty);
+    result &= NVMalloc(8*sizeof(NeightAdress1), &neighborsAdress);
+
+
+    return result;
+}
+
+
+
+
+
+
+
+static BYTE ReadfromEEPROM(WORD Address)
+{
+    EEADRH = (BYTE)(Address>>8);
+    EEADR = (BYTE)Address;
+    EECON1bits.RD = 1;
+    EECON1bits.EEPGD = 0;
+    EECON1bits.CFGS = 0;
+    return EEDATA;
+}
+
+
+
+
+
+
+
+static void WritetoEEPROM(WORD Address, BYTE Data)
+{
+    static BYTE GIE_Status;
+
+    EEADRH = (BYTE)(Address>>8);
+    EEADR = (BYTE)Address;
+    EEDATA = Data;
+    EECON1bits.WREN = 1;
+    GIE_Status = INTCONbits.GIE;
+    INTCONbits.GIE = 0;
+    EECON2 = 0x55;
+    EECON2 = 0xAA;
+    EECON1bits.WR = 1;
+    INTCONbits.GIE = GIE_Status;
+    EECON1bits.WREN = 0;
+    while (EECON1bits.WR);
+}
+
+void NVMRead(BYTE *dest, WORD addr, WORD count)
+{
+    while( count > 0 )
     {
-
-        if((diode & 0b0000000001) == 0b0000000001)
-        {
-            LATD = LATD | ~0b11011111;
-        }
-        else
-        {
-            LATD = LATD & 0b11011111;
-        }
-
-
-        if((diode & 0b0000000010) == 0b0000000010)
-        {
-            LATD = LATD | ~0b01111111;
-        }
-        else
-        {
-            LATD = LATD & 0b01111111;
-        }
-
-
-        if((diode & 0b0000000100) == 0b0000000100)
-        {
-            LATB = LATB | ~0b11111101;
-        }
-        else
-        {
-            LATB = LATB & 0b11111101;
-        }
-
-        if((diode & 0b0000001000) == 0b0000001000)
-        {
-            LATA = LATA | ~0b11111011;
-        }
-        else
-        {
-            LATA = LATA & 0b11111011;
-        }
-
-
-        if((diode & 0b0000010000) == 0b0000010000)
-        {
-            LATA = LATA | ~0b11101111;
-        }
-        else
-        {
-            LATA = LATA & 0b11101111;
-        }
-
-
-        if((diode & 0b0000100000) == 0b0000100000)
-        {
-            LATE = LATE | ~0b11111110;
-        }
-        else
-        {
-            LATE = LATE & 0b11111110;
-        }
-
-
-        if((diode & 0b0001000000) == 0b0001000000)
-        {
-            LATE = LATE | ~0b11111011;
-        }
-        else
-        {
-            LATE = LATE & 0b11111011;
-        }
-
-        if((diode & 0b0010000000) == 0b0010000000)
-        {
-            LATA = LATA | ~0b10111111;
-        }
-        else
-        {
-            LATA = LATA & 0b10111111;
-        }
-
-        if((diode & 0b0100000000) == 0b0100000000)
-        {
-            LATD = LATD | ~0b11111101;
-        }
-        else
-        {
-            LATD = LATD & 0b11111101;
-        }
-
-        if((diode & 0b1000000000) == 0b1000000000)
-        {
-            LATD = LATD | ~0b11110111;
-        }
-        else
-        {
-            LATD = LATD &0b11110111;
-        }
-
+        while(EECON1bits.WR);
+        *dest++ = ReadfromEEPROM(addr++);
+        count--;
     }
-    return 1;
+}
+
+
+void NVMWrite(BYTE *source, WORD addr, WORD count)
+{
+    while(count > 0)
+    {
+        while(EECON1bits.WR);
+        WritetoEEPROM(addr++,*source);
+        count--;
+        source++;
+    }
 }
