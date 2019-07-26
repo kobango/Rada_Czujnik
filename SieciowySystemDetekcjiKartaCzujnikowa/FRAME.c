@@ -27,8 +27,8 @@ UINT IsInNeighbors(UINT message_adress);
 void ReadDataToEEPROM(void);
 void WriteDataToEEPROM(void);
 
-volatile UINT NeightAdress1 = 10;
-volatile UINT NeightAdress2 = 111;
+volatile UINT NeightAdress1 = 0;
+volatile UINT NeightAdress2 = 298;
 volatile UINT NeightAdress3 = 0;
 volatile UINT NeightAdress4 = 0;
 volatile UINT NeightAdress5 = 0;

@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "LED.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,11 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 1 "./main.h" 1
-
-
-
+# 1 "LED.c" 2
+# 10 "LED.c"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -17910,7 +17907,13 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 4 "./main.h" 2
+# 10 "LED.c" 2
+
+# 1 "./LED.h" 1
+
+
+
+
 
 
 # 1 "./GenericTypeDefs.h" 1
@@ -18139,161 +18142,12 @@ typedef union _QWORD_VAL
         unsigned char b63:1;
     } bits;
 } QWORD_VAL;
-# 6 "./main.h" 2
-
-# 1 "./DetekcjaSasiadow.h" 1
-# 15 "./DetekcjaSasiadow.h"
-    typedef struct{
-        SHORT pointerU16;
-        SHORT aktualnaWartoscSredniaS16, poprzedniaWartoscSredniaS16;
-        SHORT wartosciHistoryczneS16[25];
-    }historiaStruct;
-
-    typedef struct{
-        WORD aktualnaWartoscU16, aktualnyStanU16, poprzedniStanU16;
-        SHORT przesuniecieTlaS16[3];
-        historiaStruct historia;
-    }wartosciSasiadaStruct;
-
-    typedef struct{
-        WORD adres;
-        wartosciSasiadaStruct *pointerNaSasiada;
-    }sasiadStruct;
-
-
-
-    void AktualizacjaTlaOdSasiadow(void);
-
-
-    extern wartosciSasiadaStruct wartosciSasiada[8];
-# 7 "./main.h" 2
-# 53 "./main.h"
-    struct PozycjaNaMapceStruct
-    {
-        WORD xU16 ;
-        WORD yU16 ;
-    };
-
-    struct DaneStruct
-        {
-            WORD numerSeryjnyU16 ;
-            WORD startupU16 ;
-            WORD wersjaOprogramowaniaU16 ;
-            struct PozycjaNaMapceStruct PozycjaNaMapce;
-            WORD wersjaSprzetuU16 ;
-            WORD timerRysowaniaWykresuU16 ;
-            sasiadStruct sasiedzi[8];
-            WORD rokU16, miesiacU16, dzienU16, godzinaU16, minutaU16;
-            WORD NrKarty;
-            WORD Nr_WeWy;
-        };
-
-    struct FlagStruct{
-  unsigned pomiarTla :1;
-  unsigned detekcja :1;
-  unsigned zgloszenie :1;
-  unsigned zapisDoFlash :1;
-  unsigned wykonanoZapisDoFlash :1;
-        unsigned pomiarAccelerometer :1;
-        unsigned wykonanoReset :1;
-        unsigned aktualizacjaSasiadow : 1;
-
-        struct CANStruct{
-            unsigned wyslijRamkeDanych :1;
-            unsigned odebranoDane :1;
-            unsigned CanAktywny : 1;
-            WORD identyfikatorU16;
-            }CAN;
-
-            BYTE frameCounterU8;
-  };
+# 7 "./LED.h" 2
 
 
 
 
 
-    typedef struct{
-         union
-        {
-            BYTE flagiU8;
-
-            struct{
-                unsigned obsluzWeWy : 1;
-                unsigned error : 1;
-                unsigned uczenieTla : 1;
-                unsigned inicjalizacja : 1;
-                unsigned ramkaTx : 1;
-                unsigned wykonanoZapisDoFlash: 1;
-                unsigned pomiarTla: 8;
-            };
-        }Flags;
-
-        BYTE timerRamkiTxCANU8;
-    }KartaStruct;
-
-
-
-
-    extern KartaStruct DetectorLedRadar;
-
-    extern struct DaneStruct *Dane;
- extern struct FlagStruct Flagi;
-
-    extern void _startup (void);
-    void WylaczPrzerwania(void);
-    void WlaczPotwierdzenie(void);
-    void zapisUstawienDoEEPROM(void);
-    void InterruptHandlerHigh(void);
-    void INI_All(void);
-# 1 "main.c" 2
-
-# 1 "./TRM.h" 1
-# 11 "./TRM.h"
-    typedef struct
-    {
-        union
-        {
-            WORD FlagiU16;
-
-            struct
-            {
-                unsigned wyslijRamkeStanu : 1;
-                unsigned wyslijRamkeUczeniaTla : 1;
-                unsigned wyslijRamkeResetuCzujnikow : 1;
-
-            };
-        }Flags;
-
-        WORD adresCAN;
-
-
-    }DaneCanStruct;
-    extern DaneCanStruct DaneCan;
-
-    void TRM_DataTransmition(void);
-# 2 "main.c" 2
-
-
-# 1 "./ISR.h" 1
-# 4 "main.c" 2
-
-# 1 "./TMR1.h" 1
-
-
-
-
-
-
-
-
-UINT8 INI_Timer(void);
-UINT8 TMR1_Timer_reset(void);
-void TMR1_Update_flag_Set(UINT a);
-UINT TMR1_Update_flag_Get(void);
-# 5 "main.c" 2
-
-# 1 "./LED.h" 1
-# 12 "./LED.h"
 void INI_LED_Start(void);
 UINT8 LED_Update(void);
 void Fulfillment_Lvl_Set(UINT a);
@@ -18303,166 +18157,363 @@ UINT LED_Clear(void);
 
 void LOCK_Set(BYTE k);
 BYTE LOCK_Get(void);
-# 6 "main.c" 2
-
-# 1 "./INI.h" 1
-# 36 "./INI.h"
-void INI_GlobalInterrupt(void);
-void INI_All(void);
-static void Init(void);
-# 7 "main.c" 2
-
-# 1 "./flash.h" 1
+# 11 "LED.c" 2
 
 
 
+typedef enum LED_RGA {RED = 0,GREEN = 1}LED_RGA_type;
 
-# 1 "./sensor.h" 1
+UINT8 LED_Control(LED_RGA_type color, UINT diode);
+void INI_LED_Start(void);
+UINT LED_Vect_Create(void);
+UINT LED_Right(UINT a);
+UINT LED_Left(UINT a);
+UINT LED_Light_Pos(LED_RGA_type color,UINT pos, UINT fulfillment);
+UINT8 LED_Update(void);
+UINT LED_Error(void);
+UINT LED_Clear(void);
 
+void Fulfillment_Lvl_Set(UINT a);
+UINT Fulfillment_Lvl_Get(void);
 
-
-
-        typedef struct
-        {
-            int wartoscRoznicowaS16, aktualneTloS16, poziomTlaS16;
-            unsigned int obliczonaRoznicaZgloszeniaU16;
-            unsigned int obliczonaRoznicaZgloszeniaMaxU16;
-            unsigned int mnoznikU16;
-            unsigned int analogowySetResetU16[2];
-        }XYZStruct;
-
-        typedef struct
- {
-            unsigned int pomiarTlaTimerU16;
-            unsigned int timerWzbudzeniaU16;
-            unsigned int czasZgloszeniaU16;
-            unsigned int czasUsrednianiaTlaU16;
-            unsigned int czasWyjsciaZeWzbudzeniaU16;
-            unsigned int czasStabilizacjiSasiadaU16;
-            unsigned int roznicaZgloszeniaMinU16, roznicaZgloszeniaMaxU16;
-            unsigned int obliczonaWynikowaRoznicaZgloszeniaU16, obliczonaWynikowaRoznicaZgloszeniaMaxU16;
-            unsigned int aktualnaOsU16;
-            XYZStruct OsXYZ[3];
-            unsigned czujnikZliczajacy : 1;
- }SensorStruct;
-
- extern SensorStruct *Sensor;
-
- void DaneSensor(unsigned int polaryzacjaU16);
- void Zgloszenie(void);
- void StanZgloszenia(void);
-# 5 "./flash.h" 2
-
- extern unsigned int daneU16[64 * 8 + 1];
-
- void InicjalizacjaZmiennych(void);
- void ZapisZmiennychDoFLASH(void);
-
-        void Erase(unsigned short HW, unsigned short LW, unsigned short comand);
- unsigned long ReadLatch(unsigned short addrhi, unsigned short addrlo);
- void WriteLatch(unsigned short addrhi1, unsigned short addrlo1,unsigned short addrhi2,unsigned short addrlo2);
-# 8 "main.c" 2
-# 20 "main.c"
-#pragma config OSC = IRCIO67
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-
-#pragma config PWRT = OFF
-#pragma config BOREN = BOHW
-#pragma config BORV = 3
-
-
-#pragma config WDT = OFF
-#pragma config WDTPS = 32768
-
-
-#pragma config PBADEN = ON
-#pragma config LPT1OSC = OFF
-#pragma config MCLRE = ON
-
-
-#pragma config STVREN = ON
-#pragma config LVP = OFF
-#pragma config BBSIZ = 1024
-#pragma config XINST = OFF
-
-
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-
-
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-
-
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-
-
-#pragma config EBTRB = OFF
+void LOCK_Set(BYTE k);
+BYTE LOCK_Get(void);
 
 
 
+static UINT Fulfillment_Lvl = 20;
+static BYTE LOCK = 0;
 
-
-
-
-KartaStruct DetectorLedRadar;
-
-struct DaneStruct *Dane ;
-struct FlagStruct Flagi;
-# 98 "main.c"
-UINT ReadFlash(UINT addr){
-    TBLPTR = addr;
-    __asm("TBLRD");
-    return TABLAT;
+UINT LED_Error(void)
+{
+    LED_Control(RED,0b1010101010);
+    LED_Control(GREEN,0b0000000000);
+    return 1;
 }
 
-void main(void)
+
+UINT LED_Clear(void)
 {
+    LED_Control(RED,0b0000000000);
+    LED_Control(GREEN,0b1010101010);
+    return 1;
+}
 
-    int adr = ReadFlash(0x200000);
-     adr |= ReadFlash(0x200001)<<8;
+void LOCK_Set(BYTE k)
+{
+    LOCK = k;
+}
 
+BYTE LOCK_Get(void)
+{
+    return LOCK;
+}
+# 73 "LED.c"
+void Fulfillment_Lvl_Set(UINT a)
+{
+    Fulfillment_Lvl = a;
+}
+# 89 "LED.c"
+UINT Fulfillment_Lvl_Get(void)
+{
+    return Fulfillment_Lvl;
+}
+# 105 "LED.c"
+UINT8 LED_Update(void)
+{
+    static LED_RGA_type Red = RED;
+    static LED_RGA_type Green = GREEN;
+    static UINT pos1 = 0b0000000001;
+    static UINT pos2 = 0b0000000001;
 
-    int zet = adr;
-    INI_All();
-
-    RCON = 0xFF;
-
-    for(;;)
+    if(LOCK == 0)
     {
-        if(DetectorLedRadar.Flags.obsluzWeWy == 1)
-        {
-            DetectorLedRadar.Flags.obsluzWeWy = 0;
+    LED_Control(RED,0b0000000000);
+    LED_Light_Pos(Green,pos2,Fulfillment_Lvl);
 
-        }
-
-        if(TMR1_Update_flag_Get()==1)
-        {
-            LED_Update();
-            TMR1_Update_flag_Set(0);
-
-        }
-
-
-        TRM_DataTransmition();
-        __asm(" clrwdt");
     }
+    else
+    {
+    LED_Control(Green,0b0000000000);
+    LED_Light_Pos(RED,pos1,Fulfillment_Lvl);
+    }
+    pos1 = LED_Right(pos1);
+    pos2 = LED_Left(pos2);
+
+    return 1;
+}
+# 140 "LED.c"
+UINT LED_Right(UINT a)
+{
+    if ((a & 0b0000000001) == 0b0000000001)
+    {
+        UINT b = a & 0b1111111110;
+        b = b >> 1;
+        b = b | 0b1000000000;
+        return b;
+    }
+    else
+    {
+        a =a >> 1;
+        return a;
+    }
+}
+# 167 "LED.c"
+UINT LED_Left(UINT a)
+{
+    if ((a & 0b1000000000) == 0b1000000000)
+    {
+        UINT b = a & 0b0111111111;
+        b = b << 1;
+        b = b | 0b0000000001;
+        return b;
+    }
+    else
+    {
+        a = a << 1;
+        return a;
+    }
+}
+# 196 "LED.c"
+UINT LED_Light_Pos(LED_RGA_type color,UINT pos, UINT fulfillment)
+{
+    UINT pos2 =pos;
+    UINT LED_array = 0b0000000000;
+    UINT flage = fulfillment/10;
+    if(color == RED)
+    {
+        while(flage>0)
+        {
+            LED_array = pos2|LED_array;
+            pos2 = LED_Left(pos2);
+            flage = flage - 1;
+        }
+    }
+    else
+    {
+        while(flage>0)
+        {
+            LED_array = pos2|LED_array;
+            pos2 = LED_Right(pos2);
+            flage = flage - 1;
+        }
+    }
+    LED_Control(color, LED_array);
+    return LED_array;
+}
+# 231 "LED.c"
+void INI_LED_Start(void)
+{
+    TRISA = TRISA & 0b00000001;
+    TRISB = TRISB & 0b11111100;
+    TRISE = TRISE & 0b11111000;
+    TRISD = TRISD & 0b00000000;
+    LED_Control(RED,0b0000000000);
+    LED_Control(GREEN,0b0000000000);
+
+
+}
+# 256 "LED.c"
+UINT8 LED_Control(LED_RGA_type color,UINT diode)
+{
+    UINT cos =1;
+    if(color == RED)
+    {
+
+        if((diode & 0b0000000001)== 0b0000000001)
+        {
+            LATD = LATD | ~0b11101111;
+        }
+        else
+        {
+            LATD = LATD &0b11101111;
+        }
+
+        if((diode & 0b0000000010) == 0b0000000010)
+        {
+            LATD = LATD | ~0b10111111;
+        }
+        else
+        {
+            LATD = LATD & 0b10111111;
+        }
+
+        if((diode & 0b0000000100) == 0b0000000100)
+        {
+            LATB = LATB | ~0b11111110;
+        }
+        else
+        {
+            LATB = LATB & 0b11111110;
+        }
+
+
+        if((diode & 0b0000001000) == 0b0000001000)
+        {
+            LATA = LATA | ~0b11111101;
+        }
+        else
+        {
+            LATA = LATA & 0b11111101;
+        }
+
+
+        if((diode & 0b0000010000) == 0b0000010000)
+        {
+            LATA = LATA | ~0b11110111;
+        }
+        else
+        {
+            LATA = LATA & 0b11110111;
+        }
+
+
+        if((diode & 0b0000100000) == 0b0000100000)
+        {
+            LATA = LATA | ~0b11011111;
+        }
+        else
+        {
+            LATA = LATA & 0b11011111;
+        }
+
+        if((diode & 0b0001000000) == 0b0001000000)
+        {
+            LATE = LATE | ~0b11111101;
+        }
+        else
+        {
+            LATE = LATE & 0b11111101;
+        }
+
+        if((diode & 0b0010000000) == 0b0010000000)
+        {
+            LATA = LATA | ~0b01111111;
+        }
+        else
+        {
+            LATA = LATA & 0b01111111;
+        }
+
+
+        if((diode & 0b0100000000) == 0b0100000000)
+        {
+            LATD = LATD | ~0b11111110;
+        }
+        else
+        {
+            LATD = LATD & 0b11111110;
+        }
+
+        if((diode & 0b1000000000) == 0b1000000000)
+        {
+            LATD = LATD | ~0b11111011;
+        }
+        else
+        {
+            LATD = LATD & 0b11111011;
+        }
+
+    }
+
+    if(color == GREEN)
+    {
+
+        if((diode & 0b0000000001) == 0b0000000001)
+        {
+            LATD = LATD | ~0b11011111;
+        }
+        else
+        {
+            LATD = LATD & 0b11011111;
+        }
+
+
+        if((diode & 0b0000000010) == 0b0000000010)
+        {
+            LATD = LATD | ~0b01111111;
+        }
+        else
+        {
+            LATD = LATD & 0b01111111;
+        }
+
+
+        if((diode & 0b0000000100) == 0b0000000100)
+        {
+            LATB = LATB | ~0b11111101;
+        }
+        else
+        {
+            LATB = LATB & 0b11111101;
+        }
+
+        if((diode & 0b0000001000) == 0b0000001000)
+        {
+            LATA = LATA | ~0b11111011;
+        }
+        else
+        {
+            LATA = LATA & 0b11111011;
+        }
+
+
+        if((diode & 0b0000010000) == 0b0000010000)
+        {
+            LATA = LATA | ~0b11101111;
+        }
+        else
+        {
+            LATA = LATA & 0b11101111;
+        }
+
+
+        if((diode & 0b0000100000) == 0b0000100000)
+        {
+            LATE = LATE | ~0b11111110;
+        }
+        else
+        {
+            LATE = LATE & 0b11111110;
+        }
+
+
+        if((diode & 0b0001000000) == 0b0001000000)
+        {
+            LATE = LATE | ~0b11111011;
+        }
+        else
+        {
+            LATE = LATE & 0b11111011;
+        }
+
+        if((diode & 0b0010000000) == 0b0010000000)
+        {
+            LATA = LATA | ~0b10111111;
+        }
+        else
+        {
+            LATA = LATA & 0b10111111;
+        }
+
+        if((diode & 0b0100000000) == 0b0100000000)
+        {
+            LATD = LATD | ~0b11111101;
+        }
+        else
+        {
+            LATD = LATD & 0b11111101;
+        }
+
+        if((diode & 0b1000000000) == 0b1000000000)
+        {
+            LATD = LATD | ~0b11110111;
+        }
+        else
+        {
+            LATD = LATD &0b11110111;
+        }
+
+    }
+    return 1;
 }

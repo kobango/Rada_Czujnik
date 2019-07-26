@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.hex">
+  <executable name="dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.hex">
     <memory name="program">
       <units>bytes</units>
       <length>65536</length>
-      <used>6859</used>
-      <free>58677</free>
+      <used>6861</used>
+      <free>58675</free>
     </memory>
     <memory name="data">
       <units>bytes</units>

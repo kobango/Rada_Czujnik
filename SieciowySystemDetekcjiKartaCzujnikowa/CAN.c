@@ -43,7 +43,7 @@ void CAN_Setup(void)
     PIR3 = 0x00;
     BIE0 = 0;
     
-    DaneCan.adresCAN = 36;
+    DaneCan.adresCAN = 60;
     // Enter CAN module into Mode 2
     ECANCON = 0x90;
 

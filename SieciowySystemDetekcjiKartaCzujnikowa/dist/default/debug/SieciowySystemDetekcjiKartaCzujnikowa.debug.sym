@@ -25,7 +25,7 @@ _LATA F89 0 ABS 0
 _PEIE 7F96 0 ABS 0
 _LATB F8A 0 ABS 0
 _LATC F8B 0 ABS 0
-__end_of_MOC_NOTWORK 1AC4 0 CODE 0
+__end_of_MOC_NOTWORK 1AC6 0 CODE 0
 _LATD F8C 0 ABS 0
 FRAME_DataUpdateAndChangeOption@message 6 0 COMRAM 1
 _LATE F8D 0 ABS 0
@@ -71,7 +71,7 @@ _B5CON E70 0 ABS 0
 _EEADR FA9 0 ABS 0
 __LRAM 1 0 ABS 0
 _T1CON FCD 0 ABS 0
-_LOCK_Get 1AD2 0 CODE 0
+_LOCK_Get 1AD4 0 CODE 0
 CAN_GenID@message 6 0 COMRAM 1
 _ISR_high 8 0 CODE 0
 LED_Control@diode 6 0 COMRAM 1
@@ -87,8 +87,8 @@ __size_of_MOC_Aktualna_Temperatura 0 0 ABS 0
 __CFG_WDTPS$32768 0 0 ABS 0
 __Hconfig 30000E 0 CONFIG 0
 __Lconfig 300000 0 CONFIG 0
-__end_ofi1_TMR1_Update_flag_Set 1ABC 0 CODE 0
-_LOCK_Set 1AC4 0 CODE 0
+__end_ofi1_TMR1_Update_flag_Set 1ABE 0 CODE 0
+_LOCK_Set 1AC6 0 CODE 0
 __end_of_WriteDataToEEPROM DAA 0 CODE 0
 FRAME_AccelerometerStatus@message 8 0 COMRAM 1
 _NVMWrite 17B2 0 CODE 0
@@ -115,7 +115,7 @@ __Hnvrram 0 0 COMRAM 1
 __Lnvrram 0 0 COMRAM 1
 _RXB0D0 F66 0 ABS 0
 int$flags 59 0 COMRAM 1
-__end_of_LOCK_Get 1AD6 0 CODE 0
+__end_of_LOCK_Get 1AD8 0 CODE 0
 _EECON2 FA7 0 ABS 0
 __Heeprom_data 0 0 EEDATA 0
 __Leeprom_data 0 0 EEDATA 0
@@ -156,7 +156,7 @@ _CAN_SendFrame 7B0 0 CODE 0
 __Hfardata 0 0 FARRAM 0
 __Lfardata 0 0 FARRAM 0
 _TMR1ON 7E68 0 ABS 0
-__end_of_ISR_high 1AD2 0 CODE 0
+__end_of_ISR_high 1AD4 0 CODE 0
 __pintcode 8 0 CODE 0
 NVMWrite@addr B 0 COMRAM 1
 _CANCON F6F 0 ABS 0
@@ -167,7 +167,7 @@ __Labs1 0 0 ABS 0
 _INI_LED_Start 18F2 0 CODE 0
 __CFG_EBTR0$OFF 0 0 ABS 0
 FRAME_HandleCanFrame@identyfikator 1A 0 COMRAM 1
-__end_of_TMR1_Update_flag_Set 1AA8 0 CODE 0
+__end_of_TMR1_Update_flag_Set 1AAA 0 CODE 0
 __end_of_FRAME_SensorExcitationStatus CC8 0 CODE 0
 _TBLPTR FF6 0 ABS 0
 __HnvFARRAM 0 0 FARRAM 0
@@ -182,7 +182,7 @@ TMR1_Update_flag_Set@a 6 0 COMRAM 1
 __size_of_LED_Update 0 0 ABS 0
 _ReadFlash 1A14 0 CODE 0
 ?_MOC_Frame_Counter 6 0 COMRAM 1
-LED_Update@Green 56 0 COMRAM 1
+LED_Update@Green 54 0 COMRAM 1
 FRAME_SensorExcitationStatus@statwect 32 0 COMRAM 1
 __Hdata 0 0 ABS 0
 __Ldata 0 0 ABS 0
@@ -195,7 +195,7 @@ CAN_MoveBuffIntoFrame@Buf 8 0 COMRAM 1
 __end_of_FRAME_ExcitationValue 17B2 0 CODE 0
 __size_of_NVMalloc 0 0 ABS 0
 ?_LED_Left 6 0 COMRAM 1
-stackhi CFF 0 ABS 0
+stackhi CF3 0 ABS 0
 _FRAME_ExcitationValue 177C 0 CODE 0
 CAN_MoveBuffIntoFrame@Ram 6 0 COMRAM 1
 __HcstackBANK0 0 0 ABS 0
@@ -204,7 +204,7 @@ __pcstackBANK0 D2 0 BANK0 1
 __Htemp 5A 0 COMRAM 1
 __Ltemp 59 0 COMRAM 1
 stacklo 2F6 0 ABS 0
-__end_of_LOCK_Set 1ACC 0 CODE 0
+__end_of_LOCK_Set 1ACE 0 CODE 0
 __Hrbit 0 0 COMRAM 1
 __Lrbit 0 0 COMRAM 1
 TMR1_Timer_reset@t1H 2 0 COMRAM 1
@@ -240,7 +240,7 @@ FRAME_AdressOfNeighbors@nrRamki 8 0 COMRAM 1
 __size_of_INI_OUTPUT 0 0 ABS 0
 _DetectorLedRadar CB 0 BANK0 1
 __size_of_LOCK_Get 0 0 ABS 0
-__end_of_MOC_Wynikowa_wartosc_roznicowa 1A6C 0 CODE 0
+__end_of_MOC_Wynikowa_wartosc_roznicowa 1A6E 0 CODE 0
 _RXB0DLC F65 0 ABS 0
 NVMRead@count C 0 COMRAM 1
 __end_of_FRAME_SoftwareVersion 13FA 0 CODE 0
@@ -321,20 +321,20 @@ __ptext5 BBC 0 CODE 0
 __Htext7 0 0 ABS 0
 __Ltext7 0 0 ABS 0
 __end_of_LED_Left 1742 0 CODE 0
-__ptext6 1A62 0 CODE 0
+__ptext6 1A64 0 CODE 0
 __HbssCOMRAM 0 0 ABS 0
 ?_MOC_Wynikowa_wartosc_roznicowa 6 0 COMRAM 1
 __LbssCOMRAM 0 0 ABS 0
-_FRAME_AnalogValue 1AD8 0 CODE 0
+_FRAME_AnalogValue 1ADA 0 CODE 0
 __Htext8 0 0 ABS 0
 __Ltext8 0 0 ABS 0
-__ptext7 1ABC 0 CODE 0
+__ptext7 1ABE 0 CODE 0
 __pbssCOMRAM 2C 0 COMRAM 1
 __Htext9 0 0 ABS 0
 __Ltext9 0 0 ABS 0
 __ptext8 1A3A 0 CODE 0
-_MOC_Wynikowa_wartosc_roznicowa 1A62 0 CODE 0
-__ptext9 1A6C 0 CODE 0
+_MOC_Wynikowa_wartosc_roznicowa 1A64 0 CODE 0
+__ptext9 1A6E 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
 _RXB0DLCbits F65 0 ABS 0
@@ -345,7 +345,7 @@ _nextEEPosition 30 0 COMRAM 1
 __size_of_IsInNeighbors 0 0 ABS 0
 __end_of_INI_All 19BE 0 CODE 0
 _LED_Update 11BE 0 CODE 0
-_MOC_Aktualna_Temperatura 1A6C 0 CODE 0
+_MOC_Aktualna_Temperatura 1A6E 0 CODE 0
 LED_Light_Pos@pos D 0 COMRAM 1
 LED_Light_Pos@pos2 14 0 COMRAM 1
 __size_of_CAN_Setup 0 0 ABS 0
@@ -370,7 +370,7 @@ _NVMRead 18BE 0 CODE 0
 __size_ofi1_TMR1_Update_flag_Set 0 0 ABS 0
 __end_of_TRM_DataTransmition 1700 0 CODE 0
 _NeightAdress6 44 0 COMRAM 1
-__end_of_FRAME_AnalogValue 1ADA 0 CODE 0
+__end_of_FRAME_AnalogValue 1ADC 0 CODE 0
 __size_of_MOC_NOTWORK 0 0 ABS 0
 __size_of_FRAME_AveragingTimes 0 0 ABS 0
 _INI_All 199C 0 CODE 0
@@ -391,7 +391,7 @@ __Lidloc 200000 0 IDLOC 0
 __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
 __size_of_NVMWrite 0 0 ABS 0
-int_func 1ACC 0 CODE 0
+int_func 1ACE 0 CODE 0
 main@adr D4 0 BANK0 1
 __size_of_LED_Left 0 0 ABS 0
 __Hparam 0 0 COMRAM 1
@@ -439,12 +439,12 @@ FRAME_AdressOfNeighbors@message 6 0 COMRAM 1
 _ISR_low 18 0 CODE 0
 __size_of_main 0 0 ABS 0
 __size_of_MOCK_PrzyspieszenieX 0 0 ABS 0
-_TMR1_Update_flag_Get 1AA8 0 CODE 0
+_TMR1_Update_flag_Get 1AAA 0 CODE 0
 __end_of_CAN_MoveBuffIntoFrame 1950 0 CODE 0
 __Hconst 0 0 CONST 0
-_TMR1_Update_flag_Set 1A9E 0 CODE 0
+_TMR1_Update_flag_Set 1AA0 0 CODE 0
 __Lconst 0 0 CONST 0
-LED_Update@pos1 52 0 COMRAM 1
+LED_Update@pos1 50 0 COMRAM 1
 FRAME_HandleCanFrame@ident 18 0 COMRAM 1
 __size_of_LOCK_Set 0 0 ABS 0
 __size_of_FRAME_AnalogValue 0 0 ABS 0
@@ -461,7 +461,7 @@ __size_of_MOC_Wynikowa_wartosc_roznicowa 0 0 ABS 0
 __CFG_WRT1$OFF 0 0 ABS 0
 _CAN_GenID 1238 0 CODE 0
 __size_of___lwdiv 0 0 ABS 0
-_NeightAdress1 4C 0 COMRAM 1
+_NeightAdress1 57 0 COMRAM 1
 __HbssBANK0 0 0 ABS 0
 _RXFBCON0 DE0 0 ABS 0
 __LbssBANK0 0 0 ABS 0
@@ -472,7 +472,7 @@ __Hbank10 0 0 ABS 0
 __pbssBANK0 60 0 BANK0 1
 __Lbank10 0 0 ABS 0
 _IsInNeighbors E8C 0 CODE 0
-__end_of_MOCK_Klikniecie_Spadek 1A9E 0 CODE 0
+__end_of_MOCK_Klikniecie_Spadek 1AA0 0 CODE 0
 _RXFBCON1 DE1 0 ABS 0
 __end_of_CAN_SetupMask 1394 0 CODE 0
 __Hbank11 0 0 ABS 0
@@ -492,10 +492,10 @@ __size_of_ISR_high 0 0 ABS 0
 _ustawieniaKarty 3E 0 COMRAM 1
 __Htext10 0 0 ABS 0
 __Ltext10 0 0 ABS 0
-_MOCK_Klikniecie_Spadek 1A94 0 CODE 0
+_MOCK_Klikniecie_Spadek 1A96 0 CODE 0
 __Htext20 0 0 ABS 0
 __Ltext20 0 0 ABS 0
-__ptext10 1AC4 0 CODE 0
+__ptext10 1AC6 0 CODE 0
 _NeightAdress7 42 0 COMRAM 1
 __Htext30 0 0 ABS 0
 __Htext11 0 0 ABS 0
@@ -506,8 +506,8 @@ __Htext40 0 0 ABS 0
 __Htext21 0 0 ABS 0
 __Ltext40 0 0 ABS 0
 __Ltext21 0 0 ABS 0
-__ptext11 1AD2 0 CODE 0
-__ptext30 1A8A 0 CODE 0
+__ptext11 1AD4 0 CODE 0
+__ptext30 1A8C 0 CODE 0
 __Htext50 0 0 ABS 0
 __Htext31 0 0 ABS 0
 __Htext12 0 0 ABS 0
@@ -523,7 +523,7 @@ _FRAME_Plot 1572 0 CODE 0
 __Ltext41 0 0 ABS 0
 __Ltext22 0 0 ABS 0
 __ptext12 E8C 0 CODE 0
-__ptext31 1A94 0 CODE 0
+__ptext31 1A96 0 CODE 0
 __ptext50 1854 0 CODE 0
 __Htext51 0 0 ABS 0
 __Htext32 0 0 ABS 0
@@ -550,7 +550,7 @@ __Ltext33 0 0 ABS 0
 __Ltext14 0 0 ABS 0
 __ptext23 17E8 0 CODE 0
 __ptext42 15CA 0 CODE 0
-__ptext61 1AB2 0 CODE 0
+__ptext61 1AB4 0 CODE 0
 _EECON1bits FA6 0 ABS 0
 __size_of___awdiv 0 0 ABS 0
 __Htext62 0 0 ABS 0
@@ -578,7 +578,7 @@ __Htext25 0 0 ABS 0
 __Ltext44 0 0 ABS 0
 __Ltext25 0 0 ABS 0
 __size_of_ReadfromEEPROM 0 0 ABS 0
-__ptext15 1AD6 0 CODE 0
+__ptext15 1AD8 0 CODE 0
 __ptext34 32E 0 CODE 0
 __ptext53 18F2 0 CODE 0
 ___inthi_sp 0 0 STACK 2
@@ -589,9 +589,9 @@ __Htext16 0 0 ABS 0
 __Ltext54 0 0 ABS 0
 __Ltext35 0 0 ABS 0
 __Ltext16 0 0 ABS 0
-__ptext25 1AD8 0 CODE 0
+__ptext25 1ADA 0 CODE 0
 __ptext44 1700 0 CODE 0
-__end_of_MOCK_PrzyspieszenieX 1A94 0 CODE 0
+__end_of_MOCK_PrzyspieszenieX 1A96 0 CODE 0
 __Htext45 0 0 ABS 0
 __Htext26 0 0 ABS 0
 __Ltext45 0 0 ABS 0
@@ -599,9 +599,9 @@ __Ltext26 0 0 ABS 0
 __ptext16 177C 0 CODE 0
 __ptext35 113A 0 CODE 0
 __ptext54 922 0 CODE 0
-_MOCK_PrzyspieszenieX 1A8A 0 CODE 0
-_MOCK_PrzyspieszenieY 1A80 0 CODE 0
-_MOCK_PrzyspieszenieZ 1A76 0 CODE 0
+_MOCK_PrzyspieszenieX 1A8C 0 CODE 0
+_MOCK_PrzyspieszenieY 1A82 0 CODE 0
+_MOCK_PrzyspieszenieZ 1A78 0 CODE 0
 __Htext55 0 0 ABS 0
 __Htext36 0 0 ABS 0
 __Htext17 0 0 ABS 0
@@ -615,7 +615,7 @@ __Htext46 0 0 ABS 0
 __Htext27 0 0 ABS 0
 __Ltext46 0 0 ABS 0
 __Ltext27 0 0 ABS 0
-_Fulfillment_Lvl 54 0 COMRAM 1
+_Fulfillment_Lvl 52 0 COMRAM 1
 __ptext17 161C 0 CODE 0
 __ptext36 1926 0 CODE 0
 __ptext55 1A48 0 CODE 0
@@ -633,7 +633,7 @@ __Htext28 0 0 ABS 0
 __Ltext47 0 0 ABS 0
 __Ltext28 0 0 ABS 0
 __ptext18 A74 0 CODE 0
-__ptext37 1A9E 0 CODE 0
+__ptext37 1AA0 0 CODE 0
 __ptext56 13FA 0 CODE 0
 __Htext57 0 0 ABS 0
 __Htext38 0 0 ABS 0
@@ -641,7 +641,7 @@ __Htext19 0 0 ABS 0
 __Ltext57 0 0 ABS 0
 __Ltext38 0 0 ABS 0
 __Ltext19 0 0 ABS 0
-__ptext28 1A76 0 CODE 0
+__ptext28 1A78 0 CODE 0
 __ptext47 18BE 0 CODE 0
 __size_of_CAN_SetupMask 0 0 ABS 0
 __Htext48 0 0 ABS 0
@@ -649,19 +649,19 @@ __Htext29 0 0 ABS 0
 __Ltext48 0 0 ABS 0
 __Ltext29 0 0 ABS 0
 __ptext19 CC8 0 CODE 0
-__ptext38 1AA8 0 CODE 0
+__ptext38 1AAA 0 CODE 0
 __ptext57 1326 0 CODE 0
-_MOC_NOTWORK 1ABC 0 CODE 0
+_MOC_NOTWORK 1ABE 0 CODE 0
 __CFG_BORV$3 0 0 ABS 0
 ___intlo_sp 0 0 STACK 2
 ?_TMR1_Update_flag_Get 6 0 COMRAM 1
 __Htext58 0 0 ABS 0
 __Htext39 0 0 ABS 0
 __size_of_MOCK_Klikniecie_Spadek 0 0 ABS 0
-_FRAME_MapPosition 1AD6 0 CODE 0
+_FRAME_MapPosition 1AD8 0 CODE 0
 __Ltext58 0 0 ABS 0
 __Ltext39 0 0 ABS 0
-__ptext29 1A80 0 CODE 0
+__ptext29 1A82 0 CODE 0
 __ptext48 1A28 0 CODE 0
 __Htext49 0 0 ABS 0
 __Ltext49 0 0 ABS 0
@@ -723,7 +723,7 @@ _RXF7EIDL D67 0 ABS 0
 _RXF8EIDL D6B 0 ABS 0
 _RXF9EIDL D73 0 ABS 0
 __size_of_WriteDataToEEPROM 0 0 ABS 0
-__end_of_MOC_Aktualna_Temperatura 1A76 0 CODE 0
+__end_of_MOC_Aktualna_Temperatura 1A78 0 CODE 0
 _RXB0SIDL F62 0 ABS 0
 _RXF0SIDL F01 0 ABS 0
 FRAME_AnalogValue@set 8 0 COMRAM 1
@@ -749,7 +749,7 @@ __CFG_CP2$OFF 0 0 ABS 0
 __CFG_CP3$OFF 0 0 ABS 0
 __end_of_CAN_SetupClock 1978 0 CODE 0
 __size_of_FRAME_DeviceReset 0 0 ABS 0
-__end_of_MOCK_PrzyspieszenieY 1A8A 0 CODE 0
+__end_of_MOCK_PrzyspieszenieY 1A8C 0 CODE 0
 __size_of_TMR1_Update_flag_Get 0 0 ABS 0
 FRAME_AnalogValue@message 6 0 COMRAM 1
 __size_of_FRAME_MapPosition 0 0 ABS 0
@@ -758,13 +758,13 @@ __accesstop 60 0 ABS 0
 __Hintcode_body 0 0 ABS 0
 __Lintcode_body 0 0 ABS 0
 _FRAME_ExcitationMultiplier 161C 0 CODE 0
-__pintcode_body 1ACC 0 CODE 0
+__pintcode_body 1ACE 0 CODE 0
 __size_of_INI_Timer 0 0 ABS 0
 __CFG_PBADEN$ON 0 0 ABS 0
 FRAME_MapPosition@message 6 0 COMRAM 1
 intlevel0 0 0 CODE 0
-MOC_Frame_Counter@zeta 4E 0 COMRAM 1
-_NeightAdress2 57 0 COMRAM 1
+MOC_Frame_Counter@zeta 4C 0 COMRAM 1
+_NeightAdress2 55 0 COMRAM 1
 _CAN_MoveBuffIntoFrame 1926 0 CODE 0
 intlevel1 0 0 CODE 0
 _CAN_SetupFilter_Ne 10A4 0 CODE 0
@@ -778,19 +778,19 @@ _ramkaCanRxKarty 60 0 BANK0 1
 __CFG_WRTD$OFF 0 0 ABS 0
 ReadfromEEPROM@Address 6 0 COMRAM 1
 _NeightAdress8 40 0 COMRAM 1
-__end_of_FRAME_MapPosition 1AD8 0 CODE 0
+__end_of_FRAME_MapPosition 1ADA 0 CODE 0
 FRAME_SoftwareVersion@message 6 0 COMRAM 1
 __end_of_LED_Control A74 0 CODE 0
 _FRAME_PrzypisanieDokarty 1006 0 CODE 0
 __HdataCOMRAM 0 0 ABS 0
 __LdataCOMRAM 0 0 ABS 0
 _ramkaCanTxKarty B5 0 BANK0 1
-__pdataCOMRAM 4E 0 COMRAM 1
+__pdataCOMRAM 4C 0 COMRAM 1
 __CFG_CPB$OFF 0 0 ABS 0
-i1_TMR1_Update_flag_Set 1AB2 0 CODE 0
+i1_TMR1_Update_flag_Set 1AB4 0 CODE 0
 __CFG_CPD$OFF 0 0 ABS 0
 start_initialization 14BE 0 CODE 0
-__end_of_MOCK_PrzyspieszenieZ 1A80 0 CODE 0
+__end_of_MOCK_PrzyspieszenieZ 1A82 0 CODE 0
 NVMInit@result C 0 COMRAM 1
 ___awdiv@quotient C 0 COMRAM 1
 _wartosciSasiada D6 0 BIGRAM 1
@@ -805,9 +805,9 @@ LED_Right@a 6 0 COMRAM 1
 __end_of_FRAME_AdressOfNeighbors 32E 0 CODE 0
 __size_of_MOCK_PrzyspieszenieZ 0 0 ABS 0
 __initialization 14BE 0 CODE 0
-LED_Update@pos2 50 0 COMRAM 1
+LED_Update@pos2 4E 0 COMRAM 1
 __end_of_FRAME_PrzypisanieDokarty 10A4 0 CODE 0
-__end_of_TMR1_Update_flag_Get 1AB2 0 CODE 0
+__end_of_TMR1_Update_flag_Get 1AB4 0 CODE 0
 LED_Left@a 6 0 COMRAM 1
 __end_of_ISR_low 5E 0 CODE 0
 LED_Right@b A 0 COMRAM 1
@@ -841,62 +841,62 @@ ___awdiv@dividend 6 0 COMRAM 1
 %segments
 reset_vec 0 3 CODE 0 0
 intcode 8 D CODE 8 0
-intcodelo 18 1A60 CODE 18 0
+intcodelo 18 1A62 CODE 18 0
 config 300000 30000D CONFIG 300000 0
 idloc 200000 200007 IDLOC 200000 0
 cstackCOMRAM 1 59 COMRAM 1 1
 bssBANK0 60 D5 BANK0 60 1
 bssBIGRAM D6 2F5 BIGRAM D6 1
-text6 1A62 1AD9 CODE 1A62 0
+text6 1A64 1ADB CODE 1A64 0
 %locals
-dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
+dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
-C:\Users\hp\AppData\Local\Temp\s3u0.
-9682 14BE 0 CODE 0
-9684 14BE 0 CODE 0
-9687 14BE 0 CODE 0
-9810 14BE 0 CODE 0
-9811 14C0 0 CODE 0
-9812 14C2 0 CODE 0
-9813 14C4 0 CODE 0
-9814 14C6 0 CODE 0
-9815 14C8 0 CODE 0
-9816 14CA 0 CODE 0
-9817 14CE 0 CODE 0
-9818 14D2 0 CODE 0
-9819 14D2 0 CODE 0
-9820 14D4 0 CODE 0
-9821 14D8 0 CODE 0
-9822 14DA 0 CODE 0
-9823 14DC 0 CODE 0
-9827 14DE 0 CODE 0
-9828 14E2 0 CODE 0
-9829 14E6 0 CODE 0
-9830 14E6 0 CODE 0
-9831 14E8 0 CODE 0
-9832 14EA 0 CODE 0
-9833 14EC 0 CODE 0
-9834 14EE 0 CODE 0
-9835 14F0 0 CODE 0
-9838 14F2 0 CODE 0
-9839 14F6 0 CODE 0
-9840 14F8 0 CODE 0
-9841 14F8 0 CODE 0
-9842 14FA 0 CODE 0
-9843 14FC 0 CODE 0
-9846 14FE 0 CODE 0
-9847 1502 0 CODE 0
-9848 1504 0 CODE 0
-9849 1504 0 CODE 0
-9850 1506 0 CODE 0
-9851 1508 0 CODE 0
-9857 150A 0 CODE 0
-9859 150A 0 CODE 0
-9860 150C 0 CODE 0
-9862 150E 0 CODE 0
-9863 1510 0 CODE 0
-9864 1512 0 CODE 0
-9865 1514 0 CODE 0
+C:\Users\hp\AppData\Local\Temp\s9as.
+9686 14BE 0 CODE 0
+9688 14BE 0 CODE 0
+9691 14BE 0 CODE 0
+9817 14BE 0 CODE 0
+9818 14C0 0 CODE 0
+9819 14C2 0 CODE 0
+9820 14C4 0 CODE 0
+9821 14C6 0 CODE 0
+9822 14C8 0 CODE 0
+9823 14CA 0 CODE 0
+9824 14CE 0 CODE 0
+9825 14D2 0 CODE 0
+9826 14D2 0 CODE 0
+9827 14D4 0 CODE 0
+9828 14D8 0 CODE 0
+9829 14DA 0 CODE 0
+9830 14DC 0 CODE 0
+9834 14DE 0 CODE 0
+9835 14E2 0 CODE 0
+9836 14E6 0 CODE 0
+9837 14E6 0 CODE 0
+9838 14E8 0 CODE 0
+9839 14EA 0 CODE 0
+9840 14EC 0 CODE 0
+9841 14EE 0 CODE 0
+9842 14F0 0 CODE 0
+9845 14F2 0 CODE 0
+9846 14F6 0 CODE 0
+9847 14F8 0 CODE 0
+9848 14F8 0 CODE 0
+9849 14FA 0 CODE 0
+9850 14FC 0 CODE 0
+9853 14FE 0 CODE 0
+9854 1502 0 CODE 0
+9855 1504 0 CODE 0
+9856 1504 0 CODE 0
+9857 1506 0 CODE 0
+9858 1508 0 CODE 0
+9864 150A 0 CODE 0
+9866 150A 0 CODE 0
+9867 150C 0 CODE 0
+9869 150E 0 CODE 0
+9870 1510 0 CODE 0
+9871 1512 0 CODE 0
+9872 1514 0 CODE 0
 main.c
 104 145E 0 CODE 0
 107 145E 0 CODE 0
@@ -1004,29 +1004,29 @@ FRAME.c
 97 CC0 0 CODE 0
 100 CC6 0 CODE 0
 MOC_Funct.c
-33 1A62 0 CODE 0
-35 1A62 0 CODE 0
-36 1A6A 0 CODE 0
+33 1A64 0 CODE 0
+35 1A64 0 CODE 0
+36 1A6C 0 CODE 0
 MOC_Funct.c
-47 1ABC 0 CODE 0
-49 1ABC 0 CODE 0
-50 1AC2 0 CODE 0
+47 1ABE 0 CODE 0
+49 1ABE 0 CODE 0
+50 1AC4 0 CODE 0
 MOC_Funct.c
 38 1A3A 0 CODE 0
 41 1A3A 0 CODE 0
 42 1A46 0 CODE 0
 MOC_Funct.c
-43 1A6C 0 CODE 0
-45 1A6C 0 CODE 0
-46 1A74 0 CODE 0
+43 1A6E 0 CODE 0
+45 1A6E 0 CODE 0
+46 1A76 0 CODE 0
 LED.c
-52 1AC4 0 CODE 0
-54 1AC6 0 CODE 0
-55 1ACA 0 CODE 0
+52 1AC6 0 CODE 0
+54 1AC8 0 CODE 0
+55 1ACC 0 CODE 0
 LED.c
-57 1AD2 0 CODE 0
-59 1AD2 0 CODE 0
-60 1AD4 0 CODE 0
+57 1AD4 0 CODE 0
+59 1AD4 0 CODE 0
+60 1AD6 0 CODE 0
 FRAME.c
 102 E8C 0 CODE 0
 106 E8C 0 CODE 0
@@ -1066,8 +1066,8 @@ FRAME.c
 447 15AC 0 CODE 0
 451 15C8 0 CODE 0
 FRAME.c
-459 1AD6 0 CODE 0
-476 1AD6 0 CODE 0
+459 1AD8 0 CODE 0
+476 1AD8 0 CODE 0
 FRAME.c
 186 177C 0 CODE 0
 188 177C 0 CODE 0
@@ -1163,8 +1163,8 @@ FRAME.c
 250 1842 0 CODE 0
 289 1852 0 CODE 0
 FRAME.c
-507 1AD8 0 CODE 0
-525 1AD8 0 CODE 0
+507 1ADA 0 CODE 0
+525 1ADA 0 CODE 0
 FRAME.c
 555 62 0 CODE 0
 560 62 0 CODE 0
@@ -1209,21 +1209,21 @@ FRAME.c
 172 1310 0 CODE 0
 178 1324 0 CODE 0
 MOC_Funct.c
-72 1A76 0 CODE 0
-74 1A76 0 CODE 0
-75 1A7E 0 CODE 0
+72 1A78 0 CODE 0
+74 1A78 0 CODE 0
+75 1A80 0 CODE 0
 MOC_Funct.c
-68 1A80 0 CODE 0
-70 1A80 0 CODE 0
-71 1A88 0 CODE 0
+68 1A82 0 CODE 0
+70 1A82 0 CODE 0
+71 1A8A 0 CODE 0
 MOC_Funct.c
-63 1A8A 0 CODE 0
-65 1A8A 0 CODE 0
-66 1A92 0 CODE 0
+63 1A8C 0 CODE 0
+65 1A8C 0 CODE 0
+66 1A94 0 CODE 0
 MOC_Funct.c
-76 1A94 0 CODE 0
-78 1A94 0 CODE 0
-79 1A9C 0 CODE 0
+76 1A96 0 CODE 0
+78 1A96 0 CODE 0
+79 1A9E 0 CODE 0
 CAN.c
 246 7B0 0 CODE 0
 252 7B0 0 CODE 0
@@ -1374,13 +1374,13 @@ CAN.c
 237 192A 0 CODE 0
 238 1946 0 CODE 0
 TMR1.c
-32 1A9E 0 CODE 0
-34 1A9E 0 CODE 0
-35 1AA6 0 CODE 0
+32 1AA0 0 CODE 0
+34 1AA0 0 CODE 0
+35 1AA8 0 CODE 0
 TMR1.c
-47 1AA8 0 CODE 0
-49 1AA8 0 CODE 0
-50 1AB0 0 CODE 0
+47 1AAA 0 CODE 0
+49 1AAA 0 CODE 0
+50 1AB2 0 CODE 0
 main.c
 98 1A14 0 CODE 0
 99 1A14 0 CODE 0
@@ -1747,9 +1747,9 @@ ISR.c
 41 4C 0 CODE 0
 43 4E 0 CODE 0
 TMR1.c
-32 1AB2 0 CODE 0
-34 1AB2 0 CODE 0
-35 1ABA 0 CODE 0
+32 1AB4 0 CODE 0
+34 1AB4 0 CODE 0
+35 1ABC 0 CODE 0
 TMR1.c
 63 1978 0 CODE 0
 69 1978 0 CODE 0
@@ -1766,5 +1766,5 @@ TMR1.c
 ISR.c
 53 8 0 CODE 0
 ISR.c
-53 1ACC 0 CODE 0
-57 1ACE 0 CODE 0
+53 1ACE 0 CODE 0
+57 1AD0 0 CODE 0

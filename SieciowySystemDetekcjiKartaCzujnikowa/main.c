@@ -8,7 +8,6 @@
 #include "flash.h"
 
 
-
 // PIC18F26K80 Configuration Bit Settings
 
 // CONFIG1L
@@ -83,6 +82,7 @@ KartaStruct DetectorLedRadar;
 struct DaneStruct *Dane ;
 struct FlagStruct Flagi;
 
+ //extern const unsigned char userID[8] @ 0x200000;
 
 
 
@@ -94,8 +94,21 @@ struct FlagStruct Flagi;
 * @section Description
 * Program main loop
 *****************************************************************************************/
+
+UINT ReadFlash(UINT addr){
+    TBLPTR = addr;
+    asm("TBLRD");
+    return TABLAT;
+}
+
 void main(void)
 {
+   
+    int adr = ReadFlash(0x200000);
+     adr |= ReadFlash(0x200001)<<8;
+     
+    
+    int zet = adr;
     INI_All();
     //po inicjalizacji kasuj RCON
     RCON = 0xFF;

@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "CAN.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
+# 1 "CAN.c" 2
 # 1 "./main.h" 1
 
 
@@ -18245,7 +18245,7 @@ typedef union _QWORD_VAL
     void zapisUstawienDoEEPROM(void);
     void InterruptHandlerHigh(void);
     void INI_All(void);
-# 1 "main.c" 2
+# 1 "CAN.c" 2
 
 # 1 "./TRM.h" 1
 # 11 "./TRM.h"
@@ -18271,198 +18271,476 @@ typedef union _QWORD_VAL
     extern DaneCanStruct DaneCan;
 
     void TRM_DataTransmition(void);
-# 2 "main.c" 2
+# 2 "CAN.c" 2
+
+# 1 "./CAN.h" 1
+# 15 "./CAN.h"
+    typedef enum{
+        KARTA,
+        CZUJNIK
+    }TARGET_ENUM;
+
+    typedef struct{
+
+            unsigned char buffer_status;
+
+            unsigned char message_type;
+
+            unsigned char frame_type;
+
+            unsigned char buffer;
 
 
-# 1 "./ISR.h" 1
-# 4 "main.c" 2
+            DWORD_VAL id;
+            unsigned char data[8];
+            unsigned char data_length;
+    }mID;
 
-# 1 "./TMR1.h" 1
+    void CAN_Setup(void);
+    BOOL CAN_TakeFrame(mID * message);
+    void CAN_SendFrame(mID * message);
+    void CAN_GenID(mID * message,BYTE frameID);
+    void CAN_SetupFilter_Ne(void);
+# 3 "CAN.c" 2
 
+# 1 "./FRAME.h" 1
+# 12 "./FRAME.h"
+extern mID ramkaCanRxCzujnika[5];
+void FRAME_HandleCanFrame(mID * message);
+void ReadDataToEEPROM(void);
+void WriteDataToEEPROM(void);
 
-
-
-
-
-
-
-UINT8 INI_Timer(void);
-UINT8 TMR1_Timer_reset(void);
-void TMR1_Update_flag_Set(UINT a);
-UINT TMR1_Update_flag_Get(void);
-# 5 "main.c" 2
-
-# 1 "./LED.h" 1
-# 12 "./LED.h"
-void INI_LED_Start(void);
-UINT8 LED_Update(void);
-void Fulfillment_Lvl_Set(UINT a);
-UINT Fulfillment_Lvl_Get(void);
-UINT LED_Error(void);
-UINT LED_Clear(void);
-
-void LOCK_Set(BYTE k);
-BYTE LOCK_Get(void);
-# 6 "main.c" 2
-
-# 1 "./INI.h" 1
-# 36 "./INI.h"
-void INI_GlobalInterrupt(void);
-void INI_All(void);
-static void Init(void);
-# 7 "main.c" 2
-
-# 1 "./flash.h" 1
-
-
-
-
-# 1 "./sensor.h" 1
-
-
-
-
-        typedef struct
-        {
-            int wartoscRoznicowaS16, aktualneTloS16, poziomTlaS16;
-            unsigned int obliczonaRoznicaZgloszeniaU16;
-            unsigned int obliczonaRoznicaZgloszeniaMaxU16;
-            unsigned int mnoznikU16;
-            unsigned int analogowySetResetU16[2];
-        }XYZStruct;
-
-        typedef struct
- {
-            unsigned int pomiarTlaTimerU16;
-            unsigned int timerWzbudzeniaU16;
-            unsigned int czasZgloszeniaU16;
-            unsigned int czasUsrednianiaTlaU16;
-            unsigned int czasWyjsciaZeWzbudzeniaU16;
-            unsigned int czasStabilizacjiSasiadaU16;
-            unsigned int roznicaZgloszeniaMinU16, roznicaZgloszeniaMaxU16;
-            unsigned int obliczonaWynikowaRoznicaZgloszeniaU16, obliczonaWynikowaRoznicaZgloszeniaMaxU16;
-            unsigned int aktualnaOsU16;
-            XYZStruct OsXYZ[3];
-            unsigned czujnikZliczajacy : 1;
- }SensorStruct;
-
- extern SensorStruct *Sensor;
-
- void DaneSensor(unsigned int polaryzacjaU16);
- void Zgloszenie(void);
- void StanZgloszenia(void);
-# 5 "./flash.h" 2
-
- extern unsigned int daneU16[64 * 8 + 1];
-
- void InicjalizacjaZmiennych(void);
- void ZapisZmiennychDoFLASH(void);
-
-        void Erase(unsigned short HW, unsigned short LW, unsigned short comand);
- unsigned long ReadLatch(unsigned short addrhi, unsigned short addrlo);
- void WriteLatch(unsigned short addrhi1, unsigned short addrlo1,unsigned short addrhi2,unsigned short addrlo2);
-# 8 "main.c" 2
-# 20 "main.c"
-#pragma config OSC = IRCIO67
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-
-#pragma config PWRT = OFF
-#pragma config BOREN = BOHW
-#pragma config BORV = 3
-
-
-#pragma config WDT = OFF
-#pragma config WDTPS = 32768
-
-
-#pragma config PBADEN = ON
-#pragma config LPT1OSC = OFF
-#pragma config MCLRE = ON
-
-
-#pragma config STVREN = ON
-#pragma config LVP = OFF
-#pragma config BBSIZ = 1024
-#pragma config XINST = OFF
-
-
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-
-
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-
-
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-
-
-#pragma config EBTRB = OFF
+volatile UINT NeightAdress1;
+volatile UINT NeightAdress2;
+volatile UINT NeightAdress3;
+volatile UINT NeightAdress4;
+volatile UINT NeightAdress5;
+volatile UINT NeightAdress6;
+volatile UINT NeightAdress7;
+volatile UINT NeightAdress8;
+# 4 "CAN.c" 2
 
 
 
 
 
 
-
-KartaStruct DetectorLedRadar;
-
-struct DaneStruct *Dane ;
-struct FlagStruct Flagi;
-# 98 "main.c"
-UINT ReadFlash(UINT addr){
-    TBLPTR = addr;
-    __asm("TBLRD");
-    return TABLAT;
-}
-
-void main(void)
+static void CAN_SetupClock(void);
+static void CAN_SetupMask(void);
+void CAN_SetupFilter_Ne(void);
+void CAN_Setup(void);
+# 24 "CAN.c"
+void CAN_Setup(void)
 {
 
-    int adr = ReadFlash(0x200000);
-     adr |= ReadFlash(0x200001)<<8;
 
 
-    int zet = adr;
-    INI_All();
+    CANCON = 0x80;
+    while((CANSTAT & 0xE0)!=0x80)
+    {
+        ;
+    }
 
-    RCON = 0xFF;
+    BSEL0 = 0;
+    TXB0CON = 0;
+    RXB0CON = 0;
+    RXB1CON = 0;
+    B0CON = 0;
+    B1CON = 0;
+    PIE3 = 0;
+    IPR3 = 0xFF;
+    PIR3 = 0x00;
+    BIE0 = 0;
+
+    DaneCan.adresCAN = 0x31;
+
+    ECANCON = 0x90;
+
+
+    CAN_SetupClock();
+
+
+    CAN_SetupMask();
+
+    CIOCON = 0xff;
+
+
+
+
+
+    CANCON = 0x00;
+    while((CANSTAT & 0xE0) != 0x00)
+    {
+        ;
+    }
+}
+# 84 "CAN.c"
+static void CAN_SetupMask(void)
+{
+    MSEL0 = 0x50;
+    MSEL1 = 0x55;
+    MSEL2 = 0x55;
+    MSEL3 = 0x55;
+
+
+    RXM0SIDH = 0b00000000;
+    RXM0SIDL = 0b00001011;
+    RXM0EIDH = 0xFF;
+    RXM0EIDL = 0xFF;
+
+
+    RXM1SIDH = 0xFF;
+    RXM1SIDL = 0xFF;
+    RXM1EIDH = 0xFF;
+    RXM1EIDL = 0xFF;
+
+
+    RXM0SIDH = 0x00;
+    RXM0SIDL = 0x00;
+
+
+
+
+    RXF0SIDH = 0x00;
+    RXF0SIDL = 0x01;
+    RXF0SIDLbits.EXIDEN = 1;
+    RXF0EIDH = (BYTE)(DaneCan.adresCAN>>8);
+
+    RXF0EIDL = (BYTE)DaneCan.adresCAN;
+
+    RXF1SIDH = 0x00;
+    RXF1SIDL = 0x01;
+    RXF1SIDLbits.EXIDEN = 1;
+    RXF1EIDH = 0x7F;
+    RXF1EIDL = 0xFF;
+
+    CAN_SetupFilter_Ne();
+
+
+    RXFBCON0 = 0b00000000;
+
+    RXFBCON1 = 0b00010001;
+
+    RXFBCON2 = 0b00010001;
+
+    RXFBCON3 = 0b00010001;
+
+    RXFBCON4 = 0b00010001;
+
+
+
+}
+
+void CAN_SetupFilter_Ne(void)
+{
+
+
+    RXF2SIDH = 0;
+    RXF2SIDL = 0x20;
+    RXF2SIDLbits.EXIDEN = 1;
+    RXF2EIDH = (BYTE)(NeightAdress1>>8);
+    RXF2EIDL = (BYTE)(NeightAdress1 & 0xFF);
+
+
+    RXF3SIDH = 0;
+    RXF3SIDL = 0x20;
+    RXF3SIDLbits.EXIDEN = 1;
+    RXF3EIDH = (BYTE)(NeightAdress2>>8);
+    RXF3EIDL = (BYTE)(NeightAdress2 & 0xFF);
+
+    RXF4SIDH = 0;
+    RXF4SIDL = 0x20;
+    RXF4SIDLbits.EXIDEN = 1;
+    RXF4EIDH = (BYTE)(NeightAdress3>>8);
+    RXF4EIDL = (BYTE)(NeightAdress3 & 0xFF);
+
+    RXF5SIDH = 0;
+    RXF5SIDL = 0x20;
+    RXF5SIDLbits.EXIDEN = 1;
+    RXF5EIDH = (BYTE)(NeightAdress4>>8);
+    RXF5EIDL = (BYTE)(NeightAdress4 & 0xFF);
+
+    RXF6SIDH = 0;
+    RXF6SIDL = 0x20;
+    RXF6SIDLbits.EXIDEN = 1;
+    RXF6EIDH = (BYTE)(NeightAdress5>>8);
+    RXF6EIDL = (BYTE)(NeightAdress5 & 0xFF);
+
+    RXF7SIDH = 0;
+    RXF7SIDL = 0x20;
+    RXF7SIDLbits.EXIDEN = 1;
+    RXF7EIDH = (BYTE)(NeightAdress6>>8);
+    RXF7EIDL = (BYTE)(NeightAdress6 & 0xFF);
+
+    RXF8SIDH = 0;
+    RXF8SIDL = 0x20;
+    RXF8SIDLbits.EXIDEN = 1;
+    RXF8EIDH = (BYTE)(NeightAdress7>>8);
+    RXF8EIDL = (BYTE)(NeightAdress7 & 0xFF);
+
+    RXF9SIDH = 0;
+    RXF9SIDL = 0x20;
+    RXF9SIDLbits.EXIDEN = 1;
+    RXF9EIDH = (BYTE)(NeightAdress8>>8);
+    RXF9EIDL = (BYTE)(NeightAdress8 & 0xFF);
+}
+
+
+
+
+
+
+static void CAN_SetupClock(void)
+{
+    BRGCON1bits.BRP0 = (((32000000/4)/(2*20*50000))-1) & 0b000001;
+    BRGCON1bits.BRP1 = ((((32000000/4)/(2*20*50000))-1) >> 1) & 0b000001;
+    BRGCON1bits.BRP2 = ((((32000000/4)/(2*20*50000))-1) >> 2) & 0b000001;
+    BRGCON1bits.BRP3 = ((((32000000/4)/(2*20*50000))-1) >> 3) & 0b000001;
+    BRGCON1bits.BRP4 = ((((32000000/4)/(2*20*50000))-1) >> 4) & 0b000001;
+    BRGCON1bits.BRP5 = ((((32000000/4)/(2*20*50000))-1) >> 5) & 0b000001;
+
+    BRGCON1bits.SJW0 = 1;
+    BRGCON1bits.SJW1 = 1;
+
+    BRGCON2bits.SEG1PH0 = 1;
+    BRGCON2bits.SEG1PH1 = 1;
+    BRGCON2bits.SEG1PH2 = 1;
+
+    BRGCON2bits.PRSEG2 = 1;
+    BRGCON2bits.PRSEG1 = 0;
+    BRGCON2bits.PRSEG0 = 0;
+
+    BRGCON3bits.SEG2PH0 = 1;
+    BRGCON3bits.SEG2PH1 = 0;
+    BRGCON3bits.SEG2PH2 = 1;
+
+    BRGCON2bits.SAM = 1;
+    BRGCON2bits.SEG2PHTS = 1;
+}
+
+
+
+
+
+
+static void CAN_MoveBuffIntoFrame(BYTE* Ram, BYTE* Buf)
+{
+    BYTE i;
+    for(i=0; i<8; ++i)
+    {
+        Ram[i]=(*(Buf+i));
+    }
+}
+
+
+
+
+
+
+void CAN_SendFrame(mID * message)
+{
+
 
     for(;;)
     {
-        if(DetectorLedRadar.Flags.obsluzWeWy == 1)
+        ECANCON = 0x83;
+        if(!RXB0CONbits.FILHIT3)
         {
-            DetectorLedRadar.Flags.obsluzWeWy = 0;
 
+            break;
         }
-
-        if(TMR1_Update_flag_Get()==1)
+        ECANCON = 0x84;
+        if(!RXB0CONbits.FILHIT3)
         {
-            LED_Update();
-            TMR1_Update_flag_Set(0);
 
+            break;
         }
+        ECANCON = 0x85;
+        if(!RXB0CONbits.FILHIT3)
+        {
 
-
-        TRM_DataTransmition();
-        __asm(" clrwdt");
+            break;
+        }
     }
+
+    while(COMSTATbits.TXWARN)
+    {
+        __asm(" reset");
+    }
+    DetectorLedRadar.timerRamkiTxCANU8 = 0;
+    RXB0EIDL = message->id.v[0];
+    RXB0EIDH = message->id.v[1];
+    RXB0SIDL = ((message->id.v[2]&0xFC)*8) | (message->id.v[2] & (0x03));
+    RXB0SIDLbits.EXID = 1;
+    RXB0SIDH = (BYTE)(message->id.w[1]/32);
+
+    RXB0DLC = 0;
+
+    if(message->message_type==0x02)
+    {
+        RXB0DLCbits.RXRTR = 1;
+    }
+    else
+    {
+        RXB0DLCbits.DLC0 = (message->data_length & 0x0F);
+        RXB0DLCbits.DLC1 = ((message->data_length & 0x0F)>> 1);
+        RXB0DLCbits.DLC2 = ((message->data_length & 0x0F)>> 2);
+        RXB0DLCbits.DLC3 = ((message->data_length & 0x0F)>> 3);
+
+        CAN_MoveBuffIntoFrame(&RXB0D0, message->data);
+    }
+
+    RXB0CONbits.FILHIT3 = 1;
+
+    DetectorLedRadar.Flags.ramkaTx = 1;
+
+}
+
+
+
+
+
+
+BOOL CAN_TakeFrame(mID * message)
+{
+    BYTE k, tempCON;
+
+    k = CANCON&0x0F;
+
+    ECANCON = 0x90 | k;
+
+
+    switch(k)
+    {
+        case 0:
+            tempCON = RXB0CON;
+            break;
+        case 1:
+            tempCON = RXB1CON;
+            break;
+        case 2:
+            tempCON = B0CON;
+            break;
+        case 3:
+            tempCON = B1CON;
+            break;
+        case 4:
+            tempCON = B2CON;
+            break;
+        case 5:
+            tempCON = B3CON;
+            break;
+        case 6:
+            tempCON = B4CON;
+            break;
+        case 7:
+            tempCON = B5CON;
+            break;
+    }
+
+
+    if((tempCON & 0x80) > 0)
+    {
+        message->buffer = RXB0CON & 0x1F;
+        message->id.v[0] = RXB0EIDL;
+        message->id.v[1] = RXB0EIDH;
+        message->id.v[2] = (RXB0SIDL/8) | (RXB0SIDL&0x03);
+        message->id.w[1] |= (WORD)RXB0SIDH*32;
+        message->frame_type=0x03;
+
+
+
+        if(RXB0DLCbits.RXRTR == 0)
+        {
+            message->message_type = 0x01;
+            message->data_length= RXB0DLC & 0x0F;
+            if(message->data_length > 8)
+            {
+
+                switch(k)
+                {
+                    case 0:
+                        RXB0CON = 0;
+                        break;
+                    case 1:
+                        RXB1CON = 0;
+                        break;
+                    case 2:
+                        B0CON = 0;
+                        break;
+                    case 3:
+                        B1CON = 0;
+                        break;
+                    case 4:
+                        B2CON = 0;
+                        break;
+                    case 5:
+                        B3CON = 0;
+                        break;
+                    case 6:
+                        B4CON = 0;
+                        break;
+                    case 7:
+                        B5CON = 0;
+                        break;
+                }
+                return FALSE;
+            }
+            CAN_MoveBuffIntoFrame(message->data, &RXB0D0);
+        }
+
+        else
+        {
+            message->message_type=0x02;
+        }
+
+        switch(k)
+        {
+            case 0:
+                RXB0CON = 0;
+                break;
+            case 1:
+                RXB1CON = 0;
+                break;
+            case 2:
+                B0CON = 0;
+                break;
+            case 3:
+                B1CON = 0;
+                break;
+            case 4:
+                B2CON = 0;
+                break;
+            case 5:
+                B3CON = 0;
+                break;
+            case 6:
+                B4CON = 0;
+                break;
+            case 7:
+                B5CON = 0;
+                break;
+        }
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
+    }
+}
+# 445 "CAN.c"
+void CAN_GenID(mID * message, BYTE frameID)
+{
+
+    message->frame_type = 0x03;
+    message->message_type = 0x01;
+    message->id.w[1] = (WORD)frameID * (WORD)4;
+    message->id.w[0] = DaneCan.adresCAN;
+    message->id.v[2] |= 0x00;
+    message->id.v[1] |= 0x00;
+    message ->id.bits.b16 = 0;
+    message ->id.bits.b17 = 0;
+
+
+
 }

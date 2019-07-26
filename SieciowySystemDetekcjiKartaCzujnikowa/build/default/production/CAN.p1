@@ -1971,8 +1971,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;CAN.c: 44:     BIE0 = 0;
 [e = _BIE0 -> -> 0 `i `uc ]
 "46
-[; ;CAN.c: 46:     DaneCan.adresCAN = 36;
-[e = . _DaneCan 1 -> -> 36 `i `us ]
+[; ;CAN.c: 46:     DaneCan.adresCAN = 60;
+[e = . _DaneCan 1 -> -> 60 `i `us ]
 "48
 [; ;CAN.c: 48:     ECANCON = 0x90;
 [e = _ECANCON -> -> 144 `i `uc ]

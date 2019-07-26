@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "MOC_Funct.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,12 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 1 "./main.h" 1
+# 1 "MOC_Funct.c" 2
+
+
+
+
+
 
 
 
@@ -17910,7 +17914,9 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 4 "./main.h" 2
+# 9 "MOC_Funct.c" 2
+
+# 1 "./CAN.h" 1
 
 
 # 1 "./GenericTypeDefs.h" 1
@@ -18139,7 +18145,42 @@ typedef union _QWORD_VAL
         unsigned char b63:1;
     } bits;
 } QWORD_VAL;
-# 6 "./main.h" 2
+# 3 "./CAN.h" 2
+# 15 "./CAN.h"
+    typedef enum{
+        KARTA,
+        CZUJNIK
+    }TARGET_ENUM;
+
+    typedef struct{
+
+            unsigned char buffer_status;
+
+            unsigned char message_type;
+
+            unsigned char frame_type;
+
+            unsigned char buffer;
+
+
+            DWORD_VAL id;
+            unsigned char data[8];
+            unsigned char data_length;
+    }mID;
+
+    void CAN_Setup(void);
+    BOOL CAN_TakeFrame(mID * message);
+    void CAN_SendFrame(mID * message);
+    void CAN_GenID(mID * message,BYTE frameID);
+    void CAN_SetupFilter_Ne(void);
+# 10 "MOC_Funct.c" 2
+
+# 1 "./main.h" 1
+
+
+
+
+
 
 # 1 "./DetekcjaSasiadow.h" 1
 # 15 "./DetekcjaSasiadow.h"
@@ -18245,52 +18286,7 @@ typedef union _QWORD_VAL
     void zapisUstawienDoEEPROM(void);
     void InterruptHandlerHigh(void);
     void INI_All(void);
-# 1 "main.c" 2
-
-# 1 "./TRM.h" 1
-# 11 "./TRM.h"
-    typedef struct
-    {
-        union
-        {
-            WORD FlagiU16;
-
-            struct
-            {
-                unsigned wyslijRamkeStanu : 1;
-                unsigned wyslijRamkeUczeniaTla : 1;
-                unsigned wyslijRamkeResetuCzujnikow : 1;
-
-            };
-        }Flags;
-
-        WORD adresCAN;
-
-
-    }DaneCanStruct;
-    extern DaneCanStruct DaneCan;
-
-    void TRM_DataTransmition(void);
-# 2 "main.c" 2
-
-
-# 1 "./ISR.h" 1
-# 4 "main.c" 2
-
-# 1 "./TMR1.h" 1
-
-
-
-
-
-
-
-
-UINT8 INI_Timer(void);
-UINT8 TMR1_Timer_reset(void);
-void TMR1_Update_flag_Set(UINT a);
-UINT TMR1_Update_flag_Get(void);
-# 5 "main.c" 2
+# 11 "MOC_Funct.c" 2
 
 # 1 "./LED.h" 1
 # 12 "./LED.h"
@@ -18303,119 +18299,9 @@ UINT LED_Clear(void);
 
 void LOCK_Set(BYTE k);
 BYTE LOCK_Get(void);
-# 6 "main.c" 2
+# 12 "MOC_Funct.c" 2
 
-# 1 "./INI.h" 1
-# 36 "./INI.h"
-void INI_GlobalInterrupt(void);
-void INI_All(void);
-static void Init(void);
-# 7 "main.c" 2
-
-# 1 "./flash.h" 1
-
-
-
-
-# 1 "./sensor.h" 1
-
-
-
-
-        typedef struct
-        {
-            int wartoscRoznicowaS16, aktualneTloS16, poziomTlaS16;
-            unsigned int obliczonaRoznicaZgloszeniaU16;
-            unsigned int obliczonaRoznicaZgloszeniaMaxU16;
-            unsigned int mnoznikU16;
-            unsigned int analogowySetResetU16[2];
-        }XYZStruct;
-
-        typedef struct
- {
-            unsigned int pomiarTlaTimerU16;
-            unsigned int timerWzbudzeniaU16;
-            unsigned int czasZgloszeniaU16;
-            unsigned int czasUsrednianiaTlaU16;
-            unsigned int czasWyjsciaZeWzbudzeniaU16;
-            unsigned int czasStabilizacjiSasiadaU16;
-            unsigned int roznicaZgloszeniaMinU16, roznicaZgloszeniaMaxU16;
-            unsigned int obliczonaWynikowaRoznicaZgloszeniaU16, obliczonaWynikowaRoznicaZgloszeniaMaxU16;
-            unsigned int aktualnaOsU16;
-            XYZStruct OsXYZ[3];
-            unsigned czujnikZliczajacy : 1;
- }SensorStruct;
-
- extern SensorStruct *Sensor;
-
- void DaneSensor(unsigned int polaryzacjaU16);
- void Zgloszenie(void);
- void StanZgloszenia(void);
-# 5 "./flash.h" 2
-
- extern unsigned int daneU16[64 * 8 + 1];
-
- void InicjalizacjaZmiennych(void);
- void ZapisZmiennychDoFLASH(void);
-
-        void Erase(unsigned short HW, unsigned short LW, unsigned short comand);
- unsigned long ReadLatch(unsigned short addrhi, unsigned short addrlo);
- void WriteLatch(unsigned short addrhi1, unsigned short addrlo1,unsigned short addrhi2,unsigned short addrlo2);
-# 8 "main.c" 2
-# 20 "main.c"
-#pragma config OSC = IRCIO67
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-
-#pragma config PWRT = OFF
-#pragma config BOREN = BOHW
-#pragma config BORV = 3
-
-
-#pragma config WDT = OFF
-#pragma config WDTPS = 32768
-
-
-#pragma config PBADEN = ON
-#pragma config LPT1OSC = OFF
-#pragma config MCLRE = ON
-
-
-#pragma config STVREN = ON
-#pragma config LVP = OFF
-#pragma config BBSIZ = 1024
-#pragma config XINST = OFF
-
-
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-
-
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-
-
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-
-
-#pragma config EBTRB = OFF
+# 1 "./MOC_Funct.h" 1
 
 
 
@@ -18423,46 +18309,94 @@ static void Init(void);
 
 
 
-KartaStruct DetectorLedRadar;
+UINT MOC_StanWzbudzenia(void);
+UINT MOC_Wynikowa_wartosc_roznicowa(void);
+UINT MOC_Frame_Counter(void);
+UINT MOC_Aktualna_Temperatura(void);
+UINT MOC_NOTWORK(void);
+UINT MOC_RSSI_ramki(void);
+UINT MOC_LQI_ramki(void);
+UINT MOCK_PrzyspieszenieX(void);
+UINT MOCK_PrzyspieszenieY(void);
+UINT MOCK_PrzyspieszenieZ(void);
+UINT MOCK_Klikniecie_Spadek(void);
+UINT MOCK_Background(void);
 
-struct DaneStruct *Dane ;
-struct FlagStruct Flagi;
-# 98 "main.c"
-UINT ReadFlash(UINT addr){
-    TBLPTR = addr;
-    __asm("TBLRD");
-    return TABLAT;
+UINT MOCK_SoftwareReset(void);
+# 13 "MOC_Funct.c" 2
+
+UINT MOC_StanWzbudzenia(void);
+UINT MOC_Wynikowa_wartosc_roznicowa(void);
+UINT MOC_Frame_Counter(void);
+UINT MOC_Aktualna_Temperatura(void);
+UINT MOC_NOTWORK(void);
+UINT MOC_RSSI_ramki(void);
+UINT MOC_LQI_ramki(void);
+UINT MOCK_PrzyspieszenieX(void);
+UINT MOCK_PrzyspieszenieY(void);
+UINT MOCK_PrzyspieszenieZ(void);
+UINT MOCK_Klikniecie_Spadek(void);
+UINT MOCK_SoftwareReset(void);
+UINT MOCK_Background(void);
+
+UINT MOC_StanWzbudzenia(void)
+{
+    return 1;
 }
 
-void main(void)
+UINT MOC_Wynikowa_wartosc_roznicowa(void)
 {
+    return 0x0220;
+}
 
-    int adr = ReadFlash(0x200000);
-     adr |= ReadFlash(0x200001)<<8;
+UINT MOC_Frame_Counter(void)
+{
+    static UINT zeta = 0x11;
+    return zeta++;
+}
+UINT MOC_Aktualna_Temperatura(void)
+{
+    return 0x1B;
+}
+UINT MOC_NOTWORK(void)
+{
+    return 0xFF;
+}
+UINT MOC_RSSI_ramki(void)
+{
+    return 0xEE;
+}
+
+UINT MOC_LQI_ramki(void)
+{
+    return 0xE1;
+}
 
 
-    int zet = adr;
-    INI_All();
 
-    RCON = 0xFF;
+UINT MOCK_PrzyspieszenieX(void)
+{
+    return 0xFE;
+}
 
-    for(;;)
-    {
-        if(DetectorLedRadar.Flags.obsluzWeWy == 1)
-        {
-            DetectorLedRadar.Flags.obsluzWeWy = 0;
+UINT MOCK_PrzyspieszenieY(void)
+{
+    return 0xFE;
+}
+UINT MOCK_PrzyspieszenieZ(void)
+{
+    return 0xFE;
+}
+UINT MOCK_Klikniecie_Spadek(void)
+{
+    return 0b00000000;
+}
 
-        }
-
-        if(TMR1_Update_flag_Get()==1)
-        {
-            LED_Update();
-            TMR1_Update_flag_Set(0);
-
-        }
-
-
-        TRM_DataTransmition();
-        __asm(" clrwdt");
-    }
+UINT MOCK_SoftwareReset(void)
+{
+    return (RCON>>6) & 0x01;
+}
+UINT MOCK_Background(void)
+{
+    return 8;
 }

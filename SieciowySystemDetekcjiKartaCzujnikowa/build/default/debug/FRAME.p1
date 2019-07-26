@@ -1443,16 +1443,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _ramkaCanRxKarty `S15 ~T0 @X0 -> 5 `i e ]
 [v _ramkaCanTxKarty `S15 ~T0 @X0 1 e ]
 "30
-[; ;FRAME.c: 30: volatile UINT NeightAdress1 = 0;
+[; ;FRAME.c: 30: volatile UINT NeightAdress1 = 10;
 [v _NeightAdress1 `Vui ~T0 @X0 1 e ]
 [i _NeightAdress1
--> -> 0 `i `ui
+-> -> 10 `i `ui
 ]
 "31
-[; ;FRAME.c: 31: volatile UINT NeightAdress2 = 298;
+[; ;FRAME.c: 31: volatile UINT NeightAdress2 = 111;
 [v _NeightAdress2 `Vui ~T0 @X0 1 e ]
 [i _NeightAdress2
--> -> 298 `i `ui
+-> -> 111 `i `ui
 ]
 "32
 [; ;FRAME.c: 32: volatile UINT NeightAdress3 = 0;

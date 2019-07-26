@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "ISR.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
+# 1 "ISR.c" 2
 # 1 "./main.h" 1
 
 
@@ -18245,7 +18245,10 @@ typedef union _QWORD_VAL
     void zapisUstawienDoEEPROM(void);
     void InterruptHandlerHigh(void);
     void INI_All(void);
-# 1 "main.c" 2
+# 1 "ISR.c" 2
+
+# 1 "./ISR.h" 1
+# 2 "ISR.c" 2
 
 # 1 "./TRM.h" 1
 # 11 "./TRM.h"
@@ -18271,11 +18274,7 @@ typedef union _QWORD_VAL
     extern DaneCanStruct DaneCan;
 
     void TRM_DataTransmition(void);
-# 2 "main.c" 2
-
-
-# 1 "./ISR.h" 1
-# 4 "main.c" 2
+# 3 "ISR.c" 2
 
 # 1 "./TMR1.h" 1
 
@@ -18290,7 +18289,7 @@ UINT8 INI_Timer(void);
 UINT8 TMR1_Timer_reset(void);
 void TMR1_Update_flag_Set(UINT a);
 UINT TMR1_Update_flag_Get(void);
-# 5 "main.c" 2
+# 4 "ISR.c" 2
 
 # 1 "./LED.h" 1
 # 12 "./LED.h"
@@ -18303,166 +18302,39 @@ UINT LED_Clear(void);
 
 void LOCK_Set(BYTE k);
 BYTE LOCK_Get(void);
-# 6 "main.c" 2
-
-# 1 "./INI.h" 1
-# 36 "./INI.h"
-void INI_GlobalInterrupt(void);
-void INI_All(void);
-static void Init(void);
-# 7 "main.c" 2
-
-# 1 "./flash.h" 1
-
-
-
-
-# 1 "./sensor.h" 1
-
-
-
-
-        typedef struct
-        {
-            int wartoscRoznicowaS16, aktualneTloS16, poziomTlaS16;
-            unsigned int obliczonaRoznicaZgloszeniaU16;
-            unsigned int obliczonaRoznicaZgloszeniaMaxU16;
-            unsigned int mnoznikU16;
-            unsigned int analogowySetResetU16[2];
-        }XYZStruct;
-
-        typedef struct
- {
-            unsigned int pomiarTlaTimerU16;
-            unsigned int timerWzbudzeniaU16;
-            unsigned int czasZgloszeniaU16;
-            unsigned int czasUsrednianiaTlaU16;
-            unsigned int czasWyjsciaZeWzbudzeniaU16;
-            unsigned int czasStabilizacjiSasiadaU16;
-            unsigned int roznicaZgloszeniaMinU16, roznicaZgloszeniaMaxU16;
-            unsigned int obliczonaWynikowaRoznicaZgloszeniaU16, obliczonaWynikowaRoznicaZgloszeniaMaxU16;
-            unsigned int aktualnaOsU16;
-            XYZStruct OsXYZ[3];
-            unsigned czujnikZliczajacy : 1;
- }SensorStruct;
-
- extern SensorStruct *Sensor;
-
- void DaneSensor(unsigned int polaryzacjaU16);
- void Zgloszenie(void);
- void StanZgloszenia(void);
-# 5 "./flash.h" 2
-
- extern unsigned int daneU16[64 * 8 + 1];
-
- void InicjalizacjaZmiennych(void);
- void ZapisZmiennychDoFLASH(void);
-
-        void Erase(unsigned short HW, unsigned short LW, unsigned short comand);
- unsigned long ReadLatch(unsigned short addrhi, unsigned short addrlo);
- void WriteLatch(unsigned short addrhi1, unsigned short addrlo1,unsigned short addrhi2,unsigned short addrlo2);
-# 8 "main.c" 2
-# 20 "main.c"
-#pragma config OSC = IRCIO67
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-
-#pragma config PWRT = OFF
-#pragma config BOREN = BOHW
-#pragma config BORV = 3
-
-
-#pragma config WDT = OFF
-#pragma config WDTPS = 32768
-
-
-#pragma config PBADEN = ON
-#pragma config LPT1OSC = OFF
-#pragma config MCLRE = ON
-
-
-#pragma config STVREN = ON
-#pragma config LVP = OFF
-#pragma config BBSIZ = 1024
-#pragma config XINST = OFF
-
-
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-
-
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-
-
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-
-
-#pragma config EBTRB = OFF
-
-
-
-
-
-
-
-KartaStruct DetectorLedRadar;
-
-struct DaneStruct *Dane ;
-struct FlagStruct Flagi;
-# 98 "main.c"
-UINT ReadFlash(UINT addr){
-    TBLPTR = addr;
-    __asm("TBLRD");
-    return TABLAT;
-}
-
-void main(void)
+# 5 "ISR.c" 2
+# 16 "ISR.c"
+void __attribute__((picinterrupt(("low_priority")))) ISR_low (void)
 {
 
-    int adr = ReadFlash(0x200000);
-     adr |= ReadFlash(0x200001)<<8;
 
 
-    int zet = adr;
-    INI_All();
-
-    RCON = 0xFF;
-
-    for(;;)
-    {
-        if(DetectorLedRadar.Flags.obsluzWeWy == 1)
+    if(TMR1IF==1)
         {
-            DetectorLedRadar.Flags.obsluzWeWy = 0;
+            TMR1_Timer_reset();
 
+
+            static BYTE ramkaStanuU8=0;
+
+
+            TMR1_Update_flag_Set(1);
+
+            DetectorLedRadar.Flags.obsluzWeWy = 1;
+
+            if(++ramkaStanuU8 > (2*10))
+                {
+                    ramkaStanuU8 = 0;
+                    DaneCan.Flags.wyslijRamkeStanu = 1;
+                }
+
+
+
+            TMR1IF=0;
         }
-
-        if(TMR1_Update_flag_Get()==1)
-        {
-            LED_Update();
-            TMR1_Update_flag_Set(0);
-
-        }
+}
+# 53 "ISR.c"
+void __attribute__((picinterrupt(("high_priority")))) ISR_high (void)
+{
 
 
-        TRM_DataTransmition();
-        __asm(" clrwdt");
-    }
 }
