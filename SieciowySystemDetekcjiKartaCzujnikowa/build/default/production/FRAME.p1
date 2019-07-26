@@ -2102,6 +2102,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "382
 [; ;FRAME.c: 382:             {
 {
+"383
+[; ;FRAME.c: 383:                 Flagi.zapisDoFlash = 1;
+[e = . _Flagi 3 -> -> 1 `i `uc ]
 "384
 [; ;FRAME.c: 384:                 WriteDataToEEPROM();
 [e ( _WriteDataToEEPROM ..  ]
@@ -2172,29 +2175,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _ReadDataToEEPROM ]
 [f ]
 "406
-[; ;FRAME.c: 406:     NVMRead(&NeightAdress1,1,2);
-[e ( _NVMRead (3 , , -> &U _NeightAdress1 `*uc -> -> 1 `i `us -> -> 2 `i `us ]
+[; ;FRAME.c: 406:     NVMRead(&NeightAdress1,4,2);
+[e ( _NVMRead (3 , , -> &U _NeightAdress1 `*uc -> -> 4 `i `us -> -> 2 `i `us ]
 "407
-[; ;FRAME.c: 407:     NVMRead(&NeightAdress2,4,2);
-[e ( _NVMRead (3 , , -> &U _NeightAdress2 `*uc -> -> 4 `i `us -> -> 2 `i `us ]
+[; ;FRAME.c: 407:     NVMRead(&NeightAdress2,7,2);
+[e ( _NVMRead (3 , , -> &U _NeightAdress2 `*uc -> -> 7 `i `us -> -> 2 `i `us ]
 "408
-[; ;FRAME.c: 408:     NVMRead(&NeightAdress3,7,2);
-[e ( _NVMRead (3 , , -> &U _NeightAdress3 `*uc -> -> 7 `i `us -> -> 2 `i `us ]
+[; ;FRAME.c: 408:     NVMRead(&NeightAdress3,10,2);
+[e ( _NVMRead (3 , , -> &U _NeightAdress3 `*uc -> -> 10 `i `us -> -> 2 `i `us ]
 "409
-[; ;FRAME.c: 409:     NVMRead(&NeightAdress4,10,2);
-[e ( _NVMRead (3 , , -> &U _NeightAdress4 `*uc -> -> 10 `i `us -> -> 2 `i `us ]
+[; ;FRAME.c: 409:     NVMRead(&NeightAdress4,13,2);
+[e ( _NVMRead (3 , , -> &U _NeightAdress4 `*uc -> -> 13 `i `us -> -> 2 `i `us ]
 "410
-[; ;FRAME.c: 410:     NVMRead(&NeightAdress5,13,2);
-[e ( _NVMRead (3 , , -> &U _NeightAdress5 `*uc -> -> 13 `i `us -> -> 2 `i `us ]
+[; ;FRAME.c: 410:     NVMRead(&NeightAdress5,16,2);
+[e ( _NVMRead (3 , , -> &U _NeightAdress5 `*uc -> -> 16 `i `us -> -> 2 `i `us ]
 "411
-[; ;FRAME.c: 411:     NVMRead(&NeightAdress6,16,2);
-[e ( _NVMRead (3 , , -> &U _NeightAdress6 `*uc -> -> 16 `i `us -> -> 2 `i `us ]
+[; ;FRAME.c: 411:     NVMRead(&NeightAdress6,19,2);
+[e ( _NVMRead (3 , , -> &U _NeightAdress6 `*uc -> -> 19 `i `us -> -> 2 `i `us ]
 "412
-[; ;FRAME.c: 412:     NVMRead(&NeightAdress7,19,2);
-[e ( _NVMRead (3 , , -> &U _NeightAdress7 `*uc -> -> 19 `i `us -> -> 2 `i `us ]
+[; ;FRAME.c: 412:     NVMRead(&NeightAdress7,22,2);
+[e ( _NVMRead (3 , , -> &U _NeightAdress7 `*uc -> -> 22 `i `us -> -> 2 `i `us ]
 "413
-[; ;FRAME.c: 413:     NVMRead(&NeightAdress8,22,2);
-[e ( _NVMRead (3 , , -> &U _NeightAdress8 `*uc -> -> 22 `i `us -> -> 2 `i `us ]
+[; ;FRAME.c: 413:     NVMRead(&NeightAdress8,25,2);
+[e ( _NVMRead (3 , , -> &U _NeightAdress8 `*uc -> -> 25 `i `us -> -> 2 `i `us ]
 "416
 [; ;FRAME.c: 416: }
 [e :UE 1161 ]
@@ -2208,29 +2211,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _WriteDataToEEPROM ]
 [f ]
 "421
-[; ;FRAME.c: 421:     NVMWrite(&NeightAdress1,1,2);
-[e ( _NVMWrite (3 , , -> &U _NeightAdress1 `*uc -> -> 1 `i `us -> -> 2 `i `us ]
+[; ;FRAME.c: 421:     NVMWrite(&NeightAdress1,4,2);
+[e ( _NVMWrite (3 , , -> &U _NeightAdress1 `*uc -> -> 4 `i `us -> -> 2 `i `us ]
 "422
-[; ;FRAME.c: 422:     NVMWrite(&NeightAdress2,4,2);
-[e ( _NVMWrite (3 , , -> &U _NeightAdress2 `*uc -> -> 4 `i `us -> -> 2 `i `us ]
+[; ;FRAME.c: 422:     NVMWrite(&NeightAdress2,7,2);
+[e ( _NVMWrite (3 , , -> &U _NeightAdress2 `*uc -> -> 7 `i `us -> -> 2 `i `us ]
 "423
-[; ;FRAME.c: 423:     NVMWrite(&NeightAdress3,7,2);
-[e ( _NVMWrite (3 , , -> &U _NeightAdress3 `*uc -> -> 7 `i `us -> -> 2 `i `us ]
+[; ;FRAME.c: 423:     NVMWrite(&NeightAdress3,10,2);
+[e ( _NVMWrite (3 , , -> &U _NeightAdress3 `*uc -> -> 10 `i `us -> -> 2 `i `us ]
 "424
-[; ;FRAME.c: 424:     NVMWrite(&NeightAdress4,10,2);
-[e ( _NVMWrite (3 , , -> &U _NeightAdress4 `*uc -> -> 10 `i `us -> -> 2 `i `us ]
+[; ;FRAME.c: 424:     NVMWrite(&NeightAdress4,13,2);
+[e ( _NVMWrite (3 , , -> &U _NeightAdress4 `*uc -> -> 13 `i `us -> -> 2 `i `us ]
 "425
-[; ;FRAME.c: 425:     NVMWrite(&NeightAdress5,13,2);
-[e ( _NVMWrite (3 , , -> &U _NeightAdress5 `*uc -> -> 13 `i `us -> -> 2 `i `us ]
+[; ;FRAME.c: 425:     NVMWrite(&NeightAdress5,16,2);
+[e ( _NVMWrite (3 , , -> &U _NeightAdress5 `*uc -> -> 16 `i `us -> -> 2 `i `us ]
 "426
-[; ;FRAME.c: 426:     NVMWrite(&NeightAdress6,16,2);
-[e ( _NVMWrite (3 , , -> &U _NeightAdress6 `*uc -> -> 16 `i `us -> -> 2 `i `us ]
+[; ;FRAME.c: 426:     NVMWrite(&NeightAdress6,19,2);
+[e ( _NVMWrite (3 , , -> &U _NeightAdress6 `*uc -> -> 19 `i `us -> -> 2 `i `us ]
 "427
-[; ;FRAME.c: 427:     NVMWrite(&NeightAdress7,19,2);
-[e ( _NVMWrite (3 , , -> &U _NeightAdress7 `*uc -> -> 19 `i `us -> -> 2 `i `us ]
+[; ;FRAME.c: 427:     NVMWrite(&NeightAdress7,22,2);
+[e ( _NVMWrite (3 , , -> &U _NeightAdress7 `*uc -> -> 22 `i `us -> -> 2 `i `us ]
 "428
-[; ;FRAME.c: 428:     NVMWrite(&NeightAdress8,22,2);
-[e ( _NVMWrite (3 , , -> &U _NeightAdress8 `*uc -> -> 22 `i `us -> -> 2 `i `us ]
+[; ;FRAME.c: 428:     NVMWrite(&NeightAdress8,25,2);
+[e ( _NVMWrite (3 , , -> &U _NeightAdress8 `*uc -> -> 25 `i `us -> -> 2 `i `us ]
 "430
 [; ;FRAME.c: 430: }
 [e :UE 1162 ]

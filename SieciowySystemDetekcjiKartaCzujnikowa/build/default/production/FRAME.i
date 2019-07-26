@@ -18656,7 +18656,7 @@ static void FRAME_DeviceReset(mID *message)
             Flagi.pomiarTla = 1;
             if(message->data[1])
             {
-
+                Flagi.zapisDoFlash = 1;
                 WriteDataToEEPROM();
             }
         }
@@ -18679,14 +18679,14 @@ static void FRAME_DeviceReset(mID *message)
 
 void ReadDataToEEPROM(void)
 {
-    NVMRead(&NeightAdress1,1,2);
-    NVMRead(&NeightAdress2,4,2);
-    NVMRead(&NeightAdress3,7,2);
-    NVMRead(&NeightAdress4,10,2);
-    NVMRead(&NeightAdress5,13,2);
-    NVMRead(&NeightAdress6,16,2);
-    NVMRead(&NeightAdress7,19,2);
-    NVMRead(&NeightAdress8,22,2);
+    NVMRead(&NeightAdress1,4,2);
+    NVMRead(&NeightAdress2,7,2);
+    NVMRead(&NeightAdress3,10,2);
+    NVMRead(&NeightAdress4,13,2);
+    NVMRead(&NeightAdress5,16,2);
+    NVMRead(&NeightAdress6,19,2);
+    NVMRead(&NeightAdress7,22,2);
+    NVMRead(&NeightAdress8,25,2);
 
 
 }
@@ -18694,14 +18694,14 @@ void ReadDataToEEPROM(void)
 void WriteDataToEEPROM(void)
 {
 
-    NVMWrite(&NeightAdress1,1,2);
-    NVMWrite(&NeightAdress2,4,2);
-    NVMWrite(&NeightAdress3,7,2);
-    NVMWrite(&NeightAdress4,10,2);
-    NVMWrite(&NeightAdress5,13,2);
-    NVMWrite(&NeightAdress6,16,2);
-    NVMWrite(&NeightAdress7,19,2);
-    NVMWrite(&NeightAdress8,22,2);
+    NVMWrite(&NeightAdress1,4,2);
+    NVMWrite(&NeightAdress2,7,2);
+    NVMWrite(&NeightAdress3,10,2);
+    NVMWrite(&NeightAdress4,13,2);
+    NVMWrite(&NeightAdress5,16,2);
+    NVMWrite(&NeightAdress6,19,2);
+    NVMWrite(&NeightAdress7,22,2);
+    NVMWrite(&NeightAdress8,25,2);
 
 }
 

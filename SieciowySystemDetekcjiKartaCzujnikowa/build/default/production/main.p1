@@ -1300,9 +1300,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "32473
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32473: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"18 main.c
-[p x IDLOC0 = 100u; ]
-"21
+"21 main.c
 [p x OSC = IRCIO67 ]
 "22
 [p x FCMEN = OFF ]

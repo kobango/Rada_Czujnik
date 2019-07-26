@@ -15,7 +15,7 @@
 // PIC18F4680 Configuration Bit Settings
 
 // 'C' source line config statements
-#pragma config IDLOC0 = 100u;
+//#pragma config IDLOC0 =   100u;
 
 // CONFIG1H
 #pragma config OSC = IRCIO67    // Oscillator Selection bits (Internal oscillator block, port function on RA6 and RA7)

@@ -18362,10 +18362,7 @@ static void Init(void);
  unsigned long ReadLatch(unsigned short addrhi, unsigned short addrlo);
  void WriteLatch(unsigned short addrhi1, unsigned short addrlo1,unsigned short addrhi2,unsigned short addrlo2);
 # 8 "main.c" 2
-# 18 "main.c"
-#pragma config IDLOC0 = 100u;
-
-
+# 21 "main.c"
 #pragma config OSC = IRCIO67
 #pragma config FCMEN = OFF
 #pragma config IESO = OFF
