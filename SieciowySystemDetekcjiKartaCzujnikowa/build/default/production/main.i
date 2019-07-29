@@ -18312,55 +18312,10 @@ void INI_All(void);
 static void Init(void);
 # 7 "main.c" 2
 
-# 1 "./flash.h" 1
-
-
-
-
-# 1 "./sensor.h" 1
-
-
-
-
-        typedef struct
-        {
-            int wartoscRoznicowaS16, aktualneTloS16, poziomTlaS16;
-            unsigned int obliczonaRoznicaZgloszeniaU16;
-            unsigned int obliczonaRoznicaZgloszeniaMaxU16;
-            unsigned int mnoznikU16;
-            unsigned int analogowySetResetU16[2];
-        }XYZStruct;
-
-        typedef struct
- {
-            unsigned int pomiarTlaTimerU16;
-            unsigned int timerWzbudzeniaU16;
-            unsigned int czasZgloszeniaU16;
-            unsigned int czasUsrednianiaTlaU16;
-            unsigned int czasWyjsciaZeWzbudzeniaU16;
-            unsigned int czasStabilizacjiSasiadaU16;
-            unsigned int roznicaZgloszeniaMinU16, roznicaZgloszeniaMaxU16;
-            unsigned int obliczonaWynikowaRoznicaZgloszeniaU16, obliczonaWynikowaRoznicaZgloszeniaMaxU16;
-            unsigned int aktualnaOsU16;
-            XYZStruct OsXYZ[3];
-            unsigned czujnikZliczajacy : 1;
- }SensorStruct;
-
- extern SensorStruct *Sensor;
-
- void DaneSensor(unsigned int polaryzacjaU16);
- void Zgloszenie(void);
- void StanZgloszenia(void);
-# 5 "./flash.h" 2
-
- extern unsigned int daneU16[64 * 8 + 1];
-
- void InicjalizacjaZmiennych(void);
- void ZapisZmiennychDoFLASH(void);
-
-        void Erase(unsigned short HW, unsigned short LW, unsigned short comand);
- unsigned long ReadLatch(unsigned short addrhi, unsigned short addrlo);
- void WriteLatch(unsigned short addrhi1, unsigned short addrlo1,unsigned short addrhi2,unsigned short addrlo2);
+# 1 "./FLASH.h" 1
+# 12 "./FLASH.h"
+UINT FLASH_Read(long int addr);
+void FLASH_Write(long int addr,UINT val);
 # 8 "main.c" 2
 # 20 "main.c"
 #pragma config OSC = IRCIO67
@@ -18427,21 +18382,22 @@ KartaStruct DetectorLedRadar;
 
 struct DaneStruct *Dane ;
 struct FlagStruct Flagi;
-# 98 "main.c"
-UINT ReadFlash(UINT addr){
-    TBLPTR = addr;
-    __asm("TBLRD");
-    return TABLAT;
-}
-
+# 100 "main.c"
 void main(void)
 {
 
-    int adr = ReadFlash(0x200000);
-     adr |= ReadFlash(0x200001)<<8;
+    int adr = FLASH_Read(0x200000);
+     adr |= FLASH_Read(0x200001)<<8;
 
 
-    int zet = adr;
+
+     FLASH_Write(0x200000,0x76);
+     FLASH_Write(0x200001,0x00);
+
+     adr = FLASH_Read(0x200000);
+     adr |= FLASH_Read(0x200001)<<8;
+
+    DaneCan.adresCAN = adr;
     INI_All();
 
     RCON = 0xFF;

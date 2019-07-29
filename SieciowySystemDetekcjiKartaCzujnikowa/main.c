@@ -5,7 +5,7 @@
 #include "TMR1.h"
 #include "LED.h"
 #include "INI.h"
-#include "flash.h"
+#include "FLASH.h"
 
 
 // PIC18F26K80 Configuration Bit Settings
@@ -95,20 +95,23 @@ struct FlagStruct Flagi;
 * Program main loop
 *****************************************************************************************/
 
-UINT ReadFlash(UINT addr){
-    TBLPTR = addr;
-    asm("TBLRD");
-    return TABLAT;
-}
+
 
 void main(void)
 {
    
-    int adr = ReadFlash(0x200000);
-     adr |= ReadFlash(0x200001)<<8;
+    int adr = FLASH_Read(0x200000);
+     adr |= FLASH_Read(0x200001)<<8;
      
+     
+     
+     FLASH_Write(0x200000,0x76);
+     FLASH_Write(0x200001,0x00);
     
-    int zet = adr;
+     adr = FLASH_Read(0x200000);
+     adr |= FLASH_Read(0x200001)<<8;
+     
+    DaneCan.adresCAN  = adr;
     INI_All();
     //po inicjalizacji kasuj RCON
     RCON = 0xFF;

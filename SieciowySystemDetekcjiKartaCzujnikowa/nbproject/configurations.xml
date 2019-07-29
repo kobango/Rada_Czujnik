@@ -17,6 +17,7 @@
       <itemPath>MOC_Funct.h</itemPath>
       <itemPath>DetekcjaSasiadow.h</itemPath>
       <itemPath>EEPROM.h</itemPath>
+      <itemPath>FLASH.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -38,6 +39,7 @@
       <itemPath>MOC_Funct.c</itemPath>
       <itemPath>DetekcjaSasiadow.c</itemPath>
       <itemPath>EEPROM.c</itemPath>
+      <itemPath>FLASH.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -174,6 +176,7 @@
         <property key="ToolFirmwareFilePath" value=""/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="false"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
@@ -188,7 +191,7 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-ffff"/>
-        <property key="poweroptions.powerenable" value="true"/>
+        <property key="poweroptions.powerenable" value="false"/>
         <property key="programmertogo.imagename" value=""/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>

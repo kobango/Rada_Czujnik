@@ -18679,14 +18679,46 @@ static void FRAME_DeviceReset(mID *message)
 
 void ReadDataToEEPROM(void)
 {
-    NVMRead(&NeightAdress1,4,2);
-    NVMRead(&NeightAdress2,7,2);
-    NVMRead(&NeightAdress3,10,2);
-    NVMRead(&NeightAdress4,13,2);
-    NVMRead(&NeightAdress5,16,2);
-    NVMRead(&NeightAdress6,19,2);
-    NVMRead(&NeightAdress7,22,2);
-    NVMRead(&NeightAdress8,25,2);
+    NVMRead(&NeightAdress1,10,2);
+    if(NeightAdress1==0xFFFF)
+    {
+        NeightAdress1=0x0000;
+    }
+    NVMRead(&NeightAdress2,20,2);
+    if(NeightAdress2==0xFFFF)
+    {
+        NeightAdress2=0x0000;
+    }
+    NVMRead(&NeightAdress3,30,2);
+    if(NeightAdress3==0xFFFF)
+    {
+        NeightAdress3=0x0000;
+    }
+    NVMRead(&NeightAdress4,40,2);
+    if(NeightAdress4==0xFFFF)
+    {
+        NeightAdress4=0x0000;
+    }
+    NVMRead(&NeightAdress5,50,2);
+    if(NeightAdress5==0xFFFF)
+    {
+        NeightAdress5=0x0000;
+    }
+    NVMRead(&NeightAdress6,60,2);
+    if(NeightAdress6==0xFFFF)
+    {
+        NeightAdress6=0x0000;
+    }
+    NVMRead(&NeightAdress7,70,2);
+    if(NeightAdress7==0xFFFF)
+    {
+        NeightAdress7=0x0000;
+    }
+    NVMRead(&NeightAdress8,80,2);
+    if(NeightAdress8==0xFFFF)
+    {
+        NeightAdress8=0x0000;
+    }
 
 
 }
@@ -18694,14 +18726,14 @@ void ReadDataToEEPROM(void)
 void WriteDataToEEPROM(void)
 {
 
-    NVMWrite(&NeightAdress1,4,2);
-    NVMWrite(&NeightAdress2,7,2);
-    NVMWrite(&NeightAdress3,10,2);
-    NVMWrite(&NeightAdress4,13,2);
-    NVMWrite(&NeightAdress5,16,2);
-    NVMWrite(&NeightAdress6,19,2);
-    NVMWrite(&NeightAdress7,22,2);
-    NVMWrite(&NeightAdress8,25,2);
+    NVMWrite(&NeightAdress1,10,8);
+    NVMWrite(&NeightAdress2,20,8);
+    NVMWrite(&NeightAdress3,30,8);
+    NVMWrite(&NeightAdress4,40,8);
+    NVMWrite(&NeightAdress5,50,8);
+    NVMWrite(&NeightAdress6,60,8);
+    NVMWrite(&NeightAdress7,70,8);
+    NVMWrite(&NeightAdress8,80,8);
 
 }
 
@@ -18734,7 +18766,7 @@ static void FRAME_Plot(mID *message)
 
 static void FRAME_MapPosition(mID *message)
 {
-# 476 "FRAME.c"
+# 508 "FRAME.c"
 }
 
 
@@ -18769,7 +18801,7 @@ static void FRAME_SoftwareVersion(mID *message)
 static void FRAME_AnalogValue(mID *message, WORD set)
 {
     WORD i;
-# 525 "FRAME.c"
+# 557 "FRAME.c"
 }
 
 
@@ -18860,7 +18892,7 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
          CAN_SetupFilter_Ne();
 
         }
-# 642 "FRAME.c"
+# 674 "FRAME.c"
     }
 }
 
@@ -18943,7 +18975,7 @@ void FRAME_HandleCanFrame(mID * message)
         message->id.v[2] = identyfikator*4;
         CAN_GenID(message,identyfikator);
         CAN_SendFrame(message);
-# 734 "FRAME.c"
+# 766 "FRAME.c"
        while(RXB0CONbits.FILHIT3)
        {
            if(TXB0CONbits.TXERR == 1){

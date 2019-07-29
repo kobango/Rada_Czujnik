@@ -26,11 +26,11 @@ BOOL NVMalloc(WORD size, WORD *location)
 BOOL NVMInit(void)
 {
     BOOL result = TRUE;
-
+    UINT NeightAdress_Example = 0xFFFF;
     nextEEPosition = 0;
 
     result &= NVMalloc(sizeof(KartaStruct), &ustawieniaKarty);
-    result &= NVMalloc(8*sizeof(NeightAdress1), &neighborsAdress);
+    result &= NVMalloc(8*sizeof(NeightAdress_Example), &neighborsAdress);
     
 
     return result;

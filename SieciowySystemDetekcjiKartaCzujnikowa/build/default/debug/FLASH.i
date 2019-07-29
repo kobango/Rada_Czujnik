@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "FLASH.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,12 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 1 "./main.h" 1
+# 1 "FLASH.c" 2
+
+
+
+
+
 
 
 
@@ -17910,7 +17914,14 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\xc.h" 2 3
-# 4 "./main.h" 2
+# 9 "FLASH.c" 2
+
+# 1 "./FLASH.h" 1
+# 10 "./FLASH.h"
+# 1 "./main.h" 1
+
+
+
 
 
 # 1 "./GenericTypeDefs.h" 1
@@ -18245,180 +18256,52 @@ typedef union _QWORD_VAL
     void zapisUstawienDoEEPROM(void);
     void InterruptHandlerHigh(void);
     void INI_All(void);
-# 1 "main.c" 2
-
-# 1 "./TRM.h" 1
-# 11 "./TRM.h"
-    typedef struct
-    {
-        union
-        {
-            WORD FlagiU16;
-
-            struct
-            {
-                unsigned wyslijRamkeStanu : 1;
-                unsigned wyslijRamkeUczeniaTla : 1;
-                unsigned wyslijRamkeResetuCzujnikow : 1;
-
-            };
-        }Flags;
-
-        WORD adresCAN;
+# 10 "./FLASH.h" 2
 
 
-    }DaneCanStruct;
-    extern DaneCanStruct DaneCan;
-
-    void TRM_DataTransmition(void);
-# 2 "main.c" 2
-
-
-# 1 "./ISR.h" 1
-# 4 "main.c" 2
-
-# 1 "./TMR1.h" 1
-
-
-
-
-
-
-
-
-UINT8 INI_Timer(void);
-UINT8 TMR1_Timer_reset(void);
-void TMR1_Update_flag_Set(UINT a);
-UINT TMR1_Update_flag_Get(void);
-# 5 "main.c" 2
-
-# 1 "./LED.h" 1
-# 12 "./LED.h"
-void INI_LED_Start(void);
-UINT8 LED_Update(void);
-void Fulfillment_Lvl_Set(UINT a);
-UINT Fulfillment_Lvl_Get(void);
-UINT LED_Error(void);
-UINT LED_Clear(void);
-
-void LOCK_Set(BYTE k);
-BYTE LOCK_Get(void);
-# 6 "main.c" 2
-
-# 1 "./INI.h" 1
-# 36 "./INI.h"
-void INI_GlobalInterrupt(void);
-void INI_All(void);
-static void Init(void);
-# 7 "main.c" 2
-
-# 1 "./FLASH.h" 1
-# 12 "./FLASH.h"
 UINT FLASH_Read(long int addr);
 void FLASH_Write(long int addr,UINT val);
-# 8 "main.c" 2
-# 20 "main.c"
-#pragma config OSC = IRCIO67
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-
-#pragma config PWRT = OFF
-#pragma config BOREN = BOHW
-#pragma config BORV = 3
-
-
-#pragma config WDT = OFF
-#pragma config WDTPS = 32768
-
-
-#pragma config PBADEN = ON
-#pragma config LPT1OSC = OFF
-#pragma config MCLRE = ON
-
-
-#pragma config STVREN = ON
-#pragma config LVP = OFF
-#pragma config BBSIZ = 1024
-#pragma config XINST = OFF
-
-
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-
-
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-
-
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-
-
-#pragma config EBTRB = OFF
+# 10 "FLASH.c" 2
 
 
 
+UINT FLASH_Read(long int addr);
+void FLASH_Write(long int addr,UINT val);
 
-
-
-
-KartaStruct DetectorLedRadar;
-
-struct DaneStruct *Dane ;
-struct FlagStruct Flagi;
-# 100 "main.c"
-void main(void)
+UINT FLASH_Read(long int addr)
 {
+    TBLPTR = addr;
+    __asm("TBLRD;");
+    return TABLAT;
+}
 
-    int adr = FLASH_Read(0x200000);
-     adr |= FLASH_Read(0x200001)<<8;
-
-
-
-     FLASH_Write(0x200000,0x76);
-     FLASH_Write(0x200001,0x00);
-
-     adr = FLASH_Read(0x200000);
-     adr |= FLASH_Read(0x200001)<<8;
-
-    DaneCan.adresCAN = adr;
-    INI_All();
-
-    RCON = 0xFF;
-
-    for(;;)
-    {
-        if(DetectorLedRadar.Flags.obsluzWeWy == 1)
-        {
-            DetectorLedRadar.Flags.obsluzWeWy = 0;
-
-        }
-
-        if(TMR1_Update_flag_Get()==1)
-        {
-            LED_Update();
-            TMR1_Update_flag_Set(0);
-
-        }
+void FLASH_Write(long int addr,UINT val)
+{
+    UINT *flashWrBufPtr = &val;
+    int i;
+   UINT GIEBitValue = INTCONbits.GIE;
 
 
-        TRM_DataTransmition();
-        __asm(" clrwdt");
-    }
+    TBLPTR = addr;
+
+
+
+    TABLAT = (flashWrBufPtr[0] >> 8);
+    __asm("TBLWT*");
+    TABLAT = (flashWrBufPtr[0] & 0xff);
+    __asm("TBLWT*");
+
+
+    TBLPTR = addr;
+
+    EECON1bits.EEPGD = 1;
+    EECON1bits.CFGS = 0;
+    EECON1bits.WREN = 1;
+
+    INTCONbits.GIE = 0;
+    EECON2 = 0x55;
+    EECON2 = 0xAA;
+    EECON1bits.WR = 1;
+    INTCONbits.GIE = GIEBitValue;
+    EECON1bits.WREN = 0;
 }

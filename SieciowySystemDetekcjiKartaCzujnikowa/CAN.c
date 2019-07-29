@@ -43,7 +43,7 @@ void CAN_Setup(void)
     PIR3 = 0x00;
     BIE0 = 0;
     
-    DaneCan.adresCAN = 60;
+    
     // Enter CAN module into Mode 2
     ECANCON = 0x90;
 
@@ -133,7 +133,7 @@ static void CAN_SetupMask(void)
     
     RXFBCON4 = 0b00010001;
     // Wlacz filtr 0, 1 i 2 
-    //RXFCON0 = 0x07; // ZAPAMIETAC
+    RXFCON0 = 0b01111111; // ZAPAMIETAC
     
 }
 

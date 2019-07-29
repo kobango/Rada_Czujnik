@@ -1393,6 +1393,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EEPROM.c: 28:     BOOL result = TRUE;
 [v _result `E10433 ~T0 @X0 1 a ]
 [e = _result . `E10433 1 ]
+"29
+[; ;EEPROM.c: 29:     UINT NeightAdress_Example = 0xFFFF;
+[v _NeightAdress_Example `ui ~T0 @X0 1 a ]
+[e = _NeightAdress_Example -> 65535 `ui ]
 "30
 [; ;EEPROM.c: 30:     nextEEPosition = 0;
 [e = _nextEEPosition -> -> 0 `i `us ]
@@ -1400,8 +1404,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;EEPROM.c: 32:     result &= NVMalloc(sizeof(KartaStruct), &ustawieniaKarty);
 [e =& _result -> ( _NVMalloc (2 , -> -> # `S1109 `ui `us &U _ustawieniaKarty `E10433 ]
 "33
-[; ;EEPROM.c: 33:     result &= NVMalloc(8*sizeof(NeightAdress1), &neighborsAdress);
-[e =& _result -> ( _NVMalloc (2 , -> * -> -> 8 `i `ui -> # _NeightAdress1 `ui `us &U _neighborsAdress `E10433 ]
+[; ;EEPROM.c: 33:     result &= NVMalloc(8*sizeof(NeightAdress_Example), &neighborsAdress);
+[e =& _result -> ( _NVMalloc (2 , -> * -> -> 8 `i `ui -> # _NeightAdress_Example `ui `us &U _neighborsAdress `E10433 ]
 "36
 [; ;EEPROM.c: 36:     return result;
 [e ) _result ]
@@ -1462,7 +1466,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "63
 [; ;EEPROM.c: 63:     static BYTE GIE_Status;
-[v F10786 `uc ~T0 @X0 1 s GIE_Status ]
+[v F10787 `uc ~T0 @X0 1 s GIE_Status ]
 "65
 [; ;EEPROM.c: 65:     EEADRH = (BYTE)(Address>>8);
 [e = _EEADRH -> >> -> _Address `ui -> 8 `i `uc ]
@@ -1477,7 +1481,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
 "69
 [; ;EEPROM.c: 69:     GIE_Status = INTCONbits.GIE;
-[e = F10786 . . _INTCONbits 1 7 ]
+[e = F10787 . . _INTCONbits 1 7 ]
 "70
 [; ;EEPROM.c: 70:     INTCONbits.GIE = 0;
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
@@ -1492,7 +1496,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
 "74
 [; ;EEPROM.c: 74:     INTCONbits.GIE = GIE_Status;
-[e = . . _INTCONbits 1 7 F10786 ]
+[e = . . _INTCONbits 1 7 F10787 ]
 "75
 [; ;EEPROM.c: 75:     EECON1bits.WREN = 0;
 [e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]

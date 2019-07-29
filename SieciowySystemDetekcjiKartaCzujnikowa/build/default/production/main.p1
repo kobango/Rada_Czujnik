@@ -39,13 +39,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./main.h: 73:     struct FlagStruct{
 [s S1107 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 `S1108 1 `uc 1 ]
 [n S1107 FlagStruct pomiarTla detekcja zgloszenie zapisDoFlash wykonanoZapisDoFlash pomiarAccelerometer wykonanoReset aktualizacjaSasiadow CAN frameCounterU8 ]
-"32310 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32310: extern volatile __uint24 TBLPTR __attribute__((address(0xFF6)));
-[v _TBLPTR `Vum ~T0 @X0 0 e@4086 ]
-"32302
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32302: extern volatile unsigned char TABLAT __attribute__((address(0xFF5)));
-[v _TABLAT `Vuc ~T0 @X0 0 e@4085 ]
 [p mainexit ]
+"12 ./FLASH.h
+[; ;./FLASH.h: 12: UINT FLASH_Read(long int addr);
+[v _FLASH_Read `(ui ~T0 @X0 0 ef1`l ]
+"13
+[; ;./FLASH.h: 13: void FLASH_Write(long int addr,UINT val);
+[v _FLASH_Write `(v ~T0 @X0 0 ef2`l`ui ]
+"18 ./TRM.h
+[; ;./TRM.h: 18:             {
+[s S1114 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1114 . wyslijRamkeStanu wyslijRamkeUczeniaTla wyslijRamkeResetuCzujnikow ]
+"14
+[; ;./TRM.h: 14:         {
+[u S1113 `us 1 `S1114 1 ]
+[n S1113 . FlagiU16 . ]
+"12
+[; ;./TRM.h: 12:     {
+[s S1112 `S1113 1 `us 1 ]
+[n S1112 . Flags adresCAN ]
+"30
+[; ;./TRM.h: 30:     extern DaneCanStruct DaneCan;
+[v _DaneCan `S1112 ~T0 @X0 0 e ]
 "37 ./INI.h
 [; ;./INI.h: 37: void INI_All(void);
 [v _INI_All `(v ~T0 @X0 0 ef ]
@@ -1378,102 +1393,92 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _Dane `*S1106 ~T0 @X0 1 e ]
 "83
 [v _Flagi `S1107 ~T0 @X0 1 e ]
-"98
-[; ;main.c: 98: UINT ReadFlash(UINT addr){
-[v _ReadFlash `(ui ~T0 @X0 1 ef1`ui ]
-{
-[e :U _ReadFlash ]
-[v _addr `ui ~T0 @X0 1 r1 ]
-[f ]
-"99
-[; ;main.c: 99:     TBLPTR = addr;
-[e = _TBLPTR -> _addr `um ]
-"100
-[; ;main.c: 100:     __asm("TBLRD");
-[; <" TBLRD ;# ">
-"101
-[; ;main.c: 101:     return TABLAT;
-[e ) -> _TABLAT `ui ]
-[e $UE 1117  ]
-"102
-[; ;main.c: 102: }
-[e :UE 1117 ]
-}
 [v $root$_main `(v ~T0 @X0 0 e ]
-"104
-[; ;main.c: 104: void main(void)
+"100
+[; ;main.c: 100: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"105
-[; ;main.c: 105: {
+"101
+[; ;main.c: 101: {
 {
 [e :U _main ]
 [f ]
-"107
-[; ;main.c: 107:     int adr = ReadFlash(0x200000);
+"103
+[; ;main.c: 103:     int adr = FLASH_Read(0x200000);
 [v _adr `i ~T0 @X0 1 a ]
-[e = _adr -> ( _ReadFlash (1 -> -> 2097152 `l `ui `i ]
+[e = _adr -> ( _FLASH_Read (1 -> 2097152 `l `i ]
+"104
+[; ;main.c: 104:      adr |= FLASH_Read(0x200001)<<8;
+[e =| _adr -> << ( _FLASH_Read (1 -> 2097153 `l -> 8 `i `i ]
 "108
-[; ;main.c: 108:      adr |= ReadFlash(0x200001)<<8;
-[e =| _adr -> << ( _ReadFlash (1 -> -> 2097153 `l `ui -> 8 `i `i ]
+[; ;main.c: 108:      FLASH_Write(0x200000,0x76);
+[e ( _FLASH_Write (2 , -> 2097152 `l -> -> 118 `i `ui ]
+"109
+[; ;main.c: 109:      FLASH_Write(0x200001,0x00);
+[e ( _FLASH_Write (2 , -> 2097153 `l -> -> 0 `i `ui ]
 "111
-[; ;main.c: 111:     int zet = adr;
-[v _zet `i ~T0 @X0 1 a ]
-[e = _zet _adr ]
+[; ;main.c: 111:      adr = FLASH_Read(0x200000);
+[e = _adr -> ( _FLASH_Read (1 -> 2097152 `l `i ]
 "112
-[; ;main.c: 112:     INI_All();
-[e ( _INI_All ..  ]
+[; ;main.c: 112:      adr |= FLASH_Read(0x200001)<<8;
+[e =| _adr -> << ( _FLASH_Read (1 -> 2097153 `l -> 8 `i `i ]
 "114
-[; ;main.c: 114:     RCON = 0xFF;
-[e = _RCON -> -> 255 `i `uc ]
-"116
-[; ;main.c: 116:     for(;;)
-{
-[e :U 1119 ]
+[; ;main.c: 114:     DaneCan.adresCAN = adr;
+[e = . _DaneCan 1 -> _adr `us ]
+"115
+[; ;main.c: 115:     INI_All();
+[e ( _INI_All ..  ]
 "117
-[; ;main.c: 117:     {
-{
-"118
-[; ;main.c: 118:         if(DetectorLedRadar.Flags.obsluzWeWy == 1)
-[e $ ! == -> . . . _DetectorLedRadar 0 1 0 `i -> 1 `i 1122  ]
+[; ;main.c: 117:     RCON = 0xFF;
+[e = _RCON -> -> 255 `i `uc ]
 "119
-[; ;main.c: 119:         {
+[; ;main.c: 119:     for(;;)
 {
+[e :U 1116 ]
 "120
-[; ;main.c: 120:             DetectorLedRadar.Flags.obsluzWeWy = 0;
-[e = . . . _DetectorLedRadar 0 1 0 -> -> 0 `i `uc ]
-"122
-[; ;main.c: 122:         }
-}
-[e :U 1122 ]
-"124
-[; ;main.c: 124:         if(TMR1_Update_flag_Get()==1)
-[e $ ! == ( _TMR1_Update_flag_Get ..  -> -> 1 `i `ui 1123  ]
-"125
-[; ;main.c: 125:         {
+[; ;main.c: 120:     {
 {
-"126
-[; ;main.c: 126:             LED_Update();
-[e ( _LED_Update ..  ]
+"121
+[; ;main.c: 121:         if(DetectorLedRadar.Flags.obsluzWeWy == 1)
+[e $ ! == -> . . . _DetectorLedRadar 0 1 0 `i -> 1 `i 1119  ]
+"122
+[; ;main.c: 122:         {
+{
+"123
+[; ;main.c: 123:             DetectorLedRadar.Flags.obsluzWeWy = 0;
+[e = . . . _DetectorLedRadar 0 1 0 -> -> 0 `i `uc ]
+"125
+[; ;main.c: 125:         }
+}
+[e :U 1119 ]
 "127
-[; ;main.c: 127:             TMR1_Update_flag_Set(0);
-[e ( _TMR1_Update_flag_Set (1 -> -> 0 `i `ui ]
+[; ;main.c: 127:         if(TMR1_Update_flag_Get()==1)
+[e $ ! == ( _TMR1_Update_flag_Get ..  -> -> 1 `i `ui 1120  ]
+"128
+[; ;main.c: 128:         {
+{
 "129
-[; ;main.c: 129:         }
-}
-[e :U 1123 ]
+[; ;main.c: 129:             LED_Update();
+[e ( _LED_Update ..  ]
+"130
+[; ;main.c: 130:             TMR1_Update_flag_Set(0);
+[e ( _TMR1_Update_flag_Set (1 -> -> 0 `i `ui ]
 "132
-[; ;main.c: 132:         TRM_DataTransmition();
-[e ( _TRM_DataTransmition ..  ]
-"133
-[; ;main.c: 133:         __asm(" clrwdt");
-[; <"  clrwdt ;# ">
-"134
-[; ;main.c: 134:     }
+[; ;main.c: 132:         }
 }
-[e $U 1119  ]
 [e :U 1120 ]
-}
 "135
-[; ;main.c: 135: }
-[e :UE 1118 ]
+[; ;main.c: 135:         TRM_DataTransmition();
+[e ( _TRM_DataTransmition ..  ]
+"136
+[; ;main.c: 136:         __asm(" clrwdt");
+[; <"  clrwdt ;# ">
+"137
+[; ;main.c: 137:     }
+}
+[e $U 1116  ]
+[e :U 1117 ]
+}
+"138
+[; ;main.c: 138: }
+[e :UE 1115 ]
 }

@@ -18352,7 +18352,7 @@ void CAN_Setup(void)
     PIR3 = 0x00;
     BIE0 = 0;
 
-    DaneCan.adresCAN = 0x31;
+
 
     ECANCON = 0x90;
 
@@ -18427,7 +18427,7 @@ static void CAN_SetupMask(void)
 
     RXFBCON4 = 0b00010001;
 
-
+    RXFCON0 = 0b01111111;
 
 }
 

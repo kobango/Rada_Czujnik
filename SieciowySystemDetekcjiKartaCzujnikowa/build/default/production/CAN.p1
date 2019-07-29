@@ -35,22 +35,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5481
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 5481: extern volatile unsigned char BIE0 __attribute__((address(0xDFA)));
 [v _BIE0 `Vuc ~T0 @X0 0 e@3578 ]
-"18 ./TRM.h
-[; ;./TRM.h: 18:             {
-[s S1114 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1114 . wyslijRamkeStanu wyslijRamkeUczeniaTla wyslijRamkeResetuCzujnikow ]
-"14
-[; ;./TRM.h: 14:         {
-[u S1113 `us 1 `S1114 1 ]
-[n S1113 . FlagiU16 . ]
-"12
-[; ;./TRM.h: 12:     {
-[s S1112 `S1113 1 `us 1 ]
-[n S1112 . Flags adresCAN ]
-"30
-[; ;./TRM.h: 30:     extern DaneCanStruct DaneCan;
-[v _DaneCan `S1112 ~T0 @X0 0 e ]
-"25434 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
+"25434
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 25434: extern volatile unsigned char ECANCON __attribute__((address(0xF77)));
 [v _ECANCON `Vuc ~T0 @X0 0 e@3959 ]
 "10 CAN.c
@@ -126,7 +111,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "15016
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 15016: extern volatile unsigned char RXF0EIDH __attribute__((address(0xF02)));
 [v _RXF0EIDH `Vuc ~T0 @X0 0 e@3842 ]
-"15128
+"18 ./TRM.h
+[; ;./TRM.h: 18:             {
+[s S1114 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1114 . wyslijRamkeStanu wyslijRamkeUczeniaTla wyslijRamkeResetuCzujnikow ]
+"14
+[; ;./TRM.h: 14:         {
+[u S1113 `us 1 `S1114 1 ]
+[n S1113 . FlagiU16 . ]
+"12
+[; ;./TRM.h: 12:     {
+[s S1112 `S1113 1 `us 1 ]
+[n S1112 . Flags adresCAN ]
+"30
+[; ;./TRM.h: 30:     extern DaneCanStruct DaneCan;
+[v _DaneCan `S1112 ~T0 @X0 0 e ]
+"15128 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 15128: extern volatile unsigned char RXF0EIDL __attribute__((address(0xF03)));
 [v _RXF0EIDL `Vuc ~T0 @X0 0 e@3843 ]
 "15240
@@ -178,6 +178,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4902
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 4902: extern volatile unsigned char RXFBCON4 __attribute__((address(0xDE4)));
 [v _RXFBCON4 `Vuc ~T0 @X0 0 e@3556 ]
+"4422
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 4422: extern volatile unsigned char RXFCON0 __attribute__((address(0xDD4)));
+[v _RXFCON0 `Vuc ~T0 @X0 0 e@3540 ]
 "15677
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 15677: extern volatile unsigned char RXF2SIDH __attribute__((address(0xF08)));
 [v _RXF2SIDH `Vuc ~T0 @X0 0 e@3848 ]
@@ -1970,9 +1973,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "44
 [; ;CAN.c: 44:     BIE0 = 0;
 [e = _BIE0 -> -> 0 `i `uc ]
-"46
-[; ;CAN.c: 46:     DaneCan.adresCAN = 60;
-[e = . _DaneCan 1 -> -> 60 `i `us ]
 "48
 [; ;CAN.c: 48:     ECANCON = 0x90;
 [e = _ECANCON -> -> 144 `i `uc ]
@@ -2105,6 +2105,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "134
 [; ;CAN.c: 134:     RXFBCON4 = 0b00010001;
 [e = _RXFBCON4 -> -> 17 `i `uc ]
+"136
+[; ;CAN.c: 136:     RXFCON0 = 0b01111111;
+[e = _RXFCON0 -> -> 127 `i `uc ]
 "138
 [; ;CAN.c: 138: }
 [e :UE 1123 ]
