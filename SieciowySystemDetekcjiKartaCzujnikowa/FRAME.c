@@ -242,7 +242,7 @@ static void FRAME_ExcitationValue(mID *message) // id = 0x03
 *
 *
 * @section Description
-* Frame who shoud given ExcitationMultiplier, actually not in use.
+* Frame who shoud given Excitation Multiplier of sensor, actually not in use.
 *****************************************************************************************/
 static void FRAME_ExcitationMultiplier(mID *message) // id = 0x04
 {
@@ -275,7 +275,7 @@ static void FRAME_ExcitationMultiplier(mID *message) // id = 0x04
 *
 *
 * @section Description
-* Frame who shoud given ExcitationMultiplier, actually not in use.
+* Frame who shoud given Averaging Times of sensors, actually not in use.
 *****************************************************************************************/
 static void FRAME_AveragingTimes(mID *message) // id = 0x05
 {
@@ -330,12 +330,17 @@ static void FRAME_AveragingTimes(mID *message) // id = 0x05
     }
 }
 
-/*******************************************************************
-Funkcja: void StatusWzbudzeniaOsi(mID *message);
-Opis funkcji:
-Data: 14.03.2014
-Autor: Pawel Kasperek
-*****************************************************************/
+/***************************************************************************************/
+/**
+* @author Pawel Kasperek
+* @date 14/03/2014
+*
+* @param *message  pointer on message 
+*
+*
+* @section Description
+* Frame who shoud given AxisStatus, actually not in use.
+*****************************************************************************************/
 static void FRAME_AxisStatus(mID *message) //0x06
 {
     WORD i;
@@ -361,12 +366,17 @@ static void FRAME_AxisStatus(mID *message) //0x06
     }
 }
 
-/*******************************************************************
-Funkcja: void ZaktualizujDateZmianyUstawien(mID *message)
-Opis funkcji:
-Data: 05.01.2017
-Autor: Pawel Kasperek
-*****************************************************************/
+/***************************************************************************************/
+/**
+* @author Pawel Kasperek
+* @date 14/03/2014
+*
+* @param *message  pointer on message 
+*
+*
+* @section Description
+* Data of Last Change of device.
+*****************************************************************************************/
 static void FRAME_DataUpdateAndChangeOption(mID *message)
 {
     
@@ -377,12 +387,17 @@ static void FRAME_DataUpdateAndChangeOption(mID *message)
     
 }
 
-/*******************************************************************
-Funkcja: void ResetUrzadzenia(mID *message);
-Opis funkcji:
-Data: 14.03.2014
-Autor: Pawel Kasperek
-*****************************************************************/
+/***************************************************************************************/
+/**
+* @author Pawel Kasperek
+* @date 14/03/2014
+*
+* @param *message  pointer on message 
+*
+*
+* @section Description
+* Frame of device Reset. 
+*****************************************************************************************/
 static void FRAME_DeviceReset(mID *message) //0x07
 {
     if(message->message_type == CAN_MSG_RTR)
@@ -443,10 +458,20 @@ static void FRAME_DeviceReset(mID *message) //0x07
     }
 }
 
+
+/***************************************************************************************/
+/**
+* @author Kamil Szkaradnik
+* @date 30/07/2019
+*
+*
+* @section Description
+* Uses to read important data from EEPROM. Actualy import adress of neighbors to program global data.
+*****************************************************************************************/
 void ReadDataToEEPROM(void)
 {
     
-    NVMRead(&Init_Data,10,2);
+    NVMRead(&Init_Data,10,2); // Uses to init EEPROM
     NVMRead(&NeightAdress1,13,2);
     if(NeightAdress1==0xFFFF) // Void value in EEPROM is 0xFF
     {
@@ -491,9 +516,19 @@ void ReadDataToEEPROM(void)
     
 }
 
+/***************************************************************************************/
+/**
+* @author Kamil Szkaradnik
+* @date 30/07/2019
+*
+*
+* @section Description
+* Uses to Write important data from EEPROM. Actualy export adress of neighbors to program global data.
+*****************************************************************************************/
+
 void WriteDataToEEPROM(void)
 {
-    NVMWrite(&Init_Data,10,2);
+    NVMWrite(&Init_Data,10,2); // Uses to init EEPROM
     NVMWrite(&NeightAdress1,13,2);  
     NVMWrite(&NeightAdress2,16,2);
     NVMWrite(&NeightAdress3,19,2);
@@ -505,12 +540,17 @@ void WriteDataToEEPROM(void)
     
 }
 
-/*******************************************************************
-Funkcja: void RysowanieWykresu(mID *message);
-Opis funkcji:
-Data: 14.03.2014
-Autor: Pawel Kasperek
-*****************************************************************/
+/***************************************************************************************/
+/**
+* @author Pawel Kasperek
+* @date 14/03/2014
+*
+* @param *message  pointer on message 
+*
+*
+* @section Description
+* Frame to plot status. Not in use. 
+*****************************************************************************************/
 static void FRAME_Plot(mID *message) //id = 0x09
 {
     
@@ -526,12 +566,17 @@ static void FRAME_Plot(mID *message) //id = 0x09
     
 }
 
-/*******************************************************************
-Funkcja: void PozycjaCzujnikaNaMapie(mID *message);
-Opis funkcji:
-Data: 14.03.2014
-Autor: Pawel Kasperek
-*****************************************************************/
+/***************************************************************************************/
+/**
+* @author Pawel Kasperek
+* @date 14/03/2014
+*
+* @param *message  pointer on message 
+*
+*
+* @section Description
+* Frame to mark position on map. Not in use. 
+*****************************************************************************************/
 static void FRAME_MapPosition(mID *message) //id = 0x0A
 { /*
     if(message->message_type == CAN_MSG_RTR)
@@ -551,12 +596,17 @@ static void FRAME_MapPosition(mID *message) //id = 0x0A
     } */
 }
 
-/*******************************************************************
-Funkcja: void WersjaOprogramowania(mID *message);
-Opis funkcji:
-Data: 14.03.2014
-Autor: Pawel Kasperek
-*****************************************************************/
+/***************************************************************************************/
+/**
+* @author Pawel Kasperek
+* @date 14/03/2014
+*
+* @param *message  pointer on message 
+*
+*
+* @section Description
+* Frame of Software Version, program in Version 0.
+*****************************************************************************************/
 static void FRAME_SoftwareVersion(mID *message) //id = 0x0B
 {
     
@@ -574,12 +624,17 @@ static void FRAME_SoftwareVersion(mID *message) //id = 0x0B
     } 
 }
 
-/*******************************************************************
-Funkcja: void WartosciAnalogowe(mID *message);
-Opis funkcji:
-Data: 14.03.2014
-Autor: Pawel Kasperek
-*****************************************************************/
+/***************************************************************************************/
+/**
+* @author Pawel Kasperek
+* @date 14/03/2014
+*
+* @param *message  pointer on message 
+*
+*
+* @section Description
+* Frame of Analog Value, not in use.
+*****************************************************************************************/
 static void FRAME_AnalogValue(mID *message, WORD set) //id = 0x0B
 {
     WORD i;
@@ -600,12 +655,17 @@ static void FRAME_AnalogValue(mID *message, WORD set) //id = 0x0B
     */
 }
 
-/*******************************************************************
-Funkcja: void PrzypisanieDokarty(mID *message);
-Opis funkcji:
-Data: 14.03.2014
-Autor: Pawel Kasperek
-*****************************************************************/
+/***************************************************************************************/
+/**
+* @author Pawel Kasperek
+* @date 14/03/2014
+*
+* @param *message  pointer on message 
+*
+*
+* @section Description
+* Frame to .assignment to the card.
+*****************************************************************************************/
 static void FRAME_PrzypisanieDokarty(mID *message) // 0x0F
 {
     if(message->message_type == CAN_MSG_RTR)
@@ -622,17 +682,22 @@ static void FRAME_PrzypisanieDokarty(mID *message) // 0x0F
          Dane->Nr_WeWy = (message->data[2]);
     }
 }
-/*******************************************************************
-Funkcja: void AdresySasiadow(mID *message, WORD nrRamki);
-Opis funkcji:
-Data: 17.11.2016
-Autor: Pawel Kasperek
-*****************************************************************/
-static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)  //0x10
+/***************************************************************************************/
+/**
+* @author Pawel Kasperek
+* @date 14/03/2014
+*
+* @param *message  pointer on message 
+*
+*
+* @section Description
+* Frame ho menage adress of neighbors.
+*****************************************************************************************/
+static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)  //0x10 
 {
     WORD it;
     
-    
+    // Most important 
     WORD kier = (nrRamki-0x10);
     if(message->message_type == CAN_MSG_RTR)
     {
@@ -718,11 +783,17 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)  //0x10
     } 
 }
 
-/*******************************************************************
-Funkcja: void ObsluzRamkeCan(mID * message, unsigned int identyfikator)
-Opis funkcji: funkcja przygotowujaca dane do przeslania
-Data: 15.04.2011
-*****************************************************************/
+/***************************************************************************************/
+/**
+* @author Pawel Kasperek
+* @date 14/03/2014
+*
+* @param *message  pointer on message 
+*
+*
+* @section Description
+* Function to handle CAN frame, menage all frames.
+*****************************************************************************************/
 void FRAME_HandleCanFrame(mID * message)
 {
     BYTE identyfikator = (BYTE) message->id.v[2]/4;

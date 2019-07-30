@@ -1,6 +1,6 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"11 EEPROM.c
-[; ;EEPROM.c: 11: BOOL NVMalloc(WORD size, WORD *location)
+"24 EEPROM.c
+[; ;EEPROM.c: 24: BOOL NVMalloc(WORD size, WORD *location)
 [c E10433 0 1 .. ]
 [n E10433 _BOOL FALSE TRUE  ]
 "102 ./main.h
@@ -1339,272 +1339,272 @@ Version 4.0 HI-TECH Software Intermediate Code
 "10
 [; ;EEPROM.c: 10: WORD nextEEPosition;
 [v _nextEEPosition `us ~T0 @X0 1 e ]
-"11
-[; ;EEPROM.c: 11: BOOL NVMalloc(WORD size, WORD *location)
+"24
+[; ;EEPROM.c: 24: BOOL NVMalloc(WORD size, WORD *location)
 [v _NVMalloc `(E10433 ~T0 @X0 1 ef2`us`*us ]
-"12
-[; ;EEPROM.c: 12: {
+"25
+[; ;EEPROM.c: 25: {
 {
 [e :U _NVMalloc ]
-"11
-[; ;EEPROM.c: 11: BOOL NVMalloc(WORD size, WORD *location)
+"24
+[; ;EEPROM.c: 24: BOOL NVMalloc(WORD size, WORD *location)
 [v _size `us ~T0 @X0 1 r1 ]
 [v _location `*us ~T0 @X0 1 r2 ]
-"12
-[; ;EEPROM.c: 12: {
+"25
+[; ;EEPROM.c: 25: {
 [f ]
-"15
-[; ;EEPROM.c: 15:     if ((nextEEPosition + (WORD)size) > (WORD)0x400)
+"28
+[; ;EEPROM.c: 28:     if ((nextEEPosition + (WORD)size) > (WORD)0x400)
 [e $ ! > + -> _nextEEPosition `ui -> _size `ui -> -> -> 1024 `i `us `ui 1117  ]
-"16
-[; ;EEPROM.c: 16:     {
+"29
+[; ;EEPROM.c: 29:     {
 {
-"17
-[; ;EEPROM.c: 17:         return FALSE;
+"30
+[; ;EEPROM.c: 30:         return FALSE;
 [e ) . `E10433 0 ]
 [e $UE 1116  ]
-"18
-[; ;EEPROM.c: 18:     }
+"31
+[; ;EEPROM.c: 31:     }
 }
 [e :U 1117 ]
-"20
-[; ;EEPROM.c: 20:     *location = nextEEPosition;
+"33
+[; ;EEPROM.c: 33:     *location = nextEEPosition;
 [e = *U _location _nextEEPosition ]
-"21
-[; ;EEPROM.c: 21:     nextEEPosition += size;
+"34
+[; ;EEPROM.c: 34:     nextEEPosition += size;
 [e =+ _nextEEPosition -> _size `us ]
-"22
-[; ;EEPROM.c: 22:     return TRUE;
+"35
+[; ;EEPROM.c: 35:     return TRUE;
 [e ) . `E10433 1 ]
 [e $UE 1116  ]
-"23
-[; ;EEPROM.c: 23: }
+"36
+[; ;EEPROM.c: 36: }
 [e :UE 1116 ]
 }
-"26
-[; ;EEPROM.c: 26: BOOL NVMInit(void)
+"49
+[; ;EEPROM.c: 49: BOOL NVMInit(void)
 [v _NVMInit `(E10433 ~T0 @X0 1 ef ]
-"27
-[; ;EEPROM.c: 27: {
+"50
+[; ;EEPROM.c: 50: {
 {
 [e :U _NVMInit ]
 [f ]
-"28
-[; ;EEPROM.c: 28:     BOOL result = TRUE;
+"51
+[; ;EEPROM.c: 51:     BOOL result = TRUE;
 [v _result `E10433 ~T0 @X0 1 a ]
 [e = _result . `E10433 1 ]
-"29
-[; ;EEPROM.c: 29:     UINT NeightAdress_Example = 0xFFFF;
+"52
+[; ;EEPROM.c: 52:     UINT NeightAdress_Example = 0xFFFF;
 [v _NeightAdress_Example `ui ~T0 @X0 1 a ]
 [e = _NeightAdress_Example -> 65535 `ui ]
-"30
-[; ;EEPROM.c: 30:     nextEEPosition = 0;
+"53
+[; ;EEPROM.c: 53:     nextEEPosition = 0;
 [e = _nextEEPosition -> -> 0 `i `us ]
-"32
-[; ;EEPROM.c: 32:     result &= NVMalloc(sizeof(KartaStruct), &ustawieniaKarty);
+"55
+[; ;EEPROM.c: 55:     result &= NVMalloc(sizeof(KartaStruct), &ustawieniaKarty);
 [e =& _result -> ( _NVMalloc (2 , -> -> # `S1109 `ui `us &U _ustawieniaKarty `E10433 ]
-"33
-[; ;EEPROM.c: 33:     result &= NVMalloc(8*sizeof(NeightAdress_Example), &neighborsAdress);
+"56
+[; ;EEPROM.c: 56:     result &= NVMalloc(8*sizeof(NeightAdress_Example), &neighborsAdress);
 [e =& _result -> ( _NVMalloc (2 , -> * -> -> 8 `i `ui -> # _NeightAdress_Example `ui `us &U _neighborsAdress `E10433 ]
-"36
-[; ;EEPROM.c: 36:     return result;
+"59
+[; ;EEPROM.c: 59:     return result;
 [e ) _result ]
 [e $UE 1118  ]
-"37
-[; ;EEPROM.c: 37: }
+"60
+[; ;EEPROM.c: 60: }
 [e :UE 1118 ]
 }
-"45
-[; ;EEPROM.c: 45: static BYTE ReadfromEEPROM(WORD Address)
+"73
+[; ;EEPROM.c: 73: static BYTE ReadfromEEPROM(WORD Address)
 [v _ReadfromEEPROM `(uc ~T0 @X0 1 sf1`us ]
-"46
-[; ;EEPROM.c: 46: {
+"74
+[; ;EEPROM.c: 74: {
 {
 [e :U _ReadfromEEPROM ]
-"45
-[; ;EEPROM.c: 45: static BYTE ReadfromEEPROM(WORD Address)
+"73
+[; ;EEPROM.c: 73: static BYTE ReadfromEEPROM(WORD Address)
 [v _Address `us ~T0 @X0 1 r1 ]
-"46
-[; ;EEPROM.c: 46: {
+"74
+[; ;EEPROM.c: 74: {
 [f ]
-"47
-[; ;EEPROM.c: 47:     EEADRH = (BYTE)(Address>>8);
+"75
+[; ;EEPROM.c: 75:     EEADRH = (BYTE)(Address>>8);
 [e = _EEADRH -> >> -> _Address `ui -> 8 `i `uc ]
-"48
-[; ;EEPROM.c: 48:     EEADR = (BYTE)Address;
+"76
+[; ;EEPROM.c: 76:     EEADR = (BYTE)Address;
 [e = _EEADR -> _Address `uc ]
-"49
-[; ;EEPROM.c: 49:     EECON1bits.RD = 1;
+"77
+[; ;EEPROM.c: 77:     EECON1bits.RD = 1;
 [e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
-"50
-[; ;EEPROM.c: 50:     EECON1bits.EEPGD = 0;
+"78
+[; ;EEPROM.c: 78:     EECON1bits.EEPGD = 0;
 [e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
-"51
-[; ;EEPROM.c: 51:     EECON1bits.CFGS = 0;
+"79
+[; ;EEPROM.c: 79:     EECON1bits.CFGS = 0;
 [e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
-"52
-[; ;EEPROM.c: 52:     return EEDATA;
+"80
+[; ;EEPROM.c: 80:     return EEDATA;
 [e ) _EEDATA ]
 [e $UE 1119  ]
-"53
-[; ;EEPROM.c: 53: }
+"81
+[; ;EEPROM.c: 81: }
 [e :UE 1119 ]
 }
-"61
-[; ;EEPROM.c: 61: static void WritetoEEPROM(WORD Address, BYTE Data)
+"95
+[; ;EEPROM.c: 95: static void WritetoEEPROM(WORD Address, BYTE Data)
 [v _WritetoEEPROM `(v ~T0 @X0 1 sf2`us`uc ]
-"62
-[; ;EEPROM.c: 62: {
+"96
+[; ;EEPROM.c: 96: {
 {
 [e :U _WritetoEEPROM ]
-"61
-[; ;EEPROM.c: 61: static void WritetoEEPROM(WORD Address, BYTE Data)
+"95
+[; ;EEPROM.c: 95: static void WritetoEEPROM(WORD Address, BYTE Data)
 [v _Address `us ~T0 @X0 1 r1 ]
 [v _Data `uc ~T0 @X0 1 r2 ]
-"62
-[; ;EEPROM.c: 62: {
+"96
+[; ;EEPROM.c: 96: {
 [f ]
-"63
-[; ;EEPROM.c: 63:     static BYTE GIE_Status;
+"97
+[; ;EEPROM.c: 97:     static BYTE GIE_Status;
 [v F10787 `uc ~T0 @X0 1 s GIE_Status ]
-"65
-[; ;EEPROM.c: 65:     EEADRH = (BYTE)(Address>>8);
+"99
+[; ;EEPROM.c: 99:     EEADRH = (BYTE)(Address>>8);
 [e = _EEADRH -> >> -> _Address `ui -> 8 `i `uc ]
-"66
-[; ;EEPROM.c: 66:     EEADR = (BYTE)Address;
+"100
+[; ;EEPROM.c: 100:     EEADR = (BYTE)Address;
 [e = _EEADR -> _Address `uc ]
-"67
-[; ;EEPROM.c: 67:     EEDATA = Data;
+"101
+[; ;EEPROM.c: 101:     EEDATA = Data;
 [e = _EEDATA _Data ]
-"68
-[; ;EEPROM.c: 68:     EECON1bits.WREN = 1;
+"102
+[; ;EEPROM.c: 102:     EECON1bits.WREN = 1;
 [e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
-"69
-[; ;EEPROM.c: 69:     GIE_Status = INTCONbits.GIE;
+"103
+[; ;EEPROM.c: 103:     GIE_Status = INTCONbits.GIE;
 [e = F10787 . . _INTCONbits 1 7 ]
-"70
-[; ;EEPROM.c: 70:     INTCONbits.GIE = 0;
+"104
+[; ;EEPROM.c: 104:     INTCONbits.GIE = 0;
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-"71
-[; ;EEPROM.c: 71:     EECON2 = 0x55;
+"105
+[; ;EEPROM.c: 105:     EECON2 = 0x55;
 [e = _EECON2 -> -> 85 `i `uc ]
-"72
-[; ;EEPROM.c: 72:     EECON2 = 0xAA;
+"106
+[; ;EEPROM.c: 106:     EECON2 = 0xAA;
 [e = _EECON2 -> -> 170 `i `uc ]
-"73
-[; ;EEPROM.c: 73:     EECON1bits.WR = 1;
+"107
+[; ;EEPROM.c: 107:     EECON1bits.WR = 1;
 [e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
-"74
-[; ;EEPROM.c: 74:     INTCONbits.GIE = GIE_Status;
+"108
+[; ;EEPROM.c: 108:     INTCONbits.GIE = GIE_Status;
 [e = . . _INTCONbits 1 7 F10787 ]
-"75
-[; ;EEPROM.c: 75:     EECON1bits.WREN = 0;
+"109
+[; ;EEPROM.c: 109:     EECON1bits.WREN = 0;
 [e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
-"76
-[; ;EEPROM.c: 76:     while (EECON1bits.WR);
+"110
+[; ;EEPROM.c: 110:     while (EECON1bits.WR);
 [e $U 1121  ]
 [e :U 1122 ]
 [e :U 1121 ]
 [e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 1122  ]
 [e :U 1123 ]
-"77
-[; ;EEPROM.c: 77: }
+"111
+[; ;EEPROM.c: 111: }
 [e :UE 1120 ]
 }
-"79
-[; ;EEPROM.c: 79: void NVMRead(BYTE *dest, WORD addr, WORD count)
+"125
+[; ;EEPROM.c: 125: void NVMRead(BYTE *dest, WORD addr, WORD count)
 [v _NVMRead `(v ~T0 @X0 1 ef3`*uc`us`us ]
-"80
-[; ;EEPROM.c: 80: {
+"126
+[; ;EEPROM.c: 126: {
 {
 [e :U _NVMRead ]
-"79
-[; ;EEPROM.c: 79: void NVMRead(BYTE *dest, WORD addr, WORD count)
+"125
+[; ;EEPROM.c: 125: void NVMRead(BYTE *dest, WORD addr, WORD count)
 [v _dest `*uc ~T0 @X0 1 r1 ]
 [v _addr `us ~T0 @X0 1 r2 ]
 [v _count `us ~T0 @X0 1 r3 ]
-"80
-[; ;EEPROM.c: 80: {
+"126
+[; ;EEPROM.c: 126: {
 [f ]
-"81
-[; ;EEPROM.c: 81:     while( count > 0 )
+"127
+[; ;EEPROM.c: 127:     while( count > 0 )
 [e $U 1125  ]
 [e :U 1126 ]
-"82
-[; ;EEPROM.c: 82:     {
+"128
+[; ;EEPROM.c: 128:     {
 {
-"83
-[; ;EEPROM.c: 83:         while(EECON1bits.WR);
+"129
+[; ;EEPROM.c: 129:         while(EECON1bits.WR);
 [e $U 1128  ]
 [e :U 1129 ]
 [e :U 1128 ]
 [e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 1129  ]
 [e :U 1130 ]
-"84
-[; ;EEPROM.c: 84:         *dest++ = ReadfromEEPROM(addr++);
+"130
+[; ;EEPROM.c: 130:         *dest++ = ReadfromEEPROM(addr++);
 [e = *U ++ _dest * -> -> 1 `i `x -> -> # *U _dest `i `x ( _ReadfromEEPROM (1 ++ _addr -> -> 1 `i `us ]
-"85
-[; ;EEPROM.c: 85:         count--;
+"131
+[; ;EEPROM.c: 131:         count--;
 [e -- _count -> -> 1 `i `us ]
-"86
-[; ;EEPROM.c: 86:     }
+"132
+[; ;EEPROM.c: 132:     }
 }
 [e :U 1125 ]
-"81
-[; ;EEPROM.c: 81:     while( count > 0 )
+"127
+[; ;EEPROM.c: 127:     while( count > 0 )
 [e $ > -> _count `ui -> -> 0 `i `ui 1126  ]
 [e :U 1127 ]
-"87
-[; ;EEPROM.c: 87: }
+"133
+[; ;EEPROM.c: 133: }
 [e :UE 1124 ]
 }
-"90
-[; ;EEPROM.c: 90: void NVMWrite(BYTE *source, WORD addr, WORD count)
+"148
+[; ;EEPROM.c: 148: void NVMWrite(BYTE *source, WORD addr, WORD count)
 [v _NVMWrite `(v ~T0 @X0 1 ef3`*uc`us`us ]
-"91
-[; ;EEPROM.c: 91: {
+"149
+[; ;EEPROM.c: 149: {
 {
 [e :U _NVMWrite ]
-"90
-[; ;EEPROM.c: 90: void NVMWrite(BYTE *source, WORD addr, WORD count)
+"148
+[; ;EEPROM.c: 148: void NVMWrite(BYTE *source, WORD addr, WORD count)
 [v _source `*uc ~T0 @X0 1 r1 ]
 [v _addr `us ~T0 @X0 1 r2 ]
 [v _count `us ~T0 @X0 1 r3 ]
-"91
-[; ;EEPROM.c: 91: {
+"149
+[; ;EEPROM.c: 149: {
 [f ]
-"92
-[; ;EEPROM.c: 92:     while(count > 0)
+"150
+[; ;EEPROM.c: 150:     while(count > 0)
 [e $U 1132  ]
 [e :U 1133 ]
-"93
-[; ;EEPROM.c: 93:     {
+"151
+[; ;EEPROM.c: 151:     {
 {
-"94
-[; ;EEPROM.c: 94:         while(EECON1bits.WR);
+"152
+[; ;EEPROM.c: 152:         while(EECON1bits.WR);
 [e $U 1135  ]
 [e :U 1136 ]
 [e :U 1135 ]
 [e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 1136  ]
 [e :U 1137 ]
-"95
-[; ;EEPROM.c: 95:         WritetoEEPROM(addr++,*source);
+"153
+[; ;EEPROM.c: 153:         WritetoEEPROM(addr++,*source);
 [e ( _WritetoEEPROM (2 , ++ _addr -> -> 1 `i `us *U _source ]
-"96
-[; ;EEPROM.c: 96:         count--;
+"154
+[; ;EEPROM.c: 154:         count--;
 [e -- _count -> -> 1 `i `us ]
-"97
-[; ;EEPROM.c: 97:         source++;
+"155
+[; ;EEPROM.c: 155:         source++;
 [e ++ _source * -> -> 1 `i `x -> -> # *U _source `i `x ]
-"98
-[; ;EEPROM.c: 98:     }
+"156
+[; ;EEPROM.c: 156:     }
 }
 [e :U 1132 ]
-"92
-[; ;EEPROM.c: 92:     while(count > 0)
+"150
+[; ;EEPROM.c: 150:     while(count > 0)
 [e $ > -> _count `ui -> -> 0 `i `ui 1133  ]
 [e :U 1134 ]
-"99
-[; ;EEPROM.c: 99: }
+"157
+[; ;EEPROM.c: 157: }
 [e :UE 1131 ]
 }

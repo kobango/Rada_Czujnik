@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.05 build -831301201 
-                                                                                               Tue Jul 30 13:54:32 2019
+                                                                                               Tue Jul 30 14:55:52 2019
 
 Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1 
      1                           	processor	18F4680
@@ -1026,7 +1026,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1001                           
   1002 ;; *************** function _FRAME_HandleCanFrame *****************
   1003 ;; Defined at:
-  1004 ;;		line 726 in file "FRAME.c"
+  1004 ;;		line 797 in file "FRAME.c"
   1005 ;; Parameters:    Size  Location     Type
   1006 ;;  message         2   17[COMRAM] PTR struct .
   1007 ;;		 -> TRM_DataTransmition@canMessage(17), 
@@ -1084,7 +1084,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1054  0005AA                     _FRAME_HandleCanFrame:
   1055                           	opt callstack 22
   1056                           
-  1057                           ;FRAME.c: 726: void FRAME_HandleCanFrame(mID * message);FRAME.c: 727: {;FRAME.c: 728:   
+  1057                           ;FRAME.c: 797: void FRAME_HandleCanFrame(mID * message);FRAME.c: 798: {;FRAME.c: 799:   
       +                            BYTE identyfikator = (BYTE) message->id.v[2]/4;
   1058                           
   1059                           ;incstack = 0
@@ -1106,108 +1106,108 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1075  0005CC  5028               	movf	?___awdiv,w,c
   1076  0005CE  6E3C               	movwf	FRAME_HandleCanFrame@identyfikator,c
   1077                           
-  1078                           ;FRAME.c: 731:     if(identyfikator != 0x01)
+  1078                           ;FRAME.c: 802:     if(identyfikator != 0x01)
   1079  0005D0  043C               	decf	FRAME_HandleCanFrame@identyfikator,w,c
   1080  0005D2  B4D8               	btfsc	status,2,c
   1081  0005D4  D074               	goto	l4759
   1082                           
-  1083                           ;FRAME.c: 732:     {;FRAME.c: 733:         WORD ident = identyfikator;
+  1083                           ;FRAME.c: 803:     {;FRAME.c: 804:         WORD ident = identyfikator;
   1084  0005D6  C03C  F03A         	movff	FRAME_HandleCanFrame@identyfikator,FRAME_HandleCanFrame@ident
   1085  0005DA  6A3B               	clrf	FRAME_HandleCanFrame@ident+1,c
   1086  0005DC  D070               	goto	l4759
   1087  0005DE                     l4729:
   1088                           
-  1089                           ;FRAME.c: 740:             FRAME_SensorExcitationStatus(message);
+  1089                           ;FRAME.c: 811:             FRAME_SensorExcitationStatus(message);
   1090  0005DE  C034  F02A         	movff	FRAME_HandleCanFrame@message,FRAME_SensorExcitationStatus@message
   1091  0005E2  C035  F02B         	movff	FRAME_HandleCanFrame@message+1,FRAME_SensorExcitationStatus@message+1
   1092  0005E6  ECA5  F006         	call	_FRAME_SensorExcitationStatus	;wreg free
   1093                           
-  1094                           ;FRAME.c: 741:             break;
+  1094                           ;FRAME.c: 812:             break;
   1095  0005EA  D09E               	goto	l4761
   1096  0005EC                     l4731:
   1097                           
-  1098                           ;FRAME.c: 743:             FRAME_AccelerometerStatus(message);
+  1098                           ;FRAME.c: 814:             FRAME_AccelerometerStatus(message);
   1099  0005EC  C034  F02A         	movff	FRAME_HandleCanFrame@message,FRAME_AccelerometerStatus@message
   1100  0005F0  C035  F02B         	movff	FRAME_HandleCanFrame@message+1,FRAME_AccelerometerStatus@message+1
   1101  0005F4  EC70  F00A         	call	_FRAME_AccelerometerStatus	;wreg free
   1102                           
-  1103                           ;FRAME.c: 744:             break;
+  1103                           ;FRAME.c: 815:             break;
   1104  0005F8  D097               	goto	l4761
   1105  0005FA                     l4733:
   1106                           
-  1107                           ;FRAME.c: 746:             FRAME_ExcitationValue(message);
+  1107                           ;FRAME.c: 817:             FRAME_ExcitationValue(message);
   1108  0005FA  C034  F028         	movff	FRAME_HandleCanFrame@message,FRAME_ExcitationValue@message
   1109  0005FE  C035  F029         	movff	FRAME_HandleCanFrame@message+1,FRAME_ExcitationValue@message+1
   1110  000602  ECA6  F00C         	call	_FRAME_ExcitationValue	;wreg free
   1111                           
-  1112                           ;FRAME.c: 747:             break;
+  1112                           ;FRAME.c: 818:             break;
   1113  000606  D090               	goto	l4761
   1114  000608                     l4735:
   1115                           
-  1116                           ;FRAME.c: 749:             FRAME_ExcitationMultiplier(message);
+  1116                           ;FRAME.c: 820:             FRAME_ExcitationMultiplier(message);
   1117  000608  C034  F028         	movff	FRAME_HandleCanFrame@message,FRAME_ExcitationMultiplier@message
   1118  00060C  C035  F029         	movff	FRAME_HandleCanFrame@message+1,FRAME_ExcitationMultiplier@message+1
   1119  000610  ECF5  F00B         	call	_FRAME_ExcitationMultiplier	;wreg free
   1120                           
-  1121                           ;FRAME.c: 750:             break;
+  1121                           ;FRAME.c: 821:             break;
   1122  000614  D089               	goto	l4761
   1123  000616                     l4737:
   1124                           
-  1125                           ;FRAME.c: 752:             FRAME_AveragingTimes(message);
+  1125                           ;FRAME.c: 823:             FRAME_AveragingTimes(message);
   1126  000616  C034  F028         	movff	FRAME_HandleCanFrame@message,FRAME_AveragingTimes@message
   1127  00061A  C035  F029         	movff	FRAME_HandleCanFrame@message+1,FRAME_AveragingTimes@message+1
   1128  00061E  ECF7  F00C         	call	_FRAME_AveragingTimes	;wreg free
   1129                           
-  1130                           ;FRAME.c: 753:             break;
+  1130                           ;FRAME.c: 824:             break;
   1131  000622  D082               	goto	l4761
   1132  000624                     l4739:
   1133                           
-  1134                           ;FRAME.c: 755:             FRAME_AxisStatus(message);
+  1134                           ;FRAME.c: 826:             FRAME_AxisStatus(message);
   1135  000624  C034  F028         	movff	FRAME_HandleCanFrame@message,FRAME_AxisStatus@message
   1136  000628  C035  F029         	movff	FRAME_HandleCanFrame@message+1,FRAME_AxisStatus@message+1
   1137  00062C  ECDC  F00C         	call	_FRAME_AxisStatus	;wreg free
   1138                           
-  1139                           ;FRAME.c: 756:             break;
+  1139                           ;FRAME.c: 827:             break;
   1140  000630  D07B               	goto	l4761
   1141  000632                     l4741:
   1142                           
-  1143                           ;FRAME.c: 758:             FRAME_DeviceReset(message);
+  1143                           ;FRAME.c: 829:             FRAME_DeviceReset(message);
   1144  000632  C034  F031         	movff	FRAME_HandleCanFrame@message,FRAME_DeviceReset@message
   1145  000636  C035  F032         	movff	FRAME_HandleCanFrame@message+1,FRAME_DeviceReset@message+1
   1146  00063A  EC01  F006         	call	_FRAME_DeviceReset	;wreg free
   1147                           
-  1148                           ;FRAME.c: 759:             break;
+  1148                           ;FRAME.c: 830:             break;
   1149  00063E  D074               	goto	l4761
   1150  000640                     l4743:
   1151                           
-  1152                           ;FRAME.c: 761:             FRAME_Plot(message);
+  1152                           ;FRAME.c: 832:             FRAME_Plot(message);
   1153  000640  C034  F02F         	movff	FRAME_HandleCanFrame@message,FRAME_Plot@message
   1154  000644  C035  F030         	movff	FRAME_HandleCanFrame@message+1,FRAME_Plot@message+1
   1155  000648  ECA0  F00B         	call	_FRAME_Plot	;wreg free
   1156                           
-  1157                           ;FRAME.c: 762:             break;
+  1157                           ;FRAME.c: 833:             break;
   1158  00064C  D06D               	goto	l4761
   1159  00064E                     l4745:
   1160                           
-  1161                           ;FRAME.c: 764:             FRAME_MapPosition(message);
+  1161                           ;FRAME.c: 835:             FRAME_MapPosition(message);
   1162  00064E  C034  F028         	movff	FRAME_HandleCanFrame@message,FRAME_MapPosition@message
   1163  000652  C035  F029         	movff	FRAME_HandleCanFrame@message+1,FRAME_MapPosition@message+1
   1164  000656  EC55  F00E         	call	_FRAME_MapPosition	;wreg free
   1165                           
-  1166                           ;FRAME.c: 765:             break;
+  1166                           ;FRAME.c: 836:             break;
   1167  00065A  D066               	goto	l4761
   1168  00065C                     l4747:
   1169                           
-  1170                           ;FRAME.c: 767:             FRAME_SoftwareVersion(message);
+  1170                           ;FRAME.c: 838:             FRAME_SoftwareVersion(message);
   1171  00065C  C034  F028         	movff	FRAME_HandleCanFrame@message,FRAME_SoftwareVersion@message
   1172  000660  C035  F029         	movff	FRAME_HandleCanFrame@message+1,FRAME_SoftwareVersion@message+1
   1173  000664  ECE5  F00A         	call	_FRAME_SoftwareVersion	;wreg free
   1174                           
-  1175                           ;FRAME.c: 768:             break;
+  1175                           ;FRAME.c: 839:             break;
   1176  000668  D05F               	goto	l4761
   1177  00066A                     l4749:
   1178                           
-  1179                           ;FRAME.c: 771:             FRAME_AnalogValue(message, identyfikator - 0x0C);
+  1179                           ;FRAME.c: 842:             FRAME_AnalogValue(message, identyfikator - 0x0C);
   1180  00066A  C034  F028         	movff	FRAME_HandleCanFrame@message,FRAME_AnalogValue@message
   1181  00066E  C035  F029         	movff	FRAME_HandleCanFrame@message+1,FRAME_AnalogValue@message+1
   1182  000672  0EF4               	movlw	244
@@ -1218,20 +1218,20 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1187  00067C  222B               	addwfc	FRAME_AnalogValue@set+1,f,c
   1188  00067E  EC56  F00E         	call	_FRAME_AnalogValue	;wreg free
   1189                           
-  1190                           ;FRAME.c: 772:             break;
+  1190                           ;FRAME.c: 843:             break;
   1191  000682  D052               	goto	l4761
   1192  000684                     l4751:
   1193                           
-  1194                           ;FRAME.c: 774:             FRAME_PrzypisanieDokarty(message);
+  1194                           ;FRAME.c: 845:             FRAME_PrzypisanieDokarty(message);
   1195  000684  C034  F028         	movff	FRAME_HandleCanFrame@message,FRAME_PrzypisanieDokarty@message
   1196  000688  C035  F029         	movff	FRAME_HandleCanFrame@message+1,FRAME_PrzypisanieDokarty@message+1
   1197  00068C  ECDD  F008         	call	_FRAME_PrzypisanieDokarty	;wreg free
   1198                           
-  1199                           ;FRAME.c: 775:             break;
+  1199                           ;FRAME.c: 846:             break;
   1200  000690  D04B               	goto	l4761
   1201  000692                     l4753:
   1202                           
-  1203                           ;FRAME.c: 777:             FRAME_AdressOfNeighbors(message,0x10);
+  1203                           ;FRAME.c: 848:             FRAME_AdressOfNeighbors(message,0x10);
   1204  000692  C034  F028         	movff	FRAME_HandleCanFrame@message,FRAME_AdressOfNeighbors@message
   1205  000696  C035  F029         	movff	FRAME_HandleCanFrame@message+1,FRAME_AdressOfNeighbors@message+1
   1206  00069A  0E00               	movlw	0
@@ -1240,11 +1240,11 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1209  0006A0  6E2A               	movwf	FRAME_AdressOfNeighbors@nrRamki,c
   1210  0006A2  EC31  F000         	call	_FRAME_AdressOfNeighbors	;wreg free
   1211                           
-  1212                           ;FRAME.c: 778:             break;
+  1212                           ;FRAME.c: 849:             break;
   1213  0006A6  D040               	goto	l4761
   1214  0006A8                     l4755:
   1215                           
-  1216                           ;FRAME.c: 780:             FRAME_AdressOfNeighbors(message,0x11);
+  1216                           ;FRAME.c: 851:             FRAME_AdressOfNeighbors(message,0x11);
   1217  0006A8  C034  F028         	movff	FRAME_HandleCanFrame@message,FRAME_AdressOfNeighbors@message
   1218  0006AC  C035  F029         	movff	FRAME_HandleCanFrame@message+1,FRAME_AdressOfNeighbors@message+1
   1219  0006B0  0E00               	movlw	0
@@ -1253,7 +1253,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1222  0006B6  6E2A               	movwf	FRAME_AdressOfNeighbors@nrRamki,c
   1223  0006B8  EC31  F000         	call	_FRAME_AdressOfNeighbors	;wreg free
   1224                           
-  1225                           ;FRAME.c: 781:             break;
+  1225                           ;FRAME.c: 852:             break;
   1226  0006BC  D035               	goto	l4761
   1227  0006BE                     l4759:
   1228  0006BE  503C               	movf	FRAME_HandleCanFrame@identyfikator,w,c
@@ -1327,7 +1327,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1295  000726  D7C0               	goto	l4755
   1296  000728                     l4761:
   1297                           
-  1298                           ;FRAME.c: 790:     if(message->message_type == 0x02)
+  1298                           ;FRAME.c: 861:     if(message->message_type == 0x02)
   1299  000728  EE20 F001          	lfsr	2,1
   1300  00072C  5034               	movf	FRAME_HandleCanFrame@message,w,c
   1301  00072E  26D9               	addwf	fsr2l,f,c
@@ -1338,7 +1338,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1306  000738  A4D8               	btfss	status,2,c
   1307  00073A  0012               	return	
   1308                           
-  1309                           ;FRAME.c: 791:     {;FRAME.c: 793:         message->frame_type = 0x03;
+  1309                           ;FRAME.c: 862:     {;FRAME.c: 864:         message->frame_type = 0x03;
   1310  00073C  EE20 F002          	lfsr	2,2
   1311  000740  5034               	movf	FRAME_HandleCanFrame@message,w,c
   1312  000742  26D9               	addwf	fsr2l,f,c
@@ -1347,7 +1347,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1315  000748  0E03               	movlw	3
   1316  00074A  6EDF               	movwf	indf2,c
   1317                           
-  1318                           ;FRAME.c: 794:         message->message_type = 0x01;
+  1318                           ;FRAME.c: 865:         message->message_type = 0x01;
   1319  00074C  EE20 F001          	lfsr	2,1
   1320  000750  5034               	movf	FRAME_HandleCanFrame@message,w,c
   1321  000752  26D9               	addwf	fsr2l,f,c
@@ -1356,7 +1356,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1324  000758  0E01               	movlw	1
   1325  00075A  6EDF               	movwf	indf2,c
   1326                           
-  1327                           ;FRAME.c: 795:         message->id.Val = 0;
+  1327                           ;FRAME.c: 866:         message->id.Val = 0;
   1328  00075C  EE20 F004          	lfsr	2,4
   1329  000760  5034               	movf	FRAME_HandleCanFrame@message,w,c
   1330  000762  26D9               	addwf	fsr2l,f,c
@@ -1367,7 +1367,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1335  00076C  6ADE               	clrf	postinc2,c
   1336  00076E  6ADD               	clrf	postdec2,c
   1337                           
-  1338                           ;FRAME.c: 797:         message->id.v[2] = identyfikator*4;
+  1338                           ;FRAME.c: 868:         message->id.v[2] = identyfikator*4;
   1339  000770  503C               	movf	FRAME_HandleCanFrame@identyfikator,w,c
   1340  000772  0D04               	mullw	4
   1341  000774  EE20 F006          	lfsr	2,6
@@ -1377,31 +1377,31 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1345  00077E  22DA               	addwfc	fsr2h,f,c
   1346  000780  CFF3 FFDF          	movff	prodl,indf2
   1347                           
-  1348                           ;FRAME.c: 798:         CAN_GenID(message,identyfikator);
+  1348                           ;FRAME.c: 869:         CAN_GenID(message,identyfikator);
   1349  000784  C034  F028         	movff	FRAME_HandleCanFrame@message,CAN_GenID@message
   1350  000788  C035  F029         	movff	FRAME_HandleCanFrame@message+1,CAN_GenID@message+1
   1351  00078C  C03C  F02A         	movff	FRAME_HandleCanFrame@identyfikator,CAN_GenID@frameID
   1352  000790  EC34  F00A         	call	_CAN_GenID	;wreg free
   1353                           
-  1354                           ;FRAME.c: 799:         CAN_SendFrame(message);
+  1354                           ;FRAME.c: 870:         CAN_SendFrame(message);
   1355  000794  C034  F02D         	movff	FRAME_HandleCanFrame@message,CAN_SendFrame@message
   1356  000798  C035  F02E         	movff	FRAME_HandleCanFrame@message+1,CAN_SendFrame@message+1
   1357  00079C  EC9F  F004         	call	_CAN_SendFrame	;wreg free
   1358                           
-  1359                           ;FRAME.c: 810:        while(RXB0CONbits.FILHIT3)
+  1359                           ;FRAME.c: 881:        while(RXB0CONbits.FILHIT3)
   1360  0007A0  D004               	goto	l708
   1361  0007A2                     l709:
   1362                           
-  1363                           ;FRAME.c: 811:        {;FRAME.c: 812:            if(TXB0CONbits.TXERR == 1){
+  1363                           ;FRAME.c: 882:        {;FRAME.c: 883:            if(TXB0CONbits.TXERR == 1){
   1364  0007A2  010F               	movlb	15	; () banked
   1365  0007A4  B940               	btfsc	64,4,b	;volatile
   1366                           
   1367                           ; BSR set to: 15
-  1368                           ;FRAME.c: 813:                LED_Error();
+  1368                           ;FRAME.c: 884:                LED_Error();
   1369  0007A6  ECD7  F00D         	call	_LED_Error	;wreg free
   1370  0007AA                     l708:
   1371                           
-  1372                           ;FRAME.c: 810:        while(RXB0CONbits.FILHIT3)
+  1372                           ;FRAME.c: 881:        while(RXB0CONbits.FILHIT3)
   1373  0007AA  A660               	btfss	3936,3,c	;volatile
   1374  0007AC  0012               	return	
   1375  0007AE  D7F9               	goto	l709
@@ -1472,7 +1472,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1435                           
   1436 ;; *************** function _FRAME_SoftwareVersion *****************
   1437 ;; Defined at:
-  1438 ;;		line 560 in file "FRAME.c"
+  1438 ;;		line 610 in file "FRAME.c"
   1439 ;; Parameters:    Size  Location     Type
   1440 ;;  message         2    5[COMRAM] PTR struct .
   1441 ;;		 -> TRM_DataTransmition@canMessage(17), 
@@ -1512,8 +1512,8 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1470  0015CA                     _FRAME_SoftwareVersion:
   1471                           	opt callstack 25
   1472                           
-  1473                           ;FRAME.c: 560: static void FRAME_SoftwareVersion(mID *message);FRAME.c: 561: {;FRAME.c: 
-      +                          563:     if(message->message_type == 0x02)
+  1473                           ;FRAME.c: 610: static void FRAME_SoftwareVersion(mID *message);FRAME.c: 611: {;FRAME.c: 
+      +                          613:     if(message->message_type == 0x02)
   1474                           
   1475                           ;incstack = 0
   1476  0015CA  EE20 F001          	lfsr	2,1
@@ -1526,7 +1526,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1483  0015DA  A4D8               	btfss	status,2,c
   1484  0015DC  0012               	return	
   1485                           
-  1486                           ;FRAME.c: 564:     {;FRAME.c: 565:         message->data_length = 4;
+  1486                           ;FRAME.c: 614:     {;FRAME.c: 615:         message->data_length = 4;
   1487  0015DE  EE20 F010          	lfsr	2,16
   1488  0015E2  5028               	movf	FRAME_SoftwareVersion@message,w,c
   1489  0015E4  26D9               	addwf	fsr2l,f,c
@@ -1535,7 +1535,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1492  0015EA  0E04               	movlw	4
   1493  0015EC  6EDF               	movwf	indf2,c
   1494                           
-  1495                           ;FRAME.c: 566:         message->data[0] = (unsigned char)(Dane->wersjaOprogramowaniaU16 
+  1495                           ;FRAME.c: 616:         message->data[0] = (unsigned char)(Dane->wersjaOprogramowaniaU16 
       +                          >> 8);
   1496  0015EE  EE20 F008          	lfsr	2,8
   1497  0015F2  5028               	movf	FRAME_SoftwareVersion@message,w,c
@@ -1545,7 +1545,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1501  0015FA  5005               	movf	5,w,c
   1502  0015FC  6EDF               	movwf	indf2,c
   1503                           
-  1504                           ;FRAME.c: 567:         message->data[1] = (unsigned char)Dane->wersjaOprogramowaniaU16;
+  1504                           ;FRAME.c: 617:         message->data[1] = (unsigned char)Dane->wersjaOprogramowaniaU16;
   1505  0015FE  EE20 F009          	lfsr	2,9
   1506  001602  5028               	movf	FRAME_SoftwareVersion@message,w,c
   1507  001604  26D9               	addwf	fsr2l,f,c
@@ -1553,7 +1553,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1509  001608  22DA               	addwfc	fsr2h,f,c
   1510  00160A  C004 FFDF          	movff	4,indf2
   1511                           
-  1512                           ;FRAME.c: 568:         message->data[2] = (unsigned char)(Dane->wersjaSprzetuU16 >> 8);
+  1512                           ;FRAME.c: 618:         message->data[2] = (unsigned char)(Dane->wersjaSprzetuU16 >> 8);
   1513  00160E  EE20 F00A          	lfsr	2,10
   1514  001612  5028               	movf	FRAME_SoftwareVersion@message,w,c
   1515  001614  26D9               	addwf	fsr2l,f,c
@@ -1562,7 +1562,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1518  00161A  500B               	movf	11,w,c
   1519  00161C  6EDF               	movwf	indf2,c
   1520                           
-  1521                           ;FRAME.c: 569:         message->data[3] = (unsigned char)Dane->wersjaSprzetuU16;
+  1521                           ;FRAME.c: 619:         message->data[3] = (unsigned char)Dane->wersjaSprzetuU16;
   1522  00161E  EE20 F00B          	lfsr	2,11
   1523  001622  5028               	movf	FRAME_SoftwareVersion@message,w,c
   1524  001624  26D9               	addwf	fsr2l,f,c
@@ -1570,7 +1570,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1526  001628  22DA               	addwfc	fsr2h,f,c
   1527  00162A  C00A FFDF          	movff	10,indf2
   1528                           
-  1529                           ;FRAME.c: 570:     }
+  1529                           ;FRAME.c: 620:     }
   1530  00162E  0012               	return		;funcret
   1531  001630                     __end_of_FRAME_SoftwareVersion:
   1532                           	opt callstack 0
@@ -1781,7 +1781,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1730                           
   1731 ;; *************** function _MOC_Wynikowa_wartosc_roznicowa *****************
   1732 ;; Defined at:
-  1733 ;;		line 33 in file "MOC_Funct.c"
+  1733 ;;		line 34 in file "MOC_Funct.c"
   1734 ;; Parameters:    Size  Location     Type
   1735 ;;		None
   1736 ;; Auto vars:     Size  Location     Type
@@ -1820,7 +1820,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1764  001C36                     _MOC_Wynikowa_wartosc_roznicowa:
   1765                           	opt callstack 24
   1766                           
-  1767                           ;MOC_Funct.c: 35:     return 0x0220;
+  1767                           ;MOC_Funct.c: 36:     return 0x0220;
   1768                           
   1769                           ;incstack = 0
   1770  001C36  0E02               	movlw	2
@@ -1833,7 +1833,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1777                           
   1778 ;; *************** function _MOC_NOTWORK *****************
   1779 ;; Defined at:
-  1780 ;;		line 47 in file "MOC_Funct.c"
+  1780 ;;		line 48 in file "MOC_Funct.c"
   1781 ;; Parameters:    Size  Location     Type
   1782 ;;		None
   1783 ;; Auto vars:     Size  Location     Type
@@ -1872,7 +1872,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1811  001C90                     _MOC_NOTWORK:
   1812                           	opt callstack 24
   1813                           
-  1814                           ;MOC_Funct.c: 49:     return 0xFF;
+  1814                           ;MOC_Funct.c: 50:     return 0xFF;
   1815                           
   1816                           ;incstack = 0
   1817  001C90  0E00               	movlw	0
@@ -1884,7 +1884,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1823                           
   1824 ;; *************** function _MOC_Frame_Counter *****************
   1825 ;; Defined at:
-  1826 ;;		line 38 in file "MOC_Funct.c"
+  1826 ;;		line 39 in file "MOC_Funct.c"
   1827 ;; Parameters:    Size  Location     Type
   1828 ;;		None
   1829 ;; Auto vars:     Size  Location     Type
@@ -1923,7 +1923,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1857  001C0C                     _MOC_Frame_Counter:
   1858                           	opt callstack 24
   1859                           
-  1860                           ;MOC_Funct.c: 40:     static UINT zeta = 0x11;;MOC_Funct.c: 41:     return zeta++;
+  1860                           ;MOC_Funct.c: 41:     static UINT zeta = 0x11;;MOC_Funct.c: 42:     return zeta++;
   1861                           
   1862                           ;incstack = 0
   1863  001C0C  503F               	movf	MOC_Frame_Counter@zeta,w,c
@@ -1938,7 +1938,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1872                           
   1873 ;; *************** function _MOC_Aktualna_Temperatura *****************
   1874 ;; Defined at:
-  1875 ;;		line 43 in file "MOC_Funct.c"
+  1875 ;;		line 44 in file "MOC_Funct.c"
   1876 ;; Parameters:    Size  Location     Type
   1877 ;;		None
   1878 ;; Auto vars:     Size  Location     Type
@@ -1977,7 +1977,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   1906  001C40                     _MOC_Aktualna_Temperatura:
   1907                           	opt callstack 24
   1908                           
-  1909                           ;MOC_Funct.c: 45:     return 0x1B;
+  1909                           ;MOC_Funct.c: 46:     return 0x1B;
   1910                           
   1911                           ;incstack = 0
   1912  001C40  0E00               	movlw	0
@@ -2279,7 +2279,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2192                           
   2193 ;; *************** function _FRAME_PrzypisanieDokarty *****************
   2194 ;; Defined at:
-  2195 ;;		line 609 in file "FRAME.c"
+  2195 ;;		line 669 in file "FRAME.c"
   2196 ;; Parameters:    Size  Location     Type
   2197 ;;  message         2    5[COMRAM] PTR struct .
   2198 ;;		 -> TRM_DataTransmition@canMessage(17), 
@@ -2319,8 +2319,8 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2227  0011BA                     _FRAME_PrzypisanieDokarty:
   2228                           	opt callstack 25
   2229                           
-  2230                           ;FRAME.c: 609: static void FRAME_PrzypisanieDokarty(mID *message);FRAME.c: 610: {;FRAME.
-      +                          c: 611:     if(message->message_type == 0x02)
+  2230                           ;FRAME.c: 669: static void FRAME_PrzypisanieDokarty(mID *message);FRAME.c: 670: {;FRAME.
+      +                          c: 671:     if(message->message_type == 0x02)
   2231                           
   2232                           ;incstack = 0
   2233  0011BA  EE20 F001          	lfsr	2,1
@@ -2333,7 +2333,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2240  0011CA  A4D8               	btfss	status,2,c
   2241  0011CC  D021               	goto	l4511
   2242                           
-  2243                           ;FRAME.c: 612:     {;FRAME.c: 613:         message->data_length = 3;
+  2243                           ;FRAME.c: 672:     {;FRAME.c: 673:         message->data_length = 3;
   2244  0011CE  EE20 F010          	lfsr	2,16
   2245  0011D2  5028               	movf	FRAME_PrzypisanieDokarty@message,w,c
   2246  0011D4  26D9               	addwf	fsr2l,f,c
@@ -2342,7 +2342,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2249  0011DA  0E03               	movlw	3
   2250  0011DC  6EDF               	movwf	indf2,c
   2251                           
-  2252                           ;FRAME.c: 614:         message->data[0] = (unsigned char)Dane->NrKarty >> 8 ;
+  2252                           ;FRAME.c: 674:         message->data[0] = (unsigned char)Dane->NrKarty >> 8 ;
   2253  0011DE  EE20 F008          	lfsr	2,8
   2254  0011E2  5028               	movf	FRAME_PrzypisanieDokarty@message,w,c
   2255  0011E4  26D9               	addwf	fsr2l,f,c
@@ -2351,7 +2351,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2258  0011EA  0E00               	movlw	0
   2259  0011EC  6EDF               	movwf	indf2,c
   2260                           
-  2261                           ;FRAME.c: 615:         message->data[1] = (unsigned char)Dane->NrKarty ;
+  2261                           ;FRAME.c: 675:         message->data[1] = (unsigned char)Dane->NrKarty ;
   2262  0011EE  EE20 F009          	lfsr	2,9
   2263  0011F2  5028               	movf	FRAME_PrzypisanieDokarty@message,w,c
   2264  0011F4  26D9               	addwf	fsr2l,f,c
@@ -2359,7 +2359,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2266  0011F8  22DA               	addwfc	fsr2h,f,c
   2267  0011FA  C040 FFDF          	movff	64,indf2
   2268                           
-  2269                           ;FRAME.c: 616:         message->data[2] = (unsigned char)Dane->Nr_WeWy ;
+  2269                           ;FRAME.c: 676:         message->data[2] = (unsigned char)Dane->Nr_WeWy ;
   2270  0011FE  EE20 F00A          	lfsr	2,10
   2271  001202  5028               	movf	FRAME_PrzypisanieDokarty@message,w,c
   2272  001204  26D9               	addwf	fsr2l,f,c
@@ -2367,11 +2367,11 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2274  001208  22DA               	addwfc	fsr2h,f,c
   2275  00120A  C042 FFDF          	movff	66,indf2
   2276                           
-  2277                           ;FRAME.c: 618:     }
+  2277                           ;FRAME.c: 678:     }
   2278  00120E  0012               	return	
   2279  001210                     l4511:
   2280                           
-  2281                           ;FRAME.c: 620:     {;FRAME.c: 621:          Dane->NrKarty = (message->data[0] << 8) | (m
+  2281                           ;FRAME.c: 680:     {;FRAME.c: 681:          Dane->NrKarty = (message->data[0] << 8) | (m
       +                          essage->data[1]);
   2282  001210  EE20 F008          	lfsr	2,8
   2283  001214  5028               	movf	FRAME_PrzypisanieDokarty@message,w,c
@@ -2396,7 +2396,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2302  00123C  502C               	movf	??_FRAME_PrzypisanieDokarty+2,w,c
   2303  00123E  6E41               	movwf	65,c
   2304                           
-  2305                           ;FRAME.c: 622:          Dane->Nr_WeWy = (message->data[2]);
+  2305                           ;FRAME.c: 682:          Dane->Nr_WeWy = (message->data[2]);
   2306  001240  EE20 F00A          	lfsr	2,10
   2307  001244  5028               	movf	FRAME_PrzypisanieDokarty@message,w,c
   2308  001246  26D9               	addwf	fsr2l,f,c
@@ -2413,7 +2413,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2319                           
   2320 ;; *************** function _FRAME_Plot *****************
   2321 ;; Defined at:
-  2322 ;;		line 514 in file "FRAME.c"
+  2322 ;;		line 554 in file "FRAME.c"
   2323 ;; Parameters:    Size  Location     Type
   2324 ;;  message         2   12[COMRAM] PTR struct .
   2325 ;;		 -> TRM_DataTransmition@canMessage(17), 
@@ -2453,7 +2453,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2354  001740                     _FRAME_Plot:
   2355                           	opt callstack 24
   2356                           
-  2357                           ;FRAME.c: 514: static void FRAME_Plot(mID *message);FRAME.c: 515: {;FRAME.c: 517:     if
+  2357                           ;FRAME.c: 554: static void FRAME_Plot(mID *message);FRAME.c: 555: {;FRAME.c: 557:     if
       +                          (message->message_type == 0x02)
   2358                           
   2359                           ;incstack = 0
@@ -2467,7 +2467,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2367  001750  A4D8               	btfss	status,2,c
   2368  001752  D013               	goto	l4501
   2369                           
-  2370                           ;FRAME.c: 518:     {;FRAME.c: 519:         message->data[0] = (BYTE)(Dane->timerRysowani
+  2370                           ;FRAME.c: 558:     {;FRAME.c: 559:         message->data[0] = (BYTE)(Dane->timerRysowani
       +                          aWykresuU16/10);
   2371  001754  EE20 F008          	lfsr	2,8
   2372  001758  502F               	movf	FRAME_Plot@message,w,c
@@ -2484,11 +2484,11 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2383  001774  5028               	movf	?___lwdiv,w,c
   2384  001776  6EDF               	movwf	indf2,c
   2385                           
-  2386                           ;FRAME.c: 520:     }
+  2386                           ;FRAME.c: 560:     }
   2387  001778  0012               	return	
   2388  00177A                     l4501:
   2389                           
-  2390                           ;FRAME.c: 522:     {;FRAME.c: 523:         Dane->timerRysowaniaWykresuU16 = (WORD)messag
+  2390                           ;FRAME.c: 562:     {;FRAME.c: 563:         Dane->timerRysowaniaWykresuU16 = (WORD)messag
       +                          e->data[0]*10;
   2391  00177A  EE20 F008          	lfsr	2,8
   2392  00177E  502F               	movf	FRAME_Plot@message,w,c
@@ -2507,7 +2507,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2405                           
   2406 ;; *************** function _FRAME_MapPosition *****************
   2407 ;; Defined at:
-  2408 ;;		line 535 in file "FRAME.c"
+  2408 ;;		line 580 in file "FRAME.c"
   2409 ;; Parameters:    Size  Location     Type
   2410 ;;  message         2    5[COMRAM] PTR struct .
   2411 ;;		 -> TRM_DataTransmition@canMessage(17), 
@@ -2730,7 +2730,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2611                           
   2612 ;; *************** function _FRAME_DeviceReset *****************
   2613 ;; Defined at:
-  2614 ;;		line 386 in file "FRAME.c"
+  2614 ;;		line 401 in file "FRAME.c"
   2615 ;; Parameters:    Size  Location     Type
   2616 ;;  message         2   14[COMRAM] PTR struct .
   2617 ;;		 -> TRM_DataTransmition@canMessage(17), 
@@ -2771,7 +2771,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2647  000C02                     _FRAME_DeviceReset:
   2648                           	opt callstack 22
   2649                           
-  2650                           ;FRAME.c: 386: static void FRAME_DeviceReset(mID *message);FRAME.c: 387: {;FRAME.c: 388:
+  2650                           ;FRAME.c: 401: static void FRAME_DeviceReset(mID *message);FRAME.c: 402: {;FRAME.c: 403:
       +                               if(message->message_type == 0x02)
   2651                           
   2652                           ;incstack = 0
@@ -2785,7 +2785,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2660  000C12  A4D8               	btfss	status,2,c
   2661  000C14  D057               	goto	l4477
   2662                           
-  2663                           ;FRAME.c: 389:     {;FRAME.c: 390:         message->data_length = 1;
+  2663                           ;FRAME.c: 404:     {;FRAME.c: 405:         message->data_length = 1;
   2664  000C16  EE20 F010          	lfsr	2,16
   2665  000C1A  5031               	movf	FRAME_DeviceReset@message,w,c
   2666  000C1C  26D9               	addwf	fsr2l,f,c
@@ -2794,7 +2794,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2669  000C22  0E01               	movlw	1
   2670  000C24  6EDF               	movwf	indf2,c
   2671                           
-  2672                           ;FRAME.c: 392:         message->data[0] = (RCON>>6) & 0x01;
+  2672                           ;FRAME.c: 407:         message->data[0] = (RCON>>6) & 0x01;
   2673  000C26  EE20 F008          	lfsr	2,8
   2674  000C2A  5031               	movf	FRAME_DeviceReset@message,w,c
   2675  000C2C  26D9               	addwf	fsr2l,f,c
@@ -2806,7 +2806,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2681  000C38  0B01               	andlw	1
   2682  000C3A  6EDF               	movwf	indf2,c
   2683                           
-  2684                           ;FRAME.c: 393:         message->data[1] = Flagi.wykonanoZapisDoFlash;
+  2684                           ;FRAME.c: 408:         message->data[1] = Flagi.wykonanoZapisDoFlash;
   2685  000C3C  EE20 F009          	lfsr	2,9
   2686  000C40  5031               	movf	FRAME_DeviceReset@message,w,c
   2687  000C42  26D9               	addwf	fsr2l,f,c
@@ -2822,7 +2822,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2697  000C54                     u2696:
   2698  000C54  6EDF               	movwf	indf2,c
   2699                           
-  2700                           ;FRAME.c: 394:         message->data[2] = Flagi.pomiarTla;
+  2700                           ;FRAME.c: 409:         message->data[2] = Flagi.pomiarTla;
   2701  000C56  EE20 F00A          	lfsr	2,10
   2702  000C5A  5031               	movf	FRAME_DeviceReset@message,w,c
   2703  000C5C  26D9               	addwf	fsr2l,f,c
@@ -2837,7 +2837,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2712  000C6C                     u2706:
   2713  000C6C  6EDF               	movwf	indf2,c
   2714                           
-  2715                           ;FRAME.c: 395:         message->data[3] = 0;
+  2715                           ;FRAME.c: 410:         message->data[3] = 0;
   2716  000C6E  EE20 F00B          	lfsr	2,11
   2717  000C72  5031               	movf	FRAME_DeviceReset@message,w,c
   2718  000C74  26D9               	addwf	fsr2l,f,c
@@ -2846,7 +2846,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2721  000C7A  0E00               	movlw	0
   2722  000C7C  6EDF               	movwf	indf2,c
   2723                           
-  2724                           ;FRAME.c: 396:         message->data[4] = Dane->rokU16;
+  2724                           ;FRAME.c: 411:         message->data[4] = Dane->rokU16;
   2725  000C7E  EE20 F00C          	lfsr	2,12
   2726  000C82  5031               	movf	FRAME_DeviceReset@message,w,c
   2727  000C84  26D9               	addwf	fsr2l,f,c
@@ -2854,7 +2854,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2729  000C88  22DA               	addwfc	fsr2h,f,c
   2730  000C8A  C036 FFDF          	movff	54,indf2
   2731                           
-  2732                           ;FRAME.c: 397:         message->data[5] = Dane->miesiacU16;
+  2732                           ;FRAME.c: 412:         message->data[5] = Dane->miesiacU16;
   2733  000C8E  EE20 F00D          	lfsr	2,13
   2734  000C92  5031               	movf	FRAME_DeviceReset@message,w,c
   2735  000C94  26D9               	addwf	fsr2l,f,c
@@ -2862,7 +2862,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2737  000C98  22DA               	addwfc	fsr2h,f,c
   2738  000C9A  C038 FFDF          	movff	56,indf2
   2739                           
-  2740                           ;FRAME.c: 398:         message->data[6] = Dane->dzienU16;
+  2740                           ;FRAME.c: 413:         message->data[6] = Dane->dzienU16;
   2741  000C9E  EE20 F00E          	lfsr	2,14
   2742  000CA2  5031               	movf	FRAME_DeviceReset@message,w,c
   2743  000CA4  26D9               	addwf	fsr2l,f,c
@@ -2870,7 +2870,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2745  000CA8  22DA               	addwfc	fsr2h,f,c
   2746  000CAA  C03A FFDF          	movff	58,indf2
   2747                           
-  2748                           ;FRAME.c: 399:         message->data[7] = Dane->godzinaU16;
+  2748                           ;FRAME.c: 414:         message->data[7] = Dane->godzinaU16;
   2749  000CAE  EE20 F00F          	lfsr	2,15
   2750  000CB2  5031               	movf	FRAME_DeviceReset@message,w,c
   2751  000CB4  26D9               	addwf	fsr2l,f,c
@@ -2879,18 +2879,18 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2754  000CBA  C03C FFDF          	movff	60,indf2
   2755                           
   2756                           ; BSR set to: 0
-  2757                           ;FRAME.c: 400:         RCON &= ~(1<<6);
+  2757                           ;FRAME.c: 415:         RCON &= ~(1<<6);
   2758  000CBE  9CD0               	bcf	4048,6,c	;volatile
   2759                           
   2760                           ; BSR set to: 0
-  2761                           ;FRAME.c: 401:         Flagi.wykonanoZapisDoFlash = 0;
+  2761                           ;FRAME.c: 416:         Flagi.wykonanoZapisDoFlash = 0;
   2762  000CC0  99C6               	bcf	_Flagi& (0+255),4,b
   2763                           
-  2764                           ;FRAME.c: 415:     }
+  2764                           ;FRAME.c: 430:     }
   2765  000CC2  0012               	return	
   2766  000CC4                     l4477:
   2767                           
-  2768                           ;FRAME.c: 417:     {;FRAME.c: 418:         message->data_length = 1;
+  2768                           ;FRAME.c: 432:     {;FRAME.c: 433:         message->data_length = 1;
   2769  000CC4  EE20 F010          	lfsr	2,16
   2770  000CC8  5031               	movf	FRAME_DeviceReset@message,w,c
   2771  000CCA  26D9               	addwf	fsr2l,f,c
@@ -2899,7 +2899,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2774  000CD0  0E01               	movlw	1
   2775  000CD2  6EDF               	movwf	indf2,c
   2776                           
-  2777                           ;FRAME.c: 420:         if(message->data[2])
+  2777                           ;FRAME.c: 435:         if(message->data[2])
   2778  000CD4  EE20 F00A          	lfsr	2,10
   2779  000CD8  5031               	movf	FRAME_DeviceReset@message,w,c
   2780  000CDA  26D9               	addwf	fsr2l,f,c
@@ -2909,12 +2909,12 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2784  000CE2  B4D8               	btfsc	status,2,c
   2785  000CE4  D00F               	goto	l4487
   2786                           
-  2787                           ;FRAME.c: 421:         {;FRAME.c: 422:             Flagi.pomiarTla = 1;
+  2787                           ;FRAME.c: 436:         {;FRAME.c: 437:             Flagi.pomiarTla = 1;
   2788  000CE6  0100               	movlb	0	; () banked
   2789  000CE8  81C6               	bsf	_Flagi& (0+255),0,b
   2790                           
   2791                           ; BSR set to: 0
-  2792                           ;FRAME.c: 423:             if(message->data[1])
+  2792                           ;FRAME.c: 438:             if(message->data[1])
   2793  000CEA  EE20 F009          	lfsr	2,9
   2794  000CEE  5031               	movf	FRAME_DeviceReset@message,w,c
   2795  000CF0  26D9               	addwf	fsr2l,f,c
@@ -2925,16 +2925,16 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2800  000CFA  D01E               	goto	l4495
   2801                           
   2802                           ; BSR set to: 0
-  2803                           ;FRAME.c: 424:             {;FRAME.c: 425:                 Flagi.zapisDoFlash = 1;
+  2803                           ;FRAME.c: 439:             {;FRAME.c: 440:                 Flagi.zapisDoFlash = 1;
   2804  000CFC  87C6               	bsf	_Flagi& (0+255),3,b
   2805                           
   2806                           ; BSR set to: 0
-  2807                           ;FRAME.c: 426:                 WriteDataToEEPROM();
+  2807                           ;FRAME.c: 441:                 WriteDataToEEPROM();
   2808  000CFE  EC2B  F007         	call	_WriteDataToEEPROM	;wreg free
   2809  000D02  D01A               	goto	l4495
   2810  000D04                     l4487:
   2811                           
-  2812                           ;FRAME.c: 430:         {;FRAME.c: 431:             if(message->data[1])
+  2812                           ;FRAME.c: 445:         {;FRAME.c: 446:             if(message->data[1])
   2813  000D04  EE20 F009          	lfsr	2,9
   2814  000D08  5031               	movf	FRAME_DeviceReset@message,w,c
   2815  000D0A  26D9               	addwf	fsr2l,f,c
@@ -2944,17 +2944,17 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2819  000D12  B4D8               	btfsc	status,2,c
   2820  000D14  D008               	goto	l4491
   2821                           
-  2822                           ;FRAME.c: 432:             {;FRAME.c: 433:                 FRAME_DataUpdateAndChangeOpti
+  2822                           ;FRAME.c: 447:             {;FRAME.c: 448:                 FRAME_DataUpdateAndChangeOpti
       +                          on(message);
   2823  000D16  C031  F028         	movff	FRAME_DeviceReset@message,FRAME_DataUpdateAndChangeOption@message
   2824  000D1A  C032  F029         	movff	FRAME_DeviceReset@message+1,FRAME_DataUpdateAndChangeOption@message+1
   2825  000D1E  EC73  F00B         	call	_FRAME_DataUpdateAndChangeOption	;wreg free
   2826                           
-  2827                           ;FRAME.c: 434:                 WriteDataToEEPROM();
+  2827                           ;FRAME.c: 449:                 WriteDataToEEPROM();
   2828  000D22  EC2B  F007         	call	_WriteDataToEEPROM	;wreg free
   2829  000D26                     l4491:
   2830                           
-  2831                           ;FRAME.c: 437:             if(message->data[0])
+  2831                           ;FRAME.c: 452:             if(message->data[0])
   2832  000D26  EE20 F008          	lfsr	2,8
   2833  000D2A  5031               	movf	FRAME_DeviceReset@message,w,c
   2834  000D2C  26D9               	addwf	fsr2l,f,c
@@ -2965,7 +2965,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2839  000D36  00FF               	reset		;# 
   2840  000D38                     l4495:
   2841                           
-  2842                           ;FRAME.c: 442:         message->data[0] = 0xFF;
+  2842                           ;FRAME.c: 457:         message->data[0] = 0xFF;
   2843  000D38  EE20 F008          	lfsr	2,8
   2844  000D3C  5031               	movf	FRAME_DeviceReset@message,w,c
   2845  000D3E  26D9               	addwf	fsr2l,f,c
@@ -2979,7 +2979,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2853                           
   2854 ;; *************** function _WriteDataToEEPROM *****************
   2855 ;; Defined at:
-  2856 ;;		line 494 in file "FRAME.c"
+  2856 ;;		line 529 in file "FRAME.c"
   2857 ;; Parameters:    Size  Location     Type
   2858 ;;		None
   2859 ;; Auto vars:     Size  Location     Type
@@ -3018,7 +3018,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2887  000E56                     _WriteDataToEEPROM:
   2888                           	opt callstack 22
   2889                           
-  2890                           ;FRAME.c: 496:     NVMWrite(&Init_Data,10,2);
+  2890                           ;FRAME.c: 531:     NVMWrite(&Init_Data,10,2);
   2891                           
   2892                           ;incstack = 0
   2893  000E56  0E48               	movlw	low _Init_Data
@@ -3035,7 +3035,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2904  000E6C  6E2F               	movwf	NVMWrite@count,c
   2905  000E6E  ECC1  F00C         	call	_NVMWrite	;wreg free
   2906                           
-  2907                           ;FRAME.c: 497:     NVMWrite(&NeightAdress1,13,2);
+  2907                           ;FRAME.c: 532:     NVMWrite(&NeightAdress1,13,2);
   2908  000E72  0E21               	movlw	low _NeightAdress1
   2909  000E74  6E2B               	movwf	NVMWrite@source,c
   2910  000E76  0E00               	movlw	high _NeightAdress1
@@ -3050,7 +3050,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2919  000E88  6E2F               	movwf	NVMWrite@count,c
   2920  000E8A  ECC1  F00C         	call	_NVMWrite	;wreg free
   2921                           
-  2922                           ;FRAME.c: 498:     NVMWrite(&NeightAdress2,16,2);
+  2922                           ;FRAME.c: 533:     NVMWrite(&NeightAdress2,16,2);
   2923  000E8E  0E4A               	movlw	low _NeightAdress2
   2924  000E90  6E2B               	movwf	NVMWrite@source,c
   2925  000E92  0E00               	movlw	high _NeightAdress2
@@ -3065,7 +3065,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2934  000EA4  6E2F               	movwf	NVMWrite@count,c
   2935  000EA6  ECC1  F00C         	call	_NVMWrite	;wreg free
   2936                           
-  2937                           ;FRAME.c: 499:     NVMWrite(&NeightAdress3,19,2);
+  2937                           ;FRAME.c: 534:     NVMWrite(&NeightAdress3,19,2);
   2938  000EAA  0E1F               	movlw	low _NeightAdress3
   2939  000EAC  6E2B               	movwf	NVMWrite@source,c
   2940  000EAE  0E00               	movlw	high _NeightAdress3
@@ -3080,7 +3080,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2949  000EC0  6E2F               	movwf	NVMWrite@count,c
   2950  000EC2  ECC1  F00C         	call	_NVMWrite	;wreg free
   2951                           
-  2952                           ;FRAME.c: 500:     NVMWrite(&NeightAdress4,22,2);
+  2952                           ;FRAME.c: 535:     NVMWrite(&NeightAdress4,22,2);
   2953  000EC6  0E1D               	movlw	low _NeightAdress4
   2954  000EC8  6E2B               	movwf	NVMWrite@source,c
   2955  000ECA  0E00               	movlw	high _NeightAdress4
@@ -3095,7 +3095,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2964  000EDC  6E2F               	movwf	NVMWrite@count,c
   2965  000EDE  ECC1  F00C         	call	_NVMWrite	;wreg free
   2966                           
-  2967                           ;FRAME.c: 501:     NVMWrite(&NeightAdress5,25,2);
+  2967                           ;FRAME.c: 536:     NVMWrite(&NeightAdress5,25,2);
   2968  000EE2  0E1B               	movlw	low _NeightAdress5
   2969  000EE4  6E2B               	movwf	NVMWrite@source,c
   2970  000EE6  0E00               	movlw	high _NeightAdress5
@@ -3110,7 +3110,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2979  000EF8  6E2F               	movwf	NVMWrite@count,c
   2980  000EFA  ECC1  F00C         	call	_NVMWrite	;wreg free
   2981                           
-  2982                           ;FRAME.c: 502:     NVMWrite(&NeightAdress6,28,2);
+  2982                           ;FRAME.c: 537:     NVMWrite(&NeightAdress6,28,2);
   2983  000EFE  0E19               	movlw	low _NeightAdress6
   2984  000F00  6E2B               	movwf	NVMWrite@source,c
   2985  000F02  0E00               	movlw	high _NeightAdress6
@@ -3125,7 +3125,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   2994  000F14  6E2F               	movwf	NVMWrite@count,c
   2995  000F16  ECC1  F00C         	call	_NVMWrite	;wreg free
   2996                           
-  2997                           ;FRAME.c: 503:     NVMWrite(&NeightAdress7,31,2);
+  2997                           ;FRAME.c: 538:     NVMWrite(&NeightAdress7,31,2);
   2998  000F1A  0E17               	movlw	low _NeightAdress7
   2999  000F1C  6E2B               	movwf	NVMWrite@source,c
   3000  000F1E  0E00               	movlw	high _NeightAdress7
@@ -3140,7 +3140,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3009  000F30  6E2F               	movwf	NVMWrite@count,c
   3010  000F32  ECC1  F00C         	call	_NVMWrite	;wreg free
   3011                           
-  3012                           ;FRAME.c: 504:     NVMWrite(&NeightAdress8,34,2);
+  3012                           ;FRAME.c: 539:     NVMWrite(&NeightAdress8,34,2);
   3013  000F36  0E15               	movlw	low _NeightAdress8
   3014  000F38  6E2B               	movwf	NVMWrite@source,c
   3015  000F3A  0E00               	movlw	high _NeightAdress8
@@ -3160,7 +3160,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3029                           
   3030 ;; *************** function _NVMWrite *****************
   3031 ;; Defined at:
-  3032 ;;		line 90 in file "EEPROM.c"
+  3032 ;;		line 148 in file "EEPROM.c"
   3033 ;; Parameters:    Size  Location     Type
   3034 ;;  source          2    8[COMRAM] PTR unsigned char 
   3035 ;;		 -> Init_Data(2), NeightAdress8(2), NeightAdress7(2), NeightAdress6(2), 
@@ -3204,8 +3204,8 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3068  001982                     _NVMWrite:
   3069                           	opt callstack 22
   3070                           
-  3071                           ;EEPROM.c: 90: void NVMWrite(BYTE *source, WORD addr, WORD count);EEPROM.c: 91: {;EEPROM
-      +                          .c: 92:     while(count > 0)
+  3071                           ;EEPROM.c: 148: void NVMWrite(BYTE *source, WORD addr, WORD count);EEPROM.c: 149: {;EEPR
+      +                          OM.c: 150:     while(count > 0)
   3072                           
   3073                           ;incstack = 0
   3074  001982  D015               	goto	l4023
@@ -3213,7 +3213,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3076  001984  B2A6               	btfsc	4006,1,c	;volsfr
   3077  001986  D7FE               	goto	l949
   3078                           
-  3079                           ;EEPROM.c: 95:         WritetoEEPROM(addr++,*source);
+  3079                           ;EEPROM.c: 153:         WritetoEEPROM(addr++,*source);
   3080  001988  C02D  F028         	movff	NVMWrite@addr,WritetoEEPROM@Address
   3081  00198C  C02E  F029         	movff	NVMWrite@addr+1,WritetoEEPROM@Address+1
   3082  001990  C02B  FFD9         	movff	NVMWrite@source,fsr2l
@@ -3224,17 +3224,17 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3087  0019A0  4A2D               	infsnz	NVMWrite@addr,f,c
   3088  0019A2  2A2E               	incf	NVMWrite@addr+1,f,c
   3089                           
-  3090                           ;EEPROM.c: 96:         count--;
+  3090                           ;EEPROM.c: 154:         count--;
   3091  0019A4  062F               	decf	NVMWrite@count,f,c
   3092  0019A6  A0D8               	btfss	status,0,c
   3093  0019A8  0630               	decf	NVMWrite@count+1,f,c
   3094                           
-  3095                           ;EEPROM.c: 97:         source++;
+  3095                           ;EEPROM.c: 155:         source++;
   3096  0019AA  4A2B               	infsnz	NVMWrite@source,f,c
   3097  0019AC  2A2C               	incf	NVMWrite@source+1,f,c
   3098  0019AE                     l4023:
   3099                           
-  3100                           ;EEPROM.c: 92:     while(count > 0)
+  3100                           ;EEPROM.c: 150:     while(count > 0)
   3101  0019AE  502F               	movf	NVMWrite@count,w,c
   3102  0019B0  1030               	iorwf	NVMWrite@count+1,w,c
   3103  0019B2  B4D8               	btfsc	status,2,c
@@ -3245,7 +3245,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3108                           
   3109 ;; *************** function _WritetoEEPROM *****************
   3110 ;; Defined at:
-  3111 ;;		line 61 in file "EEPROM.c"
+  3111 ;;		line 95 in file "EEPROM.c"
   3112 ;; Parameters:    Size  Location     Type
   3113 ;;  Address         2    5[COMRAM] unsigned short 
   3114 ;;  Data            1    7[COMRAM] unsigned char 
@@ -3285,43 +3285,43 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3143  001A5A                     _WritetoEEPROM:
   3144                           	opt callstack 22
   3145                           
-  3146                           ;EEPROM.c: 61: static void WritetoEEPROM(WORD Address, BYTE Data);EEPROM.c: 62: {;EEPROM
-      +                          .c: 63:     static BYTE GIE_Status;;EEPROM.c: 65:     EEADRH = (BYTE)(Address>>8);
+  3146                           ;EEPROM.c: 95: static void WritetoEEPROM(WORD Address, BYTE Data);EEPROM.c: 96: {;EEPROM
+      +                          .c: 97:     static BYTE GIE_Status;;EEPROM.c: 99:     EEADRH = (BYTE)(Address>>8);
   3147                           
   3148                           ;incstack = 0
   3149  001A5A  5029               	movf	WritetoEEPROM@Address+1,w,c
   3150  001A5C  6EAA               	movwf	4010,c	;volatile
   3151                           
-  3152                           ;EEPROM.c: 66:     EEADR = (BYTE)Address;
+  3152                           ;EEPROM.c: 100:     EEADR = (BYTE)Address;
   3153  001A5E  C028  FFA9         	movff	WritetoEEPROM@Address,4009	;volatile
   3154                           
-  3155                           ;EEPROM.c: 67:     EEDATA = Data;
+  3155                           ;EEPROM.c: 101:     EEDATA = Data;
   3156  001A62  C02A  FFA8         	movff	WritetoEEPROM@Data,4008	;volatile
   3157                           
-  3158                           ;EEPROM.c: 68:     EECON1bits.WREN = 1;
+  3158                           ;EEPROM.c: 102:     EECON1bits.WREN = 1;
   3159  001A66  84A6               	bsf	4006,2,c	;volsfr
   3160                           
-  3161                           ;EEPROM.c: 69:     GIE_Status = INTCONbits.GIE;
+  3161                           ;EEPROM.c: 103:     GIE_Status = INTCONbits.GIE;
   3162  001A68  0E00               	movlw	0
   3163  001A6A  BEF2               	btfsc	4082,7,c	;volatile
   3164  001A6C  0E01               	movlw	1
   3165  001A6E  6E0B               	movwf	WritetoEEPROM@GIE_Status,c
   3166                           
-  3167                           ;EEPROM.c: 70:     INTCONbits.GIE = 0;
+  3167                           ;EEPROM.c: 104:     INTCONbits.GIE = 0;
   3168  001A70  9EF2               	bcf	4082,7,c	;volatile
   3169                           
-  3170                           ;EEPROM.c: 71:     EECON2 = 0x55;
+  3170                           ;EEPROM.c: 105:     EECON2 = 0x55;
   3171  001A72  0E55               	movlw	85
   3172  001A74  6EA7               	movwf	4007,c	;volsfr
   3173                           
-  3174                           ;EEPROM.c: 72:     EECON2 = 0xAA;
+  3174                           ;EEPROM.c: 106:     EECON2 = 0xAA;
   3175  001A76  0EAA               	movlw	170
   3176  001A78  6EA7               	movwf	4007,c	;volsfr
   3177                           
-  3178                           ;EEPROM.c: 73:     EECON1bits.WR = 1;
+  3178                           ;EEPROM.c: 107:     EECON1bits.WR = 1;
   3179  001A7A  82A6               	bsf	4006,1,c	;volsfr
   3180                           
-  3181                           ;EEPROM.c: 74:     INTCONbits.GIE = GIE_Status;
+  3181                           ;EEPROM.c: 108:     INTCONbits.GIE = GIE_Status;
   3182  001A7C  B00B               	btfsc	WritetoEEPROM@GIE_Status,0,c
   3183  001A7E  D002               	bra	u2155
   3184  001A80  9EF2               	bcf	4082,7,c	;volatile
@@ -3330,7 +3330,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3187  001A84  8EF2               	bsf	4082,7,c	;volatile
   3188  001A86                     u2156:
   3189                           
-  3190                           ;EEPROM.c: 75:     EECON1bits.WREN = 0;
+  3190                           ;EEPROM.c: 109:     EECON1bits.WREN = 0;
   3191  001A86  94A6               	bcf	4006,2,c	;volsfr
   3192  001A88                     l932:
   3193  001A88  B2A6               	btfsc	4006,1,c	;volsfr
@@ -3341,7 +3341,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3198                           
   3199 ;; *************** function _FRAME_DataUpdateAndChangeOption *****************
   3200 ;; Defined at:
-  3201 ;;		line 370 in file "FRAME.c"
+  3201 ;;		line 380 in file "FRAME.c"
   3202 ;; Parameters:    Size  Location     Type
   3203 ;;  message         2    5[COMRAM] PTR struct .
   3204 ;;		 -> TRM_DataTransmition@canMessage(17), 
@@ -3381,8 +3381,8 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3233  0016E6                     _FRAME_DataUpdateAndChangeOption:
   3234                           	opt callstack 24
   3235                           
-  3236                           ;FRAME.c: 370: static void FRAME_DataUpdateAndChangeOption(mID *message);FRAME.c: 371: {
-      +                          ;FRAME.c: 373:     Dane->rokU16 = message->data[4];
+  3236                           ;FRAME.c: 380: static void FRAME_DataUpdateAndChangeOption(mID *message);FRAME.c: 381: {
+      +                          ;FRAME.c: 383:     Dane->rokU16 = message->data[4];
   3237                           
   3238                           ;incstack = 0
   3239  0016E6  EE20 F00C          	lfsr	2,12
@@ -3396,7 +3396,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3247  0016F8  6E36               	movwf	54,c
   3248  0016FA  6A37               	clrf	55,c
   3249                           
-  3250                           ;FRAME.c: 374:     Dane->miesiacU16 = message->data[5];
+  3250                           ;FRAME.c: 384:     Dane->miesiacU16 = message->data[5];
   3251  0016FC  EE20 F00D          	lfsr	2,13
   3252  001700  5028               	movf	FRAME_DataUpdateAndChangeOption@message,w,c
   3253  001702  26D9               	addwf	fsr2l,f,c
@@ -3408,7 +3408,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3259  00170E  6E38               	movwf	56,c
   3260  001710  6A39               	clrf	57,c
   3261                           
-  3262                           ;FRAME.c: 375:     Dane->dzienU16 = message->data[6];
+  3262                           ;FRAME.c: 385:     Dane->dzienU16 = message->data[6];
   3263  001712  EE20 F00E          	lfsr	2,14
   3264  001716  5028               	movf	FRAME_DataUpdateAndChangeOption@message,w,c
   3265  001718  26D9               	addwf	fsr2l,f,c
@@ -3420,7 +3420,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3271  001724  6E3A               	movwf	58,c
   3272  001726  6A3B               	clrf	59,c
   3273                           
-  3274                           ;FRAME.c: 376:     Dane->godzinaU16 = message->data[7];
+  3274                           ;FRAME.c: 386:     Dane->godzinaU16 = message->data[7];
   3275  001728  EE20 F00F          	lfsr	2,15
   3276  00172C  5028               	movf	FRAME_DataUpdateAndChangeOption@message,w,c
   3277  00172E  26D9               	addwf	fsr2l,f,c
@@ -3437,7 +3437,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3288                           
   3289 ;; *************** function _FRAME_AxisStatus *****************
   3290 ;; Defined at:
-  3291 ;;		line 339 in file "FRAME.c"
+  3291 ;;		line 344 in file "FRAME.c"
   3292 ;; Parameters:    Size  Location     Type
   3293 ;;  message         2    5[COMRAM] PTR struct .
   3294 ;;		 -> TRM_DataTransmition@canMessage(17), 
@@ -3477,8 +3477,8 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3323  0019B8                     _FRAME_AxisStatus:
   3324                           	opt callstack 25
   3325                           
-  3326                           ;FRAME.c: 339: static void FRAME_AxisStatus(mID *message);FRAME.c: 340: {;FRAME.c: 341: 
-      +                              WORD i;;FRAME.c: 343:     if(message->message_type == 0x02)
+  3326                           ;FRAME.c: 344: static void FRAME_AxisStatus(mID *message);FRAME.c: 345: {;FRAME.c: 346: 
+      +                              WORD i;;FRAME.c: 348:     if(message->message_type == 0x02)
   3327                           
   3328                           ;incstack = 0
   3329  0019B8  EE20 F001          	lfsr	2,1
@@ -3491,7 +3491,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3336  0019C8  A4D8               	btfss	status,2,c
   3337  0019CA  0012               	return	
   3338                           
-  3339                           ;FRAME.c: 344:     {;FRAME.c: 345:         message->data_length = 1;
+  3339                           ;FRAME.c: 349:     {;FRAME.c: 350:         message->data_length = 1;
   3340  0019CC  EE20 F010          	lfsr	2,16
   3341  0019D0  5028               	movf	FRAME_AxisStatus@message,w,c
   3342  0019D2  26D9               	addwf	fsr2l,f,c
@@ -3500,7 +3500,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3345  0019D8  0E01               	movlw	1
   3346  0019DA  6EDF               	movwf	indf2,c
   3347                           
-  3348                           ;FRAME.c: 356:         message->data[0] = 0xFF;
+  3348                           ;FRAME.c: 361:         message->data[0] = 0xFF;
   3349  0019DC  EE20 F008          	lfsr	2,8
   3350  0019E0  5028               	movf	FRAME_AxisStatus@message,w,c
   3351  0019E2  26D9               	addwf	fsr2l,f,c
@@ -3509,7 +3509,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3354  0019E8  0EFF               	movlw	255
   3355  0019EA  6EDF               	movwf	indf2,c
   3356                           
-  3357                           ;FRAME.c: 357:     }
+  3357                           ;FRAME.c: 362:     }
   3358  0019EC  0012               	return		;funcret
   3359  0019EE                     __end_of_FRAME_AxisStatus:
   3360                           	opt callstack 0
@@ -3595,7 +3595,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3434                           
   3435 ;; *************** function _FRAME_AnalogValue *****************
   3436 ;; Defined at:
-  3437 ;;		line 583 in file "FRAME.c"
+  3437 ;;		line 638 in file "FRAME.c"
   3438 ;; Parameters:    Size  Location     Type
   3439 ;;  message         2    5[COMRAM] PTR struct .
   3440 ;;		 -> TRM_DataTransmition@canMessage(17), 
@@ -3643,7 +3643,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3477                           
   3478 ;; *************** function _FRAME_AdressOfNeighbors *****************
   3479 ;; Defined at:
-  3480 ;;		line 631 in file "FRAME.c"
+  3480 ;;		line 696 in file "FRAME.c"
   3481 ;; Parameters:    Size  Location     Type
   3482 ;;  message         2    5[COMRAM] PTR struct .
   3483 ;;		 -> TRM_DataTransmition@canMessage(17), 
@@ -3685,8 +3685,8 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3514  000062                     _FRAME_AdressOfNeighbors:
   3515                           	opt callstack 24
   3516                           
-  3517                           ;FRAME.c: 631: static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki);FRAME.c: 
-      +                          632: {;FRAME.c: 633:     WORD it;;FRAME.c: 636:     WORD kier = (nrRamki-0x10);
+  3517                           ;FRAME.c: 696: static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki);FRAME.c: 
+      +                          697: {;FRAME.c: 698:     WORD it;;FRAME.c: 701:     WORD kier = (nrRamki-0x10);
   3518                           
   3519                           ;incstack = 0
   3520  000062  0EF0               	movlw	240
@@ -3696,7 +3696,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3524  00006A  202B               	addwfc	FRAME_AdressOfNeighbors@nrRamki+1,w,c
   3525  00006C  6E31               	movwf	FRAME_AdressOfNeighbors@kier+1,c
   3526                           
-  3527                           ;FRAME.c: 637:     if(message->message_type == 0x02)
+  3527                           ;FRAME.c: 702:     if(message->message_type == 0x02)
   3528  00006E  EE20 F001          	lfsr	2,1
   3529  000072  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3530  000074  26D9               	addwf	fsr2l,f,c
@@ -3707,7 +3707,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3535  00007E  A4D8               	btfss	status,2,c
   3536  000080  D08E               	goto	l4525
   3537                           
-  3538                           ;FRAME.c: 638:     {;FRAME.c: 640:         message->data_length = 8;
+  3538                           ;FRAME.c: 703:     {;FRAME.c: 705:         message->data_length = 8;
   3539  000082  EE20 F010          	lfsr	2,16
   3540  000086  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3541  000088  26D9               	addwf	fsr2l,f,c
@@ -3716,13 +3716,13 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3544  00008E  0E08               	movlw	8
   3545  000090  6EDF               	movwf	indf2,c
   3546                           
-  3547                           ;FRAME.c: 642:         if(kier == 0)
+  3547                           ;FRAME.c: 707:         if(kier == 0)
   3548  000092  5030               	movf	FRAME_AdressOfNeighbors@kier,w,c
   3549  000094  1031               	iorwf	FRAME_AdressOfNeighbors@kier+1,w,c
   3550  000096  A4D8               	btfss	status,2,c
   3551  000098  D041               	goto	l4523
   3552                           
-  3553                           ;FRAME.c: 643:         {;FRAME.c: 644:         message->data[0] = (NeightAdress1>> 8);
+  3553                           ;FRAME.c: 708:         {;FRAME.c: 709:         message->data[0] = (NeightAdress1>> 8);
   3554  00009A  EE20 F008          	lfsr	2,8
   3555  00009E  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3556  0000A0  26D9               	addwf	fsr2l,f,c
@@ -3731,7 +3731,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3559  0000A6  5022               	movf	_NeightAdress1+1,w,c	;volatile
   3560  0000A8  6EDF               	movwf	indf2,c
   3561                           
-  3562                           ;FRAME.c: 645:         message->data[1] = NeightAdress1 & 0b11111111;
+  3562                           ;FRAME.c: 710:         message->data[1] = NeightAdress1 & 0b11111111;
   3563  0000AA  EE20 F009          	lfsr	2,9
   3564  0000AE  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3565  0000B0  26D9               	addwf	fsr2l,f,c
@@ -3739,7 +3739,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3567  0000B4  22DA               	addwfc	fsr2h,f,c
   3568  0000B6  C021  FFDF         	movff	_NeightAdress1,indf2	;volatile
   3569                           
-  3570                           ;FRAME.c: 646:         message->data[2] = (NeightAdress2>> 8);
+  3570                           ;FRAME.c: 711:         message->data[2] = (NeightAdress2>> 8);
   3571  0000BA  EE20 F00A          	lfsr	2,10
   3572  0000BE  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3573  0000C0  26D9               	addwf	fsr2l,f,c
@@ -3748,7 +3748,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3576  0000C6  504B               	movf	_NeightAdress2+1,w,c	;volatile
   3577  0000C8  6EDF               	movwf	indf2,c
   3578                           
-  3579                           ;FRAME.c: 647:         message->data[3] = NeightAdress2 & 0b11111111;
+  3579                           ;FRAME.c: 712:         message->data[3] = NeightAdress2 & 0b11111111;
   3580  0000CA  EE20 F00B          	lfsr	2,11
   3581  0000CE  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3582  0000D0  26D9               	addwf	fsr2l,f,c
@@ -3756,7 +3756,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3584  0000D4  22DA               	addwfc	fsr2h,f,c
   3585  0000D6  C04A  FFDF         	movff	_NeightAdress2,indf2	;volatile
   3586                           
-  3587                           ;FRAME.c: 648:         message->data[4] = (NeightAdress3>> 8);
+  3587                           ;FRAME.c: 713:         message->data[4] = (NeightAdress3>> 8);
   3588  0000DA  EE20 F00C          	lfsr	2,12
   3589  0000DE  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3590  0000E0  26D9               	addwf	fsr2l,f,c
@@ -3765,7 +3765,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3593  0000E6  5020               	movf	_NeightAdress3+1,w,c	;volatile
   3594  0000E8  6EDF               	movwf	indf2,c
   3595                           
-  3596                           ;FRAME.c: 649:         message->data[5] = NeightAdress3 & 0b11111111;
+  3596                           ;FRAME.c: 714:         message->data[5] = NeightAdress3 & 0b11111111;
   3597  0000EA  EE20 F00D          	lfsr	2,13
   3598  0000EE  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3599  0000F0  26D9               	addwf	fsr2l,f,c
@@ -3773,7 +3773,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3601  0000F4  22DA               	addwfc	fsr2h,f,c
   3602  0000F6  C01F  FFDF         	movff	_NeightAdress3,indf2	;volatile
   3603                           
-  3604                           ;FRAME.c: 650:         message->data[6] = (NeightAdress4>> 8);
+  3604                           ;FRAME.c: 715:         message->data[6] = (NeightAdress4>> 8);
   3605  0000FA  EE20 F00E          	lfsr	2,14
   3606  0000FE  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3607  000100  26D9               	addwf	fsr2l,f,c
@@ -3782,7 +3782,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3610  000106  501E               	movf	_NeightAdress4+1,w,c	;volatile
   3611  000108  6EDF               	movwf	indf2,c
   3612                           
-  3613                           ;FRAME.c: 651:         message->data[7] = NeightAdress4 & 0b11111111;
+  3613                           ;FRAME.c: 716:         message->data[7] = NeightAdress4 & 0b11111111;
   3614  00010A  EE20 F00F          	lfsr	2,15
   3615  00010E  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3616  000110  26D9               	addwf	fsr2l,f,c
@@ -3790,11 +3790,11 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3618  000114  22DA               	addwfc	fsr2h,f,c
   3619  000116  C01D  FFDF         	movff	_NeightAdress4,indf2	;volatile
   3620                           
-  3621                           ;FRAME.c: 652:         }
+  3621                           ;FRAME.c: 717:         }
   3622  00011A  0012               	return	
   3623  00011C                     l4523:
   3624                           
-  3625                           ;FRAME.c: 654:         {;FRAME.c: 655:         message->data[0] = (NeightAdress5>> 8);
+  3625                           ;FRAME.c: 719:         {;FRAME.c: 720:         message->data[0] = (NeightAdress5>> 8);
   3626  00011C  EE20 F008          	lfsr	2,8
   3627  000120  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3628  000122  26D9               	addwf	fsr2l,f,c
@@ -3803,7 +3803,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3631  000128  501C               	movf	_NeightAdress5+1,w,c	;volatile
   3632  00012A  6EDF               	movwf	indf2,c
   3633                           
-  3634                           ;FRAME.c: 656:         message->data[1] = NeightAdress5 & 0b11111111;
+  3634                           ;FRAME.c: 721:         message->data[1] = NeightAdress5 & 0b11111111;
   3635  00012C  EE20 F009          	lfsr	2,9
   3636  000130  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3637  000132  26D9               	addwf	fsr2l,f,c
@@ -3811,7 +3811,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3639  000136  22DA               	addwfc	fsr2h,f,c
   3640  000138  C01B  FFDF         	movff	_NeightAdress5,indf2	;volatile
   3641                           
-  3642                           ;FRAME.c: 657:         message->data[2] = (NeightAdress6>> 8);
+  3642                           ;FRAME.c: 722:         message->data[2] = (NeightAdress6>> 8);
   3643  00013C  EE20 F00A          	lfsr	2,10
   3644  000140  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3645  000142  26D9               	addwf	fsr2l,f,c
@@ -3820,7 +3820,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3648  000148  501A               	movf	_NeightAdress6+1,w,c	;volatile
   3649  00014A  6EDF               	movwf	indf2,c
   3650                           
-  3651                           ;FRAME.c: 658:         message->data[3] = NeightAdress6 & 0b11111111;
+  3651                           ;FRAME.c: 723:         message->data[3] = NeightAdress6 & 0b11111111;
   3652  00014C  EE20 F00B          	lfsr	2,11
   3653  000150  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3654  000152  26D9               	addwf	fsr2l,f,c
@@ -3828,7 +3828,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3656  000156  22DA               	addwfc	fsr2h,f,c
   3657  000158  C019  FFDF         	movff	_NeightAdress6,indf2	;volatile
   3658                           
-  3659                           ;FRAME.c: 659:         message->data[4] = (NeightAdress7>> 8);
+  3659                           ;FRAME.c: 724:         message->data[4] = (NeightAdress7>> 8);
   3660  00015C  EE20 F00C          	lfsr	2,12
   3661  000160  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3662  000162  26D9               	addwf	fsr2l,f,c
@@ -3837,7 +3837,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3665  000168  5018               	movf	_NeightAdress7+1,w,c	;volatile
   3666  00016A  6EDF               	movwf	indf2,c
   3667                           
-  3668                           ;FRAME.c: 660:         message->data[5] = NeightAdress7 & 0b11111111;
+  3668                           ;FRAME.c: 725:         message->data[5] = NeightAdress7 & 0b11111111;
   3669  00016C  EE20 F00D          	lfsr	2,13
   3670  000170  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3671  000172  26D9               	addwf	fsr2l,f,c
@@ -3845,7 +3845,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3673  000176  22DA               	addwfc	fsr2h,f,c
   3674  000178  C017  FFDF         	movff	_NeightAdress7,indf2	;volatile
   3675                           
-  3676                           ;FRAME.c: 661:         message->data[6] = (NeightAdress8>> 8);
+  3676                           ;FRAME.c: 726:         message->data[6] = (NeightAdress8>> 8);
   3677  00017C  EE20 F00E          	lfsr	2,14
   3678  000180  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3679  000182  26D9               	addwf	fsr2l,f,c
@@ -3854,7 +3854,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3682  000188  5016               	movf	_NeightAdress8+1,w,c	;volatile
   3683  00018A  6EDF               	movwf	indf2,c
   3684                           
-  3685                           ;FRAME.c: 662:         message->data[7] = NeightAdress8 & 0b11111111;
+  3685                           ;FRAME.c: 727:         message->data[7] = NeightAdress8 & 0b11111111;
   3686  00018C  EE20 F00F          	lfsr	2,15
   3687  000190  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3688  000192  26D9               	addwf	fsr2l,f,c
@@ -3864,13 +3864,13 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3692  00019C  0012               	return	
   3693  00019E                     l4525:
   3694                           
-  3695                           ;FRAME.c: 669:     {;FRAME.c: 672:         if(kier == 0)
+  3695                           ;FRAME.c: 734:     {;FRAME.c: 737:         if(kier == 0)
   3696  00019E  5030               	movf	FRAME_AdressOfNeighbors@kier,w,c
   3697  0001A0  1031               	iorwf	FRAME_AdressOfNeighbors@kier+1,w,c
   3698  0001A2  A4D8               	btfss	status,2,c
   3699  0001A4  D063               	goto	l4531
   3700                           
-  3701                           ;FRAME.c: 673:         {;FRAME.c: 674:          NeightAdress1 = (message->data[0] << 8)|
+  3701                           ;FRAME.c: 738:         {;FRAME.c: 739:          NeightAdress1 = (message->data[0] << 8)|
       +                           message->data[1];
   3702  0001A6  EE20 F008          	lfsr	2,8
   3703  0001AA  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
@@ -3895,7 +3895,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3722  0001D2  502E               	movf	??_FRAME_AdressOfNeighbors+2,w,c
   3723  0001D4  6E22               	movwf	_NeightAdress1+1,c	;volatile
   3724                           
-  3725                           ;FRAME.c: 675:          NeightAdress2 = (message->data[2] << 8)| message->data[3];
+  3725                           ;FRAME.c: 740:          NeightAdress2 = (message->data[2] << 8)| message->data[3];
   3726  0001D6  EE20 F00A          	lfsr	2,10
   3727  0001DA  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3728  0001DC  26D9               	addwf	fsr2l,f,c
@@ -3919,7 +3919,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3746  000202  502E               	movf	??_FRAME_AdressOfNeighbors+2,w,c
   3747  000204  6E4B               	movwf	_NeightAdress2+1,c	;volatile
   3748                           
-  3749                           ;FRAME.c: 676:          NeightAdress3 = (message->data[4] << 8)| message->data[5];
+  3749                           ;FRAME.c: 741:          NeightAdress3 = (message->data[4] << 8)| message->data[5];
   3750  000206  EE20 F00C          	lfsr	2,12
   3751  00020A  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3752  00020C  26D9               	addwf	fsr2l,f,c
@@ -3943,7 +3943,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3770  000232  502E               	movf	??_FRAME_AdressOfNeighbors+2,w,c
   3771  000234  6E20               	movwf	_NeightAdress3+1,c	;volatile
   3772                           
-  3773                           ;FRAME.c: 677:          NeightAdress4 = (message->data[6] << 8)| message->data[7];
+  3773                           ;FRAME.c: 742:          NeightAdress4 = (message->data[6] << 8)| message->data[7];
   3774  000236  EE20 F00E          	lfsr	2,14
   3775  00023A  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3776  00023C  26D9               	addwf	fsr2l,f,c
@@ -3968,14 +3968,14 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3795  000264  6E1E               	movwf	_NeightAdress4+1,c	;volatile
   3796  000266                     l4529:
   3797                           
-  3798                           ;FRAME.c: 678:          CAN_SetupFilter_Ne();
+  3798                           ;FRAME.c: 743:          CAN_SetupFilter_Ne();
   3799  000266  EC2C  F009         	call	_CAN_SetupFilter_Ne	;wreg free
   3800                           
-  3801                           ;FRAME.c: 681:         }
+  3801                           ;FRAME.c: 746:         }
   3802  00026A  0012               	return	
   3803  00026C                     l4531:
   3804                           
-  3805                           ;FRAME.c: 683:         {;FRAME.c: 684:          NeightAdress5 = (message->data[0] << 8)|
+  3805                           ;FRAME.c: 748:         {;FRAME.c: 749:          NeightAdress5 = (message->data[0] << 8)|
       +                           message->data[1];
   3806  00026C  EE20 F008          	lfsr	2,8
   3807  000270  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
@@ -4000,7 +4000,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3826  000298  502E               	movf	??_FRAME_AdressOfNeighbors+2,w,c
   3827  00029A  6E1C               	movwf	_NeightAdress5+1,c	;volatile
   3828                           
-  3829                           ;FRAME.c: 685:          NeightAdress6 = (message->data[2] << 8)| message->data[3];
+  3829                           ;FRAME.c: 750:          NeightAdress6 = (message->data[2] << 8)| message->data[3];
   3830  00029C  EE20 F00A          	lfsr	2,10
   3831  0002A0  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3832  0002A2  26D9               	addwf	fsr2l,f,c
@@ -4024,7 +4024,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3850  0002C8  502E               	movf	??_FRAME_AdressOfNeighbors+2,w,c
   3851  0002CA  6E1A               	movwf	_NeightAdress6+1,c	;volatile
   3852                           
-  3853                           ;FRAME.c: 686:          NeightAdress7 = (message->data[4] << 8)| message->data[5];
+  3853                           ;FRAME.c: 751:          NeightAdress7 = (message->data[4] << 8)| message->data[5];
   3854  0002CC  EE20 F00C          	lfsr	2,12
   3855  0002D0  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3856  0002D2  26D9               	addwf	fsr2l,f,c
@@ -4048,7 +4048,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   3874  0002F8  502E               	movf	??_FRAME_AdressOfNeighbors+2,w,c
   3875  0002FA  6E18               	movwf	_NeightAdress7+1,c	;volatile
   3876                           
-  3877                           ;FRAME.c: 687:          NeightAdress8 = (message->data[6] << 8)| message->data[7];
+  3877                           ;FRAME.c: 752:          NeightAdress8 = (message->data[6] << 8)| message->data[7];
   3878  0002FC  EE20 F00E          	lfsr	2,14
   3879  000300  5028               	movf	FRAME_AdressOfNeighbors@message,w,c
   3880  000302  26D9               	addwf	fsr2l,f,c
@@ -4190,7 +4190,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   4010                           
   4011 ;; *************** function _MOCK_PrzyspieszenieZ *****************
   4012 ;; Defined at:
-  4013 ;;		line 72 in file "MOC_Funct.c"
+  4013 ;;		line 73 in file "MOC_Funct.c"
   4014 ;; Parameters:    Size  Location     Type
   4015 ;;		None
   4016 ;; Auto vars:     Size  Location     Type
@@ -4229,7 +4229,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   4044  001C4A                     _MOCK_PrzyspieszenieZ:
   4045                           	opt callstack 24
   4046                           
-  4047                           ;MOC_Funct.c: 74:     return 0xFE;
+  4047                           ;MOC_Funct.c: 75:     return 0xFE;
   4048                           
   4049                           ;incstack = 0
   4050  001C4A  0E00               	movlw	0
@@ -4242,7 +4242,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   4057                           
   4058 ;; *************** function _MOCK_PrzyspieszenieY *****************
   4059 ;; Defined at:
-  4060 ;;		line 68 in file "MOC_Funct.c"
+  4060 ;;		line 69 in file "MOC_Funct.c"
   4061 ;; Parameters:    Size  Location     Type
   4062 ;;		None
   4063 ;; Auto vars:     Size  Location     Type
@@ -4281,7 +4281,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   4091  001C54                     _MOCK_PrzyspieszenieY:
   4092                           	opt callstack 24
   4093                           
-  4094                           ;MOC_Funct.c: 70:     return 0xFE;
+  4094                           ;MOC_Funct.c: 71:     return 0xFE;
   4095                           
   4096                           ;incstack = 0
   4097  001C54  0E00               	movlw	0
@@ -4294,7 +4294,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   4104                           
   4105 ;; *************** function _MOCK_PrzyspieszenieX *****************
   4106 ;; Defined at:
-  4107 ;;		line 63 in file "MOC_Funct.c"
+  4107 ;;		line 64 in file "MOC_Funct.c"
   4108 ;; Parameters:    Size  Location     Type
   4109 ;;		None
   4110 ;; Auto vars:     Size  Location     Type
@@ -4333,7 +4333,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   4138  001C5E                     _MOCK_PrzyspieszenieX:
   4139                           	opt callstack 24
   4140                           
-  4141                           ;MOC_Funct.c: 65:     return 0xFE;
+  4141                           ;MOC_Funct.c: 66:     return 0xFE;
   4142                           
   4143                           ;incstack = 0
   4144  001C5E  0E00               	movlw	0
@@ -4346,7 +4346,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   4151                           
   4152 ;; *************** function _MOCK_Klikniecie_Spadek *****************
   4153 ;; Defined at:
-  4154 ;;		line 76 in file "MOC_Funct.c"
+  4154 ;;		line 77 in file "MOC_Funct.c"
   4155 ;; Parameters:    Size  Location     Type
   4156 ;;		None
   4157 ;; Auto vars:     Size  Location     Type
@@ -4385,7 +4385,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   4185  001C68                     _MOCK_Klikniecie_Spadek:
   4186                           	opt callstack 24
   4187                           
-  4188                           ;MOC_Funct.c: 78:     return 0b00000000;
+  4188                           ;MOC_Funct.c: 79:     return 0b00000000;
   4189                           
   4190                           ;incstack = 0
   4191  001C68  0E00               	movlw	0
@@ -6263,7 +6263,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   5986                           
   5987 ;; *************** function _ReadDataToEEPROM *****************
   5988 ;; Defined at:
-  5989 ;;		line 446 in file "FRAME.c"
+  5989 ;;		line 471 in file "FRAME.c"
   5990 ;; Parameters:    Size  Location     Type
   5991 ;;		None
   5992 ;; Auto vars:     Size  Location     Type
@@ -6302,7 +6302,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6020  0007B0                     _ReadDataToEEPROM:
   6021                           	opt callstack 24
   6022                           
-  6023                           ;FRAME.c: 449:     NVMRead(&Init_Data,10,2);
+  6023                           ;FRAME.c: 474:     NVMRead(&Init_Data,10,2);
   6024                           
   6025                           ;incstack = 0
   6026  0007B0  0E48               	movlw	low _Init_Data
@@ -6319,7 +6319,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6037  0007C6  6E2E               	movwf	NVMRead@count,c
   6038  0007C8  EC47  F00D         	call	_NVMRead	;wreg free
   6039                           
-  6040                           ;FRAME.c: 450:     NVMRead(&NeightAdress1,13,2);
+  6040                           ;FRAME.c: 475:     NVMRead(&NeightAdress1,13,2);
   6041  0007CC  0E21               	movlw	low _NeightAdress1
   6042  0007CE  6E2A               	movwf	NVMRead@dest,c
   6043  0007D0  0E00               	movlw	high _NeightAdress1
@@ -6334,21 +6334,21 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6052  0007E2  6E2E               	movwf	NVMRead@count,c
   6053  0007E4  EC47  F00D         	call	_NVMRead	;wreg free
   6054                           
-  6055                           ;FRAME.c: 451:     if(NeightAdress1==0xFFFF)
+  6055                           ;FRAME.c: 476:     if(NeightAdress1==0xFFFF)
   6056  0007E8  2821               	incf	_NeightAdress1,w,c	;volatile
   6057  0007EA  E107               	bnz	l3653
   6058  0007EC  2822               	incf	_NeightAdress1+1,w,c	;volatile
   6059  0007EE  A4D8               	btfss	status,2,c
   6060  0007F0  D004               	goto	l3653
   6061                           
-  6062                           ;FRAME.c: 452:     {;FRAME.c: 453:         NeightAdress1=0x0000;
+  6062                           ;FRAME.c: 477:     {;FRAME.c: 478:         NeightAdress1=0x0000;
   6063  0007F2  0E00               	movlw	0
   6064  0007F4  6E22               	movwf	_NeightAdress1+1,c	;volatile
   6065  0007F6  0E00               	movlw	0
   6066  0007F8  6E21               	movwf	_NeightAdress1,c	;volatile
   6067  0007FA                     l3653:
   6068                           
-  6069                           ;FRAME.c: 455:     NVMRead(&NeightAdress2,16,2);
+  6069                           ;FRAME.c: 480:     NVMRead(&NeightAdress2,16,2);
   6070  0007FA  0E4A               	movlw	low _NeightAdress2
   6071  0007FC  6E2A               	movwf	NVMRead@dest,c
   6072  0007FE  0E00               	movlw	high _NeightAdress2
@@ -6363,21 +6363,21 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6081  000810  6E2E               	movwf	NVMRead@count,c
   6082  000812  EC47  F00D         	call	_NVMRead	;wreg free
   6083                           
-  6084                           ;FRAME.c: 456:     if(NeightAdress2==0xFFFF)
+  6084                           ;FRAME.c: 481:     if(NeightAdress2==0xFFFF)
   6085  000816  284A               	incf	_NeightAdress2,w,c	;volatile
   6086  000818  E107               	bnz	l3659
   6087  00081A  284B               	incf	_NeightAdress2+1,w,c	;volatile
   6088  00081C  A4D8               	btfss	status,2,c
   6089  00081E  D004               	goto	l3659
   6090                           
-  6091                           ;FRAME.c: 457:     {;FRAME.c: 458:         NeightAdress2=0x0000;
+  6091                           ;FRAME.c: 482:     {;FRAME.c: 483:         NeightAdress2=0x0000;
   6092  000820  0E00               	movlw	0
   6093  000822  6E4B               	movwf	_NeightAdress2+1,c	;volatile
   6094  000824  0E00               	movlw	0
   6095  000826  6E4A               	movwf	_NeightAdress2,c	;volatile
   6096  000828                     l3659:
   6097                           
-  6098                           ;FRAME.c: 460:     NVMRead(&NeightAdress3,19,2);
+  6098                           ;FRAME.c: 485:     NVMRead(&NeightAdress3,19,2);
   6099  000828  0E1F               	movlw	low _NeightAdress3
   6100  00082A  6E2A               	movwf	NVMRead@dest,c
   6101  00082C  0E00               	movlw	high _NeightAdress3
@@ -6392,21 +6392,21 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6110  00083E  6E2E               	movwf	NVMRead@count,c
   6111  000840  EC47  F00D         	call	_NVMRead	;wreg free
   6112                           
-  6113                           ;FRAME.c: 461:     if(NeightAdress3==0xFFFF)
+  6113                           ;FRAME.c: 486:     if(NeightAdress3==0xFFFF)
   6114  000844  281F               	incf	_NeightAdress3,w,c	;volatile
   6115  000846  E107               	bnz	l3665
   6116  000848  2820               	incf	_NeightAdress3+1,w,c	;volatile
   6117  00084A  A4D8               	btfss	status,2,c
   6118  00084C  D004               	goto	l3665
   6119                           
-  6120                           ;FRAME.c: 462:     {;FRAME.c: 463:         NeightAdress3=0x0000;
+  6120                           ;FRAME.c: 487:     {;FRAME.c: 488:         NeightAdress3=0x0000;
   6121  00084E  0E00               	movlw	0
   6122  000850  6E20               	movwf	_NeightAdress3+1,c	;volatile
   6123  000852  0E00               	movlw	0
   6124  000854  6E1F               	movwf	_NeightAdress3,c	;volatile
   6125  000856                     l3665:
   6126                           
-  6127                           ;FRAME.c: 465:     NVMRead(&NeightAdress4,22,2);
+  6127                           ;FRAME.c: 490:     NVMRead(&NeightAdress4,22,2);
   6128  000856  0E1D               	movlw	low _NeightAdress4
   6129  000858  6E2A               	movwf	NVMRead@dest,c
   6130  00085A  0E00               	movlw	high _NeightAdress4
@@ -6421,21 +6421,21 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6139  00086C  6E2E               	movwf	NVMRead@count,c
   6140  00086E  EC47  F00D         	call	_NVMRead	;wreg free
   6141                           
-  6142                           ;FRAME.c: 466:     if(NeightAdress4==0xFFFF)
+  6142                           ;FRAME.c: 491:     if(NeightAdress4==0xFFFF)
   6143  000872  281D               	incf	_NeightAdress4,w,c	;volatile
   6144  000874  E107               	bnz	l3671
   6145  000876  281E               	incf	_NeightAdress4+1,w,c	;volatile
   6146  000878  A4D8               	btfss	status,2,c
   6147  00087A  D004               	goto	l3671
   6148                           
-  6149                           ;FRAME.c: 467:     {;FRAME.c: 468:         NeightAdress4=0x0000;
+  6149                           ;FRAME.c: 492:     {;FRAME.c: 493:         NeightAdress4=0x0000;
   6150  00087C  0E00               	movlw	0
   6151  00087E  6E1E               	movwf	_NeightAdress4+1,c	;volatile
   6152  000880  0E00               	movlw	0
   6153  000882  6E1D               	movwf	_NeightAdress4,c	;volatile
   6154  000884                     l3671:
   6155                           
-  6156                           ;FRAME.c: 470:     NVMRead(&NeightAdress5,25,2);
+  6156                           ;FRAME.c: 495:     NVMRead(&NeightAdress5,25,2);
   6157  000884  0E1B               	movlw	low _NeightAdress5
   6158  000886  6E2A               	movwf	NVMRead@dest,c
   6159  000888  0E00               	movlw	high _NeightAdress5
@@ -6450,21 +6450,21 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6168  00089A  6E2E               	movwf	NVMRead@count,c
   6169  00089C  EC47  F00D         	call	_NVMRead	;wreg free
   6170                           
-  6171                           ;FRAME.c: 471:     if(NeightAdress5==0xFFFF)
+  6171                           ;FRAME.c: 496:     if(NeightAdress5==0xFFFF)
   6172  0008A0  281B               	incf	_NeightAdress5,w,c	;volatile
   6173  0008A2  E107               	bnz	l3677
   6174  0008A4  281C               	incf	_NeightAdress5+1,w,c	;volatile
   6175  0008A6  A4D8               	btfss	status,2,c
   6176  0008A8  D004               	goto	l3677
   6177                           
-  6178                           ;FRAME.c: 472:     {;FRAME.c: 473:         NeightAdress5=0x0000;
+  6178                           ;FRAME.c: 497:     {;FRAME.c: 498:         NeightAdress5=0x0000;
   6179  0008AA  0E00               	movlw	0
   6180  0008AC  6E1C               	movwf	_NeightAdress5+1,c	;volatile
   6181  0008AE  0E00               	movlw	0
   6182  0008B0  6E1B               	movwf	_NeightAdress5,c	;volatile
   6183  0008B2                     l3677:
   6184                           
-  6185                           ;FRAME.c: 475:     NVMRead(&NeightAdress6,28,2);
+  6185                           ;FRAME.c: 500:     NVMRead(&NeightAdress6,28,2);
   6186  0008B2  0E19               	movlw	low _NeightAdress6
   6187  0008B4  6E2A               	movwf	NVMRead@dest,c
   6188  0008B6  0E00               	movlw	high _NeightAdress6
@@ -6479,21 +6479,21 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6197  0008C8  6E2E               	movwf	NVMRead@count,c
   6198  0008CA  EC47  F00D         	call	_NVMRead	;wreg free
   6199                           
-  6200                           ;FRAME.c: 476:     if(NeightAdress6==0xFFFF)
+  6200                           ;FRAME.c: 501:     if(NeightAdress6==0xFFFF)
   6201  0008CE  2819               	incf	_NeightAdress6,w,c	;volatile
   6202  0008D0  E107               	bnz	l3683
   6203  0008D2  281A               	incf	_NeightAdress6+1,w,c	;volatile
   6204  0008D4  A4D8               	btfss	status,2,c
   6205  0008D6  D004               	goto	l3683
   6206                           
-  6207                           ;FRAME.c: 477:     {;FRAME.c: 478:         NeightAdress6=0x0000;
+  6207                           ;FRAME.c: 502:     {;FRAME.c: 503:         NeightAdress6=0x0000;
   6208  0008D8  0E00               	movlw	0
   6209  0008DA  6E1A               	movwf	_NeightAdress6+1,c	;volatile
   6210  0008DC  0E00               	movlw	0
   6211  0008DE  6E19               	movwf	_NeightAdress6,c	;volatile
   6212  0008E0                     l3683:
   6213                           
-  6214                           ;FRAME.c: 480:     NVMRead(&NeightAdress7,31,2);
+  6214                           ;FRAME.c: 505:     NVMRead(&NeightAdress7,31,2);
   6215  0008E0  0E17               	movlw	low _NeightAdress7
   6216  0008E2  6E2A               	movwf	NVMRead@dest,c
   6217  0008E4  0E00               	movlw	high _NeightAdress7
@@ -6508,21 +6508,21 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6226  0008F6  6E2E               	movwf	NVMRead@count,c
   6227  0008F8  EC47  F00D         	call	_NVMRead	;wreg free
   6228                           
-  6229                           ;FRAME.c: 481:     if(NeightAdress7==0xFFFF)
+  6229                           ;FRAME.c: 506:     if(NeightAdress7==0xFFFF)
   6230  0008FC  2817               	incf	_NeightAdress7,w,c	;volatile
   6231  0008FE  E107               	bnz	l3689
   6232  000900  2818               	incf	_NeightAdress7+1,w,c	;volatile
   6233  000902  A4D8               	btfss	status,2,c
   6234  000904  D004               	goto	l3689
   6235                           
-  6236                           ;FRAME.c: 482:     {;FRAME.c: 483:         NeightAdress7=0x0000;
+  6236                           ;FRAME.c: 507:     {;FRAME.c: 508:         NeightAdress7=0x0000;
   6237  000906  0E00               	movlw	0
   6238  000908  6E18               	movwf	_NeightAdress7+1,c	;volatile
   6239  00090A  0E00               	movlw	0
   6240  00090C  6E17               	movwf	_NeightAdress7,c	;volatile
   6241  00090E                     l3689:
   6242                           
-  6243                           ;FRAME.c: 485:     NVMRead(&NeightAdress8,34,2);
+  6243                           ;FRAME.c: 510:     NVMRead(&NeightAdress8,34,2);
   6244  00090E  0E15               	movlw	low _NeightAdress8
   6245  000910  6E2A               	movwf	NVMRead@dest,c
   6246  000912  0E00               	movlw	high _NeightAdress8
@@ -6537,14 +6537,14 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6255  000924  6E2E               	movwf	NVMRead@count,c
   6256  000926  EC47  F00D         	call	_NVMRead	;wreg free
   6257                           
-  6258                           ;FRAME.c: 486:     if(NeightAdress8==0xFFFF)
+  6258                           ;FRAME.c: 511:     if(NeightAdress8==0xFFFF)
   6259  00092A  2815               	incf	_NeightAdress8,w,c	;volatile
   6260  00092C  E107               	bnz	l653
   6261  00092E  2816               	incf	_NeightAdress8+1,w,c	;volatile
   6262  000930  A4D8               	btfss	status,2,c
   6263  000932  0012               	return	
   6264                           
-  6265                           ;FRAME.c: 487:     {;FRAME.c: 488:         NeightAdress8=0x0000;
+  6265                           ;FRAME.c: 512:     {;FRAME.c: 513:         NeightAdress8=0x0000;
   6266  000934  0E00               	movlw	0
   6267  000936  6E16               	movwf	_NeightAdress8+1,c	;volatile
   6268  000938  0E00               	movlw	0
@@ -6556,7 +6556,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6274                           
   6275 ;; *************** function _NVMRead *****************
   6276 ;; Defined at:
-  6277 ;;		line 79 in file "EEPROM.c"
+  6277 ;;		line 125 in file "EEPROM.c"
   6278 ;; Parameters:    Size  Location     Type
   6279 ;;  dest            2    7[COMRAM] PTR unsigned char 
   6280 ;;		 -> Init_Data(2), NeightAdress8(2), NeightAdress7(2), NeightAdress6(2), 
@@ -6600,8 +6600,8 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6313  001A8E                     _NVMRead:
   6314                           	opt callstack 24
   6315                           
-  6316                           ;EEPROM.c: 79: void NVMRead(BYTE *dest, WORD addr, WORD count);EEPROM.c: 80: {;EEPROM.c:
-      +                           81:     while( count > 0 )
+  6316                           ;EEPROM.c: 125: void NVMRead(BYTE *dest, WORD addr, WORD count);EEPROM.c: 126: {;EEPROM.
+      +                          c: 127:     while( count > 0 )
   6317                           
   6318                           ;incstack = 0
   6319  001A8E  D014               	goto	l3395
@@ -6609,7 +6609,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6321  001A90  B2A6               	btfsc	4006,1,c	;volsfr
   6322  001A92  D7FE               	goto	l940
   6323                           
-  6324                           ;EEPROM.c: 84:         *dest++ = ReadfromEEPROM(addr++);
+  6324                           ;EEPROM.c: 130:         *dest++ = ReadfromEEPROM(addr++);
   6325  001A94  C02C  F028         	movff	NVMRead@addr,ReadfromEEPROM@Address
   6326  001A98  C02D  F029         	movff	NVMRead@addr+1,ReadfromEEPROM@Address+1
   6327  001A9C  ECFD  F00D         	call	_ReadfromEEPROM	;wreg free
@@ -6621,13 +6621,13 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6333  001AAE  4A2A               	infsnz	NVMRead@dest,f,c
   6334  001AB0  2A2B               	incf	NVMRead@dest+1,f,c
   6335                           
-  6336                           ;EEPROM.c: 85:         count--;
+  6336                           ;EEPROM.c: 131:         count--;
   6337  001AB2  062E               	decf	NVMRead@count,f,c
   6338  001AB4  A0D8               	btfss	status,0,c
   6339  001AB6  062F               	decf	NVMRead@count+1,f,c
   6340  001AB8                     l3395:
   6341                           
-  6342                           ;EEPROM.c: 81:     while( count > 0 )
+  6342                           ;EEPROM.c: 127:     while( count > 0 )
   6343  001AB8  502E               	movf	NVMRead@count,w,c
   6344  001ABA  102F               	iorwf	NVMRead@count+1,w,c
   6345  001ABC  B4D8               	btfsc	status,2,c
@@ -6638,7 +6638,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6350                           
   6351 ;; *************** function _ReadfromEEPROM *****************
   6352 ;; Defined at:
-  6353 ;;		line 45 in file "EEPROM.c"
+  6353 ;;		line 73 in file "EEPROM.c"
   6354 ;; Parameters:    Size  Location     Type
   6355 ;;  Address         2    5[COMRAM] unsigned short 
   6356 ;; Auto vars:     Size  Location     Type
@@ -6677,26 +6677,26 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6384  001BFA                     _ReadfromEEPROM:
   6385                           	opt callstack 24
   6386                           
-  6387                           ;EEPROM.c: 45: static BYTE ReadfromEEPROM(WORD Address);EEPROM.c: 46: {;EEPROM.c: 47:   
+  6387                           ;EEPROM.c: 73: static BYTE ReadfromEEPROM(WORD Address);EEPROM.c: 74: {;EEPROM.c: 75:   
       +                            EEADRH = (BYTE)(Address>>8);
   6388                           
   6389                           ;incstack = 0
   6390  001BFA  5029               	movf	ReadfromEEPROM@Address+1,w,c
   6391  001BFC  6EAA               	movwf	4010,c	;volatile
   6392                           
-  6393                           ;EEPROM.c: 48:     EEADR = (BYTE)Address;
+  6393                           ;EEPROM.c: 76:     EEADR = (BYTE)Address;
   6394  001BFE  C028  FFA9         	movff	ReadfromEEPROM@Address,4009	;volatile
   6395                           
-  6396                           ;EEPROM.c: 49:     EECON1bits.RD = 1;
+  6396                           ;EEPROM.c: 77:     EECON1bits.RD = 1;
   6397  001C02  80A6               	bsf	4006,0,c	;volsfr
   6398                           
-  6399                           ;EEPROM.c: 50:     EECON1bits.EEPGD = 0;
+  6399                           ;EEPROM.c: 78:     EECON1bits.EEPGD = 0;
   6400  001C04  9EA6               	bcf	4006,7,c	;volsfr
   6401                           
-  6402                           ;EEPROM.c: 51:     EECON1bits.CFGS = 0;
+  6402                           ;EEPROM.c: 79:     EECON1bits.CFGS = 0;
   6403  001C06  9CA6               	bcf	4006,6,c	;volsfr
   6404                           
-  6405                           ;EEPROM.c: 52:     return EEDATA;
+  6405                           ;EEPROM.c: 80:     return EEDATA;
   6406  001C08  50A8               	movf	4008,w,c	;volatile
   6407  001C0A  0012               	return		;funcret
   6408  001C0C                     __end_of_ReadfromEEPROM:
@@ -6704,7 +6704,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6410                           
   6411 ;; *************** function _NVMInit *****************
   6412 ;; Defined at:
-  6413 ;;		line 26 in file "EEPROM.c"
+  6413 ;;		line 49 in file "EEPROM.c"
   6414 ;; Parameters:    Size  Location     Type
   6415 ;;		None
   6416 ;; Auto vars:     Size  Location     Type
@@ -6744,19 +6744,19 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6445  001912                     _NVMInit:
   6446                           	opt callstack 25
   6447                           
-  6448                           ;EEPROM.c: 28:     BOOL result = TRUE;
+  6448                           ;EEPROM.c: 51:     BOOL result = TRUE;
   6449                           
   6450                           ;incstack = 0
   6451  001912  0E01               	movlw	1
   6452  001914  6E30               	movwf	NVMInit@result,c
   6453                           
-  6454                           ;EEPROM.c: 30:     nextEEPosition = 0;
+  6454                           ;EEPROM.c: 53:     nextEEPosition = 0;
   6455  001916  0E00               	movlw	0
   6456  001918  6E06               	movwf	_nextEEPosition+1,c
   6457  00191A  0E00               	movlw	0
   6458  00191C  6E05               	movwf	_nextEEPosition,c
   6459                           
-  6460                           ;EEPROM.c: 32:     result &= NVMalloc(sizeof(KartaStruct), &ustawieniaKarty);
+  6460                           ;EEPROM.c: 55:     result &= NVMalloc(sizeof(KartaStruct), &ustawieniaKarty);
   6461  00191E  0E00               	movlw	0
   6462  001920  6E29               	movwf	NVMalloc@size+1,c
   6463  001922  0E03               	movlw	3
@@ -6768,7 +6768,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6469  00192E  EC12  F00D         	call	_NVMalloc	;wreg free
   6470  001932  1630               	andwf	NVMInit@result,f,c
   6471                           
-  6472                           ;EEPROM.c: 33:     result &= NVMalloc(8*sizeof(NeightAdress_Example), &neighborsAdress);
+  6472                           ;EEPROM.c: 56:     result &= NVMalloc(8*sizeof(NeightAdress_Example), &neighborsAdress);
   6473  001934  0E00               	movlw	0
   6474  001936  6E29               	movwf	NVMalloc@size+1,c
   6475  001938  0E10               	movlw	16
@@ -6785,7 +6785,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6486                           
   6487 ;; *************** function _NVMalloc *****************
   6488 ;; Defined at:
-  6489 ;;		line 11 in file "EEPROM.c"
+  6489 ;;		line 24 in file "EEPROM.c"
   6490 ;; Parameters:    Size  Location     Type
   6491 ;;  size            2    5[COMRAM] unsigned short 
   6492 ;;  location        2    7[COMRAM] PTR unsigned short 
@@ -6826,7 +6826,7 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6522  001A24                     _NVMalloc:
   6523                           	opt callstack 25
   6524                           
-  6525                           ;EEPROM.c: 11: BOOL NVMalloc(WORD size, WORD *location);EEPROM.c: 12: {;EEPROM.c: 15:   
+  6525                           ;EEPROM.c: 24: BOOL NVMalloc(WORD size, WORD *location);EEPROM.c: 25: {;EEPROM.c: 28:   
       +                            if ((nextEEPosition + (WORD)size) > (WORD)0x400)
   6526                           
   6527                           ;incstack = 0
@@ -6842,24 +6842,24 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
   6537  001A36  A0D8               	btfss	status,0,c
   6538  001A38  D002               	goto	l3441
   6539                           
-  6540                           ;EEPROM.c: 16:     {;EEPROM.c: 17:         return FALSE;
+  6540                           ;EEPROM.c: 29:     {;EEPROM.c: 30:         return FALSE;
   6541  001A3A  0E00               	movlw	0
   6542  001A3C  0012               	return	
   6543  001A3E                     l3441:
   6544                           
-  6545                           ;EEPROM.c: 20:     *location = nextEEPosition;
+  6545                           ;EEPROM.c: 33:     *location = nextEEPosition;
   6546  001A3E  C02A  FFD9         	movff	NVMalloc@location,fsr2l
   6547  001A42  C02B  FFDA         	movff	NVMalloc@location+1,fsr2h
   6548  001A46  C005  FFDE         	movff	_nextEEPosition,postinc2
   6549  001A4A  C006  FFDD         	movff	_nextEEPosition+1,postdec2
   6550                           
-  6551                           ;EEPROM.c: 21:     nextEEPosition += size;
+  6551                           ;EEPROM.c: 34:     nextEEPosition += size;
   6552  001A4E  5028               	movf	NVMalloc@size,w,c
   6553  001A50  2605               	addwf	_nextEEPosition,f,c
   6554  001A52  5029               	movf	NVMalloc@size+1,w,c
   6555  001A54  2206               	addwfc	_nextEEPosition+1,f,c
   6556                           
-  6557                           ;EEPROM.c: 22:     return TRUE;
+  6557                           ;EEPROM.c: 35:     return TRUE;
   6558  001A56  0E01               	movlw	1
   6559  001A58  0012               	return		;funcret
   6560  001A5A                     __end_of_NVMalloc:
@@ -9392,7 +9392,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.05 build -831301201 
-Symbol Table                                                                                   Tue Jul 30 13:54:32 2019
+Symbol Table                                                                                   Tue Jul 30 14:55:52 2019
 
                __end_of_FRAME_DeviceReset 0D4A                     ?_FRAME_AveragingTimes 0028  
                             ___awdiv@sign 002D                                        bsr 000FE0  

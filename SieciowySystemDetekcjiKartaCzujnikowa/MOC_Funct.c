@@ -25,6 +25,7 @@ UINT MOCK_Klikniecie_Spadek(void);
 UINT MOCK_SoftwareReset(void);
 UINT MOCK_Background(void);
 
+//Atrapy obiektów
 UINT MOC_StanWzbudzenia(void)
 {
     return 1;

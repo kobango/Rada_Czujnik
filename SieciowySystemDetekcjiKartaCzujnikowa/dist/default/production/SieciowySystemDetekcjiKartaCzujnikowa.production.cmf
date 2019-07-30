@@ -87,7 +87,7 @@ intcode CODE 0 8 8 6 1
 dataCOMRAM COMRAM 1 3F 3F D 1
 bssBIGRAM BIGRAM 1 E3 E3 220 1
 bssCOMRAM COMRAM 1 1 1 22 1
-$C:\Users\hp\AppData\Local\Temp\s91c.o
+$C:\Users\hp\AppData\Local\Temp\s1fg.o
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 5E 5E 4 1
 reset_vec CODE 0 0 0 4 1
@@ -411,60 +411,60 @@ C00 text53 CODE >501:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcj
 1BDE text50 CODE >102:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TMR1.c
 1BE0 text50 CODE >103:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TMR1.c
 1BE2 text50 CODE >105:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TMR1.c
-1A24 text49 CODE >11:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A24 text49 CODE >15:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A3A text49 CODE >17:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A3E text49 CODE >20:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A4E text49 CODE >21:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A56 text49 CODE >22:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A58 text49 CODE >23:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1912 text48 CODE >26:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1912 text48 CODE >28:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1916 text48 CODE >30:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-191E text48 CODE >32:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1934 text48 CODE >33:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-194A text48 CODE >37:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1BFA text47 CODE >45:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1BFA text47 CODE >47:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1BFE text47 CODE >48:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1C02 text47 CODE >49:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1C04 text47 CODE >50:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1C06 text47 CODE >51:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1C08 text47 CODE >52:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1C0A text47 CODE >53:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A8E text46 CODE >79:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A8E text46 CODE >81:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A90 text46 CODE >83:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A94 text46 CODE >84:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1AB2 text46 CODE >85:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1AB8 text46 CODE >81:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-7B0 text45 CODE >446:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-7B0 text45 CODE >449:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-7CC text45 CODE >450:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-7E8 text45 CODE >451:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-7F2 text45 CODE >453:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-7FA text45 CODE >455:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-816 text45 CODE >456:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-820 text45 CODE >458:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-828 text45 CODE >460:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-844 text45 CODE >461:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-84E text45 CODE >463:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-856 text45 CODE >465:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-872 text45 CODE >466:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-87C text45 CODE >468:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-884 text45 CODE >470:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-8A0 text45 CODE >471:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-8AA text45 CODE >473:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-8B2 text45 CODE >475:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-8CE text45 CODE >476:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-8D8 text45 CODE >478:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-8E0 text45 CODE >480:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-8FC text45 CODE >481:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-906 text45 CODE >483:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-90E text45 CODE >485:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-92A text45 CODE >486:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-934 text45 CODE >488:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-93C text45 CODE >492:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+1A24 text49 CODE >24:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A24 text49 CODE >28:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A3A text49 CODE >30:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A3E text49 CODE >33:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A4E text49 CODE >34:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A56 text49 CODE >35:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A58 text49 CODE >36:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1912 text48 CODE >49:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1912 text48 CODE >51:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1916 text48 CODE >53:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+191E text48 CODE >55:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1934 text48 CODE >56:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+194A text48 CODE >60:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1BFA text47 CODE >73:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1BFA text47 CODE >75:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1BFE text47 CODE >76:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1C02 text47 CODE >77:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1C04 text47 CODE >78:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1C06 text47 CODE >79:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1C08 text47 CODE >80:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1C0A text47 CODE >81:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A8E text46 CODE >125:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A8E text46 CODE >127:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A90 text46 CODE >129:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A94 text46 CODE >130:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1AB2 text46 CODE >131:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1AB8 text46 CODE >127:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+7B0 text45 CODE >471:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+7B0 text45 CODE >474:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+7CC text45 CODE >475:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+7E8 text45 CODE >476:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+7F2 text45 CODE >478:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+7FA text45 CODE >480:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+816 text45 CODE >481:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+820 text45 CODE >483:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+828 text45 CODE >485:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+844 text45 CODE >486:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+84E text45 CODE >488:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+856 text45 CODE >490:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+872 text45 CODE >491:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+87C text45 CODE >493:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+884 text45 CODE >495:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+8A0 text45 CODE >496:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+8AA text45 CODE >498:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+8B2 text45 CODE >500:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+8CE text45 CODE >501:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+8D8 text45 CODE >503:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+8E0 text45 CODE >505:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+8FC text45 CODE >506:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+906 text45 CODE >508:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+90E text45 CODE >510:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+92A text45 CODE >511:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+934 text45 CODE >513:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+93C text45 CODE >517:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 1B6C text44 CODE >54:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
 1B6C text44 CODE >57:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
 1B6E text44 CODE >60:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
@@ -687,18 +687,18 @@ A90 text32 CODE >297:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcj
 AA8 text32 CODE >300:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
 AAA text32 CODE >302:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
 AAE text32 CODE >304:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
-1C68 text31 CODE >76:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C68 text31 CODE >78:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C70 text31 CODE >79:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C5E text30 CODE >63:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C5E text30 CODE >65:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C66 text30 CODE >66:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C54 text29 CODE >68:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C54 text29 CODE >70:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C5C text29 CODE >71:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C4A text28 CODE >72:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C4A text28 CODE >74:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C52 text28 CODE >75:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C68 text31 CODE >77:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C68 text31 CODE >79:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C70 text31 CODE >80:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C5E text30 CODE >64:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C5E text30 CODE >66:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C66 text30 CODE >67:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C54 text29 CODE >69:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C54 text29 CODE >71:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C5C text29 CODE >72:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C4A text28 CODE >73:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C4A text28 CODE >75:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C52 text28 CODE >76:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
 14E0 text27 CODE >187:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 14E0 text27 CODE >189:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 14F4 text27 CODE >191:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
@@ -707,115 +707,115 @@ AAE text32 CODE >304:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcj
 152C text27 CODE >197:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 1540 text27 CODE >198:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 1554 text27 CODE >204:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-62 text26 CODE >631:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-62 text26 CODE >636:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-6E text26 CODE >637:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-82 text26 CODE >640:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-92 text26 CODE >642:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-9A text26 CODE >644:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-AA text26 CODE >645:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-BA text26 CODE >646:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-CA text26 CODE >647:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-DA text26 CODE >648:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-EA text26 CODE >649:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-FA text26 CODE >650:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-10A text26 CODE >651:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-11A text26 CODE >652:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-11C text26 CODE >655:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-12C text26 CODE >656:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-13C text26 CODE >657:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-14C text26 CODE >658:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-15C text26 CODE >659:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-16C text26 CODE >660:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-17C text26 CODE >661:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-18C text26 CODE >662:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-19E text26 CODE >672:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-1A6 text26 CODE >674:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-1D6 text26 CODE >675:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-206 text26 CODE >676:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-236 text26 CODE >677:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-266 text26 CODE >678:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-26A text26 CODE >681:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-26C text26 CODE >684:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-29C text26 CODE >685:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-2CC text26 CODE >686:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-2FC text26 CODE >687:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-1CAC text25 CODE >583:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-1CAC text25 CODE >601:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+62 text26 CODE >696:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+62 text26 CODE >701:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+6E text26 CODE >702:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+82 text26 CODE >705:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+92 text26 CODE >707:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+9A text26 CODE >709:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+AA text26 CODE >710:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+BA text26 CODE >711:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+CA text26 CODE >712:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+DA text26 CODE >713:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+EA text26 CODE >714:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+FA text26 CODE >715:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+10A text26 CODE >716:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+11A text26 CODE >717:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+11C text26 CODE >720:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+12C text26 CODE >721:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+13C text26 CODE >722:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+14C text26 CODE >723:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+15C text26 CODE >724:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+16C text26 CODE >725:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+17C text26 CODE >726:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+18C text26 CODE >727:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+19E text26 CODE >737:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+1A6 text26 CODE >739:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+1D6 text26 CODE >740:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+206 text26 CODE >741:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+236 text26 CODE >742:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+266 text26 CODE >743:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+26A text26 CODE >746:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+26C text26 CODE >749:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+29C text26 CODE >750:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+2CC text26 CODE >751:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+2FC text26 CODE >752:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+1CAC text25 CODE >638:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+1CAC text25 CODE >656:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 19EE text24 CODE >280:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 19EE text24 CODE >282:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 1A02 text24 CODE >284:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 1A12 text24 CODE >292:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 1A22 text24 CODE >331:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-19B8 text23 CODE >339:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-19B8 text23 CODE >343:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-19CC text23 CODE >345:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-19DC text23 CODE >356:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-19EC text23 CODE >362:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-16E6 text22 CODE >370:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-16E6 text22 CODE >373:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-16FC text22 CODE >374:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-1712 text22 CODE >375:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-1728 text22 CODE >376:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-173E text22 CODE >378:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-1A5A text21 CODE >61:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A5A text21 CODE >65:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A5E text21 CODE >66:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A62 text21 CODE >67:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A66 text21 CODE >68:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A68 text21 CODE >69:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A70 text21 CODE >70:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A72 text21 CODE >71:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A76 text21 CODE >72:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A7A text21 CODE >73:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A7C text21 CODE >74:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A86 text21 CODE >75:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1A88 text21 CODE >76:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1982 text20 CODE >90:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1982 text20 CODE >92:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1984 text20 CODE >94:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-1988 text20 CODE >95:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-19A4 text20 CODE >96:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-19AA text20 CODE >97:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-19AE text20 CODE >92:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-E56 text19 CODE >494:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-E56 text19 CODE >496:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-E72 text19 CODE >497:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-E8E text19 CODE >498:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-EAA text19 CODE >499:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-EC6 text19 CODE >500:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-EE2 text19 CODE >501:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-EFE text19 CODE >502:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-F1A text19 CODE >503:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-F36 text19 CODE >504:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-F52 text19 CODE >506:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-C02 text18 CODE >386:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-C02 text18 CODE >388:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-C16 text18 CODE >390:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-C26 text18 CODE >392:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-C3C text18 CODE >393:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-C56 text18 CODE >394:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-C6E text18 CODE >395:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-C7E text18 CODE >396:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-C8E text18 CODE >397:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-C9E text18 CODE >398:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-CAE text18 CODE >399:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-CBE text18 CODE >400:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-CC0 text18 CODE >401:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-CC2 text18 CODE >415:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-CC4 text18 CODE >418:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-CD4 text18 CODE >420:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-CE6 text18 CODE >422:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-CEA text18 CODE >423:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-CFC text18 CODE >425:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-CFE text18 CODE >426:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-D04 text18 CODE >431:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-D16 text18 CODE >433:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-D22 text18 CODE >434:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-D26 text18 CODE >437:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-D36 text18 CODE >439:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-D38 text18 CODE >442:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-D48 text18 CODE >444:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+19B8 text23 CODE >344:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+19B8 text23 CODE >348:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+19CC text23 CODE >350:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+19DC text23 CODE >361:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+19EC text23 CODE >367:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+16E6 text22 CODE >380:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+16E6 text22 CODE >383:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+16FC text22 CODE >384:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+1712 text22 CODE >385:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+1728 text22 CODE >386:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+173E text22 CODE >388:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+1A5A text21 CODE >95:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A5A text21 CODE >99:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A5E text21 CODE >100:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A62 text21 CODE >101:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A66 text21 CODE >102:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A68 text21 CODE >103:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A70 text21 CODE >104:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A72 text21 CODE >105:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A76 text21 CODE >106:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A7A text21 CODE >107:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A7C text21 CODE >108:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A86 text21 CODE >109:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1A88 text21 CODE >110:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1982 text20 CODE >148:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1982 text20 CODE >150:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1984 text20 CODE >152:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+1988 text20 CODE >153:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+19A4 text20 CODE >154:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+19AA text20 CODE >155:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+19AE text20 CODE >150:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+E56 text19 CODE >529:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+E56 text19 CODE >531:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+E72 text19 CODE >532:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+E8E text19 CODE >533:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+EAA text19 CODE >534:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+EC6 text19 CODE >535:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+EE2 text19 CODE >536:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+EFE text19 CODE >537:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+F1A text19 CODE >538:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+F36 text19 CODE >539:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+F52 text19 CODE >541:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+C02 text18 CODE >401:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+C02 text18 CODE >403:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+C16 text18 CODE >405:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+C26 text18 CODE >407:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+C3C text18 CODE >408:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+C56 text18 CODE >409:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+C6E text18 CODE >410:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+C7E text18 CODE >411:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+C8E text18 CODE >412:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+C9E text18 CODE >413:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+CAE text18 CODE >414:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+CBE text18 CODE >415:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+CC0 text18 CODE >416:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+CC2 text18 CODE >430:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+CC4 text18 CODE >433:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+CD4 text18 CODE >435:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+CE6 text18 CODE >437:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+CEA text18 CODE >438:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+CFC text18 CODE >440:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+CFE text18 CODE >441:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+D04 text18 CODE >446:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+D16 text18 CODE >448:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+D22 text18 CODE >449:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+D26 text18 CODE >452:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+D36 text18 CODE >454:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+D38 text18 CODE >457:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+D48 text18 CODE >459:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 17EA text17 CODE >247:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 17EA text17 CODE >251:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 17FE text17 CODE >253:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
@@ -828,24 +828,24 @@ D48 text18 CODE >444:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcj
 1960 text16 CODE >222:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 1970 text16 CODE >227:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 1980 text16 CODE >234:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-1CAA text15 CODE >535:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-1CAA text15 CODE >552:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-1740 text14 CODE >514:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-1740 text14 CODE >517:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-1754 text14 CODE >519:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-1778 text14 CODE >520:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-177A text14 CODE >523:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-1796 text14 CODE >527:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-11BA text13 CODE >609:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-11BA text13 CODE >611:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-11CE text13 CODE >613:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-11DE text13 CODE >614:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-11EE text13 CODE >615:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-11FE text13 CODE >616:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-120E text13 CODE >618:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-1210 text13 CODE >621:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-1240 text13 CODE >622:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-1256 text13 CODE >624:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+1CAA text15 CODE >580:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+1CAA text15 CODE >597:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+1740 text14 CODE >554:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+1740 text14 CODE >557:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+1754 text14 CODE >559:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+1778 text14 CODE >560:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+177A text14 CODE >563:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+1796 text14 CODE >567:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+11BA text13 CODE >669:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+11BA text13 CODE >671:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+11CE text13 CODE >673:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+11DE text13 CODE >674:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+11EE text13 CODE >675:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+11FE text13 CODE >676:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+120E text13 CODE >678:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+1210 text13 CODE >681:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+1240 text13 CODE >682:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+1256 text13 CODE >684:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 1040 text12 CODE >123:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 1040 text12 CODE >127:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 104E text12 CODE >129:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
@@ -871,18 +871,18 @@ D48 text18 CODE >444:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcj
 1C98 text10 CODE >84:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 1C9A text10 CODE >86:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 1C9E text10 CODE >87:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
-1C40 text9 CODE >43:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C40 text9 CODE >45:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C48 text9 CODE >46:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C0C text8 CODE >38:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C0C text8 CODE >41:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C18 text8 CODE >42:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C90 text7 CODE >47:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C90 text7 CODE >49:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C96 text7 CODE >50:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C36 text6 CODE >33:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C36 text6 CODE >35:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
-1C3E text6 CODE >36:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C40 text9 CODE >44:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C40 text9 CODE >46:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C48 text9 CODE >47:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C0C text8 CODE >39:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C0C text8 CODE >42:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C18 text8 CODE >43:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C90 text7 CODE >48:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C90 text7 CODE >50:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C96 text7 CODE >51:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C36 text6 CODE >34:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C36 text6 CODE >36:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+1C3E text6 CODE >37:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
 D4A text5 CODE >55:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 D4A text5 CODE >59:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 D5E text5 CODE >61:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
@@ -902,64 +902,64 @@ E46 text5 CODE >101:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcji
 E4C text5 CODE >102:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 E4E text5 CODE >105:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 E54 text5 CODE >108:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-15CA text4 CODE >560:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-15CA text4 CODE >563:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-15DE text4 CODE >565:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-15EE text4 CODE >566:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-15FE text4 CODE >567:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-160E text4 CODE >568:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-161E text4 CODE >569:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-162E text4 CODE >575:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+15CA text4 CODE >610:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+15CA text4 CODE >613:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+15DE text4 CODE >615:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+15EE text4 CODE >616:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+15FE text4 CODE >617:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+160E text4 CODE >618:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+161E text4 CODE >619:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+162E text4 CODE >625:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 1BAE text3 CODE >49:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 1BAE text3 CODE >51:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 1BBC text3 CODE >52:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 1BCA text3 CODE >54:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
-5AA text2 CODE >726:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-5AA text2 CODE >728:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-5D0 text2 CODE >731:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-5D6 text2 CODE >733:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-5DC text2 CODE >734:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-5DE text2 CODE >740:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-5EA text2 CODE >741:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-5EC text2 CODE >743:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-5F8 text2 CODE >744:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-5FA text2 CODE >746:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-606 text2 CODE >747:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-608 text2 CODE >749:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-614 text2 CODE >750:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-616 text2 CODE >752:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-622 text2 CODE >753:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-624 text2 CODE >755:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-630 text2 CODE >756:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-632 text2 CODE >758:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-63E text2 CODE >759:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-640 text2 CODE >761:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-64C text2 CODE >762:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-64E text2 CODE >764:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-65A text2 CODE >765:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-65C text2 CODE >767:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-668 text2 CODE >768:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-66A text2 CODE >771:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-682 text2 CODE >772:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-684 text2 CODE >774:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-690 text2 CODE >775:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-692 text2 CODE >777:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-6A6 text2 CODE >778:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-6A8 text2 CODE >780:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-6BC text2 CODE >781:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-6BE text2 CODE >789:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-728 text2 CODE >790:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-73C text2 CODE >793:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-74C text2 CODE >794:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-75C text2 CODE >795:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-770 text2 CODE >797:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-784 text2 CODE >798:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-794 text2 CODE >799:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-7A0 text2 CODE >810:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-7A2 text2 CODE >812:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-7A6 text2 CODE >813:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-7AA text2 CODE >810:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
-7AA text2 CODE >820:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+5AA text2 CODE >797:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+5AA text2 CODE >799:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+5D0 text2 CODE >802:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+5D6 text2 CODE >804:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+5DC text2 CODE >805:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+5DE text2 CODE >811:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+5EA text2 CODE >812:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+5EC text2 CODE >814:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+5F8 text2 CODE >815:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+5FA text2 CODE >817:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+606 text2 CODE >818:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+608 text2 CODE >820:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+614 text2 CODE >821:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+616 text2 CODE >823:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+622 text2 CODE >824:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+624 text2 CODE >826:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+630 text2 CODE >827:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+632 text2 CODE >829:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+63E text2 CODE >830:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+640 text2 CODE >832:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+64C text2 CODE >833:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+64E text2 CODE >835:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+65A text2 CODE >836:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+65C text2 CODE >838:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+668 text2 CODE >839:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+66A text2 CODE >842:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+682 text2 CODE >843:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+684 text2 CODE >845:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+690 text2 CODE >846:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+692 text2 CODE >848:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+6A6 text2 CODE >849:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+6A8 text2 CODE >851:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+6BC text2 CODE >852:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+6BE text2 CODE >860:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+728 text2 CODE >861:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+73C text2 CODE >864:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+74C text2 CODE >865:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+75C text2 CODE >866:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+770 text2 CODE >868:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+784 text2 CODE >869:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+794 text2 CODE >870:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+7A0 text2 CODE >881:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+7A2 text2 CODE >883:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+7A6 text2 CODE >884:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+7AA text2 CODE >881:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+7AA text2 CODE >891:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 1838 text1 CODE >19:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TRM.c
 1838 text1 CODE >26:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TRM.c
 183C text1 CODE >29:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TRM.c
@@ -988,51 +988,51 @@ FE6 text0 CODE >112:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcji
 1038 text0 CODE >135:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\main.c
 103C text0 CODE >136:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\main.c
 103E text0 CODE >137:C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\main.c
-168C cinit CODE >10521:C:\Users\hp\AppData\Local\Temp\s91c.
-168C cinit CODE >10523:C:\Users\hp\AppData\Local\Temp\s91c.
-168C cinit CODE >10526:C:\Users\hp\AppData\Local\Temp\s91c.
-168C cinit CODE >10655:C:\Users\hp\AppData\Local\Temp\s91c.
-168E cinit CODE >10656:C:\Users\hp\AppData\Local\Temp\s91c.
-1690 cinit CODE >10657:C:\Users\hp\AppData\Local\Temp\s91c.
-1692 cinit CODE >10658:C:\Users\hp\AppData\Local\Temp\s91c.
-1694 cinit CODE >10659:C:\Users\hp\AppData\Local\Temp\s91c.
-1696 cinit CODE >10660:C:\Users\hp\AppData\Local\Temp\s91c.
-1698 cinit CODE >10661:C:\Users\hp\AppData\Local\Temp\s91c.
-169C cinit CODE >10662:C:\Users\hp\AppData\Local\Temp\s91c.
-16A0 cinit CODE >10663:C:\Users\hp\AppData\Local\Temp\s91c.
-16A0 cinit CODE >10664:C:\Users\hp\AppData\Local\Temp\s91c.
-16A2 cinit CODE >10665:C:\Users\hp\AppData\Local\Temp\s91c.
-16A6 cinit CODE >10666:C:\Users\hp\AppData\Local\Temp\s91c.
-16A8 cinit CODE >10667:C:\Users\hp\AppData\Local\Temp\s91c.
-16AA cinit CODE >10668:C:\Users\hp\AppData\Local\Temp\s91c.
-16AC cinit CODE >10672:C:\Users\hp\AppData\Local\Temp\s91c.
-16B0 cinit CODE >10673:C:\Users\hp\AppData\Local\Temp\s91c.
-16B4 cinit CODE >10674:C:\Users\hp\AppData\Local\Temp\s91c.
-16B4 cinit CODE >10675:C:\Users\hp\AppData\Local\Temp\s91c.
-16B6 cinit CODE >10676:C:\Users\hp\AppData\Local\Temp\s91c.
-16B8 cinit CODE >10677:C:\Users\hp\AppData\Local\Temp\s91c.
-16BA cinit CODE >10678:C:\Users\hp\AppData\Local\Temp\s91c.
-16BC cinit CODE >10679:C:\Users\hp\AppData\Local\Temp\s91c.
-16BE cinit CODE >10680:C:\Users\hp\AppData\Local\Temp\s91c.
-16C0 cinit CODE >10683:C:\Users\hp\AppData\Local\Temp\s91c.
-16C4 cinit CODE >10684:C:\Users\hp\AppData\Local\Temp\s91c.
-16C6 cinit CODE >10685:C:\Users\hp\AppData\Local\Temp\s91c.
-16C6 cinit CODE >10686:C:\Users\hp\AppData\Local\Temp\s91c.
-16C8 cinit CODE >10687:C:\Users\hp\AppData\Local\Temp\s91c.
-16CA cinit CODE >10688:C:\Users\hp\AppData\Local\Temp\s91c.
-16CC cinit CODE >10691:C:\Users\hp\AppData\Local\Temp\s91c.
-16D0 cinit CODE >10692:C:\Users\hp\AppData\Local\Temp\s91c.
-16D2 cinit CODE >10693:C:\Users\hp\AppData\Local\Temp\s91c.
-16D2 cinit CODE >10694:C:\Users\hp\AppData\Local\Temp\s91c.
-16D4 cinit CODE >10695:C:\Users\hp\AppData\Local\Temp\s91c.
-16D6 cinit CODE >10696:C:\Users\hp\AppData\Local\Temp\s91c.
-16D8 cinit CODE >10702:C:\Users\hp\AppData\Local\Temp\s91c.
-16D8 cinit CODE >10704:C:\Users\hp\AppData\Local\Temp\s91c.
-16DA cinit CODE >10705:C:\Users\hp\AppData\Local\Temp\s91c.
-16DC cinit CODE >10707:C:\Users\hp\AppData\Local\Temp\s91c.
-16DE cinit CODE >10708:C:\Users\hp\AppData\Local\Temp\s91c.
-16E0 cinit CODE >10709:C:\Users\hp\AppData\Local\Temp\s91c.
-16E2 cinit CODE >10710:C:\Users\hp\AppData\Local\Temp\s91c.
+168C cinit CODE >10521:C:\Users\hp\AppData\Local\Temp\s1fg.
+168C cinit CODE >10523:C:\Users\hp\AppData\Local\Temp\s1fg.
+168C cinit CODE >10526:C:\Users\hp\AppData\Local\Temp\s1fg.
+168C cinit CODE >10655:C:\Users\hp\AppData\Local\Temp\s1fg.
+168E cinit CODE >10656:C:\Users\hp\AppData\Local\Temp\s1fg.
+1690 cinit CODE >10657:C:\Users\hp\AppData\Local\Temp\s1fg.
+1692 cinit CODE >10658:C:\Users\hp\AppData\Local\Temp\s1fg.
+1694 cinit CODE >10659:C:\Users\hp\AppData\Local\Temp\s1fg.
+1696 cinit CODE >10660:C:\Users\hp\AppData\Local\Temp\s1fg.
+1698 cinit CODE >10661:C:\Users\hp\AppData\Local\Temp\s1fg.
+169C cinit CODE >10662:C:\Users\hp\AppData\Local\Temp\s1fg.
+16A0 cinit CODE >10663:C:\Users\hp\AppData\Local\Temp\s1fg.
+16A0 cinit CODE >10664:C:\Users\hp\AppData\Local\Temp\s1fg.
+16A2 cinit CODE >10665:C:\Users\hp\AppData\Local\Temp\s1fg.
+16A6 cinit CODE >10666:C:\Users\hp\AppData\Local\Temp\s1fg.
+16A8 cinit CODE >10667:C:\Users\hp\AppData\Local\Temp\s1fg.
+16AA cinit CODE >10668:C:\Users\hp\AppData\Local\Temp\s1fg.
+16AC cinit CODE >10672:C:\Users\hp\AppData\Local\Temp\s1fg.
+16B0 cinit CODE >10673:C:\Users\hp\AppData\Local\Temp\s1fg.
+16B4 cinit CODE >10674:C:\Users\hp\AppData\Local\Temp\s1fg.
+16B4 cinit CODE >10675:C:\Users\hp\AppData\Local\Temp\s1fg.
+16B6 cinit CODE >10676:C:\Users\hp\AppData\Local\Temp\s1fg.
+16B8 cinit CODE >10677:C:\Users\hp\AppData\Local\Temp\s1fg.
+16BA cinit CODE >10678:C:\Users\hp\AppData\Local\Temp\s1fg.
+16BC cinit CODE >10679:C:\Users\hp\AppData\Local\Temp\s1fg.
+16BE cinit CODE >10680:C:\Users\hp\AppData\Local\Temp\s1fg.
+16C0 cinit CODE >10683:C:\Users\hp\AppData\Local\Temp\s1fg.
+16C4 cinit CODE >10684:C:\Users\hp\AppData\Local\Temp\s1fg.
+16C6 cinit CODE >10685:C:\Users\hp\AppData\Local\Temp\s1fg.
+16C6 cinit CODE >10686:C:\Users\hp\AppData\Local\Temp\s1fg.
+16C8 cinit CODE >10687:C:\Users\hp\AppData\Local\Temp\s1fg.
+16CA cinit CODE >10688:C:\Users\hp\AppData\Local\Temp\s1fg.
+16CC cinit CODE >10691:C:\Users\hp\AppData\Local\Temp\s1fg.
+16D0 cinit CODE >10692:C:\Users\hp\AppData\Local\Temp\s1fg.
+16D2 cinit CODE >10693:C:\Users\hp\AppData\Local\Temp\s1fg.
+16D2 cinit CODE >10694:C:\Users\hp\AppData\Local\Temp\s1fg.
+16D4 cinit CODE >10695:C:\Users\hp\AppData\Local\Temp\s1fg.
+16D6 cinit CODE >10696:C:\Users\hp\AppData\Local\Temp\s1fg.
+16D8 cinit CODE >10702:C:\Users\hp\AppData\Local\Temp\s1fg.
+16D8 cinit CODE >10704:C:\Users\hp\AppData\Local\Temp\s1fg.
+16DA cinit CODE >10705:C:\Users\hp\AppData\Local\Temp\s1fg.
+16DC cinit CODE >10707:C:\Users\hp\AppData\Local\Temp\s1fg.
+16DE cinit CODE >10708:C:\Users\hp\AppData\Local\Temp\s1fg.
+16E0 cinit CODE >10709:C:\Users\hp\AppData\Local\Temp\s1fg.
+16E2 cinit CODE >10710:C:\Users\hp\AppData\Local\Temp\s1fg.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -1064,7 +1064,7 @@ _RXM1SIDH F1C 0 ABS 0 - dist/default/production\SieciowySystemDetekcjiKartaCzujn
 _RXM1SIDL F1D 0 ABS 0 - dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 CAN_TakeFrame@k 35 0 COMRAM 1 cstackCOMRAM dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\hp\AppData\Local\Temp\s91c.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\hp\AppData\Local\Temp\s1fg.o
 FRAME_Plot@message 2F 0 COMRAM 1 cstackCOMRAM dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 FRAME_SensorExcitationStatus@tru 2E 0 COMRAM 1 cstackCOMRAM dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
@@ -1089,13 +1089,13 @@ _PEIE 7F96 0 ABS 0 - dist/default/production\SieciowySystemDetekcjiKartaCzujniko
 _PIE3 FA3 0 ABS 0 - dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 _PIR3 FA4 0 ABS 0 - dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 _RCON FD0 0 ABS 0 - dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
-___sp 0 0 STACK 2 stack C:\Users\hp\AppData\Local\Temp\s91c.o
+___sp 0 0 STACK 2 stack C:\Users\hp\AppData\Local\Temp\s1fg.o
 _main F54 0 CODE 0 text0 dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 btemp 4C 0 COMRAM 1 temp dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 __size_of_FRAME_ExcitationValue 0 0 ABS 0 - dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 __end_of_WriteDataToEEPROM F54 0 CODE 0 text19 dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 __HbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
-start 5E 0 CODE 0 init C:\Users\hp\AppData\Local\Temp\s91c.o
+start 5E 0 CODE 0 init C:\Users\hp\AppData\Local\Temp\s1fg.o
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 __size_of_FRAME_Plot 0 0 ABS 0 - dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
@@ -1118,11 +1118,11 @@ ttemp7 54 0 COMRAM 1 temp dist/default/production\SieciowySystemDetekcjiKartaCzu
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 NVMWrite@source 2B 0 COMRAM 1 cstackCOMRAM dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 __LbssBIGRAM 0 0 ABS 0 bssBIGRAM dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
-__accesstop 60 0 ABS 0 - C:\Users\hp\AppData\Local\Temp\s91c.o
-intlevel0 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\s91c.o
-intlevel1 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\s91c.o
-intlevel2 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\s91c.o
-intlevel3 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\s91c.o
+__accesstop 60 0 ABS 0 - C:\Users\hp\AppData\Local\Temp\s1fg.o
+intlevel0 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\s1fg.o
+intlevel1 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\s1fg.o
+intlevel2 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\s1fg.o
+intlevel3 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\s1fg.o
 _LED_Update 13EE 0 CODE 0 text39 dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 NVMWrite@addr 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 _WDTCONbits FD1 0 ABS 0 - dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
@@ -1157,8 +1157,8 @@ __end_of_FRAME_AnalogValue 1CAE 0 CODE 0 text25 dist/default/production\Sieciowy
 _MOCK_Klikniecie_Spadek 1C68 0 CODE 0 text31 dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 ___awdiv@dividend 28 0 COMRAM 1 cstackCOMRAM dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 ?_MOC_Wynikowa_wartosc_roznicowa 28 0 COMRAM 1 cstackCOMRAM dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\hp\AppData\Local\Temp\s91c.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\hp\AppData\Local\Temp\s91c.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\hp\AppData\Local\Temp\s1fg.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\hp\AppData\Local\Temp\s1fg.o
 LED_Light_Pos@pos 2F 0 COMRAM 1 cstackCOMRAM dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 _EECON1bits FA6 0 ABS 0 - dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
@@ -1285,7 +1285,7 @@ __Hbank11 0 0 ABS 0 bank11 dist/default/production\SieciowySystemDetekcjiKartaCz
 __Hbank12 0 0 ABS 0 bank12 dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\hp\AppData\Local\Temp\s91c.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\hp\AppData\Local\Temp\s1fg.o
 NVMWrite@count 2F 0 COMRAM 1 cstackCOMRAM dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 __end_of_CAN_MoveBuffIntoFrame 1B20 0 CODE 0 text36 dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 __size_of_CAN_TakeFrame 0 0 ABS 0 - dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
@@ -1571,8 +1571,8 @@ __size_of_LED_Control 0 0 ABS 0 - dist/default/production\SieciowySystemDetekcji
 _IsInNeighbors 1040 0 CODE 0 text12 dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 __end_of_FRAME_AveragingTimes 1A24 0 CODE 0 text24 dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 FRAME_SensorExcitationStatus@message 2A 0 COMRAM 1 cstackCOMRAM dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
-stackhi CFF 0 ABS 0 - C:\Users\hp\AppData\Local\Temp\s91c.o
-stacklo 303 0 ABS 0 - C:\Users\hp\AppData\Local\Temp\s91c.o
+stackhi CFF 0 ABS 0 - C:\Users\hp\AppData\Local\Temp\s1fg.o
+stacklo 303 0 ABS 0 - C:\Users\hp\AppData\Local\Temp\s1fg.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 __size_of_MOC_Aktualna_Temperatura 0 0 ABS 0 - dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
@@ -1702,7 +1702,7 @@ __Ltext59 0 0 ABS 0 text59 dist/default/production\SieciowySystemDetekcjiKartaCz
 __Ltext60 0 0 ABS 0 text60 dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 __Ltext62 0 0 ABS 0 text62 dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 __Ltext63 0 0 ABS 0 text63 dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
-__ramtop D00 0 RAM 0 ramtop C:\Users\hp\AppData\Local\Temp\s91c.o
+__ramtop D00 0 RAM 0 ramtop C:\Users\hp\AppData\Local\Temp\s1fg.o
 _ReadDataToEEPROM 7B0 0 CODE 0 text45 dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 _CAN_SetupClock 1B20 0 CODE 0 text58 dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
 __Lpowerup 5E 0 CODE 0 powerup dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o

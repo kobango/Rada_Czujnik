@@ -18561,13 +18561,7 @@ static void FRAME_AveragingTimes(mID *message)
 # 330 "FRAME.c"
     }
 }
-
-
-
-
-
-
-
+# 344 "FRAME.c"
 static void FRAME_AxisStatus(mID *message)
 {
     WORD i;
@@ -18575,7 +18569,7 @@ static void FRAME_AxisStatus(mID *message)
     if(message->message_type == 0x02)
     {
         message->data_length = 1;
-# 356 "FRAME.c"
+# 361 "FRAME.c"
         message->data[0] = 0xFF;
     }
     else
@@ -18583,13 +18577,7 @@ static void FRAME_AxisStatus(mID *message)
 
     }
 }
-
-
-
-
-
-
-
+# 380 "FRAME.c"
 static void FRAME_DataUpdateAndChangeOption(mID *message)
 {
 
@@ -18599,13 +18587,7 @@ static void FRAME_DataUpdateAndChangeOption(mID *message)
     Dane->godzinaU16 = message->data[7];
 
 }
-
-
-
-
-
-
-
+# 401 "FRAME.c"
 static void FRAME_DeviceReset(mID *message)
 {
     if(message->message_type == 0x02)
@@ -18622,7 +18604,7 @@ static void FRAME_DeviceReset(mID *message)
         message->data[7] = Dane->godzinaU16;
         RCON &= ~(1<<6);
         Flagi.wykonanoZapisDoFlash = 0;
-# 415 "FRAME.c"
+# 430 "FRAME.c"
     }
     else
     {
@@ -18653,7 +18635,7 @@ static void FRAME_DeviceReset(mID *message)
         message->data[0] = 0xFF;
     }
 }
-
+# 471 "FRAME.c"
 void ReadDataToEEPROM(void)
 {
 
@@ -18701,7 +18683,7 @@ void ReadDataToEEPROM(void)
 
 
 }
-
+# 529 "FRAME.c"
 void WriteDataToEEPROM(void)
 {
     NVMWrite(&Init_Data,10,2);
@@ -18715,13 +18697,7 @@ void WriteDataToEEPROM(void)
     NVMWrite(&NeightAdress8,34,2);
 
 }
-
-
-
-
-
-
-
+# 554 "FRAME.c"
 static void FRAME_Plot(mID *message)
 {
 
@@ -18736,24 +18712,12 @@ static void FRAME_Plot(mID *message)
 
 
 }
-
-
-
-
-
-
-
+# 580 "FRAME.c"
 static void FRAME_MapPosition(mID *message)
 {
-# 552 "FRAME.c"
+# 597 "FRAME.c"
 }
-
-
-
-
-
-
-
+# 610 "FRAME.c"
 static void FRAME_SoftwareVersion(mID *message)
 {
 
@@ -18770,25 +18734,13 @@ static void FRAME_SoftwareVersion(mID *message)
 
     }
 }
-
-
-
-
-
-
-
+# 638 "FRAME.c"
 static void FRAME_AnalogValue(mID *message, WORD set)
 {
     WORD i;
-# 601 "FRAME.c"
+# 656 "FRAME.c"
 }
-
-
-
-
-
-
-
+# 669 "FRAME.c"
 static void FRAME_PrzypisanieDokarty(mID *message)
 {
     if(message->message_type == 0x02)
@@ -18805,12 +18757,7 @@ static void FRAME_PrzypisanieDokarty(mID *message)
          Dane->Nr_WeWy = (message->data[2]);
     }
 }
-
-
-
-
-
-
+# 696 "FRAME.c"
 static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
 {
     WORD it;
@@ -18871,15 +18818,10 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
          CAN_SetupFilter_Ne();
 
         }
-# 718 "FRAME.c"
+# 783 "FRAME.c"
     }
 }
-
-
-
-
-
-
+# 797 "FRAME.c"
 void FRAME_HandleCanFrame(mID * message)
 {
     BYTE identyfikator = (BYTE) message->id.v[2]/4;
@@ -18954,7 +18896,7 @@ void FRAME_HandleCanFrame(mID * message)
         message->id.v[2] = identyfikator*4;
         CAN_GenID(message,identyfikator);
         CAN_SendFrame(message);
-# 810 "FRAME.c"
+# 881 "FRAME.c"
        while(RXB0CONbits.FILHIT3)
        {
            if(TXB0CONbits.TXERR == 1){

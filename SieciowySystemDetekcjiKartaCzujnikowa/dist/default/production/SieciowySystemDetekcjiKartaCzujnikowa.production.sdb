@@ -23,7 +23,7 @@ TRUE 1
 FALSE 0
 TRUE 1
 ]
-"11 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+"24 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
 [e E10433 _BOOL `uc
 FALSE 0
 TRUE 1
@@ -72,17 +72,17 @@ TRUE 1
 [v _CAN_TakeFrame CAN_TakeFrame `(E10433  1 e 1 0 ]
 "446
 [v _CAN_GenID CAN_GenID `(v  1 e 1 0 ]
-"11 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+"24 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
 [v _NVMalloc NVMalloc `(E10433  1 e 1 0 ]
-"26
+"49
 [v _NVMInit NVMInit `(E10433  1 e 1 0 ]
-"45
+"73
 [v _ReadfromEEPROM ReadfromEEPROM `(uc  1 s 1 ReadfromEEPROM ]
-"61
+"95
 [v _WritetoEEPROM WritetoEEPROM `(v  1 s 1 WritetoEEPROM ]
-"79
+"125
 [v _NVMRead NVMRead `(v  1 e 1 0 ]
-"90
+"148
 [v _NVMWrite NVMWrite `(v  1 e 1 0 ]
 "28 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FLASH.c
 [v _FLASH_Read FLASH_Read `(ui  1 e 2 0 ]
@@ -100,29 +100,29 @@ TRUE 1
 [v _FRAME_ExcitationMultiplier FRAME_ExcitationMultiplier `(v  1 s 1 FRAME_ExcitationMultiplier ]
 "280
 [v _FRAME_AveragingTimes FRAME_AveragingTimes `(v  1 s 1 FRAME_AveragingTimes ]
-"339
+"344
 [v _FRAME_AxisStatus FRAME_AxisStatus `(v  1 s 1 FRAME_AxisStatus ]
-"370
+"380
 [v _FRAME_DataUpdateAndChangeOption FRAME_DataUpdateAndChangeOption `(v  1 s 1 FRAME_DataUpdateAndChangeOption ]
-"386
+"401
 [v _FRAME_DeviceReset FRAME_DeviceReset `(v  1 s 1 FRAME_DeviceReset ]
-"446
+"471
 [v _ReadDataToEEPROM ReadDataToEEPROM `(v  1 e 1 0 ]
-"494
+"529
 [v _WriteDataToEEPROM WriteDataToEEPROM `(v  1 e 1 0 ]
-"514
+"554
 [v _FRAME_Plot FRAME_Plot `(v  1 s 1 FRAME_Plot ]
-"535
+"580
 [v _FRAME_MapPosition FRAME_MapPosition `(v  1 s 1 FRAME_MapPosition ]
-"560
+"610
 [v _FRAME_SoftwareVersion FRAME_SoftwareVersion `(v  1 s 1 FRAME_SoftwareVersion ]
-"583
+"638
 [v _FRAME_AnalogValue FRAME_AnalogValue `(v  1 s 1 FRAME_AnalogValue ]
-"609
+"669
 [v _FRAME_PrzypisanieDokarty FRAME_PrzypisanieDokarty `(v  1 s 1 FRAME_PrzypisanieDokarty ]
-"631
+"696
 [v _FRAME_AdressOfNeighbors FRAME_AdressOfNeighbors `(v  1 s 1 FRAME_AdressOfNeighbors ]
-"726
+"797
 [v _FRAME_HandleCanFrame FRAME_HandleCanFrame `(v  1 e 1 0 ]
 "29 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
 [v _INI_OUTPUT INI_OUTPUT `(v  1 s 1 INI_OUTPUT ]
@@ -154,21 +154,21 @@ TRUE 1
 [v _LED_Control LED_Control `(uc  1 e 1 0 ]
 "100 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\main.c
 [v _main main `(v  1 e 1 0 ]
-"33 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+"34 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
 [v _MOC_Wynikowa_wartosc_roznicowa MOC_Wynikowa_wartosc_roznicowa `(ui  1 e 2 0 ]
-"38
+"39
 [v _MOC_Frame_Counter MOC_Frame_Counter `(ui  1 e 2 0 ]
-"43
+"44
 [v _MOC_Aktualna_Temperatura MOC_Aktualna_Temperatura `(ui  1 e 2 0 ]
-"47
+"48
 [v _MOC_NOTWORK MOC_NOTWORK `(ui  1 e 2 0 ]
-"63
+"64
 [v _MOCK_PrzyspieszenieX MOCK_PrzyspieszenieX `(ui  1 e 2 0 ]
-"68
+"69
 [v _MOCK_PrzyspieszenieY MOCK_PrzyspieszenieY `(ui  1 e 2 0 ]
-"72
+"73
 [v _MOCK_PrzyspieszenieZ MOCK_PrzyspieszenieZ `(ui  1 e 2 0 ]
-"76
+"77
 [v _MOCK_Klikniecie_Spadek MOCK_Klikniecie_Spadek `(ui  1 e 2 0 ]
 "32 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TMR1.c
 [v _TMR1_Update_flag_Set TMR1_Update_flag_Set `(v  1 e 1 0 ]
@@ -928,15 +928,15 @@ TRUE 1
 [v TRM_DataTransmition@canMessage canMessage `S887  1 a 17 0 ]
 "73
 } 0
-"726 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+"797 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 [v _FRAME_HandleCanFrame FRAME_HandleCanFrame `(v  1 e 1 0 ]
 {
-"733
+"804
 [v FRAME_HandleCanFrame@ident ident `us  1 a 2 23 ]
-"728
+"799
 [v FRAME_HandleCanFrame@identyfikator identyfikator `uc  1 a 1 25 ]
 [s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
-"726
+"797
 [s S813 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
 [s S818 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
 [s S821 . 2 `uc 1 b0 1 0 :1:0 
@@ -994,14 +994,14 @@ TRUE 1
 [u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
 [s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_HandleCanFrame@message message `*.39S887  1 p 2 17 ]
-"825
+"896
 } 0
 "49 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 [v _LED_Error LED_Error `(ui  1 e 2 0 ]
 {
 "54
 } 0
-"560 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+"610 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 [v _FRAME_SoftwareVersion FRAME_SoftwareVersion `(v  1 s 1 FRAME_SoftwareVersion ]
 {
 [s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -1062,7 +1062,7 @@ TRUE 1
 [u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
 [s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_SoftwareVersion@message message `*.39S887  1 p 2 5 ]
-"575
+"625
 } 0
 "55
 [v _FRAME_SensorExcitationStatus FRAME_SensorExcitationStatus `(v  1 s 1 FRAME_SensorExcitationStatus ]
@@ -1132,27 +1132,27 @@ TRUE 1
 [v FRAME_SensorExcitationStatus@statwect statwect `ui  1 s 2 statwect ]
 "108
 } 0
-"33 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+"34 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
 [v _MOC_Wynikowa_wartosc_roznicowa MOC_Wynikowa_wartosc_roznicowa `(ui  1 e 2 0 ]
 {
-"36
+"37
 } 0
-"47
+"48
 [v _MOC_NOTWORK MOC_NOTWORK `(ui  1 e 2 0 ]
 {
-"50
+"51
 } 0
-"38
+"39
 [v _MOC_Frame_Counter MOC_Frame_Counter `(ui  1 e 2 0 ]
 {
-"40
+"41
 [v MOC_Frame_Counter@zeta zeta `ui  1 s 2 zeta ]
-"42
-} 0
 "43
+} 0
+"44
 [v _MOC_Aktualna_Temperatura MOC_Aktualna_Temperatura `(ui  1 e 2 0 ]
 {
-"46
+"47
 } 0
 "84 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 [v _LOCK_Set LOCK_Set `(v  1 e 1 0 ]
@@ -1174,7 +1174,7 @@ TRUE 1
 [v IsInNeighbors@message_adress message_adress `ui  1 p 2 5 ]
 "174
 } 0
-"609
+"669
 [v _FRAME_PrzypisanieDokarty FRAME_PrzypisanieDokarty `(v  1 s 1 FRAME_PrzypisanieDokarty ]
 {
 [s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -1235,9 +1235,9 @@ TRUE 1
 [u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
 [s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_PrzypisanieDokarty@message message `*.39S887  1 p 2 5 ]
-"624
+"684
 } 0
-"514
+"554
 [v _FRAME_Plot FRAME_Plot `(v  1 s 1 FRAME_Plot ]
 {
 [s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -1298,9 +1298,9 @@ TRUE 1
 [u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
 [s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_Plot@message message `*.39S887  1 p 2 12 ]
-"527
+"567
 } 0
-"535
+"580
 [v _FRAME_MapPosition FRAME_MapPosition `(v  1 s 1 FRAME_MapPosition ]
 {
 [s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -1361,7 +1361,7 @@ TRUE 1
 [u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
 [s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_MapPosition@message message `*.39S887  1 p 2 5 ]
-"552
+"597
 } 0
 "218
 [v _FRAME_ExcitationValue FRAME_ExcitationValue `(v  1 s 1 FRAME_ExcitationValue ]
@@ -1492,7 +1492,7 @@ TRUE 1
 [v FRAME_ExcitationMultiplier@message message `*.39S887  1 p 2 5 ]
 "267
 } 0
-"386
+"401
 [v _FRAME_DeviceReset FRAME_DeviceReset `(v  1 s 1 FRAME_DeviceReset ]
 {
 [s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -1553,31 +1553,31 @@ TRUE 1
 [u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
 [s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_DeviceReset@message message `*.39S887  1 p 2 14 ]
-"444
+"459
 } 0
-"494
+"529
 [v _WriteDataToEEPROM WriteDataToEEPROM `(v  1 e 1 0 ]
 {
-"506
+"541
 } 0
-"90 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+"148 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
 [v _NVMWrite NVMWrite `(v  1 e 1 0 ]
 {
 [v NVMWrite@source source `*.39uc  1 p 2 8 ]
 [v NVMWrite@addr addr `us  1 p 2 10 ]
 [v NVMWrite@count count `us  1 p 2 12 ]
-"99
+"157
 } 0
-"61
+"95
 [v _WritetoEEPROM WritetoEEPROM `(v  1 s 1 WritetoEEPROM ]
 {
 [v WritetoEEPROM@Address Address `us  1 p 2 5 ]
 [v WritetoEEPROM@Data Data `uc  1 p 1 7 ]
-"63
+"97
 [v WritetoEEPROM@GIE_Status GIE_Status `uc  1 s 1 GIE_Status ]
-"77
+"111
 } 0
-"370 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+"380 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 [v _FRAME_DataUpdateAndChangeOption FRAME_DataUpdateAndChangeOption `(v  1 s 1 FRAME_DataUpdateAndChangeOption ]
 {
 [s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -1638,9 +1638,9 @@ TRUE 1
 [u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
 [s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_DataUpdateAndChangeOption@message message `*.39S887  1 p 2 5 ]
-"378
+"388
 } 0
-"339
+"344
 [v _FRAME_AxisStatus FRAME_AxisStatus `(v  1 s 1 FRAME_AxisStatus ]
 {
 [s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -1701,7 +1701,7 @@ TRUE 1
 [u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
 [s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_AxisStatus@message message `*.39S887  1 p 2 5 ]
-"362
+"367
 } 0
 "280
 [v _FRAME_AveragingTimes FRAME_AveragingTimes `(v  1 s 1 FRAME_AveragingTimes ]
@@ -1766,7 +1766,7 @@ TRUE 1
 [v FRAME_AveragingTimes@message message `*.39S887  1 p 2 5 ]
 "331
 } 0
-"583
+"638
 [v _FRAME_AnalogValue FRAME_AnalogValue `(v  1 s 1 FRAME_AnalogValue ]
 {
 [s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
@@ -1828,15 +1828,15 @@ TRUE 1
 [s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_AnalogValue@message message `*.39S887  1 p 2 5 ]
 [v FRAME_AnalogValue@set set `us  1 p 2 7 ]
-"601
+"656
 } 0
-"631
+"696
 [v _FRAME_AdressOfNeighbors FRAME_AdressOfNeighbors `(v  1 s 1 FRAME_AdressOfNeighbors ]
 {
-"636
+"701
 [v FRAME_AdressOfNeighbors@kier kier `us  1 a 2 13 ]
 [s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
-"631
+"696
 [s S813 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
 [s S818 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
 [s S821 . 2 `uc 1 b0 1 0 :1:0 
@@ -1895,7 +1895,7 @@ TRUE 1
 [s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_AdressOfNeighbors@message message `*.39S887  1 p 2 5 ]
 [v FRAME_AdressOfNeighbors@nrRamki nrRamki `us  1 p 2 7 ]
-"719
+"784
 } 0
 "187
 [v _FRAME_AccelerometerStatus FRAME_AccelerometerStatus `(v  1 s 1 FRAME_AccelerometerStatus ]
@@ -1960,25 +1960,25 @@ TRUE 1
 [v FRAME_AccelerometerStatus@message message `*.39S887  1 p 2 7 ]
 "204
 } 0
-"72 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+"73 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
 [v _MOCK_PrzyspieszenieZ MOCK_PrzyspieszenieZ `(ui  1 e 2 0 ]
 {
-"75
+"76
 } 0
-"68
+"69
 [v _MOCK_PrzyspieszenieY MOCK_PrzyspieszenieY `(ui  1 e 2 0 ]
 {
-"71
+"72
 } 0
-"63
+"64
 [v _MOCK_PrzyspieszenieX MOCK_PrzyspieszenieX `(ui  1 e 2 0 ]
 {
-"66
+"67
 } 0
-"76
+"77
 [v _MOCK_Klikniecie_Spadek MOCK_Klikniecie_Spadek `(ui  1 e 2 0 ]
 {
-"79
+"80
 } 0
 "247 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
 [v _CAN_SendFrame CAN_SendFrame `(v  1 e 1 0 ]
@@ -2272,38 +2272,38 @@ TRUE 1
 {
 "77
 } 0
-"446 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+"471 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 [v _ReadDataToEEPROM ReadDataToEEPROM `(v  1 e 1 0 ]
 {
-"492
+"517
 } 0
-"79 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+"125 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
 [v _NVMRead NVMRead `(v  1 e 1 0 ]
 {
 [v NVMRead@dest dest `*.39uc  1 p 2 7 ]
 [v NVMRead@addr addr `us  1 p 2 9 ]
 [v NVMRead@count count `us  1 p 2 11 ]
-"87
+"133
 } 0
-"45
+"73
 [v _ReadfromEEPROM ReadfromEEPROM `(uc  1 s 1 ReadfromEEPROM ]
 {
 [v ReadfromEEPROM@Address Address `us  1 p 2 5 ]
-"53
+"81
 } 0
-"26
+"49
 [v _NVMInit NVMInit `(E10433  1 e 1 0 ]
 {
-"28
+"51
 [v NVMInit@result result `E10433  1 a 1 13 ]
-"37
+"60
 } 0
-"11
+"24
 [v _NVMalloc NVMalloc `(E10433  1 e 1 0 ]
 {
 [v NVMalloc@size size `us  1 p 2 5 ]
 [v NVMalloc@location location `*.39us  1 p 2 7 ]
-"23
+"36
 } 0
 "92 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TMR1.c
 [v _INI_Timer INI_Timer `(uc  1 e 1 0 ]

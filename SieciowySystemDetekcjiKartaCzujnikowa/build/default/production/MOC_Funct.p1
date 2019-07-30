@@ -1244,217 +1244,217 @@ Version 4.0 HI-TECH Software Intermediate Code
 "32473
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32473: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"28 MOC_Funct.c
-[; ;MOC_Funct.c: 28: UINT MOC_StanWzbudzenia(void)
+"29 MOC_Funct.c
+[; ;MOC_Funct.c: 29: UINT MOC_StanWzbudzenia(void)
 [v _MOC_StanWzbudzenia `(ui ~T0 @X0 1 ef ]
-"29
-[; ;MOC_Funct.c: 29: {
+"30
+[; ;MOC_Funct.c: 30: {
 {
 [e :U _MOC_StanWzbudzenia ]
 [f ]
-"30
-[; ;MOC_Funct.c: 30:     return 1;
+"31
+[; ;MOC_Funct.c: 31:     return 1;
 [e ) -> -> 1 `i `ui ]
 [e $UE 1113  ]
-"31
-[; ;MOC_Funct.c: 31: }
+"32
+[; ;MOC_Funct.c: 32: }
 [e :UE 1113 ]
 }
-"33
-[; ;MOC_Funct.c: 33: UINT MOC_Wynikowa_wartosc_roznicowa(void)
-[v _MOC_Wynikowa_wartosc_roznicowa `(ui ~T0 @X0 1 ef ]
 "34
-[; ;MOC_Funct.c: 34: {
+[; ;MOC_Funct.c: 34: UINT MOC_Wynikowa_wartosc_roznicowa(void)
+[v _MOC_Wynikowa_wartosc_roznicowa `(ui ~T0 @X0 1 ef ]
+"35
+[; ;MOC_Funct.c: 35: {
 {
 [e :U _MOC_Wynikowa_wartosc_roznicowa ]
 [f ]
-"35
-[; ;MOC_Funct.c: 35:     return 0x0220;
+"36
+[; ;MOC_Funct.c: 36:     return 0x0220;
 [e ) -> -> 544 `i `ui ]
 [e $UE 1114  ]
-"36
-[; ;MOC_Funct.c: 36: }
+"37
+[; ;MOC_Funct.c: 37: }
 [e :UE 1114 ]
 }
-"38
-[; ;MOC_Funct.c: 38: UINT MOC_Frame_Counter(void)
-[v _MOC_Frame_Counter `(ui ~T0 @X0 1 ef ]
 "39
-[; ;MOC_Funct.c: 39: {
+[; ;MOC_Funct.c: 39: UINT MOC_Frame_Counter(void)
+[v _MOC_Frame_Counter `(ui ~T0 @X0 1 ef ]
+"40
+[; ;MOC_Funct.c: 40: {
 {
 [e :U _MOC_Frame_Counter ]
 [f ]
-"40
-[; ;MOC_Funct.c: 40:     static UINT zeta = 0x11;
+"41
+[; ;MOC_Funct.c: 41:     static UINT zeta = 0x11;
 [v F10772 `ui ~T0 @X0 1 s zeta ]
 [i F10772
 -> -> 17 `i `ui
 ]
-"41
-[; ;MOC_Funct.c: 41:     return zeta++;
+"42
+[; ;MOC_Funct.c: 42:     return zeta++;
 [e ) ++ F10772 -> -> 1 `i `ui ]
 [e $UE 1115  ]
-"42
-[; ;MOC_Funct.c: 42: }
+"43
+[; ;MOC_Funct.c: 43: }
 [e :UE 1115 ]
 }
-"43
-[; ;MOC_Funct.c: 43: UINT MOC_Aktualna_Temperatura(void)
-[v _MOC_Aktualna_Temperatura `(ui ~T0 @X0 1 ef ]
 "44
-[; ;MOC_Funct.c: 44: {
+[; ;MOC_Funct.c: 44: UINT MOC_Aktualna_Temperatura(void)
+[v _MOC_Aktualna_Temperatura `(ui ~T0 @X0 1 ef ]
+"45
+[; ;MOC_Funct.c: 45: {
 {
 [e :U _MOC_Aktualna_Temperatura ]
 [f ]
-"45
-[; ;MOC_Funct.c: 45:     return 0x1B;
+"46
+[; ;MOC_Funct.c: 46:     return 0x1B;
 [e ) -> -> 27 `i `ui ]
 [e $UE 1116  ]
-"46
-[; ;MOC_Funct.c: 46: }
+"47
+[; ;MOC_Funct.c: 47: }
 [e :UE 1116 ]
 }
-"47
-[; ;MOC_Funct.c: 47: UINT MOC_NOTWORK(void)
-[v _MOC_NOTWORK `(ui ~T0 @X0 1 ef ]
 "48
-[; ;MOC_Funct.c: 48: {
+[; ;MOC_Funct.c: 48: UINT MOC_NOTWORK(void)
+[v _MOC_NOTWORK `(ui ~T0 @X0 1 ef ]
+"49
+[; ;MOC_Funct.c: 49: {
 {
 [e :U _MOC_NOTWORK ]
 [f ]
-"49
-[; ;MOC_Funct.c: 49:     return 0xFF;
+"50
+[; ;MOC_Funct.c: 50:     return 0xFF;
 [e ) -> -> 255 `i `ui ]
 [e $UE 1117  ]
-"50
-[; ;MOC_Funct.c: 50: }
+"51
+[; ;MOC_Funct.c: 51: }
 [e :UE 1117 ]
 }
-"51
-[; ;MOC_Funct.c: 51: UINT MOC_RSSI_ramki(void)
-[v _MOC_RSSI_ramki `(ui ~T0 @X0 1 ef ]
 "52
-[; ;MOC_Funct.c: 52: {
+[; ;MOC_Funct.c: 52: UINT MOC_RSSI_ramki(void)
+[v _MOC_RSSI_ramki `(ui ~T0 @X0 1 ef ]
+"53
+[; ;MOC_Funct.c: 53: {
 {
 [e :U _MOC_RSSI_ramki ]
 [f ]
-"53
-[; ;MOC_Funct.c: 53:     return 0xEE;
+"54
+[; ;MOC_Funct.c: 54:     return 0xEE;
 [e ) -> -> 238 `i `ui ]
 [e $UE 1118  ]
-"54
-[; ;MOC_Funct.c: 54: }
+"55
+[; ;MOC_Funct.c: 55: }
 [e :UE 1118 ]
 }
-"56
-[; ;MOC_Funct.c: 56: UINT MOC_LQI_ramki(void)
-[v _MOC_LQI_ramki `(ui ~T0 @X0 1 ef ]
 "57
-[; ;MOC_Funct.c: 57: {
+[; ;MOC_Funct.c: 57: UINT MOC_LQI_ramki(void)
+[v _MOC_LQI_ramki `(ui ~T0 @X0 1 ef ]
+"58
+[; ;MOC_Funct.c: 58: {
 {
 [e :U _MOC_LQI_ramki ]
 [f ]
-"58
-[; ;MOC_Funct.c: 58:     return 0xE1;
+"59
+[; ;MOC_Funct.c: 59:     return 0xE1;
 [e ) -> -> 225 `i `ui ]
 [e $UE 1119  ]
-"59
-[; ;MOC_Funct.c: 59: }
+"60
+[; ;MOC_Funct.c: 60: }
 [e :UE 1119 ]
 }
-"63
-[; ;MOC_Funct.c: 63: UINT MOCK_PrzyspieszenieX(void)
-[v _MOCK_PrzyspieszenieX `(ui ~T0 @X0 1 ef ]
 "64
-[; ;MOC_Funct.c: 64: {
+[; ;MOC_Funct.c: 64: UINT MOCK_PrzyspieszenieX(void)
+[v _MOCK_PrzyspieszenieX `(ui ~T0 @X0 1 ef ]
+"65
+[; ;MOC_Funct.c: 65: {
 {
 [e :U _MOCK_PrzyspieszenieX ]
 [f ]
-"65
-[; ;MOC_Funct.c: 65:     return 0xFE;
+"66
+[; ;MOC_Funct.c: 66:     return 0xFE;
 [e ) -> -> 254 `i `ui ]
 [e $UE 1120  ]
-"66
-[; ;MOC_Funct.c: 66: }
+"67
+[; ;MOC_Funct.c: 67: }
 [e :UE 1120 ]
 }
-"68
-[; ;MOC_Funct.c: 68: UINT MOCK_PrzyspieszenieY(void)
-[v _MOCK_PrzyspieszenieY `(ui ~T0 @X0 1 ef ]
 "69
-[; ;MOC_Funct.c: 69: {
+[; ;MOC_Funct.c: 69: UINT MOCK_PrzyspieszenieY(void)
+[v _MOCK_PrzyspieszenieY `(ui ~T0 @X0 1 ef ]
+"70
+[; ;MOC_Funct.c: 70: {
 {
 [e :U _MOCK_PrzyspieszenieY ]
 [f ]
-"70
-[; ;MOC_Funct.c: 70:     return 0xFE;
+"71
+[; ;MOC_Funct.c: 71:     return 0xFE;
 [e ) -> -> 254 `i `ui ]
 [e $UE 1121  ]
-"71
-[; ;MOC_Funct.c: 71: }
+"72
+[; ;MOC_Funct.c: 72: }
 [e :UE 1121 ]
 }
-"72
-[; ;MOC_Funct.c: 72: UINT MOCK_PrzyspieszenieZ(void)
-[v _MOCK_PrzyspieszenieZ `(ui ~T0 @X0 1 ef ]
 "73
-[; ;MOC_Funct.c: 73: {
+[; ;MOC_Funct.c: 73: UINT MOCK_PrzyspieszenieZ(void)
+[v _MOCK_PrzyspieszenieZ `(ui ~T0 @X0 1 ef ]
+"74
+[; ;MOC_Funct.c: 74: {
 {
 [e :U _MOCK_PrzyspieszenieZ ]
 [f ]
-"74
-[; ;MOC_Funct.c: 74:     return 0xFE;
+"75
+[; ;MOC_Funct.c: 75:     return 0xFE;
 [e ) -> -> 254 `i `ui ]
 [e $UE 1122  ]
-"75
-[; ;MOC_Funct.c: 75: }
+"76
+[; ;MOC_Funct.c: 76: }
 [e :UE 1122 ]
 }
-"76
-[; ;MOC_Funct.c: 76: UINT MOCK_Klikniecie_Spadek(void)
-[v _MOCK_Klikniecie_Spadek `(ui ~T0 @X0 1 ef ]
 "77
-[; ;MOC_Funct.c: 77: {
+[; ;MOC_Funct.c: 77: UINT MOCK_Klikniecie_Spadek(void)
+[v _MOCK_Klikniecie_Spadek `(ui ~T0 @X0 1 ef ]
+"78
+[; ;MOC_Funct.c: 78: {
 {
 [e :U _MOCK_Klikniecie_Spadek ]
 [f ]
-"78
-[; ;MOC_Funct.c: 78:     return 0b00000000;
+"79
+[; ;MOC_Funct.c: 79:     return 0b00000000;
 [e ) -> -> 0 `i `ui ]
 [e $UE 1123  ]
-"79
-[; ;MOC_Funct.c: 79: }
+"80
+[; ;MOC_Funct.c: 80: }
 [e :UE 1123 ]
 }
-"81
-[; ;MOC_Funct.c: 81: UINT MOCK_SoftwareReset(void)
-[v _MOCK_SoftwareReset `(ui ~T0 @X0 1 ef ]
 "82
-[; ;MOC_Funct.c: 82: {
+[; ;MOC_Funct.c: 82: UINT MOCK_SoftwareReset(void)
+[v _MOCK_SoftwareReset `(ui ~T0 @X0 1 ef ]
+"83
+[; ;MOC_Funct.c: 83: {
 {
 [e :U _MOCK_SoftwareReset ]
 [f ]
-"83
-[; ;MOC_Funct.c: 83:     return (RCON>>6) & 0x01;
+"84
+[; ;MOC_Funct.c: 84:     return (RCON>>6) & 0x01;
 [e ) -> & >> -> _RCON `i -> 6 `i -> 1 `i `ui ]
 [e $UE 1124  ]
-"84
-[; ;MOC_Funct.c: 84: }
+"85
+[; ;MOC_Funct.c: 85: }
 [e :UE 1124 ]
 }
-"85
-[; ;MOC_Funct.c: 85: UINT MOCK_Background(void)
-[v _MOCK_Background `(ui ~T0 @X0 1 ef ]
 "86
-[; ;MOC_Funct.c: 86: {
+[; ;MOC_Funct.c: 86: UINT MOCK_Background(void)
+[v _MOCK_Background `(ui ~T0 @X0 1 ef ]
+"87
+[; ;MOC_Funct.c: 87: {
 {
 [e :U _MOCK_Background ]
 [f ]
-"87
-[; ;MOC_Funct.c: 87:     return 8;
+"88
+[; ;MOC_Funct.c: 88:     return 8;
 [e ) -> -> 8 `i `ui ]
 [e $UE 1125  ]
-"88
-[; ;MOC_Funct.c: 88: }
+"89
+[; ;MOC_Funct.c: 89: }
 [e :UE 1125 ]
 }

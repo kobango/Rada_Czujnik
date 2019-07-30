@@ -6,7 +6,7 @@ Linker command line:
   -cs \
   -h+dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.sym \
   --cmf=dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.cmf \
-  -z -Q18F4680 -oC:\Users\hp\AppData\Local\Temp\s91c.2 \
+  -z -Q18F4680 -oC:\Users\hp\AppData\Local\Temp\s1fg.2 \
   --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/SieciowySystemDetekcjiKartaCzujnikowa.production.map \
   -E1 -ver=XC8 --acfsm=1493 -ASTACK=0303h-0CFFh -pstack=STACK \
@@ -27,7 +27,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\hp\AppData\Local\Temp\s91c.o \
+  C:\Users\hp\AppData\Local\Temp\s1fg.o \
   dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o 
 
 Object code version is 3.11
@@ -40,7 +40,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\hp\AppData\Local\Temp\s91c.o
+C:\Users\hp\AppData\Local\Temp\s1fg.o
                 init                                 5E       5E        4        C       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
@@ -1232,7 +1232,7 @@ Total ram usage:       17 bytes
 
  *************** function _FRAME_HandleCanFrame *****************
  Defined at:
-		line 726 in file "FRAME.c"
+		line 797 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2   17[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1311,7 +1311,7 @@ Total ram usage:        0 bytes
 
  *************** function _FRAME_SoftwareVersion *****************
  Defined at:
-		line 560 in file "FRAME.c"
+		line 610 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2    5[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1379,7 +1379,7 @@ Total ram usage:        6 bytes
 
  *************** function _MOC_Wynikowa_wartosc_roznicowa *****************
  Defined at:
-		line 33 in file "MOC_Funct.c"
+		line 34 in file "MOC_Funct.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1409,7 +1409,7 @@ Total ram usage:        2 bytes
 
  *************** function _MOC_NOTWORK *****************
  Defined at:
-		line 47 in file "MOC_Funct.c"
+		line 48 in file "MOC_Funct.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1439,7 +1439,7 @@ Total ram usage:        2 bytes
 
  *************** function _MOC_Frame_Counter *****************
  Defined at:
-		line 38 in file "MOC_Funct.c"
+		line 39 in file "MOC_Funct.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1469,7 +1469,7 @@ Total ram usage:        2 bytes
 
  *************** function _MOC_Aktualna_Temperatura *****************
  Defined at:
-		line 43 in file "MOC_Funct.c"
+		line 44 in file "MOC_Funct.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1589,7 +1589,7 @@ Total ram usage:        2 bytes
 
  *************** function _FRAME_PrzypisanieDokarty *****************
  Defined at:
-		line 609 in file "FRAME.c"
+		line 669 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2    5[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1620,7 +1620,7 @@ Total ram usage:        6 bytes
 
  *************** function _FRAME_Plot *****************
  Defined at:
-		line 514 in file "FRAME.c"
+		line 554 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2   12[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1651,7 +1651,7 @@ Total ram usage:        3 bytes
 
  *************** function _FRAME_MapPosition *****************
  Defined at:
-		line 535 in file "FRAME.c"
+		line 580 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2    5[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1744,7 +1744,7 @@ Total ram usage:        5 bytes
 
  *************** function _FRAME_DeviceReset *****************
  Defined at:
-		line 386 in file "FRAME.c"
+		line 401 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2   14[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1776,7 +1776,7 @@ Total ram usage:        3 bytes
 
  *************** function _WriteDataToEEPROM *****************
  Defined at:
-		line 494 in file "FRAME.c"
+		line 529 in file "FRAME.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -1806,7 +1806,7 @@ Total ram usage:        0 bytes
 
  *************** function _NVMWrite *****************
  Defined at:
-		line 90 in file "EEPROM.c"
+		line 148 in file "EEPROM.c"
  Parameters:    Size  Location     Type
   source          2    8[COMRAM] PTR unsigned char 
 		 -> Init_Data(2), NeightAdress8(2), NeightAdress7(2), NeightAdress6(2), 
@@ -1841,7 +1841,7 @@ Total ram usage:        6 bytes
 
  *************** function _WritetoEEPROM *****************
  Defined at:
-		line 61 in file "EEPROM.c"
+		line 95 in file "EEPROM.c"
  Parameters:    Size  Location     Type
   Address         2    5[COMRAM] unsigned short 
   Data            1    7[COMRAM] unsigned char 
@@ -1872,7 +1872,7 @@ Total ram usage:        3 bytes
 
  *************** function _FRAME_DataUpdateAndChangeOption *****************
  Defined at:
-		line 370 in file "FRAME.c"
+		line 380 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2    5[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1903,7 +1903,7 @@ Total ram usage:        3 bytes
 
  *************** function _FRAME_AxisStatus *****************
  Defined at:
-		line 339 in file "FRAME.c"
+		line 344 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2    5[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1965,7 +1965,7 @@ Total ram usage:        3 bytes
 
  *************** function _FRAME_AnalogValue *****************
  Defined at:
-		line 583 in file "FRAME.c"
+		line 638 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2    5[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -1997,7 +1997,7 @@ Total ram usage:        4 bytes
 
  *************** function _FRAME_AdressOfNeighbors *****************
  Defined at:
-		line 631 in file "FRAME.c"
+		line 696 in file "FRAME.c"
  Parameters:    Size  Location     Type
   message         2    5[COMRAM] PTR struct .
 		 -> TRM_DataTransmition@canMessage(17), 
@@ -2064,7 +2064,7 @@ Total ram usage:        3 bytes
 
  *************** function _MOCK_PrzyspieszenieZ *****************
  Defined at:
-		line 72 in file "MOC_Funct.c"
+		line 73 in file "MOC_Funct.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2094,7 +2094,7 @@ Total ram usage:        2 bytes
 
  *************** function _MOCK_PrzyspieszenieY *****************
  Defined at:
-		line 68 in file "MOC_Funct.c"
+		line 69 in file "MOC_Funct.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2124,7 +2124,7 @@ Total ram usage:        2 bytes
 
  *************** function _MOCK_PrzyspieszenieX *****************
  Defined at:
-		line 63 in file "MOC_Funct.c"
+		line 64 in file "MOC_Funct.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2154,7 +2154,7 @@ Total ram usage:        2 bytes
 
  *************** function _MOCK_Klikniecie_Spadek *****************
  Defined at:
-		line 76 in file "MOC_Funct.c"
+		line 77 in file "MOC_Funct.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2610,7 +2610,7 @@ Total ram usage:        0 bytes
 
  *************** function _ReadDataToEEPROM *****************
  Defined at:
-		line 446 in file "FRAME.c"
+		line 471 in file "FRAME.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2640,7 +2640,7 @@ Total ram usage:        0 bytes
 
  *************** function _NVMRead *****************
  Defined at:
-		line 79 in file "EEPROM.c"
+		line 125 in file "EEPROM.c"
  Parameters:    Size  Location     Type
   dest            2    7[COMRAM] PTR unsigned char 
 		 -> Init_Data(2), NeightAdress8(2), NeightAdress7(2), NeightAdress6(2), 
@@ -2675,7 +2675,7 @@ Total ram usage:        6 bytes
 
  *************** function _ReadfromEEPROM *****************
  Defined at:
-		line 45 in file "EEPROM.c"
+		line 73 in file "EEPROM.c"
  Parameters:    Size  Location     Type
   Address         2    5[COMRAM] unsigned short 
  Auto vars:     Size  Location     Type
@@ -2705,7 +2705,7 @@ Total ram usage:        2 bytes
 
  *************** function _NVMInit *****************
  Defined at:
-		line 26 in file "EEPROM.c"
+		line 49 in file "EEPROM.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -2736,7 +2736,7 @@ Total ram usage:        3 bytes
 
  *************** function _NVMalloc *****************
  Defined at:
-		line 11 in file "EEPROM.c"
+		line 24 in file "EEPROM.c"
  Parameters:    Size  Location     Type
   size            2    5[COMRAM] unsigned short 
   location        2    7[COMRAM] PTR unsigned short 

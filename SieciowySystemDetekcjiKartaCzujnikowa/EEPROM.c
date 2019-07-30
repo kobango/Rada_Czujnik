@@ -8,6 +8,19 @@ WORD        neighborsAdress;
 WORD        czujnikiNaMapie;
 
 WORD nextEEPosition;
+
+/***************************************************************************************/
+/**
+* @author Mariusz Chrobak
+* @date 01/08/2012
+*
+* @return 1 when succes
+* @param *location Pointer ino EEPROM location
+* @param size  Data count
+* 
+* @section Description
+* Function to location position into EEPROM.
+*****************************************************************************************/
 BOOL NVMalloc(WORD size, WORD *location)
 {
     //WORD retval;
@@ -22,6 +35,16 @@ BOOL NVMalloc(WORD size, WORD *location)
     return TRUE;
 }
 
+/***************************************************************************************/
+/**
+* @author Mariusz Chrobak
+* @date 01/08/2012
+*
+* @return 1 when succes
+* 
+* @section Description
+* EEPROM save init
+*****************************************************************************************/
 
 BOOL NVMInit(void)
 {
@@ -36,12 +59,17 @@ BOOL NVMInit(void)
     return result;
 }
 
-/*******************************************************************
-Funkcja: unsigned char ReadfromEEPROM(unsigned int Address)
-Opis funkcji: Czytanie pojedynczego bajtu ze wskazanego adresu
-Data: sierpien 2012
-Autor: Mariusz Chrobak
-*****************************************************************/
+/***************************************************************************************/
+/**
+* @author Mariusz Chrobak
+* @date 01/08/2012
+*
+* @param Address Addres of data in EEPROM memory
+* @param Data Data to save in EEPROM memory
+* 
+* @section Description
+* Byte Read in to descripted adres.
+*****************************************************************************************/
 static BYTE ReadfromEEPROM(WORD Address)
 {
     EEADRH = (BYTE)(Address>>8); // Load the high byte of the EEPROM address
@@ -52,12 +80,18 @@ static BYTE ReadfromEEPROM(WORD Address)
     return EEDATA; // Return with the data
 }
 
-/*******************************************************************
-Funkcja: void WritetoEEPROM(unsigned int Address, unsigned char Data)
-Opis funkcji: Zapis pojedynczego bajtu pod wskazany adres
-Data: sierpien 2012
-Autor: Mariusz Chrobak
-*****************************************************************/
+
+/***************************************************************************************/
+/**
+* @author Mariusz Chrobak
+* @date 01/08/2012
+*
+* @param Address Addres of data in EEPROM memory
+* @param Data Data to save in EEPROM memory
+* 
+* @section Description
+* Byte save in to descripted adres.
+*****************************************************************************************/
 static void WritetoEEPROM(WORD Address, BYTE Data)
 {
     static BYTE GIE_Status; // Variable to save Global Interrupt Enable bit
@@ -76,6 +110,18 @@ static void WritetoEEPROM(WORD Address, BYTE Data)
     while (EECON1bits.WR); // Wait for the write cycle to complete
 }
 
+/***************************************************************************************/
+/**
+* @author Mariusz Chrobak
+* @date 01/08/2012
+*
+* @param *dest Pointer ino target location
+* @param addr  Addres into EEPROM
+* @param count  Data count
+* 
+* @section Description
+* Function to Write data from EEPROM
+*****************************************************************************************/
 void NVMRead(BYTE *dest, WORD addr, WORD count)
 {
     while( count > 0 )
@@ -87,6 +133,18 @@ void NVMRead(BYTE *dest, WORD addr, WORD count)
 }
 
 
+/***************************************************************************************/
+/**
+* @author Mariusz Chrobak
+* @date 01/08/2012
+*
+* @param *source Pointer ino source location
+* @param addr  Addres into EEPROM
+* @param count  Data count
+* 
+* @section Description
+* Function to read data from EEPROM
+*****************************************************************************************/
 void NVMWrite(BYTE *source, WORD addr, WORD count)
 {
     while(count > 0)

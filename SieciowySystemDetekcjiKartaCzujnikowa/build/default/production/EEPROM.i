@@ -18333,6 +18333,7 @@ WORD neighborsAdress;
 WORD czujnikiNaMapie;
 
 WORD nextEEPosition;
+# 24 "EEPROM.c"
 BOOL NVMalloc(WORD size, WORD *location)
 {
 
@@ -18346,8 +18347,7 @@ BOOL NVMalloc(WORD size, WORD *location)
     nextEEPosition += size;
     return TRUE;
 }
-
-
+# 49 "EEPROM.c"
 BOOL NVMInit(void)
 {
     BOOL result = TRUE;
@@ -18360,13 +18360,7 @@ BOOL NVMInit(void)
 
     return result;
 }
-
-
-
-
-
-
-
+# 73 "EEPROM.c"
 static BYTE ReadfromEEPROM(WORD Address)
 {
     EEADRH = (BYTE)(Address>>8);
@@ -18376,13 +18370,7 @@ static BYTE ReadfromEEPROM(WORD Address)
     EECON1bits.CFGS = 0;
     return EEDATA;
 }
-
-
-
-
-
-
-
+# 95 "EEPROM.c"
 static void WritetoEEPROM(WORD Address, BYTE Data)
 {
     static BYTE GIE_Status;
@@ -18400,7 +18388,7 @@ static void WritetoEEPROM(WORD Address, BYTE Data)
     EECON1bits.WREN = 0;
     while (EECON1bits.WR);
 }
-
+# 125 "EEPROM.c"
 void NVMRead(BYTE *dest, WORD addr, WORD count)
 {
     while( count > 0 )
@@ -18410,8 +18398,7 @@ void NVMRead(BYTE *dest, WORD addr, WORD count)
         count--;
     }
 }
-
-
+# 148 "EEPROM.c"
 void NVMWrite(BYTE *source, WORD addr, WORD count)
 {
     while(count > 0)
