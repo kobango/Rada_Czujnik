@@ -1,4 +1,4 @@
-# 1 "FRAME.c"
+# 1 "EEPROM.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,265 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.05\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "FRAME.c" 2
-# 1 "./CAN.h" 1
-
-
-# 1 "./GenericTypeDefs.h" 1
-# 48 "./GenericTypeDefs.h"
-typedef enum _BOOL { FALSE = 0, TRUE } BOOL;
-# 58 "./GenericTypeDefs.h"
-typedef unsigned char BYTE;
-typedef unsigned short int WORD;
-typedef unsigned long DWORD;
-typedef unsigned long long QWORD;
-typedef signed char CHAR;
-typedef signed short int SHORT;
-typedef signed long LONG;
-typedef signed long long LONGLONG;
-
-
-typedef void VOID;
-
-typedef char CHAR8;
-typedef unsigned char UCHAR8;
-
-
-
-
-
-typedef signed int INT;
-typedef signed char INT8;
-typedef signed short int INT16;
-typedef signed long int INT32;
-typedef signed long long INT64;
-
-typedef unsigned int UINT;
-typedef unsigned char UINT8;
-typedef unsigned short int UINT16;
-typedef unsigned long int UINT32;
-typedef unsigned long long UINT64;
-
-typedef union _BYTE_VAL
-{
-    BYTE Val;
-    struct
-    {
-        unsigned char b0:1;
-        unsigned char b1:1;
-        unsigned char b2:1;
-        unsigned char b3:1;
-        unsigned char b4:1;
-        unsigned char b5:1;
-        unsigned char b6:1;
-        unsigned char b7:1;
-    } bits;
-} BYTE_VAL, BYTE_BITS;
-
-typedef union _WORD_VAL
-{
-    WORD Val;
-    BYTE v[2];
-    struct
-    {
-        BYTE LB;
-        BYTE HB;
-    } byte;
-    struct
-    {
-        unsigned char b0:1;
-        unsigned char b1:1;
-        unsigned char b2:1;
-        unsigned char b3:1;
-        unsigned char b4:1;
-        unsigned char b5:1;
-        unsigned char b6:1;
-        unsigned char b7:1;
-        unsigned char b8:1;
-        unsigned char b9:1;
-        unsigned char b10:1;
-        unsigned char b11:1;
-        unsigned char b12:1;
-        unsigned char b13:1;
-        unsigned char b14:1;
-        unsigned char b15:1;
-    } bits;
-} WORD_VAL, WORD_BITS;
-
-typedef union _DWORD_VAL
-{
-    DWORD Val;
- WORD w[2];
-    BYTE v[4];
-    struct
-    {
-        WORD LW;
-        WORD HW;
-    } word;
-    struct
-    {
-        BYTE LB;
-        BYTE HB;
-        BYTE UB;
-        BYTE MB;
-    } byte;
-    struct
-    {
-        WORD_VAL low;
-        WORD_VAL high;
-    }wordUnion;
-    struct
-    {
-        unsigned char b0:1;
-        unsigned char b1:1;
-        unsigned char b2:1;
-        unsigned char b3:1;
-        unsigned char b4:1;
-        unsigned char b5:1;
-        unsigned char b6:1;
-        unsigned char b7:1;
-        unsigned char b8:1;
-        unsigned char b9:1;
-        unsigned char b10:1;
-        unsigned char b11:1;
-        unsigned char b12:1;
-        unsigned char b13:1;
-        unsigned char b14:1;
-        unsigned char b15:1;
-        unsigned char b16:1;
-        unsigned char b17:1;
-        unsigned char b18:1;
-        unsigned char b19:1;
-        unsigned char b20:1;
-        unsigned char b21:1;
-        unsigned char b22:1;
-        unsigned char b23:1;
-        unsigned char b24:1;
-        unsigned char b25:1;
-        unsigned char b26:1;
-        unsigned char b27:1;
-        unsigned char b28:1;
-        unsigned char b29:1;
-        unsigned char b30:1;
-        unsigned char b31:1;
-    } bits;
-} DWORD_VAL;
-
-typedef union _QWORD_VAL
-{
-    QWORD Val;
- DWORD d[2];
- WORD w[4];
-    BYTE v[8];
-    struct
-    {
-        DWORD LD;
-        DWORD HD;
-    } dword;
-    struct
-    {
-        WORD LW;
-        WORD HW;
-        WORD UW;
-        WORD MW;
-    } word;
-    struct
-    {
-        unsigned char b0:1;
-        unsigned char b1:1;
-        unsigned char b2:1;
-        unsigned char b3:1;
-        unsigned char b4:1;
-        unsigned char b5:1;
-        unsigned char b6:1;
-        unsigned char b7:1;
-        unsigned char b8:1;
-        unsigned char b9:1;
-        unsigned char b10:1;
-        unsigned char b11:1;
-        unsigned char b12:1;
-        unsigned char b13:1;
-        unsigned char b14:1;
-        unsigned char b15:1;
-        unsigned char b16:1;
-        unsigned char b17:1;
-        unsigned char b18:1;
-        unsigned char b19:1;
-        unsigned char b20:1;
-        unsigned char b21:1;
-        unsigned char b22:1;
-        unsigned char b23:1;
-        unsigned char b24:1;
-        unsigned char b25:1;
-        unsigned char b26:1;
-        unsigned char b27:1;
-        unsigned char b28:1;
-        unsigned char b29:1;
-        unsigned char b30:1;
-        unsigned char b31:1;
-        unsigned char b32:1;
-        unsigned char b33:1;
-        unsigned char b34:1;
-        unsigned char b35:1;
-        unsigned char b36:1;
-        unsigned char b37:1;
-        unsigned char b38:1;
-        unsigned char b39:1;
-        unsigned char b40:1;
-        unsigned char b41:1;
-        unsigned char b42:1;
-        unsigned char b43:1;
-        unsigned char b44:1;
-        unsigned char b45:1;
-        unsigned char b46:1;
-        unsigned char b47:1;
-        unsigned char b48:1;
-        unsigned char b49:1;
-        unsigned char b50:1;
-        unsigned char b51:1;
-        unsigned char b52:1;
-        unsigned char b53:1;
-        unsigned char b54:1;
-        unsigned char b55:1;
-        unsigned char b56:1;
-        unsigned char b57:1;
-        unsigned char b58:1;
-        unsigned char b59:1;
-        unsigned char b60:1;
-        unsigned char b61:1;
-        unsigned char b62:1;
-        unsigned char b63:1;
-    } bits;
-} QWORD_VAL;
-# 3 "./CAN.h" 2
-# 15 "./CAN.h"
-    typedef enum{
-        KARTA,
-        CZUJNIK
-    }TARGET_ENUM;
-
-    typedef struct{
-
-            unsigned char buffer_status;
-
-            unsigned char message_type;
-
-            unsigned char frame_type;
-
-            unsigned char buffer;
-
-
-            DWORD_VAL id;
-            unsigned char data[8];
-            unsigned char data_length;
-    }mID;
-
-    void CAN_Setup(void);
-    BOOL CAN_TakeFrame(mID * message);
-    void CAN_SendFrame(mID * message);
-    void CAN_GenID(mID * message,BYTE frameID);
-    void CAN_SetupFilter_Ne(void);
-# 2 "FRAME.c" 2
+# 1 "EEPROM.c" 2
 # 1 "./main.h" 1
 
 
@@ -18171,6 +17913,233 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 4 "./main.h" 2
 
 
+# 1 "./GenericTypeDefs.h" 1
+# 48 "./GenericTypeDefs.h"
+typedef enum _BOOL { FALSE = 0, TRUE } BOOL;
+# 58 "./GenericTypeDefs.h"
+typedef unsigned char BYTE;
+typedef unsigned short int WORD;
+typedef unsigned long DWORD;
+typedef unsigned long long QWORD;
+typedef signed char CHAR;
+typedef signed short int SHORT;
+typedef signed long LONG;
+typedef signed long long LONGLONG;
+
+
+typedef void VOID;
+
+typedef char CHAR8;
+typedef unsigned char UCHAR8;
+
+
+
+
+
+typedef signed int INT;
+typedef signed char INT8;
+typedef signed short int INT16;
+typedef signed long int INT32;
+typedef signed long long INT64;
+
+typedef unsigned int UINT;
+typedef unsigned char UINT8;
+typedef unsigned short int UINT16;
+typedef unsigned long int UINT32;
+typedef unsigned long long UINT64;
+
+typedef union _BYTE_VAL
+{
+    BYTE Val;
+    struct
+    {
+        unsigned char b0:1;
+        unsigned char b1:1;
+        unsigned char b2:1;
+        unsigned char b3:1;
+        unsigned char b4:1;
+        unsigned char b5:1;
+        unsigned char b6:1;
+        unsigned char b7:1;
+    } bits;
+} BYTE_VAL, BYTE_BITS;
+
+typedef union _WORD_VAL
+{
+    WORD Val;
+    BYTE v[2];
+    struct
+    {
+        BYTE LB;
+        BYTE HB;
+    } byte;
+    struct
+    {
+        unsigned char b0:1;
+        unsigned char b1:1;
+        unsigned char b2:1;
+        unsigned char b3:1;
+        unsigned char b4:1;
+        unsigned char b5:1;
+        unsigned char b6:1;
+        unsigned char b7:1;
+        unsigned char b8:1;
+        unsigned char b9:1;
+        unsigned char b10:1;
+        unsigned char b11:1;
+        unsigned char b12:1;
+        unsigned char b13:1;
+        unsigned char b14:1;
+        unsigned char b15:1;
+    } bits;
+} WORD_VAL, WORD_BITS;
+
+typedef union _DWORD_VAL
+{
+    DWORD Val;
+ WORD w[2];
+    BYTE v[4];
+    struct
+    {
+        WORD LW;
+        WORD HW;
+    } word;
+    struct
+    {
+        BYTE LB;
+        BYTE HB;
+        BYTE UB;
+        BYTE MB;
+    } byte;
+    struct
+    {
+        WORD_VAL low;
+        WORD_VAL high;
+    }wordUnion;
+    struct
+    {
+        unsigned char b0:1;
+        unsigned char b1:1;
+        unsigned char b2:1;
+        unsigned char b3:1;
+        unsigned char b4:1;
+        unsigned char b5:1;
+        unsigned char b6:1;
+        unsigned char b7:1;
+        unsigned char b8:1;
+        unsigned char b9:1;
+        unsigned char b10:1;
+        unsigned char b11:1;
+        unsigned char b12:1;
+        unsigned char b13:1;
+        unsigned char b14:1;
+        unsigned char b15:1;
+        unsigned char b16:1;
+        unsigned char b17:1;
+        unsigned char b18:1;
+        unsigned char b19:1;
+        unsigned char b20:1;
+        unsigned char b21:1;
+        unsigned char b22:1;
+        unsigned char b23:1;
+        unsigned char b24:1;
+        unsigned char b25:1;
+        unsigned char b26:1;
+        unsigned char b27:1;
+        unsigned char b28:1;
+        unsigned char b29:1;
+        unsigned char b30:1;
+        unsigned char b31:1;
+    } bits;
+} DWORD_VAL;
+
+typedef union _QWORD_VAL
+{
+    QWORD Val;
+ DWORD d[2];
+ WORD w[4];
+    BYTE v[8];
+    struct
+    {
+        DWORD LD;
+        DWORD HD;
+    } dword;
+    struct
+    {
+        WORD LW;
+        WORD HW;
+        WORD UW;
+        WORD MW;
+    } word;
+    struct
+    {
+        unsigned char b0:1;
+        unsigned char b1:1;
+        unsigned char b2:1;
+        unsigned char b3:1;
+        unsigned char b4:1;
+        unsigned char b5:1;
+        unsigned char b6:1;
+        unsigned char b7:1;
+        unsigned char b8:1;
+        unsigned char b9:1;
+        unsigned char b10:1;
+        unsigned char b11:1;
+        unsigned char b12:1;
+        unsigned char b13:1;
+        unsigned char b14:1;
+        unsigned char b15:1;
+        unsigned char b16:1;
+        unsigned char b17:1;
+        unsigned char b18:1;
+        unsigned char b19:1;
+        unsigned char b20:1;
+        unsigned char b21:1;
+        unsigned char b22:1;
+        unsigned char b23:1;
+        unsigned char b24:1;
+        unsigned char b25:1;
+        unsigned char b26:1;
+        unsigned char b27:1;
+        unsigned char b28:1;
+        unsigned char b29:1;
+        unsigned char b30:1;
+        unsigned char b31:1;
+        unsigned char b32:1;
+        unsigned char b33:1;
+        unsigned char b34:1;
+        unsigned char b35:1;
+        unsigned char b36:1;
+        unsigned char b37:1;
+        unsigned char b38:1;
+        unsigned char b39:1;
+        unsigned char b40:1;
+        unsigned char b41:1;
+        unsigned char b42:1;
+        unsigned char b43:1;
+        unsigned char b44:1;
+        unsigned char b45:1;
+        unsigned char b46:1;
+        unsigned char b47:1;
+        unsigned char b48:1;
+        unsigned char b49:1;
+        unsigned char b50:1;
+        unsigned char b51:1;
+        unsigned char b52:1;
+        unsigned char b53:1;
+        unsigned char b54:1;
+        unsigned char b55:1;
+        unsigned char b56:1;
+        unsigned char b57:1;
+        unsigned char b58:1;
+        unsigned char b59:1;
+        unsigned char b60:1;
+        unsigned char b61:1;
+        unsigned char b62:1;
+        unsigned char b63:1;
+    } bits;
+} QWORD_VAL;
+# 6 "./main.h" 2
 
 # 1 "./DetekcjaSasiadow.h" 1
 # 15 "./DetekcjaSasiadow.h"
@@ -18276,60 +18245,9 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
     void zapisUstawienDoEEPROM(void);
     void InterruptHandlerHigh(void);
     void INI_All(void);
-# 3 "FRAME.c" 2
-# 1 "./LED.h" 1
-# 12 "./LED.h"
-void INI_LED_Start(void);
-UINT8 LED_Update(void);
-void Fulfillment_Lvl_Set(UINT a);
-UINT Fulfillment_Lvl_Get(void);
-UINT LED_Error(void);
-UINT LED_Clear(void);
-
-void LOCK_Set(BYTE k);
-BYTE LOCK_Get(void);
-# 4 "FRAME.c" 2
-# 1 "./FRAME.h" 1
-# 12 "./FRAME.h"
-extern mID ramkaCanRxCzujnika[5];
-void FRAME_HandleCanFrame(mID * message);
-void ReadDataToEEPROM(void);
-void WriteDataToEEPROM(void);
-
-volatile UINT NeightAdress1;
-volatile UINT NeightAdress2;
-volatile UINT NeightAdress3;
-volatile UINT NeightAdress4;
-volatile UINT NeightAdress5;
-volatile UINT NeightAdress6;
-volatile UINT NeightAdress7;
-volatile UINT NeightAdress8;
-# 5 "FRAME.c" 2
-# 1 "./MOC_Funct.h" 1
-
-
-
-
-
-
-
-UINT MOC_StanWzbudzenia(void);
-UINT MOC_Wynikowa_wartosc_roznicowa(void);
-UINT MOC_Frame_Counter(void);
-UINT MOC_Aktualna_Temperatura(void);
-UINT MOC_NOTWORK(void);
-UINT MOC_RSSI_ramki(void);
-UINT MOC_LQI_ramki(void);
-UINT MOCK_PrzyspieszenieX(void);
-UINT MOCK_PrzyspieszenieY(void);
-UINT MOCK_PrzyspieszenieZ(void);
-UINT MOCK_Klikniecie_Spadek(void);
-UINT MOCK_Background(void);
-
-UINT MOCK_SoftwareReset(void);
-# 6 "FRAME.c" 2
-# 1 "./TRM.h" 1
-# 11 "./TRM.h"
+# 2 "EEPROM.c" 2
+# 1 "./transmisja.h" 1
+# 11 "./transmisja.h"
     typedef struct
     {
         union
@@ -18343,16 +18261,15 @@ UINT MOCK_SoftwareReset(void);
                 unsigned wyslijRamkeResetuCzujnikow : 1;
 
             };
-        }Flags;
+        }Flagi;
 
         WORD adresCAN;
-
 
     }DaneCanStruct;
     extern DaneCanStruct DaneCan;
 
-    void TRM_DataTransmition(void);
-# 7 "FRAME.c" 2
+    void TransmisjaDanych(void);
+# 3 "EEPROM.c" 2
 # 1 "./EEPROM.h" 1
 # 14 "./EEPROM.h"
     BOOL NVMInit(void);
@@ -18363,129 +18280,85 @@ UINT MOCK_SoftwareReset(void);
     extern WORD ustawieniaKarty;
     extern WORD nazwyPrzyciskow;
     extern WORD czujnikiNaMapie;
-# 8 "FRAME.c" 2
+# 4 "EEPROM.c" 2
+# 1 "./FRAME.h" 1
+# 10 "./FRAME.h"
+# 1 "./CAN.h" 1
+# 15 "./CAN.h"
+    typedef enum{
+        KARTA,
+        CZUJNIK
+    }TARGET_ENUM;
 
-typedef short Word16;
-typedef unsigned short UWord16;
-typedef long Word32;
-typedef unsigned long UWord32;
+    typedef struct{
 
-typedef union tuReg32 {
-  UWord32 Val32;
+            unsigned char buffer_status;
 
-  struct {
-    UWord16 LW;
-    UWord16 HW;
-  } Word;
+            unsigned char message_type;
 
-  char Val[4];
-} uReg32;
+            unsigned char frame_type;
 
-mID ramkaCanRxKarty[5], ramkaCanTxKarty;
-UINT IsInNeighbors(UINT message_adress);
+            unsigned char buffer;
+
+
+            DWORD_VAL id;
+            unsigned char data[8];
+            unsigned char data_length;
+    }mID;
+
+    void CAN_Setup(void);
+    BOOL CAN_TakeFrame(mID * message);
+    void CAN_SendFrame(mID * message);
+    void CAN_GenID(mID * message,BYTE frameID);
+    void CAN_SetupFilter_Ne(void);
+# 11 "./FRAME.h" 2
+
+extern mID ramkaCanRxCzujnika[5];
+void FRAME_HandleCanFrame(mID * message);
 void ReadDataToEEPROM(void);
 void WriteDataToEEPROM(void);
 
-volatile UINT Init_Data = 0xFFFF;
-volatile UINT NeightAdress1 = 0;
-volatile UINT NeightAdress2 = 298;
-volatile UINT NeightAdress3 = 0;
-volatile UINT NeightAdress4 = 0;
-volatile UINT NeightAdress5 = 0;
-volatile UINT NeightAdress6 = 0;
-volatile UINT NeightAdress7 = 0;
-volatile UINT NeightAdress8 = 0;
-# 48 "FRAME.c"
-static void FRAME_SensorExcitationStatus(mID *message)
+volatile UINT NeightAdress1;
+volatile UINT NeightAdress2;
+volatile UINT NeightAdress3;
+volatile UINT NeightAdress4;
+volatile UINT NeightAdress5;
+volatile UINT NeightAdress6;
+volatile UINT NeightAdress7;
+volatile UINT NeightAdress8;
+# 5 "EEPROM.c" 2
+
+WORD ustawieniaKarty;
+WORD neighborsAdress;
+WORD czujnikiNaMapie;
+
+WORD nextEEPosition;
+BOOL NVMalloc(WORD size, WORD *location)
 {
 
-    static UINT statwect = 0b00000000;
-    if(message->message_type == 0x02)
+
+    if ((nextEEPosition + (WORD)size) > (WORD)0x400)
     {
-        message->data_length = 6;
-
-
-
-
-
-        message->data[0] = LOCK_Get();
-        message->data[1] = MOC_Wynikowa_wartosc_roznicowa() >> 8 ;
-        message->data[2] = MOC_Wynikowa_wartosc_roznicowa() & 0x00FF;
-        message->data[3] = MOC_Frame_Counter();
-        message->data[4] = MOC_Aktualna_Temperatura();
-        message->data[5] = MOC_NOTWORK();
-# 75 "FRAME.c"
+        return FALSE;
     }
-    else
-    {
-<<<<<<< HEAD
-        int theta = message->id.w[0];
-        if(IsInNeighbors(theta))
-=======
 
-        UINT tru = IsInNeighbors(message->id.w[0]);
-
-
-        if(message->data[0]==0)
-        {
-
-            statwect = statwect &( ~tru );
-        }
-        else
->>>>>>> test
-        {
-            statwect = statwect| tru;
-        }
-
-        if(statwect>0)
-        {
-        LOCK_Set(1);
-        }
-        else
-        {
-        LOCK_Set(0);
-        }
-    }
+    *location = nextEEPosition;
+    nextEEPosition += size;
+    return TRUE;
 }
 
-UINT IsInNeighbors(UINT message_adress)
-{
-    WORD i;
 
-    if(NeightAdress1==message_adress)
-    {
-        return 0b1;
-    }
-    if(NeightAdress2==message_adress)
-    {
-        return 0b10;
-    }
-    if(NeightAdress3==message_adress)
-    {
-        return 0b100;
-    }
-    if(NeightAdress4==message_adress)
-    {
-        return 0b1000;
-    }
-    if(NeightAdress5==message_adress)
-    {
-        return 0b10000;
-    }
-    if(NeightAdress6==message_adress)
-    {
-        return 0b100000;
-    }
-    if(NeightAdress7==message_adress)
-    {
-        return 0b1000000;
-    }
-    if(NeightAdress8==message_adress)
-    {
-        return 0b10000000;
-    }
-# 153 "FRAME.c"
-    return 0;
+BOOL NVMInit(void)
+{
+    BOOL result = TRUE;
+    UINT NeightAdress_Example = 0xFFFF;
+    nextEEPosition = 0;
+
+    result &= NVMalloc(sizeof(KartaStruct), &ustawieniaKarty);
+    result &= NVMalloc(8*sizeof(NeightAdress_Example), &neighborsAdress);
+
+
+    return result;
 }
 
 
@@ -18494,23 +18367,14 @@ UINT IsInNeighbors(UINT message_adress)
 
 
 
-static void FRAME_AccelerometerStatus(mID *message)
+static BYTE ReadfromEEPROM(WORD Address)
 {
-    if(message->message_type == 0x02)
-    {
-        message->data_length = 4;
-
-
-
-        message->data[0] = MOCK_PrzyspieszenieX();
-        message->data[1] = MOCK_PrzyspieszenieY();
-        message->data[2] = MOCK_PrzyspieszenieZ();
-        message->data[3] = MOCK_Klikniecie_Spadek();
-    }
-    else
-    {
-
-    }
+    EEADRH = (BYTE)(Address>>8);
+    EEADR = (BYTE)Address;
+    EECON1bits.RD = 1;
+    EECON1bits.EEPGD = 0;
+    EECON1bits.CFGS = 0;
+    return EEDATA;
 }
 
 
@@ -18519,539 +18383,42 @@ static void FRAME_AccelerometerStatus(mID *message)
 
 
 
-static void FRAME_ExcitationValue(mID *message)
+static void WritetoEEPROM(WORD Address, BYTE Data)
 {
-    if(message->message_type == 0x02)
+    static BYTE GIE_Status;
+
+    EEADRH = (BYTE)(Address>>8);
+    EEADR = (BYTE)Address;
+    EEDATA = Data;
+    EECON1bits.WREN = 1;
+    GIE_Status = INTCONbits.GIE;
+    INTCONbits.GIE = 0;
+    EECON2 = 0x55;
+    EECON2 = 0xAA;
+    EECON1bits.WR = 1;
+    INTCONbits.GIE = GIE_Status;
+    EECON1bits.WREN = 0;
+    while (EECON1bits.WR);
+}
+
+void NVMRead(BYTE *dest, WORD addr, WORD count)
+{
+    while( count > 0 )
     {
-        message->data_length = 1;
-
-
-
-
-        message->data[0] = 0xFF;
-    }
-    else
-    {
-
-
+        while(EECON1bits.WR);
+        *dest++ = ReadfromEEPROM(addr++);
+        count--;
     }
 }
 
 
-
-
-
-
-
-static void FRAME_ExcitationMultiplier(mID *message)
+void NVMWrite(BYTE *source, WORD addr, WORD count)
 {
-    WORD i;
-
-    if(message->message_type == 0x02)
+    while(count > 0)
     {
-        message->data_length = 1;
-        for(i=0; i<3; i++)
-        {
-
-
-        }
-        message->data[0] = 0xFF;
-    }
-    else
-    {
-
-
-
-    }
-}
-
-
-
-
-
-
-
-static void FRAME_AveragingTimes(mID *message)
-{
-    if(message->message_type == 0x02)
-    {
-        message->data_length = 1;
-
-
-
-
-
-
-
-        message->data[0] = 0xFF;
-    }
-    else
-    {
-<<<<<<< HEAD
-# 218 "FRAME.c"
-=======
-# 289 "FRAME.c"
->>>>>>> test
-    }
-}
-
-
-
-
-
-
-
-static void FRAME_AxisStatus(mID *message)
-{
-    WORD i;
-
-    if(message->message_type == 0x02)
-    {
-        message->data_length = 1;
-<<<<<<< HEAD
-# 244 "FRAME.c"
-=======
-# 315 "FRAME.c"
->>>>>>> test
-        message->data[0] = 0xFF;
-    }
-    else
-    {
-
-    }
-}
-
-
-
-
-
-
-
-static void FRAME_DataUpdateAndChangeOption(mID *message)
-{
-
-    Dane->rokU16 = message->data[4];
-    Dane->miesiacU16 = message->data[5];
-    Dane->dzienU16 = message->data[6];
-    Dane->godzinaU16 = message->data[7];
-
-}
-
-
-
-
-
-
-
-static void FRAME_DeviceReset(mID *message)
-{
-    if(message->message_type == 0x02)
-    {
-        message->data_length = 1;
-
-        message->data[0] = (RCON>>6) & 0x01;
-        message->data[1] = Flagi.wykonanoZapisDoFlash;
-        message->data[2] = Flagi.pomiarTla;
-        message->data[3] = 0;
-        message->data[4] = Dane->rokU16;
-        message->data[5] = Dane->miesiacU16;
-        message->data[6] = Dane->dzienU16;
-        message->data[7] = Dane->godzinaU16;
-        RCON &= ~(1<<6);
-        Flagi.wykonanoZapisDoFlash = 0;
-<<<<<<< HEAD
-# 303 "FRAME.c"
-=======
-# 374 "FRAME.c"
->>>>>>> test
-    }
-    else
-    {
-        message->data_length = 1;
-<<<<<<< HEAD
-# 328 "FRAME.c"
-=======
-
-        if(message->data[2])
-        {
-            Flagi.pomiarTla = 1;
-            if(message->data[1])
-            {
-                Flagi.zapisDoFlash = 1;
-                WriteDataToEEPROM();
-            }
-        }
-        else
-        {
-            if(message->data[1])
-            {
-                FRAME_DataUpdateAndChangeOption(message);
-                WriteDataToEEPROM();
-
-            }
-            if(message->data[0])
-            {
-                __asm(" reset");
-            }
-        }
->>>>>>> test
-        message->data[0] = 0xFF;
-    }
-}
-
-void ReadDataToEEPROM(void)
-{
-
-    NVMRead(&Init_Data,10,2);
-    NVMRead(&NeightAdress1,15,2);
-    if(NeightAdress1==0xFFFF)
-    {
-        NeightAdress1=0x0000;
-    }
-    NVMRead(&NeightAdress2,20,2);
-    if(NeightAdress2==0xFFFF)
-    {
-        NeightAdress2=0x0000;
-    }
-    NVMRead(&NeightAdress3,30,2);
-    if(NeightAdress3==0xFFFF)
-    {
-        NeightAdress3=0x0000;
-    }
-    NVMRead(&NeightAdress4,40,2);
-    if(NeightAdress4==0xFFFF)
-    {
-        NeightAdress4=0x0000;
-    }
-    NVMRead(&NeightAdress5,50,2);
-    if(NeightAdress5==0xFFFF)
-    {
-        NeightAdress5=0x0000;
-    }
-    NVMRead(&NeightAdress6,60,2);
-    if(NeightAdress6==0xFFFF)
-    {
-        NeightAdress6=0x0000;
-    }
-    NVMRead(&NeightAdress7,70,2);
-    if(NeightAdress7==0xFFFF)
-    {
-        NeightAdress7=0x0000;
-    }
-    NVMRead(&NeightAdress8,80,2);
-    if(NeightAdress8==0xFFFF)
-    {
-        NeightAdress8=0x0000;
-    }
-
-
-}
-
-void WriteDataToEEPROM(void)
-{
-    NVMWrite(&Init_Data,10,2);
-    NVMWrite(&NeightAdress1,15,2);
-    NVMWrite(&NeightAdress2,20,2);
-    NVMWrite(&NeightAdress3,30,2);
-    NVMWrite(&NeightAdress4,40,2);
-    NVMWrite(&NeightAdress5,50,2);
-    NVMWrite(&NeightAdress6,60,2);
-    NVMWrite(&NeightAdress7,70,2);
-    NVMWrite(&NeightAdress8,80,2);
-
-}
-
-
-
-
-
-
-
-static void FRAME_Plot(mID *message)
-{
-
-    if(message->message_type == 0x02)
-    {
-        message->data[0] = (BYTE)(Dane->timerRysowaniaWykresuU16/10);
-    }
-    else
-    {
-        Dane->timerRysowaniaWykresuU16 = (WORD)message->data[0]*10;
-    }
-
-
-}
-
-
-
-
-
-
-
-static void FRAME_MapPosition(mID *message)
-{
-<<<<<<< HEAD
-# 376 "FRAME.c"
-=======
-# 511 "FRAME.c"
->>>>>>> test
-}
-
-
-
-
-
-
-
-static void FRAME_SoftwareVersion(mID *message)
-{
-
-    if(message->message_type == 0x02)
-    {
-        message->data_length = 4;
-        message->data[0] = (unsigned char)(Dane->wersjaOprogramowaniaU16 >> 8);
-        message->data[1] = (unsigned char)Dane->wersjaOprogramowaniaU16;
-        message->data[2] = (unsigned char)(Dane->wersjaSprzetuU16 >> 8);
-        message->data[3] = (unsigned char)Dane->wersjaSprzetuU16;
-    }
-    else
-    {
-
-    }
-}
-
-
-
-
-
-
-
-static void FRAME_AnalogValue(mID *message, WORD set)
-{
-    WORD i;
-<<<<<<< HEAD
-# 425 "FRAME.c"
-=======
-# 560 "FRAME.c"
->>>>>>> test
-}
-
-
-
-
-
-
-
-static void FRAME_PrzypisanieDokarty(mID *message)
-{
-    if(message->message_type == 0x02)
-    {
-        message->data_length = 3;
-        message->data[0] = (unsigned char)Dane->NrKarty >> 8 ;
-        message->data[1] = (unsigned char)Dane->NrKarty ;
-        message->data[2] = (unsigned char)Dane->Nr_WeWy ;
-
-    }
-    else
-    {
-         Dane->NrKarty = (message->data[0] << 8) | (message->data[1]);
-         Dane->Nr_WeWy = (message->data[2]);
-    }
-}
-
-
-
-
-
-
-static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
-{
-    WORD it;
-
-
-    WORD kier = (nrRamki-0x10);
-    if(message->message_type == 0x02)
-    {
-
-        message->data_length = 8;
-
-        if(kier == 0)
-        {
-        message->data[0] = (NeightAdress1>> 8);
-        message->data[1] = NeightAdress1 & 0b11111111;
-        message->data[2] = (NeightAdress2>> 8);
-        message->data[3] = NeightAdress2 & 0b11111111;
-        message->data[4] = (NeightAdress3>> 8);
-        message->data[5] = NeightAdress3 & 0b11111111;
-        message->data[6] = (NeightAdress4>> 8);
-        message->data[7] = NeightAdress4 & 0b11111111;
-        }
-        else
-        {
-        message->data[0] = (NeightAdress5>> 8);
-        message->data[1] = NeightAdress5 & 0b11111111;
-        message->data[2] = (NeightAdress6>> 8);
-        message->data[3] = NeightAdress6 & 0b11111111;
-        message->data[4] = (NeightAdress7>> 8);
-        message->data[5] = NeightAdress7 & 0b11111111;
-        message->data[6] = (NeightAdress8>> 8);
-        message->data[7] = NeightAdress8 & 0b11111111;
-        }
-
-
-
-    }
-    else
-    {
-<<<<<<< HEAD
-        for(i=0; i<4; i++)
-=======
-
-
-        if(kier == 0)
->>>>>>> test
-        {
-         NeightAdress1 = (message->data[0] << 8)| message->data[1];
-         NeightAdress2 = (message->data[2] << 8)| message->data[3];
-         NeightAdress3 = (message->data[4] << 8)| message->data[5];
-         NeightAdress4 = (message->data[6] << 8)| message->data[7];
-         CAN_SetupFilter_Ne();
-
-
-<<<<<<< HEAD
-
-            Dane->sasiedzi[i+(4*nrRamki)].pointerNaSasiada = &wartosciSasiada[i+(4*nrRamki)];
-            if(Dane->sasiedzi[i+(4*nrRamki)].adres==16){
-                WORD k;
-                for(k=0;k<100;k++)
-                {
-                    LED_Clear();
-                }
-
-            }
-=======
->>>>>>> test
-        }
-        else
-        {
-         NeightAdress5 = (message->data[0] << 8)| message->data[1];
-         NeightAdress6 = (message->data[2] << 8)| message->data[3];
-         NeightAdress7 = (message->data[4] << 8)| message->data[5];
-         NeightAdress8 = (message->data[6] << 8)| message->data[7];
-         CAN_SetupFilter_Ne();
-
-        }
-# 677 "FRAME.c"
-    }
-}
-
-
-
-
-
-
-void FRAME_HandleCanFrame(mID * message)
-{
-    BYTE identyfikator = (BYTE) message->id.v[2]/4;
-
-<<<<<<< HEAD
-=======
-
-    if(identyfikator != 0x01)
-    {
-        WORD ident = identyfikator;
-        int alfa = ident;
-    }
->>>>>>> test
-
-    switch(identyfikator)
-    {
-        case 0x01:
-            FRAME_SensorExcitationStatus(message);
-            break;
-        case 0x02:
-            FRAME_AccelerometerStatus(message);
-            break;
-        case 0x03:
-            FRAME_ExcitationValue(message);
-            break;
-        case 0x04:
-            FRAME_ExcitationMultiplier(message);
-            break;
-        case 0x05:
-            FRAME_AveragingTimes(message);
-            break;
-        case 0x06:
-            FRAME_AxisStatus(message);
-            break;
-        case 0x07:
-            FRAME_DeviceReset(message);
-            break;
-        case 0x09:
-            FRAME_Plot(message);
-            break;
-        case 0x0A:
-            FRAME_MapPosition(message);
-            break;
-        case 0x0B:
-            FRAME_SoftwareVersion(message);
-            break;
-        case 0x0C:
-        case 0x0D:
-            FRAME_AnalogValue(message, identyfikator - 0x0C);
-            break;
-        case 0x0F:
-            FRAME_PrzypisanieDokarty(message);
-            break;
-        case 0x10:
-            FRAME_AdressOfNeighbors(message,0x10);
-            break;
-        case 0x11:
-            FRAME_AdressOfNeighbors(message,0x11);
-            break;
-
-<<<<<<< HEAD
-        default:
-          FRAME_SensorExcitationStatus(message);
-
-            break;
-=======
-
-
-
-
-
-
->>>>>>> test
-    }
-    if(message->message_type == 0x02)
-    {
-
-        message->frame_type = 0x03;
-        message->message_type = 0x01;
-        message->id.Val = 0;
-
-        message->id.v[2] = identyfikator*4;
-        CAN_GenID(message,identyfikator);
-        CAN_SendFrame(message);
-<<<<<<< HEAD
-# 571 "FRAME.c"
-=======
-# 769 "FRAME.c"
->>>>>>> test
-       while(RXB0CONbits.FILHIT3)
-       {
-           if(TXB0CONbits.TXERR == 1){
-               LED_Error();
-           }
-           else
-           {
-
-           }
-
-       };
-
-
-
+        while(EECON1bits.WR);
+        WritetoEEPROM(addr++,*source);
+        count--;
+        source++;
     }
 }

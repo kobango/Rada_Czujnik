@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c CAN.c LED.c TMR1.c FRAME.c INI.c ISR.c TRM.c MOC_Funct.c DetekcjaSasiadow.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c CAN.c LED.c TMR1.c FRAME.c INI.c ISR.c TRM.c MOC_Funct.c DetekcjaSasiadow.c EEPROM.c FLASH.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/CAN.p1 ${OBJECTDIR}/LED.p1 ${OBJECTDIR}/TMR1.p1 ${OBJECTDIR}/FRAME.p1 ${OBJECTDIR}/INI.p1 ${OBJECTDIR}/ISR.p1 ${OBJECTDIR}/TRM.p1 ${OBJECTDIR}/MOC_Funct.p1 ${OBJECTDIR}/DetekcjaSasiadow.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/CAN.p1.d ${OBJECTDIR}/LED.p1.d ${OBJECTDIR}/TMR1.p1.d ${OBJECTDIR}/FRAME.p1.d ${OBJECTDIR}/INI.p1.d ${OBJECTDIR}/ISR.p1.d ${OBJECTDIR}/TRM.p1.d ${OBJECTDIR}/MOC_Funct.p1.d ${OBJECTDIR}/DetekcjaSasiadow.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/CAN.p1 ${OBJECTDIR}/LED.p1 ${OBJECTDIR}/TMR1.p1 ${OBJECTDIR}/FRAME.p1 ${OBJECTDIR}/INI.p1 ${OBJECTDIR}/ISR.p1 ${OBJECTDIR}/TRM.p1 ${OBJECTDIR}/MOC_Funct.p1 ${OBJECTDIR}/DetekcjaSasiadow.p1 ${OBJECTDIR}/EEPROM.p1 ${OBJECTDIR}/FLASH.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/CAN.p1.d ${OBJECTDIR}/LED.p1.d ${OBJECTDIR}/TMR1.p1.d ${OBJECTDIR}/FRAME.p1.d ${OBJECTDIR}/INI.p1.d ${OBJECTDIR}/ISR.p1.d ${OBJECTDIR}/TRM.p1.d ${OBJECTDIR}/MOC_Funct.p1.d ${OBJECTDIR}/DetekcjaSasiadow.p1.d ${OBJECTDIR}/EEPROM.p1.d ${OBJECTDIR}/FLASH.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/CAN.p1 ${OBJECTDIR}/LED.p1 ${OBJECTDIR}/TMR1.p1 ${OBJECTDIR}/FRAME.p1 ${OBJECTDIR}/INI.p1 ${OBJECTDIR}/ISR.p1 ${OBJECTDIR}/TRM.p1 ${OBJECTDIR}/MOC_Funct.p1 ${OBJECTDIR}/DetekcjaSasiadow.p1
+OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/CAN.p1 ${OBJECTDIR}/LED.p1 ${OBJECTDIR}/TMR1.p1 ${OBJECTDIR}/FRAME.p1 ${OBJECTDIR}/INI.p1 ${OBJECTDIR}/ISR.p1 ${OBJECTDIR}/TRM.p1 ${OBJECTDIR}/MOC_Funct.p1 ${OBJECTDIR}/DetekcjaSasiadow.p1 ${OBJECTDIR}/EEPROM.p1 ${OBJECTDIR}/FLASH.p1
 
 # Source Files
-SOURCEFILES=main.c CAN.c LED.c TMR1.c FRAME.c INI.c ISR.c TRM.c MOC_Funct.c DetekcjaSasiadow.c
+SOURCEFILES=main.c CAN.c LED.c TMR1.c FRAME.c INI.c ISR.c TRM.c MOC_Funct.c DetekcjaSasiadow.c EEPROM.c FLASH.c
 
 
 CFLAGS=
@@ -173,6 +173,22 @@ ${OBJECTDIR}/DetekcjaSasiadow.p1: DetekcjaSasiadow.c  nbproject/Makefile-${CND_C
 	@-${MV} ${OBJECTDIR}/DetekcjaSasiadow.d ${OBJECTDIR}/DetekcjaSasiadow.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/DetekcjaSasiadow.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/EEPROM.p1: EEPROM.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/EEPROM.p1.d 
+	@${RM} ${OBJECTDIR}/EEPROM.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/EEPROM.p1 EEPROM.c 
+	@-${MV} ${OBJECTDIR}/EEPROM.d ${OBJECTDIR}/EEPROM.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/EEPROM.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/FLASH.p1: FLASH.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/FLASH.p1.d 
+	@${RM} ${OBJECTDIR}/FLASH.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/FLASH.p1 FLASH.c 
+	@-${MV} ${OBJECTDIR}/FLASH.d ${OBJECTDIR}/FLASH.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/FLASH.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -253,6 +269,22 @@ ${OBJECTDIR}/DetekcjaSasiadow.p1: DetekcjaSasiadow.c  nbproject/Makefile-${CND_C
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/DetekcjaSasiadow.p1 DetekcjaSasiadow.c 
 	@-${MV} ${OBJECTDIR}/DetekcjaSasiadow.d ${OBJECTDIR}/DetekcjaSasiadow.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/DetekcjaSasiadow.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/EEPROM.p1: EEPROM.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/EEPROM.p1.d 
+	@${RM} ${OBJECTDIR}/EEPROM.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/EEPROM.p1 EEPROM.c 
+	@-${MV} ${OBJECTDIR}/EEPROM.d ${OBJECTDIR}/EEPROM.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/EEPROM.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/FLASH.p1: FLASH.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/FLASH.p1.d 
+	@${RM} ${OBJECTDIR}/FLASH.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/FLASH.p1 FLASH.c 
+	@-${MV} ${OBJECTDIR}/FLASH.d ${OBJECTDIR}/FLASH.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/FLASH.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

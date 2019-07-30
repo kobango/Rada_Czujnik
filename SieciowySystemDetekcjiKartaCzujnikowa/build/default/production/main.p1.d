@@ -8,5 +8,4 @@ ISR.h  \
 TMR1.h  \
 LED.h  \
 INI.h  \
-flash.h  \
-sensor.h 
+FLASH.h 

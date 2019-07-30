@@ -5,7 +5,8 @@
 #include "TMR1.h"
 #include "LED.h"
 #include "INI.h"
-#include "flash.h"
+#include "FLASH.h"
+
 
 // PIC18F26K80 Configuration Bit Settings
 
@@ -13,6 +14,7 @@
 // PIC18F4680 Configuration Bit Settings
 
 // 'C' source line config statements
+//#pragma config IDLOC0 =   100u;
 
 // CONFIG1H
 #pragma config OSC = IRCIO67    // Oscillator Selection bits (Internal oscillator block, port function on RA6 and RA7)
@@ -80,6 +82,7 @@ KartaStruct DetectorLedRadar;
 struct DaneStruct *Dane ;
 struct FlagStruct Flagi;
 
+ //extern const unsigned char userID[8] @ 0x200000;
 
 
 
@@ -91,8 +94,24 @@ struct FlagStruct Flagi;
 * @section Description
 * Program main loop
 *****************************************************************************************/
+
+
+
 void main(void)
 {
+   
+    int adr = FLASH_Read(0x200000);
+     adr |= FLASH_Read(0x200001)<<8;
+     
+     
+     
+     FLASH_Write(0x200000,0x76);
+     FLASH_Write(0x200001,0x00);
+    
+     adr = FLASH_Read(0x200000);
+     adr |= FLASH_Read(0x200001)<<8;
+     
+    DaneCan.adresCAN  = adr;
     INI_All();
     //po inicjalizacji kasuj RCON
     RCON = 0xFF;
@@ -111,6 +130,7 @@ void main(void)
             TMR1_Update_flag_Set(0);
             
         }
+        
         
         TRM_DataTransmition();
         ClrWdt();

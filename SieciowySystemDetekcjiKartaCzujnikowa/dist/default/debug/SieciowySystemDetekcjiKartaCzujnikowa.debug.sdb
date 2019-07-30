@@ -3,7 +3,11 @@
 [d edition pro ]
 [d chip 18F4680 ]
 [d frameptr 4065 ]
+<<<<<<< HEAD
 "269 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
+=======
+"311 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
+>>>>>>> test
 [e E10433 _BOOL `uc
 FALSE 0
 TRUE 1
@@ -13,7 +17,17 @@ TRUE 1
 RED 0
 GREEN 1
 ]
+"60 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
+[e E10433 _BOOL `uc
+FALSE 0
+TRUE 1
+]
 "59 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TRM.c
+[e E10433 _BOOL `uc
+FALSE 0
+TRUE 1
+]
+"11 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
 [e E10433 _BOOL `uc
 FALSE 0
 TRUE 1
@@ -42,16 +56,15 @@ TRUE 1
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
-"15 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"22 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
+"24 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
 [v _CAN_Setup CAN_Setup `(v  1 e 1 0 ]
-"81
+"84
 [v _CAN_SetupMask CAN_SetupMask `(v  1 s 1 CAN_SetupMask ]
+<<<<<<< HEAD
 "158
 [v _CAN_SetupClock CAN_SetupClock `(v  1 s 1 CAN_SetupClock ]
 "191
@@ -61,9 +74,39 @@ TRUE 1
 "269
 [v _CAN_TakeFrame CAN_TakeFrame `(E10433  1 e 1 0 ]
 "406
+=======
+"141
+[v _CAN_SetupFilter_Ne CAN_SetupFilter_Ne `(v  1 e 1 0 ]
+"200
+[v _CAN_SetupClock CAN_SetupClock `(v  1 s 1 CAN_SetupClock ]
+"233
+[v _CAN_MoveBuffIntoFrame CAN_MoveBuffIntoFrame `(v  1 s 1 CAN_MoveBuffIntoFrame ]
+"247
+[v _CAN_SendFrame CAN_SendFrame `(v  1 e 1 0 ]
+"311
+[v _CAN_TakeFrame CAN_TakeFrame `(E10433  1 e 1 0 ]
+"446
+>>>>>>> test
 [v _CAN_GenID CAN_GenID `(v  1 e 1 0 ]
-"33 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+"11 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+[v _NVMalloc NVMalloc `(E10433  1 e 1 0 ]
+"26
+[v _NVMInit NVMInit `(E10433  1 e 1 0 ]
+"45
+[v _ReadfromEEPROM ReadfromEEPROM `(uc  1 s 1 ReadfromEEPROM ]
+"61
+[v _WritetoEEPROM WritetoEEPROM `(v  1 s 1 WritetoEEPROM ]
+"79
+[v _NVMRead NVMRead `(v  1 e 1 0 ]
+"90
+[v _NVMWrite NVMWrite `(v  1 e 1 0 ]
+"16 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FLASH.c
+[v _FLASH_Read FLASH_Read `(ui  1 e 2 0 ]
+"23
+[v _FLASH_Write FLASH_Write `(v  1 e 1 0 ]
+"48 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 [v _FRAME_SensorExcitationStatus FRAME_SensorExcitationStatus `(v  1 s 1 FRAME_SensorExcitationStatus ]
+<<<<<<< HEAD
 "69
 [v _IsInNeighbors IsInNeighbors `(uc  1 s 1 IsInNeighbors ]
 "91
@@ -91,12 +134,47 @@ TRUE 1
 "451
 [v _FRAME_AdressOfNeighbors FRAME_AdressOfNeighbors `(v  1 s 1 FRAME_AdressOfNeighbors ]
 "495
+=======
+"103
+[v _IsInNeighbors IsInNeighbors `(ui  1 e 2 0 ]
+"162
+[v _FRAME_AccelerometerStatus FRAME_AccelerometerStatus `(v  1 s 1 FRAME_AccelerometerStatus ]
+"187
+[v _FRAME_ExcitationValue FRAME_ExcitationValue `(v  1 s 1 FRAME_ExcitationValue ]
+"211
+[v _FRAME_ExcitationMultiplier FRAME_ExcitationMultiplier `(v  1 s 1 FRAME_ExcitationMultiplier ]
+"239
+[v _FRAME_AveragingTimes FRAME_AveragingTimes `(v  1 s 1 FRAME_AveragingTimes ]
+"298
+[v _FRAME_AxisStatus FRAME_AxisStatus `(v  1 s 1 FRAME_AxisStatus ]
+"329
+[v _FRAME_DataUpdateAndChangeOption FRAME_DataUpdateAndChangeOption `(v  1 s 1 FRAME_DataUpdateAndChangeOption ]
+"345
+[v _FRAME_DeviceReset FRAME_DeviceReset `(v  1 s 1 FRAME_DeviceReset ]
+"405
+[v _ReadDataToEEPROM ReadDataToEEPROM `(v  1 e 1 0 ]
+"453
+[v _WriteDataToEEPROM WriteDataToEEPROM `(v  1 e 1 0 ]
+"473
+[v _FRAME_Plot FRAME_Plot `(v  1 s 1 FRAME_Plot ]
+"494
+[v _FRAME_MapPosition FRAME_MapPosition `(v  1 s 1 FRAME_MapPosition ]
+"519
+[v _FRAME_SoftwareVersion FRAME_SoftwareVersion `(v  1 s 1 FRAME_SoftwareVersion ]
+"542
+[v _FRAME_AnalogValue FRAME_AnalogValue `(v  1 s 1 FRAME_AnalogValue ]
+"568
+[v _FRAME_PrzypisanieDokarty FRAME_PrzypisanieDokarty `(v  1 s 1 FRAME_PrzypisanieDokarty ]
+"590
+[v _FRAME_AdressOfNeighbors FRAME_AdressOfNeighbors `(v  1 s 1 FRAME_AdressOfNeighbors ]
+"685
+>>>>>>> test
 [v _FRAME_HandleCanFrame FRAME_HandleCanFrame `(v  1 e 1 0 ]
-"27 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
+"29 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
 [v _INI_OUTPUT INI_OUTPUT `(v  1 s 1 INI_OUTPUT ]
-"52
+"54
 [v _INI_All INI_All `(v  1 e 1 0 ]
-"74
+"78
 [v _INI_GlobalInterrupt INI_GlobalInterrupt `(v  1 e 1 0 ]
 "16 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\ISR.c
 [v _ISR_low ISR_low `IIL(v  1 e 1 0 ]
@@ -122,7 +200,7 @@ TRUE 1
 [v _INI_LED_Start INI_LED_Start `(v  1 e 1 0 ]
 "256
 [v _LED_Control LED_Control `(uc  1 e 1 0 ]
-"94 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\main.c
+"100 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\main.c
 [v _main main `(v  1 e 1 0 ]
 "33 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
 [v _MOC_Wynikowa_wartosc_roznicowa MOC_Wynikowa_wartosc_roznicowa `(ui  1 e 2 0 ]
@@ -151,8 +229,133 @@ TRUE 1
 [v _INI_Timer INI_Timer `(uc  1 e 1 0 ]
 "19 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TRM.c
 [v _TRM_DataTransmition TRM_DataTransmition `(v  1 e 1 0 ]
+<<<<<<< HEAD
 "4422 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
 [v _RXFCON0 RXFCON0 `VEuc  1 e 1 @3540 ]
+=======
+"17 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa/FRAME.h
+[v _NeightAdress1 NeightAdress1 `VEui  1 e 2 0 ]
+"18
+[v _NeightAdress2 NeightAdress2 `VEui  1 e 2 0 ]
+"19
+[v _NeightAdress3 NeightAdress3 `VEui  1 e 2 0 ]
+"20
+[v _NeightAdress4 NeightAdress4 `VEui  1 e 2 0 ]
+"21
+[v _NeightAdress5 NeightAdress5 `VEui  1 e 2 0 ]
+"22
+[v _NeightAdress6 NeightAdress6 `VEui  1 e 2 0 ]
+"23
+[v _NeightAdress7 NeightAdress7 `VEui  1 e 2 0 ]
+"24
+[v _NeightAdress8 NeightAdress8 `VEui  1 e 2 0 ]
+"52 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
+[v _RXF6SIDH RXF6SIDH `VEuc  1 e 1 @3424 ]
+"164
+[v _RXF6SIDL RXF6SIDL `VEuc  1 e 1 @3425 ]
+[s S214 . 1 `uc 1 EID16 1 0 :1:0 
+`uc 1 EID17 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 EXIDEN 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 SID0 1 0 :1:5 
+`uc 1 SID1 1 0 :1:6 
+`uc 1 SID2 1 0 :1:7 
+]
+"195
+[s S223 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 EXIDE 1 0 :1:3 
+]
+[s S554 . 1 `uc 1 RXF6EID16 1 0 :1:0 
+`uc 1 RXF6EID17 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 RXF6EXIDEN 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 RXF6SID0 1 0 :1:5 
+`uc 1 RXF6SID1 1 0 :1:6 
+`uc 1 RXF6SID2 1 0 :1:7 
+]
+[u S563 . 1 `S214 1 . 1 0 `S223 1 . 1 0 `S554 1 . 1 0 ]
+[v _RXF6SIDLbits RXF6SIDLbits `VES563  1 e 1 @3425 ]
+"265
+[v _RXF6EIDH RXF6EIDH `VEuc  1 e 1 @3426 ]
+"377
+[v _RXF6EIDL RXF6EIDL `VEuc  1 e 1 @3427 ]
+"489
+[v _RXF7SIDH RXF7SIDH `VEuc  1 e 1 @3428 ]
+"601
+[v _RXF7SIDL RXF7SIDL `VEuc  1 e 1 @3429 ]
+"632
+[s S605 . 1 `uc 1 RXF7EID16 1 0 :1:0 
+`uc 1 RXF7EID17 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 RXF7EXIDEN 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 RXF7SID0 1 0 :1:5 
+`uc 1 RXF7SID1 1 0 :1:6 
+`uc 1 RXF7SID2 1 0 :1:7 
+]
+[u S614 . 1 `S214 1 . 1 0 `S223 1 . 1 0 `S605 1 . 1 0 ]
+[v _RXF7SIDLbits RXF7SIDLbits `VES614  1 e 1 @3429 ]
+"702
+[v _RXF7EIDH RXF7EIDH `VEuc  1 e 1 @3430 ]
+"814
+[v _RXF7EIDL RXF7EIDL `VEuc  1 e 1 @3431 ]
+"926
+[v _RXF8SIDH RXF8SIDH `VEuc  1 e 1 @3432 ]
+"1038
+[v _RXF8SIDL RXF8SIDL `VEuc  1 e 1 @3433 ]
+"1069
+[s S656 . 1 `uc 1 RXF8EID16 1 0 :1:0 
+`uc 1 RXF8EID17 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 RXF8EXIDEN 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 RXF8SID0 1 0 :1:5 
+`uc 1 RXF8SID1 1 0 :1:6 
+`uc 1 RXF8SID2 1 0 :1:7 
+]
+[u S665 . 1 `S214 1 . 1 0 `S223 1 . 1 0 `S656 1 . 1 0 ]
+[v _RXF8SIDLbits RXF8SIDLbits `VES665  1 e 1 @3433 ]
+"1139
+[v _RXF8EIDH RXF8EIDH `VEuc  1 e 1 @3434 ]
+"1251
+[v _RXF8EIDL RXF8EIDL `VEuc  1 e 1 @3435 ]
+"1363
+[v _RXF9SIDH RXF9SIDH `VEuc  1 e 1 @3440 ]
+"1475
+[v _RXF9SIDL RXF9SIDL `VEuc  1 e 1 @3441 ]
+"1506
+[s S707 . 1 `uc 1 RXF9EID16 1 0 :1:0 
+`uc 1 RXF9EID17 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 RXF9EXIDEN 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 RXF9SID0 1 0 :1:5 
+`uc 1 RXF9SID1 1 0 :1:6 
+`uc 1 RXF9SID2 1 0 :1:7 
+]
+[u S716 . 1 `S214 1 . 1 0 `S223 1 . 1 0 `S707 1 . 1 0 ]
+[v _RXF9SIDLbits RXF9SIDLbits `VES716  1 e 1 @3441 ]
+"1576
+[v _RXF9EIDH RXF9EIDH `VEuc  1 e 1 @3442 ]
+"1688
+[v _RXF9EIDL RXF9EIDL `VEuc  1 e 1 @3443 ]
+"4422
+[v _RXFCON0 RXFCON0 `VEuc  1 e 1 @3540 ]
+"4484
+[v _RXFCON1 RXFCON1 `VEuc  1 e 1 @3541 ]
+"4622
+[v _RXFBCON0 RXFBCON0 `VEuc  1 e 1 @3552 ]
+"4692
+[v _RXFBCON1 RXFBCON1 `VEuc  1 e 1 @3553 ]
+"4762
+[v _RXFBCON2 RXFBCON2 `VEuc  1 e 1 @3554 ]
+"4832
+[v _RXFBCON3 RXFBCON3 `VEuc  1 e 1 @3555 ]
+"4902
+[v _RXFBCON4 RXFBCON4 `VEuc  1 e 1 @3556 ]
+>>>>>>> test
 "5182
 [v _MSEL0 MSEL0 `VEuc  1 e 1 @3568 ]
 "5244
@@ -181,20 +384,8 @@ TRUE 1
 [v _RXF0SIDH RXF0SIDH `VEuc  1 e 1 @3840 ]
 "14915
 [v _RXF0SIDL RXF0SIDL `VEuc  1 e 1 @3841 ]
-[s S182 . 1 `uc 1 EID16 1 0 :1:0 
-`uc 1 EID17 1 0 :1:1 
-`uc 1 . 1 0 :1:2 
-`uc 1 EXIDEN 1 0 :1:3 
-`uc 1 . 1 0 :1:4 
-`uc 1 SID0 1 0 :1:5 
-`uc 1 SID1 1 0 :1:6 
-`uc 1 SID2 1 0 :1:7 
-]
 "14946
-[s S191 . 1 `uc 1 . 1 0 :3:0 
-`uc 1 EXIDE 1 0 :1:3 
-]
-[s S194 . 1 `uc 1 RXF0EID16 1 0 :1:0 
+[s S226 . 1 `uc 1 RXF0EID16 1 0 :1:0 
 `uc 1 RXF0EID17 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 RXF0EXIDEN 1 0 :1:3 
@@ -203,8 +394,8 @@ TRUE 1
 `uc 1 RXF0SID1 1 0 :1:6 
 `uc 1 RXF0SID2 1 0 :1:7 
 ]
-[u S203 . 1 `S182 1 . 1 0 `S191 1 . 1 0 `S194 1 . 1 0 ]
-[v _RXF0SIDLbits RXF0SIDLbits `VES203  1 e 1 @3841 ]
+[u S235 . 1 `S214 1 . 1 0 `S223 1 . 1 0 `S226 1 . 1 0 ]
+[v _RXF0SIDLbits RXF0SIDLbits `VES235  1 e 1 @3841 ]
 "15016
 [v _RXF0EIDH RXF0EIDH `VEuc  1 e 1 @3842 ]
 "15128
@@ -214,7 +405,7 @@ TRUE 1
 "15352
 [v _RXF1SIDL RXF1SIDL `VEuc  1 e 1 @3845 ]
 "15383
-[s S263 . 1 `uc 1 RXF1EID16 1 0 :1:0 
+[s S288 . 1 `uc 1 RXF1EID16 1 0 :1:0 
 `uc 1 RXF1EID17 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 RXF1EXIDEN 1 0 :1:3 
@@ -223,8 +414,8 @@ TRUE 1
 `uc 1 RXF1SID1 1 0 :1:6 
 `uc 1 RXF1SID2 1 0 :1:7 
 ]
-[u S272 . 1 `S182 1 . 1 0 `S191 1 . 1 0 `S263 1 . 1 0 ]
-[v _RXF1SIDLbits RXF1SIDLbits `VES272  1 e 1 @3845 ]
+[u S297 . 1 `S214 1 . 1 0 `S223 1 . 1 0 `S288 1 . 1 0 ]
+[v _RXF1SIDLbits RXF1SIDLbits `VES297  1 e 1 @3845 ]
 "15453
 [v _RXF1EIDH RXF1EIDH `VEuc  1 e 1 @3846 ]
 "15565
@@ -234,7 +425,7 @@ TRUE 1
 "15789
 [v _RXF2SIDL RXF2SIDL `VEuc  1 e 1 @3849 ]
 "15820
-[s S314 . 1 `uc 1 RXF2EID16 1 0 :1:0 
+[s S350 . 1 `uc 1 RXF2EID16 1 0 :1:0 
 `uc 1 RXF2EID17 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 RXF2EXIDEN 1 0 :1:3 
@@ -243,8 +434,8 @@ TRUE 1
 `uc 1 RXF2SID1 1 0 :1:6 
 `uc 1 RXF2SID2 1 0 :1:7 
 ]
-[u S323 . 1 `S182 1 . 1 0 `S191 1 . 1 0 `S314 1 . 1 0 ]
-[v _RXF2SIDLbits RXF2SIDLbits `VES323  1 e 1 @3849 ]
+[u S359 . 1 `S214 1 . 1 0 `S223 1 . 1 0 `S350 1 . 1 0 ]
+[v _RXF2SIDLbits RXF2SIDLbits `VES359  1 e 1 @3849 ]
 "15890
 [v _RXF2EIDH RXF2EIDH `VEuc  1 e 1 @3850 ]
 "16002
@@ -254,7 +445,11 @@ TRUE 1
 "16226
 [v _RXF3SIDL RXF3SIDL `VEuc  1 e 1 @3853 ]
 "16257
+<<<<<<< HEAD
 [s S365 . 1 `uc 1 RXF3EID16 1 0 :1:0 
+=======
+[s S401 . 1 `uc 1 RXF3EID16 1 0 :1:0 
+>>>>>>> test
 `uc 1 RXF3EID17 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 RXF3EXIDEN 1 0 :1:3 
@@ -263,14 +458,28 @@ TRUE 1
 `uc 1 RXF3SID1 1 0 :1:6 
 `uc 1 RXF3SID2 1 0 :1:7 
 ]
+<<<<<<< HEAD
 [u S374 . 1 `S182 1 . 1 0 `S191 1 . 1 0 `S365 1 . 1 0 ]
 [v _RXF3SIDLbits RXF3SIDLbits `VES374  1 e 1 @3853 ]
+=======
+[u S410 . 1 `S214 1 . 1 0 `S223 1 . 1 0 `S401 1 . 1 0 ]
+[v _RXF3SIDLbits RXF3SIDLbits `VES410  1 e 1 @3853 ]
+>>>>>>> test
 "16327
 [v _RXF3EIDH RXF3EIDH `VEuc  1 e 1 @3854 ]
 "16439
 [v _RXF3EIDL RXF3EIDL `VEuc  1 e 1 @3855 ]
+<<<<<<< HEAD
 "16694
 [s S416 . 1 `uc 1 RXF4EID16 1 0 :1:0 
+=======
+"16551
+[v _RXF4SIDH RXF4SIDH `VEuc  1 e 1 @3856 ]
+"16663
+[v _RXF4SIDL RXF4SIDL `VEuc  1 e 1 @3857 ]
+"16694
+[s S452 . 1 `uc 1 RXF4EID16 1 0 :1:0 
+>>>>>>> test
 `uc 1 RXF4EID17 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 RXF4EXIDEN 1 0 :1:3 
@@ -279,8 +488,13 @@ TRUE 1
 `uc 1 RXF4SID1 1 0 :1:6 
 `uc 1 RXF4SID2 1 0 :1:7 
 ]
+<<<<<<< HEAD
 [u S425 . 1 `S182 1 . 1 0 `S191 1 . 1 0 `S416 1 . 1 0 ]
 [v _RXF4SIDLbits RXF4SIDLbits `VES425  1 e 1 @3857 ]
+=======
+[u S461 . 1 `S214 1 . 1 0 `S223 1 . 1 0 `S452 1 . 1 0 ]
+[v _RXF4SIDLbits RXF4SIDLbits `VES461  1 e 1 @3857 ]
+>>>>>>> test
 "16764
 [v _RXF4EIDH RXF4EIDH `VEuc  1 e 1 @3858 ]
 "16876
@@ -290,7 +504,11 @@ TRUE 1
 "17100
 [v _RXF5SIDL RXF5SIDL `VEuc  1 e 1 @3861 ]
 "17131
+<<<<<<< HEAD
 [s S465 . 1 `uc 1 RXF5EID16 1 0 :1:0 
+=======
+[s S503 . 1 `uc 1 RXF5EID16 1 0 :1:0 
+>>>>>>> test
 `uc 1 RXF5EID17 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 RXF5EXIDEN 1 0 :1:3 
@@ -299,8 +517,13 @@ TRUE 1
 `uc 1 RXF5SID1 1 0 :1:6 
 `uc 1 RXF5SID2 1 0 :1:7 
 ]
+<<<<<<< HEAD
 [u S474 . 1 `S182 1 . 1 0 `S191 1 . 1 0 `S465 1 . 1 0 ]
 [v _RXF5SIDLbits RXF5SIDLbits `VES474  1 e 1 @3861 ]
+=======
+[u S512 . 1 `S214 1 . 1 0 `S223 1 . 1 0 `S503 1 . 1 0 ]
+[v _RXF5SIDLbits RXF5SIDLbits `VES512  1 e 1 @3861 ]
+>>>>>>> test
 "17201
 [v _RXF5EIDH RXF5EIDH `VEuc  1 e 1 @3862 ]
 "17313
@@ -323,7 +546,11 @@ TRUE 1
 [v _RXM1EIDL RXM1EIDL `VEuc  1 e 1 @3871 ]
 "20861
 [v _TXB0CON TXB0CON `VEuc  1 e 1 @3904 ]
+<<<<<<< HEAD
 [s S2037 . 1 `uc 1 TXPRI0 1 0 :1:0 
+=======
+[s S2337 . 1 `uc 1 TXPRI0 1 0 :1:0 
+>>>>>>> test
 `uc 1 TXPRI1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 TXREQ 1 0 :1:3 
@@ -333,7 +560,11 @@ TRUE 1
 `uc 1 TXBIF 1 0 :1:7 
 ]
 "20888
+<<<<<<< HEAD
 [s S2046 . 1 `uc 1 TXB0PRI0 1 0 :1:0 
+=======
+[s S2346 . 1 `uc 1 TXB0PRI0 1 0 :1:0 
+>>>>>>> test
 `uc 1 TXB0PRI1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 TXB0REQ 1 0 :1:3 
@@ -342,13 +573,22 @@ TRUE 1
 `uc 1 TXB0ABT 1 0 :1:6 
 `uc 1 TX0IF 1 0 :1:7 
 ]
+<<<<<<< HEAD
 [u S2055 . 1 `S2037 1 . 1 0 `S2046 1 . 1 0 ]
 [v _TXB0CONbits TXB0CONbits `VES2055  1 e 1 @3904 ]
+=======
+[u S2355 . 1 `S2337 1 . 1 0 `S2346 1 . 1 0 ]
+[v _TXB0CONbits TXB0CONbits `VES2355  1 e 1 @3904 ]
+>>>>>>> test
 "22142
 [v _RXB1CON RXB1CON `VEuc  1 e 1 @3920 ]
 "23528
 [v _RXB0CON RXB0CON `VEuc  1 e 1 @3936 ]
+<<<<<<< HEAD
 [s S654 . 1 `uc 1 FILHIT0 1 0 :1:0 
+=======
+[s S895 . 1 `uc 1 FILHIT0 1 0 :1:0 
+>>>>>>> test
 `uc 1 JTOFF_FILHIT1 1 0 :1:1 
 `uc 1 RXB0DBEN_FILHIT2 1 0 :1:2 
 `uc 1 RXRTRRO_FILHIT3 1 0 :1:3 
@@ -358,24 +598,39 @@ TRUE 1
 `uc 1 RXFUL 1 0 :1:7 
 ]
 "23581
+<<<<<<< HEAD
 [s S663 . 1 `uc 1 . 1 0 :1:0 
+=======
+[s S904 . 1 `uc 1 . 1 0 :1:0 
+>>>>>>> test
 `uc 1 JTOFF 1 0 :1:1 
 `uc 1 RXB0DBEN 1 0 :1:2 
 `uc 1 RXRTRRO 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 RXM0 1 0 :1:5 
 ]
+<<<<<<< HEAD
 [s S670 . 1 `uc 1 . 1 0 :1:0 
+=======
+[s S911 . 1 `uc 1 . 1 0 :1:0 
+>>>>>>> test
 `uc 1 FILHIT1 1 0 :1:1 
 `uc 1 FILHIT2 1 0 :1:2 
 `uc 1 FILHIT3 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 RTRRO 1 0 :1:5 
 ]
+<<<<<<< HEAD
 [s S677 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RXBODBEN 1 0 :1:2 
 ]
 [s S680 . 1 `uc 1 RXB0FILHIT0 1 0 :1:0 
+=======
+[s S918 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RXBODBEN 1 0 :1:2 
+]
+[s S921 . 1 `uc 1 RXB0FILHIT0 1 0 :1:0 
+>>>>>>> test
 `uc 1 RXB0FILHIT1 1 0 :1:1 
 `uc 1 RXB0FILHIT2 1 0 :1:2 
 `uc 1 RXB0FILHIT3 1 0 :1:3 
@@ -384,18 +639,31 @@ TRUE 1
 `uc 1 RXB0M1 1 0 :1:6 
 `uc 1 RXB0FUL 1 0 :1:7 
 ]
+<<<<<<< HEAD
 [s S689 . 1 `uc 1 . 1 0 :3:0 
+=======
+[s S930 . 1 `uc 1 . 1 0 :3:0 
+>>>>>>> test
 `uc 1 RXB0RTRR0 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 RXB0RTRRO 1 0 :1:5 
 ]
+<<<<<<< HEAD
 [u S694 . 1 `S654 1 . 1 0 `S663 1 . 1 0 `S670 1 . 1 0 `S677 1 . 1 0 `S680 1 . 1 0 `S689 1 . 1 0 ]
 [v _RXB0CONbits RXB0CONbits `VES694  1 e 1 @3936 ]
+=======
+[u S935 . 1 `S895 1 . 1 0 `S904 1 . 1 0 `S911 1 . 1 0 `S918 1 . 1 0 `S921 1 . 1 0 `S930 1 . 1 0 ]
+[v _RXB0CONbits RXB0CONbits `VES935  1 e 1 @3936 ]
+>>>>>>> test
 "23721
 [v _RXB0SIDH RXB0SIDH `VEuc  1 e 1 @3937 ]
 "23833
 [v _RXB0SIDL RXB0SIDL `VEuc  1 e 1 @3938 ]
+<<<<<<< HEAD
 [s S825 . 1 `uc 1 EID16 1 0 :1:0 
+=======
+[s S1066 . 1 `uc 1 EID16 1 0 :1:0 
+>>>>>>> test
 `uc 1 EID17 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 EXID 1 0 :1:3 
@@ -405,7 +673,11 @@ TRUE 1
 `uc 1 SID2 1 0 :1:7 
 ]
 "23860
+<<<<<<< HEAD
 [s S834 . 1 `uc 1 RXB0EID16 1 0 :1:0 
+=======
+[s S1075 . 1 `uc 1 RXB0EID16 1 0 :1:0 
+>>>>>>> test
 `uc 1 RXB0EID17 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 RXB0EXID 1 0 :1:3 
@@ -414,15 +686,24 @@ TRUE 1
 `uc 1 RXB0SID1 1 0 :1:6 
 `uc 1 RXB0SID2 1 0 :1:7 
 ]
+<<<<<<< HEAD
 [u S843 . 1 `S825 1 . 1 0 `S834 1 . 1 0 ]
 [v _RXB0SIDLbits RXB0SIDLbits `VES843  1 e 1 @3938 ]
+=======
+[u S1084 . 1 `S1066 1 . 1 0 `S1075 1 . 1 0 ]
+[v _RXB0SIDLbits RXB0SIDLbits `VES1084  1 e 1 @3938 ]
+>>>>>>> test
 "23935
 [v _RXB0EIDH RXB0EIDH `VEuc  1 e 1 @3939 ]
 "24047
 [v _RXB0EIDL RXB0EIDL `VEuc  1 e 1 @3940 ]
 "24159
 [v _RXB0DLC RXB0DLC `VEuc  1 e 1 @3941 ]
+<<<<<<< HEAD
 [s S867 . 1 `uc 1 DLC0 1 0 :1:0 
+=======
+[s S1108 . 1 `uc 1 DLC0 1 0 :1:0 
+>>>>>>> test
 `uc 1 DLC1 1 0 :1:1 
 `uc 1 DLC2 1 0 :1:2 
 `uc 1 DLC3 1 0 :1:3 
@@ -431,11 +712,19 @@ TRUE 1
 `uc 1 RXRTR 1 0 :1:6 
 ]
 "24189
+<<<<<<< HEAD
 [s S875 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 RESRB0 1 0 :1:4 
 `uc 1 RESRB1 1 0 :1:5 
 ]
 [s S879 . 1 `uc 1 RXB0DLC0 1 0 :1:0 
+=======
+[s S1116 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 RESRB0 1 0 :1:4 
+`uc 1 RESRB1 1 0 :1:5 
+]
+[s S1120 . 1 `uc 1 RXB0DLC0 1 0 :1:0 
+>>>>>>> test
 `uc 1 RXB0DLC1 1 0 :1:1 
 `uc 1 RXB0DLC2 1 0 :1:2 
 `uc 1 RXB0DLC3 1 0 :1:3 
@@ -443,15 +732,24 @@ TRUE 1
 `uc 1 RXB0RB1 1 0 :1:5 
 `uc 1 RXB0RTR 1 0 :1:6 
 ]
+<<<<<<< HEAD
 [u S887 . 1 `S867 1 . 1 0 `S875 1 . 1 0 `S879 1 . 1 0 ]
 [v _RXB0DLCbits RXB0DLCbits `VES887  1 e 1 @3941 ]
+=======
+[u S1128 . 1 `S1108 1 . 1 0 `S1116 1 . 1 0 `S1120 1 . 1 0 ]
+[v _RXB0DLCbits RXB0DLCbits `VES1128  1 e 1 @3941 ]
+>>>>>>> test
 "24274
 [v _RXB0D0 RXB0D0 `VEuc  1 e 1 @3942 ]
 "24770
 [v _CANSTAT CANSTAT `VEuc  1 e 1 @3950 ]
 "24879
 [v _CANCON CANCON `VEuc  1 e 1 @3951 ]
+<<<<<<< HEAD
 [s S503 . 1 `uc 1 BRP0 1 0 :1:0 
+=======
+[s S744 . 1 `uc 1 BRP0 1 0 :1:0 
+>>>>>>> test
 `uc 1 BRP1 1 0 :1:1 
 `uc 1 BRP2 1 0 :1:2 
 `uc 1 BRP3 1 0 :1:3 
@@ -461,9 +759,15 @@ TRUE 1
 `uc 1 SJW1 1 0 :1:7 
 ]
 "25000
+<<<<<<< HEAD
 [u S512 . 1 `S503 1 . 1 0 ]
 [v _BRGCON1bits BRGCON1bits `VES512  1 e 1 @3952 ]
 [s S524 . 1 `uc 1 PRSEG0 1 0 :1:0 
+=======
+[u S753 . 1 `S744 1 . 1 0 ]
+[v _BRGCON1bits BRGCON1bits `VES753  1 e 1 @3952 ]
+[s S765 . 1 `uc 1 PRSEG0 1 0 :1:0 
+>>>>>>> test
 `uc 1 PRSEG1 1 0 :1:1 
 `uc 1 PRSEG2 1 0 :1:2 
 `uc 1 SEG1PH0 1 0 :1:3 
@@ -473,12 +777,21 @@ TRUE 1
 `uc 1 SEG2PHT 1 0 :1:7 
 ]
 "25066
+<<<<<<< HEAD
 [s S533 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 SEG2PHTS 1 0 :1:7 
 ]
 [u S536 . 1 `S524 1 . 1 0 `S533 1 . 1 0 ]
 [v _BRGCON2bits BRGCON2bits `VES536  1 e 1 @3953 ]
 [s S552 . 1 `uc 1 SEG2PH0 1 0 :1:0 
+=======
+[s S774 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 SEG2PHTS 1 0 :1:7 
+]
+[u S777 . 1 `S765 1 . 1 0 `S774 1 . 1 0 ]
+[v _BRGCON2bits BRGCON2bits `VES777  1 e 1 @3953 ]
+[s S793 . 1 `uc 1 SEG2PH0 1 0 :1:0 
+>>>>>>> test
 `uc 1 SEG2PH1 1 0 :1:1 
 `uc 1 SEG2PH2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
@@ -486,6 +799,7 @@ TRUE 1
 `uc 1 WAKDIS 1 0 :1:7 
 ]
 "25131
+<<<<<<< HEAD
 [u S559 . 1 `S552 1 . 1 0 ]
 [v _BRGCON3bits BRGCON3bits `VES559  1 e 1 @3954 ]
 "25161
@@ -495,6 +809,17 @@ TRUE 1
 ]
 "25230
 [s S745 . 1 `uc 1 EWARN 1 0 :1:0 
+=======
+[u S800 . 1 `S793 1 . 1 0 ]
+[v _BRGCON3bits BRGCON3bits `VES800  1 e 1 @3954 ]
+"25161
+[v _CIOCON CIOCON `VEuc  1 e 1 @3955 ]
+[s S983 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 RXB0OVFL_NOT_FIFOEMPTY 1 0 :1:7 
+]
+"25230
+[s S986 . 1 `uc 1 EWARN 1 0 :1:0 
+>>>>>>> test
 `uc 1 RXWARN 1 0 :1:1 
 `uc 1 TXWARN 1 0 :1:2 
 `uc 1 RXBP 1 0 :1:3 
@@ -503,6 +828,7 @@ TRUE 1
 `uc 1 RXBnOVFL 1 0 :1:6 
 `uc 1 RXB0OVFL_nFIFOEMPTY 1 0 :1:7 
 ]
+<<<<<<< HEAD
 [s S754 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RXB1OVFL 1 0 :1:6 
 `uc 1 RXB0OVFL 1 0 :1:7 
@@ -521,6 +847,26 @@ TRUE 1
 ]
 [u S770 . 1 `S742 1 . 1 0 `S745 1 . 1 0 `S754 1 . 1 0 `S758 1 . 1 0 `S761 1 . 1 0 `S764 1 . 1 0 `S767 1 . 1 0 ]
 [v _COMSTATbits COMSTATbits `VES770  1 e 1 @3956 ]
+=======
+[s S995 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RXB1OVFL 1 0 :1:6 
+`uc 1 RXB0OVFL 1 0 :1:7 
+]
+[s S999 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 FIFOEMPTY 1 0 :1:7 
+]
+[s S1002 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 NOT_FIFOEMPTY 1 0 :1:7 
+]
+[s S1005 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 nFIFOEMPTY 1 0 :1:7 
+]
+[s S1008 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RXBNOVFL 1 0 :1:6 
+]
+[u S1011 . 1 `S983 1 . 1 0 `S986 1 . 1 0 `S995 1 . 1 0 `S999 1 . 1 0 `S1002 1 . 1 0 `S1005 1 . 1 0 `S1008 1 . 1 0 ]
+[v _COMSTATbits COMSTATbits `VES1011  1 e 1 @3956 ]
+>>>>>>> test
 "25434
 [v _ECANCON ECANCON `VEuc  1 e 1 @3959 ]
 "26331
@@ -549,6 +895,29 @@ TRUE 1
 [v _PIR3 PIR3 `VEuc  1 e 1 @4004 ]
 "28587
 [v _IPR3 IPR3 `VEuc  1 e 1 @4005 ]
+[s S4508 . 1 `uc 1 RD 1 0 :1:0 
+`uc 1 WR 1 0 :1:1 
+`uc 1 WREN 1 0 :1:2 
+`uc 1 WRERR 1 0 :1:3 
+`uc 1 FREE 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CFGS 1 0 :1:6 
+`uc 1 EEPGD 1 0 :1:7 
+]
+"28707
+[s S4517 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 EEFS 1 0 :1:6 
+]
+[u S4520 . 1 `S4508 1 . 1 0 `S4517 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES4520  1 e 1 @4006 ]
+"28752
+[v _EECON2 EECON2 `VEuc  1 e 1 @4007 ]
+"28759
+[v _EEDATA EEDATA `VEuc  1 e 1 @4008 ]
+"28766
+[v _EEADR EEADR `VEuc  1 e 1 @4009 ]
+"28773
+[v _EEADRH EEADRH `VEuc  1 e 1 @4010 ]
 "31004
 [v _T1CON T1CON `VEuc  1 e 1 @4045 ]
 "31123
@@ -557,6 +926,7 @@ TRUE 1
 [v _TMR1H TMR1H `VEuc  1 e 1 @4047 ]
 "31137
 [v _RCON RCON `VEuc  1 e 1 @4048 ]
+<<<<<<< HEAD
 [s S3697 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "31180
@@ -573,6 +943,24 @@ TRUE 1
 `uc 1 NOT_RI 1 0 :1:4 
 ]
 [s S3711 . 1 `uc 1 nBOR 1 0 :1:0 
+=======
+[s S4015 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+]
+"31180
+[s S4017 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_POR 1 0 :1:1 
+]
+[s S4020 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_PD 1 0 :1:2 
+]
+[s S4023 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_TO 1 0 :1:3 
+]
+[s S4026 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 NOT_RI 1 0 :1:4 
+]
+[s S4029 . 1 `uc 1 nBOR 1 0 :1:0 
+>>>>>>> test
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -581,12 +969,17 @@ TRUE 1
 `uc 1 SBOREN 1 0 :1:6 
 `uc 1 IPEN 1 0 :1:7 
 ]
+<<<<<<< HEAD
 [s S3720 . 1 `uc 1 BOR 1 0 :1:0 
+=======
+[s S4038 . 1 `uc 1 BOR 1 0 :1:0 
+>>>>>>> test
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
 `uc 1 RI 1 0 :1:4 
 ]
+<<<<<<< HEAD
 [u S3726 . 1 `S3697 1 . 1 0 `S3699 1 . 1 0 `S3702 1 . 1 0 `S3705 1 . 1 0 `S3708 1 . 1 0 `S3711 1 . 1 0 `S3720 1 . 1 0 ]
 [v _RCONbits RCONbits `VES3726  1 e 1 @4048 ]
 [s S3779 . 1 `uc 1 SWDTEN 1 0 :1:0 
@@ -597,6 +990,18 @@ TRUE 1
 [u S3783 . 1 `S3779 1 . 1 0 `S3781 1 . 1 0 ]
 [v _WDTCONbits WDTCONbits `VES3783  1 e 1 @4049 ]
 [s S3798 . 1 `uc 1 RBIF 1 0 :1:0 
+=======
+[u S4044 . 1 `S4015 1 . 1 0 `S4017 1 . 1 0 `S4020 1 . 1 0 `S4023 1 . 1 0 `S4026 1 . 1 0 `S4029 1 . 1 0 `S4038 1 . 1 0 ]
+[v _RCONbits RCONbits `VES4044  1 e 1 @4048 ]
+[s S4097 . 1 `uc 1 SWDTEN 1 0 :1:0 
+]
+"31283
+[s S4099 . 1 `uc 1 SWDTE 1 0 :1:0 
+]
+[u S4101 . 1 `S4097 1 . 1 0 `S4099 1 . 1 0 ]
+[v _WDTCONbits WDTCONbits `VES4101  1 e 1 @4049 ]
+[s S4124 . 1 `uc 1 RBIF 1 0 :1:0 
+>>>>>>> test
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -606,7 +1011,11 @@ TRUE 1
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "32196
+<<<<<<< HEAD
 [s S3807 . 1 `uc 1 . 1 0 :1:0 
+=======
+[s S4133 . 1 `uc 1 . 1 0 :1:0 
+>>>>>>> test
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -615,12 +1024,25 @@ TRUE 1
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
+<<<<<<< HEAD
 [s S3816 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
 [u S3820 . 1 `S3798 1 . 1 0 `S3807 1 . 1 0 `S3816 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES3820  1 e 1 @4082 ]
+=======
+[s S4142 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S4146 . 1 `S4124 1 . 1 0 `S4133 1 . 1 0 `S4142 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES4146  1 e 1 @4082 ]
+"32302
+[v _TABLAT TABLAT `VEuc  1 e 1 @4085 ]
+"32310
+[v _TBLPTR TBLPTR `VEum  1 e 3 @4086 ]
+>>>>>>> test
 "35643
 [v _IPEN IPEN `VEb  1 e 0 @32391 ]
 "35646
@@ -639,10 +1061,14 @@ TRUE 1
 [v _TMR1IP TMR1IP `VEb  1 e 0 @31992 ]
 "39117
 [v _TMR1ON TMR1ON `VEb  1 e 0 @32360 ]
-[s S41 . 56 `s 1 pointerU16 2 0 `s 1 aktualnaWartoscSredniaS16 2 2 `s 1 poprzedniaWartoscSredniaS16 2 4 `[25]s 1 wartosciHistoryczneS16 50 6 ]
-"5 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\DetekcjaSasiadow.c
-[s S46 . 68 `us 1 aktualnaWartoscU16 2 0 `us 1 aktualnyStanU16 2 2 `us 1 poprzedniStanU16 2 4 `[3]s 1 przesuniecieTlaS16 6 6 `S41 1 historia 56 12 ]
-[v _wartosciSasiada wartosciSasiada `[8]S46  1 e 544 0 ]
+"6 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+[v _ustawieniaKarty ustawieniaKarty `us  1 e 2 0 ]
+"7
+[v _neighborsAdress neighborsAdress `us  1 e 2 0 ]
+"10
+[v _nextEEPosition nextEEPosition `us  1 e 2 0 ]
+"30 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+[v _Init_Data Init_Data `VEui  1 e 2 0 ]
 "34 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 [v _Fulfillment_Lvl Fulfillment_Lvl `ui  1 s 2 Fulfillment_Lvl ]
 "35
@@ -655,16 +1081,16 @@ TRUE 1
 `uc 1 wykonanoZapisDoFlash 1 0 :1:5 
 `uc 1 pomiarTla 1 1 :8:0 
 ]
-"78 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\main.c
+"80 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\main.c
 [u S32 . 2 `uc 1 flagiU8 1 0 `S24 1 . 2 0 ]
 [s S35 . 3 `S32 1 Flags 2 0 `uc 1 timerRamkiTxCANU8 1 2 ]
 [v _DetectorLedRadar DetectorLedRadar `S35  1 e 3 0 ]
-[s S68 CANStruct 3 `uc 1 wyslijRamkeDanych 1 0 :1:0 
+[s S70 CANStruct 3 `uc 1 wyslijRamkeDanych 1 0 :1:0 
 `uc 1 odebranoDane 1 0 :1:1 
 `uc 1 CanAktywny 1 0 :1:2 
 `us 1 identyfikatorU16 2 1 ]
-"81
-[s S73 FlagStruct 5 `uc 1 pomiarTla 1 0 :1:0 
+"83
+[s S75 FlagStruct 5 `uc 1 pomiarTla 1 0 :1:0 
 `uc 1 detekcja 1 0 :1:1 
 `uc 1 zgloszenie 1 0 :1:2 
 `uc 1 zapisDoFlash 1 0 :1:3 
@@ -672,31 +1098,41 @@ TRUE 1
 `uc 1 pomiarAccelerometer 1 0 :1:5 
 `uc 1 wykonanoReset 1 0 :1:6 
 `uc 1 aktualizacjaSasiadow 1 0 :1:7 
-`S68 1 CAN 3 1 `uc 1 frameCounterU8 1 4 ]
-[v _Flagi Flagi `S73  1 e 5 0 ]
+`S70 1 CAN 3 1 `uc 1 frameCounterU8 1 4 ]
+[v _Flagi Flagi `S75  1 e 5 0 ]
 "19 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TMR1.c
 [v _TMR1_Update_flag TMR1_Update_flag `ui  1 s 2 TMR1_Update_flag ]
-[s S230 . 1 `uc 1 wyslijRamkeStanu 1 0 :1:0 
+[s S97 . 1 `uc 1 wyslijRamkeStanu 1 0 :1:0 
 `uc 1 wyslijRamkeUczeniaTla 1 0 :1:1 
 `uc 1 wyslijRamkeResetuCzujnikow 1 0 :1:2 
 ]
 "7 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TRM.c
-[u S234 . 2 `us 1 FlagiU16 2 0 `S230 1 . 1 0 ]
-[s S237 . 4 `S234 1 Flags 2 0 `us 1 adresCAN 2 2 ]
-[v _DaneCan DaneCan `S237  1 e 4 0 ]
-"94 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\main.c
+[u S101 . 2 `us 1 FlagiU16 2 0 `S97 1 . 1 0 ]
+[s S104 . 4 `S101 1 Flags 2 0 `us 1 adresCAN 2 2 ]
+[v _DaneCan DaneCan `S104  1 e 4 0 ]
+"100 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"118
+"103
+[v main@adr adr `i  1 a 2 26 ]
+"138
 } 0
 "19 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TRM.c
 [v _TRM_DataTransmition TRM_DataTransmition `(v  1 e 1 0 ]
 {
+<<<<<<< HEAD
 [s S569 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
 "23
 [s S572 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
 [s S577 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
 [s S580 . 2 `uc 1 b0 1 0 :1:0 
+=======
+[s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
+"23
+[s S813 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
+[s S818 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[s S821 . 2 `uc 1 b0 1 0 :1:0 
+>>>>>>> test
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -713,9 +1149,15 @@ TRUE 1
 `uc 1 b14 1 1 :1:6 
 `uc 1 b15 1 1 :1:7 
 ]
+<<<<<<< HEAD
 [u S597 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S577 1 byte 2 0 `S580 1 bits 2 0 ]
 [s S602 . 4 `S597 1 low 2 0 `S597 1 high 2 2 ]
 [s S605 . 4 `uc 1 b0 1 0 :1:0 
+=======
+[u S838 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S818 1 byte 2 0 `S821 1 bits 2 0 ]
+[s S843 . 4 `S838 1 low 2 0 `S838 1 high 2 2 ]
+[s S846 . 4 `uc 1 b0 1 0 :1:0 
+>>>>>>> test
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -748,6 +1190,7 @@ TRUE 1
 `uc 1 b30 1 3 :1:6 
 `uc 1 b31 1 3 :1:7 
 ]
+<<<<<<< HEAD
 [u S638 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S569 1 word 4 0 `S572 1 byte 4 0 `S602 1 wordUnion 4 0 `S605 1 bits 4 0 ]
 [s S646 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S638 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v TRM_DataTransmition@canMessage canMessage `S646  1 a 17 38 ]
@@ -763,6 +1206,25 @@ TRUE 1
 [s S572 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
 [s S577 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
 [s S580 . 2 `uc 1 b0 1 0 :1:0 
+=======
+[u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
+[s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
+[v TRM_DataTransmition@canMessage canMessage `S887  1 a 17 0 ]
+"73
+} 0
+"685 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+[v _FRAME_HandleCanFrame FRAME_HandleCanFrame `(v  1 e 1 0 ]
+{
+"692
+[v FRAME_HandleCanFrame@ident ident `us  1 a 2 23 ]
+"687
+[v FRAME_HandleCanFrame@identyfikator identyfikator `uc  1 a 1 25 ]
+[s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
+"685
+[s S813 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
+[s S818 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[s S821 . 2 `uc 1 b0 1 0 :1:0 
+>>>>>>> test
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -779,9 +1241,15 @@ TRUE 1
 `uc 1 b14 1 1 :1:6 
 `uc 1 b15 1 1 :1:7 
 ]
+<<<<<<< HEAD
 [u S597 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S577 1 byte 2 0 `S580 1 bits 2 0 ]
 [s S602 . 4 `S597 1 low 2 0 `S597 1 high 2 2 ]
 [s S605 . 4 `uc 1 b0 1 0 :1:0 
+=======
+[u S838 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S818 1 byte 2 0 `S821 1 bits 2 0 ]
+[s S843 . 4 `S838 1 low 2 0 `S838 1 high 2 2 ]
+[s S846 . 4 `uc 1 b0 1 0 :1:0 
+>>>>>>> test
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -814,16 +1282,24 @@ TRUE 1
 `uc 1 b30 1 3 :1:6 
 `uc 1 b31 1 3 :1:7 
 ]
+<<<<<<< HEAD
 [u S638 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S569 1 word 4 0 `S572 1 byte 4 0 `S602 1 wordUnion 4 0 `S605 1 bits 4 0 ]
 [s S646 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S638 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_HandleCanFrame@message message `*.39S646  1 p 2 33 ]
 "586
+=======
+[u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
+[s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
+[v FRAME_HandleCanFrame@message message `*.39S887  1 p 2 17 ]
+"784
+>>>>>>> test
 } 0
 "37 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 [v _LED_Error LED_Error `(ui  1 e 2 0 ]
 {
 "42
 } 0
+<<<<<<< HEAD
 "384 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 [v _FRAME_SoftwareVersion FRAME_SoftwareVersion `(v  1 s 1 FRAME_SoftwareVersion ]
 {
@@ -831,6 +1307,15 @@ TRUE 1
 [s S572 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
 [s S577 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
 [s S580 . 2 `uc 1 b0 1 0 :1:0 
+=======
+"519 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+[v _FRAME_SoftwareVersion FRAME_SoftwareVersion `(v  1 s 1 FRAME_SoftwareVersion ]
+{
+[s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
+[s S813 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
+[s S818 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[s S821 . 2 `uc 1 b0 1 0 :1:0 
+>>>>>>> test
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -847,9 +1332,15 @@ TRUE 1
 `uc 1 b14 1 1 :1:6 
 `uc 1 b15 1 1 :1:7 
 ]
+<<<<<<< HEAD
 [u S597 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S577 1 byte 2 0 `S580 1 bits 2 0 ]
 [s S602 . 4 `S597 1 low 2 0 `S597 1 high 2 2 ]
 [s S605 . 4 `uc 1 b0 1 0 :1:0 
+=======
+[u S838 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S818 1 byte 2 0 `S821 1 bits 2 0 ]
+[s S843 . 4 `S838 1 low 2 0 `S838 1 high 2 2 ]
+[s S846 . 4 `uc 1 b0 1 0 :1:0 
+>>>>>>> test
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -882,6 +1373,7 @@ TRUE 1
 `uc 1 b30 1 3 :1:6 
 `uc 1 b31 1 3 :1:7 
 ]
+<<<<<<< HEAD
 [u S638 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S569 1 word 4 0 `S572 1 byte 4 0 `S602 1 wordUnion 4 0 `S605 1 bits 4 0 ]
 [s S646 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S638 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_SoftwareVersion@message message `*.39S646  1 p 2 5 ]
@@ -897,6 +1389,23 @@ TRUE 1
 [s S572 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
 [s S577 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
 [s S580 . 2 `uc 1 b0 1 0 :1:0 
+=======
+[u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
+[s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
+[v FRAME_SoftwareVersion@message message `*.39S887  1 p 2 5 ]
+"534
+} 0
+"48
+[v _FRAME_SensorExcitationStatus FRAME_SensorExcitationStatus `(v  1 s 1 FRAME_SensorExcitationStatus ]
+{
+"79
+[v FRAME_SensorExcitationStatus@tru tru `ui  1 a 2 11 ]
+[s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
+"48
+[s S813 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
+[s S818 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[s S821 . 2 `uc 1 b0 1 0 :1:0 
+>>>>>>> test
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -913,9 +1422,15 @@ TRUE 1
 `uc 1 b14 1 1 :1:6 
 `uc 1 b15 1 1 :1:7 
 ]
+<<<<<<< HEAD
 [u S597 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S577 1 byte 2 0 `S580 1 bits 2 0 ]
 [s S602 . 4 `S597 1 low 2 0 `S597 1 high 2 2 ]
 [s S605 . 4 `uc 1 b0 1 0 :1:0 
+=======
+[u S838 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S818 1 byte 2 0 `S821 1 bits 2 0 ]
+[s S843 . 4 `S838 1 low 2 0 `S838 1 high 2 2 ]
+[s S846 . 4 `uc 1 b0 1 0 :1:0 
+>>>>>>> test
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -948,10 +1463,19 @@ TRUE 1
 `uc 1 b30 1 3 :1:6 
 `uc 1 b31 1 3 :1:7 
 ]
+<<<<<<< HEAD
 [u S638 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S569 1 word 4 0 `S572 1 byte 4 0 `S602 1 wordUnion 4 0 `S605 1 bits 4 0 ]
 [s S646 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S638 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_SensorExcitationStatus@message message `*.39S646  1 p 2 13 ]
 "67
+=======
+[u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
+[s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
+[v FRAME_SensorExcitationStatus@message message `*.39S887  1 p 2 7 ]
+"51
+[v FRAME_SensorExcitationStatus@statwect statwect `ui  1 s 2 statwect ]
+"101
+>>>>>>> test
 } 0
 "33 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
 [v _MOC_Wynikowa_wartosc_roznicowa MOC_Wynikowa_wartosc_roznicowa `(ui  1 e 2 0 ]
@@ -989,6 +1513,7 @@ TRUE 1
 {
 "60
 } 0
+<<<<<<< HEAD
 "69 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 [v _IsInNeighbors IsInNeighbors `(uc  1 s 1 IsInNeighbors ]
 {
@@ -1005,6 +1530,21 @@ TRUE 1
 [s S572 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
 [s S577 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
 [s S580 . 2 `uc 1 b0 1 0 :1:0 
+=======
+"103 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+[v _IsInNeighbors IsInNeighbors `(ui  1 e 2 0 ]
+{
+[v IsInNeighbors@message_adress message_adress `ui  1 p 2 5 ]
+"154
+} 0
+"568
+[v _FRAME_PrzypisanieDokarty FRAME_PrzypisanieDokarty `(v  1 s 1 FRAME_PrzypisanieDokarty ]
+{
+[s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
+[s S813 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
+[s S818 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[s S821 . 2 `uc 1 b0 1 0 :1:0 
+>>>>>>> test
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -1021,9 +1561,15 @@ TRUE 1
 `uc 1 b14 1 1 :1:6 
 `uc 1 b15 1 1 :1:7 
 ]
+<<<<<<< HEAD
 [u S597 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S577 1 byte 2 0 `S580 1 bits 2 0 ]
 [s S602 . 4 `S597 1 low 2 0 `S597 1 high 2 2 ]
 [s S605 . 4 `uc 1 b0 1 0 :1:0 
+=======
+[u S838 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S818 1 byte 2 0 `S821 1 bits 2 0 ]
+[s S843 . 4 `S838 1 low 2 0 `S838 1 high 2 2 ]
+[s S846 . 4 `uc 1 b0 1 0 :1:0 
+>>>>>>> test
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -1056,6 +1602,7 @@ TRUE 1
 `uc 1 b30 1 3 :1:6 
 `uc 1 b31 1 3 :1:7 
 ]
+<<<<<<< HEAD
 [u S638 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S569 1 word 4 0 `S572 1 byte 4 0 `S602 1 wordUnion 4 0 `S605 1 bits 4 0 ]
 [s S646 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S638 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_PrzypisanieDokarty@message message `*.39S646  1 p 2 5 ]
@@ -1068,6 +1615,20 @@ TRUE 1
 [s S572 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
 [s S577 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
 [s S580 . 2 `uc 1 b0 1 0 :1:0 
+=======
+[u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
+[s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
+[v FRAME_PrzypisanieDokarty@message message `*.39S887  1 p 2 5 ]
+"583
+} 0
+"473
+[v _FRAME_Plot FRAME_Plot `(v  1 s 1 FRAME_Plot ]
+{
+[s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
+[s S813 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
+[s S818 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[s S821 . 2 `uc 1 b0 1 0 :1:0 
+>>>>>>> test
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -1084,9 +1645,15 @@ TRUE 1
 `uc 1 b14 1 1 :1:6 
 `uc 1 b15 1 1 :1:7 
 ]
+<<<<<<< HEAD
 [u S597 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S577 1 byte 2 0 `S580 1 bits 2 0 ]
 [s S602 . 4 `S597 1 low 2 0 `S597 1 high 2 2 ]
 [s S605 . 4 `uc 1 b0 1 0 :1:0 
+=======
+[u S838 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S818 1 byte 2 0 `S821 1 bits 2 0 ]
+[s S843 . 4 `S838 1 low 2 0 `S838 1 high 2 2 ]
+[s S846 . 4 `uc 1 b0 1 0 :1:0 
+>>>>>>> test
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -1119,6 +1686,7 @@ TRUE 1
 `uc 1 b30 1 3 :1:6 
 `uc 1 b31 1 3 :1:7 
 ]
+<<<<<<< HEAD
 [u S638 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S569 1 word 4 0 `S572 1 byte 4 0 `S602 1 wordUnion 4 0 `S605 1 bits 4 0 ]
 [s S646 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S638 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_Plot@message message `*.39S646  1 p 2 12 ]
@@ -1131,6 +1699,20 @@ TRUE 1
 [s S572 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
 [s S577 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
 [s S580 . 2 `uc 1 b0 1 0 :1:0 
+=======
+[u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
+[s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
+[v FRAME_Plot@message message `*.39S887  1 p 2 12 ]
+"486
+} 0
+"494
+[v _FRAME_MapPosition FRAME_MapPosition `(v  1 s 1 FRAME_MapPosition ]
+{
+[s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
+[s S813 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
+[s S818 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[s S821 . 2 `uc 1 b0 1 0 :1:0 
+>>>>>>> test
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -1147,9 +1729,15 @@ TRUE 1
 `uc 1 b14 1 1 :1:6 
 `uc 1 b15 1 1 :1:7 
 ]
+<<<<<<< HEAD
 [u S597 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S577 1 byte 2 0 `S580 1 bits 2 0 ]
 [s S602 . 4 `S597 1 low 2 0 `S597 1 high 2 2 ]
 [s S605 . 4 `uc 1 b0 1 0 :1:0 
+=======
+[u S838 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S818 1 byte 2 0 `S821 1 bits 2 0 ]
+[s S843 . 4 `S838 1 low 2 0 `S838 1 high 2 2 ]
+[s S846 . 4 `uc 1 b0 1 0 :1:0 
+>>>>>>> test
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -1182,6 +1770,7 @@ TRUE 1
 `uc 1 b30 1 3 :1:6 
 `uc 1 b31 1 3 :1:7 
 ]
+<<<<<<< HEAD
 [u S638 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S569 1 word 4 0 `S572 1 byte 4 0 `S602 1 wordUnion 4 0 `S605 1 bits 4 0 ]
 [s S646 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S638 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_MapPosition@message message `*.39S646  1 p 2 5 ]
@@ -1194,6 +1783,20 @@ TRUE 1
 [s S572 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
 [s S577 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
 [s S580 . 2 `uc 1 b0 1 0 :1:0 
+=======
+[u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
+[s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
+[v FRAME_MapPosition@message message `*.39S887  1 p 2 5 ]
+"511
+} 0
+"187
+[v _FRAME_ExcitationValue FRAME_ExcitationValue `(v  1 s 1 FRAME_ExcitationValue ]
+{
+[s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
+[s S813 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
+[s S818 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[s S821 . 2 `uc 1 b0 1 0 :1:0 
+>>>>>>> test
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -1210,9 +1813,15 @@ TRUE 1
 `uc 1 b14 1 1 :1:6 
 `uc 1 b15 1 1 :1:7 
 ]
+<<<<<<< HEAD
 [u S597 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S577 1 byte 2 0 `S580 1 bits 2 0 ]
 [s S602 . 4 `S597 1 low 2 0 `S597 1 high 2 2 ]
 [s S605 . 4 `uc 1 b0 1 0 :1:0 
+=======
+[u S838 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S818 1 byte 2 0 `S821 1 bits 2 0 ]
+[s S843 . 4 `S838 1 low 2 0 `S838 1 high 2 2 ]
+[s S846 . 4 `uc 1 b0 1 0 :1:0 
+>>>>>>> test
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -1245,6 +1854,7 @@ TRUE 1
 `uc 1 b30 1 3 :1:6 
 `uc 1 b31 1 3 :1:7 
 ]
+<<<<<<< HEAD
 [u S638 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S569 1 word 4 0 `S572 1 byte 4 0 `S602 1 wordUnion 4 0 `S605 1 bits 4 0 ]
 [s S646 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S638 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_ExcitationValue@message message `*.39S646  1 p 2 5 ]
@@ -1260,6 +1870,23 @@ TRUE 1
 [s S572 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
 [s S577 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
 [s S580 . 2 `uc 1 b0 1 0 :1:0 
+=======
+[u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
+[s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
+[v FRAME_ExcitationValue@message message `*.39S887  1 p 2 5 ]
+"203
+} 0
+"211
+[v _FRAME_ExcitationMultiplier FRAME_ExcitationMultiplier `(v  1 s 1 FRAME_ExcitationMultiplier ]
+{
+"213
+[v FRAME_ExcitationMultiplier@i i `us  1 a 2 8 ]
+[s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
+"211
+[s S813 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
+[s S818 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[s S821 . 2 `uc 1 b0 1 0 :1:0 
+>>>>>>> test
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -1276,9 +1903,15 @@ TRUE 1
 `uc 1 b14 1 1 :1:6 
 `uc 1 b15 1 1 :1:7 
 ]
+<<<<<<< HEAD
 [u S597 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S577 1 byte 2 0 `S580 1 bits 2 0 ]
 [s S602 . 4 `S597 1 low 2 0 `S597 1 high 2 2 ]
 [s S605 . 4 `uc 1 b0 1 0 :1:0 
+=======
+[u S838 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S818 1 byte 2 0 `S821 1 bits 2 0 ]
+[s S843 . 4 `S838 1 low 2 0 `S838 1 high 2 2 ]
+[s S846 . 4 `uc 1 b0 1 0 :1:0 
+>>>>>>> test
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -1311,6 +1944,7 @@ TRUE 1
 `uc 1 b30 1 3 :1:6 
 `uc 1 b31 1 3 :1:7 
 ]
+<<<<<<< HEAD
 [u S638 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S569 1 word 4 0 `S572 1 byte 4 0 `S602 1 wordUnion 4 0 `S605 1 bits 4 0 ]
 [s S646 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S638 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_ExcitationMultiplier@message message `*.39S646  1 p 2 5 ]
@@ -1323,6 +1957,20 @@ TRUE 1
 [s S572 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
 [s S577 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
 [s S580 . 2 `uc 1 b0 1 0 :1:0 
+=======
+[u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
+[s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
+[v FRAME_ExcitationMultiplier@message message `*.39S887  1 p 2 5 ]
+"231
+} 0
+"345
+[v _FRAME_DeviceReset FRAME_DeviceReset `(v  1 s 1 FRAME_DeviceReset ]
+{
+[s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
+[s S813 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
+[s S818 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[s S821 . 2 `uc 1 b0 1 0 :1:0 
+>>>>>>> test
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -1339,9 +1987,15 @@ TRUE 1
 `uc 1 b14 1 1 :1:6 
 `uc 1 b15 1 1 :1:7 
 ]
+<<<<<<< HEAD
 [u S597 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S577 1 byte 2 0 `S580 1 bits 2 0 ]
 [s S602 . 4 `S597 1 low 2 0 `S597 1 high 2 2 ]
 [s S605 . 4 `uc 1 b0 1 0 :1:0 
+=======
+[u S838 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S818 1 byte 2 0 `S821 1 bits 2 0 ]
+[s S843 . 4 `S838 1 low 2 0 `S838 1 high 2 2 ]
+[s S846 . 4 `uc 1 b0 1 0 :1:0 
+>>>>>>> test
 `uc 1 b1 1 0 :1:1 
 `uc 1 b2 1 0 :1:2 
 `uc 1 b3 1 0 :1:3 
@@ -1374,6 +2028,7 @@ TRUE 1
 `uc 1 b30 1 3 :1:6 
 `uc 1 b31 1 3 :1:7 
 ]
+<<<<<<< HEAD
 [u S638 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S569 1 word 4 0 `S572 1 byte 4 0 `S602 1 wordUnion 4 0 `S605 1 bits 4 0 ]
 [s S646 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S638 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
 [v FRAME_DeviceReset@message message `*.39S646  1 p 2 5 ]
@@ -1954,6 +2609,654 @@ TRUE 1
 [v CAN_MoveBuffIntoFrame@Ram Ram `*.39uc  1 p 2 5 ]
 [v CAN_MoveBuffIntoFrame@Buf Buf `*.39uc  1 p 2 7 ]
 "198
+=======
+[u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
+[s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
+[v FRAME_DeviceReset@message message `*.39S887  1 p 2 14 ]
+"403
+} 0
+"453
+[v _WriteDataToEEPROM WriteDataToEEPROM `(v  1 e 1 0 ]
+{
+"465
+>>>>>>> test
+} 0
+"90 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+[v _NVMWrite NVMWrite `(v  1 e 1 0 ]
+{
+[v NVMWrite@source source `*.39uc  1 p 2 8 ]
+[v NVMWrite@addr addr `us  1 p 2 10 ]
+[v NVMWrite@count count `us  1 p 2 12 ]
+"99
+} 0
+"61
+[v _WritetoEEPROM WritetoEEPROM `(v  1 s 1 WritetoEEPROM ]
+{
+[v WritetoEEPROM@Address Address `us  1 p 2 5 ]
+[v WritetoEEPROM@Data Data `uc  1 p 1 7 ]
+"63
+[v WritetoEEPROM@GIE_Status GIE_Status `uc  1 s 1 GIE_Status ]
+"77
+} 0
+"329 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+[v _FRAME_DataUpdateAndChangeOption FRAME_DataUpdateAndChangeOption `(v  1 s 1 FRAME_DataUpdateAndChangeOption ]
+{
+[s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
+[s S813 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
+[s S818 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[s S821 . 2 `uc 1 b0 1 0 :1:0 
+`uc 1 b1 1 0 :1:1 
+`uc 1 b2 1 0 :1:2 
+`uc 1 b3 1 0 :1:3 
+`uc 1 b4 1 0 :1:4 
+`uc 1 b5 1 0 :1:5 
+`uc 1 b6 1 0 :1:6 
+`uc 1 b7 1 0 :1:7 
+`uc 1 b8 1 1 :1:0 
+`uc 1 b9 1 1 :1:1 
+`uc 1 b10 1 1 :1:2 
+`uc 1 b11 1 1 :1:3 
+`uc 1 b12 1 1 :1:4 
+`uc 1 b13 1 1 :1:5 
+`uc 1 b14 1 1 :1:6 
+`uc 1 b15 1 1 :1:7 
+]
+[u S838 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S818 1 byte 2 0 `S821 1 bits 2 0 ]
+[s S843 . 4 `S838 1 low 2 0 `S838 1 high 2 2 ]
+[s S846 . 4 `uc 1 b0 1 0 :1:0 
+`uc 1 b1 1 0 :1:1 
+`uc 1 b2 1 0 :1:2 
+`uc 1 b3 1 0 :1:3 
+`uc 1 b4 1 0 :1:4 
+`uc 1 b5 1 0 :1:5 
+`uc 1 b6 1 0 :1:6 
+`uc 1 b7 1 0 :1:7 
+`uc 1 b8 1 1 :1:0 
+`uc 1 b9 1 1 :1:1 
+`uc 1 b10 1 1 :1:2 
+`uc 1 b11 1 1 :1:3 
+`uc 1 b12 1 1 :1:4 
+`uc 1 b13 1 1 :1:5 
+`uc 1 b14 1 1 :1:6 
+`uc 1 b15 1 1 :1:7 
+`uc 1 b16 1 2 :1:0 
+`uc 1 b17 1 2 :1:1 
+`uc 1 b18 1 2 :1:2 
+`uc 1 b19 1 2 :1:3 
+`uc 1 b20 1 2 :1:4 
+`uc 1 b21 1 2 :1:5 
+`uc 1 b22 1 2 :1:6 
+`uc 1 b23 1 2 :1:7 
+`uc 1 b24 1 3 :1:0 
+`uc 1 b25 1 3 :1:1 
+`uc 1 b26 1 3 :1:2 
+`uc 1 b27 1 3 :1:3 
+`uc 1 b28 1 3 :1:4 
+`uc 1 b29 1 3 :1:5 
+`uc 1 b30 1 3 :1:6 
+`uc 1 b31 1 3 :1:7 
+]
+[u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
+[s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
+[v FRAME_DataUpdateAndChangeOption@message message `*.39S887  1 p 2 5 ]
+"337
+} 0
+"298
+[v _FRAME_AxisStatus FRAME_AxisStatus `(v  1 s 1 FRAME_AxisStatus ]
+{
+[s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
+[s S813 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
+[s S818 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[s S821 . 2 `uc 1 b0 1 0 :1:0 
+`uc 1 b1 1 0 :1:1 
+`uc 1 b2 1 0 :1:2 
+`uc 1 b3 1 0 :1:3 
+`uc 1 b4 1 0 :1:4 
+`uc 1 b5 1 0 :1:5 
+`uc 1 b6 1 0 :1:6 
+`uc 1 b7 1 0 :1:7 
+`uc 1 b8 1 1 :1:0 
+`uc 1 b9 1 1 :1:1 
+`uc 1 b10 1 1 :1:2 
+`uc 1 b11 1 1 :1:3 
+`uc 1 b12 1 1 :1:4 
+`uc 1 b13 1 1 :1:5 
+`uc 1 b14 1 1 :1:6 
+`uc 1 b15 1 1 :1:7 
+]
+[u S838 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S818 1 byte 2 0 `S821 1 bits 2 0 ]
+[s S843 . 4 `S838 1 low 2 0 `S838 1 high 2 2 ]
+[s S846 . 4 `uc 1 b0 1 0 :1:0 
+`uc 1 b1 1 0 :1:1 
+`uc 1 b2 1 0 :1:2 
+`uc 1 b3 1 0 :1:3 
+`uc 1 b4 1 0 :1:4 
+`uc 1 b5 1 0 :1:5 
+`uc 1 b6 1 0 :1:6 
+`uc 1 b7 1 0 :1:7 
+`uc 1 b8 1 1 :1:0 
+`uc 1 b9 1 1 :1:1 
+`uc 1 b10 1 1 :1:2 
+`uc 1 b11 1 1 :1:3 
+`uc 1 b12 1 1 :1:4 
+`uc 1 b13 1 1 :1:5 
+`uc 1 b14 1 1 :1:6 
+`uc 1 b15 1 1 :1:7 
+`uc 1 b16 1 2 :1:0 
+`uc 1 b17 1 2 :1:1 
+`uc 1 b18 1 2 :1:2 
+`uc 1 b19 1 2 :1:3 
+`uc 1 b20 1 2 :1:4 
+`uc 1 b21 1 2 :1:5 
+`uc 1 b22 1 2 :1:6 
+`uc 1 b23 1 2 :1:7 
+`uc 1 b24 1 3 :1:0 
+`uc 1 b25 1 3 :1:1 
+`uc 1 b26 1 3 :1:2 
+`uc 1 b27 1 3 :1:3 
+`uc 1 b28 1 3 :1:4 
+`uc 1 b29 1 3 :1:5 
+`uc 1 b30 1 3 :1:6 
+`uc 1 b31 1 3 :1:7 
+]
+[u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
+[s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
+[v FRAME_AxisStatus@message message `*.39S887  1 p 2 5 ]
+"321
+} 0
+"239
+[v _FRAME_AveragingTimes FRAME_AveragingTimes `(v  1 s 1 FRAME_AveragingTimes ]
+{
+[s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
+[s S813 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
+[s S818 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[s S821 . 2 `uc 1 b0 1 0 :1:0 
+`uc 1 b1 1 0 :1:1 
+`uc 1 b2 1 0 :1:2 
+`uc 1 b3 1 0 :1:3 
+`uc 1 b4 1 0 :1:4 
+`uc 1 b5 1 0 :1:5 
+`uc 1 b6 1 0 :1:6 
+`uc 1 b7 1 0 :1:7 
+`uc 1 b8 1 1 :1:0 
+`uc 1 b9 1 1 :1:1 
+`uc 1 b10 1 1 :1:2 
+`uc 1 b11 1 1 :1:3 
+`uc 1 b12 1 1 :1:4 
+`uc 1 b13 1 1 :1:5 
+`uc 1 b14 1 1 :1:6 
+`uc 1 b15 1 1 :1:7 
+]
+[u S838 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S818 1 byte 2 0 `S821 1 bits 2 0 ]
+[s S843 . 4 `S838 1 low 2 0 `S838 1 high 2 2 ]
+[s S846 . 4 `uc 1 b0 1 0 :1:0 
+`uc 1 b1 1 0 :1:1 
+`uc 1 b2 1 0 :1:2 
+`uc 1 b3 1 0 :1:3 
+`uc 1 b4 1 0 :1:4 
+`uc 1 b5 1 0 :1:5 
+`uc 1 b6 1 0 :1:6 
+`uc 1 b7 1 0 :1:7 
+`uc 1 b8 1 1 :1:0 
+`uc 1 b9 1 1 :1:1 
+`uc 1 b10 1 1 :1:2 
+`uc 1 b11 1 1 :1:3 
+`uc 1 b12 1 1 :1:4 
+`uc 1 b13 1 1 :1:5 
+`uc 1 b14 1 1 :1:6 
+`uc 1 b15 1 1 :1:7 
+`uc 1 b16 1 2 :1:0 
+`uc 1 b17 1 2 :1:1 
+`uc 1 b18 1 2 :1:2 
+`uc 1 b19 1 2 :1:3 
+`uc 1 b20 1 2 :1:4 
+`uc 1 b21 1 2 :1:5 
+`uc 1 b22 1 2 :1:6 
+`uc 1 b23 1 2 :1:7 
+`uc 1 b24 1 3 :1:0 
+`uc 1 b25 1 3 :1:1 
+`uc 1 b26 1 3 :1:2 
+`uc 1 b27 1 3 :1:3 
+`uc 1 b28 1 3 :1:4 
+`uc 1 b29 1 3 :1:5 
+`uc 1 b30 1 3 :1:6 
+`uc 1 b31 1 3 :1:7 
+]
+[u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
+[s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
+[v FRAME_AveragingTimes@message message `*.39S887  1 p 2 5 ]
+"290
+} 0
+"542
+[v _FRAME_AnalogValue FRAME_AnalogValue `(v  1 s 1 FRAME_AnalogValue ]
+{
+[s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
+[s S813 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
+[s S818 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[s S821 . 2 `uc 1 b0 1 0 :1:0 
+`uc 1 b1 1 0 :1:1 
+`uc 1 b2 1 0 :1:2 
+`uc 1 b3 1 0 :1:3 
+`uc 1 b4 1 0 :1:4 
+`uc 1 b5 1 0 :1:5 
+`uc 1 b6 1 0 :1:6 
+`uc 1 b7 1 0 :1:7 
+`uc 1 b8 1 1 :1:0 
+`uc 1 b9 1 1 :1:1 
+`uc 1 b10 1 1 :1:2 
+`uc 1 b11 1 1 :1:3 
+`uc 1 b12 1 1 :1:4 
+`uc 1 b13 1 1 :1:5 
+`uc 1 b14 1 1 :1:6 
+`uc 1 b15 1 1 :1:7 
+]
+[u S838 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S818 1 byte 2 0 `S821 1 bits 2 0 ]
+[s S843 . 4 `S838 1 low 2 0 `S838 1 high 2 2 ]
+[s S846 . 4 `uc 1 b0 1 0 :1:0 
+`uc 1 b1 1 0 :1:1 
+`uc 1 b2 1 0 :1:2 
+`uc 1 b3 1 0 :1:3 
+`uc 1 b4 1 0 :1:4 
+`uc 1 b5 1 0 :1:5 
+`uc 1 b6 1 0 :1:6 
+`uc 1 b7 1 0 :1:7 
+`uc 1 b8 1 1 :1:0 
+`uc 1 b9 1 1 :1:1 
+`uc 1 b10 1 1 :1:2 
+`uc 1 b11 1 1 :1:3 
+`uc 1 b12 1 1 :1:4 
+`uc 1 b13 1 1 :1:5 
+`uc 1 b14 1 1 :1:6 
+`uc 1 b15 1 1 :1:7 
+`uc 1 b16 1 2 :1:0 
+`uc 1 b17 1 2 :1:1 
+`uc 1 b18 1 2 :1:2 
+`uc 1 b19 1 2 :1:3 
+`uc 1 b20 1 2 :1:4 
+`uc 1 b21 1 2 :1:5 
+`uc 1 b22 1 2 :1:6 
+`uc 1 b23 1 2 :1:7 
+`uc 1 b24 1 3 :1:0 
+`uc 1 b25 1 3 :1:1 
+`uc 1 b26 1 3 :1:2 
+`uc 1 b27 1 3 :1:3 
+`uc 1 b28 1 3 :1:4 
+`uc 1 b29 1 3 :1:5 
+`uc 1 b30 1 3 :1:6 
+`uc 1 b31 1 3 :1:7 
+]
+[u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
+[s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
+[v FRAME_AnalogValue@message message `*.39S887  1 p 2 5 ]
+[v FRAME_AnalogValue@set set `us  1 p 2 7 ]
+"560
+} 0
+"590
+[v _FRAME_AdressOfNeighbors FRAME_AdressOfNeighbors `(v  1 s 1 FRAME_AdressOfNeighbors ]
+{
+"595
+[v FRAME_AdressOfNeighbors@kier kier `us  1 a 2 13 ]
+[s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
+"590
+[s S813 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
+[s S818 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[s S821 . 2 `uc 1 b0 1 0 :1:0 
+`uc 1 b1 1 0 :1:1 
+`uc 1 b2 1 0 :1:2 
+`uc 1 b3 1 0 :1:3 
+`uc 1 b4 1 0 :1:4 
+`uc 1 b5 1 0 :1:5 
+`uc 1 b6 1 0 :1:6 
+`uc 1 b7 1 0 :1:7 
+`uc 1 b8 1 1 :1:0 
+`uc 1 b9 1 1 :1:1 
+`uc 1 b10 1 1 :1:2 
+`uc 1 b11 1 1 :1:3 
+`uc 1 b12 1 1 :1:4 
+`uc 1 b13 1 1 :1:5 
+`uc 1 b14 1 1 :1:6 
+`uc 1 b15 1 1 :1:7 
+]
+[u S838 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S818 1 byte 2 0 `S821 1 bits 2 0 ]
+[s S843 . 4 `S838 1 low 2 0 `S838 1 high 2 2 ]
+[s S846 . 4 `uc 1 b0 1 0 :1:0 
+`uc 1 b1 1 0 :1:1 
+`uc 1 b2 1 0 :1:2 
+`uc 1 b3 1 0 :1:3 
+`uc 1 b4 1 0 :1:4 
+`uc 1 b5 1 0 :1:5 
+`uc 1 b6 1 0 :1:6 
+`uc 1 b7 1 0 :1:7 
+`uc 1 b8 1 1 :1:0 
+`uc 1 b9 1 1 :1:1 
+`uc 1 b10 1 1 :1:2 
+`uc 1 b11 1 1 :1:3 
+`uc 1 b12 1 1 :1:4 
+`uc 1 b13 1 1 :1:5 
+`uc 1 b14 1 1 :1:6 
+`uc 1 b15 1 1 :1:7 
+`uc 1 b16 1 2 :1:0 
+`uc 1 b17 1 2 :1:1 
+`uc 1 b18 1 2 :1:2 
+`uc 1 b19 1 2 :1:3 
+`uc 1 b20 1 2 :1:4 
+`uc 1 b21 1 2 :1:5 
+`uc 1 b22 1 2 :1:6 
+`uc 1 b23 1 2 :1:7 
+`uc 1 b24 1 3 :1:0 
+`uc 1 b25 1 3 :1:1 
+`uc 1 b26 1 3 :1:2 
+`uc 1 b27 1 3 :1:3 
+`uc 1 b28 1 3 :1:4 
+`uc 1 b29 1 3 :1:5 
+`uc 1 b30 1 3 :1:6 
+`uc 1 b31 1 3 :1:7 
+]
+[u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
+[s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
+[v FRAME_AdressOfNeighbors@message message `*.39S887  1 p 2 5 ]
+[v FRAME_AdressOfNeighbors@nrRamki nrRamki `us  1 p 2 7 ]
+"678
+} 0
+"162
+[v _FRAME_AccelerometerStatus FRAME_AccelerometerStatus `(v  1 s 1 FRAME_AccelerometerStatus ]
+{
+[s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
+[s S813 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
+[s S818 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[s S821 . 2 `uc 1 b0 1 0 :1:0 
+`uc 1 b1 1 0 :1:1 
+`uc 1 b2 1 0 :1:2 
+`uc 1 b3 1 0 :1:3 
+`uc 1 b4 1 0 :1:4 
+`uc 1 b5 1 0 :1:5 
+`uc 1 b6 1 0 :1:6 
+`uc 1 b7 1 0 :1:7 
+`uc 1 b8 1 1 :1:0 
+`uc 1 b9 1 1 :1:1 
+`uc 1 b10 1 1 :1:2 
+`uc 1 b11 1 1 :1:3 
+`uc 1 b12 1 1 :1:4 
+`uc 1 b13 1 1 :1:5 
+`uc 1 b14 1 1 :1:6 
+`uc 1 b15 1 1 :1:7 
+]
+[u S838 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S818 1 byte 2 0 `S821 1 bits 2 0 ]
+[s S843 . 4 `S838 1 low 2 0 `S838 1 high 2 2 ]
+[s S846 . 4 `uc 1 b0 1 0 :1:0 
+`uc 1 b1 1 0 :1:1 
+`uc 1 b2 1 0 :1:2 
+`uc 1 b3 1 0 :1:3 
+`uc 1 b4 1 0 :1:4 
+`uc 1 b5 1 0 :1:5 
+`uc 1 b6 1 0 :1:6 
+`uc 1 b7 1 0 :1:7 
+`uc 1 b8 1 1 :1:0 
+`uc 1 b9 1 1 :1:1 
+`uc 1 b10 1 1 :1:2 
+`uc 1 b11 1 1 :1:3 
+`uc 1 b12 1 1 :1:4 
+`uc 1 b13 1 1 :1:5 
+`uc 1 b14 1 1 :1:6 
+`uc 1 b15 1 1 :1:7 
+`uc 1 b16 1 2 :1:0 
+`uc 1 b17 1 2 :1:1 
+`uc 1 b18 1 2 :1:2 
+`uc 1 b19 1 2 :1:3 
+`uc 1 b20 1 2 :1:4 
+`uc 1 b21 1 2 :1:5 
+`uc 1 b22 1 2 :1:6 
+`uc 1 b23 1 2 :1:7 
+`uc 1 b24 1 3 :1:0 
+`uc 1 b25 1 3 :1:1 
+`uc 1 b26 1 3 :1:2 
+`uc 1 b27 1 3 :1:3 
+`uc 1 b28 1 3 :1:4 
+`uc 1 b29 1 3 :1:5 
+`uc 1 b30 1 3 :1:6 
+`uc 1 b31 1 3 :1:7 
+]
+[u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
+[s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
+[v FRAME_AccelerometerStatus@message message `*.39S887  1 p 2 7 ]
+"179
+} 0
+"72 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\MOC_Funct.c
+[v _MOCK_PrzyspieszenieZ MOCK_PrzyspieszenieZ `(ui  1 e 2 0 ]
+{
+"75
+} 0
+"68
+[v _MOCK_PrzyspieszenieY MOCK_PrzyspieszenieY `(ui  1 e 2 0 ]
+{
+"71
+} 0
+"63
+[v _MOCK_PrzyspieszenieX MOCK_PrzyspieszenieX `(ui  1 e 2 0 ]
+{
+"66
+} 0
+"76
+[v _MOCK_Klikniecie_Spadek MOCK_Klikniecie_Spadek `(ui  1 e 2 0 ]
+{
+"79
+} 0
+"247 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
+[v _CAN_SendFrame CAN_SendFrame `(v  1 e 1 0 ]
+{
+[s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
+[s S813 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
+[s S818 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[s S821 . 2 `uc 1 b0 1 0 :1:0 
+`uc 1 b1 1 0 :1:1 
+`uc 1 b2 1 0 :1:2 
+`uc 1 b3 1 0 :1:3 
+`uc 1 b4 1 0 :1:4 
+`uc 1 b5 1 0 :1:5 
+`uc 1 b6 1 0 :1:6 
+`uc 1 b7 1 0 :1:7 
+`uc 1 b8 1 1 :1:0 
+`uc 1 b9 1 1 :1:1 
+`uc 1 b10 1 1 :1:2 
+`uc 1 b11 1 1 :1:3 
+`uc 1 b12 1 1 :1:4 
+`uc 1 b13 1 1 :1:5 
+`uc 1 b14 1 1 :1:6 
+`uc 1 b15 1 1 :1:7 
+]
+[u S838 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S818 1 byte 2 0 `S821 1 bits 2 0 ]
+[s S843 . 4 `S838 1 low 2 0 `S838 1 high 2 2 ]
+[s S846 . 4 `uc 1 b0 1 0 :1:0 
+`uc 1 b1 1 0 :1:1 
+`uc 1 b2 1 0 :1:2 
+`uc 1 b3 1 0 :1:3 
+`uc 1 b4 1 0 :1:4 
+`uc 1 b5 1 0 :1:5 
+`uc 1 b6 1 0 :1:6 
+`uc 1 b7 1 0 :1:7 
+`uc 1 b8 1 1 :1:0 
+`uc 1 b9 1 1 :1:1 
+`uc 1 b10 1 1 :1:2 
+`uc 1 b11 1 1 :1:3 
+`uc 1 b12 1 1 :1:4 
+`uc 1 b13 1 1 :1:5 
+`uc 1 b14 1 1 :1:6 
+`uc 1 b15 1 1 :1:7 
+`uc 1 b16 1 2 :1:0 
+`uc 1 b17 1 2 :1:1 
+`uc 1 b18 1 2 :1:2 
+`uc 1 b19 1 2 :1:3 
+`uc 1 b20 1 2 :1:4 
+`uc 1 b21 1 2 :1:5 
+`uc 1 b22 1 2 :1:6 
+`uc 1 b23 1 2 :1:7 
+`uc 1 b24 1 3 :1:0 
+`uc 1 b25 1 3 :1:1 
+`uc 1 b26 1 3 :1:2 
+`uc 1 b27 1 3 :1:3 
+`uc 1 b28 1 3 :1:4 
+`uc 1 b29 1 3 :1:5 
+`uc 1 b30 1 3 :1:6 
+`uc 1 b31 1 3 :1:7 
+]
+[u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
+[s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
+[v CAN_SendFrame@message message `*.39S887  1 p 2 10 ]
+"304
+} 0
+"446
+[v _CAN_GenID CAN_GenID `(v  1 e 1 0 ]
+{
+[s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
+[s S813 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
+[s S818 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[s S821 . 2 `uc 1 b0 1 0 :1:0 
+`uc 1 b1 1 0 :1:1 
+`uc 1 b2 1 0 :1:2 
+`uc 1 b3 1 0 :1:3 
+`uc 1 b4 1 0 :1:4 
+`uc 1 b5 1 0 :1:5 
+`uc 1 b6 1 0 :1:6 
+`uc 1 b7 1 0 :1:7 
+`uc 1 b8 1 1 :1:0 
+`uc 1 b9 1 1 :1:1 
+`uc 1 b10 1 1 :1:2 
+`uc 1 b11 1 1 :1:3 
+`uc 1 b12 1 1 :1:4 
+`uc 1 b13 1 1 :1:5 
+`uc 1 b14 1 1 :1:6 
+`uc 1 b15 1 1 :1:7 
+]
+[u S838 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S818 1 byte 2 0 `S821 1 bits 2 0 ]
+[s S843 . 4 `S838 1 low 2 0 `S838 1 high 2 2 ]
+[s S846 . 4 `uc 1 b0 1 0 :1:0 
+`uc 1 b1 1 0 :1:1 
+`uc 1 b2 1 0 :1:2 
+`uc 1 b3 1 0 :1:3 
+`uc 1 b4 1 0 :1:4 
+`uc 1 b5 1 0 :1:5 
+`uc 1 b6 1 0 :1:6 
+`uc 1 b7 1 0 :1:7 
+`uc 1 b8 1 1 :1:0 
+`uc 1 b9 1 1 :1:1 
+`uc 1 b10 1 1 :1:2 
+`uc 1 b11 1 1 :1:3 
+`uc 1 b12 1 1 :1:4 
+`uc 1 b13 1 1 :1:5 
+`uc 1 b14 1 1 :1:6 
+`uc 1 b15 1 1 :1:7 
+`uc 1 b16 1 2 :1:0 
+`uc 1 b17 1 2 :1:1 
+`uc 1 b18 1 2 :1:2 
+`uc 1 b19 1 2 :1:3 
+`uc 1 b20 1 2 :1:4 
+`uc 1 b21 1 2 :1:5 
+`uc 1 b22 1 2 :1:6 
+`uc 1 b23 1 2 :1:7 
+`uc 1 b24 1 3 :1:0 
+`uc 1 b25 1 3 :1:1 
+`uc 1 b26 1 3 :1:2 
+`uc 1 b27 1 3 :1:3 
+`uc 1 b28 1 3 :1:4 
+`uc 1 b29 1 3 :1:5 
+`uc 1 b30 1 3 :1:6 
+`uc 1 b31 1 3 :1:7 
+]
+[u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
+[s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
+[v CAN_GenID@message message `*.39S887  1 p 2 5 ]
+[v CAN_GenID@frameID frameID `uc  1 p 1 7 ]
+"460
+} 0
+"311
+[v _CAN_TakeFrame CAN_TakeFrame `(E10433  1 e 1 0 ]
+{
+"313
+[v CAN_TakeFrame@k k `uc  1 a 1 18 ]
+[v CAN_TakeFrame@tempCON tempCON `uc  1 a 1 17 ]
+[s S810 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
+"311
+[s S813 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
+[s S818 . 2 `uc 1 LB 1 0 `uc 1 HB 1 1 ]
+[s S821 . 2 `uc 1 b0 1 0 :1:0 
+`uc 1 b1 1 0 :1:1 
+`uc 1 b2 1 0 :1:2 
+`uc 1 b3 1 0 :1:3 
+`uc 1 b4 1 0 :1:4 
+`uc 1 b5 1 0 :1:5 
+`uc 1 b6 1 0 :1:6 
+`uc 1 b7 1 0 :1:7 
+`uc 1 b8 1 1 :1:0 
+`uc 1 b9 1 1 :1:1 
+`uc 1 b10 1 1 :1:2 
+`uc 1 b11 1 1 :1:3 
+`uc 1 b12 1 1 :1:4 
+`uc 1 b13 1 1 :1:5 
+`uc 1 b14 1 1 :1:6 
+`uc 1 b15 1 1 :1:7 
+]
+[u S838 _WORD_VAL 2 `us 1 Val 2 0 `[2]uc 1 v 2 0 `S818 1 byte 2 0 `S821 1 bits 2 0 ]
+[s S843 . 4 `S838 1 low 2 0 `S838 1 high 2 2 ]
+[s S846 . 4 `uc 1 b0 1 0 :1:0 
+`uc 1 b1 1 0 :1:1 
+`uc 1 b2 1 0 :1:2 
+`uc 1 b3 1 0 :1:3 
+`uc 1 b4 1 0 :1:4 
+`uc 1 b5 1 0 :1:5 
+`uc 1 b6 1 0 :1:6 
+`uc 1 b7 1 0 :1:7 
+`uc 1 b8 1 1 :1:0 
+`uc 1 b9 1 1 :1:1 
+`uc 1 b10 1 1 :1:2 
+`uc 1 b11 1 1 :1:3 
+`uc 1 b12 1 1 :1:4 
+`uc 1 b13 1 1 :1:5 
+`uc 1 b14 1 1 :1:6 
+`uc 1 b15 1 1 :1:7 
+`uc 1 b16 1 2 :1:0 
+`uc 1 b17 1 2 :1:1 
+`uc 1 b18 1 2 :1:2 
+`uc 1 b19 1 2 :1:3 
+`uc 1 b20 1 2 :1:4 
+`uc 1 b21 1 2 :1:5 
+`uc 1 b22 1 2 :1:6 
+`uc 1 b23 1 2 :1:7 
+`uc 1 b24 1 3 :1:0 
+`uc 1 b25 1 3 :1:1 
+`uc 1 b26 1 3 :1:2 
+`uc 1 b27 1 3 :1:3 
+`uc 1 b28 1 3 :1:4 
+`uc 1 b29 1 3 :1:5 
+`uc 1 b30 1 3 :1:6 
+`uc 1 b31 1 3 :1:7 
+]
+[u S879 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S810 1 word 4 0 `S813 1 byte 4 0 `S843 1 wordUnion 4 0 `S846 1 bits 4 0 ]
+[s S887 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S879 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
+[v CAN_TakeFrame@message message `*.39S887  1 p 2 13 ]
+"437
+} 0
+"7 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 11 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 10 ]
+[v ___awdiv@counter counter `uc  1 a 1 9 ]
+"7
+[v ___awdiv@dividend dividend `i  1 p 2 5 ]
+[v ___awdiv@divisor divisor `i  1 p 2 7 ]
+"41
+} 0
+"233 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
+[v _CAN_MoveBuffIntoFrame CAN_MoveBuffIntoFrame `(v  1 s 1 CAN_MoveBuffIntoFrame ]
+{
+"235
+[v CAN_MoveBuffIntoFrame@i i `uc  1 a 1 9 ]
+"233
+[v CAN_MoveBuffIntoFrame@Ram Ram `*.39uc  1 p 2 5 ]
+[v CAN_MoveBuffIntoFrame@Buf Buf `*.39uc  1 p 2 7 ]
+"240
 } 0
 "32 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TMR1.c
 [v _TMR1_Update_flag_Set TMR1_Update_flag_Set `(v  1 e 1 0 ]
@@ -1999,9 +3302,9 @@ TRUE 1
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 {
 "10
-[v ___lwdiv@quotient quotient `ui  1 a 2 9 ]
+[v ___lwdiv@quotient quotient `ui  1 a 2 10 ]
 "11
-[v ___lwdiv@counter counter `uc  1 a 1 11 ]
+[v ___lwdiv@counter counter `uc  1 a 1 9 ]
 "7
 [v ___lwdiv@dividend dividend `ui  1 p 2 5 ]
 [v ___lwdiv@divisor divisor `ui  1 p 2 7 ]
@@ -2025,20 +3328,53 @@ TRUE 1
 [v LED_Left@a a `ui  1 p 2 5 ]
 "181
 } 0
-"52 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
+"54 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
 [v _INI_All INI_All `(v  1 e 1 0 ]
 {
-"73
+"77
+} 0
+"405 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
+[v _ReadDataToEEPROM ReadDataToEEPROM `(v  1 e 1 0 ]
+{
+"451
+} 0
+"79 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+[v _NVMRead NVMRead `(v  1 e 1 0 ]
+{
+[v NVMRead@dest dest `*.39uc  1 p 2 7 ]
+[v NVMRead@addr addr `us  1 p 2 9 ]
+[v NVMRead@count count `us  1 p 2 11 ]
+"87
+} 0
+"45
+[v _ReadfromEEPROM ReadfromEEPROM `(uc  1 s 1 ReadfromEEPROM ]
+{
+[v ReadfromEEPROM@Address Address `us  1 p 2 5 ]
+"53
+} 0
+"26
+[v _NVMInit NVMInit `(E10433  1 e 1 0 ]
+{
+"28
+[v NVMInit@result result `E10433  1 a 1 13 ]
+"37
+} 0
+"11
+[v _NVMalloc NVMalloc `(E10433  1 e 1 0 ]
+{
+[v NVMalloc@size size `us  1 p 2 5 ]
+[v NVMalloc@location location `*.39us  1 p 2 7 ]
+"23
 } 0
 "92 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TMR1.c
 [v _INI_Timer INI_Timer `(uc  1 e 1 0 ]
 {
 "105
 } 0
-"27 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
+"29 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
 [v _INI_OUTPUT INI_OUTPUT `(v  1 s 1 INI_OUTPUT ]
 {
-"42
+"44
 } 0
 "231 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 [v _INI_LED_Start INI_LED_Start `(v  1 e 1 0 ]
@@ -2054,25 +3390,57 @@ TRUE 1
 [v LED_Control@color color `E10644  1 a 1 9 ]
 "458
 } 0
-"74 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
+"78 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
 [v _INI_GlobalInterrupt INI_GlobalInterrupt `(v  1 e 1 0 ]
 {
-"83
+"87
 } 0
-"22 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
+"24 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
 [v _CAN_Setup CAN_Setup `(v  1 e 1 0 ]
 {
-"64
+"67
 } 0
-"81
+"84
 [v _CAN_SetupMask CAN_SetupMask `(v  1 s 1 CAN_SetupMask ]
 {
+<<<<<<< HEAD
 "151
 } 0
 "158
 [v _CAN_SetupClock CAN_SetupClock `(v  1 s 1 CAN_SetupClock ]
 {
 "184
+=======
+"139
+} 0
+"141
+[v _CAN_SetupFilter_Ne CAN_SetupFilter_Ne `(v  1 e 1 0 ]
+{
+"193
+} 0
+"200
+[v _CAN_SetupClock CAN_SetupClock `(v  1 s 1 CAN_SetupClock ]
+{
+"226
+} 0
+"23 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FLASH.c
+[v _FLASH_Write FLASH_Write `(v  1 e 1 0 ]
+{
+"25
+[v FLASH_Write@flashWrBufPtr flashWrBufPtr `*.39ui  1 a 2 15 ]
+"27
+[v FLASH_Write@GIEBitValue GIEBitValue `ui  1 a 2 13 ]
+"23
+[v FLASH_Write@addr addr `l  1 p 4 5 ]
+[v FLASH_Write@val val `ui  1 p 2 9 ]
+"52
+} 0
+"16
+[v _FLASH_Read FLASH_Read `(ui  1 e 2 0 ]
+{
+[v FLASH_Read@addr addr `l  1 p 4 5 ]
+"21
+>>>>>>> test
 } 0
 "16 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\ISR.c
 [v _ISR_low ISR_low `IIL(v  1 e 1 0 ]

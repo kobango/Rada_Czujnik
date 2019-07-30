@@ -9,7 +9,9 @@
 
 static void CAN_SetupClock(void);
 static void CAN_SetupMask(void);
+void CAN_SetupFilter_Ne(void);
 void CAN_Setup(void);
+
 
 /***************************************************************************************/
 /**
@@ -40,7 +42,8 @@ void CAN_Setup(void)
     IPR3 = 0xFF;
     PIR3 = 0x00;
     BIE0 = 0;
-
+    
+    
     // Enter CAN module into Mode 2
     ECANCON = 0x90;
 
@@ -94,15 +97,21 @@ static void CAN_SetupMask(void)
     // Konfiguracja maski 1 - filtrowanie adresów czujniczków
     RXM1SIDH = 0xFF;
     RXM1SIDL = 0xFF; // tylko extended
-    RXM1EIDH = 0;
-    RXM1EIDL = 0;
+    RXM1EIDH = 0xFF;
+    RXM1EIDL = 0xFF;
+    
+    // Konfiguracja maski 0 - filtrowanie adresów czujniczków
+    RXM0SIDH = 0x00;
+    RXM0SIDL = 0x00; // dowolny komunikat
+    //RXM0EIDH = 0;
+    //RXM0EIDL = 0;
 
     // Konfiguracja filtra 0 i 1 - ramki kart czujnikowych
     RXF0SIDH = 0x00;
     RXF0SIDL = 0x01;//0x01;
     RXF0SIDLbits.EXIDEN = 1;
     RXF0EIDH = (BYTE)(DaneCan.adresCAN>>8);
-	RXF0EIDH |= 0x40;
+	//RXF0EIDH |= 0x40;
     RXF0EIDL = (BYTE)DaneCan.adresCAN;
 
     RXF1SIDH = 0x00;
@@ -111,7 +120,28 @@ static void CAN_SetupMask(void)
     RXF1EIDH = 0x7F;//akceptuj broadcasty
     RXF1EIDL = 0xFF;//akceptuj broadcasty
 
+    CAN_SetupFilter_Ne();
+    
+    //przypisz filtr 0 i 1 do RXB0
+    RXFBCON0 = 0b00000000;//0b011;
+    //przypisz filtr 2 do RXB1
+    RXFBCON1 = 0b00010001;//0b100;
+    
+    RXFBCON2 = 0b00010001;
+    
+    RXFBCON3 = 0b00010001;
+    
+    RXFBCON4 = 0b00010001;
+    // Wlacz filtr 
+    RXFCON0 = 0b11111111; // ZAPAMIETAC
+    RXFCON1 = 0b00000011;
+    
+}
+
+void CAN_SetupFilter_Ne(void)
+{
     //Konfiguracja filtra 2 - ramki stanu czujnikow przewodowych i bezprzewodowych
+<<<<<<< HEAD
     RXF2SIDH = 0x00;
     RXF2SIDL = 0x20;//0x20;
     RXF2SIDLbits.EXIDEN = 1;
@@ -148,6 +178,57 @@ static void CAN_SetupMask(void)
     RXFCON0 = 0b00111111;//0x07; // ZAPAMIETAC 
     
 
+=======
+    // Filtr 2 s?siad pierwszy
+    RXF2SIDH = 0;
+    RXF2SIDL = 0x20;
+    RXF2SIDLbits.EXIDEN = 1;
+    RXF2EIDH = (BYTE)(NeightAdress1>>8);
+    RXF2EIDL = (BYTE)(NeightAdress1 & 0xFF);
+    
+    // Filtr 3 s?siad nr.2
+    RXF3SIDH = 0;
+    RXF3SIDL = 0x20;
+    RXF3SIDLbits.EXIDEN = 1;
+    RXF3EIDH = (BYTE)(NeightAdress2>>8);
+    RXF3EIDL = (BYTE)(NeightAdress2 & 0xFF);
+    
+    RXF4SIDH = 0;
+    RXF4SIDL = 0x20;
+    RXF4SIDLbits.EXIDEN = 1;
+    RXF4EIDH = (BYTE)(NeightAdress3>>8);
+    RXF4EIDL = (BYTE)(NeightAdress3 & 0xFF);
+    
+    RXF5SIDH = 0;
+    RXF5SIDL = 0x20;
+    RXF5SIDLbits.EXIDEN = 1;
+    RXF5EIDH = (BYTE)(NeightAdress4>>8);
+    RXF5EIDL = (BYTE)(NeightAdress4 & 0xFF);
+    
+    RXF6SIDH = 0;
+    RXF6SIDL = 0x20;
+    RXF6SIDLbits.EXIDEN = 1;
+    RXF6EIDH = (BYTE)(NeightAdress5>>8);
+    RXF6EIDL = (BYTE)(NeightAdress5 & 0xFF);
+    
+    RXF7SIDH = 0;
+    RXF7SIDL = 0x20;
+    RXF7SIDLbits.EXIDEN = 1;
+    RXF7EIDH = (BYTE)(NeightAdress6>>8);
+    RXF7EIDL = (BYTE)(NeightAdress6 & 0xFF);
+    
+    RXF8SIDH = 0;
+    RXF8SIDL = 0x20;
+    RXF8SIDLbits.EXIDEN = 1;
+    RXF8EIDH = (BYTE)(NeightAdress7>>8);
+    RXF8EIDL = (BYTE)(NeightAdress7 & 0xFF);
+    
+    RXF9SIDH = 0;
+    RXF9SIDL = 0x20;
+    RXF9SIDLbits.EXIDEN = 1;
+    RXF9EIDH = (BYTE)(NeightAdress8>>8);
+    RXF9EIDL = (BYTE)(NeightAdress8 & 0xFF);
+>>>>>>> test
 }
 
 /*******************************************************************
@@ -409,8 +490,13 @@ void CAN_GenID(mID * message, BYTE frameID)
     message->frame_type = CAN_FRAME_EXT;
     message->message_type = CAN_MSG_DATA;
     message->id.w[1] = (WORD)frameID * (WORD)4; //0x004 ; //0x0025;//(WORD)frameID * (WORD)4;
+<<<<<<< HEAD
     message->id.w[0] = DaneCan.adresCAN + 0x012c; //0x012b; //0x8006;//DaneCan.adresCAN; // ID obiektu, domyslnie 0 + warto?c do ustawienia.
     message->id.v[2] |= 0x01; //0x01; //0x01;
+=======
+    message->id.w[0] = DaneCan.adresCAN; //0x012b; //0x8006;//DaneCan.adresCAN; // ID obiektu, domyslnie 0 + warto?c do ustawienia.
+    message->id.v[2] |= 0x00; //0x01; //0x01;
+>>>>>>> test
     message->id.v[1] |= 0x00; //0x00;//0x40;
     message ->id.bits.b16 = 0;
     message ->id.bits.b17 = 0;

@@ -1,7 +1,66 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"31137 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31137: extern volatile unsigned char RCON __attribute__((address(0xFD0)));
-[v _RCON `Vuc ~T0 @X0 0 e@4048 ]
+"11 EEPROM.c
+[; ;EEPROM.c: 11: BOOL NVMalloc(WORD size, WORD *location)
+[c E10433 0 1 .. ]
+[n E10433 _BOOL FALSE TRUE  ]
+"102 ./main.h
+[; ;./main.h: 102:             struct{
+[s S1111 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :8 `uc 1 ]
+[n S1111 . obsluzWeWy error uczenieTla inicjalizacja ramkaTx wykonanoZapisDoFlash pomiarTla ]
+"99
+[; ;./main.h: 99:         {
+[u S1110 `uc 1 `S1111 1 ]
+[n S1110 . flagiU8 . ]
+"97
+[; ;./main.h: 97:     typedef struct{
+[s S1109 `S1110 1 `uc 1 ]
+[n S1109 . Flags timerRamkiTxCANU8 ]
+"28773 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28773: extern volatile unsigned char EEADRH __attribute__((address(0xFAA)));
+[v _EEADRH `Vuc ~T0 @X0 0 e@4010 ]
+"28766
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28766: extern volatile unsigned char EEADR __attribute__((address(0xFA9)));
+[v _EEADR `Vuc ~T0 @X0 0 e@4009 ]
+"28692
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28692:     struct {
+[s S925 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S925 . RD WR WREN WRERR FREE . CFGS EEPGD ]
+"28702
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28702:     struct {
+[s S926 :6 `uc 1 :1 `uc 1 ]
+[n S926 . . EEFS ]
+"28691
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28691: typedef union {
+[u S924 `S925 1 `S926 1 ]
+[n S924 . . . ]
+"28707
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28707: extern volatile EECON1bits_t EECON1bits __attribute__((address(0xFA6)));
+[v _EECON1bits `VS924 ~T0 @X0 0 e@4006 ]
+"28759
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28759: extern volatile unsigned char EEDATA __attribute__((address(0xFA8)));
+[v _EEDATA `Vuc ~T0 @X0 0 e@4008 ]
+"32170
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32170:     struct {
+[s S1082 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1082 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"32180
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32180:     struct {
+[s S1083 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1083 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"32190
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32190:     struct {
+[s S1084 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1084 . . GIEL GIEH ]
+"32169
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32169: typedef union {
+[u S1081 `S1082 1 `S1083 1 `S1084 1 ]
+[n S1081 . . . . ]
+"32196
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32196: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
+[v _INTCONbits `VS1081 ~T0 @X0 0 e@4082 ]
+"28752
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28752: extern volatile unsigned char EECON2 __attribute__((address(0xFA7)));
+[v _EECON2 `Vuc ~T0 @X0 0 e@4007 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 54: __asm("RXF6SIDH equ 0D60h");
 [; <" RXF6SIDH equ 0D60h ;# ">
@@ -1244,217 +1303,308 @@ Version 4.0 HI-TECH Software Intermediate Code
 "32473
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32473: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"28 MOC_Funct.c
-[; ;MOC_Funct.c: 28: UINT MOC_StanWzbudzenia(void)
-[v _MOC_StanWzbudzenia `(ui ~T0 @X0 1 ef ]
-"29
-[; ;MOC_Funct.c: 29: {
+"17 ./FRAME.h
+[; ;./FRAME.h: 17: volatile UINT NeightAdress1;
+[v _NeightAdress1 `Vui ~T0 @X0 1 e ]
+"18
+[; ;./FRAME.h: 18: volatile UINT NeightAdress2;
+[v _NeightAdress2 `Vui ~T0 @X0 1 e ]
+"19
+[; ;./FRAME.h: 19: volatile UINT NeightAdress3;
+[v _NeightAdress3 `Vui ~T0 @X0 1 e ]
+"20
+[; ;./FRAME.h: 20: volatile UINT NeightAdress4;
+[v _NeightAdress4 `Vui ~T0 @X0 1 e ]
+"21
+[; ;./FRAME.h: 21: volatile UINT NeightAdress5;
+[v _NeightAdress5 `Vui ~T0 @X0 1 e ]
+"22
+[; ;./FRAME.h: 22: volatile UINT NeightAdress6;
+[v _NeightAdress6 `Vui ~T0 @X0 1 e ]
+"23
+[; ;./FRAME.h: 23: volatile UINT NeightAdress7;
+[v _NeightAdress7 `Vui ~T0 @X0 1 e ]
+"24
+[; ;./FRAME.h: 24: volatile UINT NeightAdress8;
+[v _NeightAdress8 `Vui ~T0 @X0 1 e ]
+"6 EEPROM.c
+[; ;EEPROM.c: 6: WORD ustawieniaKarty;
+[v _ustawieniaKarty `us ~T0 @X0 1 e ]
+"7
+[; ;EEPROM.c: 7: WORD neighborsAdress;
+[v _neighborsAdress `us ~T0 @X0 1 e ]
+"8
+[; ;EEPROM.c: 8: WORD czujnikiNaMapie;
+[v _czujnikiNaMapie `us ~T0 @X0 1 e ]
+"10
+[; ;EEPROM.c: 10: WORD nextEEPosition;
+[v _nextEEPosition `us ~T0 @X0 1 e ]
+"11
+[; ;EEPROM.c: 11: BOOL NVMalloc(WORD size, WORD *location)
+[v _NVMalloc `(E10433 ~T0 @X0 1 ef2`us`*us ]
+"12
+[; ;EEPROM.c: 12: {
 {
-[e :U _MOC_StanWzbudzenia ]
+[e :U _NVMalloc ]
+"11
+[; ;EEPROM.c: 11: BOOL NVMalloc(WORD size, WORD *location)
+[v _size `us ~T0 @X0 1 r1 ]
+[v _location `*us ~T0 @X0 1 r2 ]
+"12
+[; ;EEPROM.c: 12: {
 [f ]
-"30
-[; ;MOC_Funct.c: 30:     return 1;
-[e ) -> -> 1 `i `ui ]
-[e $UE 1113  ]
-"31
-[; ;MOC_Funct.c: 31: }
-[e :UE 1113 ]
-}
-"33
-[; ;MOC_Funct.c: 33: UINT MOC_Wynikowa_wartosc_roznicowa(void)
-[v _MOC_Wynikowa_wartosc_roznicowa `(ui ~T0 @X0 1 ef ]
-"34
-[; ;MOC_Funct.c: 34: {
+"15
+[; ;EEPROM.c: 15:     if ((nextEEPosition + (WORD)size) > (WORD)0x400)
+[e $ ! > + -> _nextEEPosition `ui -> _size `ui -> -> -> 1024 `i `us `ui 1117  ]
+"16
+[; ;EEPROM.c: 16:     {
 {
-[e :U _MOC_Wynikowa_wartosc_roznicowa ]
-[f ]
-"35
-[; ;MOC_Funct.c: 35:     return 0x0220;
-[e ) -> -> 544 `i `ui ]
-[e $UE 1114  ]
-"36
-[; ;MOC_Funct.c: 36: }
-[e :UE 1114 ]
-}
-"38
-[; ;MOC_Funct.c: 38: UINT MOC_Frame_Counter(void)
-[v _MOC_Frame_Counter `(ui ~T0 @X0 1 ef ]
-"39
-[; ;MOC_Funct.c: 39: {
-{
-[e :U _MOC_Frame_Counter ]
-[f ]
-"40
-[; ;MOC_Funct.c: 40:     static UINT zeta = 0x11;
-[v F10772 `ui ~T0 @X0 1 s zeta ]
-[i F10772
--> -> 17 `i `ui
-]
-"41
-[; ;MOC_Funct.c: 41:     return zeta++;
-[e ) ++ F10772 -> -> 1 `i `ui ]
-[e $UE 1115  ]
-"42
-[; ;MOC_Funct.c: 42: }
-[e :UE 1115 ]
-}
-"43
-[; ;MOC_Funct.c: 43: UINT MOC_Aktualna_Temperatura(void)
-[v _MOC_Aktualna_Temperatura `(ui ~T0 @X0 1 ef ]
-"44
-[; ;MOC_Funct.c: 44: {
-{
-[e :U _MOC_Aktualna_Temperatura ]
-[f ]
-"45
-[; ;MOC_Funct.c: 45:     return 0x1B;
-[e ) -> -> 27 `i `ui ]
+"17
+[; ;EEPROM.c: 17:         return FALSE;
+[e ) . `E10433 0 ]
 [e $UE 1116  ]
-"46
-[; ;MOC_Funct.c: 46: }
+"18
+[; ;EEPROM.c: 18:     }
+}
+[e :U 1117 ]
+"20
+[; ;EEPROM.c: 20:     *location = nextEEPosition;
+[e = *U _location _nextEEPosition ]
+"21
+[; ;EEPROM.c: 21:     nextEEPosition += size;
+[e =+ _nextEEPosition -> _size `us ]
+"22
+[; ;EEPROM.c: 22:     return TRUE;
+[e ) . `E10433 1 ]
+[e $UE 1116  ]
+"23
+[; ;EEPROM.c: 23: }
 [e :UE 1116 ]
 }
-"47
-[; ;MOC_Funct.c: 47: UINT MOC_NOTWORK(void)
-[v _MOC_NOTWORK `(ui ~T0 @X0 1 ef ]
-"48
-[; ;MOC_Funct.c: 48: {
+"26
+[; ;EEPROM.c: 26: BOOL NVMInit(void)
+[v _NVMInit `(E10433 ~T0 @X0 1 ef ]
+"27
+[; ;EEPROM.c: 27: {
 {
-[e :U _MOC_NOTWORK ]
+[e :U _NVMInit ]
 [f ]
-"49
-[; ;MOC_Funct.c: 49:     return 0xFF;
-[e ) -> -> 255 `i `ui ]
-[e $UE 1117  ]
-"50
-[; ;MOC_Funct.c: 50: }
-[e :UE 1117 ]
-}
-"51
-[; ;MOC_Funct.c: 51: UINT MOC_RSSI_ramki(void)
-[v _MOC_RSSI_ramki `(ui ~T0 @X0 1 ef ]
-"52
-[; ;MOC_Funct.c: 52: {
-{
-[e :U _MOC_RSSI_ramki ]
-[f ]
-"53
-[; ;MOC_Funct.c: 53:     return 0xEE;
-[e ) -> -> 238 `i `ui ]
+"28
+[; ;EEPROM.c: 28:     BOOL result = TRUE;
+[v _result `E10433 ~T0 @X0 1 a ]
+[e = _result . `E10433 1 ]
+"29
+[; ;EEPROM.c: 29:     UINT NeightAdress_Example = 0xFFFF;
+[v _NeightAdress_Example `ui ~T0 @X0 1 a ]
+[e = _NeightAdress_Example -> 65535 `ui ]
+"30
+[; ;EEPROM.c: 30:     nextEEPosition = 0;
+[e = _nextEEPosition -> -> 0 `i `us ]
+"32
+[; ;EEPROM.c: 32:     result &= NVMalloc(sizeof(KartaStruct), &ustawieniaKarty);
+[e =& _result -> ( _NVMalloc (2 , -> -> # `S1109 `ui `us &U _ustawieniaKarty `E10433 ]
+"33
+[; ;EEPROM.c: 33:     result &= NVMalloc(8*sizeof(NeightAdress_Example), &neighborsAdress);
+[e =& _result -> ( _NVMalloc (2 , -> * -> -> 8 `i `ui -> # _NeightAdress_Example `ui `us &U _neighborsAdress `E10433 ]
+"36
+[; ;EEPROM.c: 36:     return result;
+[e ) _result ]
 [e $UE 1118  ]
-"54
-[; ;MOC_Funct.c: 54: }
+"37
+[; ;EEPROM.c: 37: }
 [e :UE 1118 ]
 }
-"56
-[; ;MOC_Funct.c: 56: UINT MOC_LQI_ramki(void)
-[v _MOC_LQI_ramki `(ui ~T0 @X0 1 ef ]
-"57
-[; ;MOC_Funct.c: 57: {
+"45
+[; ;EEPROM.c: 45: static BYTE ReadfromEEPROM(WORD Address)
+[v _ReadfromEEPROM `(uc ~T0 @X0 1 sf1`us ]
+"46
+[; ;EEPROM.c: 46: {
 {
-[e :U _MOC_LQI_ramki ]
+[e :U _ReadfromEEPROM ]
+"45
+[; ;EEPROM.c: 45: static BYTE ReadfromEEPROM(WORD Address)
+[v _Address `us ~T0 @X0 1 r1 ]
+"46
+[; ;EEPROM.c: 46: {
 [f ]
-"58
-[; ;MOC_Funct.c: 58:     return 0xE1;
-[e ) -> -> 225 `i `ui ]
+"47
+[; ;EEPROM.c: 47:     EEADRH = (BYTE)(Address>>8);
+[e = _EEADRH -> >> -> _Address `ui -> 8 `i `uc ]
+"48
+[; ;EEPROM.c: 48:     EEADR = (BYTE)Address;
+[e = _EEADR -> _Address `uc ]
+"49
+[; ;EEPROM.c: 49:     EECON1bits.RD = 1;
+[e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
+"50
+[; ;EEPROM.c: 50:     EECON1bits.EEPGD = 0;
+[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
+"51
+[; ;EEPROM.c: 51:     EECON1bits.CFGS = 0;
+[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
+"52
+[; ;EEPROM.c: 52:     return EEDATA;
+[e ) _EEDATA ]
 [e $UE 1119  ]
-"59
-[; ;MOC_Funct.c: 59: }
+"53
+[; ;EEPROM.c: 53: }
 [e :UE 1119 ]
 }
-"63
-[; ;MOC_Funct.c: 63: UINT MOCK_PrzyspieszenieX(void)
-[v _MOCK_PrzyspieszenieX `(ui ~T0 @X0 1 ef ]
-"64
-[; ;MOC_Funct.c: 64: {
+"61
+[; ;EEPROM.c: 61: static void WritetoEEPROM(WORD Address, BYTE Data)
+[v _WritetoEEPROM `(v ~T0 @X0 1 sf2`us`uc ]
+"62
+[; ;EEPROM.c: 62: {
 {
-[e :U _MOCK_PrzyspieszenieX ]
+[e :U _WritetoEEPROM ]
+"61
+[; ;EEPROM.c: 61: static void WritetoEEPROM(WORD Address, BYTE Data)
+[v _Address `us ~T0 @X0 1 r1 ]
+[v _Data `uc ~T0 @X0 1 r2 ]
+"62
+[; ;EEPROM.c: 62: {
 [f ]
+"63
+[; ;EEPROM.c: 63:     static BYTE GIE_Status;
+[v F10787 `uc ~T0 @X0 1 s GIE_Status ]
 "65
-[; ;MOC_Funct.c: 65:     return 0xFE;
-[e ) -> -> 254 `i `ui ]
-[e $UE 1120  ]
+[; ;EEPROM.c: 65:     EEADRH = (BYTE)(Address>>8);
+[e = _EEADRH -> >> -> _Address `ui -> 8 `i `uc ]
 "66
-[; ;MOC_Funct.c: 66: }
+[; ;EEPROM.c: 66:     EEADR = (BYTE)Address;
+[e = _EEADR -> _Address `uc ]
+"67
+[; ;EEPROM.c: 67:     EEDATA = Data;
+[e = _EEDATA _Data ]
+"68
+[; ;EEPROM.c: 68:     EECON1bits.WREN = 1;
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+"69
+[; ;EEPROM.c: 69:     GIE_Status = INTCONbits.GIE;
+[e = F10787 . . _INTCONbits 1 7 ]
+"70
+[; ;EEPROM.c: 70:     INTCONbits.GIE = 0;
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+"71
+[; ;EEPROM.c: 71:     EECON2 = 0x55;
+[e = _EECON2 -> -> 85 `i `uc ]
+"72
+[; ;EEPROM.c: 72:     EECON2 = 0xAA;
+[e = _EECON2 -> -> 170 `i `uc ]
+"73
+[; ;EEPROM.c: 73:     EECON1bits.WR = 1;
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
+"74
+[; ;EEPROM.c: 74:     INTCONbits.GIE = GIE_Status;
+[e = . . _INTCONbits 1 7 F10787 ]
+"75
+[; ;EEPROM.c: 75:     EECON1bits.WREN = 0;
+[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
+"76
+[; ;EEPROM.c: 76:     while (EECON1bits.WR);
+[e $U 1121  ]
+[e :U 1122 ]
+[e :U 1121 ]
+[e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 1122  ]
+[e :U 1123 ]
+"77
+[; ;EEPROM.c: 77: }
 [e :UE 1120 ]
 }
-"68
-[; ;MOC_Funct.c: 68: UINT MOCK_PrzyspieszenieY(void)
-[v _MOCK_PrzyspieszenieY `(ui ~T0 @X0 1 ef ]
-"69
-[; ;MOC_Funct.c: 69: {
-{
-[e :U _MOCK_PrzyspieszenieY ]
-[f ]
-"70
-[; ;MOC_Funct.c: 70:     return 0xFE;
-[e ) -> -> 254 `i `ui ]
-[e $UE 1121  ]
-"71
-[; ;MOC_Funct.c: 71: }
-[e :UE 1121 ]
-}
-"72
-[; ;MOC_Funct.c: 72: UINT MOCK_PrzyspieszenieZ(void)
-[v _MOCK_PrzyspieszenieZ `(ui ~T0 @X0 1 ef ]
-"73
-[; ;MOC_Funct.c: 73: {
-{
-[e :U _MOCK_PrzyspieszenieZ ]
-[f ]
-"74
-[; ;MOC_Funct.c: 74:     return 0xFE;
-[e ) -> -> 254 `i `ui ]
-[e $UE 1122  ]
-"75
-[; ;MOC_Funct.c: 75: }
-[e :UE 1122 ]
-}
-"76
-[; ;MOC_Funct.c: 76: UINT MOCK_Klikniecie_Spadek(void)
-[v _MOCK_Klikniecie_Spadek `(ui ~T0 @X0 1 ef ]
-"77
-[; ;MOC_Funct.c: 77: {
-{
-[e :U _MOCK_Klikniecie_Spadek ]
-[f ]
-"78
-[; ;MOC_Funct.c: 78:     return 0b00000000;
-[e ) -> -> 0 `i `ui ]
-[e $UE 1123  ]
 "79
-[; ;MOC_Funct.c: 79: }
-[e :UE 1123 ]
-}
-"81
-[; ;MOC_Funct.c: 81: UINT MOCK_SoftwareReset(void)
-[v _MOCK_SoftwareReset `(ui ~T0 @X0 1 ef ]
-"82
-[; ;MOC_Funct.c: 82: {
+[; ;EEPROM.c: 79: void NVMRead(BYTE *dest, WORD addr, WORD count)
+[v _NVMRead `(v ~T0 @X0 1 ef3`*uc`us`us ]
+"80
+[; ;EEPROM.c: 80: {
 {
-[e :U _MOCK_SoftwareReset ]
+[e :U _NVMRead ]
+"79
+[; ;EEPROM.c: 79: void NVMRead(BYTE *dest, WORD addr, WORD count)
+[v _dest `*uc ~T0 @X0 1 r1 ]
+[v _addr `us ~T0 @X0 1 r2 ]
+[v _count `us ~T0 @X0 1 r3 ]
+"80
+[; ;EEPROM.c: 80: {
 [f ]
+"81
+[; ;EEPROM.c: 81:     while( count > 0 )
+[e $U 1125  ]
+[e :U 1126 ]
+"82
+[; ;EEPROM.c: 82:     {
+{
 "83
-[; ;MOC_Funct.c: 83:     return (RCON>>6) & 0x01;
-[e ) -> & >> -> _RCON `i -> 6 `i -> 1 `i `ui ]
-[e $UE 1124  ]
+[; ;EEPROM.c: 83:         while(EECON1bits.WR);
+[e $U 1128  ]
+[e :U 1129 ]
+[e :U 1128 ]
+[e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 1129  ]
+[e :U 1130 ]
 "84
-[; ;MOC_Funct.c: 84: }
+[; ;EEPROM.c: 84:         *dest++ = ReadfromEEPROM(addr++);
+[e = *U ++ _dest * -> -> 1 `i `x -> -> # *U _dest `i `x ( _ReadfromEEPROM (1 ++ _addr -> -> 1 `i `us ]
+"85
+[; ;EEPROM.c: 85:         count--;
+[e -- _count -> -> 1 `i `us ]
+"86
+[; ;EEPROM.c: 86:     }
+}
+[e :U 1125 ]
+"81
+[; ;EEPROM.c: 81:     while( count > 0 )
+[e $ > -> _count `ui -> -> 0 `i `ui 1126  ]
+[e :U 1127 ]
+"87
+[; ;EEPROM.c: 87: }
 [e :UE 1124 ]
 }
-"85
-[; ;MOC_Funct.c: 85: UINT MOCK_Background(void)
-[v _MOCK_Background `(ui ~T0 @X0 1 ef ]
-"86
-[; ;MOC_Funct.c: 86: {
+"90
+[; ;EEPROM.c: 90: void NVMWrite(BYTE *source, WORD addr, WORD count)
+[v _NVMWrite `(v ~T0 @X0 1 ef3`*uc`us`us ]
+"91
+[; ;EEPROM.c: 91: {
 {
-[e :U _MOCK_Background ]
+[e :U _NVMWrite ]
+"90
+[; ;EEPROM.c: 90: void NVMWrite(BYTE *source, WORD addr, WORD count)
+[v _source `*uc ~T0 @X0 1 r1 ]
+[v _addr `us ~T0 @X0 1 r2 ]
+[v _count `us ~T0 @X0 1 r3 ]
+"91
+[; ;EEPROM.c: 91: {
 [f ]
-"87
-[; ;MOC_Funct.c: 87:     return 8;
-[e ) -> -> 8 `i `ui ]
-[e $UE 1125  ]
-"88
-[; ;MOC_Funct.c: 88: }
-[e :UE 1125 ]
+"92
+[; ;EEPROM.c: 92:     while(count > 0)
+[e $U 1132  ]
+[e :U 1133 ]
+"93
+[; ;EEPROM.c: 93:     {
+{
+"94
+[; ;EEPROM.c: 94:         while(EECON1bits.WR);
+[e $U 1135  ]
+[e :U 1136 ]
+[e :U 1135 ]
+[e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 1136  ]
+[e :U 1137 ]
+"95
+[; ;EEPROM.c: 95:         WritetoEEPROM(addr++,*source);
+[e ( _WritetoEEPROM (2 , ++ _addr -> -> 1 `i `us *U _source ]
+"96
+[; ;EEPROM.c: 96:         count--;
+[e -- _count -> -> 1 `i `us ]
+"97
+[; ;EEPROM.c: 97:         source++;
+[e ++ _source * -> -> 1 `i `x -> -> # *U _source `i `x ]
+"98
+[; ;EEPROM.c: 98:     }
+}
+[e :U 1132 ]
+"92
+[; ;EEPROM.c: 92:     while(count > 0)
+[e $ > -> _count `ui -> -> 0 `i `ui 1133  ]
+[e :U 1134 ]
+"99
+[; ;EEPROM.c: 99: }
+[e :UE 1131 ]
 }

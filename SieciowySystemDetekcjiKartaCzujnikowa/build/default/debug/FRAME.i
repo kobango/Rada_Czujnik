@@ -263,6 +263,7 @@ typedef union _QWORD_VAL
     BOOL CAN_TakeFrame(mID * message);
     void CAN_SendFrame(mID * message);
     void CAN_GenID(mID * message,BYTE frameID);
+    void CAN_SetupFilter_Ne(void);
 # 2 "FRAME.c" 2
 # 1 "./main.h" 1
 
@@ -18197,7 +18198,7 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
     extern wartosciSasiadaStruct wartosciSasiada[8];
 # 7 "./main.h" 2
-# 45 "./main.h"
+# 53 "./main.h"
     struct PozycjaNaMapceStruct
     {
         WORD xU16 ;
@@ -18214,6 +18215,8 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
             WORD timerRysowaniaWykresuU16 ;
             sasiadStruct sasiedzi[8];
             WORD rokU16, miesiacU16, dzienU16, godzinaU16, minutaU16;
+            WORD NrKarty;
+            WORD Nr_WeWy;
         };
 
     struct FlagStruct{
@@ -18290,6 +18293,17 @@ BYTE LOCK_Get(void);
 # 12 "./FRAME.h"
 extern mID ramkaCanRxCzujnika[5];
 void FRAME_HandleCanFrame(mID * message);
+void ReadDataToEEPROM(void);
+void WriteDataToEEPROM(void);
+
+volatile UINT NeightAdress1;
+volatile UINT NeightAdress2;
+volatile UINT NeightAdress3;
+volatile UINT NeightAdress4;
+volatile UINT NeightAdress5;
+volatile UINT NeightAdress6;
+volatile UINT NeightAdress7;
+volatile UINT NeightAdress8;
 # 5 "FRAME.c" 2
 # 1 "./MOC_Funct.h" 1
 
@@ -18339,6 +18353,17 @@ UINT MOCK_SoftwareReset(void);
 
     void TRM_DataTransmition(void);
 # 7 "FRAME.c" 2
+# 1 "./EEPROM.h" 1
+# 14 "./EEPROM.h"
+    BOOL NVMInit(void);
+    void NVMRead(BYTE *dest, WORD addr, WORD count);
+    void NVMWrite(BYTE *source, WORD addr, WORD count);
+    void UstawFlagi(void);
+
+    extern WORD ustawieniaKarty;
+    extern WORD nazwyPrzyciskow;
+    extern WORD czujnikiNaMapie;
+# 8 "FRAME.c" 2
 
 typedef short Word16;
 typedef unsigned short UWord16;
@@ -18357,16 +18382,24 @@ typedef union tuReg32 {
 } uReg32;
 
 mID ramkaCanRxKarty[5], ramkaCanTxKarty;
-static BYTE IsInNeighbors(UINT message_adress);
+UINT IsInNeighbors(UINT message_adress);
+void ReadDataToEEPROM(void);
+void WriteDataToEEPROM(void);
 
-
-
-
-
-
-
+volatile UINT Init_Data = 0xFFFF;
+volatile UINT NeightAdress1 = 0;
+volatile UINT NeightAdress2 = 298;
+volatile UINT NeightAdress3 = 0;
+volatile UINT NeightAdress4 = 0;
+volatile UINT NeightAdress5 = 0;
+volatile UINT NeightAdress6 = 0;
+volatile UINT NeightAdress7 = 0;
+volatile UINT NeightAdress8 = 0;
+# 48 "FRAME.c"
 static void FRAME_SensorExcitationStatus(mID *message)
 {
+
+    static UINT statwect = 0b00000000;
     if(message->message_type == 0x02)
     {
         message->data_length = 6;
@@ -18381,31 +18414,77 @@ static void FRAME_SensorExcitationStatus(mID *message)
         message->data[3] = MOC_Frame_Counter();
         message->data[4] = MOC_Aktualna_Temperatura();
         message->data[5] = MOC_NOTWORK();
-# 58 "FRAME.c"
+# 75 "FRAME.c"
     }
     else
     {
+<<<<<<< HEAD
         int theta = message->id.Val;
         if(IsInNeighbors(theta))
+=======
+
+        UINT tru = IsInNeighbors(message->id.w[0]);
+
+
+        if(message->data[0]==0)
         {
-        LOCK_Set(message->data[0]);
+
+            statwect = statwect &( ~tru );
+        }
+        else
+>>>>>>> test
+        {
+            statwect = statwect| tru;
+        }
+
+        if(statwect>0)
+        {
+        LOCK_Set(1);
+        }
+        else
+        {
+        LOCK_Set(0);
         }
     }
 }
 
-static BYTE IsInNeighbors(UINT message_adress)
+UINT IsInNeighbors(UINT message_adress)
 {
     WORD i;
 
-    for(i=0; i<4; i++)
-        {
-            if(message_adress == Dane->sasiedzi[i+(4*0x10)].adres )
-            {
-                return 1;
-            }
-
-
-        }
+    if(NeightAdress1==message_adress)
+    {
+        return 0b1;
+    }
+    if(NeightAdress2==message_adress)
+    {
+        return 0b10;
+    }
+    if(NeightAdress3==message_adress)
+    {
+        return 0b100;
+    }
+    if(NeightAdress4==message_adress)
+    {
+        return 0b1000;
+    }
+    if(NeightAdress5==message_adress)
+    {
+        return 0b10000;
+    }
+    if(NeightAdress6==message_adress)
+    {
+        return 0b100000;
+    }
+    if(NeightAdress7==message_adress)
+    {
+        return 0b1000000;
+    }
+    if(NeightAdress8==message_adress)
+    {
+        return 0b10000000;
+    }
+# 153 "FRAME.c"
     return 0;
 }
 
@@ -18508,7 +18587,11 @@ static void FRAME_AveragingTimes(mID *message)
     }
     else
     {
+<<<<<<< HEAD
 # 218 "FRAME.c"
+=======
+# 289 "FRAME.c"
+>>>>>>> test
     }
 }
 
@@ -18525,7 +18608,11 @@ static void FRAME_AxisStatus(mID *message)
     if(message->message_type == 0x02)
     {
         message->data_length = 1;
+<<<<<<< HEAD
 # 244 "FRAME.c"
+=======
+# 315 "FRAME.c"
+>>>>>>> test
         message->data[0] = 0xFF;
     }
     else
@@ -18543,10 +18630,10 @@ static void FRAME_AxisStatus(mID *message)
 static void FRAME_DataUpdateAndChangeOption(mID *message)
 {
 
-
-
-
-
+    Dane->rokU16 = message->data[4];
+    Dane->miesiacU16 = message->data[5];
+    Dane->dzienU16 = message->data[6];
+    Dane->godzinaU16 = message->data[7];
 
 }
 
@@ -18572,14 +18659,106 @@ static void FRAME_DeviceReset(mID *message)
         message->data[7] = Dane->godzinaU16;
         RCON &= ~(1<<6);
         Flagi.wykonanoZapisDoFlash = 0;
+<<<<<<< HEAD
 # 303 "FRAME.c"
+=======
+# 374 "FRAME.c"
+>>>>>>> test
     }
     else
     {
         message->data_length = 1;
+<<<<<<< HEAD
 # 328 "FRAME.c"
+=======
+
+        if(message->data[2])
+        {
+            Flagi.pomiarTla = 1;
+            if(message->data[1])
+            {
+                Flagi.zapisDoFlash = 1;
+                WriteDataToEEPROM();
+            }
+        }
+        else
+        {
+            if(message->data[1])
+            {
+                FRAME_DataUpdateAndChangeOption(message);
+                WriteDataToEEPROM();
+
+            }
+            if(message->data[0])
+            {
+                __asm(" reset");
+            }
+        }
+>>>>>>> test
         message->data[0] = 0xFF;
     }
+}
+
+void ReadDataToEEPROM(void)
+{
+
+    NVMRead(&Init_Data,10,2);
+    NVMRead(&NeightAdress1,15,2);
+    if(NeightAdress1==0xFFFF)
+    {
+        NeightAdress1=0x0000;
+    }
+    NVMRead(&NeightAdress2,20,2);
+    if(NeightAdress2==0xFFFF)
+    {
+        NeightAdress2=0x0000;
+    }
+    NVMRead(&NeightAdress3,30,2);
+    if(NeightAdress3==0xFFFF)
+    {
+        NeightAdress3=0x0000;
+    }
+    NVMRead(&NeightAdress4,40,2);
+    if(NeightAdress4==0xFFFF)
+    {
+        NeightAdress4=0x0000;
+    }
+    NVMRead(&NeightAdress5,50,2);
+    if(NeightAdress5==0xFFFF)
+    {
+        NeightAdress5=0x0000;
+    }
+    NVMRead(&NeightAdress6,60,2);
+    if(NeightAdress6==0xFFFF)
+    {
+        NeightAdress6=0x0000;
+    }
+    NVMRead(&NeightAdress7,70,2);
+    if(NeightAdress7==0xFFFF)
+    {
+        NeightAdress7=0x0000;
+    }
+    NVMRead(&NeightAdress8,80,2);
+    if(NeightAdress8==0xFFFF)
+    {
+        NeightAdress8=0x0000;
+    }
+
+
+}
+
+void WriteDataToEEPROM(void)
+{
+    NVMWrite(&Init_Data,10,2);
+    NVMWrite(&NeightAdress1,15,2);
+    NVMWrite(&NeightAdress2,20,2);
+    NVMWrite(&NeightAdress3,30,2);
+    NVMWrite(&NeightAdress4,40,2);
+    NVMWrite(&NeightAdress5,50,2);
+    NVMWrite(&NeightAdress6,60,2);
+    NVMWrite(&NeightAdress7,70,2);
+    NVMWrite(&NeightAdress8,80,2);
+
 }
 
 
@@ -18611,7 +18790,11 @@ static void FRAME_Plot(mID *message)
 
 static void FRAME_MapPosition(mID *message)
 {
+<<<<<<< HEAD
 # 376 "FRAME.c"
+=======
+# 511 "FRAME.c"
+>>>>>>> test
 }
 
 
@@ -18646,7 +18829,11 @@ static void FRAME_SoftwareVersion(mID *message)
 static void FRAME_AnalogValue(mID *message, WORD set)
 {
     WORD i;
+<<<<<<< HEAD
 # 425 "FRAME.c"
+=======
+# 560 "FRAME.c"
+>>>>>>> test
 }
 
 
@@ -18659,12 +18846,16 @@ static void FRAME_PrzypisanieDokarty(mID *message)
 {
     if(message->message_type == 0x02)
     {
-        message->data_length = 1;
-        message->data[0] = 0xFF;
+        message->data_length = 3;
+        message->data[0] = (unsigned char)Dane->NrKarty >> 8 ;
+        message->data[1] = (unsigned char)Dane->NrKarty ;
+        message->data[2] = (unsigned char)Dane->Nr_WeWy ;
+
     }
     else
     {
-
+         Dane->NrKarty = (message->data[0] << 8) | (message->data[1]);
+         Dane->Nr_WeWy = (message->data[2]);
     }
 }
 
@@ -18675,28 +18866,59 @@ static void FRAME_PrzypisanieDokarty(mID *message)
 
 static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
 {
-    WORD i;
+    WORD it;
 
 
-
+    WORD kier = (nrRamki-0x10);
     if(message->message_type == 0x02)
     {
 
         message->data_length = 8;
-        for(i=0; i<4; i++)
+
+        if(kier == 0)
         {
-            message->data[2*i] = (BYTE)(Dane->sasiedzi[i+(4*nrRamki)].adres >> 8);
-            message->data[(2*i)+1] = (BYTE)Dane->sasiedzi[i+(4*nrRamki)].adres;
+        message->data[0] = (NeightAdress1>> 8);
+        message->data[1] = NeightAdress1 & 0b11111111;
+        message->data[2] = (NeightAdress2>> 8);
+        message->data[3] = NeightAdress2 & 0b11111111;
+        message->data[4] = (NeightAdress3>> 8);
+        message->data[5] = NeightAdress3 & 0b11111111;
+        message->data[6] = (NeightAdress4>> 8);
+        message->data[7] = NeightAdress4 & 0b11111111;
         }
+        else
+        {
+        message->data[0] = (NeightAdress5>> 8);
+        message->data[1] = NeightAdress5 & 0b11111111;
+        message->data[2] = (NeightAdress6>> 8);
+        message->data[3] = NeightAdress6 & 0b11111111;
+        message->data[4] = (NeightAdress7>> 8);
+        message->data[5] = NeightAdress7 & 0b11111111;
+        message->data[6] = (NeightAdress8>> 8);
+        message->data[7] = NeightAdress8 & 0b11111111;
+        }
+
+
 
     }
     else
     {
+<<<<<<< HEAD
         for(i=0; i<4; i++)
-        {
-            Dane->sasiedzi[i+(4*nrRamki)].adres = ((WORD)message->data[2*i] << 8) |
-                    (WORD)message->data[(2*i)+1];
+=======
 
+
+        if(kier == 0)
+>>>>>>> test
+        {
+         NeightAdress1 = (message->data[0] << 8)| message->data[1];
+         NeightAdress2 = (message->data[2] << 8)| message->data[3];
+         NeightAdress3 = (message->data[4] << 8)| message->data[5];
+         NeightAdress4 = (message->data[6] << 8)| message->data[7];
+         CAN_SetupFilter_Ne();
+
+
+<<<<<<< HEAD
 
             Dane->sasiedzi[i+(4*nrRamki)].pointerNaSasiada = &wartosciSasiada[i+(4*nrRamki)];
             if(Dane->sasiedzi[i+(4*nrRamki)].adres==16){
@@ -18707,8 +18929,19 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
                 }
 
             }
+=======
+>>>>>>> test
         }
+        else
+        {
+         NeightAdress5 = (message->data[0] << 8)| message->data[1];
+         NeightAdress6 = (message->data[2] << 8)| message->data[3];
+         NeightAdress7 = (message->data[4] << 8)| message->data[5];
+         NeightAdress8 = (message->data[6] << 8)| message->data[7];
+         CAN_SetupFilter_Ne();
 
+        }
+# 677 "FRAME.c"
     }
 }
 
@@ -18721,6 +18954,12 @@ void FRAME_HandleCanFrame(mID * message)
 {
     BYTE identyfikator = (BYTE) message->id.v[2]/4;
 
+
+    if(identyfikator != 0x01)
+    {
+        WORD ident = identyfikator;
+        int alfa = ident;
+    }
 
     switch(identyfikator)
     {
@@ -18741,6 +18980,7 @@ void FRAME_HandleCanFrame(mID * message)
             break;
         case 0x06:
             FRAME_AxisStatus(message);
+<<<<<<< HEAD
             break;
         case 0x07:
             FRAME_DeviceReset(message);
@@ -18771,7 +19011,41 @@ void FRAME_HandleCanFrame(mID * message)
         default:
           FRAME_SensorExcitationStatus(message);
 
+=======
+>>>>>>> test
             break;
+        case 0x07:
+            FRAME_DeviceReset(message);
+            break;
+        case 0x09:
+            FRAME_Plot(message);
+            break;
+        case 0x0A:
+            FRAME_MapPosition(message);
+            break;
+        case 0x0B:
+            FRAME_SoftwareVersion(message);
+            break;
+        case 0x0C:
+        case 0x0D:
+            FRAME_AnalogValue(message, identyfikator - 0x0C);
+            break;
+        case 0x0F:
+            FRAME_PrzypisanieDokarty(message);
+            break;
+        case 0x10:
+            FRAME_AdressOfNeighbors(message,0x10);
+            break;
+        case 0x11:
+            FRAME_AdressOfNeighbors(message,0x11);
+            break;
+
+
+
+
+
+
+
     }
     if(message->message_type == 0x02)
     {
@@ -18783,7 +19057,11 @@ void FRAME_HandleCanFrame(mID * message)
         message->id.v[2] = identyfikator*4;
         CAN_GenID(message,identyfikator);
         CAN_SendFrame(message);
+<<<<<<< HEAD
 # 571 "FRAME.c"
+=======
+# 769 "FRAME.c"
+>>>>>>> test
        while(RXB0CONbits.FILHIT3)
        {
            if(TXB0CONbits.TXERR == 1){

@@ -1,18 +1,18 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"92 ./main.h
-[; ;./main.h: 92:             struct{
+"102 ./main.h
+[; ;./main.h: 102:             struct{
 [s S1111 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :8 `uc 1 ]
 [n S1111 . obsluzWeWy error uczenieTla inicjalizacja ramkaTx wykonanoZapisDoFlash pomiarTla ]
-"89
-[; ;./main.h: 89:         {
+"99
+[; ;./main.h: 99:         {
 [u S1110 `uc 1 `S1111 1 ]
 [n S1110 . flagiU8 . ]
-"87
-[; ;./main.h: 87:     typedef struct{
+"97
+[; ;./main.h: 97:     typedef struct{
 [s S1109 `S1110 1 `uc 1 ]
 [n S1109 . Flags timerRamkiTxCANU8 ]
-"46
-[; ;./main.h: 46:     {
+"54
+[; ;./main.h: 54:     {
 [s S1105 `us 1 `us 1 ]
 [n S1105 PozycjaNaMapceStruct xU16 yU16 ]
 "15 ./DetekcjaSasiadow.h
@@ -27,19 +27,40 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./DetekcjaSasiadow.h: 27:     typedef struct{
 [s S1104 `us 1 `*S1103 1 ]
 [n S1104 . adres pointerNaSasiada ]
-"52 ./main.h
-[; ;./main.h: 52:         {
-[s S1106 `us 1 `us 1 `us 1 `S1105 1 `us 1 `us 1 `S1104 -> 8 `i `us 1 `us 1 `us 1 `us 1 `us 1 ]
-[n S1106 DaneStruct numerSeryjnyU16 startupU16 wersjaOprogramowaniaU16 PozycjaNaMapce wersjaSprzetuU16 timerRysowaniaWykresuU16 sasiedzi rokU16 miesiacU16 dzienU16 godzinaU16 minutaU16 ]
-"73
-[; ;./main.h: 73:         struct CANStruct{
+"60 ./main.h
+[; ;./main.h: 60:         {
+[s S1106 `us 1 `us 1 `us 1 `S1105 1 `us 1 `us 1 `S1104 -> 8 `i `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 `us 1 ]
+[n S1106 DaneStruct numerSeryjnyU16 startupU16 wersjaOprogramowaniaU16 PozycjaNaMapce wersjaSprzetuU16 timerRysowaniaWykresuU16 sasiedzi rokU16 miesiacU16 dzienU16 godzinaU16 minutaU16 NrKarty Nr_WeWy ]
+"83
+[; ;./main.h: 83:         struct CANStruct{
 [s S1108 :1 `uc 1 :1 `uc 1 :1 `uc 1 `us 1 ]
 [n S1108 CANStruct wyslijRamkeDanych odebranoDane CanAktywny identyfikatorU16 ]
-"63
-[; ;./main.h: 63:     struct FlagStruct{
+"73
+[; ;./main.h: 73:     struct FlagStruct{
 [s S1107 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 `S1108 1 `uc 1 ]
 [n S1107 FlagStruct pomiarTla detekcja zgloszenie zapisDoFlash wykonanoZapisDoFlash pomiarAccelerometer wykonanoReset aktualizacjaSasiadow CAN frameCounterU8 ]
 [p mainexit ]
+"12 ./FLASH.h
+[; ;./FLASH.h: 12: UINT FLASH_Read(long int addr);
+[v _FLASH_Read `(ui ~T0 @X0 0 ef1`l ]
+"13
+[; ;./FLASH.h: 13: void FLASH_Write(long int addr,UINT val);
+[v _FLASH_Write `(v ~T0 @X0 0 ef2`l`ui ]
+"18 ./TRM.h
+[; ;./TRM.h: 18:             {
+[s S1114 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1114 . wyslijRamkeStanu wyslijRamkeUczeniaTla wyslijRamkeResetuCzujnikow ]
+"14
+[; ;./TRM.h: 14:         {
+[u S1113 `us 1 `S1114 1 ]
+[n S1113 . FlagiU16 . ]
+"12
+[; ;./TRM.h: 12:     {
+[s S1112 `S1113 1 `us 1 ]
+[n S1112 . Flags adresCAN ]
+"30
+[; ;./TRM.h: 30:     extern DaneCanStruct DaneCan;
+[v _DaneCan `S1112 ~T0 @X0 0 e ]
 "37 ./INI.h
 [; ;./INI.h: 37: void INI_All(void);
 [v _INI_All `(v ~T0 @X0 0 ef ]
@@ -1300,142 +1321,164 @@ Version 4.0 HI-TECH Software Intermediate Code
 "32473
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32473: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"18 main.c
+"20 main.c
 [p x OSC = IRCIO67 ]
-"19
+"21
 [p x FCMEN = OFF ]
-"20
+"22
 [p x IESO = OFF ]
-"23
-[p x PWRT = OFF ]
-"24
-[p x BOREN = BOHW ]
 "25
+[p x PWRT = OFF ]
+"26
+[p x BOREN = BOHW ]
+"27
 [p x BORV = 3 ]
-"28
+"30
 [p x WDT = OFF ]
-"29
+"31
 [p x WDTPS = 32768 ]
-"32
-[p x PBADEN = ON ]
-"33
-[p x LPT1OSC = OFF ]
 "34
+[p x PBADEN = ON ]
+"35
+[p x LPT1OSC = OFF ]
+"36
 [p x MCLRE = ON ]
-"37
-[p x STVREN = ON ]
-"38
-[p x LVP = OFF ]
 "39
-[p x BBSIZ = 1024 ]
+[p x STVREN = ON ]
 "40
+[p x LVP = OFF ]
+"41
+[p x BBSIZ = 1024 ]
+"42
 [p x XINST = OFF ]
-"43
-[p x CP0 = OFF ]
-"44
-[p x CP1 = OFF ]
 "45
-[p x CP2 = OFF ]
+[p x CP0 = OFF ]
 "46
+[p x CP1 = OFF ]
+"47
+[p x CP2 = OFF ]
+"48
 [p x CP3 = OFF ]
-"49
+"51
 [p x CPB = OFF ]
-"50
+"52
 [p x CPD = OFF ]
-"53
-[p x WRT0 = OFF ]
-"54
-[p x WRT1 = OFF ]
 "55
-[p x WRT2 = OFF ]
+[p x WRT0 = OFF ]
 "56
+[p x WRT1 = OFF ]
+"57
+[p x WRT2 = OFF ]
+"58
 [p x WRT3 = OFF ]
-"59
-[p x WRTC = OFF ]
-"60
-[p x WRTB = OFF ]
 "61
+[p x WRTC = OFF ]
+"62
+[p x WRTB = OFF ]
+"63
 [p x WRTD = OFF ]
-"64
-[p x EBTR0 = OFF ]
-"65
-[p x EBTR1 = OFF ]
 "66
-[p x EBTR2 = OFF ]
+[p x EBTR0 = OFF ]
 "67
+[p x EBTR1 = OFF ]
+"68
+[p x EBTR2 = OFF ]
+"69
 [p x EBTR3 = OFF ]
-"70
+"72
 [p x EBTRB = OFF ]
-"78
-[v _DetectorLedRadar `S1109 ~T0 @X0 1 e ]
 "80
+[v _DetectorLedRadar `S1109 ~T0 @X0 1 e ]
+"82
 [v _Dane `*S1106 ~T0 @X0 1 e ]
-"81
+"83
 [v _Flagi `S1107 ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"94
-[; ;main.c: 94: void main(void)
+"100
+[; ;main.c: 100: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"95
-[; ;main.c: 95: {
+"101
+[; ;main.c: 101: {
 {
 [e :U _main ]
 [f ]
-"96
-[; ;main.c: 96:     INI_All();
-[e ( _INI_All ..  ]
-"98
-[; ;main.c: 98:     RCON = 0xFF;
-[e = _RCON -> -> 255 `i `uc ]
-"100
-[; ;main.c: 100:     for(;;)
-{
-[e :U 1118 ]
-"101
-[; ;main.c: 101:     {
-{
-"102
-[; ;main.c: 102:         if(DetectorLedRadar.Flags.obsluzWeWy == 1)
-[e $ ! == -> . . . _DetectorLedRadar 0 1 0 `i -> 1 `i 1121  ]
 "103
-[; ;main.c: 103:         {
-{
+[; ;main.c: 103:     int adr = FLASH_Read(0x200000);
+[v _adr `i ~T0 @X0 1 a ]
+[e = _adr -> ( _FLASH_Read (1 -> 2097152 `l `i ]
 "104
-[; ;main.c: 104:             DetectorLedRadar.Flags.obsluzWeWy = 0;
-[e = . . . _DetectorLedRadar 0 1 0 -> -> 0 `i `uc ]
-"106
-[; ;main.c: 106:         }
-}
-[e :U 1121 ]
+[; ;main.c: 104:      adr |= FLASH_Read(0x200001)<<8;
+[e =| _adr -> << ( _FLASH_Read (1 -> 2097153 `l -> 8 `i `i ]
 "108
-[; ;main.c: 108:         if(TMR1_Update_flag_Get()==1)
-[e $ ! == ( _TMR1_Update_flag_Get ..  -> -> 1 `i `ui 1122  ]
+[; ;main.c: 108:      FLASH_Write(0x200000,0x76);
+[e ( _FLASH_Write (2 , -> 2097152 `l -> -> 118 `i `ui ]
 "109
-[; ;main.c: 109:         {
-{
-"110
-[; ;main.c: 110:             LED_Update();
-[e ( _LED_Update ..  ]
+[; ;main.c: 109:      FLASH_Write(0x200001,0x00);
+[e ( _FLASH_Write (2 , -> 2097153 `l -> -> 0 `i `ui ]
 "111
-[; ;main.c: 111:             TMR1_Update_flag_Set(0);
-[e ( _TMR1_Update_flag_Set (1 -> -> 0 `i `ui ]
-"113
-[; ;main.c: 113:         }
-}
-[e :U 1122 ]
+[; ;main.c: 111:      adr = FLASH_Read(0x200000);
+[e = _adr -> ( _FLASH_Read (1 -> 2097152 `l `i ]
+"112
+[; ;main.c: 112:      adr |= FLASH_Read(0x200001)<<8;
+[e =| _adr -> << ( _FLASH_Read (1 -> 2097153 `l -> 8 `i `i ]
+"114
+[; ;main.c: 114:     DaneCan.adresCAN = adr;
+[e = . _DaneCan 1 -> _adr `us ]
 "115
-[; ;main.c: 115:         TRM_DataTransmition();
-[e ( _TRM_DataTransmition ..  ]
-"116
-[; ;main.c: 116:         __asm(" clrwdt");
-[; <"  clrwdt ;# ">
+[; ;main.c: 115:     INI_All();
+[e ( _INI_All ..  ]
 "117
-[; ;main.c: 117:     }
+[; ;main.c: 117:     RCON = 0xFF;
+[e = _RCON -> -> 255 `i `uc ]
+"119
+[; ;main.c: 119:     for(;;)
+{
+[e :U 1116 ]
+"120
+[; ;main.c: 120:     {
+{
+"121
+[; ;main.c: 121:         if(DetectorLedRadar.Flags.obsluzWeWy == 1)
+[e $ ! == -> . . . _DetectorLedRadar 0 1 0 `i -> 1 `i 1119  ]
+"122
+[; ;main.c: 122:         {
+{
+"123
+[; ;main.c: 123:             DetectorLedRadar.Flags.obsluzWeWy = 0;
+[e = . . . _DetectorLedRadar 0 1 0 -> -> 0 `i `uc ]
+"125
+[; ;main.c: 125:         }
 }
-[e $U 1118  ]
 [e :U 1119 ]
+"127
+[; ;main.c: 127:         if(TMR1_Update_flag_Get()==1)
+[e $ ! == ( _TMR1_Update_flag_Get ..  -> -> 1 `i `ui 1120  ]
+"128
+[; ;main.c: 128:         {
+{
+"129
+[; ;main.c: 129:             LED_Update();
+[e ( _LED_Update ..  ]
+"130
+[; ;main.c: 130:             TMR1_Update_flag_Set(0);
+[e ( _TMR1_Update_flag_Set (1 -> -> 0 `i `ui ]
+"132
+[; ;main.c: 132:         }
 }
-"118
-[; ;main.c: 118: }
-[e :UE 1117 ]
+[e :U 1120 ]
+"135
+[; ;main.c: 135:         TRM_DataTransmition();
+[e ( _TRM_DataTransmition ..  ]
+"136
+[; ;main.c: 136:         __asm(" clrwdt");
+[; <"  clrwdt ;# ">
+"137
+[; ;main.c: 137:     }
+}
+[e $U 1116  ]
+[e :U 1117 ]
+}
+"138
+[; ;main.c: 138: }
+[e :UE 1115 ]
 }

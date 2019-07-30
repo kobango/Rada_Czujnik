@@ -5,4 +5,6 @@ GenericTypeDefs.h  \
 DetekcjaSasiadow.h  \
 CAN.h  \
 LED.h  \
-TMR1.h 
+TMR1.h  \
+EEPROM.h  \
+FRAME.h 

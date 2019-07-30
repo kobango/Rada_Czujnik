@@ -4,6 +4,7 @@
 #include "FRAME.h"
 #include "MOC_Funct.h"
 #include "TRM.h"
+#include "EEPROM.h"
 
 typedef short          Word16;
 typedef unsigned short UWord16;
@@ -22,7 +23,21 @@ typedef union tuReg32 {
 } uReg32;
 
 mID ramkaCanRxKarty[RX_BUF_SIZE], ramkaCanTxKarty;
-static BYTE IsInNeighbors(UINT message_adress);
+UINT IsInNeighbors(UINT message_adress);
+void ReadDataToEEPROM(void);
+void WriteDataToEEPROM(void);
+
+volatile UINT Init_Data = 0xFFFF;
+volatile UINT NeightAdress1 = 0;
+volatile UINT NeightAdress2 = 298;
+volatile UINT NeightAdress3 = 0;
+volatile UINT NeightAdress4 = 0;
+volatile UINT NeightAdress5 = 0;
+volatile UINT NeightAdress6 = 0;
+volatile UINT NeightAdress7 = 0;
+volatile UINT NeightAdress8 = 0;
+
+
 
 /*******************************************************************
 Funkcja: void StatusWzbudzeniaCzujnika(mID *message);
@@ -32,6 +47,8 @@ Autor: Pawel Kasperek
 *****************************************************************/
 static void FRAME_SensorExcitationStatus(mID *message) // id = 0x01
 {
+    
+    static UINT statwect = 0b00000000;
     if(message->message_type == CAN_MSG_RTR)
     {
         message->data_length = 6;
@@ -58,27 +75,86 @@ static void FRAME_SensorExcitationStatus(mID *message) // id = 0x01
     }
     else
     {
+<<<<<<< HEAD
         int theta = message->id.w[0];
         if(IsInNeighbors(theta))
+=======
+        
+        UINT tru = IsInNeighbors(message->id.w[0]);
+       
+        
+        if(message->data[0]==0)
         {
-        LOCK_Set(message->data[0]);
+          
+            statwect = statwect &( ~tru );
+        }
+        else
+        {
+            statwect = statwect| tru;
+        }
+        
+        if(statwect>0)
+>>>>>>> test
+        {
+        LOCK_Set(1);
+        }
+        else
+        {
+        LOCK_Set(0);   
         }
     }
 }
 
-static BYTE IsInNeighbors(UINT message_adress)
+UINT IsInNeighbors(UINT message_adress)
 {
     WORD i;
+       
+    if(NeightAdress1==message_adress)
+    {
+        return 0b1;
+    }
+    if(NeightAdress2==message_adress)
+    {
+        return 0b10;
+    }
+    if(NeightAdress3==message_adress)
+    {
+        return 0b100;
+    }
+    if(NeightAdress4==message_adress)
+    {
+        return 0b1000;
+    }
+    if(NeightAdress5==message_adress)
+    {
+        return 0b10000;
+    }
+    if(NeightAdress6==message_adress)
+    {
+        return 0b100000;
+    }
+    if(NeightAdress7==message_adress)
+    {
+        return 0b1000000;
+    }
+    if(NeightAdress8==message_adress)
+    {
+        return 0b10000000;
+    }
+    
     //0x10
-    for(i=0; i<4; i++)
+    /*
+    for(i=0; i<8; i++)
         {
-            if(message_adress == Dane->sasiedzi[i+(4*0x10)].adres )
+            if(message_adress == NeightAdress[i] )
             {
                 return 1;
+                
             }
             //zapisz adres struktury
             
         } 
+    */
     return 0;
 }
 
@@ -257,12 +333,12 @@ Autor: Pawel Kasperek
 *****************************************************************/
 static void FRAME_DataUpdateAndChangeOption(mID *message)
 {
-    /*
+    
     Dane->rokU16 = message->data[4];
     Dane->miesiacU16 = message->data[5];
     Dane->dzienU16 = message->data[6];
     Dane->godzinaU16 = message->data[7];
-     */
+    
 }
 
 /*******************************************************************
@@ -304,29 +380,93 @@ static void FRAME_DeviceReset(mID *message) //0x07
     else
     {
         message->data_length = 1;
-        /*
+        
         if(message->data[2])
         {
             Flagi.pomiarTla = 1;
             if(message->data[1])
             {
                 Flagi.zapisDoFlash = 1;
+                WriteDataToEEPROM();
             }
         }
         else
         {
             if(message->data[1])
             {
-                ZaktualizujDateZmianyUstawien(message);
-                ZapisZmiennychDoFLASH();
+                FRAME_DataUpdateAndChangeOption(message);
+                WriteDataToEEPROM();
+                //ZapisZmiennychDoFLASH();
             }
             if(message->data[0])
             {
                 Reset();
             }
-        }*/
+        }
         message->data[0] = 0xFF;
     }
+}
+
+void ReadDataToEEPROM(void)
+{
+    
+    NVMRead(&Init_Data,10,2);
+    NVMRead(&NeightAdress1,15,2);
+    if(NeightAdress1==0xFFFF) // Void value in EEPROM is 0xFF
+    {
+        NeightAdress1=0x0000;
+    }
+    NVMRead(&NeightAdress2,20,2);
+    if(NeightAdress2==0xFFFF)
+    {
+        NeightAdress2=0x0000;
+    }
+    NVMRead(&NeightAdress3,30,2);
+    if(NeightAdress3==0xFFFF)
+    {
+        NeightAdress3=0x0000;
+    }
+    NVMRead(&NeightAdress4,40,2);
+    if(NeightAdress4==0xFFFF)
+    {
+        NeightAdress4=0x0000;
+    }
+    NVMRead(&NeightAdress5,50,2);
+    if(NeightAdress5==0xFFFF)
+    {
+        NeightAdress5=0x0000;
+    }
+    NVMRead(&NeightAdress6,60,2);
+    if(NeightAdress6==0xFFFF)
+    {
+        NeightAdress6=0x0000;
+    }
+    NVMRead(&NeightAdress7,70,2);
+    if(NeightAdress7==0xFFFF)
+    {
+        NeightAdress7=0x0000;
+    }
+    NVMRead(&NeightAdress8,80,2);
+    if(NeightAdress8==0xFFFF)
+    {
+        NeightAdress8=0x0000;
+    }
+    
+    
+}
+
+void WriteDataToEEPROM(void)
+{
+    NVMWrite(&Init_Data,10,2);
+    NVMWrite(&NeightAdress1,15,2);  
+    NVMWrite(&NeightAdress2,20,2);
+    NVMWrite(&NeightAdress3,30,2);
+    NVMWrite(&NeightAdress4,40,2);
+    NVMWrite(&NeightAdress5,50,2);
+    NVMWrite(&NeightAdress6,60,2);
+    NVMWrite(&NeightAdress7,70,2);
+    NVMWrite(&NeightAdress8,80,2);
+    
 }
 
 /*******************************************************************
@@ -434,12 +574,16 @@ static void FRAME_PrzypisanieDokarty(mID *message) // 0x0F
 {
     if(message->message_type == CAN_MSG_RTR)
     {
-        message->data_length = 1;
-        message->data[0] = 0xFF;
+        message->data_length = 3;
+        message->data[0] = (unsigned char)Dane->NrKarty >> 8 ;
+        message->data[1] = (unsigned char)Dane->NrKarty ;
+        message->data[2] = (unsigned char)Dane->Nr_WeWy ;
+        
     }
     else
     {
-           // NONE
+         Dane->NrKarty = (message->data[0] << 8) | (message->data[1]);
+         Dane->Nr_WeWy = (message->data[2]);
     }
 }
 /*******************************************************************
@@ -450,29 +594,75 @@ Autor: Pawel Kasperek
 *****************************************************************/
 static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)  //0x10
 {
-    WORD i;
+    WORD it;
     
     
-    
+    WORD kier = (nrRamki-0x10);
     if(message->message_type == CAN_MSG_RTR)
     {
         
         message->data_length = 8;
-        for(i=0; i<4; i++)
+        
+        if(kier == 0)
         {
-            message->data[2*i] = (BYTE)(Dane->sasiedzi[i+(4*nrRamki)].adres >> 8);
-            message->data[(2*i)+1] = (BYTE)Dane->sasiedzi[i+(4*nrRamki)].adres;
+        message->data[0] = (NeightAdress1>> 8);
+        message->data[1] = NeightAdress1 & 0b11111111;
+        message->data[2] = (NeightAdress2>> 8);
+        message->data[3] = NeightAdress2 & 0b11111111;
+        message->data[4] = (NeightAdress3>> 8);
+        message->data[5] = NeightAdress3 & 0b11111111;
+        message->data[6] = (NeightAdress4>> 8);
+        message->data[7] = NeightAdress4 & 0b11111111;
         }
+        else
+        {
+        message->data[0] = (NeightAdress5>> 8);
+        message->data[1] = NeightAdress5 & 0b11111111;
+        message->data[2] = (NeightAdress6>> 8);
+        message->data[3] = NeightAdress6 & 0b11111111;
+        message->data[4] = (NeightAdress7>> 8);
+        message->data[5] = NeightAdress7 & 0b11111111;
+        message->data[6] = (NeightAdress8>> 8);
+        message->data[7] = NeightAdress8 & 0b11111111;    
+        }
+        
+       
         
     }
     else
     {
+<<<<<<< HEAD
+=======
+        
+         
+        if(kier == 0)
+        {
+         NeightAdress1 = (message->data[0] << 8)| message->data[1];
+         NeightAdress2 = (message->data[2] << 8)| message->data[3];
+         NeightAdress3 = (message->data[4] << 8)| message->data[5];
+         NeightAdress4 = (message->data[6] << 8)| message->data[7];
+         CAN_SetupFilter_Ne();
+         
+              
+        }
+        else
+        {
+         NeightAdress5 = (message->data[0] << 8)| message->data[1];
+         NeightAdress6 = (message->data[2] << 8)| message->data[3];
+         NeightAdress7 = (message->data[4] << 8)| message->data[5];
+         NeightAdress8 = (message->data[6] << 8)| message->data[7];
+         CAN_SetupFilter_Ne();
+         
+        }
+         /*
+>>>>>>> test
         for(i=0; i<4; i++)
         {
-            Dane->sasiedzi[i+(4*nrRamki)].adres =  ((WORD)message->data[2*i] << 8) |
+            NeightAdress[i+(4*kier)] =  ((WORD)message->data[2*i]) |
                     (WORD)message->data[(2*i)+1];
            
             //zapisz adres struktury
+<<<<<<< HEAD
             Dane->sasiedzi[i+(4*nrRamki)].pointerNaSasiada = &wartosciSasiada[i+(4*nrRamki)];
             if(Dane->sasiedzi[i+(4*nrRamki)].adres==16){
                 WORD k;
@@ -484,6 +674,29 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)  //0x10
             }
         } 
               
+=======
+            
+        } 
+          * */
+         /*
+         for(iterator_alfa=0; iterator_alfa<4;iterator_alfa++)
+         {
+             if(iterator_alfa>3)
+             {
+                 
+             }
+             else
+             {
+                 NeightAdress[(iterator_alfa+(4*kier))] =  (message->data[2*iterator_alfa] << 8)| message->data[((2*iterator_alfa)+1)];
+         
+             }
+             
+         }
+          * */
+         
+         
+                 
+>>>>>>> test
     } 
 }
 
@@ -496,6 +709,12 @@ void FRAME_HandleCanFrame(mID * message)
 {
     BYTE identyfikator = (BYTE) message->id.v[2]/4;
    
+    
+    if(identyfikator != 0x01)
+    {
+        WORD ident = identyfikator;
+        int alfa = ident;
+    }
     
     switch(identyfikator)
     {
@@ -537,16 +756,22 @@ void FRAME_HandleCanFrame(mID * message)
             FRAME_PrzypisanieDokarty(message);
             break;
         case 0x10:
-            FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
+            FRAME_AdressOfNeighbors(message,0x10);
             break;
         case 0x11:
-            FRAME_AdressOfNeighbors(message, identyfikator - 0x10);
+            FRAME_AdressOfNeighbors(message,0x11);
             break;
+<<<<<<< HEAD
        
+=======
+         
+            /*
+>>>>>>> test
         default:
           FRAME_SensorExcitationStatus(message);
 
             break;
+             * */
     }
     if(message->message_type == CAN_MSG_RTR)
     {

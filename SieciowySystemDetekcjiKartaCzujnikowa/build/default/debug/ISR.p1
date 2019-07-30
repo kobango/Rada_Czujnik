@@ -10,20 +10,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "11
 [; ;./TMR1.h: 11: void TMR1_Update_flag_Set(UINT a);
 [v _TMR1_Update_flag_Set `(v ~T0 @X0 0 ef1`ui ]
-"92 ./main.h
-[; ;./main.h: 92:             struct{
+"102 ./main.h
+[; ;./main.h: 102:             struct{
 [s S1111 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :8 `uc 1 ]
 [n S1111 . obsluzWeWy error uczenieTla inicjalizacja ramkaTx wykonanoZapisDoFlash pomiarTla ]
-"89
-[; ;./main.h: 89:         {
+"99
+[; ;./main.h: 99:         {
 [u S1110 `uc 1 `S1111 1 ]
 [n S1110 . flagiU8 . ]
-"87
-[; ;./main.h: 87:     typedef struct{
+"97
+[; ;./main.h: 97:     typedef struct{
 [s S1109 `S1110 1 `uc 1 ]
 [n S1109 . Flags timerRamkiTxCANU8 ]
-"109
-[; ;./main.h: 109:     extern KartaStruct DetectorLedRadar;
+"119
+[; ;./main.h: 119:     extern KartaStruct DetectorLedRadar;
 [v _DetectorLedRadar `S1109 ~T0 @X0 0 e ]
 "18 ./TRM.h
 [; ;./TRM.h: 18:             {
@@ -1303,8 +1303,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _TMR1_Timer_reset ..  ]
 "26
 [; ;ISR.c: 26:             static BYTE ramkaStanuU8=0;
-[v F10738 `uc ~T0 @X0 1 s ramkaStanuU8 ]
-[i F10738
+[v F10740 `uc ~T0 @X0 1 s ramkaStanuU8 ]
+[i F10740
 -> -> 0 `i `uc
 ]
 "29
@@ -1315,13 +1315,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . . _DetectorLedRadar 0 1 0 -> -> 1 `i `uc ]
 "33
 [; ;ISR.c: 33:             if(++ramkaStanuU8 > (2*10))
-[e $ ! > -> =+ F10738 -> -> 1 `i `uc `i * -> 2 `i -> 10 `i 1117  ]
+[e $ ! > -> =+ F10740 -> -> 1 `i `uc `i * -> 2 `i -> 10 `i 1117  ]
 "34
 [; ;ISR.c: 34:                 {
 {
 "35
 [; ;ISR.c: 35:                     ramkaStanuU8 = 0;
-[e = F10738 -> -> 0 `i `uc ]
+[e = F10740 -> -> 0 `i `uc ]
 "36
 [; ;ISR.c: 36:                     DaneCan.Flags.wyslijRamkeStanu = 1;
 [e = . . . _DaneCan 0 1 0 -> -> 1 `i `uc ]

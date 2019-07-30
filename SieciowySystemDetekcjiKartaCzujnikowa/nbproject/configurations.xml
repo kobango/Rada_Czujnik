@@ -6,7 +6,6 @@
                    projectFiles="true">
       <itemPath>main.h</itemPath>
       <itemPath>CAN.h</itemPath>
-      <itemPath>EEPROM.h</itemPath>
       <itemPath>Compiler.h</itemPath>
       <itemPath>GenericTypeDefs.h</itemPath>
       <itemPath>LED.h</itemPath>
@@ -17,6 +16,8 @@
       <itemPath>TRM.h</itemPath>
       <itemPath>MOC_Funct.h</itemPath>
       <itemPath>DetekcjaSasiadow.h</itemPath>
+      <itemPath>EEPROM.h</itemPath>
+      <itemPath>FLASH.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -28,7 +29,6 @@
                    projectFiles="true">
       <itemPath>main.c</itemPath>
       <itemPath>CAN.c</itemPath>
-      <itemPath>EEPROM.c</itemPath>
       <itemPath>c018i.c</itemPath>
       <itemPath>LED.c</itemPath>
       <itemPath>TMR1.c</itemPath>
@@ -38,6 +38,8 @@
       <itemPath>TRM.c</itemPath>
       <itemPath>MOC_Funct.c</itemPath>
       <itemPath>DetekcjaSasiadow.c</itemPath>
+      <itemPath>EEPROM.c</itemPath>
+      <itemPath>FLASH.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -88,22 +90,6 @@
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
-      <item path="EEPROM.c" ex="true" overriding="false">
-        <HI-TECH-COMP>
-        </HI-TECH-COMP>
-        <HI-TECH-LINK>
-        </HI-TECH-LINK>
-        <XC8-config-global>
-        </XC8-config-global>
-      </item>
-      <item path="EEPROM.h" ex="true" overriding="false">
-        <HI-TECH-COMP>
-        </HI-TECH-COMP>
-        <HI-TECH-LINK>
-        </HI-TECH-LINK>
-        <XC8-config-global>
-        </XC8-config-global>
-      </item>
       <HI-TECH-COMP>
         <property key="additional-warnings" value="true"/>
         <property key="asmlist" value="true"/>

@@ -12,6 +12,14 @@
 
     #define FCY (32000000/4)  //14745600
 
+/*
+    #define	USERID_READ(addr) (	\
+    EEADRH = 0, EEADR = addr,	\
+    EECON1 |= 0x40,	\
+    RD = 1,	NOP(), NOP(),	\
+    (WORD)EEDATA)   
+ * */
+
     #define ResetDevice()  {_asm goto 0xC00 _endasm}
 //mm	#define Nop() {__asm__ volatile ("nop");}
 //mm	#define ClrWdt() {__asm__ volatile ("clrwdt");}
@@ -58,6 +66,8 @@
             WORD timerRysowaniaWykresuU16 ;
             sasiadStruct sasiedzi[MAX_SASIADOW];
             WORD rokU16, miesiacU16, dzienU16, godzinaU16, minutaU16;
+            WORD NrKarty;
+            WORD Nr_WeWy;
         };	
         
     struct FlagStruct{
