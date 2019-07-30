@@ -4,15 +4,20 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/hp/source/repos/Rada_Czujnik/SieciowySystemDetekcjiKartaCzujnikowa/main.h</file>
-            <file>file:/C:/Users/hp/source/repos/Rada_Czujnik/SieciowySystemDetekcjiKartaCzujnikowa/LED.c</file>
+            <file>file:/C:/Users/hp/source/repos/Rada_Czujnik/SieciowySystemDetekcjiKartaCzujnikowa/FLASH.c</file>
             <file>file:/C:/Users/hp/source/repos/Rada_Czujnik/SieciowySystemDetekcjiKartaCzujnikowa/TRM.c</file>
             <file>file:/C:/Users/hp/source/repos/Rada_Czujnik/SieciowySystemDetekcjiKartaCzujnikowa/main.c</file>
             <file>file:/C:/Users/hp/source/repos/Rada_Czujnik/SieciowySystemDetekcjiKartaCzujnikowa/EEPROM.c</file>
             <file>file:/C:/Users/hp/source/repos/Rada_Czujnik/SieciowySystemDetekcjiKartaCzujnikowa/CAN.h</file>
             <file>file:/C:/Users/hp/source/repos/Rada_Czujnik/SieciowySystemDetekcjiKartaCzujnikowa/FRAME.c</file>
-            <file>file:/C:/Users/hp/source/repos/Rada_Czujnik/SieciowySystemDetekcjiKartaCzujnikowa/CAN.c</file>
             <file>file:/C:/Users/hp/source/repos/Rada_Czujnik/SieciowySystemDetekcjiKartaCzujnikowa/INI.c</file>
             <file>file:/C:/Users/hp/source/repos/Rada_Czujnik/SieciowySystemDetekcjiKartaCzujnikowa/FRAME.h</file>
+            <file>file:/C:/Users/hp/source/repos/Rada_Czujnik/SieciowySystemDetekcjiKartaCzujnikowa/LED.c</file>
+            <file>file:/C:/Users/hp/source/repos/Rada_Czujnik/SieciowySystemDetekcjiKartaCzujnikowa/TMR1.c</file>
+            <file>file:/C:/Users/hp/source/repos/Rada_Czujnik/SieciowySystemDetekcjiKartaCzujnikowa/FLASH.h</file>
+            <file>file:/C:/Users/hp/source/repos/Rada_Czujnik/SieciowySystemDetekcjiKartaCzujnikowa/CAN.c</file>
+            <file>file:/C:/Users/hp/source/repos/Rada_Czujnik/SieciowySystemDetekcjiKartaCzujnikowa/LED.h</file>
+            <file>file:/C:/Users/hp/source/repos/Rada_Czujnik/SieciowySystemDetekcjiKartaCzujnikowa/EEPROM.h</file>
         </group>
     </open-files>
 </project-private>
