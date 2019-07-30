@@ -27,6 +27,7 @@ UINT IsInNeighbors(UINT message_adress);
 void ReadDataToEEPROM(void);
 void WriteDataToEEPROM(void);
 
+volatile UINT Init_Data = 0xFFFF;
 volatile UINT NeightAdress1 = 0;
 volatile UINT NeightAdress2 = 298;
 volatile UINT NeightAdress3 = 0;
@@ -403,7 +404,9 @@ static void FRAME_DeviceReset(mID *message) //0x07
 
 void ReadDataToEEPROM(void)
 {
-    NVMRead(&NeightAdress1,10,2);
+    
+    NVMRead(&Init_Data,10,2);
+    NVMRead(&NeightAdress1,15,2);
     if(NeightAdress1==0xFFFF) // Void value in EEPROM is 0xFF
     {
         NeightAdress1=0x0000;
@@ -449,15 +452,15 @@ void ReadDataToEEPROM(void)
 
 void WriteDataToEEPROM(void)
 {
-    
-    NVMWrite(&NeightAdress1,10,8);  
-    NVMWrite(&NeightAdress2,20,8);
-    NVMWrite(&NeightAdress3,30,8);
-    NVMWrite(&NeightAdress4,40,8);
-    NVMWrite(&NeightAdress5,50,8);
-    NVMWrite(&NeightAdress6,60,8);
-    NVMWrite(&NeightAdress7,70,8);
-    NVMWrite(&NeightAdress8,80,8);
+    NVMWrite(&Init_Data,10,2);
+    NVMWrite(&NeightAdress1,15,2);  
+    NVMWrite(&NeightAdress2,20,2);
+    NVMWrite(&NeightAdress3,30,2);
+    NVMWrite(&NeightAdress4,40,2);
+    NVMWrite(&NeightAdress5,50,2);
+    NVMWrite(&NeightAdress6,60,2);
+    NVMWrite(&NeightAdress7,70,2);
+    NVMWrite(&NeightAdress8,80,2);
     
 }
 

@@ -132,8 +132,9 @@ static void CAN_SetupMask(void)
     RXFBCON3 = 0b00010001;
     
     RXFBCON4 = 0b00010001;
-    // Wlacz filtr 0, 1 i 2 
-    RXFCON0 = 0b01111111; // ZAPAMIETAC
+    // Wlacz filtr 
+    RXFCON0 = 0b11111111; // ZAPAMIETAC
+    RXFCON1 = 0b00000011;
     
 }
 

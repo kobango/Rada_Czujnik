@@ -18427,7 +18427,8 @@ static void CAN_SetupMask(void)
 
     RXFBCON4 = 0b00010001;
 
-    RXFCON0 = 0b01111111;
+    RXFCON0 = 0b11111111;
+    RXFCON1 = 0b00000011;
 
 }
 
@@ -18728,7 +18729,7 @@ BOOL CAN_TakeFrame(mID * message)
         return FALSE;
     }
 }
-# 445 "CAN.c"
+# 446 "CAN.c"
 void CAN_GenID(mID * message, BYTE frameID)
 {
 
