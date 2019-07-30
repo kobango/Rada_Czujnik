@@ -13,12 +13,36 @@
 UINT FLASH_Read(long int addr);
 void FLASH_Write(long int addr,UINT val);
 
+/***************************************************************************************/
+/**
+* @author Kamil Szkaradnik
+* @date 30/07/2019
+*
+* @return Data from FLASH on given adress
+* @param addr Addres of data in FLASH memory
+*
+* @section Description
+* Use to Get data out from Flash.
+*****************************************************************************************/
+
 UINT FLASH_Read(long int addr)
 {
     TBLPTR = addr;
     asm("TBLRD;");
     return TABLAT;
 }
+
+/***************************************************************************************/
+/**
+* @author Kamil Szkaradnik
+* @date 30/07/2019
+*
+* @param addr Addres of data in FLASH memory
+* @param val Data to save on FLASH on given adress
+*
+* @section Description
+* Uses to Write data on Flash.
+*****************************************************************************************/
 
 void FLASH_Write(long int addr,UINT val)
 {

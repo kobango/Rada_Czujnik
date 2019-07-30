@@ -39,12 +39,19 @@ volatile UINT NeightAdress8 = 0;
 
 
 
-/*******************************************************************
-Funkcja: void StatusWzbudzeniaCzujnika(mID *message);
-Opis funkcji: Czujnik cyklicznie wysyla swoj stan
-Data: 14.03.2014
-Autor: Pawel Kasperek
-*****************************************************************/
+
+
+/***************************************************************************************/
+/**
+* @author Kamil Szkaradnik
+* @date 30/07/2019
+*
+* @param *message  pointer on message 
+*
+*
+* @section Description
+* Frame who given status of sensor into message.
+*****************************************************************************************/
 static void FRAME_SensorExcitationStatus(mID *message) // id = 0x01
 {
     
@@ -100,6 +107,19 @@ static void FRAME_SensorExcitationStatus(mID *message) // id = 0x01
     }
 }
 
+/***************************************************************************************/
+/**
+* @author Kamil Szkaradnik
+* @date 30/07/2019
+*
+* @param message_adress adress ID of message
+*
+*
+* @section Description
+* Function uses to create wector with position of sending device in Neighbors.
+* When sending adress is't in Neighbors send wector of 0.  Theoretically it is not possible but used as an additional security
+*****************************************************************************************/
+
 UINT IsInNeighbors(UINT message_adress)
 {
     WORD i;
@@ -153,12 +173,17 @@ UINT IsInNeighbors(UINT message_adress)
     return 0;
 }
 
-/*******************************************************************
-Funkcja: void StatusPrzyspieszeniomierza(mID *message);
-Opis funkcji:
-Data: 14.03.2014
-Autor: Pawel Kasperek
-*****************************************************************/
+/***************************************************************************************/
+/**
+* @author Kamil Szkaradnik
+* @date 30/07/2019
+*
+* @param *message  pointer on message 
+*
+*
+* @section Description
+* Frame who given MOCK status of Accelerometer who is not instaled. 
+*****************************************************************************************/
 static void FRAME_AccelerometerStatus(mID *message) // id = 0x02
 {
     if(message->message_type == CAN_MSG_RTR)
@@ -178,12 +203,18 @@ static void FRAME_AccelerometerStatus(mID *message) // id = 0x02
     }
 }
 
-/*******************************************************************
-Funkcja: void WartosciWzbudzenia(mID *message);
-Opis funkcji:
-Data: 14.03.2014
-Autor: Pawel Kasperek
-*****************************************************************/
+
+/***************************************************************************************/
+/**
+* @author Pawel Kasperek
+* @date 14/03/2014
+*
+* @param *message  pointer on message 
+*
+*
+* @section Description
+* Frame who shoud given ExcitationValue, actually not in use.
+*****************************************************************************************/
 static void FRAME_ExcitationValue(mID *message) // id = 0x03
 {
     if(message->message_type == CAN_MSG_RTR)
@@ -202,12 +233,17 @@ static void FRAME_ExcitationValue(mID *message) // id = 0x03
     }
 }
 
-/*******************************************************************
-Funkcja: void MnoznikiWzbudzenia(mID *message);
-Opis funkcji:
-Data: 14.03.2014
-Autor: Pawel Kasperek
-*****************************************************************/
+/***************************************************************************************/
+/**
+* @author Pawel Kasperek
+* @date 14/03/2014
+*
+* @param *message  pointer on message 
+*
+*
+* @section Description
+* Frame who shoud given ExcitationMultiplier, actually not in use.
+*****************************************************************************************/
 static void FRAME_ExcitationMultiplier(mID *message) // id = 0x04
 {
     WORD i;
@@ -230,12 +266,17 @@ static void FRAME_ExcitationMultiplier(mID *message) // id = 0x04
     }
 }
 
-/*******************************************************************
-Funkcja: void CzasyUsredniania(mID *message);
-Opis funkcji:
-Data: 14.03.2014
-Autor: Pawel Kasperek
-*****************************************************************/
+/***************************************************************************************/
+/**
+* @author Pawel Kasperek
+* @date 14/03/2014
+*
+* @param *message  pointer on message 
+*
+*
+* @section Description
+* Frame who shoud given ExcitationMultiplier, actually not in use.
+*****************************************************************************************/
 static void FRAME_AveragingTimes(mID *message) // id = 0x05
 {
     if(message->message_type == CAN_MSG_RTR)
@@ -406,42 +447,42 @@ void ReadDataToEEPROM(void)
 {
     
     NVMRead(&Init_Data,10,2);
-    NVMRead(&NeightAdress1,15,2);
+    NVMRead(&NeightAdress1,13,2);
     if(NeightAdress1==0xFFFF) // Void value in EEPROM is 0xFF
     {
         NeightAdress1=0x0000;
     }
-    NVMRead(&NeightAdress2,20,2);
+    NVMRead(&NeightAdress2,16,2);
     if(NeightAdress2==0xFFFF)
     {
         NeightAdress2=0x0000;
     }
-    NVMRead(&NeightAdress3,30,2);
+    NVMRead(&NeightAdress3,19,2);
     if(NeightAdress3==0xFFFF)
     {
         NeightAdress3=0x0000;
     }
-    NVMRead(&NeightAdress4,40,2);
+    NVMRead(&NeightAdress4,22,2);
     if(NeightAdress4==0xFFFF)
     {
         NeightAdress4=0x0000;
     }
-    NVMRead(&NeightAdress5,50,2);
+    NVMRead(&NeightAdress5,25,2);
     if(NeightAdress5==0xFFFF)
     {
         NeightAdress5=0x0000;
     }
-    NVMRead(&NeightAdress6,60,2);
+    NVMRead(&NeightAdress6,28,2);
     if(NeightAdress6==0xFFFF)
     {
         NeightAdress6=0x0000;
     }
-    NVMRead(&NeightAdress7,70,2);
+    NVMRead(&NeightAdress7,31,2);
     if(NeightAdress7==0xFFFF)
     {
         NeightAdress7=0x0000;
     }
-    NVMRead(&NeightAdress8,80,2);
+    NVMRead(&NeightAdress8,34,2);
     if(NeightAdress8==0xFFFF)
     {
         NeightAdress8=0x0000;
@@ -453,14 +494,14 @@ void ReadDataToEEPROM(void)
 void WriteDataToEEPROM(void)
 {
     NVMWrite(&Init_Data,10,2);
-    NVMWrite(&NeightAdress1,15,2);  
-    NVMWrite(&NeightAdress2,20,2);
-    NVMWrite(&NeightAdress3,30,2);
-    NVMWrite(&NeightAdress4,40,2);
-    NVMWrite(&NeightAdress5,50,2);
-    NVMWrite(&NeightAdress6,60,2);
-    NVMWrite(&NeightAdress7,70,2);
-    NVMWrite(&NeightAdress8,80,2);
+    NVMWrite(&NeightAdress1,13,2);  
+    NVMWrite(&NeightAdress2,16,2);
+    NVMWrite(&NeightAdress3,19,2);
+    NVMWrite(&NeightAdress4,22,2);
+    NVMWrite(&NeightAdress5,25,2);
+    NVMWrite(&NeightAdress6,28,2);
+    NVMWrite(&NeightAdress7,31,2);
+    NVMWrite(&NeightAdress8,34,2);
     
 }
 

@@ -18183,42 +18183,41 @@ BYTE LOCK_Get(void);
 
 static UINT Fulfillment_Lvl = 20;
 static BYTE LOCK = 0;
-
+# 49 "LED.c"
 UINT LED_Error(void)
 {
     LED_Control(RED,0b1010101010);
     LED_Control(GREEN,0b0000000000);
     return 1;
 }
-
-
+# 67 "LED.c"
 UINT LED_Clear(void)
 {
     LED_Control(RED,0b0000000000);
     LED_Control(GREEN,0b1010101010);
     return 1;
 }
-
+# 84 "LED.c"
 void LOCK_Set(BYTE k)
 {
     LOCK = k;
 }
-
+# 100 "LED.c"
 BYTE LOCK_Get(void)
 {
     return LOCK;
 }
-# 73 "LED.c"
+# 116 "LED.c"
 void Fulfillment_Lvl_Set(UINT a)
 {
     Fulfillment_Lvl = a;
 }
-# 89 "LED.c"
+# 132 "LED.c"
 UINT Fulfillment_Lvl_Get(void)
 {
     return Fulfillment_Lvl;
 }
-# 105 "LED.c"
+# 148 "LED.c"
 UINT8 LED_Update(void)
 {
     static LED_RGA_type Red = RED;
@@ -18242,7 +18241,7 @@ UINT8 LED_Update(void)
 
     return 1;
 }
-# 140 "LED.c"
+# 183 "LED.c"
 UINT LED_Right(UINT a)
 {
     if ((a & 0b0000000001) == 0b0000000001)
@@ -18258,7 +18257,7 @@ UINT LED_Right(UINT a)
         return a;
     }
 }
-# 167 "LED.c"
+# 210 "LED.c"
 UINT LED_Left(UINT a)
 {
     if ((a & 0b1000000000) == 0b1000000000)
@@ -18274,7 +18273,7 @@ UINT LED_Left(UINT a)
         return a;
     }
 }
-# 196 "LED.c"
+# 239 "LED.c"
 UINT LED_Light_Pos(LED_RGA_type color,UINT pos, UINT fulfillment)
 {
     UINT pos2 =pos;
@@ -18301,7 +18300,7 @@ UINT LED_Light_Pos(LED_RGA_type color,UINT pos, UINT fulfillment)
     LED_Control(color, LED_array);
     return LED_array;
 }
-# 231 "LED.c"
+# 274 "LED.c"
 void INI_LED_Start(void)
 {
     TRISA = TRISA & 0b00000001;
@@ -18313,7 +18312,7 @@ void INI_LED_Start(void)
 
 
 }
-# 256 "LED.c"
+# 299 "LED.c"
 UINT8 LED_Control(LED_RGA_type color,UINT diode)
 {
     UINT cos =1;

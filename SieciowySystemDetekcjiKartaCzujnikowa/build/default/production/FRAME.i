@@ -18395,7 +18395,7 @@ volatile UINT NeightAdress5 = 0;
 volatile UINT NeightAdress6 = 0;
 volatile UINT NeightAdress7 = 0;
 volatile UINT NeightAdress8 = 0;
-# 48 "FRAME.c"
+# 55 "FRAME.c"
 static void FRAME_SensorExcitationStatus(mID *message)
 {
 
@@ -18414,7 +18414,7 @@ static void FRAME_SensorExcitationStatus(mID *message)
         message->data[3] = MOC_Frame_Counter();
         message->data[4] = MOC_Aktualna_Temperatura();
         message->data[5] = MOC_NOTWORK();
-# 75 "FRAME.c"
+# 82 "FRAME.c"
     }
     else
     {
@@ -18442,7 +18442,7 @@ static void FRAME_SensorExcitationStatus(mID *message)
         }
     }
 }
-
+# 123 "FRAME.c"
 UINT IsInNeighbors(UINT message_adress)
 {
     WORD i;
@@ -18479,16 +18479,10 @@ UINT IsInNeighbors(UINT message_adress)
     {
         return 0b10000000;
     }
-# 153 "FRAME.c"
+# 173 "FRAME.c"
     return 0;
 }
-
-
-
-
-
-
-
+# 187 "FRAME.c"
 static void FRAME_AccelerometerStatus(mID *message)
 {
     if(message->message_type == 0x02)
@@ -18507,13 +18501,7 @@ static void FRAME_AccelerometerStatus(mID *message)
 
     }
 }
-
-
-
-
-
-
-
+# 218 "FRAME.c"
 static void FRAME_ExcitationValue(mID *message)
 {
     if(message->message_type == 0x02)
@@ -18531,13 +18519,7 @@ static void FRAME_ExcitationValue(mID *message)
 
     }
 }
-
-
-
-
-
-
-
+# 247 "FRAME.c"
 static void FRAME_ExcitationMultiplier(mID *message)
 {
     WORD i;
@@ -18559,13 +18541,7 @@ static void FRAME_ExcitationMultiplier(mID *message)
 
     }
 }
-
-
-
-
-
-
-
+# 280 "FRAME.c"
 static void FRAME_AveragingTimes(mID *message)
 {
     if(message->message_type == 0x02)
@@ -18582,7 +18558,7 @@ static void FRAME_AveragingTimes(mID *message)
     }
     else
     {
-# 289 "FRAME.c"
+# 330 "FRAME.c"
     }
 }
 
@@ -18599,7 +18575,7 @@ static void FRAME_AxisStatus(mID *message)
     if(message->message_type == 0x02)
     {
         message->data_length = 1;
-# 315 "FRAME.c"
+# 356 "FRAME.c"
         message->data[0] = 0xFF;
     }
     else
@@ -18646,7 +18622,7 @@ static void FRAME_DeviceReset(mID *message)
         message->data[7] = Dane->godzinaU16;
         RCON &= ~(1<<6);
         Flagi.wykonanoZapisDoFlash = 0;
-# 374 "FRAME.c"
+# 415 "FRAME.c"
     }
     else
     {
@@ -18682,42 +18658,42 @@ void ReadDataToEEPROM(void)
 {
 
     NVMRead(&Init_Data,10,2);
-    NVMRead(&NeightAdress1,15,2);
+    NVMRead(&NeightAdress1,13,2);
     if(NeightAdress1==0xFFFF)
     {
         NeightAdress1=0x0000;
     }
-    NVMRead(&NeightAdress2,20,2);
+    NVMRead(&NeightAdress2,16,2);
     if(NeightAdress2==0xFFFF)
     {
         NeightAdress2=0x0000;
     }
-    NVMRead(&NeightAdress3,30,2);
+    NVMRead(&NeightAdress3,19,2);
     if(NeightAdress3==0xFFFF)
     {
         NeightAdress3=0x0000;
     }
-    NVMRead(&NeightAdress4,40,2);
+    NVMRead(&NeightAdress4,22,2);
     if(NeightAdress4==0xFFFF)
     {
         NeightAdress4=0x0000;
     }
-    NVMRead(&NeightAdress5,50,2);
+    NVMRead(&NeightAdress5,25,2);
     if(NeightAdress5==0xFFFF)
     {
         NeightAdress5=0x0000;
     }
-    NVMRead(&NeightAdress6,60,2);
+    NVMRead(&NeightAdress6,28,2);
     if(NeightAdress6==0xFFFF)
     {
         NeightAdress6=0x0000;
     }
-    NVMRead(&NeightAdress7,70,2);
+    NVMRead(&NeightAdress7,31,2);
     if(NeightAdress7==0xFFFF)
     {
         NeightAdress7=0x0000;
     }
-    NVMRead(&NeightAdress8,80,2);
+    NVMRead(&NeightAdress8,34,2);
     if(NeightAdress8==0xFFFF)
     {
         NeightAdress8=0x0000;
@@ -18729,14 +18705,14 @@ void ReadDataToEEPROM(void)
 void WriteDataToEEPROM(void)
 {
     NVMWrite(&Init_Data,10,2);
-    NVMWrite(&NeightAdress1,15,2);
-    NVMWrite(&NeightAdress2,20,2);
-    NVMWrite(&NeightAdress3,30,2);
-    NVMWrite(&NeightAdress4,40,2);
-    NVMWrite(&NeightAdress5,50,2);
-    NVMWrite(&NeightAdress6,60,2);
-    NVMWrite(&NeightAdress7,70,2);
-    NVMWrite(&NeightAdress8,80,2);
+    NVMWrite(&NeightAdress1,13,2);
+    NVMWrite(&NeightAdress2,16,2);
+    NVMWrite(&NeightAdress3,19,2);
+    NVMWrite(&NeightAdress4,22,2);
+    NVMWrite(&NeightAdress5,25,2);
+    NVMWrite(&NeightAdress6,28,2);
+    NVMWrite(&NeightAdress7,31,2);
+    NVMWrite(&NeightAdress8,34,2);
 
 }
 
@@ -18769,7 +18745,7 @@ static void FRAME_Plot(mID *message)
 
 static void FRAME_MapPosition(mID *message)
 {
-# 511 "FRAME.c"
+# 552 "FRAME.c"
 }
 
 
@@ -18804,7 +18780,7 @@ static void FRAME_SoftwareVersion(mID *message)
 static void FRAME_AnalogValue(mID *message, WORD set)
 {
     WORD i;
-# 560 "FRAME.c"
+# 601 "FRAME.c"
 }
 
 
@@ -18895,7 +18871,7 @@ static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
          CAN_SetupFilter_Ne();
 
         }
-# 677 "FRAME.c"
+# 718 "FRAME.c"
     }
 }
 
@@ -18978,7 +18954,7 @@ void FRAME_HandleCanFrame(mID * message)
         message->id.v[2] = identyfikator*4;
         CAN_GenID(message,identyfikator);
         CAN_SendFrame(message);
-# 769 "FRAME.c"
+# 810 "FRAME.c"
        while(RXB0CONbits.FILHIT3)
        {
            if(TXB0CONbits.TXERR == 1){

@@ -34,6 +34,18 @@ BYTE LOCK_Get(void);
 static UINT Fulfillment_Lvl = 20;  /**< Percentage of glowing LEDs with one color.*/
 static BYTE LOCK = 0;    // IS Target lock? 0 or 1
 
+/***************************************************************************************/
+/**
+* @author Kamil Szkaradnik
+* @date 30/07/2019
+*
+* @return 1 when function done
+*
+*
+* @section Description
+* Make 5 red diodes light on. Usses for inform user. Actually uses to inform while CAN can conection not work. 
+*****************************************************************************************/
+
 UINT LED_Error(void)
 {
     LED_Control(RED,0b1010101010);
@@ -41,19 +53,50 @@ UINT LED_Error(void)
     return 1;
 }
 
-
+/***************************************************************************************/
+/**
+* @author Kamil Szkaradnik
+* @date 30/07/2019
+*
+* @return 1 when function done
+*
+*
+* @section Description
+* Make 5 green diodes light on. Usses for inform user. Actually not in use but helpfull to debug. 
+*****************************************************************************************/
 UINT LED_Clear(void)
 {
     LED_Control(RED,0b0000000000);
     LED_Control(GREEN,0b1010101010);
     return 1;
 }
-
+/***************************************************************************************/
+/**
+* @author Kamil Szkaradnik
+* @date 30/07/2019
+*
+* @param k  Status of detection. (1 or 0). 
+*
+*
+* @section Description
+* Flag setter function for get data of status, function control color of led. Red if 1 and green if set to 0.
+*****************************************************************************************/
 void LOCK_Set(BYTE k)
 {
     LOCK = k;
 }
 
+/***************************************************************************************/
+/**
+* @author Kamil Szkaradnik
+* @date 30/07/2019
+*
+* @return  Status of detection. (1 or 0)
+*
+*
+* @section Description
+* Flag getter function for get data of status, function control color of led. Red if 1 and green if set to 0.
+*****************************************************************************************/
 BYTE LOCK_Get(void)
 {
     return LOCK;

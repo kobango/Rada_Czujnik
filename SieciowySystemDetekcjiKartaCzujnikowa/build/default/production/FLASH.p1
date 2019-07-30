@@ -1284,104 +1284,104 @@ Version 4.0 HI-TECH Software Intermediate Code
 "32473
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32473: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"16 FLASH.c
-[; ;FLASH.c: 16: UINT FLASH_Read(long int addr)
+"28 FLASH.c
+[; ;FLASH.c: 28: UINT FLASH_Read(long int addr)
 [v _FLASH_Read `(ui ~T0 @X0 1 ef1`l ]
-"17
-[; ;FLASH.c: 17: {
+"29
+[; ;FLASH.c: 29: {
 {
 [e :U _FLASH_Read ]
-"16
-[; ;FLASH.c: 16: UINT FLASH_Read(long int addr)
+"28
+[; ;FLASH.c: 28: UINT FLASH_Read(long int addr)
 [v _addr `l ~T0 @X0 1 r1 ]
-"17
-[; ;FLASH.c: 17: {
+"29
+[; ;FLASH.c: 29: {
 [f ]
-"18
-[; ;FLASH.c: 18:     TBLPTR = addr;
-[e = _TBLPTR -> _addr `um ]
-"19
-[; ;FLASH.c: 19:     __asm("TBLRD;");
-[; <" TBLRD; ;# ">
-"20
-[; ;FLASH.c: 20:     return TABLAT;
-[e ) -> _TABLAT `ui ]
-[e $UE 1112  ]
-"21
-[; ;FLASH.c: 21: }
-[e :UE 1112 ]
-}
-"23
-[; ;FLASH.c: 23: void FLASH_Write(long int addr,UINT val)
-[v _FLASH_Write `(v ~T0 @X0 1 ef2`l`ui ]
-"24
-[; ;FLASH.c: 24: {
-{
-[e :U _FLASH_Write ]
-"23
-[; ;FLASH.c: 23: void FLASH_Write(long int addr,UINT val)
-[v _addr `l ~T0 @X0 1 r1 ]
-[v _val `ui ~T0 @X0 1 r2 ]
-"24
-[; ;FLASH.c: 24: {
-[f ]
-"25
-[; ;FLASH.c: 25:     UINT *flashWrBufPtr = &val;
-[v _flashWrBufPtr `*ui ~T0 @X0 1 a ]
-[e = _flashWrBufPtr &U _val ]
-"26
-[; ;FLASH.c: 26:     int i;
-[v _i `i ~T0 @X0 1 a ]
-"27
-[; ;FLASH.c: 27:    UINT GIEBitValue = INTCONbits.GIE;
-[v _GIEBitValue `ui ~T0 @X0 1 a ]
-[e = _GIEBitValue -> . . _INTCONbits 1 7 `ui ]
 "30
 [; ;FLASH.c: 30:     TBLPTR = addr;
 [e = _TBLPTR -> _addr `um ]
-"34
-[; ;FLASH.c: 34:     TABLAT = (flashWrBufPtr[0] >> 8);
-[e = _TABLAT -> >> *U + _flashWrBufPtr * -> -> 0 `i `x -> -> # *U _flashWrBufPtr `i `x -> 8 `i `uc ]
-"35
-[; ;FLASH.c: 35:     __asm("TBLWT*");
-[; <" TBLWT* ;# ">
-"36
-[; ;FLASH.c: 36:     TABLAT = (flashWrBufPtr[0] & 0xff);
-[e = _TABLAT -> & *U + _flashWrBufPtr * -> -> 0 `i `x -> -> # *U _flashWrBufPtr `i `x -> -> 255 `i `ui `uc ]
-"37
-[; ;FLASH.c: 37:     __asm("TBLWT*");
-[; <" TBLWT* ;# ">
-"40
-[; ;FLASH.c: 40:     TBLPTR = addr;
-[e = _TBLPTR -> _addr `um ]
-"42
-[; ;FLASH.c: 42:     EECON1bits.EEPGD = 1;
-[e = . . _EECON1bits 0 7 -> -> 1 `i `uc ]
-"43
-[; ;FLASH.c: 43:     EECON1bits.CFGS = 0;
-[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
-"44
-[; ;FLASH.c: 44:     EECON1bits.WREN = 1;
-[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
-"46
-[; ;FLASH.c: 46:     INTCONbits.GIE = 0;
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+"31
+[; ;FLASH.c: 31:     __asm("TBLRD;");
+[; <" TBLRD; ;# ">
+"32
+[; ;FLASH.c: 32:     return TABLAT;
+[e ) -> _TABLAT `ui ]
+[e $UE 1112  ]
+"33
+[; ;FLASH.c: 33: }
+[e :UE 1112 ]
+}
 "47
-[; ;FLASH.c: 47:     EECON2 = 0x55;
-[e = _EECON2 -> -> 85 `i `uc ]
+[; ;FLASH.c: 47: void FLASH_Write(long int addr,UINT val)
+[v _FLASH_Write `(v ~T0 @X0 1 ef2`l`ui ]
 "48
-[; ;FLASH.c: 48:     EECON2 = 0xAA;
-[e = _EECON2 -> -> 170 `i `uc ]
+[; ;FLASH.c: 48: {
+{
+[e :U _FLASH_Write ]
+"47
+[; ;FLASH.c: 47: void FLASH_Write(long int addr,UINT val)
+[v _addr `l ~T0 @X0 1 r1 ]
+[v _val `ui ~T0 @X0 1 r2 ]
+"48
+[; ;FLASH.c: 48: {
+[f ]
 "49
-[; ;FLASH.c: 49:     EECON1bits.WR = 1;
-[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
+[; ;FLASH.c: 49:     UINT *flashWrBufPtr = &val;
+[v _flashWrBufPtr `*ui ~T0 @X0 1 a ]
+[e = _flashWrBufPtr &U _val ]
 "50
-[; ;FLASH.c: 50:     INTCONbits.GIE = GIEBitValue;
-[e = . . _INTCONbits 1 7 -> _GIEBitValue `uc ]
+[; ;FLASH.c: 50:     int i;
+[v _i `i ~T0 @X0 1 a ]
 "51
-[; ;FLASH.c: 51:     EECON1bits.WREN = 0;
+[; ;FLASH.c: 51:    UINT GIEBitValue = INTCONbits.GIE;
+[v _GIEBitValue `ui ~T0 @X0 1 a ]
+[e = _GIEBitValue -> . . _INTCONbits 1 7 `ui ]
+"54
+[; ;FLASH.c: 54:     TBLPTR = addr;
+[e = _TBLPTR -> _addr `um ]
+"58
+[; ;FLASH.c: 58:     TABLAT = (flashWrBufPtr[0] >> 8);
+[e = _TABLAT -> >> *U + _flashWrBufPtr * -> -> 0 `i `x -> -> # *U _flashWrBufPtr `i `x -> 8 `i `uc ]
+"59
+[; ;FLASH.c: 59:     __asm("TBLWT*");
+[; <" TBLWT* ;# ">
+"60
+[; ;FLASH.c: 60:     TABLAT = (flashWrBufPtr[0] & 0xff);
+[e = _TABLAT -> & *U + _flashWrBufPtr * -> -> 0 `i `x -> -> # *U _flashWrBufPtr `i `x -> -> 255 `i `ui `uc ]
+"61
+[; ;FLASH.c: 61:     __asm("TBLWT*");
+[; <" TBLWT* ;# ">
+"64
+[; ;FLASH.c: 64:     TBLPTR = addr;
+[e = _TBLPTR -> _addr `um ]
+"66
+[; ;FLASH.c: 66:     EECON1bits.EEPGD = 1;
+[e = . . _EECON1bits 0 7 -> -> 1 `i `uc ]
+"67
+[; ;FLASH.c: 67:     EECON1bits.CFGS = 0;
+[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
+"68
+[; ;FLASH.c: 68:     EECON1bits.WREN = 1;
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+"70
+[; ;FLASH.c: 70:     INTCONbits.GIE = 0;
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+"71
+[; ;FLASH.c: 71:     EECON2 = 0x55;
+[e = _EECON2 -> -> 85 `i `uc ]
+"72
+[; ;FLASH.c: 72:     EECON2 = 0xAA;
+[e = _EECON2 -> -> 170 `i `uc ]
+"73
+[; ;FLASH.c: 73:     EECON1bits.WR = 1;
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
+"74
+[; ;FLASH.c: 74:     INTCONbits.GIE = GIEBitValue;
+[e = . . _INTCONbits 1 7 -> _GIEBitValue `uc ]
+"75
+[; ;FLASH.c: 75:     EECON1bits.WREN = 0;
 [e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
-"52
-[; ;FLASH.c: 52: }
+"76
+[; ;FLASH.c: 76: }
 [e :UE 1113 ]
 }

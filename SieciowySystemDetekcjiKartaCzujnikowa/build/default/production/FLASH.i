@@ -18267,14 +18267,14 @@ void FLASH_Write(long int addr,UINT val);
 
 UINT FLASH_Read(long int addr);
 void FLASH_Write(long int addr,UINT val);
-
+# 28 "FLASH.c"
 UINT FLASH_Read(long int addr)
 {
     TBLPTR = addr;
     __asm("TBLRD;");
     return TABLAT;
 }
-
+# 47 "FLASH.c"
 void FLASH_Write(long int addr,UINT val)
 {
     UINT *flashWrBufPtr = &val;
