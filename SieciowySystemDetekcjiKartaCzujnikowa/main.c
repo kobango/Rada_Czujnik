@@ -105,11 +105,11 @@ void main(void)
      
      
      
-     FLASH_Write(0x200000,0x76);
-     FLASH_Write(0x200001,0x00);
+     //FLASH_Write(0x200000,0x76);
+     //FLASH_Write(0x200001,0x00);
     
-     adr = FLASH_Read(0x200000);
-     adr |= FLASH_Read(0x200001)<<8;
+     //adr = FLASH_Read(0x200000);
+     //adr |= FLASH_Read(0x200001)<<8;
      
     DaneCan.adresCAN  = adr;
     INI_All();

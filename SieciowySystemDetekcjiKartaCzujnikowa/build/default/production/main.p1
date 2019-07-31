@@ -43,9 +43,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12 ./FLASH.h
 [; ;./FLASH.h: 12: UINT FLASH_Read(long int addr);
 [v _FLASH_Read `(ui ~T0 @X0 0 ef1`l ]
-"13
-[; ;./FLASH.h: 13: void FLASH_Write(long int addr,UINT val);
-[v _FLASH_Write `(v ~T0 @X0 0 ef2`l`ui ]
 "18 ./TRM.h
 [; ;./TRM.h: 18:             {
 [s S1114 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -1408,18 +1405,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _adr -> ( _FLASH_Read (1 -> 2097152 `l `i ]
 "104
 [; ;main.c: 104:      adr |= FLASH_Read(0x200001)<<8;
-[e =| _adr -> << ( _FLASH_Read (1 -> 2097153 `l -> 8 `i `i ]
-"108
-[; ;main.c: 108:      FLASH_Write(0x200000,0x76);
-[e ( _FLASH_Write (2 , -> 2097152 `l -> -> 118 `i `ui ]
-"109
-[; ;main.c: 109:      FLASH_Write(0x200001,0x00);
-[e ( _FLASH_Write (2 , -> 2097153 `l -> -> 0 `i `ui ]
-"111
-[; ;main.c: 111:      adr = FLASH_Read(0x200000);
-[e = _adr -> ( _FLASH_Read (1 -> 2097152 `l `i ]
-"112
-[; ;main.c: 112:      adr |= FLASH_Read(0x200001)<<8;
 [e =| _adr -> << ( _FLASH_Read (1 -> 2097153 `l -> 8 `i `i ]
 "114
 [; ;main.c: 114:     DaneCan.adresCAN = adr;

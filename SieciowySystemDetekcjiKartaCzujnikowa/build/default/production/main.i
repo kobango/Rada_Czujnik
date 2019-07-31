@@ -18388,15 +18388,7 @@ void main(void)
 
     int adr = FLASH_Read(0x200000);
      adr |= FLASH_Read(0x200001)<<8;
-
-
-
-     FLASH_Write(0x200000,0x76);
-     FLASH_Write(0x200001,0x00);
-
-     adr = FLASH_Read(0x200000);
-     adr |= FLASH_Read(0x200001)<<8;
-
+# 114 "main.c"
     DaneCan.adresCAN = adr;
     INI_All();
 

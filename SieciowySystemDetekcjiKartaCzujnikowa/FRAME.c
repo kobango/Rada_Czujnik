@@ -98,11 +98,21 @@ static void FRAME_SensorExcitationStatus(mID *message) // id = 0x01
         
         if(statwect>0)
         {
-        LOCK_Set(1);
+            if(1 != LOCK_Get())
+            {
+                DaneCan.Flags.wyslijRamkeStanu = 1;
+                LOCK_Set(1);
+            }
+        
         }
         else
         {
-        LOCK_Set(0);   
+        
+            if(1 == LOCK_Get())
+            {
+                DaneCan.Flags.wyslijRamkeStanu = 1;
+                LOCK_Set(0);
+            }
         }
     }
 }
