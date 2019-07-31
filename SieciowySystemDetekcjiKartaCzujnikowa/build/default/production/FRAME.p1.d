@@ -1,12 +1,11 @@
- build/default/production/FRAME.d  \
- build/default/production/FRAME.p1:  \
- FRAME.c  \
+build/default/production/FRAME.p1:  \
+FRAME.c  \
+CAN.h  \
+GenericTypeDefs.h  \
 main.h  \
 DetekcjaSasiadow.h  \
-TRM.h  \
-EEPROM.h  \
 LED.h  \
 FRAME.h  \
-GenericTypeDefs.h  \
 MOC_Funct.h  \
-CAN.h 
+TRM.h  \
+EEPROM.h 

@@ -2,16 +2,14 @@
 #include "main.h"
 #define FLASH_V1_4
 #include <xc.h>
-#include "LED.h"
-
+#include <plib.h>
 
 #define PROGRAM_START (DWORD)0xC00      //start of application program, do not write below this address
 
 #define VERSION_MAJOR 0x01       //this cannot be zero!
 #define VERSION_MINOR 0x00
 
-#define LED LED_Clear()
-#define LED_R LED_Error()
+#define LED LATAbits.LATA5
 
 typedef short          Word16;
 typedef unsigned short UWord16;
@@ -34,60 +32,67 @@ typedef union tuReg32 {
 
 // PIC18LF26K80 Configuration Bit Settings
 
+// CONFIG1L
+#pragma config RETEN = OFF      // VREG Sleep Enable bit (Ultra low-power regulator is Disabled (Controlled by REGSLP bit))
+#pragma config INTOSCSEL = HIGH // LF-INTOSC Low-power Enable bit (LF-INTOSC in High-power mode during Sleep)
+#pragma config SOSCSEL = DIG    // SOSC Power Selection and mode Configuration bits (Digital (SCLKI) mode)
+#pragma config XINST = OFF      // Extended Instruction Set (Disabled)
+
 // CONFIG1H
-#pragma config OSC = IRCIO67    // Oscillator Selection bits (Internal oscillator block, port function on RA6 and RA7)
-#pragma config FCMEN = OFF      // Fail-Safe Clock Monitor Enable bit (Fail-Safe Clock Monitor disabled)
-#pragma config IESO = OFF       // Internal/External Oscillator Switchover bit (Oscillator Switchover mode disabled)
+#pragma config FOSC = HS1       // Oscillator (HS oscillator (Medium power, 4 MHz - 16 MHz))
+#pragma config PLLCFG = OFF     // PLL x4 Enable bit (Disabled)
+#pragma config FCMEN = OFF      // Fail-Safe Clock Monitor (Disabled)
+#pragma config IESO = OFF       // Internal External Oscillator Switch Over Mode (Disabled)
 
 // CONFIG2L
-#pragma config PWRT = OFF       // Power-up Timer Enable bit (PWRT disabled)
-#pragma config BOREN = BOHW     // Brown-out Reset Enable bits (Brown-out Reset enabled in hardware only (SBOREN is disabled))
-#pragma config BORV = 3         // Brown-out Reset Voltage bits (VBOR set to 2.1V)
+#pragma config PWRTEN = ON      // Power Up Timer (Enabled)
+#pragma config BOREN = ON       // Brown Out Detect (Controlled with SBOREN bit)
+#pragma config BORV = 1         // Brown-out Reset Voltage bits (2.7V)
+#pragma config BORPWR = ZPBORMV // BORMV Power level (ZPBORMV instead of BORMV is selected)
 
 // CONFIG2H
-#pragma config WDT = OFF        // Watchdog Timer Enable bit (WDT disabled (control is placed on the SWDTEN bit))
-#pragma config WDTPS = 32768    // Watchdog Timer Postscale Select bits (1:32768)
+#pragma config WDTEN = SWDTDIS  // Watchdog Timer (WDT enabled in hardware; SWDTEN bit disabled)
+#pragma config WDTPS = 1024     // Watchdog Postscaler (1:1024)
 
 // CONFIG3H
-#pragma config PBADEN = ON      // PORTB A/D Enable bit (PORTB<4:0> pins are configured as analog input channels on Reset)
-#pragma config LPT1OSC = OFF    // Low-Power Timer 1 Oscillator Enable bit (Timer1 configured for higher power operation)
-#pragma config MCLRE = ON       // MCLR Pin Enable bit (MCLR pin enabled; RE3 input pin disabled)
+#pragma config CANMX = PORTC    // ECAN Mux bit (ECAN TX and RX pins are located on RC6 and RC7, respectively)
+#pragma config MSSPMSK = MSK7   // MSSP address masking (7 Bit address masking mode)
+#pragma config MCLRE = ON       // Master Clear Enable (MCLR Enabled, RE3 Disabled)
 
 // CONFIG4L
-#pragma config STVREN = ON      // Stack Full/Underflow Reset Enable bit (Stack full/underflow will cause Reset)
-#pragma config LVP = OFF        // Single-Supply ICSP Enable bit (Single-Supply ICSP disabled)
-#pragma config BBSIZ = 1024     // Boot Block Size Select bits (1K words (2K bytes) Boot Block)
-#pragma config XINST = OFF      // Extended Instruction Set Enable bit (Instruction set extension and Indexed Addressing mode disabled (Legacy mode))
+#pragma config STVREN = ON      // Stack Overflow Reset (Enabled)
+#pragma config BBSIZ = BB1K     // Boot Block Size (1K word Boot Block size)
 
 // CONFIG5L
-#pragma config CP0 = OFF        // Code Protection bit (Block 0 (000800-003FFFh) not code-protected)
-#pragma config CP1 = OFF        // Code Protection bit (Block 1 (004000-007FFFh) not code-protected)
-#pragma config CP2 = OFF        // Code Protection bit (Block 2 (008000-00BFFFh) not code-protected)
-#pragma config CP3 = OFF        // Code Protection bit (Block 3 (00C000-00FFFFh) not code-protected)
+#pragma config CP0 = OFF        // Code Protect 00800-03FFF (Disabled)
+#pragma config CP1 = OFF        // Code Protect 04000-07FFF (Disabled)
+#pragma config CP2 = OFF        // Code Protect 08000-0BFFF (Disabled)
+#pragma config CP3 = OFF        // Code Protect 0C000-0FFFF (Disabled)
 
 // CONFIG5H
-#pragma config CPB = OFF        // Boot Block Code Protection bit (Boot block (000000-0007FFh) not code-protected)
-#pragma config CPD = OFF        // Data EEPROM Code Protection bit (Data EEPROM not code-protected)
+#pragma config CPB = OFF        // Code Protect Boot (Disabled)
+#pragma config CPD = OFF        // Data EE Read Protect (Disabled)
 
 // CONFIG6L
-#pragma config WRT0 = OFF       // Write Protection bit (Block 0 (000800-003FFFh) not write-protected)
-#pragma config WRT1 = OFF       // Write Protection bit (Block 1 (004000-007FFFh) not write-protected)
-#pragma config WRT2 = OFF       // Write Protection bit (Block 2 (008000-00BFFFh) not write-protected)
-#pragma config WRT3 = OFF       // Write Protection bit (Block 3 (00C000-00FFFFh) not write-protected)
+#pragma config WRT0 = OFF       // Table Write Protect 00800-03FFF (Disabled)
+#pragma config WRT1 = OFF       // Table Write Protect 04000-07FFF (Disabled)
+#pragma config WRT2 = OFF       // Table Write Protect 08000-0BFFF (Disabled)
+#pragma config WRT3 = OFF       // Table Write Protect 0C000-0FFFF (Disabled)
 
 // CONFIG6H
-#pragma config WRTC = OFF       // Configuration Register Write Protection bit (Configuration registers (300000-3000FFh) not write-protected)
-#pragma config WRTB = OFF       // Boot Block Write Protection bit (Boot block (000000-0007FFh) not write-protected)
-#pragma config WRTD = OFF       // Data EEPROM Write Protection bit (Data EEPROM not write-protected)
+#pragma config WRTC = ON        // Config. Write Protect (Enabled)
+#pragma config WRTB = ON        // Table Write Protect Boot (Enabled)
+#pragma config WRTD = OFF       // Data EE Write Protect (Disabled)
 
 // CONFIG7L
-#pragma config EBTR0 = OFF      // Table Read Protection bit (Block 0 (000800-003FFFh) not protected from table reads executed in other blocks)
-#pragma config EBTR1 = OFF      // Table Read Protection bit (Block 1 (004000-007FFFh) not protected from table reads executed in other blocks)
-#pragma config EBTR2 = OFF      // Table Read Protection bit (Block 2 (008000-00BFFFh) not protected from table reads executed in other blocks)
-#pragma config EBTR3 = OFF      // Table Read Protection bit (Block 3 (00C000-00FFFFh) not protected from table reads executed in other blocks)
+#pragma config EBTR0 = OFF      // Table Read Protect 00800-03FFF (Disabled)
+#pragma config EBTR1 = OFF      // Table Read Protect 04000-07FFF (Disabled)
+#pragma config EBTR2 = OFF      // Table Read Protect 08000-0BFFF (Disabled)
+#pragma config EBTR3 = OFF      // Table Read Protect 0C000-0FFFF (Disabled)
 
 // CONFIG7H
-#pragma config EBTRB = OFF      // Boot Block Table Read Protection bit (Boot block (000000-0007FFh) not protected from table reads executed in other blocks)
+#pragma config EBTRB = OFF      // Table Read Protect Boot (Disabled)
+
 
 
 void ResetDevice(void);
@@ -97,10 +102,13 @@ unsigned char buforCAN[65];
 unsigned char counter = 0;
 unsigned char ramekInicjalizacji = 0, iloscBajtow = 0;
 
-asm("PSECT intcode");
-asm("GOTO 0xc08");
-asm("PSECT intcodelo");
-asm("GOTO 0xc18");
+#asm
+PSECT intcode
+GOTO 0xc08
+PSECT intcodelo
+GOTO 0xc18
+
+#endasm
 
 static void OdbierzRamke(void)
 {
@@ -171,7 +179,7 @@ static void OdbierzRamke(void)
         }
         else if((iloscBajtow >= 64))
         {
-            LED_R;
+            LED = !LED;
             EraseFlash(SourceAddr.Val32, SourceAddr.Val32+(unsigned long)64);
             WriteBytesFlash(SourceAddr.Val32,64,buforCAN);
             SourceAddr.Val32 += 64;
@@ -230,7 +238,7 @@ int main(void)
     TRISA = 0xFF;
     TRISB = 0xFF;
     TRISAbits.TRISA5 = 0;
-    LED;
+    LED = 0;
     TRISC = 0xFF;
     TRISCbits.TRISC6 = 0;
 
@@ -258,27 +266,11 @@ int main(void)
 
     //ustawienie predkosci przesylu danych
      //  50 Kbps @ 8MHz
-    BRGCON1bits.BRP0 = BRP_VAL & 0b000001;         // Sync Segment = 1 TQ (0b00)  // 0b001111; // 2x16
-    BRGCON1bits.BRP1 = (BRP_VAL >> 1) & 0b000001;  
-    BRGCON1bits.BRP2 = (BRP_VAL >> 2) & 0b000001;  
-    BRGCON1bits.BRP3 = (BRP_VAL >> 3) & 0b000001;  
-    BRGCON1bits.BRP4 = (BRP_VAL >> 4) & 0b000001;  
-    BRGCON1bits.BRP5 = (BRP_VAL >> 5) & 0b000001;  
-    
-    BRGCON1bits.SJW0 = 1;
-    BRGCON1bits.SJW1 = 1;
-    
-    BRGCON2bits.SEG1PH0 = 1; // Phase Segment 1 = 8 TQ
-    BRGCON2bits.SEG1PH1 = 1;
-    BRGCON2bits.SEG1PH2 = 1;
-    
-    BRGCON2bits.PRSEG2 = 1; // Propagation Delay = 5 TQ
-    BRGCON2bits.PRSEG1 = 0;
-    BRGCON2bits.PRSEG0 = 0;
-    
-    BRGCON3bits.SEG2PH0 = 1; // Phase Segment 2 = 6 TQ
-    BRGCON3bits.SEG2PH1 = 0;
-    BRGCON3bits.SEG2PH2 = 1;
+    BRGCON1bits.BRP = BRP_VAL;         // Sync Segment = 1 TQ (0b00)
+    BRGCON1bits.SJW = 0x3;
+   BRGCON2bits.SEG1PH = 0b111; // Phase Segment 1 = 8 TQ
+    BRGCON2bits.PRSEG = 0b100; // Propagation Delay = 5 TQ
+    BRGCON3bits.SEG2PH = 0b101; // Phase Segment 2 = 6 TQ
 
     BRGCON2bits.SAM = 1;
     BRGCON2bits.SEG2PHTS = 1;

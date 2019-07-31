@@ -1,9 +1,8 @@
- build/default/production/MOC_Funct.d  \
- build/default/production/MOC_Funct.p1:  \
- MOC_Funct.c  \
+build/default/production/MOC_Funct.p1:  \
+MOC_Funct.c  \
+CAN.h  \
+GenericTypeDefs.h  \
 main.h  \
 DetekcjaSasiadow.h  \
 LED.h  \
-GenericTypeDefs.h  \
-MOC_Funct.h  \
-CAN.h 
+MOC_Funct.h 

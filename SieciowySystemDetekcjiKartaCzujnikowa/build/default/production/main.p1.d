@@ -1,12 +1,11 @@
- build/default/production/main.d  \
- build/default/production/main.p1:  \
- main.c  \
+build/default/production/main.p1:  \
+main.c  \
 main.h  \
-FLASH.h  \
+GenericTypeDefs.h  \
 DetekcjaSasiadow.h  \
 TRM.h  \
-TMR1.h  \
-INI.h  \
-LED.h  \
 ISR.h  \
-GenericTypeDefs.h 
+TMR1.h  \
+LED.h  \
+INI.h  \
+FLASH.h 

@@ -1,7 +1,6 @@
- build/default/production/FLASH.d  \
- build/default/production/FLASH.p1:  \
- FLASH.c  \
-main.h  \
+build/default/production/FLASH.p1:  \
+FLASH.c  \
 FLASH.h  \
-DetekcjaSasiadow.h  \
-GenericTypeDefs.h 
+main.h  \
+GenericTypeDefs.h  \
+DetekcjaSasiadow.h 
