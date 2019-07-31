@@ -8,7 +8,7 @@
 #ifndef main_H
 #define main_H
 
-    #include <p18f26k80.h>
+   
 #include "GenericTypeDefs.h"
 
     #define FCY 16000000//8000000/2

@@ -1,10 +1,11 @@
-build/default/production/INI.p1:  \
-INI.c  \
+ build/default/production/INI.d  \
+ build/default/production/INI.p1:  \
+ INI.c  \
 main.h  \
-GenericTypeDefs.h  \
 DetekcjaSasiadow.h  \
-CAN.h  \
-LED.h  \
-TMR1.h  \
 EEPROM.h  \
-FRAME.h 
+TMR1.h  \
+LED.h  \
+FRAME.h  \
+GenericTypeDefs.h  \
+CAN.h 

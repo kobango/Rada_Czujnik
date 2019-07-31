@@ -1,407 +1,31 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"24 main.c
-[s S2144 `us 1 `us 1 ]
-[n S2144 . LW HW ]
-"30
-[u S2143 `ul 1 `S2144 1 `uc -> 4 `i ]
-[n S2143 tuReg32 Val32 Word Val ]
-"27377 C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f4680.h
-[v _CANCON `Vuc ~T0 @X0 0 e@3951 ]
-"27928
-[v _ECANCON `Vuc ~T0 @X0 0 e@3959 ]
-"25920
-[v _RXB0CON `Vuc ~T0 @X0 0 e@3936 ]
-"24429
-[v _RXB1CON `Vuc ~T0 @X0 0 e@3920 ]
-"6314
-[v _B0CON `Vuc ~T0 @X0 0 e@3616 ]
-"7959
-[v _B1CON `Vuc ~T0 @X0 0 e@3632 ]
-"9604
-[v _B2CON `Vuc ~T0 @X0 0 e@3648 ]
-"11258
-[v _B3CON `Vuc ~T0 @X0 0 e@3664 ]
-"12912
-[v _B4CON `Vuc ~T0 @X0 0 e@3680 ]
-"14575
-[v _B5CON `Vuc ~T0 @X0 0 e@3696 ]
-"26781
-[v _RXB0D0 `Vuc ~T0 @X0 0 e@3942 ]
-"93 main.c
-[v _ResetDevice `(v ~T0 @X0 0 ef ]
-"16 LED.h
-[v _LED_Error `(ui ~T0 @X0 0 ef ]
-"120 C:\Program Files (x86)\Microchip\xc8\v1.21\include\plib\flash.h
-[v _EraseFlash `(v ~T0 @X0 0 ef2`ul`ul ]
-"124
-[v _WriteBytesFlash `(v ~T0 @X0 0 ef3`ul`ui`*uc ]
-"34500 C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f4680.h
-[v _TMR0 `Vus ~T0 @X0 0 e@4054 ]
-[p mainexit ]
-"33921
-[v _RCON `Vuc ~T0 @X0 0 e@4048 ]
-"29580
+"51 LED.c
+[c E16889 0 1 .. ]
+[n E16889 LED_RGA RED GREEN  ]
+"16
+[v _LED_Control `(uc ~T0 @X0 0 ef2`E16889`ui ]
+"21
+[v _LED_Light_Pos `(ui ~T0 @X0 0 ef3`E16889`ui`ui ]
+"19
+[v _LED_Right `(ui ~T0 @X0 0 ef1`ui ]
+"20
+[v _LED_Left `(ui ~T0 @X0 0 ef1`ui ]
+"29580 C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f4680.h
 [v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
 "29801
 [v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
-"29591
-[s S1869 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1869 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
-"29601
-[s S1870 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1870 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
-"29590
-[u S1868 `S1869 1 `S1870 1 ]
-[n S1868 . . . ]
-"29612
-[v _TRISAbits `VS1868 ~T0 @X0 0 e@3986 ]
-"17 LED.h
-[v _LED_Clear `(ui ~T0 @X0 0 ef ]
-"30022 C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f4680.h
-[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
-"30033
-[s S1881 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1881 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"30043
-[s S1882 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1882 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-"30032
-[u S1880 `S1881 1 `S1882 1 ]
-[n S1880 . . . ]
-"30054
-[v _TRISCbits `VS1880 ~T0 @X0 0 e@3988 ]
-"34425
-[v _T0CON `Vuc ~T0 @X0 0 e@4053 ]
-"34431
-[s S2111 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2111 . T0PS PSA T0SE T0CS T08BIT TMR0ON ]
-"34439
-[s S2112 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2112 . T0PS0 T0PS1 T0PS2 T0PS3 ]
-"34430
-[u S2110 `S2111 1 `S2112 1 ]
-[n S2110 . . . ]
-"34446
-[v _T0CONbits `VS2110 ~T0 @X0 0 e@4053 ]
-"34925
-[s S2127 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2127 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"34935
-[s S2128 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2128 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE GIE ]
-"34945
-[s S2129 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2129 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE GIEL GIEH ]
-"34955
-[s S2130 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2130 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-"34965
-[s S2131 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2131 . . GIEL GIEH ]
-"34924
-[u S2126 `S2127 1 `S2128 1 `S2129 1 `S2130 1 `S2131 1 ]
-[n S2126 . . . . . . ]
-"34971
-[v _INTCONbits `VS2126 ~T0 @X0 0 e@4082 ]
-"27269
-[v _CANSTAT `Vuc ~T0 @X0 0 e@3950 ]
-"27486
-[s S1742 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1742 . BRP0 BRP1 BRP2 BRP3 BRP4 BRP5 SJW0 SJW1 ]
-"27485
-[u S1741 `S1742 1 ]
-[n S1741 . . ]
-"27497
-[v _BRGCON1bits `VS1741 ~T0 @X0 0 e@3952 ]
-"27547
-[s S1744 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1744 . PRSEG0 PRSEG1 PRSEG2 SEG1PH0 SEG1PH1 SEG1PH2 SAM SEG2PHT ]
-"27557
-[s S1745 :7 `uc 1 :1 `uc 1 ]
-[n S1745 . . SEG2PHTS ]
-"27546
-[u S1743 `S1744 1 `S1745 1 ]
-[n S1743 . . . ]
-"27562
-[v _BRGCON2bits `VS1743 ~T0 @X0 0 e@3953 ]
-"27617
-[s S1747 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1747 . SEG2PH0 SEG2PH1 SEG2PH2 . WAKFIL WAKDIS ]
-"27616
-[u S1746 `S1747 1 ]
-[n S1746 . . ]
-"27626
-[v _BRGCON3bits `VS1746 ~T0 @X0 0 e@3954 ]
-"5883
-[v _MSEL0 `Vuc ~T0 @X0 0 e@3568 ]
-"19304
-[v _RXM0SIDH `Vuc ~T0 @X0 0 e@3864 ]
-"19436
-[v _RXM0SIDL `Vuc ~T0 @X0 0 e@3865 ]
-"19540
-[v _RXM0EIDH `Vuc ~T0 @X0 0 e@3866 ]
-"19672
-[v _RXM0EIDL `Vuc ~T0 @X0 0 e@3867 ]
-"16250
-[v _RXF0SIDH `Vuc ~T0 @X0 0 e@3840 ]
-"16382
-[v _RXF0SIDL `Vuc ~T0 @X0 0 e@3841 ]
-"16388
-[s S1039 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1039 . EID16 EID17 . EXIDEN . SID0 SID1 SID2 ]
-"16398
-[s S1040 :3 `uc 1 :1 `uc 1 ]
-[n S1040 . . EXIDE ]
-"16402
-[s S1041 :1 `uc 1 ]
-[n S1041 . RXF0EID16 ]
-"16405
-[s S1042 :1 `uc 1 :1 `uc 1 ]
-[n S1042 . . RXF0EID17 ]
-"16409
-[s S1043 :3 `uc 1 :1 `uc 1 ]
-[n S1043 . . RXF0EXIDEN ]
-"16413
-[s S1044 :5 `uc 1 :1 `uc 1 ]
-[n S1044 . . RXF0SID0 ]
-"16417
-[s S1045 :6 `uc 1 :1 `uc 1 ]
-[n S1045 . . RXF0SID1 ]
-"16421
-[s S1046 :7 `uc 1 :1 `uc 1 ]
-[n S1046 . . RXF0SID2 ]
-"16387
-[u S1038 `S1039 1 `S1040 1 `S1041 1 `S1042 1 `S1043 1 `S1044 1 `S1045 1 `S1046 1 ]
-[n S1038 . . . . . . . . . ]
-"16426
-[v _RXF0SIDLbits `VS1038 ~T0 @X0 0 e@3841 ]
-"16495
-[v _RXF0EIDH `Vuc ~T0 @X0 0 e@3842 ]
-"16627
-[v _RXF0EIDL `Vuc ~T0 @X0 0 e@3843 ]
-"5134
-[v _RXFCON0 `Vuc ~T0 @X0 0 e@3540 ]
-"5195
-[v _RXFCON1 `Vuc ~T0 @X0 0 e@3541 ]
-[; ;GenericTypeDefs.h: 48: typedef enum _BOOL { FALSE = 0, TRUE } BOOL;
-[; ;GenericTypeDefs.h: 58: typedef unsigned char BYTE;
-[; ;GenericTypeDefs.h: 59: typedef unsigned short int WORD;
-[; ;GenericTypeDefs.h: 60: typedef unsigned long DWORD;
-[; ;GenericTypeDefs.h: 61: typedef unsigned long long QWORD;
-[; ;GenericTypeDefs.h: 62: typedef signed char CHAR;
-[; ;GenericTypeDefs.h: 63: typedef signed short int SHORT;
-[; ;GenericTypeDefs.h: 64: typedef signed long LONG;
-[; ;GenericTypeDefs.h: 65: typedef signed long long LONGLONG;
-[; ;GenericTypeDefs.h: 68: typedef void VOID;
-[; ;GenericTypeDefs.h: 70: typedef char CHAR8;
-[; ;GenericTypeDefs.h: 71: typedef unsigned char UCHAR8;
-[; ;GenericTypeDefs.h: 77: typedef signed int INT;
-[; ;GenericTypeDefs.h: 78: typedef signed char INT8;
-[; ;GenericTypeDefs.h: 79: typedef signed short int INT16;
-[; ;GenericTypeDefs.h: 80: typedef signed long int INT32;
-[; ;GenericTypeDefs.h: 81: typedef signed long long INT64;
-[; ;GenericTypeDefs.h: 83: typedef unsigned int UINT;
-[; ;GenericTypeDefs.h: 84: typedef unsigned char UINT8;
-[; ;GenericTypeDefs.h: 85: typedef unsigned short int UINT16;
-[; ;GenericTypeDefs.h: 86: typedef unsigned long int UINT32;
-[; ;GenericTypeDefs.h: 87: typedef unsigned long long UINT64;
-[; ;GenericTypeDefs.h: 89: typedef union _BYTE_VAL
-[; ;GenericTypeDefs.h: 90: {
-[; ;GenericTypeDefs.h: 91: BYTE Val;
-[; ;GenericTypeDefs.h: 92: struct
-[; ;GenericTypeDefs.h: 93: {
-[; ;GenericTypeDefs.h: 94: unsigned char b0:1;
-[; ;GenericTypeDefs.h: 95: unsigned char b1:1;
-[; ;GenericTypeDefs.h: 96: unsigned char b2:1;
-[; ;GenericTypeDefs.h: 97: unsigned char b3:1;
-[; ;GenericTypeDefs.h: 98: unsigned char b4:1;
-[; ;GenericTypeDefs.h: 99: unsigned char b5:1;
-[; ;GenericTypeDefs.h: 100: unsigned char b6:1;
-[; ;GenericTypeDefs.h: 101: unsigned char b7:1;
-[; ;GenericTypeDefs.h: 102: } bits;
-[; ;GenericTypeDefs.h: 103: } BYTE_VAL, BYTE_BITS;
-[; ;GenericTypeDefs.h: 105: typedef union _WORD_VAL
-[; ;GenericTypeDefs.h: 106: {
-[; ;GenericTypeDefs.h: 107: WORD Val;
-[; ;GenericTypeDefs.h: 108: BYTE v[2];
-[; ;GenericTypeDefs.h: 109: struct
-[; ;GenericTypeDefs.h: 110: {
-[; ;GenericTypeDefs.h: 111: BYTE LB;
-[; ;GenericTypeDefs.h: 112: BYTE HB;
-[; ;GenericTypeDefs.h: 113: } byte;
-[; ;GenericTypeDefs.h: 114: struct
-[; ;GenericTypeDefs.h: 115: {
-[; ;GenericTypeDefs.h: 116: unsigned char b0:1;
-[; ;GenericTypeDefs.h: 117: unsigned char b1:1;
-[; ;GenericTypeDefs.h: 118: unsigned char b2:1;
-[; ;GenericTypeDefs.h: 119: unsigned char b3:1;
-[; ;GenericTypeDefs.h: 120: unsigned char b4:1;
-[; ;GenericTypeDefs.h: 121: unsigned char b5:1;
-[; ;GenericTypeDefs.h: 122: unsigned char b6:1;
-[; ;GenericTypeDefs.h: 123: unsigned char b7:1;
-[; ;GenericTypeDefs.h: 124: unsigned char b8:1;
-[; ;GenericTypeDefs.h: 125: unsigned char b9:1;
-[; ;GenericTypeDefs.h: 126: unsigned char b10:1;
-[; ;GenericTypeDefs.h: 127: unsigned char b11:1;
-[; ;GenericTypeDefs.h: 128: unsigned char b12:1;
-[; ;GenericTypeDefs.h: 129: unsigned char b13:1;
-[; ;GenericTypeDefs.h: 130: unsigned char b14:1;
-[; ;GenericTypeDefs.h: 131: unsigned char b15:1;
-[; ;GenericTypeDefs.h: 132: } bits;
-[; ;GenericTypeDefs.h: 133: } WORD_VAL, WORD_BITS;
-[; ;GenericTypeDefs.h: 135: typedef union _DWORD_VAL
-[; ;GenericTypeDefs.h: 136: {
-[; ;GenericTypeDefs.h: 137: DWORD Val;
-[; ;GenericTypeDefs.h: 138: WORD w[2];
-[; ;GenericTypeDefs.h: 139: BYTE v[4];
-[; ;GenericTypeDefs.h: 140: struct
-[; ;GenericTypeDefs.h: 141: {
-[; ;GenericTypeDefs.h: 142: WORD LW;
-[; ;GenericTypeDefs.h: 143: WORD HW;
-[; ;GenericTypeDefs.h: 144: } word;
-[; ;GenericTypeDefs.h: 145: struct
-[; ;GenericTypeDefs.h: 146: {
-[; ;GenericTypeDefs.h: 147: BYTE LB;
-[; ;GenericTypeDefs.h: 148: BYTE HB;
-[; ;GenericTypeDefs.h: 149: BYTE UB;
-[; ;GenericTypeDefs.h: 150: BYTE MB;
-[; ;GenericTypeDefs.h: 151: } byte;
-[; ;GenericTypeDefs.h: 152: struct
-[; ;GenericTypeDefs.h: 153: {
-[; ;GenericTypeDefs.h: 154: WORD_VAL low;
-[; ;GenericTypeDefs.h: 155: WORD_VAL high;
-[; ;GenericTypeDefs.h: 156: }wordUnion;
-[; ;GenericTypeDefs.h: 157: struct
-[; ;GenericTypeDefs.h: 158: {
-[; ;GenericTypeDefs.h: 159: unsigned char b0:1;
-[; ;GenericTypeDefs.h: 160: unsigned char b1:1;
-[; ;GenericTypeDefs.h: 161: unsigned char b2:1;
-[; ;GenericTypeDefs.h: 162: unsigned char b3:1;
-[; ;GenericTypeDefs.h: 163: unsigned char b4:1;
-[; ;GenericTypeDefs.h: 164: unsigned char b5:1;
-[; ;GenericTypeDefs.h: 165: unsigned char b6:1;
-[; ;GenericTypeDefs.h: 166: unsigned char b7:1;
-[; ;GenericTypeDefs.h: 167: unsigned char b8:1;
-[; ;GenericTypeDefs.h: 168: unsigned char b9:1;
-[; ;GenericTypeDefs.h: 169: unsigned char b10:1;
-[; ;GenericTypeDefs.h: 170: unsigned char b11:1;
-[; ;GenericTypeDefs.h: 171: unsigned char b12:1;
-[; ;GenericTypeDefs.h: 172: unsigned char b13:1;
-[; ;GenericTypeDefs.h: 173: unsigned char b14:1;
-[; ;GenericTypeDefs.h: 174: unsigned char b15:1;
-[; ;GenericTypeDefs.h: 175: unsigned char b16:1;
-[; ;GenericTypeDefs.h: 176: unsigned char b17:1;
-[; ;GenericTypeDefs.h: 177: unsigned char b18:1;
-[; ;GenericTypeDefs.h: 178: unsigned char b19:1;
-[; ;GenericTypeDefs.h: 179: unsigned char b20:1;
-[; ;GenericTypeDefs.h: 180: unsigned char b21:1;
-[; ;GenericTypeDefs.h: 181: unsigned char b22:1;
-[; ;GenericTypeDefs.h: 182: unsigned char b23:1;
-[; ;GenericTypeDefs.h: 183: unsigned char b24:1;
-[; ;GenericTypeDefs.h: 184: unsigned char b25:1;
-[; ;GenericTypeDefs.h: 185: unsigned char b26:1;
-[; ;GenericTypeDefs.h: 186: unsigned char b27:1;
-[; ;GenericTypeDefs.h: 187: unsigned char b28:1;
-[; ;GenericTypeDefs.h: 188: unsigned char b29:1;
-[; ;GenericTypeDefs.h: 189: unsigned char b30:1;
-[; ;GenericTypeDefs.h: 190: unsigned char b31:1;
-[; ;GenericTypeDefs.h: 191: } bits;
-[; ;GenericTypeDefs.h: 192: } DWORD_VAL;
-[; ;GenericTypeDefs.h: 194: typedef union _QWORD_VAL
-[; ;GenericTypeDefs.h: 195: {
-[; ;GenericTypeDefs.h: 196: QWORD Val;
-[; ;GenericTypeDefs.h: 197: DWORD d[2];
-[; ;GenericTypeDefs.h: 198: WORD w[4];
-[; ;GenericTypeDefs.h: 199: BYTE v[8];
-[; ;GenericTypeDefs.h: 200: struct
-[; ;GenericTypeDefs.h: 201: {
-[; ;GenericTypeDefs.h: 202: DWORD LD;
-[; ;GenericTypeDefs.h: 203: DWORD HD;
-[; ;GenericTypeDefs.h: 204: } dword;
-[; ;GenericTypeDefs.h: 205: struct
-[; ;GenericTypeDefs.h: 206: {
-[; ;GenericTypeDefs.h: 207: WORD LW;
-[; ;GenericTypeDefs.h: 208: WORD HW;
-[; ;GenericTypeDefs.h: 209: WORD UW;
-[; ;GenericTypeDefs.h: 210: WORD MW;
-[; ;GenericTypeDefs.h: 211: } word;
-[; ;GenericTypeDefs.h: 212: struct
-[; ;GenericTypeDefs.h: 213: {
-[; ;GenericTypeDefs.h: 214: unsigned char b0:1;
-[; ;GenericTypeDefs.h: 215: unsigned char b1:1;
-[; ;GenericTypeDefs.h: 216: unsigned char b2:1;
-[; ;GenericTypeDefs.h: 217: unsigned char b3:1;
-[; ;GenericTypeDefs.h: 218: unsigned char b4:1;
-[; ;GenericTypeDefs.h: 219: unsigned char b5:1;
-[; ;GenericTypeDefs.h: 220: unsigned char b6:1;
-[; ;GenericTypeDefs.h: 221: unsigned char b7:1;
-[; ;GenericTypeDefs.h: 222: unsigned char b8:1;
-[; ;GenericTypeDefs.h: 223: unsigned char b9:1;
-[; ;GenericTypeDefs.h: 224: unsigned char b10:1;
-[; ;GenericTypeDefs.h: 225: unsigned char b11:1;
-[; ;GenericTypeDefs.h: 226: unsigned char b12:1;
-[; ;GenericTypeDefs.h: 227: unsigned char b13:1;
-[; ;GenericTypeDefs.h: 228: unsigned char b14:1;
-[; ;GenericTypeDefs.h: 229: unsigned char b15:1;
-[; ;GenericTypeDefs.h: 230: unsigned char b16:1;
-[; ;GenericTypeDefs.h: 231: unsigned char b17:1;
-[; ;GenericTypeDefs.h: 232: unsigned char b18:1;
-[; ;GenericTypeDefs.h: 233: unsigned char b19:1;
-[; ;GenericTypeDefs.h: 234: unsigned char b20:1;
-[; ;GenericTypeDefs.h: 235: unsigned char b21:1;
-[; ;GenericTypeDefs.h: 236: unsigned char b22:1;
-[; ;GenericTypeDefs.h: 237: unsigned char b23:1;
-[; ;GenericTypeDefs.h: 238: unsigned char b24:1;
-[; ;GenericTypeDefs.h: 239: unsigned char b25:1;
-[; ;GenericTypeDefs.h: 240: unsigned char b26:1;
-[; ;GenericTypeDefs.h: 241: unsigned char b27:1;
-[; ;GenericTypeDefs.h: 242: unsigned char b28:1;
-[; ;GenericTypeDefs.h: 243: unsigned char b29:1;
-[; ;GenericTypeDefs.h: 244: unsigned char b30:1;
-[; ;GenericTypeDefs.h: 245: unsigned char b31:1;
-[; ;GenericTypeDefs.h: 246: unsigned char b32:1;
-[; ;GenericTypeDefs.h: 247: unsigned char b33:1;
-[; ;GenericTypeDefs.h: 248: unsigned char b34:1;
-[; ;GenericTypeDefs.h: 249: unsigned char b35:1;
-[; ;GenericTypeDefs.h: 250: unsigned char b36:1;
-[; ;GenericTypeDefs.h: 251: unsigned char b37:1;
-[; ;GenericTypeDefs.h: 252: unsigned char b38:1;
-[; ;GenericTypeDefs.h: 253: unsigned char b39:1;
-[; ;GenericTypeDefs.h: 254: unsigned char b40:1;
-[; ;GenericTypeDefs.h: 255: unsigned char b41:1;
-[; ;GenericTypeDefs.h: 256: unsigned char b42:1;
-[; ;GenericTypeDefs.h: 257: unsigned char b43:1;
-[; ;GenericTypeDefs.h: 258: unsigned char b44:1;
-[; ;GenericTypeDefs.h: 259: unsigned char b45:1;
-[; ;GenericTypeDefs.h: 260: unsigned char b46:1;
-[; ;GenericTypeDefs.h: 261: unsigned char b47:1;
-[; ;GenericTypeDefs.h: 262: unsigned char b48:1;
-[; ;GenericTypeDefs.h: 263: unsigned char b49:1;
-[; ;GenericTypeDefs.h: 264: unsigned char b50:1;
-[; ;GenericTypeDefs.h: 265: unsigned char b51:1;
-[; ;GenericTypeDefs.h: 266: unsigned char b52:1;
-[; ;GenericTypeDefs.h: 267: unsigned char b53:1;
-[; ;GenericTypeDefs.h: 268: unsigned char b54:1;
-[; ;GenericTypeDefs.h: 269: unsigned char b55:1;
-[; ;GenericTypeDefs.h: 270: unsigned char b56:1;
-[; ;GenericTypeDefs.h: 271: unsigned char b57:1;
-[; ;GenericTypeDefs.h: 272: unsigned char b58:1;
-[; ;GenericTypeDefs.h: 273: unsigned char b59:1;
-[; ;GenericTypeDefs.h: 274: unsigned char b60:1;
-[; ;GenericTypeDefs.h: 275: unsigned char b61:1;
-[; ;GenericTypeDefs.h: 276: unsigned char b62:1;
-[; ;GenericTypeDefs.h: 277: unsigned char b63:1;
-[; ;GenericTypeDefs.h: 278: } bits;
-[; ;GenericTypeDefs.h: 279: } QWORD_VAL;
-[; ;main.h: 32: typedef struct{
-[; ;main.h: 34: unsigned char buffer_status;
-[; ;main.h: 36: unsigned char message_type;
-[; ;main.h: 38: unsigned char frame_type;
-[; ;main.h: 40: unsigned char buffer;
-[; ;main.h: 43: DWORD_VAL id;
-[; ;main.h: 44: unsigned char data[8];
-[; ;main.h: 45: unsigned char data_length;
-[; ;main.h: 46: }mID;
+"30464
+[v _TRISE `Vuc ~T0 @X0 0 e@3990 ]
+"30243
+[v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
+"29346
+[v _LATD `Vuc ~T0 @X0 0 e@3980 ]
+"29082
+[v _LATB `Vuc ~T0 @X0 0 e@3978 ]
+"28950
+[v _LATA `Vuc ~T0 @X0 0 e@3977 ]
+"29478
+[v _LATE `Vuc ~T0 @X0 0 e@3981 ]
 [; ;pic18f4680.h: 44: extern volatile unsigned char RXF6SIDH @ 0xD60;
 "46 C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f4680.h
 [; ;pic18f4680.h: 46: asm("RXF6SIDH equ 0D60h");
@@ -15124,6 +14748,409 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;EEP.h: 36: void Busy_eep ( void );
 [; ;EEP.h: 37: unsigned char Read_b_eep( unsigned int badd );
 [; ;EEP.h: 38: void Write_b_eep( unsigned int badd, unsigned char bdat );
+[; ;stddef.h: 2: typedef int ptrdiff_t;
+[; ;stddef.h: 3: typedef unsigned size_t;
+[; ;stddef.h: 4: typedef unsigned short wchar_t;
+[; ;stddef.h: 13: extern int errno;
+[; ;GenericTypeDefs.h: 65: typedef enum _BOOL { FALSE = 0, TRUE } BOOL;
+[; ;GenericTypeDefs.h: 68: typedef enum _BIT { CLEAR = 0, SET } BIT;
+[; ;GenericTypeDefs.h: 75: typedef signed int INT;
+[; ;GenericTypeDefs.h: 76: typedef signed char INT8;
+[; ;GenericTypeDefs.h: 77: typedef signed short int INT16;
+[; ;GenericTypeDefs.h: 78: typedef signed long int INT32;
+[; ;GenericTypeDefs.h: 82: typedef signed long long INT64;
+[; ;GenericTypeDefs.h: 86: typedef unsigned int UINT;
+[; ;GenericTypeDefs.h: 87: typedef unsigned char UINT8;
+[; ;GenericTypeDefs.h: 88: typedef unsigned short int UINT16;
+[; ;GenericTypeDefs.h: 93: typedef unsigned long int UINT32;
+[; ;GenericTypeDefs.h: 96: typedef unsigned long long UINT64;
+[; ;GenericTypeDefs.h: 99: typedef union
+[; ;GenericTypeDefs.h: 100: {
+[; ;GenericTypeDefs.h: 101: UINT8 Val;
+[; ;GenericTypeDefs.h: 102: struct
+[; ;GenericTypeDefs.h: 103: {
+[; ;GenericTypeDefs.h: 104: UINT8 b0:1;
+[; ;GenericTypeDefs.h: 105: UINT8 b1:1;
+[; ;GenericTypeDefs.h: 106: UINT8 b2:1;
+[; ;GenericTypeDefs.h: 107: UINT8 b3:1;
+[; ;GenericTypeDefs.h: 108: UINT8 b4:1;
+[; ;GenericTypeDefs.h: 109: UINT8 b5:1;
+[; ;GenericTypeDefs.h: 110: UINT8 b6:1;
+[; ;GenericTypeDefs.h: 111: UINT8 b7:1;
+[; ;GenericTypeDefs.h: 112: } bits;
+[; ;GenericTypeDefs.h: 113: } UINT8_VAL, UINT8_BITS;
+[; ;GenericTypeDefs.h: 115: typedef union
+[; ;GenericTypeDefs.h: 116: {
+[; ;GenericTypeDefs.h: 117: UINT16 Val;
+[; ;GenericTypeDefs.h: 118: UINT8 v[2] ;
+[; ;GenericTypeDefs.h: 119: struct 
+[; ;GenericTypeDefs.h: 120: {
+[; ;GenericTypeDefs.h: 121: UINT8 LB;
+[; ;GenericTypeDefs.h: 122: UINT8 HB;
+[; ;GenericTypeDefs.h: 123: } byte;
+[; ;GenericTypeDefs.h: 124: struct 
+[; ;GenericTypeDefs.h: 125: {
+[; ;GenericTypeDefs.h: 126: UINT8 b0:1;
+[; ;GenericTypeDefs.h: 127: UINT8 b1:1;
+[; ;GenericTypeDefs.h: 128: UINT8 b2:1;
+[; ;GenericTypeDefs.h: 129: UINT8 b3:1;
+[; ;GenericTypeDefs.h: 130: UINT8 b4:1;
+[; ;GenericTypeDefs.h: 131: UINT8 b5:1;
+[; ;GenericTypeDefs.h: 132: UINT8 b6:1;
+[; ;GenericTypeDefs.h: 133: UINT8 b7:1;
+[; ;GenericTypeDefs.h: 134: UINT8 b8:1;
+[; ;GenericTypeDefs.h: 135: UINT8 b9:1;
+[; ;GenericTypeDefs.h: 136: UINT8 b10:1;
+[; ;GenericTypeDefs.h: 137: UINT8 b11:1;
+[; ;GenericTypeDefs.h: 138: UINT8 b12:1;
+[; ;GenericTypeDefs.h: 139: UINT8 b13:1;
+[; ;GenericTypeDefs.h: 140: UINT8 b14:1;
+[; ;GenericTypeDefs.h: 141: UINT8 b15:1;
+[; ;GenericTypeDefs.h: 142: } bits;
+[; ;GenericTypeDefs.h: 143: } UINT16_VAL, UINT16_BITS;
+[; ;GenericTypeDefs.h: 187: typedef union
+[; ;GenericTypeDefs.h: 188: {
+[; ;GenericTypeDefs.h: 189: UINT32 Val;
+[; ;GenericTypeDefs.h: 190: UINT16 w[2] ;
+[; ;GenericTypeDefs.h: 191: UINT8 v[4] ;
+[; ;GenericTypeDefs.h: 192: struct 
+[; ;GenericTypeDefs.h: 193: {
+[; ;GenericTypeDefs.h: 194: UINT16 LW;
+[; ;GenericTypeDefs.h: 195: UINT16 HW;
+[; ;GenericTypeDefs.h: 196: } word;
+[; ;GenericTypeDefs.h: 197: struct 
+[; ;GenericTypeDefs.h: 198: {
+[; ;GenericTypeDefs.h: 199: UINT8 LB;
+[; ;GenericTypeDefs.h: 200: UINT8 HB;
+[; ;GenericTypeDefs.h: 201: UINT8 UB;
+[; ;GenericTypeDefs.h: 202: UINT8 MB;
+[; ;GenericTypeDefs.h: 203: } byte;
+[; ;GenericTypeDefs.h: 204: struct 
+[; ;GenericTypeDefs.h: 205: {
+[; ;GenericTypeDefs.h: 206: UINT16_VAL low;
+[; ;GenericTypeDefs.h: 207: UINT16_VAL high;
+[; ;GenericTypeDefs.h: 208: }wordUnion;
+[; ;GenericTypeDefs.h: 209: struct 
+[; ;GenericTypeDefs.h: 210: {
+[; ;GenericTypeDefs.h: 211: UINT8 b0:1;
+[; ;GenericTypeDefs.h: 212: UINT8 b1:1;
+[; ;GenericTypeDefs.h: 213: UINT8 b2:1;
+[; ;GenericTypeDefs.h: 214: UINT8 b3:1;
+[; ;GenericTypeDefs.h: 215: UINT8 b4:1;
+[; ;GenericTypeDefs.h: 216: UINT8 b5:1;
+[; ;GenericTypeDefs.h: 217: UINT8 b6:1;
+[; ;GenericTypeDefs.h: 218: UINT8 b7:1;
+[; ;GenericTypeDefs.h: 219: UINT8 b8:1;
+[; ;GenericTypeDefs.h: 220: UINT8 b9:1;
+[; ;GenericTypeDefs.h: 221: UINT8 b10:1;
+[; ;GenericTypeDefs.h: 222: UINT8 b11:1;
+[; ;GenericTypeDefs.h: 223: UINT8 b12:1;
+[; ;GenericTypeDefs.h: 224: UINT8 b13:1;
+[; ;GenericTypeDefs.h: 225: UINT8 b14:1;
+[; ;GenericTypeDefs.h: 226: UINT8 b15:1;
+[; ;GenericTypeDefs.h: 227: UINT8 b16:1;
+[; ;GenericTypeDefs.h: 228: UINT8 b17:1;
+[; ;GenericTypeDefs.h: 229: UINT8 b18:1;
+[; ;GenericTypeDefs.h: 230: UINT8 b19:1;
+[; ;GenericTypeDefs.h: 231: UINT8 b20:1;
+[; ;GenericTypeDefs.h: 232: UINT8 b21:1;
+[; ;GenericTypeDefs.h: 233: UINT8 b22:1;
+[; ;GenericTypeDefs.h: 234: UINT8 b23:1;
+[; ;GenericTypeDefs.h: 235: UINT8 b24:1;
+[; ;GenericTypeDefs.h: 236: UINT8 b25:1;
+[; ;GenericTypeDefs.h: 237: UINT8 b26:1;
+[; ;GenericTypeDefs.h: 238: UINT8 b27:1;
+[; ;GenericTypeDefs.h: 239: UINT8 b28:1;
+[; ;GenericTypeDefs.h: 240: UINT8 b29:1;
+[; ;GenericTypeDefs.h: 241: UINT8 b30:1;
+[; ;GenericTypeDefs.h: 242: UINT8 b31:1;
+[; ;GenericTypeDefs.h: 243: } bits;
+[; ;GenericTypeDefs.h: 244: } UINT32_VAL;
+[; ;GenericTypeDefs.h: 248: typedef union
+[; ;GenericTypeDefs.h: 249: {
+[; ;GenericTypeDefs.h: 250: UINT64 Val;
+[; ;GenericTypeDefs.h: 251: UINT32 d[2] ;
+[; ;GenericTypeDefs.h: 252: UINT16 w[4] ;
+[; ;GenericTypeDefs.h: 253: UINT8 v[8] ;
+[; ;GenericTypeDefs.h: 254: struct 
+[; ;GenericTypeDefs.h: 255: {
+[; ;GenericTypeDefs.h: 256: UINT32 LD;
+[; ;GenericTypeDefs.h: 257: UINT32 HD;
+[; ;GenericTypeDefs.h: 258: } dword;
+[; ;GenericTypeDefs.h: 259: struct 
+[; ;GenericTypeDefs.h: 260: {
+[; ;GenericTypeDefs.h: 261: UINT16 LW;
+[; ;GenericTypeDefs.h: 262: UINT16 HW;
+[; ;GenericTypeDefs.h: 263: UINT16 UW;
+[; ;GenericTypeDefs.h: 264: UINT16 MW;
+[; ;GenericTypeDefs.h: 265: } word;
+[; ;GenericTypeDefs.h: 266: struct 
+[; ;GenericTypeDefs.h: 267: {
+[; ;GenericTypeDefs.h: 268: UINT8 b0:1;
+[; ;GenericTypeDefs.h: 269: UINT8 b1:1;
+[; ;GenericTypeDefs.h: 270: UINT8 b2:1;
+[; ;GenericTypeDefs.h: 271: UINT8 b3:1;
+[; ;GenericTypeDefs.h: 272: UINT8 b4:1;
+[; ;GenericTypeDefs.h: 273: UINT8 b5:1;
+[; ;GenericTypeDefs.h: 274: UINT8 b6:1;
+[; ;GenericTypeDefs.h: 275: UINT8 b7:1;
+[; ;GenericTypeDefs.h: 276: UINT8 b8:1;
+[; ;GenericTypeDefs.h: 277: UINT8 b9:1;
+[; ;GenericTypeDefs.h: 278: UINT8 b10:1;
+[; ;GenericTypeDefs.h: 279: UINT8 b11:1;
+[; ;GenericTypeDefs.h: 280: UINT8 b12:1;
+[; ;GenericTypeDefs.h: 281: UINT8 b13:1;
+[; ;GenericTypeDefs.h: 282: UINT8 b14:1;
+[; ;GenericTypeDefs.h: 283: UINT8 b15:1;
+[; ;GenericTypeDefs.h: 284: UINT8 b16:1;
+[; ;GenericTypeDefs.h: 285: UINT8 b17:1;
+[; ;GenericTypeDefs.h: 286: UINT8 b18:1;
+[; ;GenericTypeDefs.h: 287: UINT8 b19:1;
+[; ;GenericTypeDefs.h: 288: UINT8 b20:1;
+[; ;GenericTypeDefs.h: 289: UINT8 b21:1;
+[; ;GenericTypeDefs.h: 290: UINT8 b22:1;
+[; ;GenericTypeDefs.h: 291: UINT8 b23:1;
+[; ;GenericTypeDefs.h: 292: UINT8 b24:1;
+[; ;GenericTypeDefs.h: 293: UINT8 b25:1;
+[; ;GenericTypeDefs.h: 294: UINT8 b26:1;
+[; ;GenericTypeDefs.h: 295: UINT8 b27:1;
+[; ;GenericTypeDefs.h: 296: UINT8 b28:1;
+[; ;GenericTypeDefs.h: 297: UINT8 b29:1;
+[; ;GenericTypeDefs.h: 298: UINT8 b30:1;
+[; ;GenericTypeDefs.h: 299: UINT8 b31:1;
+[; ;GenericTypeDefs.h: 300: UINT8 b32:1;
+[; ;GenericTypeDefs.h: 301: UINT8 b33:1;
+[; ;GenericTypeDefs.h: 302: UINT8 b34:1;
+[; ;GenericTypeDefs.h: 303: UINT8 b35:1;
+[; ;GenericTypeDefs.h: 304: UINT8 b36:1;
+[; ;GenericTypeDefs.h: 305: UINT8 b37:1;
+[; ;GenericTypeDefs.h: 306: UINT8 b38:1;
+[; ;GenericTypeDefs.h: 307: UINT8 b39:1;
+[; ;GenericTypeDefs.h: 308: UINT8 b40:1;
+[; ;GenericTypeDefs.h: 309: UINT8 b41:1;
+[; ;GenericTypeDefs.h: 310: UINT8 b42:1;
+[; ;GenericTypeDefs.h: 311: UINT8 b43:1;
+[; ;GenericTypeDefs.h: 312: UINT8 b44:1;
+[; ;GenericTypeDefs.h: 313: UINT8 b45:1;
+[; ;GenericTypeDefs.h: 314: UINT8 b46:1;
+[; ;GenericTypeDefs.h: 315: UINT8 b47:1;
+[; ;GenericTypeDefs.h: 316: UINT8 b48:1;
+[; ;GenericTypeDefs.h: 317: UINT8 b49:1;
+[; ;GenericTypeDefs.h: 318: UINT8 b50:1;
+[; ;GenericTypeDefs.h: 319: UINT8 b51:1;
+[; ;GenericTypeDefs.h: 320: UINT8 b52:1;
+[; ;GenericTypeDefs.h: 321: UINT8 b53:1;
+[; ;GenericTypeDefs.h: 322: UINT8 b54:1;
+[; ;GenericTypeDefs.h: 323: UINT8 b55:1;
+[; ;GenericTypeDefs.h: 324: UINT8 b56:1;
+[; ;GenericTypeDefs.h: 325: UINT8 b57:1;
+[; ;GenericTypeDefs.h: 326: UINT8 b58:1;
+[; ;GenericTypeDefs.h: 327: UINT8 b59:1;
+[; ;GenericTypeDefs.h: 328: UINT8 b60:1;
+[; ;GenericTypeDefs.h: 329: UINT8 b61:1;
+[; ;GenericTypeDefs.h: 330: UINT8 b62:1;
+[; ;GenericTypeDefs.h: 331: UINT8 b63:1;
+[; ;GenericTypeDefs.h: 332: } bits;
+[; ;GenericTypeDefs.h: 333: } UINT64_VAL;
+[; ;GenericTypeDefs.h: 339: typedef void VOID;
+[; ;GenericTypeDefs.h: 341: typedef char CHAR8;
+[; ;GenericTypeDefs.h: 342: typedef unsigned char UCHAR8;
+[; ;GenericTypeDefs.h: 344: typedef unsigned char BYTE;
+[; ;GenericTypeDefs.h: 345: typedef unsigned short int WORD;
+[; ;GenericTypeDefs.h: 346: typedef unsigned long DWORD;
+[; ;GenericTypeDefs.h: 349: typedef unsigned long long QWORD;
+[; ;GenericTypeDefs.h: 350: typedef signed char CHAR;
+[; ;GenericTypeDefs.h: 351: typedef signed short int SHORT;
+[; ;GenericTypeDefs.h: 352: typedef signed long LONG;
+[; ;GenericTypeDefs.h: 355: typedef signed long long LONGLONG;
+[; ;GenericTypeDefs.h: 356: typedef union
+[; ;GenericTypeDefs.h: 357: {
+[; ;GenericTypeDefs.h: 358: BYTE Val;
+[; ;GenericTypeDefs.h: 359: struct 
+[; ;GenericTypeDefs.h: 360: {
+[; ;GenericTypeDefs.h: 361: BYTE b0:1;
+[; ;GenericTypeDefs.h: 362: BYTE b1:1;
+[; ;GenericTypeDefs.h: 363: BYTE b2:1;
+[; ;GenericTypeDefs.h: 364: BYTE b3:1;
+[; ;GenericTypeDefs.h: 365: BYTE b4:1;
+[; ;GenericTypeDefs.h: 366: BYTE b5:1;
+[; ;GenericTypeDefs.h: 367: BYTE b6:1;
+[; ;GenericTypeDefs.h: 368: BYTE b7:1;
+[; ;GenericTypeDefs.h: 369: } bits;
+[; ;GenericTypeDefs.h: 370: } BYTE_VAL, BYTE_BITS;
+[; ;GenericTypeDefs.h: 372: typedef union
+[; ;GenericTypeDefs.h: 373: {
+[; ;GenericTypeDefs.h: 374: WORD Val;
+[; ;GenericTypeDefs.h: 375: BYTE v[2] ;
+[; ;GenericTypeDefs.h: 376: struct 
+[; ;GenericTypeDefs.h: 377: {
+[; ;GenericTypeDefs.h: 378: BYTE LB;
+[; ;GenericTypeDefs.h: 379: BYTE HB;
+[; ;GenericTypeDefs.h: 380: } byte;
+[; ;GenericTypeDefs.h: 381: struct 
+[; ;GenericTypeDefs.h: 382: {
+[; ;GenericTypeDefs.h: 383: BYTE b0:1;
+[; ;GenericTypeDefs.h: 384: BYTE b1:1;
+[; ;GenericTypeDefs.h: 385: BYTE b2:1;
+[; ;GenericTypeDefs.h: 386: BYTE b3:1;
+[; ;GenericTypeDefs.h: 387: BYTE b4:1;
+[; ;GenericTypeDefs.h: 388: BYTE b5:1;
+[; ;GenericTypeDefs.h: 389: BYTE b6:1;
+[; ;GenericTypeDefs.h: 390: BYTE b7:1;
+[; ;GenericTypeDefs.h: 391: BYTE b8:1;
+[; ;GenericTypeDefs.h: 392: BYTE b9:1;
+[; ;GenericTypeDefs.h: 393: BYTE b10:1;
+[; ;GenericTypeDefs.h: 394: BYTE b11:1;
+[; ;GenericTypeDefs.h: 395: BYTE b12:1;
+[; ;GenericTypeDefs.h: 396: BYTE b13:1;
+[; ;GenericTypeDefs.h: 397: BYTE b14:1;
+[; ;GenericTypeDefs.h: 398: BYTE b15:1;
+[; ;GenericTypeDefs.h: 399: } bits;
+[; ;GenericTypeDefs.h: 400: } WORD_VAL, WORD_BITS;
+[; ;GenericTypeDefs.h: 402: typedef union
+[; ;GenericTypeDefs.h: 403: {
+[; ;GenericTypeDefs.h: 404: DWORD Val;
+[; ;GenericTypeDefs.h: 405: WORD w[2] ;
+[; ;GenericTypeDefs.h: 406: BYTE v[4] ;
+[; ;GenericTypeDefs.h: 407: struct 
+[; ;GenericTypeDefs.h: 408: {
+[; ;GenericTypeDefs.h: 409: WORD LW;
+[; ;GenericTypeDefs.h: 410: WORD HW;
+[; ;GenericTypeDefs.h: 411: } word;
+[; ;GenericTypeDefs.h: 412: struct 
+[; ;GenericTypeDefs.h: 413: {
+[; ;GenericTypeDefs.h: 414: BYTE LB;
+[; ;GenericTypeDefs.h: 415: BYTE HB;
+[; ;GenericTypeDefs.h: 416: BYTE UB;
+[; ;GenericTypeDefs.h: 417: BYTE MB;
+[; ;GenericTypeDefs.h: 418: } byte;
+[; ;GenericTypeDefs.h: 419: struct 
+[; ;GenericTypeDefs.h: 420: {
+[; ;GenericTypeDefs.h: 421: WORD_VAL low;
+[; ;GenericTypeDefs.h: 422: WORD_VAL high;
+[; ;GenericTypeDefs.h: 423: }wordUnion;
+[; ;GenericTypeDefs.h: 424: struct 
+[; ;GenericTypeDefs.h: 425: {
+[; ;GenericTypeDefs.h: 426: BYTE b0:1;
+[; ;GenericTypeDefs.h: 427: BYTE b1:1;
+[; ;GenericTypeDefs.h: 428: BYTE b2:1;
+[; ;GenericTypeDefs.h: 429: BYTE b3:1;
+[; ;GenericTypeDefs.h: 430: BYTE b4:1;
+[; ;GenericTypeDefs.h: 431: BYTE b5:1;
+[; ;GenericTypeDefs.h: 432: BYTE b6:1;
+[; ;GenericTypeDefs.h: 433: BYTE b7:1;
+[; ;GenericTypeDefs.h: 434: BYTE b8:1;
+[; ;GenericTypeDefs.h: 435: BYTE b9:1;
+[; ;GenericTypeDefs.h: 436: BYTE b10:1;
+[; ;GenericTypeDefs.h: 437: BYTE b11:1;
+[; ;GenericTypeDefs.h: 438: BYTE b12:1;
+[; ;GenericTypeDefs.h: 439: BYTE b13:1;
+[; ;GenericTypeDefs.h: 440: BYTE b14:1;
+[; ;GenericTypeDefs.h: 441: BYTE b15:1;
+[; ;GenericTypeDefs.h: 442: BYTE b16:1;
+[; ;GenericTypeDefs.h: 443: BYTE b17:1;
+[; ;GenericTypeDefs.h: 444: BYTE b18:1;
+[; ;GenericTypeDefs.h: 445: BYTE b19:1;
+[; ;GenericTypeDefs.h: 446: BYTE b20:1;
+[; ;GenericTypeDefs.h: 447: BYTE b21:1;
+[; ;GenericTypeDefs.h: 448: BYTE b22:1;
+[; ;GenericTypeDefs.h: 449: BYTE b23:1;
+[; ;GenericTypeDefs.h: 450: BYTE b24:1;
+[; ;GenericTypeDefs.h: 451: BYTE b25:1;
+[; ;GenericTypeDefs.h: 452: BYTE b26:1;
+[; ;GenericTypeDefs.h: 453: BYTE b27:1;
+[; ;GenericTypeDefs.h: 454: BYTE b28:1;
+[; ;GenericTypeDefs.h: 455: BYTE b29:1;
+[; ;GenericTypeDefs.h: 456: BYTE b30:1;
+[; ;GenericTypeDefs.h: 457: BYTE b31:1;
+[; ;GenericTypeDefs.h: 458: } bits;
+[; ;GenericTypeDefs.h: 459: } DWORD_VAL;
+[; ;GenericTypeDefs.h: 462: typedef union
+[; ;GenericTypeDefs.h: 463: {
+[; ;GenericTypeDefs.h: 464: QWORD Val;
+[; ;GenericTypeDefs.h: 465: DWORD d[2] ;
+[; ;GenericTypeDefs.h: 466: WORD w[4] ;
+[; ;GenericTypeDefs.h: 467: BYTE v[8] ;
+[; ;GenericTypeDefs.h: 468: struct 
+[; ;GenericTypeDefs.h: 469: {
+[; ;GenericTypeDefs.h: 470: DWORD LD;
+[; ;GenericTypeDefs.h: 471: DWORD HD;
+[; ;GenericTypeDefs.h: 472: } dword;
+[; ;GenericTypeDefs.h: 473: struct 
+[; ;GenericTypeDefs.h: 474: {
+[; ;GenericTypeDefs.h: 475: WORD LW;
+[; ;GenericTypeDefs.h: 476: WORD HW;
+[; ;GenericTypeDefs.h: 477: WORD UW;
+[; ;GenericTypeDefs.h: 478: WORD MW;
+[; ;GenericTypeDefs.h: 479: } word;
+[; ;GenericTypeDefs.h: 480: struct 
+[; ;GenericTypeDefs.h: 481: {
+[; ;GenericTypeDefs.h: 482: BYTE b0:1;
+[; ;GenericTypeDefs.h: 483: BYTE b1:1;
+[; ;GenericTypeDefs.h: 484: BYTE b2:1;
+[; ;GenericTypeDefs.h: 485: BYTE b3:1;
+[; ;GenericTypeDefs.h: 486: BYTE b4:1;
+[; ;GenericTypeDefs.h: 487: BYTE b5:1;
+[; ;GenericTypeDefs.h: 488: BYTE b6:1;
+[; ;GenericTypeDefs.h: 489: BYTE b7:1;
+[; ;GenericTypeDefs.h: 490: BYTE b8:1;
+[; ;GenericTypeDefs.h: 491: BYTE b9:1;
+[; ;GenericTypeDefs.h: 492: BYTE b10:1;
+[; ;GenericTypeDefs.h: 493: BYTE b11:1;
+[; ;GenericTypeDefs.h: 494: BYTE b12:1;
+[; ;GenericTypeDefs.h: 495: BYTE b13:1;
+[; ;GenericTypeDefs.h: 496: BYTE b14:1;
+[; ;GenericTypeDefs.h: 497: BYTE b15:1;
+[; ;GenericTypeDefs.h: 498: BYTE b16:1;
+[; ;GenericTypeDefs.h: 499: BYTE b17:1;
+[; ;GenericTypeDefs.h: 500: BYTE b18:1;
+[; ;GenericTypeDefs.h: 501: BYTE b19:1;
+[; ;GenericTypeDefs.h: 502: BYTE b20:1;
+[; ;GenericTypeDefs.h: 503: BYTE b21:1;
+[; ;GenericTypeDefs.h: 504: BYTE b22:1;
+[; ;GenericTypeDefs.h: 505: BYTE b23:1;
+[; ;GenericTypeDefs.h: 506: BYTE b24:1;
+[; ;GenericTypeDefs.h: 507: BYTE b25:1;
+[; ;GenericTypeDefs.h: 508: BYTE b26:1;
+[; ;GenericTypeDefs.h: 509: BYTE b27:1;
+[; ;GenericTypeDefs.h: 510: BYTE b28:1;
+[; ;GenericTypeDefs.h: 511: BYTE b29:1;
+[; ;GenericTypeDefs.h: 512: BYTE b30:1;
+[; ;GenericTypeDefs.h: 513: BYTE b31:1;
+[; ;GenericTypeDefs.h: 514: BYTE b32:1;
+[; ;GenericTypeDefs.h: 515: BYTE b33:1;
+[; ;GenericTypeDefs.h: 516: BYTE b34:1;
+[; ;GenericTypeDefs.h: 517: BYTE b35:1;
+[; ;GenericTypeDefs.h: 518: BYTE b36:1;
+[; ;GenericTypeDefs.h: 519: BYTE b37:1;
+[; ;GenericTypeDefs.h: 520: BYTE b38:1;
+[; ;GenericTypeDefs.h: 521: BYTE b39:1;
+[; ;GenericTypeDefs.h: 522: BYTE b40:1;
+[; ;GenericTypeDefs.h: 523: BYTE b41:1;
+[; ;GenericTypeDefs.h: 524: BYTE b42:1;
+[; ;GenericTypeDefs.h: 525: BYTE b43:1;
+[; ;GenericTypeDefs.h: 526: BYTE b44:1;
+[; ;GenericTypeDefs.h: 527: BYTE b45:1;
+[; ;GenericTypeDefs.h: 528: BYTE b46:1;
+[; ;GenericTypeDefs.h: 529: BYTE b47:1;
+[; ;GenericTypeDefs.h: 530: BYTE b48:1;
+[; ;GenericTypeDefs.h: 531: BYTE b49:1;
+[; ;GenericTypeDefs.h: 532: BYTE b50:1;
+[; ;GenericTypeDefs.h: 533: BYTE b51:1;
+[; ;GenericTypeDefs.h: 534: BYTE b52:1;
+[; ;GenericTypeDefs.h: 535: BYTE b53:1;
+[; ;GenericTypeDefs.h: 536: BYTE b54:1;
+[; ;GenericTypeDefs.h: 537: BYTE b55:1;
+[; ;GenericTypeDefs.h: 538: BYTE b56:1;
+[; ;GenericTypeDefs.h: 539: BYTE b57:1;
+[; ;GenericTypeDefs.h: 540: BYTE b58:1;
+[; ;GenericTypeDefs.h: 541: BYTE b59:1;
+[; ;GenericTypeDefs.h: 542: BYTE b60:1;
+[; ;GenericTypeDefs.h: 543: BYTE b61:1;
+[; ;GenericTypeDefs.h: 544: BYTE b62:1;
+[; ;GenericTypeDefs.h: 545: BYTE b63:1;
+[; ;GenericTypeDefs.h: 546: } bits;
+[; ;GenericTypeDefs.h: 547: } QWORD_VAL;
 [; ;flash.h: 113: extern void ReadFlash(unsigned long startaddr, unsigned int num_bytes, unsigned char *flash_array);
 [; ;flash.h: 120: extern void EraseFlash(unsigned long startaddr, unsigned long endaddr);
 [; ;flash.h: 122: extern void WriteBlockFlash(unsigned long startaddr, unsigned char num_blocks, unsigned char *flash_array);
@@ -15276,772 +15303,1003 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LED.h: 17: UINT LED_Clear(void);
 [; ;LED.h: 19: void LOCK_Set(BYTE k);
 [; ;LED.h: 20: BYTE LOCK_Get(void);
-[; ;main.c: 16: typedef short Word16;
-[; ;main.c: 17: typedef unsigned short UWord16;
-[; ;main.c: 18: typedef long Word32;
-[; ;main.c: 19: typedef unsigned long UWord32;
-[; ;main.c: 21: typedef union tuReg32 {
-[; ;main.c: 22: UWord32 Val32;
-[; ;main.c: 24: struct {
-[; ;main.c: 25: UWord16 LW;
-[; ;main.c: 26: UWord16 HW;
-[; ;main.c: 27: } Word;
-[; ;main.c: 29: char Val[4];
-[; ;main.c: 30: } uReg32;
-"38 main.c
-[p x OSC=IRCIO67 ]
-"39
-[p x FCMEN=OFF ]
-"40
-[p x IESO=OFF ]
-"43
-[p x PWRT=OFF ]
-"44
-[p x BOREN=BOHW ]
-"45
-[p x BORV=3 ]
-"48
-[p x WDT=OFF ]
-"49
-[p x WDTPS=32768 ]
-"52
-[p x PBADEN=ON ]
-"53
-[p x LPT1OSC=OFF ]
-"54
-[p x MCLRE=ON ]
-"57
-[p x STVREN=ON ]
-"58
-[p x LVP=OFF ]
-"59
-[p x BBSIZ=1024 ]
-"60
-[p x XINST=OFF ]
-"63
-[p x CP0=OFF ]
-"64
-[p x CP1=OFF ]
-"65
-[p x CP2=OFF ]
-"66
-[p x CP3=OFF ]
-"69
-[p x CPB=OFF ]
-"70
-[p x CPD=OFF ]
-"73
-[p x WRT0=OFF ]
-"74
-[p x WRT1=OFF ]
-"75
-[p x WRT2=OFF ]
-"76
-[p x WRT3=OFF ]
-"79
-[p x WRTC=OFF ]
-"80
-[p x WRTB=OFF ]
-"81
-[p x WRTD=OFF ]
-"84
-[p x EBTR0=OFF ]
-"85
-[p x EBTR1=OFF ]
-"86
-[p x EBTR2=OFF ]
-"87
-[p x EBTR3=OFF ]
-"90
-[p x EBTRB=OFF ]
-[; ;main.c: 93: void ResetDevice(void);
-"95
-[v _SourceAddr `S2143 ~T0 @X0 1 e ]
-[; ;main.c: 95: uReg32 SourceAddr;
-"96
-[v _buforCAN `uc ~T0 @X0 -> 65 `i e ]
-[; ;main.c: 96: unsigned char buforCAN[65];
-"97
-[v _counter `uc ~T0 @X0 1 e ]
-[i _counter
+[; ;LED.c: 14: typedef enum LED_RGA {RED = 0,GREEN = 1}LED_RGA_type;
+[; ;LED.c: 16: UINT8 LED_Control(LED_RGA_type color, UINT diode);
+[; ;LED.c: 17: void INI_LED_Start(void);
+[; ;LED.c: 18: UINT LED_Vect_Create(void);
+[; ;LED.c: 19: UINT LED_Right(UINT a);
+[; ;LED.c: 20: UINT LED_Left(UINT a);
+[; ;LED.c: 21: UINT LED_Light_Pos(LED_RGA_type color,UINT pos, UINT fulfillment);
+[; ;LED.c: 22: UINT8 LED_Update(void);
+[; ;LED.c: 23: UINT LED_Error(void);
+[; ;LED.c: 24: UINT LED_Clear(void);
+[; ;LED.c: 26: void Fulfillment_Lvl_Set(UINT a);
+[; ;LED.c: 27: UINT Fulfillment_Lvl_Get(void);
+[; ;LED.c: 29: void LOCK_Set(BYTE k);
+[; ;LED.c: 30: BYTE LOCK_Get(void);
+"34 LED.c
+[v _Fulfillment_Lvl `ui ~T0 @X0 1 s ]
+[i _Fulfillment_Lvl
+-> -> 20 `i `ui
+]
+[; ;LED.c: 34: static UINT Fulfillment_Lvl = 20;
+"35
+[v _LOCK `uc ~T0 @X0 1 s ]
+[i _LOCK
 -> -> 0 `i `uc
 ]
-[; ;main.c: 97: unsigned char counter = 0;
-"98
-[v _ramekInicjalizacji `uc ~T0 @X0 1 e ]
-[i _ramekInicjalizacji
--> -> 0 `i `uc
-]
-[v _iloscBajtow `uc ~T0 @X0 1 e ]
-[i _iloscBajtow
--> -> 0 `i `uc
-]
-[; ;main.c: 98: unsigned char ramekInicjalizacji = 0, iloscBajtow = 0;
-"100
-[; ;main.c: 100: asm("PSECT intcode");
-[; <" PSECT intcode ;# ">
-"101
-[; ;main.c: 101: asm("GOTO 0xc08");
-[; <" GOTO 0xc08 ;# ">
-"102
-[; ;main.c: 102: asm("PSECT intcodelo");
-[; <" PSECT intcodelo ;# ">
-"103
-[; ;main.c: 103: asm("GOTO 0xc18");
-[; <" GOTO 0xc18 ;# ">
-"106
-[v _OdbierzRamke `(v ~T0 @X0 1 sf ]
+[; ;LED.c: 35: static BYTE LOCK = 0;
+"50
+[v _LED_Error `(ui ~T0 @X0 1 ef ]
 {
-[; ;main.c: 105: static void OdbierzRamke(void)
-[; ;main.c: 106: {
-[e :U _OdbierzRamke ]
+[; ;LED.c: 49: UINT LED_Error(void)
+[; ;LED.c: 50: {
+[e :U _LED_Error ]
 [f ]
-"107
-[v _pointerU8 `*Vuc ~T0 @X0 1 a ]
-"108
-[v _i `uc ~T0 @X0 1 a ]
-[v _k `uc ~T0 @X0 1 a ]
-[v _tempCON `uc ~T0 @X0 1 a ]
-[; ;main.c: 107: volatile unsigned char *pointerU8;
-[; ;main.c: 108: unsigned char i, k,tempCON = 0;
-[e = _tempCON -> -> 0 `i `uc ]
-"109
-[v _tempU16 `ui ~T0 @X0 1 a ]
-[; ;main.c: 109: unsigned int tempU16;
-[; ;main.c: 111: k = CANCON&0x0F;
-"111
-[e = _k -> & -> _CANCON `i -> 15 `i `uc ]
-[; ;main.c: 113: ECANCON = 0x90 | k;
-"113
-[e = _ECANCON -> | -> 144 `i -> _k `i `uc ]
-[; ;main.c: 116: switch(k)
-"116
-[e $U 2147  ]
-[; ;main.c: 117: {
+[; ;LED.c: 51: LED_Control(RED,0b1010101010);
+"51
+[e ( _LED_Control (2 , -> . `E16889 0 `E16889 -> -> 682 `i `ui ]
+[; ;LED.c: 52: LED_Control(GREEN,0b0000000000);
+"52
+[e ( _LED_Control (2 , -> . `E16889 1 `E16889 -> -> 0 `i `ui ]
+[; ;LED.c: 53: return 1;
+"53
+[e ) -> -> 1 `i `ui ]
+[e $UE 2156  ]
+[; ;LED.c: 54: }
+"54
+[e :UE 2156 ]
+}
+"68
+[v _LED_Clear `(ui ~T0 @X0 1 ef ]
+{
+[; ;LED.c: 67: UINT LED_Clear(void)
+[; ;LED.c: 68: {
+[e :U _LED_Clear ]
+[f ]
+[; ;LED.c: 69: LED_Control(RED,0b0000000000);
+"69
+[e ( _LED_Control (2 , -> . `E16889 0 `E16889 -> -> 0 `i `ui ]
+[; ;LED.c: 70: LED_Control(GREEN,0b1010101010);
+"70
+[e ( _LED_Control (2 , -> . `E16889 1 `E16889 -> -> 682 `i `ui ]
+[; ;LED.c: 71: return 1;
+"71
+[e ) -> -> 1 `i `ui ]
+[e $UE 2157  ]
+[; ;LED.c: 72: }
+"72
+[e :UE 2157 ]
+}
+"85
+[v _LOCK_Set `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;LED.c: 84: void LOCK_Set(BYTE k)
+[; ;LED.c: 85: {
+[e :U _LOCK_Set ]
+[v _k `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;LED.c: 86: LOCK = k;
+"86
+[e = _LOCK _k ]
+[; ;LED.c: 87: }
+"87
+[e :UE 2158 ]
+}
+"101
+[v _LOCK_Get `(uc ~T0 @X0 1 ef ]
+{
+[; ;LED.c: 100: BYTE LOCK_Get(void)
+[; ;LED.c: 101: {
+[e :U _LOCK_Get ]
+[f ]
+[; ;LED.c: 102: return LOCK;
+"102
+[e ) _LOCK ]
+[e $UE 2159  ]
+[; ;LED.c: 103: }
+"103
+[e :UE 2159 ]
+}
 "117
+[v _Fulfillment_Lvl_Set `(v ~T0 @X0 1 ef1`ui ]
 {
-[; ;main.c: 118: case 0:
+[; ;LED.c: 116: void Fulfillment_Lvl_Set(UINT a)
+[; ;LED.c: 117: {
+[e :U _Fulfillment_Lvl_Set ]
+[v _a `ui ~T0 @X0 1 r1 ]
+[f ]
+[; ;LED.c: 118: Fulfillment_Lvl = a;
 "118
-[e :U 2148 ]
-[; ;main.c: 119: tempCON = RXB0CON;
+[e = _Fulfillment_Lvl _a ]
+[; ;LED.c: 119: }
 "119
-[e = _tempCON _RXB0CON ]
-[; ;main.c: 120: break;
-"120
-[e $U 2146  ]
-[; ;main.c: 121: case 1:
-"121
-[e :U 2149 ]
-[; ;main.c: 122: tempCON = RXB1CON;
-"122
-[e = _tempCON _RXB1CON ]
-[; ;main.c: 123: break;
-"123
-[e $U 2146  ]
-[; ;main.c: 124: case 2:
-"124
-[e :U 2150 ]
-[; ;main.c: 125: tempCON = B0CON;
-"125
-[e = _tempCON _B0CON ]
-[; ;main.c: 126: break;
-"126
-[e $U 2146  ]
-[; ;main.c: 127: case 3:
-"127
-[e :U 2151 ]
-[; ;main.c: 128: tempCON = B1CON;
-"128
-[e = _tempCON _B1CON ]
-[; ;main.c: 129: break;
-"129
-[e $U 2146  ]
-[; ;main.c: 130: case 4:
-"130
-[e :U 2152 ]
-[; ;main.c: 131: tempCON = B2CON;
-"131
-[e = _tempCON _B2CON ]
-[; ;main.c: 132: break;
-"132
-[e $U 2146  ]
-[; ;main.c: 133: case 5:
+[e :UE 2160 ]
+}
 "133
-[e :U 2153 ]
-[; ;main.c: 134: tempCON = B3CON;
+[v _Fulfillment_Lvl_Get `(ui ~T0 @X0 1 ef ]
+{
+[; ;LED.c: 132: UINT Fulfillment_Lvl_Get(void)
+[; ;LED.c: 133: {
+[e :U _Fulfillment_Lvl_Get ]
+[f ]
+[; ;LED.c: 134: return Fulfillment_Lvl;
 "134
-[e = _tempCON _B3CON ]
-[; ;main.c: 135: break;
+[e ) _Fulfillment_Lvl ]
+[e $UE 2161  ]
+[; ;LED.c: 135: }
 "135
-[e $U 2146  ]
-[; ;main.c: 136: case 6:
-"136
-[e :U 2154 ]
-[; ;main.c: 137: tempCON = B4CON;
-"137
-[e = _tempCON _B4CON ]
-[; ;main.c: 138: break;
-"138
-[e $U 2146  ]
-[; ;main.c: 139: case 7:
-"139
-[e :U 2155 ]
-[; ;main.c: 140: tempCON = B5CON;
-"140
-[e = _tempCON _B5CON ]
-[; ;main.c: 141: break;
-"141
-[e $U 2146  ]
-"142
+[e :UE 2161 ]
 }
-[; ;main.c: 142: }
-[e $U 2146  ]
-"116
-[e :U 2147 ]
-[e [\ _k , $ -> -> 0 `i `uc 2148
- , $ -> -> 1 `i `uc 2149
- , $ -> -> 2 `i `uc 2150
- , $ -> -> 3 `i `uc 2151
- , $ -> -> 4 `i `uc 2152
- , $ -> -> 5 `i `uc 2153
- , $ -> -> 6 `i `uc 2154
- , $ -> -> 7 `i `uc 2155
- 2146 ]
-"142
-[e :U 2146 ]
-[; ;main.c: 144: if((tempCON & 0x80) > 0)
-"144
-[e $ ! > & -> _tempCON `i -> 128 `i -> 0 `i 2156  ]
-[; ;main.c: 145: {
-"145
-{
-[; ;main.c: 146: pointerU8 = &RXB0D0;
-"146
-[e = _pointerU8 &U _RXB0D0 ]
-[; ;main.c: 147: for(i=0;i<8;i++)
-"147
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 8 `i 2157  ]
-[e $U 2158  ]
-"148
-[e :U 2157 ]
-[; ;main.c: 148: {
-{
-[; ;main.c: 149: buforCAN[iloscBajtow++]=(*(pointerU8+i));
 "149
-[e = *U + &U _buforCAN * -> ++ _iloscBajtow -> -> 1 `i `uc `ux -> -> # *U &U _buforCAN `ui `ux *U + _pointerU8 * -> _i `ux -> -> # *U _pointerU8 `ui `ux ]
+[v _LED_Update `(uc ~T0 @X0 1 ef ]
+{
+[; ;LED.c: 148: UINT8 LED_Update(void)
+[; ;LED.c: 149: {
+[e :U _LED_Update ]
+[f ]
 "150
-}
-"147
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 8 `i 2157  ]
-[e :U 2158 ]
-"150
-}
-[; ;main.c: 150: }
-[; ;main.c: 151: if(ramekInicjalizacji < 10)
+[v F16923 `E16889 ~T0 @X0 1 s Red ]
+[i F16923
+-> . `E16889 0 `E16889
+]
 "151
-[e $ ! < -> _ramekInicjalizacji `i -> 10 `i 2160  ]
-[; ;main.c: 152: {
+[v F16924 `E16889 ~T0 @X0 1 s Green ]
+[i F16924
+-> . `E16889 1 `E16889
+]
 "152
-{
-[; ;main.c: 153: for(i=0; i<8; i++)
+[v F16925 `ui ~T0 @X0 1 s pos1 ]
+[i F16925
+-> -> 1 `i `ui
+]
 "153
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 8 `i 2161  ]
-[e $U 2162  ]
-"154
-[e :U 2161 ]
-[; ;main.c: 154: {
-{
-[; ;main.c: 155: if(buforCAN[i] != ((ramekInicjalizacji*10)+i))
+[v F16926 `ui ~T0 @X0 1 s pos2 ]
+[i F16926
+-> -> 1 `i `ui
+]
+[; ;LED.c: 150: static LED_RGA_type Red = RED;
+[; ;LED.c: 151: static LED_RGA_type Green = GREEN;
+[; ;LED.c: 152: static UINT pos1 = 0b0000000001;
+[; ;LED.c: 153: static UINT pos2 = 0b0000000001;
+[; ;LED.c: 155: if(LOCK == 0)
 "155
-[e $ ! != -> *U + &U _buforCAN * -> _i `ux -> -> # *U &U _buforCAN `ui `ux `i + * -> _ramekInicjalizacji `i -> 10 `i -> _i `i 2164  ]
-[; ;main.c: 156: {
+[e $ ! == -> _LOCK `i -> 0 `i 2163  ]
+[; ;LED.c: 156: {
 "156
 {
-[; ;main.c: 157: break;
+[; ;LED.c: 157: LED_Control(RED,0b0000000000);
 "157
-[e $U 2162  ]
+[e ( _LED_Control (2 , -> . `E16889 0 `E16889 -> -> 0 `i `ui ]
+[; ;LED.c: 158: LED_Light_Pos(Green,pos2,Fulfillment_Lvl);
 "158
+[e ( _LED_Light_Pos (3 , , F16924 F16926 _Fulfillment_Lvl ]
+"160
+}
+[; ;LED.c: 160: }
+[e $U 2164  ]
+"161
+[e :U 2163 ]
+[; ;LED.c: 161: else
+[; ;LED.c: 162: {
+"162
+{
+[; ;LED.c: 163: LED_Control(Green,0b0000000000);
+"163
+[e ( _LED_Control (2 , F16924 -> -> 0 `i `ui ]
+[; ;LED.c: 164: LED_Light_Pos(RED,pos1,Fulfillment_Lvl);
+"164
+[e ( _LED_Light_Pos (3 , , -> . `E16889 0 `E16889 F16925 _Fulfillment_Lvl ]
+"165
 }
 [e :U 2164 ]
-"159
-}
-"153
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 8 `i 2161  ]
-[e :U 2162 ]
-"159
-}
-[; ;main.c: 158: }
-[; ;main.c: 159: }
-[; ;main.c: 160: if(i==8)
-"160
-[e $ ! == -> _i `i -> 8 `i 2165  ]
-[; ;main.c: 161: {
-"161
-{
-[; ;main.c: 162: iloscBajtow = 0;
-"162
-[e = _iloscBajtow -> -> 0 `i `uc ]
-[; ;main.c: 163: ramekInicjalizacji++;
-"163
-[e ++ _ramekInicjalizacji -> -> 1 `i `uc ]
-"164
-}
-[; ;main.c: 164: }
-[e $U 2166  ]
-"165
-[e :U 2165 ]
-[; ;main.c: 165: else
-[; ;main.c: 166: {
+[; ;LED.c: 165: }
+[; ;LED.c: 166: pos1 = LED_Right(pos1);
 "166
-{
-[; ;main.c: 168: iloscBajtow = 0;
-"168
-[e = _iloscBajtow -> -> 0 `i `uc ]
-[; ;main.c: 169: ResetDevice();
+[e = F16925 ( _LED_Right (1 F16925 ]
+[; ;LED.c: 167: pos2 = LED_Left(pos2);
+"167
+[e = F16926 ( _LED_Left (1 F16926 ]
+[; ;LED.c: 169: return 1;
 "169
-[e ( _ResetDevice ..  ]
+[e ) -> -> 1 `i `uc ]
+[e $UE 2162  ]
+[; ;LED.c: 170: }
 "170
+[e :UE 2162 ]
 }
-[e :U 2166 ]
-"171
-}
-[; ;main.c: 170: }
-[; ;main.c: 171: }
-[e $U 2167  ]
-"172
-[e :U 2160 ]
-[; ;main.c: 172: else if((iloscBajtow >= 64))
-[e $ ! >= -> _iloscBajtow `i -> 64 `i 2168  ]
-[; ;main.c: 173: {
-"173
-{
-[; ;main.c: 174: LED_Error();
-"174
-[e ( _LED_Error ..  ]
-[; ;main.c: 175: EraseFlash(SourceAddr.Val32, SourceAddr.Val32+(unsigned long)64);
-"175
-[e ( _EraseFlash (2 , . _SourceAddr 0 + . _SourceAddr 0 -> -> 64 `i `ul ]
-[; ;main.c: 176: WriteBytesFlash(SourceAddr.Val32,64,buforCAN);
-"176
-[e ( _WriteBytesFlash (3 , , . _SourceAddr 0 -> -> 64 `i `ui &U _buforCAN ]
-[; ;main.c: 177: SourceAddr.Val32 += 64;
-"177
-[e =+ . _SourceAddr 0 -> -> -> 64 `i `l `ul ]
-[; ;main.c: 178: iloscBajtow = 0;
-"178
-[e = _iloscBajtow -> -> 0 `i `uc ]
-"179
-}
-[e :U 2168 ]
-"180
-[e :U 2167 ]
-[; ;main.c: 179: }
-[; ;main.c: 180: TMR0 = 62500;
-[e = _TMR0 -> -> 62500 `l `us ]
-[; ;main.c: 181: counter = 0;
-"181
-[e = _counter -> -> 0 `i `uc ]
-[; ;main.c: 182: asm(" clrwdt");
-"182
-[; <"  clrwdt ;# ">
-[; ;main.c: 183: switch(k)
-"183
-[e $U 2170  ]
-[; ;main.c: 184: {
 "184
+[v _LED_Right `(ui ~T0 @X0 1 ef1`ui ]
 {
-[; ;main.c: 185: case 0:
+[; ;LED.c: 183: UINT LED_Right(UINT a)
+[; ;LED.c: 184: {
+[e :U _LED_Right ]
+[v _a `ui ~T0 @X0 1 r1 ]
+[f ]
+[; ;LED.c: 185: if ((a & 0b0000000001) == 0b0000000001)
 "185
-[e :U 2171 ]
-[; ;main.c: 186: RXB0CON = 0;
+[e $ ! == & _a -> -> 1 `i `ui -> -> 1 `i `ui 2166  ]
+[; ;LED.c: 186: {
 "186
-[e = _RXB0CON -> -> 0 `i `uc ]
-[; ;main.c: 187: break;
+{
 "187
-[e $U 2169  ]
-[; ;main.c: 188: case 1:
+[v _b `ui ~T0 @X0 1 a ]
+[; ;LED.c: 187: UINT b = a & 0b1111111110;
+[e = _b & _a -> -> 1022 `i `ui ]
+[; ;LED.c: 188: b = b >> 1;
 "188
-[e :U 2172 ]
-[; ;main.c: 189: RXB1CON = 0;
+[e = _b >> _b -> 1 `i ]
+[; ;LED.c: 189: b = b | 0b1000000000;
 "189
-[e = _RXB1CON -> -> 0 `i `uc ]
-[; ;main.c: 190: break;
+[e = _b | _b -> -> 512 `i `ui ]
+[; ;LED.c: 190: return b;
 "190
-[e $U 2169  ]
-[; ;main.c: 191: case 2:
+[e ) _b ]
+[e $UE 2165  ]
 "191
-[e :U 2173 ]
-[; ;main.c: 192: B0CON = 0;
+}
+[; ;LED.c: 191: }
+[e $U 2167  ]
 "192
-[e = _B0CON -> -> 0 `i `uc ]
-[; ;main.c: 193: break;
+[e :U 2166 ]
+[; ;LED.c: 192: else
+[; ;LED.c: 193: {
 "193
-[e $U 2169  ]
-[; ;main.c: 194: case 3:
+{
+[; ;LED.c: 194: a =a >> 1;
 "194
-[e :U 2174 ]
-[; ;main.c: 195: B1CON = 0;
+[e = _a >> _a -> 1 `i ]
+[; ;LED.c: 195: return a;
 "195
-[e = _B1CON -> -> 0 `i `uc ]
-[; ;main.c: 196: break;
+[e ) _a ]
+[e $UE 2165  ]
 "196
-[e $U 2169  ]
-[; ;main.c: 197: case 4:
+}
+[e :U 2167 ]
+[; ;LED.c: 196: }
+[; ;LED.c: 197: }
 "197
-[e :U 2175 ]
-[; ;main.c: 198: B2CON = 0;
-"198
-[e = _B2CON -> -> 0 `i `uc ]
-[; ;main.c: 199: break;
-"199
-[e $U 2169  ]
-[; ;main.c: 200: case 5:
-"200
-[e :U 2176 ]
-[; ;main.c: 201: B3CON = 0;
-"201
-[e = _B3CON -> -> 0 `i `uc ]
-[; ;main.c: 202: break;
-"202
-[e $U 2169  ]
-[; ;main.c: 203: case 6:
-"203
-[e :U 2177 ]
-[; ;main.c: 204: B4CON = 0;
-"204
-[e = _B4CON -> -> 0 `i `uc ]
-[; ;main.c: 205: break;
-"205
-[e $U 2169  ]
-[; ;main.c: 206: case 7:
-"206
-[e :U 2178 ]
-[; ;main.c: 207: B5CON = 0;
-"207
-[e = _B5CON -> -> 0 `i `uc ]
-[; ;main.c: 208: break;
-"208
-[e $U 2169  ]
-"209
+[e :UE 2165 ]
 }
-[; ;main.c: 209: }
-[e $U 2169  ]
-"183
-[e :U 2170 ]
-[e [\ _k , $ -> -> 0 `i `uc 2171
- , $ -> -> 1 `i `uc 2172
- , $ -> -> 2 `i `uc 2173
- , $ -> -> 3 `i `uc 2174
- , $ -> -> 4 `i `uc 2175
- , $ -> -> 5 `i `uc 2176
- , $ -> -> 6 `i `uc 2177
- , $ -> -> 7 `i `uc 2178
- 2169 ]
-"209
-[e :U 2169 ]
-"210
-}
-[e :U 2156 ]
-[; ;main.c: 210: }
-[; ;main.c: 211: }
 "211
-[e :UE 2145 ]
-}
+[v _LED_Left `(ui ~T0 @X0 1 ef1`ui ]
+{
+[; ;LED.c: 210: UINT LED_Left(UINT a)
+[; ;LED.c: 211: {
+[e :U _LED_Left ]
+[v _a `ui ~T0 @X0 1 r1 ]
+[f ]
+[; ;LED.c: 212: if ((a & 0b1000000000) == 0b1000000000)
+"212
+[e $ ! == & _a -> -> 512 `i `ui -> -> 512 `i `ui 2169  ]
+[; ;LED.c: 213: {
 "213
-[v _ResetDevice `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 213: void ResetDevice(void) {
-[e :U _ResetDevice ]
-[f ]
-[; ;main.c: 215: asm(" goto 0xC00");
+"214
+[v _b `ui ~T0 @X0 1 a ]
+[; ;LED.c: 214: UINT b = a & 0b0111111111;
+[e = _b & _a -> -> 511 `i `ui ]
+[; ;LED.c: 215: b = b << 1;
 "215
-[; <"  goto 0xC00 ;# ">
-[; ;main.c: 216: }
+[e = _b << _b -> 1 `i ]
+[; ;LED.c: 216: b = b | 0b0000000001;
 "216
-[e :UE 2179 ]
+[e = _b | _b -> -> 1 `i `ui ]
+[; ;LED.c: 217: return b;
+"217
+[e ) _b ]
+[e $UE 2168  ]
+"218
 }
+[; ;LED.c: 218: }
+[e $U 2170  ]
 "219
-[v _main `(i ~T0 @X0 1 ef ]
-{
-[; ;main.c: 218: int main(void)
-[; ;main.c: 219: {
-[e :U _main ]
-[f ]
+[e :U 2169 ]
+[; ;LED.c: 219: else
+[; ;LED.c: 220: {
 "220
-[v _Delay `uc ~T0 @X0 1 a ]
-[; ;main.c: 220: unsigned char Delay;
-[; ;main.c: 223: if((RCON&0x3F)!=0x3C)
+{
+[; ;LED.c: 221: a = a << 1;
+"221
+[e = _a << _a -> 1 `i ]
+[; ;LED.c: 222: return a;
+"222
+[e ) _a ]
+[e $UE 2168  ]
 "223
-[e $ ! != & -> _RCON `i -> 63 `i -> 60 `i 2181  ]
-[; ;main.c: 224: {
+}
+[e :U 2170 ]
+[; ;LED.c: 223: }
+[; ;LED.c: 224: }
 "224
-{
-[; ;main.c: 225: ResetDevice();
-"225
-[e ( _ResetDevice ..  ]
-"226
+[e :UE 2168 ]
 }
-[e :U 2181 ]
-[; ;main.c: 226: }
-[; ;main.c: 228: Delay = 5;
-"228
-[e = _Delay -> -> 5 `i `uc ]
-[; ;main.c: 230: TRISA = 0xFF;
-"230
-[e = _TRISA -> -> 255 `i `uc ]
-[; ;main.c: 231: TRISB = 0xFF;
-"231
-[e = _TRISB -> -> 255 `i `uc ]
-[; ;main.c: 232: TRISAbits.TRISA5 = 0;
-"232
-[e = . . _TRISAbits 0 5 -> -> 0 `i `uc ]
-[; ;main.c: 233: LED_Clear();
-"233
-[e ( _LED_Clear ..  ]
-[; ;main.c: 234: TRISC = 0xFF;
-"234
-[e = _TRISC -> -> 255 `i `uc ]
-[; ;main.c: 235: TRISCbits.TRISC6 = 0;
-"235
-[e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
-[; ;main.c: 238: T0CON = 0x00;
-"238
-[e = _T0CON -> -> 0 `i `uc ]
-[; ;main.c: 239: T0CONbits.T0PS = 0x05;
-"239
-[e = . . _T0CONbits 0 0 -> -> 5 `i `uc ]
-[; ;main.c: 241: INTCONbits.TMR0IE = 0;
+"240
+[v _LED_Light_Pos `(ui ~T0 @X0 1 ef3`E16889`ui`ui ]
+{
+[; ;LED.c: 239: UINT LED_Light_Pos(LED_RGA_type color,UINT pos, UINT fulfillment)
+[; ;LED.c: 240: {
+[e :U _LED_Light_Pos ]
+[v _color `E16889 ~T0 @X0 1 r1 ]
+[v _pos `ui ~T0 @X0 1 r2 ]
+[v _fulfillment `ui ~T0 @X0 1 r3 ]
+[f ]
 "241
-[e = . . _INTCONbits 0 5 -> -> 0 `i `uc ]
-[; ;main.c: 242: INTCONbits.TMR0IF = 0;
+[v _pos2 `ui ~T0 @X0 1 a ]
+[; ;LED.c: 241: UINT pos2 =pos;
+[e = _pos2 _pos ]
 "242
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 244: TMR0 = 62500;
+[v _LED_array `ui ~T0 @X0 1 a ]
+[; ;LED.c: 242: UINT LED_array = 0b0000000000;
+[e = _LED_array -> -> 0 `i `ui ]
+"243
+[v _flage `ui ~T0 @X0 1 a ]
+[; ;LED.c: 243: UINT flage = fulfillment/10;
+[e = _flage / _fulfillment -> -> 10 `i `ui ]
+[; ;LED.c: 244: if(color == RED)
 "244
-[e = _TMR0 -> -> 62500 `l `us ]
-[; ;main.c: 247: T0CONbits.TMR0ON = 1;
+[e $ ! == -> _color `i -> . `E16889 0 `i 2172  ]
+[; ;LED.c: 245: {
+"245
+{
+[; ;LED.c: 246: while(flage>0)
+"246
+[e $U 2173  ]
+[e :U 2174 ]
+[; ;LED.c: 247: {
 "247
-[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
-[; ;main.c: 250: CANCON = 0x80;
+{
+[; ;LED.c: 248: LED_array = pos2|LED_array;
+"248
+[e = _LED_array | _pos2 _LED_array ]
+[; ;LED.c: 249: pos2 = LED_Left(pos2);
+"249
+[e = _pos2 ( _LED_Left (1 _pos2 ]
+[; ;LED.c: 250: flage = flage - 1;
 "250
-[e = _CANCON -> -> 128 `i `uc ]
-[; ;main.c: 251: while((CANSTAT & 0xE0)!=0x80)
+[e = _flage - _flage -> -> 1 `i `ui ]
 "251
-[e $U 2182  ]
-[e :U 2183 ]
-[; ;main.c: 252: {
+}
+[e :U 2173 ]
+"246
+[e $ > _flage -> -> 0 `i `ui 2174  ]
+[e :U 2175 ]
 "252
-{
-[; ;main.c: 253: ;
+}
+[; ;LED.c: 251: }
+[; ;LED.c: 252: }
+[e $U 2176  ]
+"253
+[e :U 2172 ]
+[; ;LED.c: 253: else
+[; ;LED.c: 254: {
 "254
-}
-[e :U 2182 ]
-"251
-[e $ != & -> _CANSTAT `i -> 224 `i -> 128 `i 2183  ]
-[e :U 2184 ]
-[; ;main.c: 254: }
-[; ;main.c: 257: ECANCON = 0x90;
+{
+[; ;LED.c: 255: while(flage>0)
+"255
+[e $U 2177  ]
+[e :U 2178 ]
+[; ;LED.c: 256: {
+"256
+{
+[; ;LED.c: 257: LED_array = pos2|LED_array;
 "257
-[e = _ECANCON -> -> 144 `i `uc ]
-[; ;main.c: 261: BRGCON1bits.BRP0 = ((16000000/(2*20*50000))-1) & 0b000001;
-"261
-[e = . . _BRGCON1bits 0 0 -> & - / -> 16000000 `l * -> * -> 2 `i -> 20 `i `l -> 50000 `l -> -> 1 `i `l -> -> 1 `i `l `uc ]
-[; ;main.c: 262: BRGCON1bits.BRP1 = (((16000000/(2*20*50000))-1) >> 1) & 0b000001;
-"262
-[e = . . _BRGCON1bits 0 1 -> & >> - / -> 16000000 `l * -> * -> 2 `i -> 20 `i `l -> 50000 `l -> -> 1 `i `l -> 1 `i -> -> 1 `i `l `uc ]
-[; ;main.c: 263: BRGCON1bits.BRP2 = (((16000000/(2*20*50000))-1) >> 2) & 0b000001;
-"263
-[e = . . _BRGCON1bits 0 2 -> & >> - / -> 16000000 `l * -> * -> 2 `i -> 20 `i `l -> 50000 `l -> -> 1 `i `l -> 2 `i -> -> 1 `i `l `uc ]
-[; ;main.c: 264: BRGCON1bits.BRP3 = (((16000000/(2*20*50000))-1) >> 3) & 0b000001;
-"264
-[e = . . _BRGCON1bits 0 3 -> & >> - / -> 16000000 `l * -> * -> 2 `i -> 20 `i `l -> 50000 `l -> -> 1 `i `l -> 3 `i -> -> 1 `i `l `uc ]
-[; ;main.c: 265: BRGCON1bits.BRP4 = (((16000000/(2*20*50000))-1) >> 4) & 0b000001;
-"265
-[e = . . _BRGCON1bits 0 4 -> & >> - / -> 16000000 `l * -> * -> 2 `i -> 20 `i `l -> 50000 `l -> -> 1 `i `l -> 4 `i -> -> 1 `i `l `uc ]
-[; ;main.c: 266: BRGCON1bits.BRP5 = (((16000000/(2*20*50000))-1) >> 5) & 0b000001;
-"266
-[e = . . _BRGCON1bits 0 5 -> & >> - / -> 16000000 `l * -> * -> 2 `i -> 20 `i `l -> 50000 `l -> -> 1 `i `l -> 5 `i -> -> 1 `i `l `uc ]
-[; ;main.c: 268: BRGCON1bits.SJW0 = 1;
-"268
-[e = . . _BRGCON1bits 0 6 -> -> 1 `i `uc ]
-[; ;main.c: 269: BRGCON1bits.SJW1 = 1;
-"269
-[e = . . _BRGCON1bits 0 7 -> -> 1 `i `uc ]
-[; ;main.c: 271: BRGCON2bits.SEG1PH0 = 1;
-"271
-[e = . . _BRGCON2bits 0 3 -> -> 1 `i `uc ]
-[; ;main.c: 272: BRGCON2bits.SEG1PH1 = 1;
-"272
-[e = . . _BRGCON2bits 0 4 -> -> 1 `i `uc ]
-[; ;main.c: 273: BRGCON2bits.SEG1PH2 = 1;
-"273
-[e = . . _BRGCON2bits 0 5 -> -> 1 `i `uc ]
-[; ;main.c: 275: BRGCON2bits.PRSEG2 = 1;
-"275
-[e = . . _BRGCON2bits 0 2 -> -> 1 `i `uc ]
-[; ;main.c: 276: BRGCON2bits.PRSEG1 = 0;
-"276
-[e = . . _BRGCON2bits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 277: BRGCON2bits.PRSEG0 = 0;
-"277
-[e = . . _BRGCON2bits 0 0 -> -> 0 `i `uc ]
-[; ;main.c: 279: BRGCON3bits.SEG2PH0 = 1;
-"279
-[e = . . _BRGCON3bits 0 0 -> -> 1 `i `uc ]
-[; ;main.c: 280: BRGCON3bits.SEG2PH1 = 0;
-"280
-[e = . . _BRGCON3bits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 281: BRGCON3bits.SEG2PH2 = 1;
-"281
-[e = . . _BRGCON3bits 0 2 -> -> 1 `i `uc ]
-[; ;main.c: 283: BRGCON2bits.SAM = 1;
-"283
-[e = . . _BRGCON2bits 0 6 -> -> 1 `i `uc ]
-[; ;main.c: 284: BRGCON2bits.SEG2PHTS = 1;
-"284
-[e = . . _BRGCON2bits 1 1 -> -> 1 `i `uc ]
-[; ;main.c: 289: MSEL0 = 0x00;
-"289
-[e = _MSEL0 -> -> 0 `i `uc ]
-[; ;main.c: 290: RXM0SIDH = 0b11100000;
-"290
-[e = _RXM0SIDH -> -> 224 `i `uc ]
-[; ;main.c: 291: RXM0SIDL = 0b00001011;
-"291
-[e = _RXM0SIDL -> -> 11 `i `uc ]
-[; ;main.c: 292: RXM0EIDH = 0xFF;
-"292
-[e = _RXM0EIDH -> -> 255 `i `uc ]
-[; ;main.c: 293: RXM0EIDL = 0xFF;
-"293
-[e = _RXM0EIDL -> -> 255 `i `uc ]
-[; ;main.c: 296: RXF0SIDH = 0x60;
-"296
-[e = _RXF0SIDH -> -> 96 `i `uc ]
-[; ;main.c: 297: RXF0SIDL = 0x01;
-"297
-[e = _RXF0SIDL -> -> 1 `i `uc ]
-[; ;main.c: 298: RXF0SIDLbits.EXIDEN = 1;
-"298
-[e = . . _RXF0SIDLbits 0 3 -> -> 1 `i `uc ]
-[; ;main.c: 299: RXF0EIDH = 0x40;
-"299
-[e = _RXF0EIDH -> -> 64 `i `uc ]
-[; ;main.c: 300: RXF0EIDL = 0;
-"300
-[e = _RXF0EIDL -> -> 0 `i `uc ]
-[; ;main.c: 304: RXFCON0 = 0x01;
-"304
-[e = _RXFCON0 -> -> 1 `i `uc ]
-[; ;main.c: 305: RXFCON1 = 0x00;
-"305
-[e = _RXFCON1 -> -> 0 `i `uc ]
-[; ;main.c: 313: RXB0CON = 0;
-"313
-[e = _RXB0CON -> -> 0 `i `uc ]
-[; ;main.c: 314: RXB1CON = 0;
-"314
-[e = _RXB1CON -> -> 0 `i `uc ]
-[; ;main.c: 315: B0CON = 0;
-"315
-[e = _B0CON -> -> 0 `i `uc ]
-[; ;main.c: 316: B1CON = 0;
-"316
-[e = _B1CON -> -> 0 `i `uc ]
-[; ;main.c: 317: B2CON = 0;
-"317
-[e = _B2CON -> -> 0 `i `uc ]
-[; ;main.c: 318: B3CON = 0;
-"318
-[e = _B3CON -> -> 0 `i `uc ]
-[; ;main.c: 319: B4CON = 0;
-"319
-[e = _B4CON -> -> 0 `i `uc ]
-[; ;main.c: 320: B5CON = 0;
-"320
-[e = _B5CON -> -> 0 `i `uc ]
-[; ;main.c: 323: CANCON = 0x00;
-"323
-[e = _CANCON -> -> 0 `i `uc ]
-[; ;main.c: 324: while((CANSTAT & 0xE0) > 0)
-"324
-[e $U 2185  ]
-[e :U 2186 ]
-[; ;main.c: 325: {
-"325
-{
-[; ;main.c: 326: ;
-"327
+[e = _LED_array | _pos2 _LED_array ]
+[; ;LED.c: 258: pos2 = LED_Right(pos2);
+"258
+[e = _pos2 ( _LED_Right (1 _pos2 ]
+[; ;LED.c: 259: flage = flage - 1;
+"259
+[e = _flage - _flage -> -> 1 `i `ui ]
+"260
 }
+[e :U 2177 ]
+"255
+[e $ > _flage -> -> 0 `i `ui 2178  ]
+[e :U 2179 ]
+"261
+}
+[e :U 2176 ]
+[; ;LED.c: 260: }
+[; ;LED.c: 261: }
+[; ;LED.c: 262: LED_Control(color, LED_array);
+"262
+[e ( _LED_Control (2 , _color _LED_array ]
+[; ;LED.c: 263: return LED_array;
+"263
+[e ) _LED_array ]
+[e $UE 2171  ]
+[; ;LED.c: 264: }
+"264
+[e :UE 2171 ]
+}
+"275
+[v _INI_LED_Start `(v ~T0 @X0 1 ef ]
+{
+[; ;LED.c: 274: void INI_LED_Start(void)
+[; ;LED.c: 275: {
+[e :U _INI_LED_Start ]
+[f ]
+[; ;LED.c: 276: TRISA = TRISA & 0b00000001;
+"276
+[e = _TRISA -> & -> _TRISA `i -> 1 `i `uc ]
+[; ;LED.c: 277: TRISB = TRISB & 0b11111100;
+"277
+[e = _TRISB -> & -> _TRISB `i -> 252 `i `uc ]
+[; ;LED.c: 278: TRISE = TRISE & 0b11111000;
+"278
+[e = _TRISE -> & -> _TRISE `i -> 248 `i `uc ]
+[; ;LED.c: 279: TRISD = TRISD & 0b00000000;
+"279
+[e = _TRISD -> & -> _TRISD `i -> 0 `i `uc ]
+[; ;LED.c: 280: LED_Control(RED,0b0000000000);
+"280
+[e ( _LED_Control (2 , -> . `E16889 0 `E16889 -> -> 0 `i `ui ]
+[; ;LED.c: 281: LED_Control(GREEN,0b0000000000);
+"281
+[e ( _LED_Control (2 , -> . `E16889 1 `E16889 -> -> 0 `i `ui ]
+[; ;LED.c: 284: }
+"284
+[e :UE 2180 ]
+}
+"300
+[v _LED_Control `(uc ~T0 @X0 1 ef2`E16889`ui ]
+{
+[; ;LED.c: 299: UINT8 LED_Control(LED_RGA_type color,UINT diode)
+[; ;LED.c: 300: {
+[e :U _LED_Control ]
+[v _color `E16889 ~T0 @X0 1 r1 ]
+[v _diode `ui ~T0 @X0 1 r2 ]
+[f ]
+"301
+[v _cos `ui ~T0 @X0 1 a ]
+[; ;LED.c: 301: UINT cos =1;
+[e = _cos -> -> 1 `i `ui ]
+[; ;LED.c: 302: if(color == RED)
+"302
+[e $ ! == -> _color `i -> . `E16889 0 `i 2182  ]
+[; ;LED.c: 303: {
+"303
+{
+[; ;LED.c: 305: if((diode & 0b0000000001)== 0b0000000001)
+"305
+[e $ ! == & _diode -> -> 1 `i `ui -> -> 1 `i `ui 2183  ]
+[; ;LED.c: 306: {
+"306
+{
+[; ;LED.c: 307: LATD = LATD | ~0b11101111;
+"307
+[e = _LATD -> | -> _LATD `i ~ -> 239 `i `uc ]
+"308
+}
+[; ;LED.c: 308: }
+[e $U 2184  ]
+"309
+[e :U 2183 ]
+[; ;LED.c: 309: else
+[; ;LED.c: 310: {
+"310
+{
+[; ;LED.c: 311: LATD = LATD &0b11101111;
+"311
+[e = _LATD -> & -> _LATD `i -> 239 `i `uc ]
+"312
+}
+[e :U 2184 ]
+[; ;LED.c: 312: }
+[; ;LED.c: 314: if((diode & 0b0000000010) == 0b0000000010)
+"314
+[e $ ! == & _diode -> -> 2 `i `ui -> -> 2 `i `ui 2185  ]
+[; ;LED.c: 315: {
+"315
+{
+[; ;LED.c: 316: LATD = LATD | ~0b10111111;
+"316
+[e = _LATD -> | -> _LATD `i ~ -> 191 `i `uc ]
+"317
+}
+[; ;LED.c: 317: }
+[e $U 2186  ]
+"318
 [e :U 2185 ]
+[; ;LED.c: 318: else
+[; ;LED.c: 319: {
+"319
+{
+[; ;LED.c: 320: LATD = LATD & 0b10111111;
+"320
+[e = _LATD -> & -> _LATD `i -> 191 `i `uc ]
+"321
+}
+[e :U 2186 ]
+[; ;LED.c: 321: }
+[; ;LED.c: 323: if((diode & 0b0000000100) == 0b0000000100)
+"323
+[e $ ! == & _diode -> -> 4 `i `ui -> -> 4 `i `ui 2187  ]
+[; ;LED.c: 324: {
 "324
-[e $ > & -> _CANSTAT `i -> 224 `i -> 0 `i 2186  ]
+{
+[; ;LED.c: 325: LATB = LATB | ~0b11111110;
+"325
+[e = _LATB -> | -> _LATB `i ~ -> 254 `i `uc ]
+"326
+}
+[; ;LED.c: 326: }
+[e $U 2188  ]
+"327
 [e :U 2187 ]
-[; ;main.c: 327: }
-[; ;main.c: 328: SourceAddr.Val32 = (DWORD)0xC00;
+[; ;LED.c: 327: else
+[; ;LED.c: 328: {
 "328
-[e = . _SourceAddr 0 -> -> 3072 `i `ul ]
-[; ;main.c: 329: counter = 0;
+{
+[; ;LED.c: 329: LATB = LATB & 0b11111110;
 "329
-[e = _counter -> -> 0 `i `uc ]
-[; ;main.c: 330: iloscBajtow = 0;
+[e = _LATB -> & -> _LATB `i -> 254 `i `uc ]
 "330
-[e = _iloscBajtow -> -> 0 `i `uc ]
-[; ;main.c: 331: ramekInicjalizacji = 0;
-"331
-[e = _ramekInicjalizacji -> -> 0 `i `uc ]
-[; ;main.c: 332: for(;;)
-"332
-{
-"333
+}
 [e :U 2188 ]
-[; ;main.c: 333: {
-{
-[; ;main.c: 334: OdbierzRamke();
+[; ;LED.c: 330: }
+[; ;LED.c: 333: if((diode & 0b0000001000) == 0b0000001000)
+"333
+[e $ ! == & _diode -> -> 8 `i `ui -> -> 8 `i `ui 2189  ]
+[; ;LED.c: 334: {
 "334
-[e ( _OdbierzRamke ..  ]
-[; ;main.c: 337: if(INTCONbits.TMR0IF == 1)
+{
+[; ;LED.c: 335: LATA = LATA | ~0b11111101;
+"335
+[e = _LATA -> | -> _LATA `i ~ -> 253 `i `uc ]
+"336
+}
+[; ;LED.c: 336: }
+[e $U 2190  ]
 "337
-[e $ ! == -> . . _INTCONbits 0 2 `i -> 1 `i 2191  ]
-[; ;main.c: 338: {
+[e :U 2189 ]
+[; ;LED.c: 337: else
+[; ;LED.c: 338: {
 "338
 {
-[; ;main.c: 339: INTCONbits.TMR0IF = 0;
+[; ;LED.c: 339: LATA = LATA & 0b11111101;
 "339
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 340: asm(" clrwdt");
+[e = _LATA -> & -> _LATA `i -> 253 `i `uc ]
 "340
-[; <"  clrwdt ;# ">
-[; ;main.c: 342: if(++counter >= Delay)
-"342
-[e $ ! >= -> =+ _counter -> -> 1 `i `uc `i -> _Delay `i 2192  ]
-[; ;main.c: 343: {
-"343
-{
-[; ;main.c: 344: ResetDevice();
-"344
-[e ( _ResetDevice ..  ]
-"345
 }
-[e :U 2192 ]
+[e :U 2190 ]
+[; ;LED.c: 340: }
+[; ;LED.c: 343: if((diode & 0b0000010000) == 0b0000010000)
+"343
+[e $ ! == & _diode -> -> 16 `i `ui -> -> 16 `i `ui 2191  ]
+[; ;LED.c: 344: {
+"344
+{
+[; ;LED.c: 345: LATA = LATA | ~0b11110111;
+"345
+[e = _LATA -> | -> _LATA `i ~ -> 247 `i `uc ]
 "346
 }
-[e :U 2191 ]
+[; ;LED.c: 346: }
+[e $U 2192  ]
 "347
-}
-[; ;main.c: 345: }
-[; ;main.c: 346: }
-[; ;main.c: 347: }
-[e $U 2188  ]
-[e :U 2189 ]
-}
-[; ;main.c: 348: }
+[e :U 2191 ]
+[; ;LED.c: 347: else
+[; ;LED.c: 348: {
 "348
-[e :UE 2180 ]
+{
+[; ;LED.c: 349: LATA = LATA & 0b11110111;
+"349
+[e = _LATA -> & -> _LATA `i -> 247 `i `uc ]
+"350
+}
+[e :U 2192 ]
+[; ;LED.c: 350: }
+[; ;LED.c: 353: if((diode & 0b0000100000) == 0b0000100000)
+"353
+[e $ ! == & _diode -> -> 32 `i `ui -> -> 32 `i `ui 2193  ]
+[; ;LED.c: 354: {
+"354
+{
+[; ;LED.c: 355: LATA = LATA | ~0b11011111;
+"355
+[e = _LATA -> | -> _LATA `i ~ -> 223 `i `uc ]
+"356
+}
+[; ;LED.c: 356: }
+[e $U 2194  ]
+"357
+[e :U 2193 ]
+[; ;LED.c: 357: else
+[; ;LED.c: 358: {
+"358
+{
+[; ;LED.c: 359: LATA = LATA & 0b11011111;
+"359
+[e = _LATA -> & -> _LATA `i -> 223 `i `uc ]
+"360
+}
+[e :U 2194 ]
+[; ;LED.c: 360: }
+[; ;LED.c: 362: if((diode & 0b0001000000) == 0b0001000000)
+"362
+[e $ ! == & _diode -> -> 64 `i `ui -> -> 64 `i `ui 2195  ]
+[; ;LED.c: 363: {
+"363
+{
+[; ;LED.c: 364: LATE = LATE | ~0b11111101;
+"364
+[e = _LATE -> | -> _LATE `i ~ -> 253 `i `uc ]
+"365
+}
+[; ;LED.c: 365: }
+[e $U 2196  ]
+"366
+[e :U 2195 ]
+[; ;LED.c: 366: else
+[; ;LED.c: 367: {
+"367
+{
+[; ;LED.c: 368: LATE = LATE & 0b11111101;
+"368
+[e = _LATE -> & -> _LATE `i -> 253 `i `uc ]
+"369
+}
+[e :U 2196 ]
+[; ;LED.c: 369: }
+[; ;LED.c: 371: if((diode & 0b0010000000) == 0b0010000000)
+"371
+[e $ ! == & _diode -> -> 128 `i `ui -> -> 128 `i `ui 2197  ]
+[; ;LED.c: 372: {
+"372
+{
+[; ;LED.c: 373: LATA = LATA | ~0b01111111;
+"373
+[e = _LATA -> | -> _LATA `i ~ -> 127 `i `uc ]
+"374
+}
+[; ;LED.c: 374: }
+[e $U 2198  ]
+"375
+[e :U 2197 ]
+[; ;LED.c: 375: else
+[; ;LED.c: 376: {
+"376
+{
+[; ;LED.c: 377: LATA = LATA & 0b01111111;
+"377
+[e = _LATA -> & -> _LATA `i -> 127 `i `uc ]
+"378
+}
+[e :U 2198 ]
+[; ;LED.c: 378: }
+[; ;LED.c: 381: if((diode & 0b0100000000) == 0b0100000000)
+"381
+[e $ ! == & _diode -> -> 256 `i `ui -> -> 256 `i `ui 2199  ]
+[; ;LED.c: 382: {
+"382
+{
+[; ;LED.c: 383: LATD = LATD | ~0b11111110;
+"383
+[e = _LATD -> | -> _LATD `i ~ -> 254 `i `uc ]
+"384
+}
+[; ;LED.c: 384: }
+[e $U 2200  ]
+"385
+[e :U 2199 ]
+[; ;LED.c: 385: else
+[; ;LED.c: 386: {
+"386
+{
+[; ;LED.c: 387: LATD = LATD & 0b11111110;
+"387
+[e = _LATD -> & -> _LATD `i -> 254 `i `uc ]
+"388
+}
+[e :U 2200 ]
+[; ;LED.c: 388: }
+[; ;LED.c: 390: if((diode & 0b1000000000) == 0b1000000000)
+"390
+[e $ ! == & _diode -> -> 512 `i `ui -> -> 512 `i `ui 2201  ]
+[; ;LED.c: 391: {
+"391
+{
+[; ;LED.c: 392: LATD = LATD | ~0b11111011;
+"392
+[e = _LATD -> | -> _LATD `i ~ -> 251 `i `uc ]
+"393
+}
+[; ;LED.c: 393: }
+[e $U 2202  ]
+"394
+[e :U 2201 ]
+[; ;LED.c: 394: else
+[; ;LED.c: 395: {
+"395
+{
+[; ;LED.c: 396: LATD = LATD & 0b11111011;
+"396
+[e = _LATD -> & -> _LATD `i -> 251 `i `uc ]
+"397
+}
+[e :U 2202 ]
+"399
+}
+[e :U 2182 ]
+[; ;LED.c: 397: }
+[; ;LED.c: 399: }
+[; ;LED.c: 401: if(color == GREEN)
+"401
+[e $ ! == -> _color `i -> . `E16889 1 `i 2203  ]
+[; ;LED.c: 402: {
+"402
+{
+[; ;LED.c: 404: if((diode & 0b0000000001) == 0b0000000001)
+"404
+[e $ ! == & _diode -> -> 1 `i `ui -> -> 1 `i `ui 2204  ]
+[; ;LED.c: 405: {
+"405
+{
+[; ;LED.c: 406: LATD = LATD | ~0b11011111;
+"406
+[e = _LATD -> | -> _LATD `i ~ -> 223 `i `uc ]
+"407
+}
+[; ;LED.c: 407: }
+[e $U 2205  ]
+"408
+[e :U 2204 ]
+[; ;LED.c: 408: else
+[; ;LED.c: 409: {
+"409
+{
+[; ;LED.c: 410: LATD = LATD & 0b11011111;
+"410
+[e = _LATD -> & -> _LATD `i -> 223 `i `uc ]
+"411
+}
+[e :U 2205 ]
+[; ;LED.c: 411: }
+[; ;LED.c: 414: if((diode & 0b0000000010) == 0b0000000010)
+"414
+[e $ ! == & _diode -> -> 2 `i `ui -> -> 2 `i `ui 2206  ]
+[; ;LED.c: 415: {
+"415
+{
+[; ;LED.c: 416: LATD = LATD | ~0b01111111;
+"416
+[e = _LATD -> | -> _LATD `i ~ -> 127 `i `uc ]
+"417
+}
+[; ;LED.c: 417: }
+[e $U 2207  ]
+"418
+[e :U 2206 ]
+[; ;LED.c: 418: else
+[; ;LED.c: 419: {
+"419
+{
+[; ;LED.c: 420: LATD = LATD & 0b01111111;
+"420
+[e = _LATD -> & -> _LATD `i -> 127 `i `uc ]
+"421
+}
+[e :U 2207 ]
+[; ;LED.c: 421: }
+[; ;LED.c: 424: if((diode & 0b0000000100) == 0b0000000100)
+"424
+[e $ ! == & _diode -> -> 4 `i `ui -> -> 4 `i `ui 2208  ]
+[; ;LED.c: 425: {
+"425
+{
+[; ;LED.c: 426: LATB = LATB | ~0b11111101;
+"426
+[e = _LATB -> | -> _LATB `i ~ -> 253 `i `uc ]
+"427
+}
+[; ;LED.c: 427: }
+[e $U 2209  ]
+"428
+[e :U 2208 ]
+[; ;LED.c: 428: else
+[; ;LED.c: 429: {
+"429
+{
+[; ;LED.c: 430: LATB = LATB & 0b11111101;
+"430
+[e = _LATB -> & -> _LATB `i -> 253 `i `uc ]
+"431
+}
+[e :U 2209 ]
+[; ;LED.c: 431: }
+[; ;LED.c: 433: if((diode & 0b0000001000) == 0b0000001000)
+"433
+[e $ ! == & _diode -> -> 8 `i `ui -> -> 8 `i `ui 2210  ]
+[; ;LED.c: 434: {
+"434
+{
+[; ;LED.c: 435: LATA = LATA | ~0b11111011;
+"435
+[e = _LATA -> | -> _LATA `i ~ -> 251 `i `uc ]
+"436
+}
+[; ;LED.c: 436: }
+[e $U 2211  ]
+"437
+[e :U 2210 ]
+[; ;LED.c: 437: else
+[; ;LED.c: 438: {
+"438
+{
+[; ;LED.c: 439: LATA = LATA & 0b11111011;
+"439
+[e = _LATA -> & -> _LATA `i -> 251 `i `uc ]
+"440
+}
+[e :U 2211 ]
+[; ;LED.c: 440: }
+[; ;LED.c: 443: if((diode & 0b0000010000) == 0b0000010000)
+"443
+[e $ ! == & _diode -> -> 16 `i `ui -> -> 16 `i `ui 2212  ]
+[; ;LED.c: 444: {
+"444
+{
+[; ;LED.c: 445: LATA = LATA | ~0b11101111;
+"445
+[e = _LATA -> | -> _LATA `i ~ -> 239 `i `uc ]
+"446
+}
+[; ;LED.c: 446: }
+[e $U 2213  ]
+"447
+[e :U 2212 ]
+[; ;LED.c: 447: else
+[; ;LED.c: 448: {
+"448
+{
+[; ;LED.c: 449: LATA = LATA & 0b11101111;
+"449
+[e = _LATA -> & -> _LATA `i -> 239 `i `uc ]
+"450
+}
+[e :U 2213 ]
+[; ;LED.c: 450: }
+[; ;LED.c: 453: if((diode & 0b0000100000) == 0b0000100000)
+"453
+[e $ ! == & _diode -> -> 32 `i `ui -> -> 32 `i `ui 2214  ]
+[; ;LED.c: 454: {
+"454
+{
+[; ;LED.c: 455: LATE = LATE | ~0b11111110;
+"455
+[e = _LATE -> | -> _LATE `i ~ -> 254 `i `uc ]
+"456
+}
+[; ;LED.c: 456: }
+[e $U 2215  ]
+"457
+[e :U 2214 ]
+[; ;LED.c: 457: else
+[; ;LED.c: 458: {
+"458
+{
+[; ;LED.c: 459: LATE = LATE & 0b11111110;
+"459
+[e = _LATE -> & -> _LATE `i -> 254 `i `uc ]
+"460
+}
+[e :U 2215 ]
+[; ;LED.c: 460: }
+[; ;LED.c: 463: if((diode & 0b0001000000) == 0b0001000000)
+"463
+[e $ ! == & _diode -> -> 64 `i `ui -> -> 64 `i `ui 2216  ]
+[; ;LED.c: 464: {
+"464
+{
+[; ;LED.c: 465: LATE = LATE | ~0b11111011;
+"465
+[e = _LATE -> | -> _LATE `i ~ -> 251 `i `uc ]
+"466
+}
+[; ;LED.c: 466: }
+[e $U 2217  ]
+"467
+[e :U 2216 ]
+[; ;LED.c: 467: else
+[; ;LED.c: 468: {
+"468
+{
+[; ;LED.c: 469: LATE = LATE & 0b11111011;
+"469
+[e = _LATE -> & -> _LATE `i -> 251 `i `uc ]
+"470
+}
+[e :U 2217 ]
+[; ;LED.c: 470: }
+[; ;LED.c: 472: if((diode & 0b0010000000) == 0b0010000000)
+"472
+[e $ ! == & _diode -> -> 128 `i `ui -> -> 128 `i `ui 2218  ]
+[; ;LED.c: 473: {
+"473
+{
+[; ;LED.c: 474: LATA = LATA | ~0b10111111;
+"474
+[e = _LATA -> | -> _LATA `i ~ -> 191 `i `uc ]
+"475
+}
+[; ;LED.c: 475: }
+[e $U 2219  ]
+"476
+[e :U 2218 ]
+[; ;LED.c: 476: else
+[; ;LED.c: 477: {
+"477
+{
+[; ;LED.c: 478: LATA = LATA & 0b10111111;
+"478
+[e = _LATA -> & -> _LATA `i -> 191 `i `uc ]
+"479
+}
+[e :U 2219 ]
+[; ;LED.c: 479: }
+[; ;LED.c: 481: if((diode & 0b0100000000) == 0b0100000000)
+"481
+[e $ ! == & _diode -> -> 256 `i `ui -> -> 256 `i `ui 2220  ]
+[; ;LED.c: 482: {
+"482
+{
+[; ;LED.c: 483: LATD = LATD | ~0b11111101;
+"483
+[e = _LATD -> | -> _LATD `i ~ -> 253 `i `uc ]
+"484
+}
+[; ;LED.c: 484: }
+[e $U 2221  ]
+"485
+[e :U 2220 ]
+[; ;LED.c: 485: else
+[; ;LED.c: 486: {
+"486
+{
+[; ;LED.c: 487: LATD = LATD & 0b11111101;
+"487
+[e = _LATD -> & -> _LATD `i -> 253 `i `uc ]
+"488
+}
+[e :U 2221 ]
+[; ;LED.c: 488: }
+[; ;LED.c: 490: if((diode & 0b1000000000) == 0b1000000000)
+"490
+[e $ ! == & _diode -> -> 512 `i `ui -> -> 512 `i `ui 2222  ]
+[; ;LED.c: 491: {
+"491
+{
+[; ;LED.c: 492: LATD = LATD | ~0b11110111;
+"492
+[e = _LATD -> | -> _LATD `i ~ -> 247 `i `uc ]
+"493
+}
+[; ;LED.c: 493: }
+[e $U 2223  ]
+"494
+[e :U 2222 ]
+[; ;LED.c: 494: else
+[; ;LED.c: 495: {
+"495
+{
+[; ;LED.c: 496: LATD = LATD &0b11110111;
+"496
+[e = _LATD -> & -> _LATD `i -> 247 `i `uc ]
+"497
+}
+[e :U 2223 ]
+"499
+}
+[e :U 2203 ]
+[; ;LED.c: 497: }
+[; ;LED.c: 499: }
+[; ;LED.c: 500: return 1;
+"500
+[e ) -> -> 1 `i `uc ]
+[e $UE 2181  ]
+[; ;LED.c: 501: }
+"501
+[e :UE 2181 ]
 }

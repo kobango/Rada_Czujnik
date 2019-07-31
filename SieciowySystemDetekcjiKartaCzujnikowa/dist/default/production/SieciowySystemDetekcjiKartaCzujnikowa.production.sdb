@@ -3,59 +3,59 @@
 [d edition pro ]
 [d chip 18F4680 ]
 [d frameptr 4065 ]
-"311 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
-[e E10433 _BOOL `uc
+"312 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
+[e E10294 _BOOL `uc
 FALSE 0
 TRUE 1
 ]
 "51 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
-[e E10644 LED_RGA `uc
+[e E10511 LED_RGA `uc
 RED 0
 GREEN 1
 ]
 "60 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
-[e E10433 _BOOL `uc
+[e E10294 _BOOL `uc
 FALSE 0
 TRUE 1
 ]
 "59 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TRM.c
-[e E10433 _BOOL `uc
+[e E10294 _BOOL `uc
 FALSE 0
 TRUE 1
 ]
-"24 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-[e E10433 _BOOL `uc
+"25 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
+[e E10294 _BOOL `uc
 FALSE 0
 TRUE 1
 ]
-"7 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+"7 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\fleq.c
+"4 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
-"62 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\float.c
+"62 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\float.c
 [v ___ftpack __ftpack `(f  1 e 4 0 ]
-"86 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\ftadd.c
+"86 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 4 0 ]
-"54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\ftdiv.c
+"54 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\ftdiv.c
 [v ___ftdiv __ftdiv `(f  1 e 4 0 ]
-"62 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\ftmul.c
+"62 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\ftmul.c
 [v ___ftmul __ftmul `(f  1 e 4 0 ]
-"19 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\ftsub.c
+"19 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 4 0 ]
-"7 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lwdiv.c
+"7 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-"10 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\sprcadd.c
+"10 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "245
 [v ___flsub __flsub `(d  1 e 4 0 ]
-"11 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\sprcdiv.c
+"11 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\sprcdiv.c
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\sprcmul.c
+"8 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
-"15 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul32.c
+"15 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"91 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\Umul64.c
-[v ___omul __omul `(uo  1 e 8 0 ]
+"91 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\Umul64.c
+[v ___omul __omul `(ul  1 e 4 0 ]
 "24 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\CAN.c
 [v _CAN_Setup CAN_Setup `(v  1 e 1 0 ]
 "84
@@ -69,13 +69,13 @@ TRUE 1
 "247
 [v _CAN_SendFrame CAN_SendFrame `(v  1 e 1 0 ]
 "311
-[v _CAN_TakeFrame CAN_TakeFrame `(E10433  1 e 1 0 ]
+[v _CAN_TakeFrame CAN_TakeFrame `(E10294  1 e 1 0 ]
 "446
 [v _CAN_GenID CAN_GenID `(v  1 e 1 0 ]
 "24 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\EEPROM.c
-[v _NVMalloc NVMalloc `(E10433  1 e 1 0 ]
+[v _NVMalloc NVMalloc `(E10294  1 e 1 0 ]
 "49
-[v _NVMInit NVMInit `(E10433  1 e 1 0 ]
+[v _NVMInit NVMInit `(E10294  1 e 1 0 ]
 "73
 [v _ReadfromEEPROM ReadfromEEPROM `(uc  1 s 1 ReadfromEEPROM ]
 "95
@@ -179,22 +179,6 @@ TRUE 1
 [v _INI_Timer INI_Timer `(uc  1 e 1 0 ]
 "19 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TRM.c
 [v _TRM_DataTransmition TRM_DataTransmition `(v  1 e 1 0 ]
-"17 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa/FRAME.h
-[v _NeightAdress1 NeightAdress1 `VEui  1 e 2 0 ]
-"18
-[v _NeightAdress2 NeightAdress2 `VEui  1 e 2 0 ]
-"19
-[v _NeightAdress3 NeightAdress3 `VEui  1 e 2 0 ]
-"20
-[v _NeightAdress4 NeightAdress4 `VEui  1 e 2 0 ]
-"21
-[v _NeightAdress5 NeightAdress5 `VEui  1 e 2 0 ]
-"22
-[v _NeightAdress6 NeightAdress6 `VEui  1 e 2 0 ]
-"23
-[v _NeightAdress7 NeightAdress7 `VEui  1 e 2 0 ]
-"24
-[v _NeightAdress8 NeightAdress8 `VEui  1 e 2 0 ]
 "52 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
 [v _RXF6SIDH RXF6SIDH `VEuc  1 e 1 @3424 ]
 "164
@@ -689,7 +673,7 @@ TRUE 1
 [v _PIR3 PIR3 `VEuc  1 e 1 @4004 ]
 "28587
 [v _IPR3 IPR3 `VEuc  1 e 1 @4005 ]
-[s S4513 . 1 `uc 1 RD 1 0 :1:0 
+[s S4505 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -699,11 +683,11 @@ TRUE 1
 `uc 1 EEPGD 1 0 :1:7 
 ]
 "28707
-[s S4522 . 1 `uc 1 . 1 0 :6:0 
+[s S4514 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 EEFS 1 0 :1:6 
 ]
-[u S4525 . 1 `S4513 1 . 1 0 `S4522 1 . 1 0 ]
-[v _EECON1bits EECON1bits `VES4525  1 e 1 @4006 ]
+[u S4517 . 1 `S4505 1 . 1 0 `S4514 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES4517  1 e 1 @4006 ]
 "28752
 [v _EECON2 EECON2 `VEuc  1 e 1 @4007 ]
 "28759
@@ -720,22 +704,22 @@ TRUE 1
 [v _TMR1H TMR1H `VEuc  1 e 1 @4047 ]
 "31137
 [v _RCON RCON `VEuc  1 e 1 @4048 ]
-[s S4023 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[s S4015 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "31180
-[s S4025 . 1 `uc 1 . 1 0 :1:0 
+[s S4017 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S4028 . 1 `uc 1 . 1 0 :2:0 
+[s S4020 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S4031 . 1 `uc 1 . 1 0 :3:0 
+[s S4023 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S4034 . 1 `uc 1 . 1 0 :4:0 
+[s S4026 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S4037 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S4029 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -744,22 +728,22 @@ TRUE 1
 `uc 1 SBOREN 1 0 :1:6 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S4046 . 1 `uc 1 BOR 1 0 :1:0 
+[s S4038 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
 `uc 1 RI 1 0 :1:4 
 ]
-[u S4052 . 1 `S4023 1 . 1 0 `S4025 1 . 1 0 `S4028 1 . 1 0 `S4031 1 . 1 0 `S4034 1 . 1 0 `S4037 1 . 1 0 `S4046 1 . 1 0 ]
-[v _RCONbits RCONbits `VES4052  1 e 1 @4048 ]
-[s S4105 . 1 `uc 1 SWDTEN 1 0 :1:0 
+[u S4044 . 1 `S4015 1 . 1 0 `S4017 1 . 1 0 `S4020 1 . 1 0 `S4023 1 . 1 0 `S4026 1 . 1 0 `S4029 1 . 1 0 `S4038 1 . 1 0 ]
+[v _RCONbits RCONbits `VES4044  1 e 1 @4048 ]
+[s S4097 . 1 `uc 1 SWDTEN 1 0 :1:0 
 ]
 "31283
-[s S4107 . 1 `uc 1 SWDTE 1 0 :1:0 
+[s S4099 . 1 `uc 1 SWDTE 1 0 :1:0 
 ]
-[u S4109 . 1 `S4105 1 . 1 0 `S4107 1 . 1 0 ]
-[v _WDTCONbits WDTCONbits `VES4109  1 e 1 @4049 ]
-[s S4132 . 1 `uc 1 RBIF 1 0 :1:0 
+[u S4101 . 1 `S4097 1 . 1 0 `S4099 1 . 1 0 ]
+[v _WDTCONbits WDTCONbits `VES4101  1 e 1 @4049 ]
+[s S4124 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -769,7 +753,7 @@ TRUE 1
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "32196
-[s S4141 . 1 `uc 1 . 1 0 :1:0 
+[s S4133 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -778,12 +762,12 @@ TRUE 1
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S4150 . 1 `uc 1 . 1 0 :6:0 
+[s S4142 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S4154 . 1 `S4132 1 . 1 0 `S4141 1 . 1 0 `S4150 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES4154  1 e 1 @4082 ]
+[u S4146 . 1 `S4124 1 . 1 0 `S4133 1 . 1 0 `S4142 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES4146  1 e 1 @4082 ]
 "32302
 [v _TABLAT TABLAT `VEuc  1 e 1 @4085 ]
 "32310
@@ -814,6 +798,22 @@ TRUE 1
 [v _nextEEPosition nextEEPosition `us  1 e 2 0 ]
 "30 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 [v _Init_Data Init_Data `VEui  1 e 2 0 ]
+"17 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.h
+[v _NeightAdress1 NeightAdress1 `VEui  1 e 2 0 ]
+"18
+[v _NeightAdress2 NeightAdress2 `VEui  1 e 2 0 ]
+"19
+[v _NeightAdress3 NeightAdress3 `VEui  1 e 2 0 ]
+"20
+[v _NeightAdress4 NeightAdress4 `VEui  1 e 2 0 ]
+"21
+[v _NeightAdress5 NeightAdress5 `VEui  1 e 2 0 ]
+"22
+[v _NeightAdress6 NeightAdress6 `VEui  1 e 2 0 ]
+"23
+[v _NeightAdress7 NeightAdress7 `VEui  1 e 2 0 ]
+"24
+[v _NeightAdress8 NeightAdress8 `VEui  1 e 2 0 ]
 "34 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\LED.c
 [v _Fulfillment_Lvl Fulfillment_Lvl `ui  1 s 2 Fulfillment_Lvl ]
 "35
@@ -859,7 +859,7 @@ TRUE 1
 [v _main main `(v  1 e 1 0 ]
 {
 "103
-[v main@adr adr `i  1 a 2 26 ]
+[v main@adr adr `i  1 a 2 0 ]
 "138
 } 0
 "19 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\TRM.c
@@ -923,16 +923,16 @@ TRUE 1
 ]
 [u S873 _DWORD_VAL 4 `ul 1 Val 4 0 `[2]us 1 w 4 0 `[4]uc 1 v 4 0 `S804 1 word 4 0 `S807 1 byte 4 0 `S837 1 wordUnion 4 0 `S840 1 bits 4 0 ]
 [s S881 . 17 `uc 1 buffer_status 1 0 `uc 1 message_type 1 1 `uc 1 frame_type 1 2 `uc 1 buffer 1 3 `S873 1 id 4 4 `[8]uc 1 data 8 8 `uc 1 data_length 1 16 ]
-[v TRM_DataTransmition@canMessage canMessage `S881  1 a 17 0 ]
+[v TRM_DataTransmition@canMessage canMessage `S881  1 a 17 25 ]
 "73
 } 0
 "807 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\FRAME.c
 [v _FRAME_HandleCanFrame FRAME_HandleCanFrame `(v  1 e 1 0 ]
 {
 "814
-[v FRAME_HandleCanFrame@ident ident `us  1 a 2 23 ]
+[v FRAME_HandleCanFrame@ident ident `us  1 a 2 22 ]
 "809
-[v FRAME_HandleCanFrame@identyfikator identyfikator `uc  1 a 1 25 ]
+[v FRAME_HandleCanFrame@identyfikator identyfikator `uc  1 a 1 24 ]
 [s S804 . 4 `us 1 LW 2 0 `us 1 HW 2 2 ]
 "807
 [s S807 . 4 `uc 1 LB 1 0 `uc 1 HB 1 1 `uc 1 UB 1 2 `uc 1 MB 1 3 ]
@@ -2106,7 +2106,7 @@ TRUE 1
 "460
 } 0
 "311
-[v _CAN_TakeFrame CAN_TakeFrame `(E10433  1 e 1 0 ]
+[v _CAN_TakeFrame CAN_TakeFrame `(E10294  1 e 1 0 ]
 {
 "313
 [v CAN_TakeFrame@k k `uc  1 a 1 18 ]
@@ -2172,7 +2172,7 @@ TRUE 1
 [v CAN_TakeFrame@message message `*.39S881  1 p 2 13 ]
 "437
 } 0
-"7 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\awdiv.c
+"7 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 {
 "10
@@ -2210,7 +2210,7 @@ TRUE 1
 [v _LED_Update LED_Update `(uc  1 e 1 0 ]
 {
 "151
-[v LED_Update@Green Green `E10644  1 s 1 Green ]
+[v LED_Update@Green Green `E10511  1 s 1 Green ]
 "152
 [v LED_Update@pos1 pos1 `ui  1 s 2 pos1 ]
 "153
@@ -2220,7 +2220,7 @@ TRUE 1
 "239
 [v _LED_Light_Pos LED_Light_Pos `(ui  1 e 2 0 ]
 {
-[v LED_Light_Pos@color color `E10644  1 a 1 wreg ]
+[v LED_Light_Pos@color color `E10511  1 a 1 wreg ]
 "243
 [v LED_Light_Pos@flage flage `ui  1 a 2 21 ]
 "241
@@ -2228,14 +2228,14 @@ TRUE 1
 "242
 [v LED_Light_Pos@LED_array LED_array `ui  1 a 2 17 ]
 "239
-[v LED_Light_Pos@color color `E10644  1 a 1 wreg ]
+[v LED_Light_Pos@color color `E10511  1 a 1 wreg ]
 [v LED_Light_Pos@pos pos `ui  1 p 2 12 ]
 [v LED_Light_Pos@fulfillment fulfillment `ui  1 p 2 14 ]
 "241
-[v LED_Light_Pos@color color `E10644  1 a 1 16 ]
+[v LED_Light_Pos@color color `E10511  1 a 1 16 ]
 "264
 } 0
-"7 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c99\common\lwdiv.c
+"7 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\sources\c90\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 {
 "10
@@ -2290,14 +2290,14 @@ TRUE 1
 "81
 } 0
 "49
-[v _NVMInit NVMInit `(E10433  1 e 1 0 ]
+[v _NVMInit NVMInit `(E10294  1 e 1 0 ]
 {
 "51
-[v NVMInit@result result `E10433  1 a 1 13 ]
+[v NVMInit@result result `E10294  1 a 1 13 ]
 "60
 } 0
 "24
-[v _NVMalloc NVMalloc `(E10433  1 e 1 0 ]
+[v _NVMalloc NVMalloc `(E10294  1 e 1 0 ]
 {
 [v NVMalloc@size size `us  1 p 2 5 ]
 [v NVMalloc@location location `*.39us  1 p 2 7 ]
@@ -2321,10 +2321,10 @@ TRUE 1
 "299
 [v _LED_Control LED_Control `(uc  1 e 1 0 ]
 {
-[v LED_Control@color color `E10644  1 a 1 wreg ]
-[v LED_Control@color color `E10644  1 a 1 wreg ]
+[v LED_Control@color color `E10511  1 a 1 wreg ]
+[v LED_Control@color color `E10511  1 a 1 wreg ]
 [v LED_Control@diode diode `ui  1 p 2 5 ]
-[v LED_Control@color color `E10644  1 a 1 9 ]
+[v LED_Control@color color `E10511  1 a 1 9 ]
 "501
 } 0
 "78 C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\INI.c
