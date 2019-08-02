@@ -27,7 +27,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 PROJECTNAME=SieciowySystemDetekcjiKartaCzujnikowa
 
 # Active Configuration
-DEFAULTCONF=default
+DEFAULTCONF=Parkingi
 CONF=${DEFAULTCONF}
 
 # All Configurations

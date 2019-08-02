@@ -1,7 +1,0 @@
-build/Parkingi/production/RamkiCzujnikow.o:  \
-	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa/RamkiCzujnikow.c  \
-	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa/WeWy.h  \
-	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa/main.h  \
-	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa/CAN.h  \
-	C:/Users/Pawel/MPLABXProjects/SieciowySystemDetekcjiKartaCzujnikowa/GenericTypeDefs.h  \
-

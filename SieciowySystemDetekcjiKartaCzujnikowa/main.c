@@ -132,7 +132,7 @@ void main(void)
         }
         
         
-        TRM_DataTransmition();
+        //TRM_DataTransmition();
         ClrWdt();
     }
 }

@@ -1,0 +1,1801 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"54 acconeer/rss/include\acc_detector_distance_peak.h
+[; ;acconeer/rss/include\acc_detector_distance_peak.h: 54: struct acc_detector_distance_peak_configuration;
+[s S1121 ]
+[n S1121 acc_detector_distance_peak_configuration ]
+"48 acconeer/rss/include\acc_sweep_configuration.h
+[s S1120 ]
+[n S1120 acc_sweep_configuration ]
+"196 acconeer/rss/include\acc_detector_distance_peak.h
+[; ;acconeer/rss/include\acc_detector_distance_peak.h: 196: extern void acc_detector_distance_peak_profile_set(acc_detector_distance_peak_configuration_t configuration,
+[v _acc_detector_distance_peak_profile_set `(v ~T0 @X0 0 ef2`*S1121`ul ]
+"46 acconeer/src/example_detector_distance_peak_fixed_threshold.c
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 46:  acc_detector_distance_peak_profile_set(distance_configuration, ACC_DETECTOR_DISTANCE_PEAK_PROFILE_MAXIMIZE_DEPTH_RESOLUTION);
+[c E11424 0 1 2 0 .. ]
+[n E11424 . ACC_DETECTOR_DISTANCE_PEAK_PROFILE_MAXIMIZE_DEPTH_RESOLUTION ACC_DETECTOR_DISTANCE_PEAK_PROFILE_MAXIMIZE_SNR ACC_DETECTOR_DISTANCE_PEAK_PROFILE_MAX ACC_DETECTOR_DISTANCE_PEAK_PROFILE_DEFAULT  ]
+"322 acconeer/rss/include\acc_detector_distance_peak.h
+[; ;acconeer/rss/include\acc_detector_distance_peak.h: 322: extern acc_detector_distance_peak_status_t acc_detector_distance_peak_set_absolute_amplitude(acc_detector_distance_peak_configuration_t configuration,
+[v _acc_detector_distance_peak_set_absolute_amplitude `(ul ~T0 @X0 0 ef2`*S1121`a ]
+"269
+[; ;acconeer/rss/include\acc_detector_distance_peak.h: 269: extern acc_detector_distance_peak_status_t acc_detector_distance_peak_set_threshold_mode_fixed(acc_detector_distance_peak_configuration_t configuration,
+[v _acc_detector_distance_peak_set_threshold_mode_fixed `(ul ~T0 @X0 0 ef2`*S1121`us ]
+"392
+[; ;acconeer/rss/include\acc_detector_distance_peak.h: 392: extern acc_detector_distance_peak_status_t acc_detector_distance_peak_set_sort_by_amplitude(acc_detector_distance_peak_configuration_t configuration,
+[v _acc_detector_distance_peak_set_sort_by_amplitude `(ul ~T0 @X0 0 ef2`*S1121`a ]
+"166
+[; ;acconeer/rss/include\acc_detector_distance_peak.h: 166: extern acc_sweep_configuration_t acc_detector_distance_peak_get_sweep_configuration(acc_detector_distance_peak_configuration_t configuration);
+[v _acc_detector_distance_peak_get_sweep_configuration `(*S1120 ~T0 @X0 0 ef1`*S1121 ]
+"113 D:\Programy\Microchip\xc8\v2.05\pic\include\c99\stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"68 acconeer/rss/include\acc_sweep_configuration.h
+[v _acc_sweep_configuration_sensor_set `(v ~T0 @X0 0 ef2`*S1120`ul ]
+"86
+[v _acc_sweep_configuration_requested_start_set `(v ~T0 @X0 0 ef2`*S1120`f ]
+"104
+[v _acc_sweep_configuration_requested_length_set `(v ~T0 @X0 0 ef2`*S1120`f ]
+"137
+[v _acc_sweep_configuration_repetition_mode_streaming_set `(v ~T0 @X0 0 ef2`*S1120`f ]
+"68 acconeer/rss/include\acc_detector_distance_peak.h
+[; ;acconeer/rss/include\acc_detector_distance_peak.h: 68: typedef struct {
+[s S1123 `f 1 `us 1 ]
+[n S1123 . distance amplitude ]
+"91 acconeer/src/example_detector_distance_peak_fixed_threshold.c
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 91:  acc_detector_distance_peak_status_t detector_status = ACC_DETECTOR_DISTANCE_PEAK_STATUS_SUCCESS;
+[c E11419 0 1 .. ]
+[n E11419 . ACC_DETECTOR_DISTANCE_PEAK_STATUS_SUCCESS ACC_DETECTOR_DISTANCE_PEAK_STATUS_FAILURE  ]
+"77 acconeer/rss/include\acc_detector_distance_peak.h
+[; ;acconeer/rss/include\acc_detector_distance_peak.h: 77: {
+[s S1124 `f 1 `f 1 ]
+[n S1124 . actual_start_m actual_length_m ]
+"61
+[; ;acconeer/rss/include\acc_detector_distance_peak.h: 61: struct acc_detector_distance_peak_handle;
+[s S1122 ]
+[n S1122 acc_detector_distance_peak_handle ]
+"119
+[; ;acconeer/rss/include\acc_detector_distance_peak.h: 119: extern acc_detector_distance_peak_handle_t acc_detector_distance_peak_create(acc_detector_distance_peak_configuration_t configuration);
+[v _acc_detector_distance_peak_create `(*S1122 ~T0 @X0 0 ef1`*S1121 ]
+"257
+[; ;acconeer/rss/include\acc_detector_distance_peak.h: 257: extern void acc_detector_distance_peak_get_metadata(acc_detector_distance_peak_handle_t handle,
+[v _acc_detector_distance_peak_get_metadata `(v ~T0 @X0 0 ef2`*S1122`*S1124 ]
+"87
+[; ;acconeer/rss/include\acc_detector_distance_peak.h: 87: {
+[s S1125 `ul 1 ]
+[n S1125 . sequence_number ]
+"137
+[; ;acconeer/rss/include\acc_detector_distance_peak.h: 137: extern acc_detector_distance_peak_status_t acc_detector_distance_peak_activate(acc_detector_distance_peak_handle_t handle);
+[v _acc_detector_distance_peak_activate `(ul ~T0 @X0 0 ef1`*S1122 ]
+"127
+[; ;acconeer/rss/include\acc_detector_distance_peak.h: 127: extern void acc_detector_distance_peak_destroy(acc_detector_distance_peak_handle_t *handle);
+[v _acc_detector_distance_peak_destroy `(v ~T0 @X0 0 ef1`**S1122 ]
+"243
+[; ;acconeer/rss/include\acc_detector_distance_peak.h: 243: extern acc_detector_distance_peak_status_t acc_detector_distance_peak_get_next(acc_detector_distance_peak_handle_t handle,
+[v _acc_detector_distance_peak_get_next `(ul ~T0 @X0 0 ef4`*S1122`*S1123`*ul`*S1125 ]
+"147
+[; ;acconeer/rss/include\acc_detector_distance_peak.h: 147: extern acc_detector_distance_peak_status_t acc_detector_distance_peak_deactivate(acc_detector_distance_peak_handle_t handle);
+[v _acc_detector_distance_peak_deactivate `(ul ~T0 @X0 0 ef1`*S1122 ]
+"57 acconeer/rss/include\acc_rss.h
+[; ;acconeer/rss/include\acc_rss.h: 57: const char *acc_rss_version(void);
+[v _acc_rss_version `(*Cuc ~T0 @X0 0 ef ]
+"320 acconeer/rss/include\acc_definitions.h
+[s S1116 `ul 1 `ui 1 ]
+[n S1116 . sensor_count max_spi_transfer_size ]
+[v F11227 `(v ~T0 @X0 0 tf1`ul ]
+[v F11230 `(*v ~T0 @X0 0 tf1`ui ]
+[v F11233 `(v ~T0 @X0 0 tf1`*v ]
+[v F11236 `(ul ~T0 @X0 0 tf ]
+[v F11238 `(v ~T0 @X0 0 tf1`*ul ]
+"47
+[s S1111 ]
+[n S1111 acc_os_mutex ]
+[v F11241 `(*S1111 ~T0 @X0 0 tf ]
+[v F11243 `(v ~T0 @X0 0 tf1`*S1111 ]
+[v F11246 `(v ~T0 @X0 0 tf1`*S1111 ]
+[v F11249 `(v ~T0 @X0 0 tf1`*S1111 ]
+[v F11253 `(v ~T0 @X0 0 tf1`*v ]
+"55
+[s S1113 ]
+[n S1113 acc_os_thread_handle ]
+[v F11252 `(*S1113 ~T0 @X0 0 tf3`*F11253`*v`*Cuc ]
+[v F11259 `(v ~T0 @X0 0 tf ]
+[v F11261 `(v ~T0 @X0 0 tf1`*S1113 ]
+"51
+[s S1112 ]
+[n S1112 acc_os_semaphore ]
+[v F11264 `(*S1112 ~T0 @X0 0 tf ]
+[v F11266 `(v ~T0 @X0 0 tf1`*S1112 ]
+[v F11269 `(a ~T0 @X0 0 tf2`*S1112`us ]
+[v F11273 `(v ~T0 @X0 0 tf1`*S1112 ]
+[v F11276 `(v ~T0 @X0 0 tf1`*S1112 ]
+"209
+[s S1114 `*F11227 1 `*F11230 1 `*F11233 1 `*F11236 1 `*F11238 1 `*F11241 1 `*F11243 1 `*F11246 1 `*F11249 1 `*F11252 1 `*F11259 1 `*F11261 1 `*F11264 1 `*F11266 1 `*F11269 1 `*F11273 1 `*F11276 1 ]
+[n S1114 . sleep_us mem_alloc mem_free get_thread_id gettime mutex_create mutex_destroy mutex_lock mutex_unlock thread_create thread_exit thread_cleanup semaphore_create semaphore_destroy semaphore_wait semaphore_signal semaphore_signal_from_interrupt ]
+[v F11298 `(v ~T0 @X0 0 tf1`ul ]
+[v F11301 `(v ~T0 @X0 0 tf1`ul ]
+[v F11304 `(a ~T0 @X0 0 tf2`ul`ul ]
+[v F11308 `(v ~T0 @X0 0 tf3`ul`*uc`ui ]
+[v F11313 `(f ~T0 @X0 0 tf ]
+"292
+[s S1115 `*F11298 1 `*F11301 1 `*F11304 1 `*F11308 1 `*F11313 1 ]
+[n S1115 . power_on power_off wait_for_interrupt transfer get_reference_frequency ]
+[v F11337 `(v ~T0 @X0 0 tf3`ul`*Cuc`*Cuc ]
+"367
+[s S1117 `ul 1 `*F11337 1 ]
+[n S1117 . log_level log ]
+"392
+[s S1118 `S1116 1 `S1114 1 `S1115 1 `S1117 1 ]
+[n S1118 . properties os sensor_device log ]
+"13 acconeer/integration\acc_hal_integration.h
+[; ;acconeer/integration\acc_hal_integration.h: 13: extern acc_hal_t acc_hal_integration_get_implementation(void);
+[v _acc_hal_integration_get_implementation `(S1118 ~T0 @X0 0 ef ]
+"43 acconeer/rss/include\acc_rss.h
+[; ;acconeer/rss/include\acc_rss.h: 43: _Bool acc_rss_activate_with_hal(acc_hal_t *hal);
+[v _acc_rss_activate_with_hal `(a ~T0 @X0 0 ef1`*S1118 ]
+"97 acconeer/rss/include\acc_detector_distance_peak.h
+[; ;acconeer/rss/include\acc_detector_distance_peak.h: 97: extern acc_detector_distance_peak_configuration_t acc_detector_distance_peak_configuration_create(void);
+[v _acc_detector_distance_peak_configuration_create `(*S1121 ~T0 @X0 0 ef ]
+"49 acconeer/rss/include\acc_rss.h
+[; ;acconeer/rss/include\acc_rss.h: 49: void acc_rss_deactivate(void);
+[v _acc_rss_deactivate `(v ~T0 @X0 0 ef ]
+"109 acconeer/rss/include\acc_detector_distance_peak.h
+[; ;acconeer/rss/include\acc_detector_distance_peak.h: 109: extern void acc_detector_distance_peak_configuration_destroy(acc_detector_distance_peak_configuration_t *configuration);
+[v _acc_detector_distance_peak_configuration_destroy `(v ~T0 @X0 0 ef1`**S1121 ]
+"54 D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 54: __asm("RXF6SIDH equ 0D60h");
+[; <" RXF6SIDH equ 0D60h ;# ">
+"166
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 166: __asm("RXF6SIDL equ 0D61h");
+[; <" RXF6SIDL equ 0D61h ;# ">
+"267
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 267: __asm("RXF6EIDH equ 0D62h");
+[; <" RXF6EIDH equ 0D62h ;# ">
+"379
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 379: __asm("RXF6EIDL equ 0D63h");
+[; <" RXF6EIDL equ 0D63h ;# ">
+"491
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 491: __asm("RXF7SIDH equ 0D64h");
+[; <" RXF7SIDH equ 0D64h ;# ">
+"603
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 603: __asm("RXF7SIDL equ 0D65h");
+[; <" RXF7SIDL equ 0D65h ;# ">
+"704
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 704: __asm("RXF7EIDH equ 0D66h");
+[; <" RXF7EIDH equ 0D66h ;# ">
+"816
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 816: __asm("RXF7EIDL equ 0D67h");
+[; <" RXF7EIDL equ 0D67h ;# ">
+"928
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 928: __asm("RXF8SIDH equ 0D68h");
+[; <" RXF8SIDH equ 0D68h ;# ">
+"1040
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 1040: __asm("RXF8SIDL equ 0D69h");
+[; <" RXF8SIDL equ 0D69h ;# ">
+"1141
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 1141: __asm("RXF8EIDH equ 0D6Ah");
+[; <" RXF8EIDH equ 0D6Ah ;# ">
+"1253
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 1253: __asm("RXF8EIDL equ 0D6Bh");
+[; <" RXF8EIDL equ 0D6Bh ;# ">
+"1365
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 1365: __asm("RXF9SIDH equ 0D70h");
+[; <" RXF9SIDH equ 0D70h ;# ">
+"1477
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 1477: __asm("RXF9SIDL equ 0D71h");
+[; <" RXF9SIDL equ 0D71h ;# ">
+"1578
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 1578: __asm("RXF9EIDH equ 0D72h");
+[; <" RXF9EIDH equ 0D72h ;# ">
+"1690
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 1690: __asm("RXF9EIDL equ 0D73h");
+[; <" RXF9EIDL equ 0D73h ;# ">
+"1802
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 1802: __asm("RXF10SIDH equ 0D74h");
+[; <" RXF10SIDH equ 0D74h ;# ">
+"1914
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 1914: __asm("RXF10SIDL equ 0D75h");
+[; <" RXF10SIDL equ 0D75h ;# ">
+"2015
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 2015: __asm("RXF10EIDH equ 0D76h");
+[; <" RXF10EIDH equ 0D76h ;# ">
+"2127
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 2127: __asm("RXF10EIDL equ 0D77h");
+[; <" RXF10EIDL equ 0D77h ;# ">
+"2239
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 2239: __asm("RXF11SIDH equ 0D78h");
+[; <" RXF11SIDH equ 0D78h ;# ">
+"2351
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 2351: __asm("RXF11SIDL equ 0D79h");
+[; <" RXF11SIDL equ 0D79h ;# ">
+"2452
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 2452: __asm("RXF11EIDH equ 0D7Ah");
+[; <" RXF11EIDH equ 0D7Ah ;# ">
+"2564
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 2564: __asm("RXF11EIDL equ 0D7Bh");
+[; <" RXF11EIDL equ 0D7Bh ;# ">
+"2676
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 2676: __asm("RXF12SIDH equ 0D80h");
+[; <" RXF12SIDH equ 0D80h ;# ">
+"2788
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 2788: __asm("RXF12SIDL equ 0D81h");
+[; <" RXF12SIDL equ 0D81h ;# ">
+"2889
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 2889: __asm("RXF12EIDH equ 0D82h");
+[; <" RXF12EIDH equ 0D82h ;# ">
+"3001
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 3001: __asm("RXF12EIDL equ 0D83h");
+[; <" RXF12EIDL equ 0D83h ;# ">
+"3113
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 3113: __asm("RXF13SIDH equ 0D84h");
+[; <" RXF13SIDH equ 0D84h ;# ">
+"3225
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 3225: __asm("RXF13SIDL equ 0D85h");
+[; <" RXF13SIDL equ 0D85h ;# ">
+"3326
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 3326: __asm("RXF13EIDH equ 0D86h");
+[; <" RXF13EIDH equ 0D86h ;# ">
+"3438
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 3438: __asm("RXF13EIDL equ 0D87h");
+[; <" RXF13EIDL equ 0D87h ;# ">
+"3550
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 3550: __asm("RXF14SIDH equ 0D88h");
+[; <" RXF14SIDH equ 0D88h ;# ">
+"3662
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 3662: __asm("RXF14SIDL equ 0D89h");
+[; <" RXF14SIDL equ 0D89h ;# ">
+"3763
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 3763: __asm("RXF14EIDH equ 0D8Ah");
+[; <" RXF14EIDH equ 0D8Ah ;# ">
+"3875
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 3875: __asm("RXF14EIDL equ 0D8Bh");
+[; <" RXF14EIDL equ 0D8Bh ;# ">
+"3987
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 3987: __asm("RXF15SIDH equ 0D90h");
+[; <" RXF15SIDH equ 0D90h ;# ">
+"4099
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 4099: __asm("RXF15SIDL equ 0D91h");
+[; <" RXF15SIDL equ 0D91h ;# ">
+"4200
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 4200: __asm("RXF15EIDH equ 0D92h");
+[; <" RXF15EIDH equ 0D92h ;# ">
+"4312
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 4312: __asm("RXF15EIDL equ 0D93h");
+[; <" RXF15EIDL equ 0D93h ;# ">
+"4424
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 4424: __asm("RXFCON0 equ 0DD4h");
+[; <" RXFCON0 equ 0DD4h ;# ">
+"4486
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 4486: __asm("RXFCON1 equ 0DD5h");
+[; <" RXFCON1 equ 0DD5h ;# ">
+"4548
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 4548: __asm("SDFLC equ 0DD8h");
+[; <" SDFLC equ 0DD8h ;# ">
+"4624
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 4624: __asm("RXFBCON0 equ 0DE0h");
+[; <" RXFBCON0 equ 0DE0h ;# ">
+"4694
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 4694: __asm("RXFBCON1 equ 0DE1h");
+[; <" RXFBCON1 equ 0DE1h ;# ">
+"4764
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 4764: __asm("RXFBCON2 equ 0DE2h");
+[; <" RXFBCON2 equ 0DE2h ;# ">
+"4834
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 4834: __asm("RXFBCON3 equ 0DE3h");
+[; <" RXFBCON3 equ 0DE3h ;# ">
+"4904
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 4904: __asm("RXFBCON4 equ 0DE4h");
+[; <" RXFBCON4 equ 0DE4h ;# ">
+"4974
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 4974: __asm("RXFBCON5 equ 0DE5h");
+[; <" RXFBCON5 equ 0DE5h ;# ">
+"5044
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 5044: __asm("RXFBCON6 equ 0DE6h");
+[; <" RXFBCON6 equ 0DE6h ;# ">
+"5114
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 5114: __asm("RXFBCON7 equ 0DE7h");
+[; <" RXFBCON7 equ 0DE7h ;# ">
+"5184
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 5184: __asm("MSEL0 equ 0DF0h");
+[; <" MSEL0 equ 0DF0h ;# ">
+"5246
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 5246: __asm("MSEL1 equ 0DF1h");
+[; <" MSEL1 equ 0DF1h ;# ">
+"5308
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 5308: __asm("MSEL2 equ 0DF2h");
+[; <" MSEL2 equ 0DF2h ;# ">
+"5370
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 5370: __asm("MSEL3 equ 0DF3h");
+[; <" MSEL3 equ 0DF3h ;# ">
+"5432
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 5432: __asm("BSEL0 equ 0DF8h");
+[; <" BSEL0 equ 0DF8h ;# ">
+"5483
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 5483: __asm("BIE0 equ 0DFAh");
+[; <" BIE0 equ 0DFAh ;# ">
+"5559
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 5559: __asm("TXBIE equ 0DFCh");
+[; <" TXBIE equ 0DFCh ;# ">
+"5613
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 5613: __asm("B0CON equ 0E20h");
+[; <" B0CON equ 0E20h ;# ">
+"5884
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 5884: __asm("B0SIDH equ 0E21h");
+[; <" B0SIDH equ 0E21h ;# ">
+"5996
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 5996: __asm("B0SIDL equ 0E22h");
+[; <" B0SIDL equ 0E22h ;# ">
+"6107
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 6107: __asm("B0EIDH equ 0E23h");
+[; <" B0EIDH equ 0E23h ;# ">
+"6219
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 6219: __asm("B0EIDL equ 0E24h");
+[; <" B0EIDL equ 0E24h ;# ">
+"6331
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 6331: __asm("B0DLC equ 0E25h");
+[; <" B0DLC equ 0E25h ;# ">
+"6461
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 6461: __asm("B0D0 equ 0E26h");
+[; <" B0D0 equ 0E26h ;# ">
+"6523
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 6523: __asm("B0D1 equ 0E27h");
+[; <" B0D1 equ 0E27h ;# ">
+"6585
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 6585: __asm("B0D2 equ 0E28h");
+[; <" B0D2 equ 0E28h ;# ">
+"6647
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 6647: __asm("B0D3 equ 0E29h");
+[; <" B0D3 equ 0E29h ;# ">
+"6709
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 6709: __asm("B0D4 equ 0E2Ah");
+[; <" B0D4 equ 0E2Ah ;# ">
+"6771
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 6771: __asm("B0D5 equ 0E2Bh");
+[; <" B0D5 equ 0E2Bh ;# ">
+"6833
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 6833: __asm("B0D6 equ 0E2Ch");
+[; <" B0D6 equ 0E2Ch ;# ">
+"6895
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 6895: __asm("B0D7 equ 0E2Dh");
+[; <" B0D7 equ 0E2Dh ;# ">
+"6957
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 6957: __asm("CANSTAT_RO9 equ 0E2Eh");
+[; <" CANSTAT_RO9 equ 0E2Eh ;# ">
+"7051
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 7051: __asm("CANCON_RO9 equ 0E2Fh");
+[; <" CANCON_RO9 equ 0E2Fh ;# ">
+"7134
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 7134: __asm("B1CON equ 0E30h");
+[; <" B1CON equ 0E30h ;# ">
+"7405
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 7405: __asm("B1SIDH equ 0E31h");
+[; <" B1SIDH equ 0E31h ;# ">
+"7517
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 7517: __asm("B1SIDL equ 0E32h");
+[; <" B1SIDL equ 0E32h ;# ">
+"7628
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 7628: __asm("B1EIDH equ 0E33h");
+[; <" B1EIDH equ 0E33h ;# ">
+"7740
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 7740: __asm("B1EIDL equ 0E34h");
+[; <" B1EIDL equ 0E34h ;# ">
+"7852
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 7852: __asm("B1DLC equ 0E35h");
+[; <" B1DLC equ 0E35h ;# ">
+"7982
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 7982: __asm("B1D0 equ 0E36h");
+[; <" B1D0 equ 0E36h ;# ">
+"8044
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 8044: __asm("B1D1 equ 0E37h");
+[; <" B1D1 equ 0E37h ;# ">
+"8106
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 8106: __asm("B1D2 equ 0E38h");
+[; <" B1D2 equ 0E38h ;# ">
+"8168
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 8168: __asm("B1D3 equ 0E39h");
+[; <" B1D3 equ 0E39h ;# ">
+"8230
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 8230: __asm("B1D4 equ 0E3Ah");
+[; <" B1D4 equ 0E3Ah ;# ">
+"8292
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 8292: __asm("B1D5 equ 0E3Bh");
+[; <" B1D5 equ 0E3Bh ;# ">
+"8354
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 8354: __asm("B1D6 equ 0E3Ch");
+[; <" B1D6 equ 0E3Ch ;# ">
+"8416
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 8416: __asm("B1D7 equ 0E3Dh");
+[; <" B1D7 equ 0E3Dh ;# ">
+"8478
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 8478: __asm("CANSTAT_RO8 equ 0E3Eh");
+[; <" CANSTAT_RO8 equ 0E3Eh ;# ">
+"8572
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 8572: __asm("CANCON_RO8 equ 0E3Fh");
+[; <" CANCON_RO8 equ 0E3Fh ;# ">
+"8655
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 8655: __asm("B2CON equ 0E40h");
+[; <" B2CON equ 0E40h ;# ">
+"8926
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 8926: __asm("B2SIDH equ 0E41h");
+[; <" B2SIDH equ 0E41h ;# ">
+"9038
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 9038: __asm("B2SIDL equ 0E42h");
+[; <" B2SIDL equ 0E42h ;# ">
+"9158
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 9158: __asm("B2EIDH equ 0E43h");
+[; <" B2EIDH equ 0E43h ;# ">
+"9270
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 9270: __asm("B2EIDL equ 0E44h");
+[; <" B2EIDL equ 0E44h ;# ">
+"9382
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 9382: __asm("B2DLC equ 0E45h");
+[; <" B2DLC equ 0E45h ;# ">
+"9512
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 9512: __asm("B2D0 equ 0E46h");
+[; <" B2D0 equ 0E46h ;# ">
+"9574
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 9574: __asm("B2D1 equ 0E47h");
+[; <" B2D1 equ 0E47h ;# ">
+"9636
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 9636: __asm("B2D2 equ 0E48h");
+[; <" B2D2 equ 0E48h ;# ">
+"9698
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 9698: __asm("B2D3 equ 0E49h");
+[; <" B2D3 equ 0E49h ;# ">
+"9760
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 9760: __asm("B2D4 equ 0E4Ah");
+[; <" B2D4 equ 0E4Ah ;# ">
+"9822
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 9822: __asm("B2D5 equ 0E4Bh");
+[; <" B2D5 equ 0E4Bh ;# ">
+"9884
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 9884: __asm("B2D6 equ 0E4Ch");
+[; <" B2D6 equ 0E4Ch ;# ">
+"9946
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 9946: __asm("B2D7 equ 0E4Dh");
+[; <" B2D7 equ 0E4Dh ;# ">
+"10008
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 10008: __asm("CANSTAT_RO7 equ 0E4Eh");
+[; <" CANSTAT_RO7 equ 0E4Eh ;# ">
+"10102
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 10102: __asm("CANCON_RO7 equ 0E4Fh");
+[; <" CANCON_RO7 equ 0E4Fh ;# ">
+"10185
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 10185: __asm("B3CON equ 0E50h");
+[; <" B3CON equ 0E50h ;# ">
+"10456
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 10456: __asm("B3SIDH equ 0E51h");
+[; <" B3SIDH equ 0E51h ;# ">
+"10568
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 10568: __asm("B3SIDL equ 0E52h");
+[; <" B3SIDL equ 0E52h ;# ">
+"10688
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 10688: __asm("B3EIDH equ 0E53h");
+[; <" B3EIDH equ 0E53h ;# ">
+"10800
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 10800: __asm("B3EIDL equ 0E54h");
+[; <" B3EIDL equ 0E54h ;# ">
+"10912
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 10912: __asm("B3DLC equ 0E55h");
+[; <" B3DLC equ 0E55h ;# ">
+"11042
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 11042: __asm("B3D0 equ 0E56h");
+[; <" B3D0 equ 0E56h ;# ">
+"11104
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 11104: __asm("B3D1 equ 0E57h");
+[; <" B3D1 equ 0E57h ;# ">
+"11166
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 11166: __asm("B3D2 equ 0E58h");
+[; <" B3D2 equ 0E58h ;# ">
+"11228
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 11228: __asm("B3D3 equ 0E59h");
+[; <" B3D3 equ 0E59h ;# ">
+"11290
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 11290: __asm("B3D4 equ 0E5Ah");
+[; <" B3D4 equ 0E5Ah ;# ">
+"11352
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 11352: __asm("B3D5 equ 0E5Bh");
+[; <" B3D5 equ 0E5Bh ;# ">
+"11414
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 11414: __asm("B3D6 equ 0E5Ch");
+[; <" B3D6 equ 0E5Ch ;# ">
+"11476
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 11476: __asm("B3D7 equ 0E5Dh");
+[; <" B3D7 equ 0E5Dh ;# ">
+"11538
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 11538: __asm("CANSTAT_RO6 equ 0E5Eh");
+[; <" CANSTAT_RO6 equ 0E5Eh ;# ">
+"11632
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 11632: __asm("CANCON_RO6 equ 0E5Fh");
+[; <" CANCON_RO6 equ 0E5Fh ;# ">
+"11715
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 11715: __asm("B4CON equ 0E60h");
+[; <" B4CON equ 0E60h ;# ">
+"11986
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 11986: __asm("B4SIDH equ 0E61h");
+[; <" B4SIDH equ 0E61h ;# ">
+"12098
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 12098: __asm("B4SIDL equ 0E62h");
+[; <" B4SIDL equ 0E62h ;# ">
+"12218
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 12218: __asm("B4EIDH equ 0E63h");
+[; <" B4EIDH equ 0E63h ;# ">
+"12330
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 12330: __asm("B4EIDL equ 0E64h");
+[; <" B4EIDL equ 0E64h ;# ">
+"12442
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 12442: __asm("B4DLC equ 0E65h");
+[; <" B4DLC equ 0E65h ;# ">
+"12572
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 12572: __asm("B4D0 equ 0E66h");
+[; <" B4D0 equ 0E66h ;# ">
+"12634
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 12634: __asm("B4D1 equ 0E67h");
+[; <" B4D1 equ 0E67h ;# ">
+"12696
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 12696: __asm("B4D2 equ 0E68h");
+[; <" B4D2 equ 0E68h ;# ">
+"12758
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 12758: __asm("B4D3 equ 0E69h");
+[; <" B4D3 equ 0E69h ;# ">
+"12820
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 12820: __asm("B4D4 equ 0E6Ah");
+[; <" B4D4 equ 0E6Ah ;# ">
+"12882
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 12882: __asm("B4D5 equ 0E6Bh");
+[; <" B4D5 equ 0E6Bh ;# ">
+"12944
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 12944: __asm("B4D6 equ 0E6Ch");
+[; <" B4D6 equ 0E6Ch ;# ">
+"13006
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 13006: __asm("B4D7 equ 0E6Dh");
+[; <" B4D7 equ 0E6Dh ;# ">
+"13077
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 13077: __asm("CANSTAT_RO5 equ 0E6Eh");
+[; <" CANSTAT_RO5 equ 0E6Eh ;# ">
+"13171
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 13171: __asm("CANCON_RO5 equ 0E6Fh");
+[; <" CANCON_RO5 equ 0E6Fh ;# ">
+"13254
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 13254: __asm("B5CON equ 0E70h");
+[; <" B5CON equ 0E70h ;# ">
+"13525
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 13525: __asm("B5SIDH equ 0E71h");
+[; <" B5SIDH equ 0E71h ;# ">
+"13637
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 13637: __asm("B5SIDL equ 0E72h");
+[; <" B5SIDL equ 0E72h ;# ">
+"13766
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 13766: __asm("B5EIDH equ 0E73h");
+[; <" B5EIDH equ 0E73h ;# ">
+"13878
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 13878: __asm("B5EIDL equ 0E74h");
+[; <" B5EIDL equ 0E74h ;# ">
+"13990
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 13990: __asm("B5DLC equ 0E75h");
+[; <" B5DLC equ 0E75h ;# ">
+"14114
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 14114: __asm("B5D0 equ 0E76h");
+[; <" B5D0 equ 0E76h ;# ">
+"14185
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 14185: __asm("B5D1 equ 0E77h");
+[; <" B5D1 equ 0E77h ;# ">
+"14247
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 14247: __asm("B5D2 equ 0E78h");
+[; <" B5D2 equ 0E78h ;# ">
+"14318
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 14318: __asm("B5D3 equ 0E79h");
+[; <" B5D3 equ 0E79h ;# ">
+"14380
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 14380: __asm("B5D4 equ 0E7Ah");
+[; <" B5D4 equ 0E7Ah ;# ">
+"14442
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 14442: __asm("B5D5 equ 0E7Bh");
+[; <" B5D5 equ 0E7Bh ;# ">
+"14504
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 14504: __asm("B5D6 equ 0E7Ch");
+[; <" B5D6 equ 0E7Ch ;# ">
+"14566
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 14566: __asm("B5D7 equ 0E7Dh");
+[; <" B5D7 equ 0E7Dh ;# ">
+"14628
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 14628: __asm("CANSTAT_RO4 equ 0E7Eh");
+[; <" CANSTAT_RO4 equ 0E7Eh ;# ">
+"14722
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 14722: __asm("CANCON_RO4 equ 0E7Fh");
+[; <" CANCON_RO4 equ 0E7Fh ;# ">
+"14805
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 14805: __asm("RXF0SIDH equ 0F00h");
+[; <" RXF0SIDH equ 0F00h ;# ">
+"14917
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 14917: __asm("RXF0SIDL equ 0F01h");
+[; <" RXF0SIDL equ 0F01h ;# ">
+"15018
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 15018: __asm("RXF0EIDH equ 0F02h");
+[; <" RXF0EIDH equ 0F02h ;# ">
+"15130
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 15130: __asm("RXF0EIDL equ 0F03h");
+[; <" RXF0EIDL equ 0F03h ;# ">
+"15242
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 15242: __asm("RXF1SIDH equ 0F04h");
+[; <" RXF1SIDH equ 0F04h ;# ">
+"15354
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 15354: __asm("RXF1SIDL equ 0F05h");
+[; <" RXF1SIDL equ 0F05h ;# ">
+"15455
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 15455: __asm("RXF1EIDH equ 0F06h");
+[; <" RXF1EIDH equ 0F06h ;# ">
+"15567
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 15567: __asm("RXF1EIDL equ 0F07h");
+[; <" RXF1EIDL equ 0F07h ;# ">
+"15679
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 15679: __asm("RXF2SIDH equ 0F08h");
+[; <" RXF2SIDH equ 0F08h ;# ">
+"15791
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 15791: __asm("RXF2SIDL equ 0F09h");
+[; <" RXF2SIDL equ 0F09h ;# ">
+"15892
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 15892: __asm("RXF2EIDH equ 0F0Ah");
+[; <" RXF2EIDH equ 0F0Ah ;# ">
+"16004
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 16004: __asm("RXF2EIDL equ 0F0Bh");
+[; <" RXF2EIDL equ 0F0Bh ;# ">
+"16116
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 16116: __asm("RXF3SIDH equ 0F0Ch");
+[; <" RXF3SIDH equ 0F0Ch ;# ">
+"16228
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 16228: __asm("RXF3SIDL equ 0F0Dh");
+[; <" RXF3SIDL equ 0F0Dh ;# ">
+"16329
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 16329: __asm("RXF3EIDH equ 0F0Eh");
+[; <" RXF3EIDH equ 0F0Eh ;# ">
+"16441
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 16441: __asm("RXF3EIDL equ 0F0Fh");
+[; <" RXF3EIDL equ 0F0Fh ;# ">
+"16553
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 16553: __asm("RXF4SIDH equ 0F10h");
+[; <" RXF4SIDH equ 0F10h ;# ">
+"16665
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 16665: __asm("RXF4SIDL equ 0F11h");
+[; <" RXF4SIDL equ 0F11h ;# ">
+"16766
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 16766: __asm("RXF4EIDH equ 0F12h");
+[; <" RXF4EIDH equ 0F12h ;# ">
+"16878
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 16878: __asm("RXF4EIDL equ 0F13h");
+[; <" RXF4EIDL equ 0F13h ;# ">
+"16990
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 16990: __asm("RXF5SIDH equ 0F14h");
+[; <" RXF5SIDH equ 0F14h ;# ">
+"17102
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 17102: __asm("RXF5SIDL equ 0F15h");
+[; <" RXF5SIDL equ 0F15h ;# ">
+"17203
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 17203: __asm("RXF5EIDH equ 0F16h");
+[; <" RXF5EIDH equ 0F16h ;# ">
+"17315
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 17315: __asm("RXF5EIDL equ 0F17h");
+[; <" RXF5EIDL equ 0F17h ;# ">
+"17427
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 17427: __asm("RXM0SIDH equ 0F18h");
+[; <" RXM0SIDH equ 0F18h ;# ">
+"17539
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 17539: __asm("RXM0SIDL equ 0F19h");
+[; <" RXM0SIDL equ 0F19h ;# ">
+"17631
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 17631: __asm("RXM0EIDH equ 0F1Ah");
+[; <" RXM0EIDH equ 0F1Ah ;# ">
+"17743
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 17743: __asm("RXM0EIDL equ 0F1Bh");
+[; <" RXM0EIDL equ 0F1Bh ;# ">
+"17855
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 17855: __asm("RXM1SIDH equ 0F1Ch");
+[; <" RXM1SIDH equ 0F1Ch ;# ">
+"17967
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 17967: __asm("RXM1SIDL equ 0F1Dh");
+[; <" RXM1SIDL equ 0F1Dh ;# ">
+"18059
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 18059: __asm("RXM1EIDH equ 0F1Eh");
+[; <" RXM1EIDH equ 0F1Eh ;# ">
+"18171
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 18171: __asm("RXM1EIDL equ 0F1Fh");
+[; <" RXM1EIDL equ 0F1Fh ;# ">
+"18283
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 18283: __asm("TXB2CON equ 0F20h");
+[; <" TXB2CON equ 0F20h ;# ">
+"18394
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 18394: __asm("TXB2SIDH equ 0F21h");
+[; <" TXB2SIDH equ 0F21h ;# ">
+"18506
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 18506: __asm("TXB2SIDL equ 0F22h");
+[; <" TXB2SIDL equ 0F22h ;# ">
+"18598
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 18598: __asm("TXB2EIDH equ 0F23h");
+[; <" TXB2EIDH equ 0F23h ;# ">
+"18710
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 18710: __asm("TXB2EIDL equ 0F24h");
+[; <" TXB2EIDL equ 0F24h ;# ">
+"18822
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 18822: __asm("TXB2DLC equ 0F25h");
+[; <" TXB2DLC equ 0F25h ;# ">
+"18900
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 18900: __asm("TXB2D0 equ 0F26h");
+[; <" TXB2D0 equ 0F26h ;# ">
+"18962
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 18962: __asm("TXB2D1 equ 0F27h");
+[; <" TXB2D1 equ 0F27h ;# ">
+"19024
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 19024: __asm("TXB2D2 equ 0F28h");
+[; <" TXB2D2 equ 0F28h ;# ">
+"19086
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 19086: __asm("TXB2D3 equ 0F29h");
+[; <" TXB2D3 equ 0F29h ;# ">
+"19148
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 19148: __asm("TXB2D4 equ 0F2Ah");
+[; <" TXB2D4 equ 0F2Ah ;# ">
+"19210
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 19210: __asm("TXB2D5 equ 0F2Bh");
+[; <" TXB2D5 equ 0F2Bh ;# ">
+"19272
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 19272: __asm("TXB2D6 equ 0F2Ch");
+[; <" TXB2D6 equ 0F2Ch ;# ">
+"19334
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 19334: __asm("TXB2D7 equ 0F2Dh");
+[; <" TXB2D7 equ 0F2Dh ;# ">
+"19396
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 19396: __asm("CANSTAT_RO3 equ 0F2Eh");
+[; <" CANSTAT_RO3 equ 0F2Eh ;# ">
+"19490
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 19490: __asm("CANCON_RO3 equ 0F2Fh");
+[; <" CANCON_RO3 equ 0F2Fh ;# ">
+"19573
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 19573: __asm("TXB1CON equ 0F30h");
+[; <" TXB1CON equ 0F30h ;# ">
+"19684
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 19684: __asm("TXB1SIDH equ 0F31h");
+[; <" TXB1SIDH equ 0F31h ;# ">
+"19796
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 19796: __asm("TXB1SIDL equ 0F32h");
+[; <" TXB1SIDL equ 0F32h ;# ">
+"19888
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 19888: __asm("TXB1EIDH equ 0F33h");
+[; <" TXB1EIDH equ 0F33h ;# ">
+"20000
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20000: __asm("TXB1EIDL equ 0F34h");
+[; <" TXB1EIDL equ 0F34h ;# ">
+"20112
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20112: __asm("TXB1DLC equ 0F35h");
+[; <" TXB1DLC equ 0F35h ;# ">
+"20190
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20190: __asm("TXB1D0 equ 0F36h");
+[; <" TXB1D0 equ 0F36h ;# ">
+"20252
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20252: __asm("TXB1D1 equ 0F37h");
+[; <" TXB1D1 equ 0F37h ;# ">
+"20314
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20314: __asm("TXB1D2 equ 0F38h");
+[; <" TXB1D2 equ 0F38h ;# ">
+"20376
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20376: __asm("TXB1D3 equ 0F39h");
+[; <" TXB1D3 equ 0F39h ;# ">
+"20438
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20438: __asm("TXB1D4 equ 0F3Ah");
+[; <" TXB1D4 equ 0F3Ah ;# ">
+"20500
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20500: __asm("TXB1D5 equ 0F3Bh");
+[; <" TXB1D5 equ 0F3Bh ;# ">
+"20562
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20562: __asm("TXB1D6 equ 0F3Ch");
+[; <" TXB1D6 equ 0F3Ch ;# ">
+"20624
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20624: __asm("TXB1D7 equ 0F3Dh");
+[; <" TXB1D7 equ 0F3Dh ;# ">
+"20686
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20686: __asm("CANSTAT_RO2 equ 0F3Eh");
+[; <" CANSTAT_RO2 equ 0F3Eh ;# ">
+"20780
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20780: __asm("CANCON_RO2 equ 0F3Fh");
+[; <" CANCON_RO2 equ 0F3Fh ;# ">
+"20863
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20863: __asm("TXB0CON equ 0F40h");
+[; <" TXB0CON equ 0F40h ;# ">
+"20965
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 20965: __asm("TXB0SIDH equ 0F41h");
+[; <" TXB0SIDH equ 0F41h ;# ">
+"21077
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 21077: __asm("TXB0SIDL equ 0F42h");
+[; <" TXB0SIDL equ 0F42h ;# ">
+"21169
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 21169: __asm("TXB0EIDH equ 0F43h");
+[; <" TXB0EIDH equ 0F43h ;# ">
+"21281
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 21281: __asm("TXB0EIDL equ 0F44h");
+[; <" TXB0EIDL equ 0F44h ;# ">
+"21393
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 21393: __asm("TXB0DLC equ 0F45h");
+[; <" TXB0DLC equ 0F45h ;# ">
+"21471
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 21471: __asm("TXB0D0 equ 0F46h");
+[; <" TXB0D0 equ 0F46h ;# ">
+"21533
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 21533: __asm("TXB0D1 equ 0F47h");
+[; <" TXB0D1 equ 0F47h ;# ">
+"21595
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 21595: __asm("TXB0D2 equ 0F48h");
+[; <" TXB0D2 equ 0F48h ;# ">
+"21657
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 21657: __asm("TXB0D3 equ 0F49h");
+[; <" TXB0D3 equ 0F49h ;# ">
+"21719
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 21719: __asm("TXB0D4 equ 0F4Ah");
+[; <" TXB0D4 equ 0F4Ah ;# ">
+"21781
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 21781: __asm("TXB0D5 equ 0F4Bh");
+[; <" TXB0D5 equ 0F4Bh ;# ">
+"21843
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 21843: __asm("TXB0D6 equ 0F4Ch");
+[; <" TXB0D6 equ 0F4Ch ;# ">
+"21905
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 21905: __asm("TXB0D7 equ 0F4Dh");
+[; <" TXB0D7 equ 0F4Dh ;# ">
+"21967
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 21967: __asm("CANSTAT_RO1 equ 0F4Eh");
+[; <" CANSTAT_RO1 equ 0F4Eh ;# ">
+"22061
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 22061: __asm("CANCON_RO1 equ 0F4Fh");
+[; <" CANCON_RO1 equ 0F4Fh ;# ">
+"22144
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 22144: __asm("RXB1CON equ 0F50h");
+[; <" RXB1CON equ 0F50h ;# ">
+"22304
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 22304: __asm("RXB1SIDH equ 0F51h");
+[; <" RXB1SIDH equ 0F51h ;# ">
+"22416
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 22416: __asm("RXB1SIDL equ 0F52h");
+[; <" RXB1SIDL equ 0F52h ;# ">
+"22518
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 22518: __asm("RXB1EIDH equ 0F53h");
+[; <" RXB1EIDH equ 0F53h ;# ">
+"22630
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 22630: __asm("RXB1EIDL equ 0F54h");
+[; <" RXB1EIDL equ 0F54h ;# ">
+"22742
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 22742: __asm("RXB1DLC equ 0F55h");
+[; <" RXB1DLC equ 0F55h ;# ">
+"22857
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 22857: __asm("RXB1D0 equ 0F56h");
+[; <" RXB1D0 equ 0F56h ;# ">
+"22919
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 22919: __asm("RXB1D1 equ 0F57h");
+[; <" RXB1D1 equ 0F57h ;# ">
+"22981
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 22981: __asm("RXB1D2 equ 0F58h");
+[; <" RXB1D2 equ 0F58h ;# ">
+"23043
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 23043: __asm("RXB1D3 equ 0F59h");
+[; <" RXB1D3 equ 0F59h ;# ">
+"23105
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 23105: __asm("RXB1D4 equ 0F5Ah");
+[; <" RXB1D4 equ 0F5Ah ;# ">
+"23167
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 23167: __asm("RXB1D5 equ 0F5Bh");
+[; <" RXB1D5 equ 0F5Bh ;# ">
+"23229
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 23229: __asm("RXB1D6 equ 0F5Ch");
+[; <" RXB1D6 equ 0F5Ch ;# ">
+"23291
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 23291: __asm("RXB1D7 equ 0F5Dh");
+[; <" RXB1D7 equ 0F5Dh ;# ">
+"23353
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 23353: __asm("CANSTAT_RO0 equ 0F5Eh");
+[; <" CANSTAT_RO0 equ 0F5Eh ;# ">
+"23447
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 23447: __asm("CANCON_RO0 equ 0F5Fh");
+[; <" CANCON_RO0 equ 0F5Fh ;# ">
+"23530
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 23530: __asm("RXB0CON equ 0F60h");
+[; <" RXB0CON equ 0F60h ;# ">
+"23723
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 23723: __asm("RXB0SIDH equ 0F61h");
+[; <" RXB0SIDH equ 0F61h ;# ">
+"23835
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 23835: __asm("RXB0SIDL equ 0F62h");
+[; <" RXB0SIDL equ 0F62h ;# ">
+"23937
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 23937: __asm("RXB0EIDH equ 0F63h");
+[; <" RXB0EIDH equ 0F63h ;# ">
+"24049
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 24049: __asm("RXB0EIDL equ 0F64h");
+[; <" RXB0EIDL equ 0F64h ;# ">
+"24161
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 24161: __asm("RXB0DLC equ 0F65h");
+[; <" RXB0DLC equ 0F65h ;# ">
+"24276
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 24276: __asm("RXB0D0 equ 0F66h");
+[; <" RXB0D0 equ 0F66h ;# ">
+"24338
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 24338: __asm("RXB0D1 equ 0F67h");
+[; <" RXB0D1 equ 0F67h ;# ">
+"24400
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 24400: __asm("RXB0D2 equ 0F68h");
+[; <" RXB0D2 equ 0F68h ;# ">
+"24462
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 24462: __asm("RXB0D3 equ 0F69h");
+[; <" RXB0D3 equ 0F69h ;# ">
+"24524
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 24524: __asm("RXB0D4 equ 0F6Ah");
+[; <" RXB0D4 equ 0F6Ah ;# ">
+"24586
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 24586: __asm("RXB0D5 equ 0F6Bh");
+[; <" RXB0D5 equ 0F6Bh ;# ">
+"24648
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 24648: __asm("RXB0D6 equ 0F6Ch");
+[; <" RXB0D6 equ 0F6Ch ;# ">
+"24710
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 24710: __asm("RXB0D7 equ 0F6Dh");
+[; <" RXB0D7 equ 0F6Dh ;# ">
+"24772
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 24772: __asm("CANSTAT equ 0F6Eh");
+[; <" CANSTAT equ 0F6Eh ;# ">
+"24881
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 24881: __asm("CANCON equ 0F6Fh");
+[; <" CANCON equ 0F6Fh ;# ">
+"24985
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 24985: __asm("BRGCON1 equ 0F70h");
+[; <" BRGCON1 equ 0F70h ;# ">
+"25047
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 25047: __asm("BRGCON2 equ 0F71h");
+[; <" BRGCON2 equ 0F71h ;# ">
+"25118
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 25118: __asm("BRGCON3 equ 0F72h");
+[; <" BRGCON3 equ 0F72h ;# ">
+"25163
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 25163: __asm("CIOCON equ 0F73h");
+[; <" CIOCON equ 0F73h ;# ">
+"25190
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 25190: __asm("COMSTAT equ 0F74h");
+[; <" COMSTAT equ 0F74h ;# ">
+"25312
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 25312: __asm("RXERRCNT equ 0F75h");
+[; <" RXERRCNT equ 0F75h ;# ">
+"25374
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 25374: __asm("TXERRCNT equ 0F76h");
+[; <" TXERRCNT equ 0F76h ;# ">
+"25436
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 25436: __asm("ECANCON equ 0F77h");
+[; <" ECANCON equ 0F77h ;# ">
+"25507
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 25507: __asm("PORTA equ 0F80h");
+[; <" PORTA equ 0F80h ;# ">
+"25710
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 25710: __asm("PORTB equ 0F81h");
+[; <" PORTB equ 0F81h ;# ">
+"25884
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 25884: __asm("PORTC equ 0F82h");
+[; <" PORTC equ 0F82h ;# ">
+"26054
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 26054: __asm("PORTD equ 0F83h");
+[; <" PORTD equ 0F83h ;# ">
+"26234
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 26234: __asm("PORTE equ 0F84h");
+[; <" PORTE equ 0F84h ;# ">
+"26333
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 26333: __asm("LATA equ 0F89h");
+[; <" LATA equ 0F89h ;# ">
+"26445
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 26445: __asm("LATB equ 0F8Ah");
+[; <" LATB equ 0F8Ah ;# ">
+"26557
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 26557: __asm("LATC equ 0F8Bh");
+[; <" LATC equ 0F8Bh ;# ">
+"26669
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 26669: __asm("LATD equ 0F8Ch");
+[; <" LATD equ 0F8Ch ;# ">
+"26781
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 26781: __asm("LATE equ 0F8Dh");
+[; <" LATE equ 0F8Dh ;# ">
+"26833
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 26833: __asm("TRISA equ 0F92h");
+[; <" TRISA equ 0F92h ;# ">
+"26838
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 26838: __asm("DDRA equ 0F92h");
+[; <" DDRA equ 0F92h ;# ">
+"27055
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 27055: __asm("TRISB equ 0F93h");
+[; <" TRISB equ 0F93h ;# ">
+"27060
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 27060: __asm("DDRB equ 0F93h");
+[; <" DDRB equ 0F93h ;# ">
+"27277
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 27277: __asm("TRISC equ 0F94h");
+[; <" TRISC equ 0F94h ;# ">
+"27282
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 27282: __asm("DDRC equ 0F94h");
+[; <" DDRC equ 0F94h ;# ">
+"27499
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 27499: __asm("TRISD equ 0F95h");
+[; <" TRISD equ 0F95h ;# ">
+"27504
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 27504: __asm("DDRD equ 0F95h");
+[; <" DDRD equ 0F95h ;# ">
+"27721
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 27721: __asm("TRISE equ 0F96h");
+[; <" TRISE equ 0F96h ;# ">
+"27726
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 27726: __asm("DDRE equ 0F96h");
+[; <" DDRE equ 0F96h ;# ">
+"27873
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 27873: __asm("OSCTUNE equ 0F9Bh");
+[; <" OSCTUNE equ 0F9Bh ;# ">
+"27945
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 27945: __asm("PIE1 equ 0F9Dh");
+[; <" PIE1 equ 0F9Dh ;# ">
+"28022
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28022: __asm("PIR1 equ 0F9Eh");
+[; <" PIR1 equ 0F9Eh ;# ">
+"28099
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28099: __asm("IPR1 equ 0F9Fh");
+[; <" IPR1 equ 0F9Fh ;# ">
+"28185
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28185: __asm("PIE2 equ 0FA0h");
+[; <" PIE2 equ 0FA0h ;# ">
+"28251
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28251: __asm("PIR2 equ 0FA1h");
+[; <" PIR2 equ 0FA1h ;# ">
+"28317
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28317: __asm("IPR2 equ 0FA2h");
+[; <" IPR2 equ 0FA2h ;# ">
+"28383
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28383: __asm("PIE3 equ 0FA3h");
+[; <" PIE3 equ 0FA3h ;# ">
+"28490
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28490: __asm("PIR3 equ 0FA4h");
+[; <" PIR3 equ 0FA4h ;# ">
+"28589
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28589: __asm("IPR3 equ 0FA5h");
+[; <" IPR3 equ 0FA5h ;# ">
+"28688
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28688: __asm("EECON1 equ 0FA6h");
+[; <" EECON1 equ 0FA6h ;# ">
+"28754
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28754: __asm("EECON2 equ 0FA7h");
+[; <" EECON2 equ 0FA7h ;# ">
+"28761
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28761: __asm("EEDATA equ 0FA8h");
+[; <" EEDATA equ 0FA8h ;# ">
+"28768
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28768: __asm("EEADR equ 0FA9h");
+[; <" EEADR equ 0FA9h ;# ">
+"28775
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28775: __asm("EEADRH equ 0FAAh");
+[; <" EEADRH equ 0FAAh ;# ">
+"28782
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28782: __asm("RCSTA equ 0FABh");
+[; <" RCSTA equ 0FABh ;# ">
+"28787
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28787: __asm("RCSTA1 equ 0FABh");
+[; <" RCSTA1 equ 0FABh ;# ">
+"28992
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28992: __asm("TXSTA equ 0FACh");
+[; <" TXSTA equ 0FACh ;# ">
+"28997
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 28997: __asm("TXSTA1 equ 0FACh");
+[; <" TXSTA1 equ 0FACh ;# ">
+"29248
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 29248: __asm("TXREG equ 0FADh");
+[; <" TXREG equ 0FADh ;# ">
+"29253
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 29253: __asm("TXREG1 equ 0FADh");
+[; <" TXREG1 equ 0FADh ;# ">
+"29260
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 29260: __asm("RCREG equ 0FAEh");
+[; <" RCREG equ 0FAEh ;# ">
+"29265
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 29265: __asm("RCREG1 equ 0FAEh");
+[; <" RCREG1 equ 0FAEh ;# ">
+"29272
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 29272: __asm("SPBRG equ 0FAFh");
+[; <" SPBRG equ 0FAFh ;# ">
+"29277
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 29277: __asm("SPBRG1 equ 0FAFh");
+[; <" SPBRG1 equ 0FAFh ;# ">
+"29284
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 29284: __asm("SPBRGH equ 0FB0h");
+[; <" SPBRGH equ 0FB0h ;# ">
+"29291
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 29291: __asm("T3CON equ 0FB1h");
+[; <" T3CON equ 0FB1h ;# ">
+"29418
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 29418: __asm("TMR3 equ 0FB2h");
+[; <" TMR3 equ 0FB2h ;# ">
+"29425
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 29425: __asm("TMR3L equ 0FB2h");
+[; <" TMR3L equ 0FB2h ;# ">
+"29432
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 29432: __asm("TMR3H equ 0FB3h");
+[; <" TMR3H equ 0FB3h ;# ">
+"29439
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 29439: __asm("CMCON equ 0FB4h");
+[; <" CMCON equ 0FB4h ;# ">
+"29529
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 29529: __asm("CVRCON equ 0FB5h");
+[; <" CVRCON equ 0FB5h ;# ">
+"29614
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 29614: __asm("ECCP1AS equ 0FB6h");
+[; <" ECCP1AS equ 0FB6h ;# ">
+"29696
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 29696: __asm("ECCP1DEL equ 0FB7h");
+[; <" ECCP1DEL equ 0FB7h ;# ">
+"29766
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 29766: __asm("BAUDCON equ 0FB8h");
+[; <" BAUDCON equ 0FB8h ;# ">
+"29771
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 29771: __asm("BAUDCTL equ 0FB8h");
+[; <" BAUDCTL equ 0FB8h ;# ">
+"29904
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 29904: __asm("ECCP1CON equ 0FBAh");
+[; <" ECCP1CON equ 0FBAh ;# ">
+"29986
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 29986: __asm("ECCPR1 equ 0FBBh");
+[; <" ECCPR1 equ 0FBBh ;# ">
+"29993
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 29993: __asm("ECCPR1L equ 0FBBh");
+[; <" ECCPR1L equ 0FBBh ;# ">
+"30000
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 30000: __asm("ECCPR1H equ 0FBCh");
+[; <" ECCPR1H equ 0FBCh ;# ">
+"30007
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 30007: __asm("CCP1CON equ 0FBDh");
+[; <" CCP1CON equ 0FBDh ;# ">
+"30071
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 30071: __asm("CCPR1 equ 0FBEh");
+[; <" CCPR1 equ 0FBEh ;# ">
+"30078
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 30078: __asm("CCPR1L equ 0FBEh");
+[; <" CCPR1L equ 0FBEh ;# ">
+"30085
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 30085: __asm("CCPR1H equ 0FBFh");
+[; <" CCPR1H equ 0FBFh ;# ">
+"30092
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 30092: __asm("ADCON2 equ 0FC0h");
+[; <" ADCON2 equ 0FC0h ;# ">
+"30163
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 30163: __asm("ADCON1 equ 0FC1h");
+[; <" ADCON1 equ 0FC1h ;# ">
+"30248
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 30248: __asm("ADCON0 equ 0FC2h");
+[; <" ADCON0 equ 0FC2h ;# ">
+"30367
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 30367: __asm("ADRES equ 0FC3h");
+[; <" ADRES equ 0FC3h ;# ">
+"30374
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 30374: __asm("ADRESL equ 0FC3h");
+[; <" ADRESL equ 0FC3h ;# ">
+"30381
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 30381: __asm("ADRESH equ 0FC4h");
+[; <" ADRESH equ 0FC4h ;# ">
+"30388
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 30388: __asm("SSPCON2 equ 0FC5h");
+[; <" SSPCON2 equ 0FC5h ;# ">
+"30450
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 30450: __asm("SSPCON1 equ 0FC6h");
+[; <" SSPCON1 equ 0FC6h ;# ">
+"30520
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 30520: __asm("SSPSTAT equ 0FC7h");
+[; <" SSPSTAT equ 0FC7h ;# ">
+"30768
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 30768: __asm("SSPADD equ 0FC8h");
+[; <" SSPADD equ 0FC8h ;# ">
+"30775
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 30775: __asm("SSPBUF equ 0FC9h");
+[; <" SSPBUF equ 0FC9h ;# ">
+"30782
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 30782: __asm("T2CON equ 0FCAh");
+[; <" T2CON equ 0FCAh ;# ">
+"30889
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 30889: __asm("PR2 equ 0FCBh");
+[; <" PR2 equ 0FCBh ;# ">
+"30894
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 30894: __asm("MEMCON equ 0FCBh");
+[; <" MEMCON equ 0FCBh ;# ">
+"30999
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 30999: __asm("TMR2 equ 0FCCh");
+[; <" TMR2 equ 0FCCh ;# ">
+"31006
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31006: __asm("T1CON equ 0FCDh");
+[; <" T1CON equ 0FCDh ;# ">
+"31118
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31118: __asm("TMR1 equ 0FCEh");
+[; <" TMR1 equ 0FCEh ;# ">
+"31125
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31125: __asm("TMR1L equ 0FCEh");
+[; <" TMR1L equ 0FCEh ;# ">
+"31132
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31132: __asm("TMR1H equ 0FCFh");
+[; <" TMR1H equ 0FCFh ;# ">
+"31139
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31139: __asm("RCON equ 0FD0h");
+[; <" RCON equ 0FD0h ;# ">
+"31272
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31272: __asm("WDTCON equ 0FD1h");
+[; <" WDTCON equ 0FD1h ;# ">
+"31300
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31300: __asm("HLVDCON equ 0FD2h");
+[; <" HLVDCON equ 0FD2h ;# ">
+"31305
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31305: __asm("LVDCON equ 0FD2h");
+[; <" LVDCON equ 0FD2h ;# ">
+"31570
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31570: __asm("OSCCON equ 0FD3h");
+[; <" OSCCON equ 0FD3h ;# ">
+"31647
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31647: __asm("T0CON equ 0FD5h");
+[; <" T0CON equ 0FD5h ;# ">
+"31723
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31723: __asm("TMR0 equ 0FD6h");
+[; <" TMR0 equ 0FD6h ;# ">
+"31730
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31730: __asm("TMR0L equ 0FD6h");
+[; <" TMR0L equ 0FD6h ;# ">
+"31737
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31737: __asm("TMR0H equ 0FD7h");
+[; <" TMR0H equ 0FD7h ;# ">
+"31744
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31744: __asm("STATUS equ 0FD8h");
+[; <" STATUS equ 0FD8h ;# ">
+"31815
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31815: __asm("FSR2 equ 0FD9h");
+[; <" FSR2 equ 0FD9h ;# ">
+"31822
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31822: __asm("FSR2L equ 0FD9h");
+[; <" FSR2L equ 0FD9h ;# ">
+"31829
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31829: __asm("FSR2H equ 0FDAh");
+[; <" FSR2H equ 0FDAh ;# ">
+"31836
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31836: __asm("PLUSW2 equ 0FDBh");
+[; <" PLUSW2 equ 0FDBh ;# ">
+"31843
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31843: __asm("PREINC2 equ 0FDCh");
+[; <" PREINC2 equ 0FDCh ;# ">
+"31850
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31850: __asm("POSTDEC2 equ 0FDDh");
+[; <" POSTDEC2 equ 0FDDh ;# ">
+"31857
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31857: __asm("POSTINC2 equ 0FDEh");
+[; <" POSTINC2 equ 0FDEh ;# ">
+"31864
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31864: __asm("INDF2 equ 0FDFh");
+[; <" INDF2 equ 0FDFh ;# ">
+"31871
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31871: __asm("BSR equ 0FE0h");
+[; <" BSR equ 0FE0h ;# ">
+"31878
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31878: __asm("FSR1 equ 0FE1h");
+[; <" FSR1 equ 0FE1h ;# ">
+"31885
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31885: __asm("FSR1L equ 0FE1h");
+[; <" FSR1L equ 0FE1h ;# ">
+"31892
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31892: __asm("FSR1H equ 0FE2h");
+[; <" FSR1H equ 0FE2h ;# ">
+"31899
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31899: __asm("PLUSW1 equ 0FE3h");
+[; <" PLUSW1 equ 0FE3h ;# ">
+"31906
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31906: __asm("PREINC1 equ 0FE4h");
+[; <" PREINC1 equ 0FE4h ;# ">
+"31913
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31913: __asm("POSTDEC1 equ 0FE5h");
+[; <" POSTDEC1 equ 0FE5h ;# ">
+"31920
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31920: __asm("POSTINC1 equ 0FE6h");
+[; <" POSTINC1 equ 0FE6h ;# ">
+"31927
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31927: __asm("INDF1 equ 0FE7h");
+[; <" INDF1 equ 0FE7h ;# ">
+"31934
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31934: __asm("WREG equ 0FE8h");
+[; <" WREG equ 0FE8h ;# ">
+"31941
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31941: __asm("FSR0 equ 0FE9h");
+[; <" FSR0 equ 0FE9h ;# ">
+"31948
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31948: __asm("FSR0L equ 0FE9h");
+[; <" FSR0L equ 0FE9h ;# ">
+"31955
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31955: __asm("FSR0H equ 0FEAh");
+[; <" FSR0H equ 0FEAh ;# ">
+"31962
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31962: __asm("PLUSW0 equ 0FEBh");
+[; <" PLUSW0 equ 0FEBh ;# ">
+"31969
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31969: __asm("PREINC0 equ 0FECh");
+[; <" PREINC0 equ 0FECh ;# ">
+"31976
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31976: __asm("POSTDEC0 equ 0FEDh");
+[; <" POSTDEC0 equ 0FEDh ;# ">
+"31983
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31983: __asm("POSTINC0 equ 0FEEh");
+[; <" POSTINC0 equ 0FEEh ;# ">
+"31990
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31990: __asm("INDF0 equ 0FEFh");
+[; <" INDF0 equ 0FEFh ;# ">
+"31997
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 31997: __asm("INTCON3 equ 0FF0h");
+[; <" INTCON3 equ 0FF0h ;# ">
+"32089
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32089: __asm("INTCON2 equ 0FF1h");
+[; <" INTCON2 equ 0FF1h ;# ">
+"32166
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32166: __asm("INTCON equ 0FF2h");
+[; <" INTCON equ 0FF2h ;# ">
+"32283
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32283: __asm("PROD equ 0FF3h");
+[; <" PROD equ 0FF3h ;# ">
+"32290
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32290: __asm("PRODL equ 0FF3h");
+[; <" PRODL equ 0FF3h ;# ">
+"32297
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32297: __asm("PRODH equ 0FF4h");
+[; <" PRODH equ 0FF4h ;# ">
+"32304
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32304: __asm("TABLAT equ 0FF5h");
+[; <" TABLAT equ 0FF5h ;# ">
+"32313
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32313: __asm("TBLPTR equ 0FF6h");
+[; <" TBLPTR equ 0FF6h ;# ">
+"32320
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32320: __asm("TBLPTRL equ 0FF6h");
+[; <" TBLPTRL equ 0FF6h ;# ">
+"32327
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32327: __asm("TBLPTRH equ 0FF7h");
+[; <" TBLPTRH equ 0FF7h ;# ">
+"32334
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32334: __asm("TBLPTRU equ 0FF8h");
+[; <" TBLPTRU equ 0FF8h ;# ">
+"32343
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32343: __asm("PCLAT equ 0FF9h");
+[; <" PCLAT equ 0FF9h ;# ">
+"32350
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32350: __asm("PC equ 0FF9h");
+[; <" PC equ 0FF9h ;# ">
+"32357
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32357: __asm("PCL equ 0FF9h");
+[; <" PCL equ 0FF9h ;# ">
+"32364
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32364: __asm("PCLATH equ 0FFAh");
+[; <" PCLATH equ 0FFAh ;# ">
+"32371
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32371: __asm("PCLATU equ 0FFBh");
+[; <" PCLATU equ 0FFBh ;# ">
+"32378
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32378: __asm("STKPTR equ 0FFCh");
+[; <" STKPTR equ 0FFCh ;# ">
+"32452
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32452: __asm("TOS equ 0FFDh");
+[; <" TOS equ 0FFDh ;# ">
+"32459
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32459: __asm("TOSL equ 0FFDh");
+[; <" TOSL equ 0FFDh ;# ">
+"32466
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32466: __asm("TOSH equ 0FFEh");
+[; <" TOSH equ 0FFEh ;# ">
+"32473
+[; ;D:\Programy\Microchip\xc8\v2.05\pic\include\pic18f4680.h: 32473: __asm("TOSU equ 0FFFh");
+[; <" TOSU equ 0FFFh ;# ">
+"42 acconeer/src/example_detector_distance_peak_fixed_threshold.c
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 42: static void configure_detector(acc_detector_distance_peak_configuration_t distance_configuration)
+[v _configure_detector `(v ~T0 @X0 1 sf1`*S1121 ]
+"43
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 43: {
+{
+[e :U _configure_detector ]
+"42
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 42: static void configure_detector(acc_detector_distance_peak_configuration_t distance_configuration)
+[v _distance_configuration `*S1121 ~T0 @X0 1 r1 ]
+"43
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 43: {
+[f ]
+"44
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 44:  acc_sweep_configuration_t sweep_configuration;
+[v _sweep_configuration `*S1120 ~T0 @X0 1 a ]
+"46
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 46:  acc_detector_distance_peak_profile_set(distance_configuration, ACC_DETECTOR_DISTANCE_PEAK_PROFILE_MAXIMIZE_DEPTH_RESOLUTION);
+[e ( _acc_detector_distance_peak_profile_set (2 , _distance_configuration -> -> . `E11424 0 `l `ul ]
+"47
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 47:  acc_detector_distance_peak_set_absolute_amplitude(distance_configuration, 1);
+[e ( _acc_detector_distance_peak_set_absolute_amplitude (2 , _distance_configuration -> -> 1 `i `a ]
+"48
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 48:  acc_detector_distance_peak_set_threshold_mode_fixed(distance_configuration, (500));
+[e ( _acc_detector_distance_peak_set_threshold_mode_fixed (2 , _distance_configuration -> -> 500 `i `us ]
+"49
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 49:  acc_detector_distance_peak_set_sort_by_amplitude(distance_configuration, 1);
+[e ( _acc_detector_distance_peak_set_sort_by_amplitude (2 , _distance_configuration -> -> 1 `i `a ]
+"51
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 51:  sweep_configuration = acc_detector_distance_peak_get_sweep_configuration(distance_configuration);
+[e = _sweep_configuration ( _acc_detector_distance_peak_get_sweep_configuration (1 _distance_configuration ]
+"53
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 53:  if (sweep_configuration == ((void*)0))
+[e $ ! == _sweep_configuration -> -> -> 0 `i `*v `*S1120 1127  ]
+"54
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 54:  {
+{
+"55
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 55:   printf("Sweep configuration not available\n");
+[e ( _printf :s 1C ]
+"56
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 56:  }
+}
+[e $U 1128  ]
+"57
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 57:  else
+[e :U 1127 ]
+"58
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 58:  {
+{
+"59
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 59:   acc_sweep_configuration_sensor_set(sweep_configuration, (1));
+[e ( _acc_sweep_configuration_sensor_set (2 , _sweep_configuration -> -> -> 1 `i `l `ul ]
+"60
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 60:   acc_sweep_configuration_requested_start_set(sweep_configuration, (0.2f));
+[e ( _acc_sweep_configuration_requested_start_set (2 , _sweep_configuration -> .0.2 `f ]
+"61
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 61:   acc_sweep_configuration_requested_length_set(sweep_configuration, (0.94f));
+[e ( _acc_sweep_configuration_requested_length_set (2 , _sweep_configuration -> .0.94 `f ]
+"62
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 62:   acc_sweep_configuration_repetition_mode_streaming_set(sweep_configuration, (0.5f));
+[e ( _acc_sweep_configuration_repetition_mode_streaming_set (2 , _sweep_configuration -> .0.5 `f ]
+"63
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 63:  }
+}
+[e :U 1128 ]
+"64
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 64: }
+[e :UE 1126 ]
+}
+"67
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 67: static void print_distances(uint16_t reflection_count,
+[v _print_distances `(v ~T0 @X0 1 sf2`us`*CS1123 ]
+"69
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 69: {
+{
+[e :U _print_distances ]
+"67
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 67: static void print_distances(uint16_t reflection_count,
+[v _reflection_count `us ~T0 @X0 1 r1 ]
+"68
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 68:                             const acc_detector_distance_peak_reflection_t *reflections)
+[v _reflections `*CS1123 ~T0 @X0 1 r2 ]
+"69
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 69: {
+[f ]
+"70
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 70:  if (reflection_count == 0)
+[e $ ! == -> _reflection_count `ui -> -> 0 `i `ui 1130  ]
+"71
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 71:  {
+{
+"72
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 72:   printf("No peaks above threshold\n");
+[e ( _printf :s 2C ]
+"73
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 73:  }
+}
+[e $U 1131  ]
+"74
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 74:  else
+[e :U 1130 ]
+"75
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 75:  {
+{
+"76
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 76:   for (int i = 0; i < reflection_count; i++)
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $U 1135  ]
+[e :U 1132 ]
+"77
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 77:   {
+{
+"78
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 78:    unsigned int dist = (unsigned int)((reflections[i].distance) * 1000.0f + 0.5f);
+[v _dist `ui ~T0 @X0 1 a ]
+[e = _dist -> + * . *U + _reflections * -> _i `x -> -> # *U _reflections `i `x 0 -> .1000.0 `f -> .0.5 `f `ui ]
+"79
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 79:    unsigned int ampl = (unsigned int)(reflections[i].amplitude + 0.5f);
+[v _ampl `ui ~T0 @X0 1 a ]
+[e = _ampl -> + -> -> . *U + _reflections * -> _i `x -> -> # *U _reflections `i `x 1 `ui `f -> .0.5 `f `ui ]
+"81
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 81:    printf("Peak %d, distance: %3u mm, amplitude: %u\n", i + 1, dist, ampl);
+[e ( _printf , , , (. :s 3C + _i -> 1 `i _dist _ampl ]
+"82
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 82:   }
+}
+[e ++ _i -> 1 `i ]
+[e :U 1135 ]
+[e $ < -> _i `ui -> _reflection_count `ui 1132  ]
+[e :U 1133 ]
+}
+"83
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 83:  }
+}
+[e :U 1131 ]
+"85
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 85:  printf("\n");
+[e ( _printf :s 4C ]
+"86
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 86: }
+[e :UE 1129 ]
+}
+"89
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 89: static int distance_peak_detect_with_blocking_calls(acc_detector_distance_peak_configuration_t distance_configuration)
+[v _distance_peak_detect_with_blocking_calls `(i ~T0 @X0 1 sf1`*S1121 ]
+"90
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 90: {
+{
+[e :U _distance_peak_detect_with_blocking_calls ]
+"89
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 89: static int distance_peak_detect_with_blocking_calls(acc_detector_distance_peak_configuration_t distance_configuration)
+[v _distance_configuration `*S1121 ~T0 @X0 1 r1 ]
+"90
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 90: {
+[f ]
+"91
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 91:  acc_detector_distance_peak_status_t detector_status = ACC_DETECTOR_DISTANCE_PEAK_STATUS_SUCCESS;
+[v _detector_status `ul ~T0 @X0 1 a ]
+[e = _detector_status -> -> . `E11419 0 `l `ul ]
+"92
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 92:  acc_detector_distance_peak_metadata_t metadata;
+[v _metadata `S1124 ~T0 @X0 1 a ]
+"93
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 93:  uint_fast16_t reflection_count_max = 2;
+[v _reflection_count_max `ul ~T0 @X0 1 a ]
+[e = _reflection_count_max -> -> -> 2 `i `l `ul ]
+"94
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 94:  uint_fast16_t reflection_count;
+[v _reflection_count `ul ~T0 @X0 1 a ]
+"95
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 95:  acc_detector_distance_peak_reflection_t reflections[2];
+[v _reflections `S1123 ~T0 @X0 -> 2 `i a ]
+"97
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 97:  printf("Running distance peak detector in blocking mode\n");
+[e ( _printf :s 5C ]
+"99
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 99:  configure_detector(distance_configuration);
+[e ( _configure_detector (1 _distance_configuration ]
+"101
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 101:  acc_detector_distance_peak_handle_t handle = acc_detector_distance_peak_create(distance_configuration);
+[v _handle `*S1122 ~T0 @X0 1 a ]
+[e = _handle ( _acc_detector_distance_peak_create (1 _distance_configuration ]
+"103
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 103:  if (handle == ((void*)0))
+[e $ ! == _handle -> -> -> 0 `i `*v `*S1122 1137  ]
+"104
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 104:  {
+{
+"105
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 105:   printf("acc_service_create failed()\n");
+[e ( _printf :s 6C ]
+"106
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 106:   return 0;
+[e ) -> 0 `i ]
+[e $UE 1136  ]
+"107
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 107:  }
+}
+[e :U 1137 ]
+"109
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 109:  acc_detector_distance_peak_get_metadata(handle, &metadata);
+[e ( _acc_detector_distance_peak_get_metadata (2 , _handle &U _metadata ]
+"110
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 110:  float start_m = metadata.actual_start_m;
+[v _start_m `f ~T0 @X0 1 a ]
+[e = _start_m . _metadata 0 ]
+"111
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 111:  float length_m = metadata.actual_length_m;
+[v _length_m `f ~T0 @X0 1 a ]
+[e = _length_m . _metadata 1 ]
+"112
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 112:  float end_m = metadata.actual_start_m + metadata.actual_length_m;
+[v _end_m `f ~T0 @X0 1 a ]
+[e = _end_m + . _metadata 0 . _metadata 1 ]
+"114
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 114:  printf("Actual start: %u mm\n", (unsigned int)(start_m * 1000.0f + 0.5f));
+[e ( _printf , (. :s 7C -> + * _start_m -> .1000.0 `f -> .0.5 `f `ui ]
+"115
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 115:  printf("Actual length: %u mm\n", (unsigned int)(length_m * 1000.0f + 0.5f));
+[e ( _printf , (. :s 8C -> + * _length_m -> .1000.0 `f -> .0.5 `f `ui ]
+"116
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 116:  printf("Actual end: %u mm\n", (unsigned int)(end_m * 1000.0f + 0.5f));
+[e ( _printf , (. :s 9C -> + * _end_m -> .1000.0 `f -> .0.5 `f `ui ]
+"117
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 117:  printf("\n");
+[e ( _printf :s 10C ]
+"119
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 119:  acc_detector_distance_peak_result_info_t result_info;
+[v _result_info `S1125 ~T0 @X0 1 a ]
+"121
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 121:  detector_status = acc_detector_distance_peak_activate(handle);
+[e = _detector_status ( _acc_detector_distance_peak_activate (1 _handle ]
+"123
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 123:  if (detector_status != ACC_DETECTOR_DISTANCE_PEAK_STATUS_SUCCESS)
+[e $ ! != _detector_status -> -> . `E11419 0 `l `ul 1138  ]
+"124
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 124:  {
+{
+"125
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 125:   printf("acc_service_activate() failed\n");
+[e ( _printf :s 11C ]
+"126
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 126:   acc_detector_distance_peak_destroy(&handle);
+[e ( _acc_detector_distance_peak_destroy (1 &U _handle ]
+"127
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 127:   return 0;
+[e ) -> 0 `i ]
+[e $UE 1136  ]
+"128
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 128:  }
+}
+[e :U 1138 ]
+"130
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 130:  for (int measurement = 0; measurement < 100; measurement++)
+{
+[v _measurement `i ~T0 @X0 1 a ]
+[e = _measurement -> 0 `i ]
+[e $ < _measurement -> 100 `i 1139  ]
+[e $U 1140  ]
+[e :U 1139 ]
+"131
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 131:  {
+{
+"132
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 132:   reflection_count = reflection_count_max;
+[e = _reflection_count _reflection_count_max ]
+"134
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 134:   detector_status = acc_detector_distance_peak_get_next(handle,
+[e = _detector_status ( _acc_detector_distance_peak_get_next (4 , , , _handle &U _reflections &U _reflection_count &U _result_info ]
+"139
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 139:   if (detector_status == ACC_DETECTOR_DISTANCE_PEAK_STATUS_SUCCESS)
+[e $ ! == _detector_status -> -> . `E11419 0 `l `ul 1142  ]
+"140
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 140:   {
+{
+"141
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 141:    printf("Seq. nr: %u, Range: %u-%u mm, Threshold %u\n",
+[e ( _printf , , , , (. :s 12C -> . _result_info 0 `ui -> + * _start_m -> .1000.0 `f -> .0.5 `f `ui -> + * _end_m -> .1000.0 `f -> .0.5 `f `ui -> 500 `i ]
+"147
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 147:    print_distances(reflection_count, reflections);
+[e ( _print_distances (2 , -> _reflection_count `us -> &U _reflections `*CS1123 ]
+"148
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 148:   }
+}
+[e $U 1143  ]
+"149
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 149:   else
+[e :U 1142 ]
+"150
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 150:   {
+{
+"151
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 151:    printf("Reflection data not properly retrieved\n");
+[e ( _printf :s 13C ]
+"152
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 152:   }
+}
+[e :U 1143 ]
+"153
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 153:  }
+}
+[e ++ _measurement -> 1 `i ]
+[e $ < _measurement -> 100 `i 1139  ]
+[e :U 1140 ]
+}
+"155
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 155:  acc_detector_distance_peak_deactivate(handle);
+[e ( _acc_detector_distance_peak_deactivate (1 _handle ]
+"156
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 156:  acc_detector_distance_peak_destroy(&handle);
+[e ( _acc_detector_distance_peak_destroy (1 &U _handle ]
+"158
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 158:  return 1;
+[e ) -> 1 `i ]
+[e $UE 1136  ]
+"159
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 159: }
+[e :UE 1136 ]
+}
+"162
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 162: int acc_example_detector_distance_peak_fixed_threshold(void)
+[v _acc_example_detector_distance_peak_fixed_threshold `(i ~T0 @X0 1 ef ]
+"163
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 163: {
+{
+[e :U _acc_example_detector_distance_peak_fixed_threshold ]
+[f ]
+"164
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 164:  printf("Acconeer software version %s\n", "v1.8.4");
+[e ( _printf , (. :s 14C :s 15C ]
+"165
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 165:  printf("Acconeer RSS version %s\n", acc_rss_version());
+[e ( _printf , (. :s 16C ( _acc_rss_version ..  ]
+"167
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 167:  acc_hal_t hal = acc_hal_integration_get_implementation();
+[v _hal `S1118 ~T0 @X0 1 a ]
+[e = _hal ( _acc_hal_integration_get_implementation ..  ]
+"169
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 169:  if (!acc_rss_activate_with_hal(&hal))
+[e $ ! ! != -> ( _acc_rss_activate_with_hal (1 &U _hal `i -> 0 `i 1145  ]
+"170
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 170:  {
+{
+"171
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 171:   printf("acc_rss_activate_with_hal() failed\n");
+[e ( _printf :s 17C ]
+"172
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 172:   return 0;
+[e ) -> 0 `i ]
+[e $UE 1144  ]
+"173
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 173:  }
+}
+[e :U 1145 ]
+"176
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 176:  acc_detector_distance_peak_configuration_t distance_configuration = acc_detector_distance_peak_configuration_create();
+[v _distance_configuration `*S1121 ~T0 @X0 1 a ]
+[e = _distance_configuration ( _acc_detector_distance_peak_configuration_create ..  ]
+"178
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 178:  if (distance_configuration == ((void*)0))
+[e $ ! == _distance_configuration -> -> -> 0 `i `*v `*S1121 1146  ]
+"179
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 179:  {
+{
+"180
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 180:   printf("acc_service_distance_configuration_create() failed\n");
+[e ( _printf :s 18C ]
+"181
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 181:   acc_rss_deactivate();
+[e ( _acc_rss_deactivate ..  ]
+"182
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 182:   return 0;
+[e ) -> 0 `i ]
+[e $UE 1144  ]
+"183
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 183:  }
+}
+[e :U 1146 ]
+"186
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 186:  int status = distance_peak_detect_with_blocking_calls(distance_configuration);
+[v _status `i ~T0 @X0 1 a ]
+[e = _status ( _distance_peak_detect_with_blocking_calls (1 _distance_configuration ]
+"188
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 188:  acc_detector_distance_peak_configuration_destroy(&distance_configuration);
+[e ( _acc_detector_distance_peak_configuration_destroy (1 &U _distance_configuration ]
+"190
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 190:  acc_rss_deactivate();
+[e ( _acc_rss_deactivate ..  ]
+"192
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 192:  return status;
+[e ) _status ]
+[e $UE 1144  ]
+"193
+[; ;acconeer/src/example_detector_distance_peak_fixed_threshold.c: 193: }
+[e :UE 1144 ]
+}
+[p f _printf 8684672 ]
+[a 15C 118 49 46 56 46 52 0 ]
+[a 12C 83 101 113 46 32 110 114 58 32 37 117 44 32 82 97 110 103 101 58 32 37 117 45 37 117 32 109 109 44 32 84 104 114 101 115 104 111 108 100 32 37 117 10 0 ]
+[a 3C 80 101 97 107 32 37 100 44 32 100 105 115 116 97 110 99 101 58 32 37 51 117 32 109 109 44 32 97 109 112 108 105 116 117 100 101 58 32 37 117 10 0 ]
+[a 14C 65 99 99 111 110 101 101 114 32 115 111 102 116 119 97 114 101 32 118 101 114 115 105 111 110 32 37 115 10 0 ]
+[a 16C 65 99 99 111 110 101 101 114 32 82 83 83 32 118 101 114 115 105 111 110 32 37 115 10 0 ]
+[a 7C 65 99 116 117 97 108 32 115 116 97 114 116 58 32 37 117 32 109 109 10 0 ]
+[a 8C 65 99 116 117 97 108 32 108 101 110 103 116 104 58 32 37 117 32 109 109 10 0 ]
+[a 9C 65 99 116 117 97 108 32 101 110 100 58 32 37 117 32 109 109 10 0 ]
+[a 1C 83 119 101 101 112 32 99 111 110 102 105 103 117 114 97 116 105 111 110 32 110 111 116 32 97 118 97 105 108 97 98 108 101 10 0 ]
+[a 5C 82 117 110 110 105 110 103 32 100 105 115 116 97 110 99 101 32 112 101 97 107 32 100 101 116 101 99 116 111 114 32 105 110 32 98 108 111 99 107 105 110 103 32 109 111 100 101 10 0 ]
+[a 2C 78 111 32 112 101 97 107 115 32 97 98 111 118 101 32 116 104 114 101 115 104 111 108 100 10 0 ]
+[a 13C 82 101 102 108 101 99 116 105 111 110 32 100 97 116 97 32 110 111 116 32 112 114 111 112 101 114 108 121 32 114 101 116 114 105 101 118 101 100 10 0 ]
+[a 17C 97 99 99 95 114 115 115 95 97 99 116 105 118 97 116 101 95 119 105 116 104 95 104 97 108 40 41 32 102 97 105 108 101 100 10 0 ]
+[a 11C 97 99 99 95 115 101 114 118 105 99 101 95 97 99 116 105 118 97 116 101 40 41 32 102 97 105 108 101 100 10 0 ]
+[a 18C 97 99 99 95 115 101 114 118 105 99 101 95 100 105 115 116 97 110 99 101 95 99 111 110 102 105 103 117 114 97 116 105 111 110 95 99 114 101 97 116 101 40 41 32 102 97 105 108 101 100 10 0 ]
+[a 6C 97 99 99 95 115 101 114 118 105 99 101 95 99 114 101 97 116 101 32 102 97 105 108 101 100 40 41 10 0 ]
+[a 4C 10 0 ]
+[a 10C 10 0 ]

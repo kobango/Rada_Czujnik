@@ -14,6 +14,9 @@
             <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>.</sourceRootElem>
+                <sourceRootElem>acconeer/examples</sourceRootElem>
+                <sourceRootElem>acconeer/integration</sourceRootElem>
+                <sourceRootElem>acconeer/src</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

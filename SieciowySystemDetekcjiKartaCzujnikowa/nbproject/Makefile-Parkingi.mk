@@ -28,14 +28,26 @@ CP=cp
 CND_CONF=Parkingi
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 IMAGE_TYPE=debug
-OUTPUT_SUFFIX=cof
-DEBUGGABLE_SUFFIX=cof
+OUTPUT_SUFFIX=elf
+DEBUGGABLE_SUFFIX=elf
 FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/SieciowySystemDetekcjiKartaCzujnikowa.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 else
 IMAGE_TYPE=production
 OUTPUT_SUFFIX=hex
-DEBUGGABLE_SUFFIX=cof
+DEBUGGABLE_SUFFIX=elf
 FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/SieciowySystemDetekcjiKartaCzujnikowa.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+endif
+
+ifeq ($(COMPARE_BUILD), true)
+COMPARISON_BUILD=-mafrlcsj
+else
+COMPARISON_BUILD=
+endif
+
+ifdef SUB_IMAGE_ADDRESS
+
+else
+SUB_IMAGE_ADDRESS_COMMAND=
 endif
 
 # Object Directory
@@ -45,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=interrupts.c main.c CAN.c EEPROM.c RamkiKarty.c c018i.c RamkiCzujnikow.c WeWy.c transmisja.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c CAN.c LED.c TMR1.c FRAME.c INI.c ISR.c TRM.c MOC_Funct.c DetekcjaSasiadow.c EEPROM.c FLASH.c acconeer/integration/acc_legacy_hal_stubs.c acconeer/src/example_detector_distance_peak_fixed_threshold.c acconeer/src/example_power_bin_once.c acconeer/src/newenv.c acconeer/src/newsparse.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/interrupts.o ${OBJECTDIR}/main.o ${OBJECTDIR}/CAN.o ${OBJECTDIR}/EEPROM.o ${OBJECTDIR}/RamkiKarty.o ${OBJECTDIR}/c018i.o ${OBJECTDIR}/RamkiCzujnikow.o ${OBJECTDIR}/WeWy.o ${OBJECTDIR}/transmisja.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/interrupts.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/CAN.o.d ${OBJECTDIR}/EEPROM.o.d ${OBJECTDIR}/RamkiKarty.o.d ${OBJECTDIR}/c018i.o.d ${OBJECTDIR}/RamkiCzujnikow.o.d ${OBJECTDIR}/WeWy.o.d ${OBJECTDIR}/transmisja.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/CAN.p1 ${OBJECTDIR}/LED.p1 ${OBJECTDIR}/TMR1.p1 ${OBJECTDIR}/FRAME.p1 ${OBJECTDIR}/INI.p1 ${OBJECTDIR}/ISR.p1 ${OBJECTDIR}/TRM.p1 ${OBJECTDIR}/MOC_Funct.p1 ${OBJECTDIR}/DetekcjaSasiadow.p1 ${OBJECTDIR}/EEPROM.p1 ${OBJECTDIR}/FLASH.p1 ${OBJECTDIR}/acconeer/integration/acc_legacy_hal_stubs.p1 ${OBJECTDIR}/acconeer/src/example_detector_distance_peak_fixed_threshold.p1 ${OBJECTDIR}/acconeer/src/example_power_bin_once.p1 ${OBJECTDIR}/acconeer/src/newenv.p1 ${OBJECTDIR}/acconeer/src/newsparse.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/CAN.p1.d ${OBJECTDIR}/LED.p1.d ${OBJECTDIR}/TMR1.p1.d ${OBJECTDIR}/FRAME.p1.d ${OBJECTDIR}/INI.p1.d ${OBJECTDIR}/ISR.p1.d ${OBJECTDIR}/TRM.p1.d ${OBJECTDIR}/MOC_Funct.p1.d ${OBJECTDIR}/DetekcjaSasiadow.p1.d ${OBJECTDIR}/EEPROM.p1.d ${OBJECTDIR}/FLASH.p1.d ${OBJECTDIR}/acconeer/integration/acc_legacy_hal_stubs.p1.d ${OBJECTDIR}/acconeer/src/example_detector_distance_peak_fixed_threshold.p1.d ${OBJECTDIR}/acconeer/src/example_power_bin_once.p1.d ${OBJECTDIR}/acconeer/src/newenv.p1.d ${OBJECTDIR}/acconeer/src/newsparse.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/interrupts.o ${OBJECTDIR}/main.o ${OBJECTDIR}/CAN.o ${OBJECTDIR}/EEPROM.o ${OBJECTDIR}/RamkiKarty.o ${OBJECTDIR}/c018i.o ${OBJECTDIR}/RamkiCzujnikow.o ${OBJECTDIR}/WeWy.o ${OBJECTDIR}/transmisja.o
+OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/CAN.p1 ${OBJECTDIR}/LED.p1 ${OBJECTDIR}/TMR1.p1 ${OBJECTDIR}/FRAME.p1 ${OBJECTDIR}/INI.p1 ${OBJECTDIR}/ISR.p1 ${OBJECTDIR}/TRM.p1 ${OBJECTDIR}/MOC_Funct.p1 ${OBJECTDIR}/DetekcjaSasiadow.p1 ${OBJECTDIR}/EEPROM.p1 ${OBJECTDIR}/FLASH.p1 ${OBJECTDIR}/acconeer/integration/acc_legacy_hal_stubs.p1 ${OBJECTDIR}/acconeer/src/example_detector_distance_peak_fixed_threshold.p1 ${OBJECTDIR}/acconeer/src/example_power_bin_once.p1 ${OBJECTDIR}/acconeer/src/newenv.p1 ${OBJECTDIR}/acconeer/src/newsparse.p1
 
 # Source Files
-SOURCEFILES=interrupts.c main.c CAN.c EEPROM.c RamkiKarty.c c018i.c RamkiCzujnikow.c WeWy.c transmisja.c
+SOURCEFILES=main.c CAN.c LED.c TMR1.c FRAME.c INI.c ISR.c TRM.c MOC_Funct.c DetekcjaSasiadow.c EEPROM.c FLASH.c acconeer/integration/acc_legacy_hal_stubs.c acconeer/src/example_detector_distance_peak_fixed_threshold.c acconeer/src/example_power_bin_once.c acconeer/src/newenv.c acconeer/src/newsparse.c
 
 
 CFLAGS=
@@ -72,11 +84,290 @@ LDLIBSOPTIONS=
 FIXDEPS=fixDeps
 
 .build-conf:  ${BUILD_SUBPROJECTS}
-	${MAKE} ${MAKE_OPTIONS} -f nbproject/Makefile-Parkingi.mk dist/${CND_CONF}/${IMAGE_TYPE}/SieciowySystemDetekcjiKartaCzujnikowa.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+ifneq ($(INFORMATION_MESSAGE), )
+	@echo $(INFORMATION_MESSAGE)
+endif
+	${MAKE}  -f nbproject/Makefile-Parkingi.mk dist/${CND_CONF}/${IMAGE_TYPE}/SieciowySystemDetekcjiKartaCzujnikowa.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
-MP_PROCESSOR_OPTION=18F26K80
-MP_PROCESSOR_OPTION_LD=18f26k80
-MP_LINKER_DEBUG_OPTION=
+MP_PROCESSOR_OPTION=18F4680
+# ------------------------------------------------------------------------------------
+# Rules for buildStep: compile
+ifeq ($(TYPE_IMAGE), DEBUG_RUN)
+${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/main.p1.d 
+	@${RM} ${OBJECTDIR}/main.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/main.p1 main.c 
+	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/CAN.p1: CAN.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/CAN.p1.d 
+	@${RM} ${OBJECTDIR}/CAN.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/CAN.p1 CAN.c 
+	@-${MV} ${OBJECTDIR}/CAN.d ${OBJECTDIR}/CAN.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/CAN.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/LED.p1: LED.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/LED.p1.d 
+	@${RM} ${OBJECTDIR}/LED.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/LED.p1 LED.c 
+	@-${MV} ${OBJECTDIR}/LED.d ${OBJECTDIR}/LED.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/LED.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/TMR1.p1: TMR1.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/TMR1.p1.d 
+	@${RM} ${OBJECTDIR}/TMR1.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/TMR1.p1 TMR1.c 
+	@-${MV} ${OBJECTDIR}/TMR1.d ${OBJECTDIR}/TMR1.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/TMR1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/FRAME.p1: FRAME.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/FRAME.p1.d 
+	@${RM} ${OBJECTDIR}/FRAME.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/FRAME.p1 FRAME.c 
+	@-${MV} ${OBJECTDIR}/FRAME.d ${OBJECTDIR}/FRAME.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/FRAME.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/INI.p1: INI.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/INI.p1.d 
+	@${RM} ${OBJECTDIR}/INI.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/INI.p1 INI.c 
+	@-${MV} ${OBJECTDIR}/INI.d ${OBJECTDIR}/INI.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/INI.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/ISR.p1: ISR.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ISR.p1.d 
+	@${RM} ${OBJECTDIR}/ISR.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/ISR.p1 ISR.c 
+	@-${MV} ${OBJECTDIR}/ISR.d ${OBJECTDIR}/ISR.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/ISR.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/TRM.p1: TRM.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/TRM.p1.d 
+	@${RM} ${OBJECTDIR}/TRM.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/TRM.p1 TRM.c 
+	@-${MV} ${OBJECTDIR}/TRM.d ${OBJECTDIR}/TRM.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/TRM.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/MOC_Funct.p1: MOC_Funct.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/MOC_Funct.p1.d 
+	@${RM} ${OBJECTDIR}/MOC_Funct.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/MOC_Funct.p1 MOC_Funct.c 
+	@-${MV} ${OBJECTDIR}/MOC_Funct.d ${OBJECTDIR}/MOC_Funct.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/MOC_Funct.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/DetekcjaSasiadow.p1: DetekcjaSasiadow.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/DetekcjaSasiadow.p1.d 
+	@${RM} ${OBJECTDIR}/DetekcjaSasiadow.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/DetekcjaSasiadow.p1 DetekcjaSasiadow.c 
+	@-${MV} ${OBJECTDIR}/DetekcjaSasiadow.d ${OBJECTDIR}/DetekcjaSasiadow.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/DetekcjaSasiadow.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/EEPROM.p1: EEPROM.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/EEPROM.p1.d 
+	@${RM} ${OBJECTDIR}/EEPROM.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/EEPROM.p1 EEPROM.c 
+	@-${MV} ${OBJECTDIR}/EEPROM.d ${OBJECTDIR}/EEPROM.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/EEPROM.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/FLASH.p1: FLASH.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/FLASH.p1.d 
+	@${RM} ${OBJECTDIR}/FLASH.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/FLASH.p1 FLASH.c 
+	@-${MV} ${OBJECTDIR}/FLASH.d ${OBJECTDIR}/FLASH.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/FLASH.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/acconeer/integration/acc_legacy_hal_stubs.p1: acconeer/integration/acc_legacy_hal_stubs.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/acconeer/integration" 
+	@${RM} ${OBJECTDIR}/acconeer/integration/acc_legacy_hal_stubs.p1.d 
+	@${RM} ${OBJECTDIR}/acconeer/integration/acc_legacy_hal_stubs.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/acconeer/integration/acc_legacy_hal_stubs.p1 acconeer/integration/acc_legacy_hal_stubs.c 
+	@-${MV} ${OBJECTDIR}/acconeer/integration/acc_legacy_hal_stubs.d ${OBJECTDIR}/acconeer/integration/acc_legacy_hal_stubs.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/acconeer/integration/acc_legacy_hal_stubs.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/acconeer/src/example_detector_distance_peak_fixed_threshold.p1: acconeer/src/example_detector_distance_peak_fixed_threshold.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/acconeer/src" 
+	@${RM} ${OBJECTDIR}/acconeer/src/example_detector_distance_peak_fixed_threshold.p1.d 
+	@${RM} ${OBJECTDIR}/acconeer/src/example_detector_distance_peak_fixed_threshold.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/acconeer/src/example_detector_distance_peak_fixed_threshold.p1 acconeer/src/example_detector_distance_peak_fixed_threshold.c 
+	@-${MV} ${OBJECTDIR}/acconeer/src/example_detector_distance_peak_fixed_threshold.d ${OBJECTDIR}/acconeer/src/example_detector_distance_peak_fixed_threshold.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/acconeer/src/example_detector_distance_peak_fixed_threshold.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/acconeer/src/example_power_bin_once.p1: acconeer/src/example_power_bin_once.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/acconeer/src" 
+	@${RM} ${OBJECTDIR}/acconeer/src/example_power_bin_once.p1.d 
+	@${RM} ${OBJECTDIR}/acconeer/src/example_power_bin_once.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/acconeer/src/example_power_bin_once.p1 acconeer/src/example_power_bin_once.c 
+	@-${MV} ${OBJECTDIR}/acconeer/src/example_power_bin_once.d ${OBJECTDIR}/acconeer/src/example_power_bin_once.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/acconeer/src/example_power_bin_once.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/acconeer/src/newenv.p1: acconeer/src/newenv.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/acconeer/src" 
+	@${RM} ${OBJECTDIR}/acconeer/src/newenv.p1.d 
+	@${RM} ${OBJECTDIR}/acconeer/src/newenv.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/acconeer/src/newenv.p1 acconeer/src/newenv.c 
+	@-${MV} ${OBJECTDIR}/acconeer/src/newenv.d ${OBJECTDIR}/acconeer/src/newenv.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/acconeer/src/newenv.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/acconeer/src/newsparse.p1: acconeer/src/newsparse.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/acconeer/src" 
+	@${RM} ${OBJECTDIR}/acconeer/src/newsparse.p1.d 
+	@${RM} ${OBJECTDIR}/acconeer/src/newsparse.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/acconeer/src/newsparse.p1 acconeer/src/newsparse.c 
+	@-${MV} ${OBJECTDIR}/acconeer/src/newsparse.d ${OBJECTDIR}/acconeer/src/newsparse.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/acconeer/src/newsparse.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+else
+${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/main.p1.d 
+	@${RM} ${OBJECTDIR}/main.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/main.p1 main.c 
+	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/CAN.p1: CAN.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/CAN.p1.d 
+	@${RM} ${OBJECTDIR}/CAN.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/CAN.p1 CAN.c 
+	@-${MV} ${OBJECTDIR}/CAN.d ${OBJECTDIR}/CAN.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/CAN.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/LED.p1: LED.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/LED.p1.d 
+	@${RM} ${OBJECTDIR}/LED.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/LED.p1 LED.c 
+	@-${MV} ${OBJECTDIR}/LED.d ${OBJECTDIR}/LED.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/LED.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/TMR1.p1: TMR1.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/TMR1.p1.d 
+	@${RM} ${OBJECTDIR}/TMR1.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/TMR1.p1 TMR1.c 
+	@-${MV} ${OBJECTDIR}/TMR1.d ${OBJECTDIR}/TMR1.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/TMR1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/FRAME.p1: FRAME.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/FRAME.p1.d 
+	@${RM} ${OBJECTDIR}/FRAME.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/FRAME.p1 FRAME.c 
+	@-${MV} ${OBJECTDIR}/FRAME.d ${OBJECTDIR}/FRAME.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/FRAME.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/INI.p1: INI.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/INI.p1.d 
+	@${RM} ${OBJECTDIR}/INI.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/INI.p1 INI.c 
+	@-${MV} ${OBJECTDIR}/INI.d ${OBJECTDIR}/INI.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/INI.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/ISR.p1: ISR.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/ISR.p1.d 
+	@${RM} ${OBJECTDIR}/ISR.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/ISR.p1 ISR.c 
+	@-${MV} ${OBJECTDIR}/ISR.d ${OBJECTDIR}/ISR.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/ISR.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/TRM.p1: TRM.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/TRM.p1.d 
+	@${RM} ${OBJECTDIR}/TRM.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/TRM.p1 TRM.c 
+	@-${MV} ${OBJECTDIR}/TRM.d ${OBJECTDIR}/TRM.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/TRM.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/MOC_Funct.p1: MOC_Funct.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/MOC_Funct.p1.d 
+	@${RM} ${OBJECTDIR}/MOC_Funct.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/MOC_Funct.p1 MOC_Funct.c 
+	@-${MV} ${OBJECTDIR}/MOC_Funct.d ${OBJECTDIR}/MOC_Funct.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/MOC_Funct.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/DetekcjaSasiadow.p1: DetekcjaSasiadow.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/DetekcjaSasiadow.p1.d 
+	@${RM} ${OBJECTDIR}/DetekcjaSasiadow.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/DetekcjaSasiadow.p1 DetekcjaSasiadow.c 
+	@-${MV} ${OBJECTDIR}/DetekcjaSasiadow.d ${OBJECTDIR}/DetekcjaSasiadow.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/DetekcjaSasiadow.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/EEPROM.p1: EEPROM.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/EEPROM.p1.d 
+	@${RM} ${OBJECTDIR}/EEPROM.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/EEPROM.p1 EEPROM.c 
+	@-${MV} ${OBJECTDIR}/EEPROM.d ${OBJECTDIR}/EEPROM.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/EEPROM.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/FLASH.p1: FLASH.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/FLASH.p1.d 
+	@${RM} ${OBJECTDIR}/FLASH.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/FLASH.p1 FLASH.c 
+	@-${MV} ${OBJECTDIR}/FLASH.d ${OBJECTDIR}/FLASH.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/FLASH.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/acconeer/integration/acc_legacy_hal_stubs.p1: acconeer/integration/acc_legacy_hal_stubs.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/acconeer/integration" 
+	@${RM} ${OBJECTDIR}/acconeer/integration/acc_legacy_hal_stubs.p1.d 
+	@${RM} ${OBJECTDIR}/acconeer/integration/acc_legacy_hal_stubs.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/acconeer/integration/acc_legacy_hal_stubs.p1 acconeer/integration/acc_legacy_hal_stubs.c 
+	@-${MV} ${OBJECTDIR}/acconeer/integration/acc_legacy_hal_stubs.d ${OBJECTDIR}/acconeer/integration/acc_legacy_hal_stubs.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/acconeer/integration/acc_legacy_hal_stubs.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/acconeer/src/example_detector_distance_peak_fixed_threshold.p1: acconeer/src/example_detector_distance_peak_fixed_threshold.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/acconeer/src" 
+	@${RM} ${OBJECTDIR}/acconeer/src/example_detector_distance_peak_fixed_threshold.p1.d 
+	@${RM} ${OBJECTDIR}/acconeer/src/example_detector_distance_peak_fixed_threshold.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/acconeer/src/example_detector_distance_peak_fixed_threshold.p1 acconeer/src/example_detector_distance_peak_fixed_threshold.c 
+	@-${MV} ${OBJECTDIR}/acconeer/src/example_detector_distance_peak_fixed_threshold.d ${OBJECTDIR}/acconeer/src/example_detector_distance_peak_fixed_threshold.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/acconeer/src/example_detector_distance_peak_fixed_threshold.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/acconeer/src/example_power_bin_once.p1: acconeer/src/example_power_bin_once.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/acconeer/src" 
+	@${RM} ${OBJECTDIR}/acconeer/src/example_power_bin_once.p1.d 
+	@${RM} ${OBJECTDIR}/acconeer/src/example_power_bin_once.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/acconeer/src/example_power_bin_once.p1 acconeer/src/example_power_bin_once.c 
+	@-${MV} ${OBJECTDIR}/acconeer/src/example_power_bin_once.d ${OBJECTDIR}/acconeer/src/example_power_bin_once.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/acconeer/src/example_power_bin_once.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/acconeer/src/newenv.p1: acconeer/src/newenv.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/acconeer/src" 
+	@${RM} ${OBJECTDIR}/acconeer/src/newenv.p1.d 
+	@${RM} ${OBJECTDIR}/acconeer/src/newenv.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/acconeer/src/newenv.p1 acconeer/src/newenv.c 
+	@-${MV} ${OBJECTDIR}/acconeer/src/newenv.d ${OBJECTDIR}/acconeer/src/newenv.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/acconeer/src/newenv.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/acconeer/src/newsparse.p1: acconeer/src/newsparse.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/acconeer/src" 
+	@${RM} ${OBJECTDIR}/acconeer/src/newsparse.p1.d 
+	@${RM} ${OBJECTDIR}/acconeer/src/newsparse.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -DXPRJ_Parkingi=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/acconeer/src/newsparse.p1 acconeer/src/newsparse.c 
+	@-${MV} ${OBJECTDIR}/acconeer/src/newsparse.d ${OBJECTDIR}/acconeer/src/newsparse.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/acconeer/src/newsparse.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+endif
+
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: assemble
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
@@ -84,165 +375,24 @@ else
 endif
 
 # ------------------------------------------------------------------------------------
-# Rules for buildStep: compile
+# Rules for buildStep: assembleWithPreprocess
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/interrupts.o: interrupts.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/interrupts.o.d 
-	@${RM} ${OBJECTDIR}/interrupts.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -DPARKINGI -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/interrupts.o   interrupts.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/interrupts.o 
-	@${FIXDEPS} "${OBJECTDIR}/interrupts.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/main.o.d 
-	@${RM} ${OBJECTDIR}/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -DPARKINGI -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/main.o   main.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/main.o 
-	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/CAN.o: CAN.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/CAN.o.d 
-	@${RM} ${OBJECTDIR}/CAN.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -DPARKINGI -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/CAN.o   CAN.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/CAN.o 
-	@${FIXDEPS} "${OBJECTDIR}/CAN.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/EEPROM.o: EEPROM.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/EEPROM.o.d 
-	@${RM} ${OBJECTDIR}/EEPROM.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -DPARKINGI -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/EEPROM.o   EEPROM.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/EEPROM.o 
-	@${FIXDEPS} "${OBJECTDIR}/EEPROM.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/RamkiKarty.o: RamkiKarty.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/RamkiKarty.o.d 
-	@${RM} ${OBJECTDIR}/RamkiKarty.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -DPARKINGI -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/RamkiKarty.o   RamkiKarty.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/RamkiKarty.o 
-	@${FIXDEPS} "${OBJECTDIR}/RamkiKarty.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/c018i.o: c018i.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/c018i.o.d 
-	@${RM} ${OBJECTDIR}/c018i.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -DPARKINGI -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/c018i.o   c018i.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/c018i.o 
-	@${FIXDEPS} "${OBJECTDIR}/c018i.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/RamkiCzujnikow.o: RamkiCzujnikow.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/RamkiCzujnikow.o.d 
-	@${RM} ${OBJECTDIR}/RamkiCzujnikow.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -DPARKINGI -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/RamkiCzujnikow.o   RamkiCzujnikow.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/RamkiCzujnikow.o 
-	@${FIXDEPS} "${OBJECTDIR}/RamkiCzujnikow.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/WeWy.o: WeWy.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/WeWy.o.d 
-	@${RM} ${OBJECTDIR}/WeWy.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -DPARKINGI -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/WeWy.o   WeWy.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/WeWy.o 
-	@${FIXDEPS} "${OBJECTDIR}/WeWy.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/transmisja.o: transmisja.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/transmisja.o.d 
-	@${RM} ${OBJECTDIR}/transmisja.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -DPARKINGI -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/transmisja.o   transmisja.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/transmisja.o 
-	@${FIXDEPS} "${OBJECTDIR}/transmisja.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
 else
-${OBJECTDIR}/interrupts.o: interrupts.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/interrupts.o.d 
-	@${RM} ${OBJECTDIR}/interrupts.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -DPARKINGI -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/interrupts.o   interrupts.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/interrupts.o 
-	@${FIXDEPS} "${OBJECTDIR}/interrupts.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/main.o.d 
-	@${RM} ${OBJECTDIR}/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -DPARKINGI -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/main.o   main.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/main.o 
-	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/CAN.o: CAN.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/CAN.o.d 
-	@${RM} ${OBJECTDIR}/CAN.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -DPARKINGI -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/CAN.o   CAN.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/CAN.o 
-	@${FIXDEPS} "${OBJECTDIR}/CAN.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/EEPROM.o: EEPROM.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/EEPROM.o.d 
-	@${RM} ${OBJECTDIR}/EEPROM.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -DPARKINGI -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/EEPROM.o   EEPROM.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/EEPROM.o 
-	@${FIXDEPS} "${OBJECTDIR}/EEPROM.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/RamkiKarty.o: RamkiKarty.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/RamkiKarty.o.d 
-	@${RM} ${OBJECTDIR}/RamkiKarty.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -DPARKINGI -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/RamkiKarty.o   RamkiKarty.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/RamkiKarty.o 
-	@${FIXDEPS} "${OBJECTDIR}/RamkiKarty.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/c018i.o: c018i.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/c018i.o.d 
-	@${RM} ${OBJECTDIR}/c018i.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -DPARKINGI -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/c018i.o   c018i.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/c018i.o 
-	@${FIXDEPS} "${OBJECTDIR}/c018i.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/RamkiCzujnikow.o: RamkiCzujnikow.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/RamkiCzujnikow.o.d 
-	@${RM} ${OBJECTDIR}/RamkiCzujnikow.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -DPARKINGI -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/RamkiCzujnikow.o   RamkiCzujnikow.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/RamkiCzujnikow.o 
-	@${FIXDEPS} "${OBJECTDIR}/RamkiCzujnikow.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/WeWy.o: WeWy.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/WeWy.o.d 
-	@${RM} ${OBJECTDIR}/WeWy.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -DPARKINGI -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/WeWy.o   WeWy.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/WeWy.o 
-	@${FIXDEPS} "${OBJECTDIR}/WeWy.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
-${OBJECTDIR}/transmisja.o: transmisja.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/transmisja.o.d 
-	@${RM} ${OBJECTDIR}/transmisja.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -DPARKINGI -ms -oa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/transmisja.o   transmisja.c 
-	@${DEP_GEN} -d ${OBJECTDIR}/transmisja.o 
-	@${FIXDEPS} "${OBJECTDIR}/transmisja.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
-	
 endif
 
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: link
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-dist/${CND_CONF}/${IMAGE_TYPE}/SieciowySystemDetekcjiKartaCzujnikowa.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    18f26k80_bootloader.lkr
+dist/${CND_CONF}/${IMAGE_TYPE}/SieciowySystemDetekcjiKartaCzujnikowa.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk  acconeer/rss/lib/libacconeer.as acconeer/rss/lib/libacconeer_sensor.as acconeer/rss/lib/libacc_service.as acconeer/rss/lib/libacc_detector_distance_peak.as  18f26k80_bootloader.lkr
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_LD} $(MP_EXTRA_LD_PRE) "18f26k80_bootloader.lkr"  -p$(MP_PROCESSOR_OPTION_LD)  -w -x -u_DEBUG -m"${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"  -z__MPLAB_BUILD=1  -u_CRUNTIME -z__MPLAB_DEBUG=1 -z__MPLAB_DEBUGGER_PK3=1 $(MP_LINKER_DEBUG_OPTION) -l ${MP_CC_DIR}\\..\\lib  -o dist/${CND_CONF}/${IMAGE_TYPE}/SieciowySystemDetekcjiKartaCzujnikowa.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}   
+	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=dist/${CND_CONF}/${IMAGE_TYPE}/SieciowySystemDetekcjiKartaCzujnikowa.${IMAGE_TYPE}.map  -D__DEBUG=1  -DXPRJ_Parkingi=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -mrom=default,-fd30-ffff -mram=default,-cf4-cff,-f9c-f9c,-fd4-fd4,-fdb-fdf,-fe3-fe7,-feb-fef,-ffd-fff  $(COMPARISON_BUILD) -Wl,--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -o dist/${CND_CONF}/${IMAGE_TYPE}/SieciowySystemDetekcjiKartaCzujnikowa.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}    acconeer\rss\lib\libacconeer.as acconeer\rss\lib\libacconeer_sensor.as acconeer\rss\lib\libacc_service.as acconeer\rss\lib\libacc_detector_distance_peak.as 
+	@${RM} dist/${CND_CONF}/${IMAGE_TYPE}/SieciowySystemDetekcjiKartaCzujnikowa.${IMAGE_TYPE}.hex 
+	
 else
-dist/${CND_CONF}/${IMAGE_TYPE}/SieciowySystemDetekcjiKartaCzujnikowa.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   18f26k80_bootloader.lkr
+dist/${CND_CONF}/${IMAGE_TYPE}/SieciowySystemDetekcjiKartaCzujnikowa.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk  acconeer/rss/lib/libacconeer.as acconeer/rss/lib/libacconeer_sensor.as acconeer/rss/lib/libacc_service.as acconeer/rss/lib/libacc_detector_distance_peak.as 18f26k80_bootloader.lkr
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_LD} $(MP_EXTRA_LD_PRE) "18f26k80_bootloader.lkr"  -p$(MP_PROCESSOR_OPTION_LD)  -w  -m"${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"  -z__MPLAB_BUILD=1  -u_CRUNTIME -l ${MP_CC_DIR}\\..\\lib  -o dist/${CND_CONF}/${IMAGE_TYPE}/SieciowySystemDetekcjiKartaCzujnikowa.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}   
+	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=dist/${CND_CONF}/${IMAGE_TYPE}/SieciowySystemDetekcjiKartaCzujnikowa.${IMAGE_TYPE}.map  -DXPRJ_Parkingi=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1  -fno-short-double -fno-short-float -memi=wordwrite -O0 -maddrqual=ignore -I"acconeer/rss/include" -I"acconeer/examples" -I"acconeer/integration" -I"acconeer/src" -mwarn=-3 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     $(COMPARISON_BUILD) -Wl,--memorysummary,dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -o dist/${CND_CONF}/${IMAGE_TYPE}/SieciowySystemDetekcjiKartaCzujnikowa.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}    acconeer\rss\lib\libacconeer.as acconeer\rss\lib\libacconeer_sensor.as acconeer\rss\lib\libacc_service.as acconeer\rss\lib\libacc_detector_distance_peak.as 
+	
 endif
 
 
