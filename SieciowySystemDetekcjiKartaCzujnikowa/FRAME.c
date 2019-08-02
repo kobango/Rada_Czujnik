@@ -412,7 +412,7 @@ static void FRAME_DeviceReset(mID *message) //0x07
 {
     if(message->message_type == CAN_MSG_RTR)
     {
-        message->data_length = 1;
+        message->data_length = 8;
         
         message->data[0] = (RCON>>6) & 0x01; //stan software reset
         message->data[1] = Flagi.wykonanoZapisDoFlash;

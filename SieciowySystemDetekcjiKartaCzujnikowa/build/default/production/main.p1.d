@@ -1,11 +1,13 @@
-build/default/production/main.p1:  \
-main.c  \
+ build/default/production/main.d  \
+ build/default/production/main.p1:  \
+ main.c  \
+RADARMETADATA.h  \
 main.h  \
-GenericTypeDefs.h  \
+FLASH.h  \
 DetekcjaSasiadow.h  \
 TRM.h  \
-ISR.h  \
 TMR1.h  \
-LED.h  \
 INI.h  \
-FLASH.h 
+LED.h  \
+ISR.h  \
+GenericTypeDefs.h 

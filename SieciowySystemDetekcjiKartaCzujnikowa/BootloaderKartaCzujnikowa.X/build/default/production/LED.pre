@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "LED.c"
 
 # 44 "C:\Program Files (x86)\Microchip\xc8\v1.21\include\pic18f4680.h"
 extern volatile unsigned char RXF6SIDH @ 0xD60;
@@ -19377,23 +19377,6 @@ extern void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern void _delay3(unsigned char);
 
-# 32 "main.h"
-typedef struct{
-
-unsigned char buffer_status;
-
-unsigned char message_type;
-
-unsigned char frame_type;
-
-unsigned char buffer;
-
-
-DWORD_VAL id;
-unsigned char data[8];
-unsigned char data_length;
-}mID;
-
 # 12 "LED.h"
 void INI_LED_Start(void);
 UINT8 LED_Update(void);
@@ -19405,340 +19388,371 @@ UINT LED_Clear(void);
 void LOCK_Set(BYTE k);
 BYTE LOCK_Get(void);
 
-# 16 "main.c"
-typedef short Word16;
-typedef unsigned short UWord16;
-typedef long Word32;
-typedef unsigned long UWord32;
+# 14 "LED.c"
+typedef enum LED_RGA {RED = 0,GREEN = 1}LED_RGA_type;
 
-typedef union tuReg32 {
-UWord32 Val32;
+UINT8 LED_Control(LED_RGA_type color, UINT diode);
+void INI_LED_Start(void);
+UINT LED_Vect_Create(void);
+UINT LED_Right(UINT a);
+UINT LED_Left(UINT a);
+UINT LED_Light_Pos(LED_RGA_type color,UINT pos, UINT fulfillment);
+UINT8 LED_Update(void);
+UINT LED_Error(void);
+UINT LED_Clear(void);
 
-struct {
-UWord16 LW;
-UWord16 HW;
-} Word;
+void Fulfillment_Lvl_Set(UINT a);
+UINT Fulfillment_Lvl_Get(void);
 
-char Val[4];
-} uReg32;
-
-
-
-
-
-#pragma config OSC = IRCIO67
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
-
-
-#pragma config PWRT = OFF
-#pragma config BOREN = BOHW
-#pragma config BORV = 3
-
-
-#pragma config WDT = OFF
-#pragma config WDTPS = 32768
-
-
-#pragma config PBADEN = ON
-#pragma config LPT1OSC = OFF
-#pragma config MCLRE = ON
-
-
-#pragma config STVREN = ON
-#pragma config LVP = OFF
-#pragma config BBSIZ = 1024
-#pragma config XINST = OFF
-
-
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-#pragma config CP2 = OFF
-#pragma config CP3 = OFF
-
-
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-
-
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-#pragma config WRT2 = OFF
-#pragma config WRT3 = OFF
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-#pragma config EBTR2 = OFF
-#pragma config EBTR3 = OFF
-
-
-#pragma config EBTRB = OFF
+void LOCK_Set(BYTE k);
+BYTE LOCK_Get(void);
 
 
 
-void ResetDevice(void);
+static UINT Fulfillment_Lvl = 20;
+static BYTE LOCK = 0;
 
-uReg32 SourceAddr;
-unsigned char buforCAN[65];
-unsigned char counter = 0;
-unsigned char ramekInicjalizacji = 0, iloscBajtow = 0;
-
-
-# 99
-#asm
-PSECT intcode
-GOTO 0xc08
-PSECT intcodelo
-GOTO 0xc18
-
-#endasm 
-
-static void OdbierzRamke(void)
+# 49
+UINT LED_Error(void)
 {
-volatile unsigned char *pointerU8;
-unsigned char i, k,tempCON = 0;
-unsigned int tempU16;
-
-k = CANCON&0x0F;
-
-ECANCON = 0x90 | k;
-
-
-switch(k)
-{
-case 0:
-tempCON = RXB0CON;
-break;
-case 1:
-tempCON = RXB1CON;
-break;
-case 2:
-tempCON = B0CON;
-break;
-case 3:
-tempCON = B1CON;
-break;
-case 4:
-tempCON = B2CON;
-break;
-case 5:
-tempCON = B3CON;
-break;
-case 6:
-tempCON = B4CON;
-break;
-case 7:
-tempCON = B5CON;
-break;
+LED_Control(RED,0b1010101010);
+LED_Control(GREEN,0b0000000000);
+return 1;
 }
 
-if((tempCON & 0x80) > 0)
+# 67
+UINT LED_Clear(void)
 {
-pointerU8 = &RXB0D0;
-for(i=0;i<8;i++)
-{
-buforCAN[iloscBajtow++]=(*(pointerU8+i));
+LED_Control(RED,0b0000000000);
+LED_Control(GREEN,0b1010101010);
+return 1;
 }
-if(ramekInicjalizacji < 10)
+
+# 84
+void LOCK_Set(BYTE k)
 {
-for(i=0; i<8; i++)
-{
-if(buforCAN[i] != ((ramekInicjalizacji*10)+i))
-{
-break;
+LOCK = k;
 }
-}
-if(i==8)
+
+# 100
+BYTE LOCK_Get(void)
 {
-iloscBajtow = 0;
-ramekInicjalizacji++;
+return LOCK;
+}
+
+# 116
+void Fulfillment_Lvl_Set(UINT a)
+{
+Fulfillment_Lvl = a;
+}
+
+# 132
+UINT Fulfillment_Lvl_Get(void)
+{
+return Fulfillment_Lvl;
+}
+
+# 148
+UINT8 LED_Update(void)
+{
+static LED_RGA_type Red = RED;
+static LED_RGA_type Green = GREEN;
+static UINT pos1 = 0b0000000001;
+static UINT pos2 = 0b0000000001;
+
+if(LOCK == 0)
+{
+LED_Control(RED,0b0000000000);
+LED_Light_Pos(Green,pos2,Fulfillment_Lvl);
+
 }
 else
 {
+LED_Control(Green,0b0000000000);
+LED_Light_Pos(RED,pos1,Fulfillment_Lvl);
+}
+pos1 = LED_Right(pos1);
+pos2 = LED_Left(pos2);
 
-iloscBajtow = 0;
-ResetDevice();
+return 1;
 }
-}
-else if((iloscBajtow >= 64))
+
+# 183
+UINT LED_Right(UINT a)
 {
-LED_Error();
-EraseFlash(SourceAddr.Val32, SourceAddr.Val32+(unsigned long)64);
-WriteBytesFlash(SourceAddr.Val32,64,buforCAN);
-SourceAddr.Val32 += 64;
-iloscBajtow = 0;
-}
-TMR0 = 62500;
-counter = 0;
-asm(" clrwdt");
-switch(k)
+if ((a & 0b0000000001) == 0b0000000001)
 {
-case 0:
-RXB0CON = 0;
-break;
-case 1:
-RXB1CON = 0;
-break;
-case 2:
-B0CON = 0;
-break;
-case 3:
-B1CON = 0;
-break;
-case 4:
-B2CON = 0;
-break;
-case 5:
-B3CON = 0;
-break;
-case 6:
-B4CON = 0;
-break;
-case 7:
-B5CON = 0;
-break;
+UINT b = a & 0b1111111110;
+b = b >> 1;
+b = b | 0b1000000000;
+return b;
 }
-}
-}
-
-void ResetDevice(void) {
-
-asm(" goto 0xC00");
-}
-
-int main(void)
+else
 {
-unsigned char Delay;
+a =a >> 1;
+return a;
+}
+}
 
-
-if((RCON&0x3F)!=0x3C)
+# 210
+UINT LED_Left(UINT a)
 {
-ResetDevice();
-}
-
-Delay = 5;
-
-TRISA = 0xFF;
-TRISB = 0xFF;
-TRISAbits.TRISA5 = 0;
-LED_Clear();
-TRISC = 0xFF;
-TRISCbits.TRISC6 = 0;
-
-
-T0CON = 0x00;
-T0CONbits.T0PS = 0x05;
-
-INTCONbits.TMR0IE = 0;
-INTCONbits.TMR0IF = 0;
-
-TMR0 = 62500;
-
-
-T0CONbits.TMR0ON = 1;
-
-
-CANCON = 0x80;
-while((CANSTAT & 0xE0)!=0x80)
+if ((a & 0b1000000000) == 0b1000000000)
 {
-;
+UINT b = a & 0b0111111111;
+b = b << 1;
+b = b | 0b0000000001;
+return b;
 }
-
-
-ECANCON = 0x90;
-
-
-
-BRGCON1bits.BRP0 = ((16000000/(2*20*50000))-1) & 0b000001;
-BRGCON1bits.BRP1 = (((16000000/(2*20*50000))-1) >> 1) & 0b000001;
-BRGCON1bits.BRP2 = (((16000000/(2*20*50000))-1) >> 2) & 0b000001;
-BRGCON1bits.BRP3 = (((16000000/(2*20*50000))-1) >> 3) & 0b000001;
-BRGCON1bits.BRP4 = (((16000000/(2*20*50000))-1) >> 4) & 0b000001;
-BRGCON1bits.BRP5 = (((16000000/(2*20*50000))-1) >> 5) & 0b000001;
-
-BRGCON1bits.SJW0 = 1;
-BRGCON1bits.SJW1 = 1;
-
-BRGCON2bits.SEG1PH0 = 1;
-BRGCON2bits.SEG1PH1 = 1;
-BRGCON2bits.SEG1PH2 = 1;
-
-BRGCON2bits.PRSEG2 = 1;
-BRGCON2bits.PRSEG1 = 0;
-BRGCON2bits.PRSEG0 = 0;
-
-BRGCON3bits.SEG2PH0 = 1;
-BRGCON3bits.SEG2PH1 = 0;
-BRGCON3bits.SEG2PH2 = 1;
-
-BRGCON2bits.SAM = 1;
-BRGCON2bits.SEG2PHTS = 1;
-
-BRGCON2bits.SAM = 1;
-BRGCON2bits.SEG2PHTS = 1;
-
-
-
-
-MSEL0 = 0x00;
-RXM0SIDH = 0b11100000;
-RXM0SIDL = 0b00001011;
-RXM0EIDH = 0xFF;
-RXM0EIDL = 0xFF;
-
-
-RXF0SIDH = 0x60;
-RXF0SIDL = 0x01;
-RXF0SIDLbits.EXIDEN = 1;
-RXF0EIDH = 0x40;
-RXF0EIDL = 0;
-
-
-
-RXFCON0 = 0x01;
-RXFCON1 = 0x00;
-
-# 318
-RXB0CON = 0;
-RXB1CON = 0;
-B0CON = 0;
-B1CON = 0;
-B2CON = 0;
-B3CON = 0;
-B4CON = 0;
-B5CON = 0;
-
-
-CANCON = 0x00;
-while((CANSTAT & 0xE0) > 0)
+else
 {
-;
+a = a << 1;
+return a;
 }
-SourceAddr.Val32 = (DWORD)0xC00;
-counter = 0;
-iloscBajtow = 0;
-ramekInicjalizacji = 0;
-for(;;)
+}
+
+# 239
+UINT LED_Light_Pos(LED_RGA_type color,UINT pos, UINT fulfillment)
 {
-OdbierzRamke();
-
-
-if(INTCONbits.TMR0IF == 1)
+UINT pos2 =pos;
+UINT LED_array = 0b0000000000;
+UINT flage = fulfillment/10;
+if(color == RED)
 {
-INTCONbits.TMR0IF = 0;
-asm(" clrwdt");
-
-if(++counter >= Delay)
+while(flage>0)
 {
-ResetDevice();
+LED_array = pos2|LED_array;
+pos2 = LED_Left(pos2);
+flage = flage - 1;
 }
 }
+else
+{
+while(flage>0)
+{
+LED_array = pos2|LED_array;
+pos2 = LED_Right(pos2);
+flage = flage - 1;
 }
+}
+LED_Control(color, LED_array);
+return LED_array;
 }
 
+# 274
+void INI_LED_Start(void)
+{
+TRISA = TRISA & 0b00000001;
+TRISB = TRISB & 0b11111100;
+TRISE = TRISE & 0b11111000;
+TRISD = TRISD & 0b00000000;
+LED_Control(RED,0b0000000000);
+LED_Control(GREEN,0b0000000000);
+
+
+}
+
+# 299
+UINT8 LED_Control(LED_RGA_type color,UINT diode)
+{
+UINT cos =1;
+if(color == RED)
+{
+
+if((diode & 0b0000000001)== 0b0000000001)
+{
+LATD = LATD | ~0b11101111;
+}
+else
+{
+LATD = LATD &0b11101111;
+}
+
+if((diode & 0b0000000010) == 0b0000000010)
+{
+LATD = LATD | ~0b10111111;
+}
+else
+{
+LATD = LATD & 0b10111111;
+}
+
+if((diode & 0b0000000100) == 0b0000000100)
+{
+LATB = LATB | ~0b11111110;
+}
+else
+{
+LATB = LATB & 0b11111110;
+}
+
+
+if((diode & 0b0000001000) == 0b0000001000)
+{
+LATA = LATA | ~0b11111101;
+}
+else
+{
+LATA = LATA & 0b11111101;
+}
+
+
+if((diode & 0b0000010000) == 0b0000010000)
+{
+LATA = LATA | ~0b11110111;
+}
+else
+{
+LATA = LATA & 0b11110111;
+}
+
+
+if((diode & 0b0000100000) == 0b0000100000)
+{
+LATA = LATA | ~0b11011111;
+}
+else
+{
+LATA = LATA & 0b11011111;
+}
+
+if((diode & 0b0001000000) == 0b0001000000)
+{
+LATE = LATE | ~0b11111101;
+}
+else
+{
+LATE = LATE & 0b11111101;
+}
+
+if((diode & 0b0010000000) == 0b0010000000)
+{
+LATA = LATA | ~0b01111111;
+}
+else
+{
+LATA = LATA & 0b01111111;
+}
+
+
+if((diode & 0b0100000000) == 0b0100000000)
+{
+LATD = LATD | ~0b11111110;
+}
+else
+{
+LATD = LATD & 0b11111110;
+}
+
+if((diode & 0b1000000000) == 0b1000000000)
+{
+LATD = LATD | ~0b11111011;
+}
+else
+{
+LATD = LATD & 0b11111011;
+}
+
+}
+
+if(color == GREEN)
+{
+
+if((diode & 0b0000000001) == 0b0000000001)
+{
+LATD = LATD | ~0b11011111;
+}
+else
+{
+LATD = LATD & 0b11011111;
+}
+
+
+if((diode & 0b0000000010) == 0b0000000010)
+{
+LATD = LATD | ~0b01111111;
+}
+else
+{
+LATD = LATD & 0b01111111;
+}
+
+
+if((diode & 0b0000000100) == 0b0000000100)
+{
+LATB = LATB | ~0b11111101;
+}
+else
+{
+LATB = LATB & 0b11111101;
+}
+
+if((diode & 0b0000001000) == 0b0000001000)
+{
+LATA = LATA | ~0b11111011;
+}
+else
+{
+LATA = LATA & 0b11111011;
+}
+
+
+if((diode & 0b0000010000) == 0b0000010000)
+{
+LATA = LATA | ~0b11101111;
+}
+else
+{
+LATA = LATA & 0b11101111;
+}
+
+
+if((diode & 0b0000100000) == 0b0000100000)
+{
+LATE = LATE | ~0b11111110;
+}
+else
+{
+LATE = LATE & 0b11111110;
+}
+
+
+if((diode & 0b0001000000) == 0b0001000000)
+{
+LATE = LATE | ~0b11111011;
+}
+else
+{
+LATE = LATE & 0b11111011;
+}
+
+if((diode & 0b0010000000) == 0b0010000000)
+{
+LATA = LATA | ~0b10111111;
+}
+else
+{
+LATA = LATA & 0b10111111;
+}
+
+if((diode & 0b0100000000) == 0b0100000000)
+{
+LATD = LATD | ~0b11111101;
+}
+else
+{
+LATD = LATD & 0b11111101;
+}
+
+if((diode & 0b1000000000) == 0b1000000000)
+{
+LATD = LATD | ~0b11110111;
+}
+else
+{
+LATD = LATD &0b11110111;
+}
+
+}
+return 1;
+}

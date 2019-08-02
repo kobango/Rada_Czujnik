@@ -6,12 +6,15 @@
 #include "LED.h"
 #include "INI.h"
 #include "FLASH.h"
+#include "RADARMETADATA.h"
+#include <pic18f4680.h>
+
 
 
 // PIC18F26K80 Configuration Bit Settings
 
 // CONFIG1L
-// PIC18F4680 Configuration Bit Settings
+//  Configuration Bit Settings
 
 // 'C' source line config statements
 //#pragma config IDLOC0 =   100u;
@@ -133,6 +136,7 @@ void main(void)
         
         
         TRM_DataTransmition();
+        RADAR_Use();
         ClrWdt();
     }
 }

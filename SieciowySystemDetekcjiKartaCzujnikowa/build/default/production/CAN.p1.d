@@ -1,8 +1,9 @@
-build/default/production/CAN.p1:  \
-CAN.c  \
+ build/default/production/CAN.d  \
+ build/default/production/CAN.p1:  \
+ CAN.c  \
 main.h  \
-GenericTypeDefs.h  \
 DetekcjaSasiadow.h  \
 TRM.h  \
-CAN.h  \
-FRAME.h 
+FRAME.h  \
+GenericTypeDefs.h  \
+CAN.h 

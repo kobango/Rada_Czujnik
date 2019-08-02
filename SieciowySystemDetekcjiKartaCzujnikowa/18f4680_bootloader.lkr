@@ -1,4 +1,4 @@
-// File: 18f26k80_g.lkr
+// File: 18f4680_g.lkr
 // Generic linker script for the PIC18F26K80 processor
 
 #DEFINE _CODEEND _DEBUGCODESTART - 0xC00 - 1
@@ -10,14 +10,14 @@ LIBPATH .
 
 #IFDEF _CRUNTIME
   #IFDEF _EXTENDEDMODE
-    FILES c018i_e.o
-    FILES clib_e.lib
-    FILES p18f26k80_e.lib
+    FILES c018i.o
+    FILES clib.lib
+    FILES p18f4680.lib
 
   #ELSE
     //FILES c018i.o
     FILES clib.lib
-    FILES p18f26k80.lib
+    FILES p18f4680.lib
   #FI
 
 #FI

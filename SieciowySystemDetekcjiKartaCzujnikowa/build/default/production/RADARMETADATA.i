@@ -1,5 +1,5 @@
 
-# 1 "LED.c"
+# 1 "RADARMETADATA.c"
 
 # 18 "C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\xc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -18326,382 +18326,116 @@ unsigned char b63:1;
 } bits;
 } QWORD_VAL;
 
-# 12 "LED.h"
-void INI_LED_Start(void);
-UINT8 LED_Update(void);
-void Fulfillment_Lvl_Set(UINT a);
-UINT Fulfillment_Lvl_Get(void);
-UINT LED_Error(void);
-UINT LED_Clear(void);
+# 15 "DetekcjaSasiadow.h"
+typedef struct{
+SHORT pointerU16;
+SHORT aktualnaWartoscSredniaS16, poprzedniaWartoscSredniaS16;
+SHORT wartosciHistoryczneS16[25];
+}historiaStruct;
 
-void LOCK_Set(BYTE k);
-BYTE LOCK_Get(void);
+typedef struct{
+WORD aktualnaWartoscU16, aktualnyStanU16, poprzedniStanU16;
+SHORT przesuniecieTlaS16[3];
+historiaStruct historia;
+}wartosciSasiadaStruct;
 
-# 14 "LED.c"
-typedef enum LED_RGA {RED = 0,GREEN = 1}LED_RGA_type;
-
-UINT8 LED_Control(LED_RGA_type color, UINT diode);
-void INI_LED_Start(void);
-UINT LED_Vect_Create(void);
-UINT LED_Right(UINT a);
-UINT LED_Left(UINT a);
-UINT LED_Light_Pos(LED_RGA_type color,UINT pos, UINT fulfillment);
-UINT8 LED_Update(void);
-UINT LED_Error(void);
-UINT LED_Clear(void);
-
-void Fulfillment_Lvl_Set(UINT a);
-UINT Fulfillment_Lvl_Get(void);
-
-void LOCK_Set(BYTE k);
-BYTE LOCK_Get(void);
+typedef struct{
+WORD adres;
+wartosciSasiadaStruct *pointerNaSasiada;
+}sasiadStruct;
 
 
 
-static UINT Fulfillment_Lvl = 20;
-static BYTE LOCK = 0;
-
-# 49
-UINT LED_Error(void)
-{
-LED_Control(RED,0b1010101010);
-LED_Control(GREEN,0b0000000000);
-return 1;
-}
-
-# 67
-UINT LED_Clear(void)
-{
-LED_Control(RED,0b0000000000);
-LED_Control(GREEN,0b1010101010);
-return 1;
-}
-
-# 84
-void LOCK_Set(BYTE k)
-{
-LOCK = k;
-}
-
-# 100
-BYTE LOCK_Get(void)
-{
-return LOCK;
-}
-
-# 116
-void Fulfillment_Lvl_Set(UINT a)
-{
-Fulfillment_Lvl = a;
-}
-
-# 132
-UINT Fulfillment_Lvl_Get(void)
-{
-return Fulfillment_Lvl;
-}
-
-# 148
-UINT8 LED_Update(void)
-{
-static LED_RGA_type Red = RED;
-static LED_RGA_type Green = GREEN;
-static UINT pos1 = 0b0000000001;
-static UINT pos2 = 0b0000000001;
-
-if(LOCK == 0)
-{
-LED_Control(RED,0b0000000000);
-LED_Light_Pos(Green,pos2,Fulfillment_Lvl);
-
-}
-else
-{
-LED_Control(Green,0b0000000000);
-LED_Light_Pos(RED,pos1,Fulfillment_Lvl);
-}
-pos1 = LED_Right(pos1);
-pos2 = LED_Left(pos2);
-
-return 1;
-}
-
-# 183
-UINT LED_Right(UINT a)
-{
-if ((a & 0b0000000001) == 0b0000000001)
-{
-UINT b = a & 0b1111111110;
-b = b >> 1;
-b = b | 0b1000000000;
-return b;
-}
-else
-{
-a =a >> 1;
-return a;
-}
-}
-
-# 210
-UINT LED_Left(UINT a)
-{
-if ((a & 0b1000000000) == 0b1000000000)
-{
-UINT b = a & 0b0111111111;
-b = b << 1;
-b = b | 0b0000000001;
-return b;
-}
-else
-{
-a = a << 1;
-return a;
-}
-}
-
-# 239
-UINT LED_Light_Pos(LED_RGA_type color,UINT pos, UINT fulfillment)
-{
-UINT pos2 =pos;
-UINT LED_array = 0b0000000000;
-UINT flage = fulfillment/10;
-if(color == RED)
-{
-while(flage>0)
-{
-LED_array = pos2|LED_array;
-pos2 = LED_Left(pos2);
-flage = flage - 1;
-}
-}
-else
-{
-while(flage>0)
-{
-LED_array = pos2|LED_array;
-pos2 = LED_Right(pos2);
-flage = flage - 1;
-}
-}
-LED_Control(color, LED_array);
-return LED_array;
-}
-
-# 274
-void INI_LED_Start(void)
-{
-TRISA = TRISA & 0b00000001;
-TRISB = TRISB & 0b11111100;
-TRISE = TRISE & 0b11111000;
-TRISD = TRISD & 0b00000000;
-LED_Control(RED,0b0000000000);
-LED_Control(GREEN,0b0000000000);
+void AktualizacjaTlaOdSasiadow(void);
 
 
-}
+extern wartosciSasiadaStruct wartosciSasiada[8];
 
-# 299
-UINT8 LED_Control(LED_RGA_type color,UINT diode)
+# 53 "main.h"
+struct PozycjaNaMapceStruct
 {
-UINT cos =1;
-if(color == RED)
-{
+WORD xU16 ;
+WORD yU16 ;
+};
 
-if((diode & 0b0000000001)== 0b0000000001)
+struct DaneStruct
 {
-LATD = LATD | ~0b11101111;
-}
-else
-{
-LATD = LATD &0b11101111;
-}
+WORD numerSeryjnyU16 ;
+WORD startupU16 ;
+WORD wersjaOprogramowaniaU16 ;
+struct PozycjaNaMapceStruct PozycjaNaMapce;
+WORD wersjaSprzetuU16 ;
+WORD timerRysowaniaWykresuU16 ;
+sasiadStruct sasiedzi[8];
+WORD rokU16, miesiacU16, dzienU16, godzinaU16, minutaU16;
+WORD NrKarty;
+WORD Nr_WeWy;
+};
 
-if((diode & 0b0000000010) == 0b0000000010)
-{
-LATD = LATD | ~0b10111111;
-}
-else
-{
-LATD = LATD & 0b10111111;
-}
+struct FlagStruct{
+unsigned pomiarTla :1;
+unsigned detekcja :1;
+unsigned zgloszenie :1;
+unsigned zapisDoFlash :1;
+unsigned wykonanoZapisDoFlash :1;
+unsigned pomiarAccelerometer :1;
+unsigned wykonanoReset :1;
+unsigned aktualizacjaSasiadow : 1;
 
-if((diode & 0b0000000100) == 0b0000000100)
-{
-LATB = LATB | ~0b11111110;
-}
-else
-{
-LATB = LATB & 0b11111110;
-}
+struct CANStruct{
+unsigned wyslijRamkeDanych :1;
+unsigned odebranoDane :1;
+unsigned CanAktywny : 1;
+WORD identyfikatorU16;
+}CAN;
 
+BYTE frameCounterU8;
+};
 
-if((diode & 0b0000001000) == 0b0000001000)
+# 97
+typedef struct{
+union
 {
-LATA = LATA | ~0b11111101;
-}
-else
-{
-LATA = LATA & 0b11111101;
-}
+BYTE flagiU8;
 
+struct{
+unsigned obsluzWeWy : 1;
+unsigned error : 1;
+unsigned uczenieTla : 1;
+unsigned inicjalizacja : 1;
+unsigned ramkaTx : 1;
+unsigned wykonanoZapisDoFlash: 1;
+unsigned pomiarTla: 8;
+};
+}Flags;
 
-if((diode & 0b0000010000) == 0b0000010000)
-{
-LATA = LATA | ~0b11110111;
-}
-else
-{
-LATA = LATA & 0b11110111;
-}
-
-
-if((diode & 0b0000100000) == 0b0000100000)
-{
-LATA = LATA | ~0b11011111;
-}
-else
-{
-LATA = LATA & 0b11011111;
-}
-
-if((diode & 0b0001000000) == 0b0001000000)
-{
-LATE = LATE | ~0b11111101;
-}
-else
-{
-LATE = LATE & 0b11111101;
-}
-
-if((diode & 0b0010000000) == 0b0010000000)
-{
-LATA = LATA | ~0b01111111;
-}
-else
-{
-LATA = LATA & 0b01111111;
-}
+BYTE timerRamkiTxCANU8;
+}KartaStruct;
 
 
-if((diode & 0b0100000000) == 0b0100000000)
-{
-LATD = LATD | ~0b11111110;
-}
-else
-{
-LATD = LATD & 0b11111110;
-}
-
-if((diode & 0b1000000000) == 0b1000000000)
-{
-LATD = LATD | ~0b11111011;
-}
-else
-{
-LATD = LATD & 0b11111011;
-}
-
-}
-
-if(color == GREEN)
-{
-
-if((diode & 0b0000000001) == 0b0000000001)
-{
-LATD = LATD | ~0b11011111;
-}
-else
-{
-LATD = LATD & 0b11011111;
-}
 
 
-if((diode & 0b0000000010) == 0b0000000010)
-{
-LATD = LATD | ~0b01111111;
-}
-else
-{
-LATD = LATD & 0b01111111;
-}
+extern KartaStruct DetectorLedRadar;
 
+extern struct DaneStruct *Dane;
+extern struct FlagStruct Flagi;
 
-if((diode & 0b0000000100) == 0b0000000100)
-{
-LATB = LATB | ~0b11111101;
-}
-else
-{
-LATB = LATB & 0b11111101;
-}
+extern void _startup (void);
+void WylaczPrzerwania(void);
+void WlaczPotwierdzenie(void);
+void zapisUstawienDoEEPROM(void);
+void InterruptHandlerHigh(void);
+void INI_All(void);
 
-if((diode & 0b0000001000) == 0b0000001000)
-{
-LATA = LATA | ~0b11111011;
-}
-else
-{
-LATA = LATA & 0b11111011;
-}
+# 7 "RADARMETADATA.h"
+void RADAR_Use (void);
 
-
-if((diode & 0b0000010000) == 0b0000010000)
+# 16 "RADARMETADATA.c"
+void RADAR_Use(void)
 {
-LATA = LATA | ~0b11101111;
-}
-else
+if(Flagi.pomiarTla == 1)
 {
-LATA = LATA & 0b11101111;
+Flagi.detekcja = 0;
+Flagi.pomiarTla = 0;
 }
-
-
-if((diode & 0b0000100000) == 0b0000100000)
-{
-LATE = LATE | ~0b11111110;
-}
-else
-{
-LATE = LATE & 0b11111110;
-}
-
-
-if((diode & 0b0001000000) == 0b0001000000)
-{
-LATE = LATE | ~0b11111011;
-}
-else
-{
-LATE = LATE & 0b11111011;
-}
-
-if((diode & 0b0010000000) == 0b0010000000)
-{
-LATA = LATA | ~0b10111111;
-}
-else
-{
-LATA = LATA & 0b10111111;
-}
-
-if((diode & 0b0100000000) == 0b0100000000)
-{
-LATD = LATD | ~0b11111101;
-}
-else
-{
-LATD = LATD & 0b11111101;
-}
-
-if((diode & 0b1000000000) == 0b1000000000)
-{
-LATD = LATD | ~0b11110111;
-}
-else
-{
-LATD = LATD &0b11110111;
-}
-
-}
-return 1;
 }
