@@ -3,9 +3,9 @@
   <executable name="dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.hex">
     <memory name="program">
       <units>bytes</units>
-      <length>65536</length>
+      <length>62464</length>
       <used>7069</used>
-      <free>58467</free>
+      <free>55395</free>
     </memory>
     <memory name="data">
       <units>bytes</units>

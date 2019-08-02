@@ -75,12 +75,12 @@
         <archiverTool>
         </archiverTool>
         <loading>
-          <makeArtifact PL="../../../../Desktop/RAW/SieciowySystemDetekcjiKartaCzujnikowa/BootloaderKartaCzujnikowa.X"
+          <makeArtifact PL="BootloaderKartaCzujnikowa.X"
                         CT="1"
                         CN="default"
                         AC="true"
                         BL="true"
-                        WD="../../../../Desktop/RAW/SieciowySystemDetekcjiKartaCzujnikowa/BootloaderKartaCzujnikowa.X"
+                        WD="BootloaderKartaCzujnikowa.X"
                         BC="${MAKE}  -f Makefile CONF=default"
                         DBC="${MAKE}  -f Makefile CONF=default TYPE_IMAGE=DEBUG_RUN"
                         CC="rm -rf &quot;build/default&quot; &quot;dist/default&quot;"
@@ -141,7 +141,7 @@
       </HI-TECH-COMP>
       <HI-TECH-LINK>
         <property key="additional-options-checksum" value=""/>
-        <property key="additional-options-code-offset" value=""/>
+        <property key="additional-options-code-offset" value="0xC00"/>
         <property key="additional-options-command-line" value=""/>
         <property key="additional-options-errata" value=""/>
         <property key="additional-options-extend-address" value="false"/>
@@ -160,7 +160,7 @@
         <property key="data-model-size-of-float" value="32"/>
         <property key="data-model-size-of-float-gcc" value="no-short-float"/>
         <property key="display-class-usage" value="false"/>
-        <property key="display-hex-usage" value="false"/>
+        <property key="display-hex-usage" value="true"/>
         <property key="display-overall-usage" value="true"/>
         <property key="display-psect-usage" value="false"/>
         <property key="extra-lib-directories" value=""/>
@@ -195,10 +195,10 @@
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
-        <property key="memories.configurationmemory" value="true"/>
+        <property key="memories.configurationmemory" value="false"/>
         <property key="memories.configurationmemory2" value="true"/>
         <property key="memories.dataflash" value="true"/>
-        <property key="memories.eeprom" value="true"/>
+        <property key="memories.eeprom" value="false"/>
         <property key="memories.flashdata" value="true"/>
         <property key="memories.id" value="true"/>
         <property key="memories.instruction.ram" value="true"/>
@@ -206,7 +206,7 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="c00-ffff"/>
-        <property key="poweroptions.powerenable" value="false"/>
+        <property key="poweroptions.powerenable" value="true"/>
         <property key="programmertogo.imagename" value=""/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
@@ -270,12 +270,12 @@
         <archiverTool>
         </archiverTool>
         <loading>
-          <makeArtifact PL="../../../../Desktop/RAW/SieciowySystemDetekcjiKartaCzujnikowa/BootloaderKartaCzujnikowa.X"
+          <makeArtifact PL="BootloaderKartaCzujnikowa.X"
                         CT="1"
                         CN="default"
                         AC="true"
                         BL="true"
-                        WD="../../../../Desktop/RAW/SieciowySystemDetekcjiKartaCzujnikowa/BootloaderKartaCzujnikowa.X"
+                        WD="BootloaderKartaCzujnikowa.X"
                         BC="${MAKE}  -f Makefile CONF=default"
                         DBC="${MAKE}  -f Makefile CONF=default TYPE_IMAGE=DEBUG_RUN"
                         CC="rm -rf &quot;build/default&quot; &quot;dist/default&quot;"

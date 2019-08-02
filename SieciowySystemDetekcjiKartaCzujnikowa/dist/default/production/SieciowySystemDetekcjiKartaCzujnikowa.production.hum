@@ -1,23 +1,5 @@
-### HEXMate logfile and output summary ###
-### Memory Usage ###
- Unused memory ranges:
-  0h - BFFh
-  C04h - C07h
-  C0Eh - C17h
-  2727h - 2727h
-  27ACh - 1FFFFFh
-  200008h - 2FFFFFh
-  30000Eh - 30003Fh
-  
- dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.hex ranges:
-  C00h - C03h
-  C08h - C0Dh
-  C18h - 2726h
-  2728h - 27ABh
-  200000h - 200007h
-  300000h - 30000Dh
-  
-### Hex Memory Map ###
+HEX File Usage Map:
+
  Legend:
   - = Unused memory
   F = Filled ROM
@@ -143,3 +125,5 @@
 00002780: 11111111111111111111111111111111111111111111--------------------
 00200000: 11111111--------------------------------------------------------
 00300000: 11111111111111--------------------------------------------------
+
+
