@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.05 build -831301201 
-                                                                                               Fri Aug 02 13:21:42 2019
+                                                                                               Fri Aug 02 13:17:51 2019
 
 Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1 
      1                           	processor	18F4680
@@ -233,60 +233,60 @@ Microchip MPLAB XC8 C Compiler v2.05 (Free license) build 20181220022703 Og1
    219  0000                     _RXM0SIDH	set	3864
    220  0000                     _RXB1CON	set	3920
    221  0000                     _TXB0CON	set	3904
-   222  0000                     _TBLPTR	set	4086
-   223  0000                     _TABLAT	set	4085
-   224  0000                     _EECON2	set	4007
-   225  0000                     _EEDATA	set	4008
-   226  0000                     _EECON1bits	set	4006
-   227  0000                     _EEADR	set	4009
-   228  0000                     _EEADRH	set	4010
-   229  0000                     _INTCONbits	set	4082
-   230  0000                     _WDTCONbits	set	4049
-   231  0000                     _RCONbits	set	4048
-   232  0000                     _TRISC	set	3988
-   233  0000                     _LATC	set	3979
-   234  0000                     _T1CON	set	4045
-   235  0000                     _TMR1H	set	4047
-   236  0000                     _TMR1L	set	4046
-   237  0000                     _LATE	set	3981
-   238  0000                     _LATA	set	3977
-   239  0000                     _LATB	set	3978
-   240  0000                     _LATD	set	3980
-   241  0000                     _TRISD	set	3989
-   242  0000                     _TRISE	set	3990
-   243  0000                     _TRISB	set	3987
-   244  0000                     _TRISA	set	3986
-   245  0000                     _RXB0DLCbits	set	3941
-   246  0000                     _RXB0DLC	set	3941
-   247  0000                     _RXB0SIDH	set	3937
-   248  0000                     _RXB0SIDLbits	set	3938
-   249  0000                     _RXB0SIDL	set	3938
-   250  0000                     _RXB0EIDH	set	3939
-   251  0000                     _RXB0EIDL	set	3940
-   252  0000                     _COMSTATbits	set	3956
-   253  0000                     _RXB0CONbits	set	3936
-   254  0000                     _BRGCON3bits	set	3954
-   255  0000                     _BRGCON2bits	set	3953
-   256  0000                     _BRGCON1bits	set	3952
-   257  0000                     _CIOCON	set	3955
-   258  0000                     _ECANCON	set	3959
-   259  0000                     _PIR3	set	4004
-   260  0000                     _IPR3	set	4005
-   261  0000                     _PIE3	set	4003
-   262  0000                     _RXB0CON	set	3936
-   263  0000                     _CANSTAT	set	3950
-   264  0000                     _CANCON	set	3951
-   265  0000                     _RCON	set	4048
-   266  0000                     _RXB0D0	set	3942
-   267  0000                     _TMR1IF	set	31984
-   268  0000                     _TMR1IP	set	31992
-   269  0000                     _PEIE	set	32662
-   270  0000                     _IPEN	set	32391
-   271  0000                     _TMR1ON	set	32360
-   272  0000                     _TMR1IE	set	31976
-   273  0000                     _IRCF0	set	32412
-   274  0000                     _IRCF1	set	32413
-   275  0000                     _IRCF2	set	32414
+   222  0000                     _TRISC	set	3988
+   223  0000                     _LATC	set	3979
+   224  0000                     _LATE	set	3981
+   225  0000                     _LATA	set	3977
+   226  0000                     _LATB	set	3978
+   227  0000                     _LATD	set	3980
+   228  0000                     _TRISD	set	3989
+   229  0000                     _TRISE	set	3990
+   230  0000                     _TRISB	set	3987
+   231  0000                     _TRISA	set	3986
+   232  0000                     _RXB0DLCbits	set	3941
+   233  0000                     _RXB0DLC	set	3941
+   234  0000                     _RXB0SIDH	set	3937
+   235  0000                     _RXB0SIDLbits	set	3938
+   236  0000                     _RXB0SIDL	set	3938
+   237  0000                     _RXB0EIDH	set	3939
+   238  0000                     _RXB0EIDL	set	3940
+   239  0000                     _COMSTATbits	set	3956
+   240  0000                     _RXB0CONbits	set	3936
+   241  0000                     _BRGCON3bits	set	3954
+   242  0000                     _BRGCON2bits	set	3953
+   243  0000                     _BRGCON1bits	set	3952
+   244  0000                     _CIOCON	set	3955
+   245  0000                     _ECANCON	set	3959
+   246  0000                     _RXB0CON	set	3936
+   247  0000                     _CANSTAT	set	3950
+   248  0000                     _CANCON	set	3951
+   249  0000                     _RXB0D0	set	3942
+   250  0000                     _EECON2	set	4007
+   251  0000                     _EEDATA	set	4008
+   252  0000                     _EECON1bits	set	4006
+   253  0000                     _EEADR	set	4009
+   254  0000                     _EEADRH	set	4010
+   255  0000                     _WDTCONbits	set	4049
+   256  0000                     _RCONbits	set	4048
+   257  0000                     _T1CON	set	4045
+   258  0000                     _TMR1H	set	4047
+   259  0000                     _TMR1L	set	4046
+   260  0000                     _PIR3	set	4004
+   261  0000                     _IPR3	set	4005
+   262  0000                     _PIE3	set	4003
+   263  0000                     _RCON	set	4048
+   264  0000                     _TMR1IF	set	31984
+   265  0000                     _TMR1IP	set	31992
+   266  0000                     _IPEN	set	32391
+   267  0000                     _TMR1ON	set	32360
+   268  0000                     _TMR1IE	set	31976
+   269  0000                     _IRCF0	set	32412
+   270  0000                     _IRCF1	set	32413
+   271  0000                     _IRCF2	set	32414
+   272  0000                     _TBLPTR	set	4086
+   273  0000                     _TABLAT	set	4085
+   274  0000                     _INTCONbits	set	4082
+   275  0000                     _PEIE	set	32662
    276                           
    277                           ; #config settings
    278  0000                     
@@ -8493,7 +8493,7 @@ Auto Spaces:
     BANK9           256      0       0
     BANK10          256      0       0
     BANK11          256      0       0
-    BANK12          256      0       0
+    BANK12          244      0       0
 
 Pointer List with Targets:
 
@@ -9115,10 +9115,8 @@ Call Graph Tables:
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
-BIGRAM             CFF      0     220      31       16.4%
+BIGRAM             CF3      0     220      31       16.4%
 EEDATA             400      0       0       0        0.0%
-BITBANK12          100      0       0      29        0.0%
-BANK12             100      0       0      30        0.0%
 BITBANK11          100      0       0      27        0.0%
 BANK11             100      0       0      28        0.0%
 BITBANK10          100      0       0      25        0.0%
@@ -9127,24 +9125,36 @@ BITBANK9           100      0       0      23        0.0%
 BANK9              100      0       0      24        0.0%
 BITBANK8           100      0       0      21        0.0%
 BANK8              100      0       0      22        0.0%
-BITBANK7           100      0       0      18        0.0%
-BANK7              100      0       0      19        0.0%
-BITBANK6           100      0       0      16        0.0%
-BANK6              100      0       0      17        0.0%
-BITBANK5           100      0       0      14        0.0%
-BANK5              100      0       0      15        0.0%
-BITBANK4           100      0       0      12        0.0%
-BANK4              100      0       0      13        0.0%
-BITBANK3           100      0       0      10        0.0%
-BANK3              100      0       0      11        0.0%
-BITBANK2           100      0       0       8        0.0%
-BANK2              100      0       0       9        0.0%
-BITBANK1           100      0       0       6        0.0%
-BANK1              100      0       0       7        0.0%
-BITBANK0            A0      0       0       4        0.0%
-BANK0               A0      2      74       5       72.5%
+BITBANK7           100      0       0      19        0.0%
+BANK7              100      0       0      20        0.0%
+BITBANK6           100      0       0      17        0.0%
+BANK6              100      0       0      18        0.0%
+BITBANK5           100      0       0      15        0.0%
+BANK5              100      0       0      16        0.0%
+BITBANK4           100      0       0      13        0.0%
+BANK4              100      0       0      14        0.0%
+BITBANK3           100      0       0      11        0.0%
+BANK3              100      0       0      12        0.0%
+BITBANK2           100      0       0       9        0.0%
+BANK2              100      0       0      10        0.0%
+BITBANK1           100      0       0       7        0.0%
+BANK1              100      0       0       8        0.0%
+BITBANK12           F4      0       0      29        0.0%
+BANK12              F4      0       0      30        0.0%
+BITBANK0            A0      0       0       5        0.0%
+BANK0               A0      2      74       6       72.5%
 BITCOMRAM           5E      0       0       0        0.0%
 COMRAM              5E     2A      59       1       94.7%
+BITSFR_8             0      0       0     200        0.0%
+SFR_8                0      0       0     200        0.0%
+BITSFR_7             0      0       0     200        0.0%
+SFR_7                0      0       0     200        0.0%
+BITSFR_6             0      0       0     200        0.0%
+SFR_6                0      0       0     200        0.0%
+BITSFR_5             0      0       0     200        0.0%
+SFR_5                0      0       0     200        0.0%
+BITSFR_4             0      0       0     200        0.0%
+SFR_4                0      0       0     200        0.0%
 BITSFR_3             0      0       0     200        0.0%
 SFR_3                0      0       0     200        0.0%
 BITSFR_2             0      0       0     200        0.0%
@@ -9155,13 +9165,13 @@ BITSFR               0      0       0     200        0.0%
 SFR                  0      0       0     200        0.0%
 STACK                0      0       0       2        0.0%
 NULL                 0      0       0       0        0.0%
-ABS                  0      0      CD      20        0.0%
-DATA                 0      0     2ED       3        0.0%
+ABS                  0      0      CD       3        0.0%
+DATA                 0      0     2ED       4        0.0%
 CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.05 build -831301201 
-Symbol Table                                                                                   Fri Aug 02 13:21:42 2019
+Symbol Table                                                                                   Fri Aug 02 13:17:51 2019
 
                __end_of_FRAME_DeviceReset 1912                     ?_FRAME_AveragingTimes 0006  
                             ___awdiv@sign 000B                                        bsr 000FE0  

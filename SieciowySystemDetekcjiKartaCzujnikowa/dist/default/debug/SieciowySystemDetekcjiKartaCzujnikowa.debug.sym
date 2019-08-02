@@ -197,7 +197,7 @@ CAN_MoveBuffIntoFrame@Buf 8 0 COMRAM 1
 __end_of_FRAME_ExcitationValue 2474 0 CODE 0
 __size_of_NVMalloc 0 0 ABS 0
 ?_LED_Left 6 0 COMRAM 1
-stackhi CFF 0 ABS 0
+stackhi CF3 0 ABS 0
 _FRAME_ExcitationValue 243E 0 CODE 0
 CAN_MoveBuffIntoFrame@Ram 6 0 COMRAM 1
 __HcstackBANK0 0 0 ABS 0
@@ -858,9 +858,9 @@ bssBANK0 60 D3 BANK0 60 1
 bssBIGRAM D4 2F3 BIGRAM D4 1
 text39 2728 27AB CODE 2728 0
 %locals
-dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o
+dist/default/debug\SieciowySystemDetekcjiKartaCzujnikowa.debug.o
 C:\Program Files (x86)\Microchip\xc8\v2.05\pic\include\pic18f4680.h
-C:\Users\hp\AppData\Local\Temp\sevo.
+C:\Users\hp\AppData\Local\Temp\s8s0.
 11349 2180 0 CODE 0
 11351 2180 0 CODE 0
 11354 2180 0 CODE 0
