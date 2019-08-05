@@ -6,7 +6,7 @@ Linker command line:
   -cs \
   -h+dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.sym \
   --cmf=dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.cmf \
-  -z -Q18F4680 -oC:\Users\hp\AppData\Local\Temp\sevo.2 \
+  -z -Q18F4680 -oC:\Users\hp\AppData\Local\Temp\s9qc.2 \
   --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/SieciowySystemDetekcjiKartaCzujnikowa.production.map \
   -E1 -ver=XC8 --acfsm=1493 -ASTACK=02F4h-0CFFh -pstack=STACK \
@@ -27,7 +27,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\hp\AppData\Local\Temp\sevo.o \
+  C:\Users\hp\AppData\Local\Temp\s9qc.o \
   dist/default/production\SieciowySystemDetekcjiKartaCzujnikowa.production.o 
 
 Object code version is 3.11
@@ -40,7 +40,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\hp\AppData\Local\Temp\sevo.o
+C:\Users\hp\AppData\Local\Temp\s9qc.o
                 init                                C5E      C5E        4      60C       0
                 reset_vec                           C00      C00        4      600       0
                 idloc                            200000   200000        8   200000       0
