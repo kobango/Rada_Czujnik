@@ -27,6 +27,9 @@ UINT IsInNeighbors(UINT message_adress);
 void ReadDataToEEPROM(void);
 void WriteDataToEEPROM(void);
 
+volatile UINT MinAdres = 0;
+volatile UINT MaxAdres = 0xFFFF;
+
 volatile UINT Init_Data = 0xFFFF;
 volatile UINT NeightAdress1 = 0;
 volatile UINT NeightAdress2 = 298;
@@ -481,44 +484,44 @@ static void FRAME_DeviceReset(mID *message) //0x07
 void ReadDataToEEPROM(void)
 {
     
-    NVMRead(&Init_Data,10,2); // Uses to init EEPROM
-    NVMRead(&NeightAdress1,13,2);
-    if(NeightAdress1==0xFFFF) // Void value in EEPROM is 0xFF
+    NVMRead(&Init_Data,110,2); // Uses to init EEPROM
+    NVMRead(&NeightAdress1,113,2);
+    if(NeightAdress1==0xFFFF || (MinAdres>NeightAdress1>MaxAdres)) // Void value in EEPROM is 0xFF
     {
         NeightAdress1=0x0000;
     }
-    NVMRead(&NeightAdress2,16,2);
-    if(NeightAdress2==0xFFFF)
+    NVMRead(&NeightAdress2,116,2);
+    if(NeightAdress2==0xFFFF || (MinAdres>NeightAdress2>MaxAdres))
     {
         NeightAdress2=0x0000;
     }
-    NVMRead(&NeightAdress3,19,2);
-    if(NeightAdress3==0xFFFF)
+    NVMRead(&NeightAdress3,119,2);
+    if(NeightAdress3==0xFFFF || (MinAdres>NeightAdress3>MaxAdres))
     {
         NeightAdress3=0x0000;
     }
-    NVMRead(&NeightAdress4,22,2);
-    if(NeightAdress4==0xFFFF)
+    NVMRead(&NeightAdress4,122,2);
+    if(NeightAdress4==0xFFFF || (MinAdres>NeightAdress4>MaxAdres))
     {
         NeightAdress4=0x0000;
     }
-    NVMRead(&NeightAdress5,25,2);
-    if(NeightAdress5==0xFFFF)
+    NVMRead(&NeightAdress5,125,2);
+    if(NeightAdress5==0xFFFF || (MinAdres>NeightAdress5>MaxAdres))
     {
         NeightAdress5=0x0000;
     }
-    NVMRead(&NeightAdress6,28,2);
-    if(NeightAdress6==0xFFFF)
+    NVMRead(&NeightAdress6,128,2);
+    if(NeightAdress6==0xFFFF || (MinAdres>NeightAdress6>MaxAdres))
     {
         NeightAdress6=0x0000;
     }
-    NVMRead(&NeightAdress7,31,2);
-    if(NeightAdress7==0xFFFF)
+    NVMRead(&NeightAdress7,131,2);
+    if(NeightAdress7==0xFFFF || (MinAdres>NeightAdress7>MaxAdres))
     {
         NeightAdress7=0x0000;
     }
-    NVMRead(&NeightAdress8,34,2);
-    if(NeightAdress8==0xFFFF)
+    NVMRead(&NeightAdress8,134,2);
+    if(NeightAdress8==0xFFFF || (MinAdres>NeightAdress8>MaxAdres))
     {
         NeightAdress8=0x0000;
     }
@@ -538,15 +541,47 @@ void ReadDataToEEPROM(void)
 
 void WriteDataToEEPROM(void)
 {
-    NVMWrite(&Init_Data,10,2); // Uses to init EEPROM
-    NVMWrite(&NeightAdress1,13,2);  
-    NVMWrite(&NeightAdress2,16,2);
-    NVMWrite(&NeightAdress3,19,2);
-    NVMWrite(&NeightAdress4,22,2);
-    NVMWrite(&NeightAdress5,25,2);
-    NVMWrite(&NeightAdress6,28,2);
-    NVMWrite(&NeightAdress7,31,2);
-    NVMWrite(&NeightAdress8,34,2);
+    NVMWrite(&Init_Data,110,2); // Uses to init EEPROM
+    if(MinAdres>NeightAdress1>MaxAdres) // Void value in EEPROM is 0xFF
+    {
+        NeightAdress1=0x0000;
+    }
+    NVMWrite(&NeightAdress1,113,2);
+    if(MinAdres>NeightAdress2>MaxAdres) // Void value in EEPROM is 0xFF
+    {
+        NeightAdress2=0x0000;
+    }
+    NVMWrite(&NeightAdress2,116,2);
+    if(MinAdres>NeightAdress3>MaxAdres) // Void value in EEPROM is 0xFF
+    {
+        NeightAdress3=0x0000;
+    }
+    NVMWrite(&NeightAdress3,119,2);
+    if(MinAdres>NeightAdress4>MaxAdres) // Void value in EEPROM is 0xFF
+    {
+        NeightAdress4=0x0000;
+    }
+    NVMWrite(&NeightAdress4,122,2);
+    if(MinAdres>NeightAdress5>MaxAdres) // Void value in EEPROM is 0xFF
+    {
+        NeightAdress5=0x0000;
+    }
+    NVMWrite(&NeightAdress5,125,2);
+    if(MinAdres>NeightAdress6>MaxAdres) // Void value in EEPROM is 0xFF
+    {
+        NeightAdress6=0x0000;
+    }
+    NVMWrite(&NeightAdress6,128,2);
+    if(MinAdres>NeightAdress7>MaxAdres) // Void value in EEPROM is 0xFF
+    {
+        NeightAdress7=0x0000;
+    }
+    NVMWrite(&NeightAdress7,131,2);
+    if(MinAdres>NeightAdress8>MaxAdres) // Void value in EEPROM is 0xFF
+    {
+        NeightAdress8=0x0000;
+    }
+    NVMWrite(&NeightAdress8,134,2);
     
 }
 
