@@ -2,6 +2,7 @@
  build/default/production/FRAME.p1:  \
  FRAME.c  \
 main.h  \
+FLASH.h  \
 DetekcjaSasiadow.h  \
 TRM.h  \
 EEPROM.h  \

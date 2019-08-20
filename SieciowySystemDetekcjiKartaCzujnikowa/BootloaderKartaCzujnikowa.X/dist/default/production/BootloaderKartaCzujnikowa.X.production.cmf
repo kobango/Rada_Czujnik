@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\hp\AppData\Local\Temp\se7s.obj
+$C:\Users\hp\AppData\Local\Temp\s2tg.obj
 end_init CODE 0 1C 1C 4 1
 reset_vec CODE 0 0 0 4 1
 config CONFIG 0 300000 300000 E 1
@@ -220,33 +220,33 @@ $dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
 "C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\BootloaderKartaCzujnikowa.X\main.c":345 3A2 text0 CODE
 "C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\BootloaderKartaCzujnikowa.X\main.c":347 3A4 text0 CODE
 "C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\BootloaderKartaCzujnikowa.X\main.c":349 3AE text0 CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2055 3B4 cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2056 3B8 cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2058 3BA cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2059 3BC cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2060 3BE cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2063 3C0 cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2064 3C4 cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2066 3C6 cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2067 3C8 cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2068 3CA cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2073 3CC cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2074 3CE cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2075 3D0 cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2076 3D2 cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2077 3D4 cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2078 3D6 cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2079 3D8 cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2080 3DC cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2082 3E0 cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2083 3E2 cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2084 3E6 cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2085 3E8 cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2086 3EA cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2094 3EC cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2095 3EE cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2096 3F0 cinit CODE
-"C:\Users\hp\AppData\Local\Temp\se7s.":2097 3F2 cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2055 3B4 cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2056 3B8 cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2058 3BA cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2059 3BC cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2060 3BE cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2063 3C0 cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2064 3C4 cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2066 3C6 cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2067 3C8 cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2068 3CA cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2073 3CC cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2074 3CE cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2075 3D0 cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2076 3D2 cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2077 3D4 cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2078 3D6 cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2079 3D8 cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2080 3DC cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2082 3E0 cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2083 3E2 cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2084 3E6 cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2085 3E8 cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2086 3EA cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2094 3EC cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2095 3EE cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2096 3F0 cinit CODE
+"C:\Users\hp\AppData\Local\Temp\s2tg.":2097 3F2 cinit CODE
 "C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\BootloaderKartaCzujnikowa.X\LED.c":301 406 text6 CODE
 "C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\BootloaderKartaCzujnikowa.X\LED.c":302 40E text6 CODE
 "C:\Users\hp\source\repos\Rada_Czujnik\SieciowySystemDetekcjiKartaCzujnikowa\BootloaderKartaCzujnikowa.X\LED.c":305 412 text6 CODE
@@ -400,7 +400,7 @@ _LOCK 24 0 COMRAM 1 bssCOMRAM dist/default/production\BootloaderKartaCzujnikowa.
 _RCON FD0 0 ABS 0 - dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
 WriteBytesFlash@startptr F 0 COMRAM 1 cstackCOMRAM dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
 _main 256 0 CODE 0 text0 dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
-start 1C 0 CODE 0 init C:\Users\hp\AppData\Local\Temp\se7s.obj
+start 1C 0 CODE 0 init C:\Users\hp\AppData\Local\Temp\s2tg.obj
 OdbierzRamke@tempCON 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
 _MSEL0 DF0 0 ABS 0 - dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
 __end_of_EraseFlash 6E6 0 CODE 0 text4 dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
@@ -602,7 +602,7 @@ __Lcinit 0 0 ABS 0 cinit dist/default/production\BootloaderKartaCzujnikowa.X.pro
 _counter 25 0 COMRAM 1 bssCOMRAM dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
 __pcinit 3B4 0 CODE 0 cinit dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
 __CFG_EBTRB$OFF 0 0 ABS 0 - dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
-__ramtop D00 0 RAM 0 ramtop C:\Users\hp\AppData\Local\Temp\se7s.obj
+__ramtop D00 0 RAM 0 ramtop C:\Users\hp\AppData\Local\Temp\s2tg.obj
 WriteBytesFlash@startaddr 1 0 COMRAM 1 cstackCOMRAM dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
 __Hconst 0 0 CODE 0 const dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
@@ -658,18 +658,18 @@ __CFG_CP2$OFF 0 0 ABS 0 - dist/default/production\BootloaderKartaCzujnikowa.X.pr
 __CFG_CP3$OFF 0 0 ABS 0 - dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
 EraseFlash@endaddr 5 0 COMRAM 1 cstackCOMRAM dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
 _iloscBajtow 26 0 COMRAM 1 bssCOMRAM dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\hp\AppData\Local\Temp\se7s.obj
+__accesstop 60 0 ABS 0 - C:\Users\hp\AppData\Local\Temp\s2tg.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
 __end_of_WriteBytesFlash 66C 0 CODE 0 text3 dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
 _WriteBytesFlash 55A 0 CODE 0 text3 dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
 __CFG_PBADEN$ON 0 0 ABS 0 - dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
 _buforCAN 60 0 BANK0 1 bssBANK0 dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
-intlevel0 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\se7s.obj
-intlevel1 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\se7s.obj
+intlevel0 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\s2tg.obj
+intlevel1 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\s2tg.obj
 __CFG_WRTB$OFF 0 0 ABS 0 - dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
-intlevel2 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\se7s.obj
-intlevel3 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\se7s.obj
+intlevel2 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\s2tg.obj
+intlevel3 0 0 CODE 0 text C:\Users\hp\AppData\Local\Temp\s2tg.obj
 ?_LED_Control 1 0 COMRAM 1 cstackCOMRAM dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
 __CFG_WRTC$OFF 0 0 ABS 0 - dist/default/production\BootloaderKartaCzujnikowa.X.production.obj
 __CFG_WRTD$OFF 0 0 ABS 0 - dist/default/production\BootloaderKartaCzujnikowa.X.production.obj

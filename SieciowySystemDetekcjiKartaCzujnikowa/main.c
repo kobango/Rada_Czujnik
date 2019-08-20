@@ -108,8 +108,8 @@ void main(void)
      
      
      
-     //FLASH_Write(0x200000,0x76);
-     //FLASH_Write(0x200001,0x00);
+     FLASH_Write(0x200000,0x76);
+     FLASH_Write(0x200001,0x40);
     
      //adr = FLASH_Read(0x200000);
      //adr |= FLASH_Read(0x200001)<<8;
@@ -133,6 +133,7 @@ void main(void)
             TMR1_Update_flag_Set(0);
             
         }
+        
         
         
         TRM_DataTransmition();

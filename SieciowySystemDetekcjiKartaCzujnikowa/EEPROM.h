@@ -14,6 +14,9 @@
     BOOL NVMInit(void);
     void NVMRead(BYTE *dest, WORD addr, WORD count);
     void NVMWrite(BYTE *source, WORD addr, WORD count);
+    BYTE ReadfromEEPROM(WORD Address);
+    void WritetoEEPROM(WORD Address, BYTE Data);
+    
     void UstawFlagi(void);
 
     extern WORD        ustawieniaKarty;

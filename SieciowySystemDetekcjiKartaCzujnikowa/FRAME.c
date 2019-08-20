@@ -5,6 +5,7 @@
 #include "MOC_Funct.h"
 #include "TRM.h"
 #include "EEPROM.h"
+#include "FLASH.h"
 
 typedef short          Word16;
 typedef unsigned short UWord16;
@@ -39,6 +40,11 @@ volatile UINT NeightAdress5 = 0;
 volatile UINT NeightAdress6 = 0;
 volatile UINT NeightAdress7 = 0;
 volatile UINT NeightAdress8 = 0;
+
+volatile UINT MinRange = 0;
+volatile UINT MaxRange = 0xFFFF;
+volatile UINT MinPower = 0;
+volatile UINT MaxPower = 0xFFFF;
 
 
 
@@ -205,14 +211,15 @@ static void FRAME_AccelerometerStatus(mID *message) // id = 0x02
         //message->data[0] = Accelerometer->przyspieszenieXU8;
         //message->data[1] = Accelerometer->przyspieszenieYU8;
         //message->data[2] = Accelerometer->przyspieszenieZU8;
-        message->data[0] = MOCK_PrzyspieszenieX();
-        message->data[1] = MOCK_PrzyspieszenieY();
-        message->data[2] = MOCK_PrzyspieszenieZ();
-        message->data[3] = MOCK_Klikniecie_Spadek();
+        message->data[0] = MinRange/0x100;
+        message->data[1] = MinRange & 0xFF;
+        message->data[2] = MaxRange/0x100;
+        message->data[3] = MaxRange & 0xFF;
     }
     else
     {
-
+        MinRange = ((message->data[0])*0x100) | ((message->data[1]) % 0xFF);
+        MaxRange = ((message->data[2])*0x100) | ((message->data[3]) % 0xFF);
     }
 }
 
@@ -232,17 +239,24 @@ static void FRAME_ExcitationValue(mID *message) // id = 0x03
 {
     if(message->message_type == CAN_MSG_RTR)
     {
-        message->data_length = 1;
+        message->data_length = 6;
         //message->data[0] = (unsigned char)(Sensor->roznicaZgloszeniaMinU16 >> 8);
         //message->data[1] = (unsigned char)Sensor->roznicaZgloszeniaMinU16;
         //message->data[2] = (unsigned char)(Sensor->roznicaZgloszeniaMaxU16 >> 8);
         //message->data[3] = (unsigned char)Sensor->roznicaZgloszeniaMaxU16;
-        message->data[0] = 0xFF;
+        message->data[0] = MinPower/0x100;
+        message->data[1] = MinPower & 0xFF;
+        message->data[2] = MaxPower/0x100;
+        message->data[3] = MaxPower & 0xFF;
+        message->data[4] = 0;
+        message->data[5] = 0;
     }
     else
     {
         //Sensor->roznicaZgloszeniaMinU16 = (unsigned int)message->data[0]<<8 | (unsigned int)message->data[1];
         //Sensor->roznicaZgloszeniaMaxU16 = (unsigned int)message->data[2]<<8 | (unsigned int)message->data[3];
+        MinPower = ((message->data[0])*0x100) | ((message->data[1]) % 0xFF);
+        MaxPower = ((message->data[2])*0x100) | ((message->data[3]) % 0xFF);
     }
 }
 
@@ -526,7 +540,10 @@ void ReadDataToEEPROM(void)
         NeightAdress8=0x0000;
     }
     
-    
+    MinRange = ReadfromEEPROM((WORD)1400);
+    MaxRange = ReadfromEEPROM((WORD)1440);
+    MinPower = ReadfromEEPROM((WORD)1480);
+    MaxPower = ReadfromEEPROM((WORD)1520);
 }
 
 /***************************************************************************************/
@@ -542,46 +559,53 @@ void ReadDataToEEPROM(void)
 void WriteDataToEEPROM(void)
 {
     NVMWrite(&Init_Data,110,2); // Uses to init EEPROM
-    if(MinAdres>NeightAdress1>MaxAdres) // Void value in EEPROM is 0xFF
+    if(MinAdres>(UINT)NeightAdress1>MaxAdres) // Void value in EEPROM is 0xFF
     {
         NeightAdress1=0x0000;
     }
     NVMWrite(&NeightAdress1,113,2);
-    if(MinAdres>NeightAdress2>MaxAdres) // Void value in EEPROM is 0xFF
+    if(MinAdres>(UINT)NeightAdress2>MaxAdres) // Void value in EEPROM is 0xFF
     {
         NeightAdress2=0x0000;
     }
     NVMWrite(&NeightAdress2,116,2);
-    if(MinAdres>NeightAdress3>MaxAdres) // Void value in EEPROM is 0xFF
+    if(MinAdres>(UINT)NeightAdress3>MaxAdres) // Void value in EEPROM is 0xFF
     {
         NeightAdress3=0x0000;
     }
     NVMWrite(&NeightAdress3,119,2);
-    if(MinAdres>NeightAdress4>MaxAdres) // Void value in EEPROM is 0xFF
+    if(MinAdres>(UINT)NeightAdress4>MaxAdres) // Void value in EEPROM is 0xFF
     {
         NeightAdress4=0x0000;
     }
     NVMWrite(&NeightAdress4,122,2);
-    if(MinAdres>NeightAdress5>MaxAdres) // Void value in EEPROM is 0xFF
+    if(MinAdres>(UINT)NeightAdress5>MaxAdres) // Void value in EEPROM is 0xFF
     {
         NeightAdress5=0x0000;
     }
     NVMWrite(&NeightAdress5,125,2);
-    if(MinAdres>NeightAdress6>MaxAdres) // Void value in EEPROM is 0xFF
+    if(MinAdres>(UINT)NeightAdress6>MaxAdres) // Void value in EEPROM is 0xFF
     {
         NeightAdress6=0x0000;
     }
     NVMWrite(&NeightAdress6,128,2);
-    if(MinAdres>NeightAdress7>MaxAdres) // Void value in EEPROM is 0xFF
+    if(MinAdres>(UINT)NeightAdress7>MaxAdres) // Void value in EEPROM is 0xFF
     {
         NeightAdress7=0x0000;
     }
     NVMWrite(&NeightAdress7,131,2);
-    if(MinAdres>NeightAdress8>MaxAdres) // Void value in EEPROM is 0xFF
+    if(MinAdres>(UINT)NeightAdress8>MaxAdres) // Void value in EEPROM is 0xFF
     {
         NeightAdress8=0x0000;
     }
     NVMWrite(&NeightAdress8,134,2);
+    
+    WritetoEEPROM(1400,MinRange & 0xFF);
+    WritetoEEPROM(1401,MinRange >> 8);
+    WritetoEEPROM(1440,MaxRange & 0xFF);
+    WritetoEEPROM(1441,MaxRange >> 8);
+    WritetoEEPROM(1480,MinPower);
+    WritetoEEPROM(1520,MaxPower);
     
 }
 

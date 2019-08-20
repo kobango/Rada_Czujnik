@@ -18525,13 +18525,20 @@ void TRM_DataTransmition(void);
 BOOL NVMInit(void);
 void NVMRead(BYTE *dest, WORD addr, WORD count);
 void NVMWrite(BYTE *source, WORD addr, WORD count);
+BYTE ReadfromEEPROM(WORD Address);
+void WritetoEEPROM(WORD Address, BYTE Data);
+
 void UstawFlagi(void);
 
 extern WORD ustawieniaKarty;
 extern WORD nazwyPrzyciskow;
 extern WORD czujnikiNaMapie;
 
-# 9 "FRAME.c"
+# 12 "FLASH.h"
+UINT FLASH_Read(long int addr);
+void FLASH_Write(long int addr,UINT val);
+
+# 10 "FRAME.c"
 typedef short Word16;
 typedef unsigned short UWord16;
 typedef long Word32;
@@ -18566,7 +18573,12 @@ volatile UINT NeightAdress6 = 0;
 volatile UINT NeightAdress7 = 0;
 volatile UINT NeightAdress8 = 0;
 
-# 58
+volatile UINT MinRange = 0;
+volatile UINT MaxRange = 0xFFFF;
+volatile UINT MinPower = 0;
+volatile UINT MaxPower = 0xFFFF;
+
+# 64
 static void FRAME_SensorExcitationStatus(mID *message)
 {
 
@@ -18575,7 +18587,7 @@ if(message->message_type == 0x02)
 {
 message->data_length = 6;
 
-# 70
+# 76
 message->data[0] = LOCK_Get();
 message->data[1] = MOC_Wynikowa_wartosc_roznicowa() >> 8 ;
 message->data[2] = MOC_Wynikowa_wartosc_roznicowa() & 0x00FF;
@@ -18583,7 +18595,7 @@ message->data[3] = MOC_Frame_Counter();
 message->data[4] = MOC_Aktualna_Temperatura();
 message->data[5] = MOC_NOTWORK();
 
-# 85
+# 91
 }
 else
 {
@@ -18622,7 +18634,7 @@ LOCK_Set(0);
 }
 }
 
-# 136
+# 142
 UINT IsInNeighbors(UINT message_adress)
 {
 WORD i;
@@ -18660,11 +18672,11 @@ if(NeightAdress8==message_adress)
 return 0b10000000;
 }
 
-# 186
+# 192
 return 0;
 }
 
-# 200
+# 206
 static void FRAME_AccelerometerStatus(mID *message)
 {
 if(message->message_type == 0x02)
@@ -18673,37 +18685,45 @@ message->data_length = 4;
 
 
 
-message->data[0] = MOCK_PrzyspieszenieX();
-message->data[1] = MOCK_PrzyspieszenieY();
-message->data[2] = MOCK_PrzyspieszenieZ();
-message->data[3] = MOCK_Klikniecie_Spadek();
+message->data[0] = MinRange/0x100;
+message->data[1] = MinRange & 0xFF;
+message->data[2] = MaxRange/0x100;
+message->data[3] = MaxRange & 0xFF;
 }
 else
 {
-
+MinRange = ((message->data[0])*0x100) | ((message->data[1]) % 0xFF);
+MaxRange = ((message->data[2])*0x100) | ((message->data[3]) % 0xFF);
 }
 }
 
-# 231
+# 238
 static void FRAME_ExcitationValue(mID *message)
 {
 if(message->message_type == 0x02)
 {
-message->data_length = 1;
+message->data_length = 6;
 
 
 
 
-message->data[0] = 0xFF;
+message->data[0] = MinPower/0x100;
+message->data[1] = MinPower & 0xFF;
+message->data[2] = MaxPower/0x100;
+message->data[3] = MaxPower & 0xFF;
+message->data[4] = 0;
+message->data[5] = 0;
 }
 else
 {
 
 
+MinPower = ((message->data[0])*0x100) | ((message->data[1]) % 0xFF);
+MaxPower = ((message->data[2])*0x100) | ((message->data[3]) % 0xFF);
 }
 }
 
-# 260
+# 274
 static void FRAME_ExcitationMultiplier(mID *message)
 {
 WORD i;
@@ -18726,24 +18746,24 @@ else
 }
 }
 
-# 293
+# 307
 static void FRAME_AveragingTimes(mID *message)
 {
 if(message->message_type == 0x02)
 {
 message->data_length = 1;
 
-# 305
+# 319
 message->data[0] = 0xFF;
 }
 else
 {
 
-# 343
+# 357
 }
 }
 
-# 357
+# 371
 static void FRAME_AxisStatus(mID *message)
 {
 WORD i;
@@ -18752,7 +18772,7 @@ if(message->message_type == 0x02)
 {
 message->data_length = 1;
 
-# 374
+# 388
 message->data[0] = 0xFF;
 }
 else
@@ -18761,7 +18781,7 @@ else
 }
 }
 
-# 393
+# 407
 static void FRAME_DataUpdateAndChangeOption(mID *message)
 {
 
@@ -18772,7 +18792,7 @@ Dane->godzinaU16 = message->data[7];
 
 }
 
-# 414
+# 428
 static void FRAME_DeviceReset(mID *message)
 {
 if(message->message_type == 0x02)
@@ -18790,7 +18810,7 @@ message->data[7] = Dane->godzinaU16;
 RCON &= ~(1<<6);
 Flagi.wykonanoZapisDoFlash = 0;
 
-# 443
+# 457
 }
 else
 {
@@ -18822,7 +18842,7 @@ message->data[0] = 0xFF;
 }
 }
 
-# 484
+# 498
 void ReadDataToEEPROM(void)
 {
 
@@ -18868,57 +18888,67 @@ if(NeightAdress8==0xFFFF || (MinAdres>NeightAdress8>MaxAdres))
 NeightAdress8=0x0000;
 }
 
-
+MinRange = ReadfromEEPROM((WORD)1400);
+MaxRange = ReadfromEEPROM((WORD)1440);
+MinPower = ReadfromEEPROM((WORD)1480);
+MaxPower = ReadfromEEPROM((WORD)1520);
 }
 
-# 542
+# 559
 void WriteDataToEEPROM(void)
 {
 NVMWrite(&Init_Data,110,2);
-if(MinAdres>NeightAdress1>MaxAdres)
+if(MinAdres>(UINT)NeightAdress1>MaxAdres)
 {
 NeightAdress1=0x0000;
 }
 NVMWrite(&NeightAdress1,113,2);
-if(MinAdres>NeightAdress2>MaxAdres)
+if(MinAdres>(UINT)NeightAdress2>MaxAdres)
 {
 NeightAdress2=0x0000;
 }
 NVMWrite(&NeightAdress2,116,2);
-if(MinAdres>NeightAdress3>MaxAdres)
+if(MinAdres>(UINT)NeightAdress3>MaxAdres)
 {
 NeightAdress3=0x0000;
 }
 NVMWrite(&NeightAdress3,119,2);
-if(MinAdres>NeightAdress4>MaxAdres)
+if(MinAdres>(UINT)NeightAdress4>MaxAdres)
 {
 NeightAdress4=0x0000;
 }
 NVMWrite(&NeightAdress4,122,2);
-if(MinAdres>NeightAdress5>MaxAdres)
+if(MinAdres>(UINT)NeightAdress5>MaxAdres)
 {
 NeightAdress5=0x0000;
 }
 NVMWrite(&NeightAdress5,125,2);
-if(MinAdres>NeightAdress6>MaxAdres)
+if(MinAdres>(UINT)NeightAdress6>MaxAdres)
 {
 NeightAdress6=0x0000;
 }
 NVMWrite(&NeightAdress6,128,2);
-if(MinAdres>NeightAdress7>MaxAdres)
+if(MinAdres>(UINT)NeightAdress7>MaxAdres)
 {
 NeightAdress7=0x0000;
 }
 NVMWrite(&NeightAdress7,131,2);
-if(MinAdres>NeightAdress8>MaxAdres)
+if(MinAdres>(UINT)NeightAdress8>MaxAdres)
 {
 NeightAdress8=0x0000;
 }
 NVMWrite(&NeightAdress8,134,2);
 
+WritetoEEPROM(1400,MinRange & 0xFF);
+WritetoEEPROM(1401,MinRange >> 8);
+WritetoEEPROM(1440,MaxRange & 0xFF);
+WritetoEEPROM(1441,MaxRange >> 8);
+WritetoEEPROM(1480,MinPower);
+WritetoEEPROM(1520,MaxPower);
+
 }
 
-# 599
+# 623
 static void FRAME_Plot(mID *message)
 {
 
@@ -18934,14 +18964,14 @@ Dane->timerRysowaniaWykresuU16 = (WORD)message->data[0]*10;
 
 }
 
-# 625
+# 649
 static void FRAME_MapPosition(mID *message)
 {
 
-# 642
+# 666
 }
 
-# 655
+# 679
 static void FRAME_SoftwareVersion(mID *message)
 {
 
@@ -18959,15 +18989,15 @@ else
 }
 }
 
-# 683
+# 707
 static void FRAME_AnalogValue(mID *message, WORD set)
 {
 WORD i;
 
-# 701
+# 725
 }
 
-# 714
+# 738
 static void FRAME_PrzypisanieDokarty(mID *message)
 {
 if(message->message_type == 0x02)
@@ -18985,7 +19015,7 @@ Dane->Nr_WeWy = (message->data[2]);
 }
 }
 
-# 741
+# 765
 static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
 {
 WORD it;
@@ -19047,11 +19077,11 @@ CAN_SetupFilter_Ne();
 
 }
 
-# 828
+# 852
 }
 }
 
-# 842
+# 866
 void FRAME_HandleCanFrame(mID * message)
 {
 BYTE identyfikator = (BYTE) message->id.v[2]/4;
@@ -19109,7 +19139,7 @@ case 0x11:
 FRAME_AdressOfNeighbors(message,0x11);
 break;
 
-# 905
+# 929
 }
 if(message->message_type == 0x02)
 {
@@ -19122,7 +19152,7 @@ message->id.v[2] = identyfikator*4;
 CAN_GenID(message,identyfikator);
 CAN_SendFrame(message);
 
-# 926
+# 950
 while(RXB0CONbits.FILHIT3)
 {
 if(TXB0CONbits.TXERR == 1){

@@ -151,17 +151,29 @@ UINT8 LED_Update(void)
     static LED_RGA_type Green = GREEN; /**< enum for GREEN LED */
     static UINT pos1 = INIT_WEKTORA_POZYCJI; /**< Start Wector for Green LED */
     static UINT pos2 = INIT_WEKTORA_POZYCJI; /**< Start Wector for Red LED */
+    static BOOL laststat = 20;
+    
     
     if(LOCK == 0)
     {
-    LED_Control(RED,0b0000000000);
-    LED_Light_Pos(Green,pos2,Fulfillment_Lvl);
-    
+        if(laststat>0)
+        {
+        LED_Control(RED,0b0000000000);
+        LED_Light_Pos(Green,pos2,Fulfillment_Lvl);
+        laststat--;
+        }
+        else
+        {
+            laststat = 0;
+            LED_Clear();
+            
+        }
     }
     else
     {
     LED_Control(Green,0b0000000000);
     LED_Light_Pos(RED,pos1,Fulfillment_Lvl);
+    laststat=100;
     }
     pos1 = LED_Right(pos1);
     pos2 = LED_Left(pos2);

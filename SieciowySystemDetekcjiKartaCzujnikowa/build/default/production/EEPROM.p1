@@ -11864,10 +11864,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;EEPROM.h: 14: BOOL NVMInit(void);
 [; ;EEPROM.h: 15: void NVMRead(BYTE *dest, WORD addr, WORD count);
 [; ;EEPROM.h: 16: void NVMWrite(BYTE *source, WORD addr, WORD count);
-[; ;EEPROM.h: 17: void UstawFlagi(void);
-[; ;EEPROM.h: 19: extern WORD ustawieniaKarty;
-[; ;EEPROM.h: 20: extern WORD nazwyPrzyciskow;
-[; ;EEPROM.h: 21: extern WORD czujnikiNaMapie;
+[; ;EEPROM.h: 17: BYTE ReadfromEEPROM(WORD Address);
+[; ;EEPROM.h: 18: void WritetoEEPROM(WORD Address, BYTE Data);
+[; ;EEPROM.h: 20: void UstawFlagi(void);
+[; ;EEPROM.h: 22: extern WORD ustawieniaKarty;
+[; ;EEPROM.h: 23: extern WORD nazwyPrzyciskow;
+[; ;EEPROM.h: 24: extern WORD czujnikiNaMapie;
 [; ;CAN.h: 15: typedef enum{
 [; ;CAN.h: 16: KARTA,
 [; ;CAN.h: 17: CZUJNIK
@@ -11980,8 +11982,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _result . `E10294 1 ]
 "52
 [v _NeightAdress_Example `ui ~T0 @X0 1 a ]
-[; ;EEPROM.c: 52: UINT NeightAdress_Example = 0xFFFF;
-[e = _NeightAdress_Example -> 65535 `ui ]
+[; ;EEPROM.c: 52: UINT NeightAdress_Example = 0x0000;
+[e = _NeightAdress_Example -> -> 0 `i `ui ]
 [; ;EEPROM.c: 53: nextEEPosition = 0;
 "53
 [e = _nextEEPosition -> -> 0 `i `us ]
@@ -12000,10 +12002,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 1113 ]
 }
 "73
-[v _ReadfromEEPROM `(uc ~T0 @X0 1 sf1`us ]
+[v _ReadfromEEPROM `(uc ~T0 @X0 1 ef1`us ]
 "74
 {
-[; ;EEPROM.c: 73: static BYTE ReadfromEEPROM(WORD Address)
+[; ;EEPROM.c: 73: BYTE ReadfromEEPROM(WORD Address)
 [; ;EEPROM.c: 74: {
 [e :U _ReadfromEEPROM ]
 "73
@@ -12034,10 +12036,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 1114 ]
 }
 "95
-[v _WritetoEEPROM `(v ~T0 @X0 1 sf2`us`uc ]
+[v _WritetoEEPROM `(v ~T0 @X0 1 ef2`us`uc ]
 "96
 {
-[; ;EEPROM.c: 95: static void WritetoEEPROM(WORD Address, BYTE Data)
+[; ;EEPROM.c: 95: void WritetoEEPROM(WORD Address, BYTE Data)
 [; ;EEPROM.c: 96: {
 [e :U _WritetoEEPROM ]
 "95
@@ -12046,7 +12048,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "96
 [f ]
 "97
-[v F10665 `uc ~T0 @X0 1 s GIE_Status ]
+[v F10668 `uc ~T0 @X0 1 s GIE_Status ]
 [; ;EEPROM.c: 97: static BYTE GIE_Status;
 [; ;EEPROM.c: 99: EEADRH = (BYTE)(Address>>8);
 "99
@@ -12062,7 +12064,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
 [; ;EEPROM.c: 103: GIE_Status = INTCONbits.GIE;
 "103
-[e = F10665 . . _INTCONbits 1 7 ]
+[e = F10668 . . _INTCONbits 1 7 ]
 [; ;EEPROM.c: 104: INTCONbits.GIE = 0;
 "104
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
@@ -12077,7 +12079,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
 [; ;EEPROM.c: 108: INTCONbits.GIE = GIE_Status;
 "108
-[e = . . _INTCONbits 1 7 F10665 ]
+[e = . . _INTCONbits 1 7 F10668 ]
 [; ;EEPROM.c: 109: EECON1bits.WREN = 0;
 "109
 [e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]

@@ -18454,6 +18454,9 @@ void TransmisjaDanych(void);
 BOOL NVMInit(void);
 void NVMRead(BYTE *dest, WORD addr, WORD count);
 void NVMWrite(BYTE *source, WORD addr, WORD count);
+BYTE ReadfromEEPROM(WORD Address);
+void WritetoEEPROM(WORD Address, BYTE Data);
+
 void UstawFlagi(void);
 
 extern WORD ustawieniaKarty;
@@ -18529,7 +18532,7 @@ return TRUE;
 BOOL NVMInit(void)
 {
 BOOL result = TRUE;
-UINT NeightAdress_Example = 0xFFFF;
+UINT NeightAdress_Example = 0x0000;
 nextEEPosition = 0;
 
 result &= NVMalloc(sizeof(KartaStruct), &ustawieniaKarty);
@@ -18540,7 +18543,7 @@ return result;
 }
 
 # 73
-static BYTE ReadfromEEPROM(WORD Address)
+BYTE ReadfromEEPROM(WORD Address)
 {
 EEADRH = (BYTE)(Address>>8);
 EEADR = (BYTE)Address;
@@ -18551,7 +18554,7 @@ return EEDATA;
 }
 
 # 95
-static void WritetoEEPROM(WORD Address, BYTE Data)
+void WritetoEEPROM(WORD Address, BYTE Data)
 {
 static BYTE GIE_Status;
 

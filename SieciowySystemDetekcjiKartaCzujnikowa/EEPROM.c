@@ -49,7 +49,7 @@ BOOL NVMalloc(WORD size, WORD *location)
 BOOL NVMInit(void)
 {
     BOOL result = TRUE;
-    UINT NeightAdress_Example = 0xFFFF;
+    UINT NeightAdress_Example = 0x0000;
     nextEEPosition = 0;
 
     result &= NVMalloc(sizeof(KartaStruct), &ustawieniaKarty);
@@ -70,7 +70,7 @@ BOOL NVMInit(void)
 * @section Description
 * Byte Read in to descripted adres.
 *****************************************************************************************/
-static BYTE ReadfromEEPROM(WORD Address)
+BYTE ReadfromEEPROM(WORD Address)
 {
     EEADRH = (BYTE)(Address>>8); // Load the high byte of the EEPROM address
     EEADR = (BYTE)Address; // Load the low byte of the EEPROM address
@@ -92,7 +92,7 @@ static BYTE ReadfromEEPROM(WORD Address)
 * @section Description
 * Byte save in to descripted adres.
 *****************************************************************************************/
-static void WritetoEEPROM(WORD Address, BYTE Data)
+void WritetoEEPROM(WORD Address, BYTE Data)
 {
     static BYTE GIE_Status; // Variable to save Global Interrupt Enable bit
 

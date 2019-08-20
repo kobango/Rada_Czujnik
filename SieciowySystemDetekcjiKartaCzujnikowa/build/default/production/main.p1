@@ -32,6 +32,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "12 FLASH.h
 [v _FLASH_Read `(ui ~T0 @X0 0 ef1`l ]
+"13
+[v _FLASH_Write `(v ~T0 @X0 0 ef2`l`ui ]
 "18 TRM.h
 [s S1109 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1109 . wyslijRamkeStanu wyslijRamkeUczeniaTla wyslijRamkeResetuCzujnikow ]
@@ -11983,6 +11985,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 107: adr |= FLASH_Read(0x200001)<<8;
 "107
 [e =| _adr -> << ( _FLASH_Read (1 -> 2097153 `l -> 8 `i `i ]
+[; ;main.c: 111: FLASH_Write(0x200000,0x76);
+"111
+[e ( _FLASH_Write (2 , -> 2097152 `l -> -> 118 `i `ui ]
+[; ;main.c: 112: FLASH_Write(0x200001,0x40);
+"112
+[e ( _FLASH_Write (2 , -> 2097153 `l -> -> 64 `i `ui ]
 [; ;main.c: 117: DaneCan.adresCAN = adr;
 "117
 [e = . _DaneCan 1 -> _adr `us ]
@@ -12028,22 +12036,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 1115 ]
 [; ;main.c: 135: }
-[; ;main.c: 138: TRM_DataTransmition();
-"138
-[e ( _TRM_DataTransmition ..  ]
-[; ;main.c: 139: RADAR_Use();
+[; ;main.c: 139: TRM_DataTransmition();
 "139
-[e ( _RADAR_Use ..  ]
-[; ;main.c: 140: asm(" clrwdt");
+[e ( _TRM_DataTransmition ..  ]
+[; ;main.c: 140: RADAR_Use();
 "140
-[; <"  clrwdt ;# ">
+[e ( _RADAR_Use ..  ]
+[; ;main.c: 141: asm(" clrwdt");
 "141
+[; <"  clrwdt ;# ">
+"142
 }
-[; ;main.c: 141: }
+[; ;main.c: 142: }
 [e $U 1111  ]
 [e :U 1112 ]
 }
-[; ;main.c: 142: }
-"142
+[; ;main.c: 143: }
+"143
 [e :UE 1110 ]
 }

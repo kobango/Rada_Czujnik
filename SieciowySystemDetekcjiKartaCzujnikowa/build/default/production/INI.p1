@@ -11928,10 +11928,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;EEPROM.h: 14: BOOL NVMInit(void);
 [; ;EEPROM.h: 15: void NVMRead(BYTE *dest, WORD addr, WORD count);
 [; ;EEPROM.h: 16: void NVMWrite(BYTE *source, WORD addr, WORD count);
-[; ;EEPROM.h: 17: void UstawFlagi(void);
-[; ;EEPROM.h: 19: extern WORD ustawieniaKarty;
-[; ;EEPROM.h: 20: extern WORD nazwyPrzyciskow;
-[; ;EEPROM.h: 21: extern WORD czujnikiNaMapie;
+[; ;EEPROM.h: 17: BYTE ReadfromEEPROM(WORD Address);
+[; ;EEPROM.h: 18: void WritetoEEPROM(WORD Address, BYTE Data);
+[; ;EEPROM.h: 20: void UstawFlagi(void);
+[; ;EEPROM.h: 22: extern WORD ustawieniaKarty;
+[; ;EEPROM.h: 23: extern WORD nazwyPrzyciskow;
+[; ;EEPROM.h: 24: extern WORD czujnikiNaMapie;
 [; ;FRAME.h: 12: extern mID ramkaCanRxCzujnika[5];
 [; ;FRAME.h: 13: void FRAME_HandleCanFrame(mID * message);
 [; ;FRAME.h: 14: void ReadDataToEEPROM(void);

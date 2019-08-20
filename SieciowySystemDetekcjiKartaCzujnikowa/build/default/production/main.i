@@ -18549,7 +18549,14 @@ void main(void)
 int adr = FLASH_Read(0x200000);
 adr |= FLASH_Read(0x200001)<<8;
 
-# 117
+
+
+FLASH_Write(0x200000,0x76);
+FLASH_Write(0x200001,0x40);
+
+
+
+
 DaneCan.adresCAN = adr;
 INI_All();
 
@@ -18569,6 +18576,7 @@ LED_Update();
 TMR1_Update_flag_Set(0);
 
 }
+
 
 
 TRM_DataTransmition();
