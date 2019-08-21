@@ -18409,6 +18409,7 @@ static LED_RGA_type Green = GREEN;
 static UINT pos1 = 0b0000000001;
 static UINT pos2 = 0b0000000001;
 static BOOL laststat = 20;
+static UINT Fulfillment_Lvl_for_rest = 100;
 
 
 if(LOCK == 0)
@@ -18422,7 +18423,7 @@ laststat--;
 else
 {
 laststat = 0;
-LED_Clear();
+LED_Light_Pos(Green,pos2,Fulfillment_Lvl_for_rest);
 
 }
 }
@@ -18438,7 +18439,7 @@ pos2 = LED_Left(pos2);
 return 1;
 }
 
-# 195
+# 196
 UINT LED_Right(UINT a)
 {
 if ((a & 0b0000000001) == 0b0000000001)
@@ -18455,7 +18456,7 @@ return a;
 }
 }
 
-# 222
+# 223
 UINT LED_Left(UINT a)
 {
 if ((a & 0b1000000000) == 0b1000000000)
@@ -18472,7 +18473,7 @@ return a;
 }
 }
 
-# 251
+# 252
 UINT LED_Light_Pos(LED_RGA_type color,UINT pos, UINT fulfillment)
 {
 UINT pos2 =pos;
@@ -18500,7 +18501,7 @@ LED_Control(color, LED_array);
 return LED_array;
 }
 
-# 286
+# 287
 void INI_LED_Start(void)
 {
 TRISA = TRISA & 0b00000001;
@@ -18513,7 +18514,7 @@ LED_Control(GREEN,0b0000000000);
 
 }
 
-# 311
+# 312
 UINT8 LED_Control(LED_RGA_type color,UINT diode)
 {
 UINT cos =1;

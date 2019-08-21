@@ -18527,6 +18527,8 @@ void NVMRead(BYTE *dest, WORD addr, WORD count);
 void NVMWrite(BYTE *source, WORD addr, WORD count);
 BYTE ReadfromEEPROM(WORD Address);
 void WritetoEEPROM(WORD Address, BYTE Data);
+UINT EEPROM_Adres_Readfrom(UINT StartEEPROMAdres, UINT MinAdres, UINT MaxAdres);
+void EEPROM_Adres_Writeto(UINT StartEEPROMAdres, UINT AdressOfNeighbor, UINT MinAdres, UINT MaxAdres);
 
 void UstawFlagi(void);
 
@@ -18847,46 +18849,15 @@ void ReadDataToEEPROM(void)
 {
 
 NVMRead(&Init_Data,110,2);
-NVMRead(&NeightAdress1,113,2);
-if(NeightAdress1==0xFFFF || (MinAdres>NeightAdress1>MaxAdres))
-{
-NeightAdress1=0x0000;
-}
-NVMRead(&NeightAdress2,116,2);
-if(NeightAdress2==0xFFFF || (MinAdres>NeightAdress2>MaxAdres))
-{
-NeightAdress2=0x0000;
-}
-NVMRead(&NeightAdress3,119,2);
-if(NeightAdress3==0xFFFF || (MinAdres>NeightAdress3>MaxAdres))
-{
-NeightAdress3=0x0000;
-}
-NVMRead(&NeightAdress4,122,2);
-if(NeightAdress4==0xFFFF || (MinAdres>NeightAdress4>MaxAdres))
-{
-NeightAdress4=0x0000;
-}
-NVMRead(&NeightAdress5,125,2);
-if(NeightAdress5==0xFFFF || (MinAdres>NeightAdress5>MaxAdres))
-{
-NeightAdress5=0x0000;
-}
-NVMRead(&NeightAdress6,128,2);
-if(NeightAdress6==0xFFFF || (MinAdres>NeightAdress6>MaxAdres))
-{
-NeightAdress6=0x0000;
-}
-NVMRead(&NeightAdress7,131,2);
-if(NeightAdress7==0xFFFF || (MinAdres>NeightAdress7>MaxAdres))
-{
-NeightAdress7=0x0000;
-}
-NVMRead(&NeightAdress8,134,2);
-if(NeightAdress8==0xFFFF || (MinAdres>NeightAdress8>MaxAdres))
-{
-NeightAdress8=0x0000;
-}
+
+NeightAdress1 = EEPROM_Adres_Readfrom(113, MinAdres, MaxAdres);
+NeightAdress2 = EEPROM_Adres_Readfrom(116, MinAdres, MaxAdres);
+NeightAdress3 = EEPROM_Adres_Readfrom(119, MinAdres, MaxAdres);
+NeightAdress4 = EEPROM_Adres_Readfrom(122, MinAdres, MaxAdres);
+NeightAdress5 = EEPROM_Adres_Readfrom(125, MinAdres, MaxAdres);
+NeightAdress6 = EEPROM_Adres_Readfrom(128, MinAdres, MaxAdres);
+NeightAdress7 = EEPROM_Adres_Readfrom(131, MinAdres, MaxAdres);
+NeightAdress8 = EEPROM_Adres_Readfrom(134, MinAdres, MaxAdres);
 
 MinRange = ReadfromEEPROM((WORD)1400);
 MaxRange = ReadfromEEPROM((WORD)1440);
@@ -18894,50 +18865,20 @@ MinPower = ReadfromEEPROM((WORD)1480);
 MaxPower = ReadfromEEPROM((WORD)1520);
 }
 
-# 559
+# 528
 void WriteDataToEEPROM(void)
 {
 NVMWrite(&Init_Data,110,2);
-if(MinAdres>(UINT)NeightAdress1>MaxAdres)
-{
-NeightAdress1=0x0000;
-}
-NVMWrite(&NeightAdress1,113,2);
-if(MinAdres>(UINT)NeightAdress2>MaxAdres)
-{
-NeightAdress2=0x0000;
-}
-NVMWrite(&NeightAdress2,116,2);
-if(MinAdres>(UINT)NeightAdress3>MaxAdres)
-{
-NeightAdress3=0x0000;
-}
-NVMWrite(&NeightAdress3,119,2);
-if(MinAdres>(UINT)NeightAdress4>MaxAdres)
-{
-NeightAdress4=0x0000;
-}
-NVMWrite(&NeightAdress4,122,2);
-if(MinAdres>(UINT)NeightAdress5>MaxAdres)
-{
-NeightAdress5=0x0000;
-}
-NVMWrite(&NeightAdress5,125,2);
-if(MinAdres>(UINT)NeightAdress6>MaxAdres)
-{
-NeightAdress6=0x0000;
-}
-NVMWrite(&NeightAdress6,128,2);
-if(MinAdres>(UINT)NeightAdress7>MaxAdres)
-{
-NeightAdress7=0x0000;
-}
-NVMWrite(&NeightAdress7,131,2);
-if(MinAdres>(UINT)NeightAdress8>MaxAdres)
-{
-NeightAdress8=0x0000;
-}
-NVMWrite(&NeightAdress8,134,2);
+
+EEPROM_Adres_Writeto(113,NeightAdress1,MinAdres,MaxAdres);
+EEPROM_Adres_Writeto(116,NeightAdress2,MinAdres,MaxAdres);
+EEPROM_Adres_Writeto(119,NeightAdress3,MinAdres,MaxAdres);
+EEPROM_Adres_Writeto(122,NeightAdress4,MinAdres,MaxAdres);
+EEPROM_Adres_Writeto(125,NeightAdress5,MinAdres,MaxAdres);
+EEPROM_Adres_Writeto(129,NeightAdress6,MinAdres,MaxAdres);
+EEPROM_Adres_Writeto(131,NeightAdress7,MinAdres,MaxAdres);
+EEPROM_Adres_Writeto(134,NeightAdress8,MinAdres,MaxAdres);
+
 
 WritetoEEPROM(1400,MinRange & 0xFF);
 WritetoEEPROM(1401,MinRange >> 8);
@@ -18948,7 +18889,7 @@ WritetoEEPROM(1520,MaxPower);
 
 }
 
-# 623
+# 562
 static void FRAME_Plot(mID *message)
 {
 
@@ -18964,14 +18905,14 @@ Dane->timerRysowaniaWykresuU16 = (WORD)message->data[0]*10;
 
 }
 
-# 649
+# 588
 static void FRAME_MapPosition(mID *message)
 {
 
-# 666
+# 605
 }
 
-# 679
+# 618
 static void FRAME_SoftwareVersion(mID *message)
 {
 
@@ -18989,15 +18930,15 @@ else
 }
 }
 
-# 707
+# 646
 static void FRAME_AnalogValue(mID *message, WORD set)
 {
 WORD i;
 
-# 725
+# 664
 }
 
-# 738
+# 677
 static void FRAME_PrzypisanieDokarty(mID *message)
 {
 if(message->message_type == 0x02)
@@ -19015,7 +18956,7 @@ Dane->Nr_WeWy = (message->data[2]);
 }
 }
 
-# 765
+# 704
 static void FRAME_AdressOfNeighbors(mID *message, WORD nrRamki)
 {
 WORD it;
@@ -19077,11 +19018,11 @@ CAN_SetupFilter_Ne();
 
 }
 
-# 852
+# 791
 }
 }
 
-# 866
+# 805
 void FRAME_HandleCanFrame(mID * message)
 {
 BYTE identyfikator = (BYTE) message->id.v[2]/4;
@@ -19139,7 +19080,7 @@ case 0x11:
 FRAME_AdressOfNeighbors(message,0x11);
 break;
 
-# 929
+# 868
 }
 if(message->message_type == 0x02)
 {
@@ -19152,7 +19093,7 @@ message->id.v[2] = identyfikator*4;
 CAN_GenID(message,identyfikator);
 CAN_SendFrame(message);
 
-# 950
+# 889
 while(RXB0CONbits.FILHIT3)
 {
 if(TXB0CONbits.TXERR == 1){

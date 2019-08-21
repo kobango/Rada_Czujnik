@@ -11866,10 +11866,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;EEPROM.h: 16: void NVMWrite(BYTE *source, WORD addr, WORD count);
 [; ;EEPROM.h: 17: BYTE ReadfromEEPROM(WORD Address);
 [; ;EEPROM.h: 18: void WritetoEEPROM(WORD Address, BYTE Data);
-[; ;EEPROM.h: 20: void UstawFlagi(void);
-[; ;EEPROM.h: 22: extern WORD ustawieniaKarty;
-[; ;EEPROM.h: 23: extern WORD nazwyPrzyciskow;
-[; ;EEPROM.h: 24: extern WORD czujnikiNaMapie;
+[; ;EEPROM.h: 19: UINT EEPROM_Adres_Readfrom(UINT StartEEPROMAdres, UINT MinAdres, UINT MaxAdres);
+[; ;EEPROM.h: 20: void EEPROM_Adres_Writeto(UINT StartEEPROMAdres, UINT AdressOfNeighbor, UINT MinAdres, UINT MaxAdres);
+[; ;EEPROM.h: 22: void UstawFlagi(void);
+[; ;EEPROM.h: 24: extern WORD ustawieniaKarty;
+[; ;EEPROM.h: 25: extern WORD nazwyPrzyciskow;
+[; ;EEPROM.h: 26: extern WORD czujnikiNaMapie;
 [; ;CAN.h: 15: typedef enum{
 [; ;CAN.h: 16: KARTA,
 [; ;CAN.h: 17: CZUJNIK
@@ -12035,153 +12037,234 @@ Version 3.2 HI-TECH Software Intermediate Code
 "81
 [e :UE 1114 ]
 }
-"95
-[v _WritetoEEPROM `(v ~T0 @X0 1 ef2`us`uc ]
-"96
+"83
+[v _EEPROM_Adres_Readfrom `(ui ~T0 @X0 1 ef3`ui`ui`ui ]
+"84
 {
-[; ;EEPROM.c: 95: void WritetoEEPROM(WORD Address, BYTE Data)
-[; ;EEPROM.c: 96: {
-[e :U _WritetoEEPROM ]
-"95
-[v _Address `us ~T0 @X0 1 r1 ]
-[v _Data `uc ~T0 @X0 1 r2 ]
-"96
+[; ;EEPROM.c: 83: UINT EEPROM_Adres_Readfrom(UINT StartEEPROMAdres, UINT MinAdres, UINT MaxAdres)
+[; ;EEPROM.c: 84: {
+[e :U _EEPROM_Adres_Readfrom ]
+"83
+[v _StartEEPROMAdres `ui ~T0 @X0 1 r1 ]
+[v _MinAdres `ui ~T0 @X0 1 r2 ]
+[v _MaxAdres `ui ~T0 @X0 1 r3 ]
+"84
 [f ]
-"97
-[v F10668 `uc ~T0 @X0 1 s GIE_Status ]
-[; ;EEPROM.c: 97: static BYTE GIE_Status;
-[; ;EEPROM.c: 99: EEADRH = (BYTE)(Address>>8);
-"99
-[e = _EEADRH -> >> -> _Address `ui -> 8 `i `uc ]
-[; ;EEPROM.c: 100: EEADR = (BYTE)Address;
-"100
-[e = _EEADR -> _Address `uc ]
-[; ;EEPROM.c: 101: EEDATA = Data;
-"101
-[e = _EEDATA _Data ]
-[; ;EEPROM.c: 102: EECON1bits.WREN = 1;
-"102
-[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
-[; ;EEPROM.c: 103: GIE_Status = INTCONbits.GIE;
-"103
-[e = F10668 . . _INTCONbits 1 7 ]
-[; ;EEPROM.c: 104: INTCONbits.GIE = 0;
-"104
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;EEPROM.c: 105: EECON2 = 0x55;
-"105
-[e = _EECON2 -> -> 85 `i `uc ]
-[; ;EEPROM.c: 106: EECON2 = 0xAA;
-"106
-[e = _EECON2 -> -> 170 `i `uc ]
-[; ;EEPROM.c: 107: EECON1bits.WR = 1;
-"107
-[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
-[; ;EEPROM.c: 108: INTCONbits.GIE = GIE_Status;
-"108
-[e = . . _INTCONbits 1 7 F10668 ]
-[; ;EEPROM.c: 109: EECON1bits.WREN = 0;
-"109
-[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
-[; ;EEPROM.c: 110: while (EECON1bits.WR);
-"110
-[e $U 1116  ]
-[e :U 1117 ]
+"86
+[v _ReadAdressOfNeighbor `ui ~T0 @X0 1 a ]
+[; ;EEPROM.c: 86: UINT ReadAdressOfNeighbor = 0;
+[e = _ReadAdressOfNeighbor -> -> 0 `i `ui ]
+[; ;EEPROM.c: 87: ReadAdressOfNeighbor = ReadfromEEPROM(StartEEPROMAdres);
+"87
+[e = _ReadAdressOfNeighbor -> ( _ReadfromEEPROM (1 -> _StartEEPROMAdres `us `ui ]
+[; ;EEPROM.c: 88: ReadAdressOfNeighbor = ((ReadfromEEPROM(StartEEPROMAdres+1)<<8)&0xFF00)| ReadAdressOfNeighbor;
+"88
+[e = _ReadAdressOfNeighbor | & -> << -> ( _ReadfromEEPROM (1 -> + _StartEEPROMAdres -> -> 1 `i `ui `us `i -> 8 `i `ui -> 65280 `ui _ReadAdressOfNeighbor ]
+[; ;EEPROM.c: 89: if(ReadAdressOfNeighbor==0xFFFF || (MinAdres>ReadAdressOfNeighbor)||(ReadAdressOfNeighbor>MaxAdres))
+"89
+[e $ ! || || == _ReadAdressOfNeighbor -> 65535 `ui > _MinAdres _ReadAdressOfNeighbor > _ReadAdressOfNeighbor _MaxAdres 1116  ]
+[; ;EEPROM.c: 90: {
+"90
+{
+[; ;EEPROM.c: 91: ReadAdressOfNeighbor=0;
+"91
+[e = _ReadAdressOfNeighbor -> -> 0 `i `ui ]
+"92
+}
 [e :U 1116 ]
-[e $ != -> . . _EECON1bits 0 1 `i -> -> -> 0 `i `Vuc `i 1117  ]
-[e :U 1118 ]
-[; ;EEPROM.c: 111: }
-"111
+[; ;EEPROM.c: 92: }
+[; ;EEPROM.c: 93: return ReadAdressOfNeighbor;
+"93
+[e ) _ReadAdressOfNeighbor ]
+[e $UE 1115  ]
+[; ;EEPROM.c: 94: }
+"94
 [e :UE 1115 ]
 }
-"125
-[v _NVMRead `(v ~T0 @X0 1 ef3`*uc`us`us ]
-"126
+"106
+[v _WritetoEEPROM `(v ~T0 @X0 1 ef2`us`uc ]
+"107
 {
-[; ;EEPROM.c: 125: void NVMRead(BYTE *dest, WORD addr, WORD count)
-[; ;EEPROM.c: 126: {
-[e :U _NVMRead ]
+[; ;EEPROM.c: 106: void WritetoEEPROM(WORD Address, BYTE Data)
+[; ;EEPROM.c: 107: {
+[e :U _WritetoEEPROM ]
+"106
+[v _Address `us ~T0 @X0 1 r1 ]
+[v _Data `uc ~T0 @X0 1 r2 ]
+"107
+[f ]
+"108
+[v F10681 `uc ~T0 @X0 1 s GIE_Status ]
+[; ;EEPROM.c: 108: static BYTE GIE_Status;
+[; ;EEPROM.c: 110: EEADRH = (BYTE)(Address>>8);
+"110
+[e = _EEADRH -> >> -> _Address `ui -> 8 `i `uc ]
+[; ;EEPROM.c: 111: EEADR = (BYTE)Address;
+"111
+[e = _EEADR -> _Address `uc ]
+[; ;EEPROM.c: 112: EEDATA = Data;
+"112
+[e = _EEDATA _Data ]
+[; ;EEPROM.c: 113: EECON1bits.WREN = 1;
+"113
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+[; ;EEPROM.c: 114: GIE_Status = INTCONbits.GIE;
+"114
+[e = F10681 . . _INTCONbits 1 7 ]
+[; ;EEPROM.c: 115: INTCONbits.GIE = 0;
+"115
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;EEPROM.c: 116: EECON2 = 0x55;
+"116
+[e = _EECON2 -> -> 85 `i `uc ]
+[; ;EEPROM.c: 117: EECON2 = 0xAA;
+"117
+[e = _EECON2 -> -> 170 `i `uc ]
+[; ;EEPROM.c: 118: EECON1bits.WR = 1;
+"118
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
+[; ;EEPROM.c: 119: INTCONbits.GIE = GIE_Status;
+"119
+[e = . . _INTCONbits 1 7 F10681 ]
+[; ;EEPROM.c: 120: EECON1bits.WREN = 0;
+"120
+[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
+[; ;EEPROM.c: 121: while (EECON1bits.WR);
+"121
+[e $U 1118  ]
+[e :U 1119 ]
+[e :U 1118 ]
+[e $ != -> . . _EECON1bits 0 1 `i -> -> -> 0 `i `Vuc `i 1119  ]
+[e :U 1120 ]
+[; ;EEPROM.c: 122: }
+"122
+[e :UE 1117 ]
+}
+"124
+[v _EEPROM_Adres_Writeto `(v ~T0 @X0 1 ef4`ui`ui`ui`ui ]
 "125
+{
+[; ;EEPROM.c: 124: void EEPROM_Adres_Writeto(UINT StartEEPROMAdres, UINT AdressOfNeighbor, UINT MinAdres, UINT MaxAdres)
+[; ;EEPROM.c: 125: {
+[e :U _EEPROM_Adres_Writeto ]
+"124
+[v _StartEEPROMAdres `ui ~T0 @X0 1 r1 ]
+[v _AdressOfNeighbor `ui ~T0 @X0 1 r2 ]
+[v _MinAdres `ui ~T0 @X0 1 r3 ]
+[v _MaxAdres `ui ~T0 @X0 1 r4 ]
+"125
+[f ]
+[; ;EEPROM.c: 126: if((MinAdres>AdressOfNeighbor) || (AdressOfNeighbor>MaxAdres))
+"126
+[e $ ! || > _MinAdres _AdressOfNeighbor > _AdressOfNeighbor _MaxAdres 1122  ]
+[; ;EEPROM.c: 127: {
+"127
+{
+[; ;EEPROM.c: 128: AdressOfNeighbor=0;
+"128
+[e = _AdressOfNeighbor -> -> 0 `i `ui ]
+"129
+}
+[e :U 1122 ]
+[; ;EEPROM.c: 129: }
+[; ;EEPROM.c: 130: WritetoEEPROM(StartEEPROMAdres,AdressOfNeighbor&0xFF);
+"130
+[e ( _WritetoEEPROM (2 , -> _StartEEPROMAdres `us -> & _AdressOfNeighbor -> -> 255 `i `ui `uc ]
+[; ;EEPROM.c: 131: WritetoEEPROM(StartEEPROMAdres+1,((AdressOfNeighbor>>8)&0x00FF));
+"131
+[e ( _WritetoEEPROM (2 , -> + _StartEEPROMAdres -> -> 1 `i `ui `us -> & >> _AdressOfNeighbor -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;EEPROM.c: 132: }
+"132
+[e :UE 1121 ]
+}
+"145
+[v _NVMRead `(v ~T0 @X0 1 ef3`*uc`us`us ]
+"146
+{
+[; ;EEPROM.c: 145: void NVMRead(BYTE *dest, WORD addr, WORD count)
+[; ;EEPROM.c: 146: {
+[e :U _NVMRead ]
+"145
 [v _dest `*uc ~T0 @X0 1 r1 ]
 [v _addr `us ~T0 @X0 1 r2 ]
 [v _count `us ~T0 @X0 1 r3 ]
-"126
+"146
 [f ]
-[; ;EEPROM.c: 127: while( count > 0 )
-"127
-[e $U 1120  ]
-[e :U 1121 ]
-[; ;EEPROM.c: 128: {
-"128
-{
-[; ;EEPROM.c: 129: while(EECON1bits.WR);
-"129
-[e $U 1123  ]
-[e :U 1124 ]
-[e :U 1123 ]
-[e $ != -> . . _EECON1bits 0 1 `i -> -> -> 0 `i `Vuc `i 1124  ]
+[; ;EEPROM.c: 147: while( count > 0 )
+"147
+[e $U 1124  ]
 [e :U 1125 ]
-[; ;EEPROM.c: 130: *dest++ = ReadfromEEPROM(addr++);
-"130
-[e = *U ++ _dest * -> -> 1 `i `x -> -> # *U _dest `i `x ( _ReadfromEEPROM (1 ++ _addr -> -> 1 `i `us ]
-[; ;EEPROM.c: 131: count--;
-"131
-[e -- _count -> -> 1 `i `us ]
-"132
-}
-[e :U 1120 ]
-"127
-[e $ > -> _count `ui -> -> 0 `i `ui 1121  ]
-[e :U 1122 ]
-[; ;EEPROM.c: 132: }
-[; ;EEPROM.c: 133: }
-"133
-[e :UE 1119 ]
-}
+[; ;EEPROM.c: 148: {
 "148
-[v _NVMWrite `(v ~T0 @X0 1 ef3`*uc`us`us ]
-"149
 {
-[; ;EEPROM.c: 148: void NVMWrite(BYTE *source, WORD addr, WORD count)
-[; ;EEPROM.c: 149: {
+[; ;EEPROM.c: 149: while(EECON1bits.WR);
+"149
+[e $U 1127  ]
+[e :U 1128 ]
+[e :U 1127 ]
+[e $ != -> . . _EECON1bits 0 1 `i -> -> -> 0 `i `Vuc `i 1128  ]
+[e :U 1129 ]
+[; ;EEPROM.c: 150: *dest++ = ReadfromEEPROM(addr++);
+"150
+[e = *U ++ _dest * -> -> 1 `i `x -> -> # *U _dest `i `x ( _ReadfromEEPROM (1 ++ _addr -> -> 1 `i `us ]
+[; ;EEPROM.c: 151: count--;
+"151
+[e -- _count -> -> 1 `i `us ]
+"152
+}
+[e :U 1124 ]
+"147
+[e $ > -> _count `ui -> -> 0 `i `ui 1125  ]
+[e :U 1126 ]
+[; ;EEPROM.c: 152: }
+[; ;EEPROM.c: 153: }
+"153
+[e :UE 1123 ]
+}
+"168
+[v _NVMWrite `(v ~T0 @X0 1 ef3`*uc`us`us ]
+"169
+{
+[; ;EEPROM.c: 168: void NVMWrite(BYTE *source, WORD addr, WORD count)
+[; ;EEPROM.c: 169: {
 [e :U _NVMWrite ]
-"148
+"168
 [v _source `*uc ~T0 @X0 1 r1 ]
 [v _addr `us ~T0 @X0 1 r2 ]
 [v _count `us ~T0 @X0 1 r3 ]
-"149
+"169
 [f ]
-[; ;EEPROM.c: 150: while(count > 0)
-"150
-[e $U 1127  ]
-[e :U 1128 ]
-[; ;EEPROM.c: 151: {
-"151
-{
-[; ;EEPROM.c: 152: while(EECON1bits.WR);
-"152
-[e $U 1130  ]
-[e :U 1131 ]
-[e :U 1130 ]
-[e $ != -> . . _EECON1bits 0 1 `i -> -> -> 0 `i `Vuc `i 1131  ]
+[; ;EEPROM.c: 170: while(count > 0)
+"170
+[e $U 1131  ]
 [e :U 1132 ]
-[; ;EEPROM.c: 153: WritetoEEPROM(addr++,*source);
-"153
+[; ;EEPROM.c: 171: {
+"171
+{
+[; ;EEPROM.c: 172: while(EECON1bits.WR);
+"172
+[e $U 1134  ]
+[e :U 1135 ]
+[e :U 1134 ]
+[e $ != -> . . _EECON1bits 0 1 `i -> -> -> 0 `i `Vuc `i 1135  ]
+[e :U 1136 ]
+[; ;EEPROM.c: 173: WritetoEEPROM(addr++,*source);
+"173
 [e ( _WritetoEEPROM (2 , ++ _addr -> -> 1 `i `us *U _source ]
-[; ;EEPROM.c: 154: count--;
-"154
+[; ;EEPROM.c: 174: count--;
+"174
 [e -- _count -> -> 1 `i `us ]
-[; ;EEPROM.c: 155: source++;
-"155
+[; ;EEPROM.c: 175: source++;
+"175
 [e ++ _source * -> -> 1 `i `x -> -> # *U _source `i `x ]
-"156
+"176
 }
-[e :U 1127 ]
-"150
-[e $ > -> _count `ui -> -> 0 `i `ui 1128  ]
-[e :U 1129 ]
-[; ;EEPROM.c: 156: }
-[; ;EEPROM.c: 157: }
-"157
-[e :UE 1126 ]
+[e :U 1131 ]
+"170
+[e $ > -> _count `ui -> -> 0 `i `ui 1132  ]
+[e :U 1133 ]
+[; ;EEPROM.c: 176: }
+[; ;EEPROM.c: 177: }
+"177
+[e :UE 1130 ]
 }

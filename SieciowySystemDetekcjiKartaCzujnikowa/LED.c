@@ -152,6 +152,7 @@ UINT8 LED_Update(void)
     static UINT pos1 = INIT_WEKTORA_POZYCJI; /**< Start Wector for Green LED */
     static UINT pos2 = INIT_WEKTORA_POZYCJI; /**< Start Wector for Red LED */
     static BOOL laststat = 20;
+    static UINT Fulfillment_Lvl_for_rest = 100;
     
     
     if(LOCK == 0)
@@ -165,7 +166,7 @@ UINT8 LED_Update(void)
         else
         {
             laststat = 0;
-            LED_Clear();
+            LED_Light_Pos(Green,pos2,Fulfillment_Lvl_for_rest);
             
         }
     }

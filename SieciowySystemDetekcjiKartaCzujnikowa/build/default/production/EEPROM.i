@@ -18456,6 +18456,8 @@ void NVMRead(BYTE *dest, WORD addr, WORD count);
 void NVMWrite(BYTE *source, WORD addr, WORD count);
 BYTE ReadfromEEPROM(WORD Address);
 void WritetoEEPROM(WORD Address, BYTE Data);
+UINT EEPROM_Adres_Readfrom(UINT StartEEPROMAdres, UINT MinAdres, UINT MaxAdres);
+void EEPROM_Adres_Writeto(UINT StartEEPROMAdres, UINT AdressOfNeighbor, UINT MinAdres, UINT MaxAdres);
 
 void UstawFlagi(void);
 
@@ -18553,7 +18555,20 @@ EECON1bits.CFGS = 0;
 return EEDATA;
 }
 
-# 95
+UINT EEPROM_Adres_Readfrom(UINT StartEEPROMAdres, UINT MinAdres, UINT MaxAdres)
+{
+
+UINT ReadAdressOfNeighbor = 0;
+ReadAdressOfNeighbor = ReadfromEEPROM(StartEEPROMAdres);
+ReadAdressOfNeighbor = ((ReadfromEEPROM(StartEEPROMAdres+1)<<8)&0xFF00)| ReadAdressOfNeighbor;
+if(ReadAdressOfNeighbor==0xFFFF || (MinAdres>ReadAdressOfNeighbor)||(ReadAdressOfNeighbor>MaxAdres))
+{
+ReadAdressOfNeighbor=0;
+}
+return ReadAdressOfNeighbor;
+}
+
+# 106
 void WritetoEEPROM(WORD Address, BYTE Data)
 {
 static BYTE GIE_Status;
@@ -18572,7 +18587,17 @@ EECON1bits.WREN = 0;
 while (EECON1bits.WR);
 }
 
-# 125
+void EEPROM_Adres_Writeto(UINT StartEEPROMAdres, UINT AdressOfNeighbor, UINT MinAdres, UINT MaxAdres)
+{
+if((MinAdres>AdressOfNeighbor) || (AdressOfNeighbor>MaxAdres))
+{
+AdressOfNeighbor=0;
+}
+WritetoEEPROM(StartEEPROMAdres,AdressOfNeighbor&0xFF);
+WritetoEEPROM(StartEEPROMAdres+1,((AdressOfNeighbor>>8)&0x00FF));
+}
+
+# 145
 void NVMRead(BYTE *dest, WORD addr, WORD count)
 {
 while( count > 0 )
@@ -18583,7 +18608,7 @@ count--;
 }
 }
 
-# 148
+# 168
 void NVMWrite(BYTE *source, WORD addr, WORD count)
 {
 while(count > 0)

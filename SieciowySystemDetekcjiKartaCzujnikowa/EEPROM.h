@@ -16,6 +16,8 @@
     void NVMWrite(BYTE *source, WORD addr, WORD count);
     BYTE ReadfromEEPROM(WORD Address);
     void WritetoEEPROM(WORD Address, BYTE Data);
+    UINT EEPROM_Adres_Readfrom(UINT StartEEPROMAdres, UINT MinAdres, UINT MaxAdres);
+    void EEPROM_Adres_Writeto(UINT StartEEPROMAdres, UINT AdressOfNeighbor, UINT MinAdres, UINT MaxAdres);
     
     void UstawFlagi(void);
 

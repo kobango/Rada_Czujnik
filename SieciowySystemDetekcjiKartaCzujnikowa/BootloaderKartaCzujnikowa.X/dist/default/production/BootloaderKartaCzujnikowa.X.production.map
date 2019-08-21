@@ -5,7 +5,7 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.21\dat\en_msgs.txt -cs \
   -h+dist/default/production\BootloaderKartaCzujnikowa.X.production.sym \
   --cmf=dist/default/production\BootloaderKartaCzujnikowa.X.production.cmf \
-  -z -Q18F4680 -oC:\Users\hp\AppData\Local\Temp\s2tg.6 \
+  -z -Q18F4680 -oC:\Users\hp\AppData\Local\Temp\s6co.6 \
   -Mdist/default/production/BootloaderKartaCzujnikowa.X.production.map -E1 \
   -ver=XC8 -ACODE=00h-03FFh,0405h-07FFh -ACONST=00h-03FFh,0405h-07FFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0CFFh -ABIGRAM=01h-0CFFh \
@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE \
-  C:\Users\hp\AppData\Local\Temp\s2tg.obj \
+  C:\Users\hp\AppData\Local\Temp\s6co.obj \
   dist/default/production\BootloaderKartaCzujnikowa.X.production.obj 
 
 Object code version is 3.11
@@ -36,7 +36,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\hp\AppData\Local\Temp\s2tg.obj
+C:\Users\hp\AppData\Local\Temp\s6co.obj
                 end_init                             1C       1C        4        C       0
                 reset_vec                             0        0        4        0       0
                 config                           300000   300000        E   300000       0

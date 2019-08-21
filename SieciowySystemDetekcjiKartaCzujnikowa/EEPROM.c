@@ -66,7 +66,7 @@ BOOL NVMInit(void)
 *
 * @param Address Addres of data in EEPROM memory
 * @param Data Data to save in EEPROM memory
-* 
+*   
 * @section Description
 * Byte Read in to descripted adres.
 *****************************************************************************************/
@@ -80,7 +80,18 @@ BYTE ReadfromEEPROM(WORD Address)
     return EEDATA; // Return with the data
 }
 
-
+UINT EEPROM_Adres_Readfrom(UINT StartEEPROMAdres, UINT MinAdres, UINT MaxAdres)
+{
+ // Void value in EEPROM is 0xFF
+    UINT ReadAdressOfNeighbor = 0;
+    ReadAdressOfNeighbor = ReadfromEEPROM(StartEEPROMAdres);
+    ReadAdressOfNeighbor = ((ReadfromEEPROM(StartEEPROMAdres+1)<<8)&0xFF00)| ReadAdressOfNeighbor;
+    if(ReadAdressOfNeighbor==0xFFFF || (MinAdres>ReadAdressOfNeighbor)||(ReadAdressOfNeighbor>MaxAdres))
+    {
+        ReadAdressOfNeighbor=0;
+    }
+    return ReadAdressOfNeighbor;
+}
 /***************************************************************************************/
 /**
 * @author Mariusz Chrobak
@@ -110,6 +121,15 @@ void WritetoEEPROM(WORD Address, BYTE Data)
     while (EECON1bits.WR); // Wait for the write cycle to complete
 }
 
+void EEPROM_Adres_Writeto(UINT StartEEPROMAdres, UINT AdressOfNeighbor, UINT MinAdres, UINT MaxAdres)
+{
+if((MinAdres>AdressOfNeighbor) || (AdressOfNeighbor>MaxAdres)) // Void value in EEPROM is 0xFF
+    {
+        AdressOfNeighbor=0;
+    }
+    WritetoEEPROM(StartEEPROMAdres,AdressOfNeighbor&0xFF);
+    WritetoEEPROM(StartEEPROMAdres+1,((AdressOfNeighbor>>8)&0x00FF));
+}
 /***************************************************************************************/
 /**
 * @author Mariusz Chrobak
